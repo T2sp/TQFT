@@ -6,9 +6,8 @@
 
 \chapter{粒子の統計性}
 
-この章は~\cite[Chapter3, 4]{Simon2021}に相当する．この章では同種の多粒子系の経路積分による量子化を考察し，粒子の統計性と配位空間のトポロジーの関係性を調べる．
+この章は~\cite[Chapter3, 4]{Simon2021}に相当する．この章では同種の多粒子系の経路積分による量子化を考察し，粒子の統計性と配位空間のホモトピー論の間の関係性を調べる．
 特に，プロパゲーターの合成則を充たす経路積分の測度と配位空間の基本群のユニタリ表現の対応を考察し，$2+1$ 次元の同種 $N$ 粒子系においてエニオンの統計性が生じ得ることを確かめる．
-
 なお，本章ではまだ場の量子化は行わない．
 
 \section{1粒子の経路積分}
@@ -99,7 +98,7 @@ $\Delta \coloneqq \bigl\{ (\bm{x},\, \bm{x}) \bigm| \bm{x} \in \mathbb{R}^D\bigr
 \begin{align}
     \sim\; \DEF (\bm{x}_1,\, \bm{x}_2) \sim (\bm{x}_2,\, \bm{x}_1)
 \end{align}
-と定義し，\textbf{配位空間} (configuration space) $\mathcal{C}$ としては商集合 $\bigl((\mathbb{R}^D)^2 \setminus \Delta\bigr) \bigm/ {\sim}$ を選ぶのが良い\footnote{というよりも実は，位相空間 $\mathcal{C}$ のことを $\mathbb{R}^D$ の $2$ 次の\textbf{(unordered) configuration space}と呼ぶ（\url{https://en.wikipedia.org/wiki/Configuration_space_(mathematics)}）．$\mathbb{R}^D$ を一般の位相空間に置き換えても良い．}．
+と定義し，\textbf{配位空間} (configuration space) $\mathcal{C}$ としては\footnote{写像 $\mathcal{C} \lto \mathcal{H},\; [(\bm{x}_1,\, \bm{x}_2)] \lmto \ket{\bm{x}_1,\, \bm{x}_2}$ は代表元の取り方に依存するのでwell-definedでないが，この写像は $\mathcal{C}$ からHilbert空間 $\mathcal{H}$ の\textbf{射線} (ray) 全体が成す集合への写像だと思うことでwell-definedな全単射になる．$\mathcal{C}$ のことを配位空間と呼ぶのはこのためだと思われる．}商集合 $\bigl((\mathbb{R}^D)^2 \setminus \Delta\bigr) \bigm/ {\sim}$ を選ぶのが良い\footnote{というよりも実は，位相幾何学においては位相空間 $\mathcal{C}$ のことを $\mathbb{R}^D$ の $2$ 次の\textbf{(unordered) configuration space}と呼ぶ（\url{https://en.wikipedia.org/wiki/Configuration_space_(mathematics)}）．$\mathbb{R}^D$ を一般の位相空間に置き換えても良い．}．
 
 \begin{marker}
     以降では，同値類\footnote{$(\bm{x}_1,\, \bm{x}_2) \in (\mathbb{R}^D)^2 \setminus \Delta$ の $\sim$ による同値類を $[(\bm{x}_1,\, \bm{x}_2)]$ と書く．} $[(\bm{x}_1,\, \bm{x}_2)] \in \mathcal{C}$ の代表元として

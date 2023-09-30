@@ -1,6 +1,6 @@
-PWD /Users/takamatoshinori/Desktop/TQFT
+PWD /Users/takamatoshinori/Desktop/Seminors/TQFT/doc
 INPUT /usr/local/texlive/2023/texmf-var/web2c/luahbtex/lualatex.fmt
-INPUT /Users/takamatoshinori/Desktop/TQFT/TQFT_main.tex
+INPUT /Users/takamatoshinori/Desktop/Seminors/TQFT/doc/TQFT_main.tex
 OUTPUT out/TQFT_main.log
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/latexconfig/lualatexquotejobname.lua
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/base/ltluatex.lua
