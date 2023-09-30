@@ -1,0 +1,31 @@
+\documentclass[TQFT_main]{subfiles}
+
+\begin{document}
+
+% \setcounter{}{}
+\chapter{結び目理論入門}
+
+\begin{mydef}[label=def:knot]{結び目・絡み目}
+    \begin{itemize}
+        \item \textbf{結び目} (knot) とは，空間対 $(S^3,\, S^1)$ であって $S^1$ が $S^3$ の滑らかな部分多様体になっているもののこと．
+        \item $n$ 成分\textbf{絡み目} (link) とは，空間対 $(S^3,\, \underbrace{S^1 \amalg \cdots \amalg S^1}_n)$ であって $S^1 \amalg \cdots \amalg S^1$ が $S^3$ の滑らかな部分多様体になっているもののこと．$n$ のことを\textbf{成分数}と呼ぶ．
+    \end{itemize}
+\end{mydef}
+
+\begin{mydef}[label=def:knot-equiv]{結び目の同値}
+    結び目 $K_1,\, K_2$ を与える．以下の2つの定義は同値である．
+    \begin{itemize}
+        \item $S^3$ の向きを保つ自己同相写像 $\varphi$ が存在して $\varphi(K_1) = K_2$ を充たすとき，$K_1$ と $K_2$ は\textbf{同値}であるという．
+        \item $S^3$ の自己同相写像の族 $\{h_t \colon S^3 \lto S^3\}_{t \in [0,\, 1]}$ が存在するとき，$K_1$ と $K_2$ は\textbf{全同位同値} (ambient isotopic) であるという：
+        \begin{itemize}
+            \item $H \colon S^3 \times [0,\, 1] \lto S^3,\; (x,\, t) \lmto h_t(x)$ は連続写像
+            \item $h_0 = \mathrm{id}_{S^3}$
+            \item $h_1(K_1) = K_2$
+        \end{itemize}
+    \end{itemize}
+\end{mydef}
+
+
+
+
+\end{document}

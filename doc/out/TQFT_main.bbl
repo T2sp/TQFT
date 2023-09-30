@@ -1,0 +1,20 @@
+\begin{thebibliography}{1}
+
+\bibitem{Simon2021}
+S.~Simon,
+\newblock {\em Topological Quantum: Lecture Notes and Proto-Book} (, 2021),
+\newblock \url{http://www-thphys.physics.ox.ac.uk/people/SteveSimon/topological2021/TopoBook-Sep28-2021.pdf}.
+
+\bibitem{Nakahara2018topo1}
+中原幹夫 and 佐久間一浩,
+\newblock {\em \rm{}理論物理学のための幾何学とトポロジー\rm{I} 原著第\rm{2}版} (日本評論社, 2018).
+
+\bibitem{Fadell1961braid}
+E.~Fadell and J.~Van~Buskirk,
+\newblock Bull. Amer. Math. Soc {\bf 67}, 211 (1961).
+
+\bibitem{HalvorsonMuger2006}
+H.~{Halvorson} and M.~{Mueger},
+\newblock arXiv e-prints , math (2006), \href{http://arxiv.org/abs/math-ph/0602036}{[math-ph/0602036]}.
+
+\end{thebibliography}
