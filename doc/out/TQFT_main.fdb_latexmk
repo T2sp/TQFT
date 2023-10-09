@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex out/TQFT_main"] 1696667614 "out/TQFT_main.aux" "out/TQFT_main.bbl" "out/TQFT_main" 1696667629 0
+["bibtex out/TQFT_main"] 1696836098 "out/TQFT_main.aux" "out/TQFT_main.bbl" "out/TQFT_main" 1696836112 0
   "./TQFTrefs.bib" 1696667613 6477 54495be52182ea32734b6a284f12a765 ""
   "./myh-physrev.bst" 1687527611 17141 2e35e7d2990544349d72280dee109834 ""
-  "out/TQFT_main.aux" 1696667625 5197 2eabd80ddff4c35e050d6ab3f0293f02 "lualatex"
+  "out/TQFT_main.aux" 1696836110 5669 e7f5fe56d5898e9f9e032919253a8f1a "lualatex"
   (generated)
   "out/TQFT_main.bbl"
   "out/TQFT_main.blg"
   (rewritten before read)
-["lualatex"] 1696667614 "/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/TQFT_main.tex" "out/TQFT_main.pdf" "TQFT_main" 1696667629 0
-  "/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/TQFT_main.tex" 1695285163 7855 7f63967414a63804f013b962ade9154c ""
+["lualatex"] 1696836099 "/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/TQFT_main.tex" "out/TQFT_main.pdf" "TQFT_main" 1696836112 0
+  "/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/TQFT_main.tex" 1696836078 7853 06969c3b8976fec1467703d450f8adba ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/haranoajigothic-medium.luc" 1680092069 1875369 563a49d56453118cc2bc098475a23186 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/haranoajimincho-regular.luc" 1680092052 1961878 305e540f3545673854903467c3d18712 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmmono10-regular.luc" 1682219440 81837 4defb7a479a5fd058bb0732d84253c7a ""
@@ -53,7 +53,7 @@
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/ltj-cid-auto-adobe-japan1.luc" 1680091968 1643631 91cfe6be2985e96c1aa98a60c52fbe03 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/ltj-jisx0208.luc" 1680092053 93919 1f6dc76354e6e3b148c06f9f9254f22e ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/ltj-kinsoku_default.luc" 1680091971 17654 e3e3c85f63c77f4caa824d338e2428e0 ""
-  "/Users/takamatoshinori/Library/texmf/tex/latex/myalgebra/myalgebra.sty" 1696347855 3770 4c14e13987374146a2caa8e0a5339bba ""
+  "/Users/takamatoshinori/Library/texmf/tex/latex/myalgebra/myalgebra.sty" 1696761281 3864 d0e97e653d13cdfd347812612b1e38bf ""
   "/Users/takamatoshinori/Library/texmf/tex/latex/mygeometry/mygeometry.sty" 1695307654 1387 2c0c69e6f956e02b45d0e8fe7a20f820 ""
   "/Users/takamatoshinori/Library/texmf/tex/latex/mylogics/mylogics.sty" 1690527392 1426 70e6644af870eb1122a25027d1b960bb ""
   "/usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf" 1677185994 4690004 f38d025815e65462ac61ddc6a192e733 ""
@@ -597,14 +597,15 @@
   "/usr/local/texlive/2023/texmf-dist/tex/platex/jsclasses/jslogo.sty" 1601931076 5585 8e4615c54073c390d14154b29cee89cb ""
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1680072210 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/luahbtex/lualatex.fmt" 1680072074 11876436 fe019cd16c56b2a02a7f439a19527237 ""
-  "TQFT_main.tex" 1695285163 7855 7f63967414a63804f013b962ade9154c ""
+  "TQFT_main.tex" 1696836078 7853 06969c3b8976fec1467703d450f8adba ""
   "appendixA.tex" 1695008898 1490 3791366ead13f430ffe8ae3ba63813d7 ""
   "chap1.tex" 1696060175 32069 a31b7cc93f41a1d851a0ce8bcea625bf ""
+  "chap2.tex" 1696836062 203 82bab2e08bc31850602f7fc209b738c0 ""
   "figs/braidg_generator.png" 1695007673 28870 82bd8c0c3f8819a343ed42fbe50ef37c ""
-  "out/TQFT_main.aux" 1696667625 5197 2eabd80ddff4c35e050d6ab3f0293f02 "lualatex"
-  "out/TQFT_main.bbl" 1696667614 737 306e8d78bdc2fee019f2f0eeb128c68d "bibtex out/TQFT_main"
-  "out/TQFT_main.out" 1696667625 1880 de42e7e8e082e7a6e6c9a27bb4388f3f "lualatex"
-  "out/TQFT_main.toc" 1696667625 1333 6ea9ab4901526de9ae4a4675d81bff54 "lualatex"
+  "out/TQFT_main.aux" 1696836110 5669 e7f5fe56d5898e9f9e032919253a8f1a "lualatex"
+  "out/TQFT_main.bbl" 1696836099 737 306e8d78bdc2fee019f2f0eeb128c68d "bibtex out/TQFT_main"
+  "out/TQFT_main.out" 1696836110 2326 ec5ea2b62236afeb862b42d173510c0b "lualatex"
+  "out/TQFT_main.toc" 1696836110 1596 b22d7907e0cc61a762393a6b46af1a74 "lualatex"
   (generated)
   "out/TQFT_main.aux"
   "out/TQFT_main.log"

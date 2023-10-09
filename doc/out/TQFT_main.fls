@@ -907,6 +907,8 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/doublestroke/dsrom12.t
 INPUT ./figs/braidg_generator.png
 INPUT ./figs/braidg_generator.png
 INPUT ./figs/braidg_generator.png
+INPUT ./chap2.tex
+INPUT ./chap2.tex
 INPUT ./appendixA.tex
 INPUT ./appendixA.tex
 INPUT ./out/TQFT_main.bbl
