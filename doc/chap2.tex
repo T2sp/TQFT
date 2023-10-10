@@ -2,13 +2,272 @@
 
 \begin{document}
 
-% \setcounter{}{}
+\setcounter{chapter}{1}
 
-\chapter{Chern-Simons理論の基礎}
+\chapter{Chern-Simons理論の導入}
+
+この章は~\cite[Chapter4, 5]{Simon2021}に相当する．
+
+\section{Charge-Flux composite}
+
+\subsection{Aharonov-Bohm効果}
+
+空間を表す多様体を $\Sigma$ と書く．電荷 $q$ を持つ1つの粒子からなる系を考えよう．この系に静磁場をかけたとき，粒子の古典的作用は自由粒子の項 $S_0$ と，粒子と場の結合を表す項とに分かれる：
+\begin{align}
+    S[l] = S_0[l] + q \int_{\irm{t}{i}}^{\irm{t}{f}} \dd{t} \dot{\bm{x}} \vdot \bm{A} = S_0[l] + q \int_l \dd{\bm{x}} \vdot \bm{A}
+\end{align}
+ただし $l \colon [\irm{t}{i},\, \irm{t}{f}] \lto \Sigma$ は粒子の軌跡を表す．
+
+ここで，いつもの2重スリットを導入する．粒子が $\irm{\bm{x}}{i} = \bm{x}(\irm{t}{i})$ から出発して $\irm{\bm{x}}{f} = \bm{x}(\irm{t}{f})$ に到達するとき，これらの2点を結ぶ経路全体の集合 $\mathcal{C}(\irm{\bm{x}}{i},\, \irm{\bm{x}}{t})$ のホモトピー類は，スリット $1,\, 2$ を通る経路それぞれでちょうど $2$ つある．i.e.
+プロパゲーターは経路積分によって
+\begin{align}
+    \sum_{l \in \mathcal{C}(\irm{\bm{x}}{i},\, \irm{\bm{x}}{t})\; \mathrm{s.t.}\;\mathrm{slit}\; 1} e^{\iunit S_0 [l] / \hbar + \iunit (q / \hbar) \int_l \dd{\bm{x}} \vdot \bm{A}} + \sum_{l \in \mathcal{C}(\irm{\bm{x}}{i},\, \irm{\bm{x}}{t})\; \mathrm{s.t.}\;\mathrm{slit}\; 2} e^{\iunit S_0 [l] / \hbar + \iunit (q / \hbar) \int_l \dd{\bm{x}} \vdot \bm{A}}
+\end{align}
+と計算される．第1項と第2項の位相差は，片方の経路の逆をもう片方に足すことでできる閉曲線 $\partial \Sigma$ について
+\begin{align}
+    \exp \left[ \frac{\iunit q}{\hbar} \oint_{\partial \Sigma} \dd{\bm{x}} \vdot \bm{A} \right] = \exp \left[ \frac{\iunit q}{\hbar} \int_\Sigma \dd{\bm{S}} \vdot (\curl{\bm{A}}) \right] = \exp \left[ \frac{\iunit q}{\hbar} \Phi_{\Sigma}\right] 
+\end{align}
+となる\footnote{粒子が侵入できない領域にのみ磁場がかかっているとする．なお，粒子の配位空間が単連結でないことが本質的に重要である．このとき，空間領域 $\Sigma$ をホモトピーで1点に収縮することで，無限に細い管状の磁束 (flux tube) の概念に到達する．}．
+
+\begin{enumerate}
+    \item 磁束が $\Phi_0 = 2\pi \hbar / q $ の整数倍の時は，位相シフトがない場合と物理的に区別がつかない．
+    \item 実は，静止した電荷の周りに磁束を動かしても全く同じ位相シフトが引き起こされる．
+\end{enumerate}
+
+\subsection{Charge-Flux compositeとしてのエニオン}
+
+次に，荷電粒子と無限に細い磁束管 (flux tube) が互いに束縛し合って近接しているものを考える．この対を2次元系における，$(q,\, \Phi)$ なるチャージを持つ1つの粒子と見做してみよう．
+
+さて，粒子 $i (=1,\, 2)$ がチャージ $(q,\, \Phi)$ を持つとしよう．この2つの同種粒子の配位空間の基本群は前章の議論から $\mathbb{Z}_2$ であり，
+\begin{enumerate}
+    \item 粒子 $1$ を $2$ の周りに1周させる操作
+    \item 粒子の交換を\underline{2回}行う操作
+\end{enumerate}
+の2つが同じホモトピー類に属すことがわかる．故に，これら2つの操作で得られる位相シフトは等しい．
+操作 (1) による位相シフトはAB効果によるもので，$e^{2\iunit q \Phi /\hbar}$ である\footnote{2がつくのは，粒子1の $q$ が粒子2の $\Phi$ の周りを1周するAB効果だけでなく，粒子1の $\Phi$ が粒子2の $q$ の周りを1周するAB効果の寄与があるからである．一般に，粒子 $i$ のチャージが $(q_i,\, \Phi_i)$ ならば $e^{\iunit (q_1 \Phi_2 + q_2 \Phi_1) / \hbar}$ の位相シフトが起こる．}．
+故に，この粒子が\underline{1回}交換することによって得られる位相シフトは $e^{\iunit q \Phi /\hbar}$ であるが，これは $\theta = q \Phi / \hbar$ なる可換エニオンの統計性である．
+
+\subsection{トーラス上のエニオンの真空}
+
+トーラス $T^1 \coloneqq S^1 \times S^1$ の上のエニオン系の基底状態（真空）を考える．
+
+トーラスには非自明なサイクルがちょうど2つあるので，それらを $C_1,\, C_2$ とおく．そして系の時間発展演算子のうち，次のようなものを考える：
+\begin{description}
+    \item[\textbf{$\hat{T}_1$}] ある時刻に $C_1$ の1点において粒子-反粒子対を生成し，それらを $C_1$ 上お互いに反対向きに動かし，有限時間経過後に $C_1$ の対蹠点で対消滅させる．
+    \item[\textbf{$\hat{T}_2$}] ある時刻に $C_2$ の1点において粒子-反粒子対を生成し，それらを $C_2$ 上お互いに反対向きに動かし，有限時間経過後に $C_2$ の対蹠点で対消滅させる．
+\end{description}
+$\hat{T}_1,\, \hat{T}_2$ は非可換であり，基底状態への作用を考える限り，braidingの等式により
+\begin{align}
+    \label{eq:2-T-comm}
+    \hat{T}_2 \hat{T}_1 = e^{-\iunit 2 \theta} \hat{T}_1 \hat{T}_2
+\end{align}
+が成り立つことが分かる．然るに，基底状態が張る部分空間に制限すると $\comm{T_1}{H} = \comm{T_2}{H} = 0$ なので\footnote{基底状態 $\ket{0}$ と $\hat{T}_1\ket{0}$ は同じエネルギーである．}，基底状態が縮退していることがわかる．
+
+さて，$T_i$ はユニタリなので，$T_1 \ket{\alpha} = e^{\iunit \alpha} \ket{\alpha}$ とおける．この時\eqref{eq:2-T-comm}より
+\begin{align}
+    T_1 (T_2 \ket{\alpha}) = e^{\iunit (\alpha + 2\theta)} T_2 \ket{\alpha}
+\end{align}
+である．つまり，$\ket{\alpha}$ が基底状態ならば $\ket{\alpha + 2\theta} = T_2 \ket{\alpha}$ もまた基底状態である．この操作を続けて，基底状態 $\ket{\alpha + 2n \theta} = (T_2)^n \ket{\alpha}\; (n \in \mathbb{Z}_{\ge 0})$ を得る．
+特に $\theta = \pi p / m\quad (p,\, m\; \text{は互いに素})$ である場合を考えると，基底状態は $m$ 重縮退を示している．
+
+
+
 
 \section{可換Chern-Simons理論}
 
+ゲージ場\footnote{一般相対論に倣い，時空を表す多様体 $\mathcal{M}$ の座標のうち時間成分を $x^0$，空間成分を $x^1,\, x^2$ とする．} $a_\alpha = (a_0,\, a_1,\, a_2)$ が印加された $N$ 粒子2次元系であって，ラグランジアンが
+\begin{align}
+    \label{eq:lagrangian-SC}
+    L = L_0 + \int_\Sigma \dd[2]{x} \left( \frac{\mu}{2} \epsilon^{\alpha\beta\gamma} a_{\alpha} \partial_\beta a_\gamma -  j^\alpha a_\alpha \right) \eqqcolon L_0 + \int_{\Sigma} \dd[2]{x} \mathcal{L}
+\end{align}
+と書かれるものを考える．ただし，$L_0$ は場と粒子の結合を無視したときの粒子のラグランジアンであり，空間を表す多様体を $\Sigma$ で書いた．
+粒子 $n$ はチャージ $q_n$ を持つものとし，$j^\alpha = (j^0,\, \bm{j})$ は
+\begin{align}
+    j^0(\bm{x}) &\coloneqq \sum_{n = 1}^N q_n \delta (\bm{x} - \bm{x}_n), \\
+    \bm{j}(\bm{x}) &\coloneqq \sum_{n = 1}^N q_n \dot{\bm{x}}_n\delta (\bm{x} - \bm{x}_n)
+\end{align}
+と定義される粒子のカレントである．
+ラグランジアン密度 $\mathcal{L}$ の第1項は場自身を記述し，第2項は場と粒子の結合を記述する．
+% 時空を表す多様体を $\mathcal{M}$ と書く．
+
+\subsection{ゲージ不変性}
+
+ラグランジアン\eqref{eq:lagrangian-SC}のゲージ不変性は次のようにしてわかる：
+ゲージ変換
+\begin{align}
+    a_\alpha \lto a_\alpha + \partial_\alpha \chi
+\end{align}
+による $\mathcal{L}$ の変化は
+\begin{align}
+    \frac{\mu}{2} \epsilon^{\alpha\beta\gamma} \partial_{\alpha}\chi \partial_\beta a_\gamma + \cancel{\frac{\mu}{2} \epsilon^{\alpha\beta\gamma} a_\alpha\partial_\beta \partial_\gamma \chi + \frac{\mu}{2} \epsilon^{\alpha\beta\gamma} \partial_{\alpha}\chi \partial_\beta \partial_\gamma \chi} 
+    -  j^\alpha \partial_\alpha \chi
+\end{align}
+であるから，空間積分を実行すると
+\begin{align}
+    &\int_{\Sigma} \dd[2]{x} \frac{\mu}{2} \partial_\alpha \bigl( \epsilon^{\alpha\beta\gamma} \chi \partial_\beta a_\gamma \bigr) - \int_{\Sigma} \dd[2]{x} \frac{\mu}{2} \cancel{\epsilon^{\alpha\beta\gamma} \chi \partial_\alpha\partial_\beta a_\gamma }
+    - \int_{\Sigma} \dd[2]{x} \partial_\alpha \bigl( j^\alpha \chi \bigr) + \int_{\Sigma} \dd[2]{x} \cancel{\partial_\alpha} j^\alpha \chi \\
+    &= \int_{\partial \Sigma} \dd S_\alpha \left(\frac{\mu}{2} \epsilon^{\alpha\beta\gamma} \chi \partial_\beta a_\gamma - j^\alpha \chi \right)
+\end{align}
+となる．ただしチャージの保存則 $\partial_\alpha j^\alpha = 0$ を使った．このことから，もし空間を表す多様体 $\Sigma$ の境界が $\partial \Sigma = \emptyset$ ならば\footnote{このような多様体の中で重要なのが\textbf{閉多様体} (closed manifold) である．}ラグランジアンはゲージ不変である．
+
+\subsection{運動方程式}
+
+ラグランジアン密度 $\mathcal{L}$ から導かれるEuler-Lagrange方程式は
+\begin{align}
+    \pdv{\mathcal{L}}{a_\alpha} = \partial_\beta \left( \pdv{\mathcal{L}}{\partial_\beta a_\alpha} \right) 
+\end{align}
+である．
+\begin{align}
+    \pdv{\mathcal{L}}{a_\alpha} 
+    &= \frac{\mu}{2} \epsilon^{\alpha \beta\gamma }\partial_\beta a_\gamma - j^\alpha, \\
+    \partial_\beta \left( \pdv{\mathcal{L}}{\partial_\beta a_\alpha} \right) 
+    &= \partial_\beta \left( \frac{\mu}{2} \epsilon^{\alpha \beta \gamma} a_\alpha \right) = -\frac{\mu}{2} \epsilon^{\alpha\beta\gamma} \partial_{\beta} a_\gamma
+\end{align}
+なのでこれは
+\begin{align}
+    j^\alpha = \mu \epsilon^{\alpha\beta\gamma} \partial_\beta a_\gamma
+\end{align}
+となる．特に第0成分は，「磁場」$\bm{b} \coloneqq \curl{\bm{a}}$ を導入することで
+\begin{align}
+    \sum_{n=1}^N \frac{q_n}{\mu} \delta (\bm{x} - \bm{x}_n) = b^0
+\end{align}
+となる．つまり，位置 $\bm{x}_n$ に強さ $q_n / \mu$ の磁束管が点在している，という描像になり，磁束のピン留め現象を説明できることがわかった．
+
+\subsection{プロパゲーター}
+
+簡単のため，全ての粒子のチャージが等しく $q$ であるとする．$N$ 粒子の配位空間 $\mathcal{C}$ における初期配位と終了時の配位をそれぞれ $\{\irm{\bm{x}}{i}\},\, \{\irm{\bm{x}}{f}\}$ とし，それらを繋ぐ経路全体の集合を $\mathcal{C}(\irm{\bm{x}}{i},\, \irm{\bm{x}}{f})$ と書くと，プロパゲーターは経路積分によって
+\begin{align}
+    \sum_{l \in \mathcal{C}(\irm{\bm{x}}{i},\, \irm{\bm{x}}{f})} e^{\iunit S_0[l]/\hbar } \int_{\mathcal{M}} \mathcal{D} a_\mu (x)\, e^{\iunit \irm{S}{CS}[a_\mu (x)]/\hbar} e^{\iunit (q/\hbar) \int_l \dd{x^\alpha} a_\alpha (x) }
+\end{align}
+と計算される．ここに $\mathcal{D} a_\mu (x)$ は汎函数積分の測度を表す．詳細は後述するが，場に関する汎函数積分を先に実行してしまうと，実は
+\begin{align}
+    \sum_{l \in \mathcal{C}(\irm{\bm{x}}{i},\, \irm{\bm{x}}{f})} e^{\iunit S_0 [l] /\hbar + \iunit \theta W(l)}
+\end{align}
+の形になることが知られている．ここに $W(l)$ は，経路 $l$ の巻きつき数である．経路に依存する位相因子 $e^{\iunit \theta W(l)}$ 前章で議論した $\pi_1 \mathcal{C}$ の1次元ユニタリ表現そのものであり，エニオンの統計性が発現する機構がChern-Simons項により説明できることを示唆している．
+
+\subsection{真空中の可換Chern-Simons理論}
+
+粒子が存在しないとき，経路積分は
+\begin{align}
+    Z(\mathcal{M}) \coloneqq \int_{\mathcal{M}} \mathcal{D} a_\mu (x)\, e^{\iunit \irm{S}{CS}[a_\mu (x)]/\hbar}
+\end{align}
+の形をする．$Z(\mathcal{M})$ は $\mathcal{M}$ についてホモトピー不変であり，\textbf{分配関数} (partition function) と呼ばれる．$Z(\mathcal{M})$ がTQFTにおいて重要な役割を果たすことを後の章で見る．
+
+\subsection{正準量子化}
+
+$a_0 = 0$ なるゲージをとると，ラグランジアン密度におけるChern-Simons項は $-a_1 \partial_0 a_2 + a_2 \partial_0 a_1$ の形になる．これは $a_1$ （resp. $a_2$）が $a_2$ （resp. $a_1$）の共役運動量であることを意味するので，正準量子化を行うならば
+\begin{align}
+    \comm{a_1(\bm{x})}{a_2(\bm{y})} = \frac{\iunit \hbar}{\mu} \delta^2 (\bm{x} - \bm{y})
+\end{align}
+を要請する．
+
+さて，このときトーラス $T^2$ 上の2つのサイクル $C_1,\, C_2$ に対してWilsonループ
+\begin{align}
+    W_j = \exp \left( \frac{\iunit q}{\hbar} \oint_{C_j} \dd{\bm{x}} \vdot \bm{a} \right) 
+\end{align}
+を考える．
+$\comm{A}{B}$ がc数である場合のBCH公式から
+\begin{align}
+    W_1 W_2 &= e^{\iunit q^2 / (\mu \hbar)} W_2 W_1
+\end{align}
+を得る．これは\eqref{eq:2-T-comm}を説明している．つまり，演算子 $T_1,\, T_2$ とはWilson loopのことだったのである．
+
 \section{非可換Chern-Simons理論}
+
+この節では自然単位系を使う．前節を一般化して，ゲージ場 $a_\mu (x)$ があるLie代数 $\mathfrak{g}$ に値をとるものとしよう．つまり，Lie代数 $\mathfrak{g}$ の基底を $\sigma_a / (2\iunit)$ とすると\footnote{因子 $1/(2\iunit)$ は物理学における慣習である．ややこしいことに，文献によってこの因子が異なる場合がある．}
+\begin{align}
+    a_\mu (x) = a_\mu^a (x) \frac{\sigma_a}{2\iunit}
+\end{align}
+と書かれるような状況を考える\footnote{ゲージ接続がLie代数に値をとる1-形式である，ということ．}．$\sigma_a \in \mathfrak{g}$ が一般に非可換であることから，このような理論は非可換Chern-Simons理論と呼ばれる．
+
+時空多様体 $\mathcal{M}$ 上の閉曲線 $l$ に沿った\textbf{Wilson loop}は，\textbf{経路順序積} (path ordering) $\mathcal{P}$ を用いて
+\begin{align}
+    W_l \coloneqq \Tr \left[ \mathcal{P} \exp \left( \oint_l \dd{x}^\mu a_\mu (x) \right)  \right] 
+\end{align}
+と定義される．Aharonov-Bohm位相の一般化という気持ちであるが，経路 $l$ の異なる2点 $x,\, y$ を取ってきたときに $a_\mu (x)$ と $a_\mu (x')$ が一般に非可換であることが話をややこしくする．
+% 経路順序積 $\mathcal{P}$ は
+% \begin{align}
+%     \mathcal{P} \exp \left( \oint_l \dd{x}^\mu a_\mu (x) \right) 
+%     \coloneqq 
+% \end{align}
+\subsection{ゲージ不変性}
+
+非可換Chern-Simons理論におけるゲージ変換は，$U \colon \mathcal{M} \lto G$ を用いて
+\begin{align}
+    \label{eq:gauge-transform}
+    a_\mu(x) \lto U^{-1}(x) \bigl(a_\mu(x) + \partial_\mu\bigr) U(x)
+\end{align}
+の形をする．このゲージ変換がWilson lineを不変に保つことを，無限小の場合に確認しておこう．
+
+$\mathcal{M}$ の任意の2点 $x,\, y \in \mathcal{M}$ を結ぶ曲線\footnote{閉曲線でなくとも良い．閉曲線ならばWilson loopと呼ばれる．} $C \colon [0,\, 1] \lto \mathcal{M}$ をとり，\textbf{Wlison line}を
+\begin{align}
+    \tilde{W}_C (x,\, y) \coloneqq \mathcal{P} \exp \left( \int_C \dd{x^\mu} a_\mu (x) \right)
+\end{align}
+で定義する．無限小だけ離れた2点 $x,\, x + \dd{x}$ を取ってくると
+\begin{align}
+    \tilde{W}_C (x,\, x + \dd{x}) = 1 + a_\mu (x)\dd{x^\mu}
+\end{align}
+と書けるので，
+\begin{align}
+    \tilde{W}_C (x,\, x + \dd{x}) &\lto U^{-1}(x) \tilde{W}_C (x,\, x + \dd{x}) U(x + \dd{x}) \\
+    &= U(x)^{-1} \bigl[ 1 + a_\mu (x) \dd{x^\mu} \bigr] \bigl[ U(x) + \partial_\mu U(x) \dd{x^\mu} \bigr] \\
+    &= 1 + U^{-1}(x)\bigl[ a_\mu + \partial_\mu \bigr] U(x) \dd{x^\mu}
+\end{align}
+である．
+
+\subsection{Chern-Simons作用}
+
+いささか天下り的だが，\textbf{Chern-Simons action}を
+\begin{align}
+    \irm{S}{CS} \coloneqq \frac{k}{4\pi} \int_{\mathcal{M}} \dd[3]{x} \epsilon^{\alpha\beta\gamma} \Tr \left[ a_\alpha \partial_\beta a_\gamma + \frac{2}{3} a_\alpha a_\beta a_\gamma \right] 
+\end{align}
+により定義する．第2項は可換な場合には必ず零になるので前節では登場しなかった．
+$\irm{S}{CS}$ が時空 $\mathcal{M}$ の座標（もしくはチャート）の取り方によらない\footnote{\textbf{内在的} (intrinsic) である，と言うことがある．}であることは，ゲージ場を1-形式 $a$ として書き表したときに
+\begin{align}
+    \irm{S}{CS} = \frac{k}{4\pi} \int_{\mathcal{M}} \left( a \wedge \dd{a} + \frac{2}{3} a \wedge a \wedge a \right) 
+\end{align}
+と書けることからわかる．
+% を，成分計算により確認しておこう．$\mathcal{M}$ の一般座標変換 $(x^\mu) \lto (x'{}^\mu)$ を考えたとき，
+
+$\irm{S}{CS}$ にゲージ変換\eqref{eq:gauge-transform}を施した結果は
+\begin{align}
+    &\irm{S}{CS} \lto \irm{S}{CS} + 2\pi \nu k, \label{eq:CS-gauge} \\
+    \WHERE &\nu \coloneqq \frac{1}{24 \pi^2} \int_{\mathcal{M}} \dd[3]{x} \epsilon^{\alpha\beta\gamma} \Tr \bigl[ (U^{-1} \partial_\alpha U)(U^{-1} \partial_\beta U)(U^{-1} \partial_\gamma U) \bigr] 
+\end{align}
+となる．$\nu$ は写像 $U \colon \mathcal{M} \lto G$ の\textbf{巻きつき数} (winding number)，もしくは\textbf{Pontryagin index}と呼ばれ，常に整数値をとる．この極めて非自明な結果についても後述する．
+\eqref{eq:CS-gauge}から，$\irm{S}{CS}$ は厳密にはゲージ不変ではない．然るに，もし $k \in \mathbb{Z}$ ならば（このとき $k$ の値は\textbf{level}と呼ばれる），分配関数 $Z (\mathcal{M})$ がゲージ不変な形になってくれるので問題ない，と考える．
+$2+1$ 次元においては，1つのゲージ場からなる作用であって
+\begin{itemize}
+    \item トポロジカル不変性（i.e. ホモトピー不変性）
+    \item 上述の意味のゲージ不変性
+\end{itemize}
+の2つを充たすものは他にない．
+
+\subsection{Wilson loopと結び目不変量}
+
+
+
+% \begin{align}
+%     &\irm{S}{CS} = \frac{k}{4\pi} \int_{\mathcal{M}} \dd[3]{x} \epsilon^{\alpha\beta\gamma} \Tr \left[ a_\alpha \partial_\beta a_\gamma + \frac{2}{3} a_\alpha a_\beta a_\gamma \right] \\
+%     &\lto \frac{k}{4\pi} \int_{\mathcal{M}} \dd[3]{x} \epsilon^{\alpha\beta\gamma} \Tr \left[ (U^{-1} a_\alpha U + U^{-1} \partial_\alpha U) \partial_\beta (U^{-1} a_\gamma U + U^{-1} \partial_\gamma U) \right. \\
+%     &\quad \left. + \frac{2}{3} (U^{-1} a_\alpha U + U^{-1} \partial_\alpha U) (U^{-1} a_\beta U + U^{-1} \partial_\beta U) (U^{-1} a_\gamma U + U^{-1} \partial_\gamma U) \right] \\
+%     &= \frac{k}{4\pi} \int_{\mathcal{M}} \dd[3]{x} \epsilon^{\alpha\beta\gamma} \Tr \left[ U^{-1} a_\alpha U (\partial_\beta U^{-1}) a_\gamma U + U^{-1} a_\alpha (\partial_\beta a_\gamma) U + U^{-1} a_\alpha a_\gamma (\partial_\beta U)  \right. \\
+%     &\quad + U^{-1} (\partial_\alpha U) (\partial_\beta U^{-1}) a_\gamma U + U^{-1} (\partial_\alpha U)(\partial_\beta a_\gamma) U + U^{-1} (\partial_\alpha U) a_\gamma (\partial_\beta U) \\
+%     &\quad + U^{-1} a_\alpha U (\partial_\beta U^{-1}) (\partial_\gamma U) + U^{-1} a_\alpha (\partial_\beta\partial_\gamma U) \\
+%     &\quad + U^{-1} (\partial_\alpha U) U (\partial_\beta U^{-1}) (\partial_\gamma U) + U^{-1} (\partial_\alpha U) (\partial_\beta\partial_\gamma U) \\
+%     &\quad + \frac{2}{3} U^{-1} a_\alpha a_\beta a_\gamma U \\
+%     &\quad + \frac{2}{3} U^{-1} \bigl( (\partial_\alpha U) U^{-1} a_\beta a_\gamma + a_\alpha (\partial_\beta U) U^{-1} a_\gamma + a_\alpha a_\beta (\partial_\gamma U) U^{-1}\bigr) U \\
+%     &\quad + \frac{2}{3} U^{-1} \bigl( (\partial_\alpha U) U^{-1} (\partial_\beta U) a_\gamma + a_\alpha (\partial_\beta U) U^{-1} (\partial_\gamma U) U^{-1} + (\partial_\alpha U) U^{-1} a_\beta (\partial_\gamma U) U^{-1}\bigr) U \\
+%     &\quad \left.+ \frac{2}{3} U^{-1} (\partial_\alpha U) U^{-1} (\partial_\beta U) (\partial_\gamma U)  \right] \\
+%     &= \irm{S}{CS} + \frac{k}{4\pi} \int_{\mathcal{M}} \dd[3]{x} \epsilon^{\alpha\beta\gamma} \Tr \left[ a_\alpha U (\partial_\beta U^{-1}) a_\gamma + U^{-1} a_\alpha a_\gamma (\partial_\beta U)  \right. \\
+%     &\quad + (\partial_\alpha U) (\partial_\beta U^{-1}) a_\gamma + (\partial_\alpha U)(\partial_\beta a_\gamma) + U^{-1} (\partial_\alpha U) a_\gamma (\partial_\beta U) \\
+%     &\quad + U^{-1} a_\alpha U (\partial_\beta U^{-1}) (\partial_\gamma U) + U^{-1} a_\alpha (\partial_\beta\partial_\gamma U) \\
+%     &\quad + U^{-1} (\partial_\alpha U) U (\partial_\beta U^{-1}) (\partial_\gamma U) + U^{-1} (\partial_\alpha U) (\partial_\beta\partial_\gamma U) \\
+%     &\quad + \frac{2}{3} \bigl( (\partial_\alpha U) U^{-1} a_\beta a_\gamma + a_\alpha (\partial_\beta U) U^{-1} a_\gamma + a_\alpha a_\beta (\partial_\gamma U) U^{-1}\bigr) \\
+%     &\quad + \frac{2}{3} \bigl( (\partial_\alpha U) U^{-1} (\partial_\beta U) a_\gamma + a_\alpha (\partial_\beta U) U^{-1} (\partial_\gamma U) U^{-1} + (\partial_\alpha U) U^{-1} a_\beta (\partial_\gamma U) U^{-1}\bigr) \\
+%     &\quad \left.+ \frac{2}{3} U^{-1} (\partial_\alpha U) U^{-1} (\partial_\beta U) U^{-1} (\partial_\gamma U)  \right] \\
+% \end{align}
+
 
 
 \end{document}
