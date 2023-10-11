@@ -23,11 +23,11 @@
 \begin{align}
     \sum_{l \in \mathcal{C}(\irm{\bm{x}}{i},\, \irm{\bm{x}}{t})\; \mathrm{s.t.}\;\mathrm{slit}\; 1} e^{\iunit S_0 [l] / \hbar + \iunit (q / \hbar) \int_l \dd{\bm{x}} \vdot \bm{A}} + \sum_{l \in \mathcal{C}(\irm{\bm{x}}{i},\, \irm{\bm{x}}{t})\; \mathrm{s.t.}\;\mathrm{slit}\; 2} e^{\iunit S_0 [l] / \hbar + \iunit (q / \hbar) \int_l \dd{\bm{x}} \vdot \bm{A}}
 \end{align}
-と計算される．第1項と第2項の位相差は，片方の経路の逆をもう片方に足すことでできる閉曲線 $\partial \Sigma$ について
+と計算される．第1項と第2項の位相差は，片方の経路の逆をもう片方に足すことでできる閉曲線 $\partial S$ について
 \begin{align}
-    \exp \left[ \frac{\iunit q}{\hbar} \oint_{\partial \Sigma} \dd{\bm{x}} \vdot \bm{A} \right] = \exp \left[ \frac{\iunit q}{\hbar} \int_\Sigma \dd{\bm{S}} \vdot (\curl{\bm{A}}) \right] = \exp \left[ \frac{\iunit q}{\hbar} \Phi_{\Sigma}\right] 
+    \exp \left[ \frac{\iunit q}{\hbar} \oint_{\partial S} \dd{\bm{x}} \vdot \bm{A} \right] = \exp \left[ \frac{\iunit q}{\hbar} \int_S \dd{\bm{S}} \vdot (\curl{\bm{A}}) \right] = \exp \left[ \frac{\iunit q}{\hbar} \Phi_{S}\right] 
 \end{align}
-となる\footnote{粒子が侵入できない領域にのみ磁場がかかっているとする．なお，粒子の配位空間が単連結でないことが本質的に重要である．このとき，空間領域 $\Sigma$ をホモトピーで1点に収縮することで，無限に細い管状の磁束 (flux tube) の概念に到達する．}．
+となる\footnote{粒子が侵入できない領域にのみ磁場がかかっているとする．なお，粒子の配位空間が単連結でないことが本質的に重要である．このとき，領域 $S$ をホモトピーで1点に収縮することで，無限に細い管状の磁束 (flux tube) の概念に到達する．}．
 
 \begin{enumerate}
     \item 磁束が $\Phi_0 = 2\pi \hbar / q $ の整数倍の時は，位相シフトがない場合と物理的に区別がつかない．
@@ -36,7 +36,7 @@
 
 \subsection{Charge-Flux compositeとしてのエニオン}
 
-次に，荷電粒子と無限に細い磁束管 (flux tube) が互いに束縛し合って近接しているものを考える．この対を2次元系における，$(q,\, \Phi)$ なるチャージを持つ1つの粒子と見做してみよう．
+荷電粒子と無限に細い磁束管 (flux tube) が互いに束縛し合って近接しているものを考える．この対を2次元系における，$(q,\, \Phi)$ なるチャージを持つ1つの粒子と見做してみよう．
 
 さて，粒子 $i (=1,\, 2)$ がチャージ $(q,\, \Phi)$ を持つとしよう．この2つの同種粒子の配位空間の基本群は前章の議論から $\mathbb{Z}_2$ であり，
 \begin{enumerate}
@@ -47,6 +47,11 @@
 操作 (1) による位相シフトはAB効果によるもので，$e^{2\iunit q \Phi /\hbar}$ である\footnote{2がつくのは，粒子1の $q$ が粒子2の $\Phi$ の周りを1周するAB効果だけでなく，粒子1の $\Phi$ が粒子2の $q$ の周りを1周するAB効果の寄与があるからである．一般に，粒子 $i$ のチャージが $(q_i,\, \Phi_i)$ ならば $e^{\iunit (q_1 \Phi_2 + q_2 \Phi_1) / \hbar}$ の位相シフトが起こる．}．
 故に，この粒子が\underline{1回}交換することによって得られる位相シフトは $e^{\iunit q \Phi /\hbar}$ であるが，これは $\theta = q \Phi / \hbar$ なる可換エニオンの統計性である．
 
+
+次に，エニオンの\textbf{フュージョン} (fusion) を経験的に導入する．これは，エニオン $(q_1,\, \Phi_1),\, (q_2,\, \Phi_2)$ が「融合」してエニオン $(q_1 + q_2,\, \Phi_1 + \Phi_2)$ になる，と言うものであり，今回の場合だと電荷，磁束の保存則に由来すると考えることができる．
+エニオン $(q,\, \Phi)$ と $(-q,\, -\Phi)$ がフュージョンすると $I \coloneqq (0,\, 0)$ になるだろう．この $I$ をエニオンの真空とみなし\footnote{しかし，$I$ のことは粒子として捉える．}，$(-q, -\Phi)$ のことを $(q,\, \Phi)$ の反エニオン (anti-anyon) と見做す．
+反エニオンをエニオンの周りに一周させたときの位相シフトが $e^{-2\iunit \theta}$ になることには注意すべきである．
+
 \subsection{トーラス上のエニオンの真空}
 
 トーラス $T^1 \coloneqq S^1 \times S^1$ の上のエニオン系の基底状態（真空）を考える．
@@ -56,7 +61,7 @@
     \item[\textbf{$\hat{T}_1$}] ある時刻に $C_1$ の1点において粒子-反粒子対を生成し，それらを $C_1$ 上お互いに反対向きに動かし，有限時間経過後に $C_1$ の対蹠点で対消滅させる．
     \item[\textbf{$\hat{T}_2$}] ある時刻に $C_2$ の1点において粒子-反粒子対を生成し，それらを $C_2$ 上お互いに反対向きに動かし，有限時間経過後に $C_2$ の対蹠点で対消滅させる．
 \end{description}
-$\hat{T}_1,\, \hat{T}_2$ は非可換であり，基底状態への作用を考える限り，braidingの等式により
+$\hat{T}_1,\, \hat{T}_2$ は非可換であり，基底状態への作用を考える限り，フュージョンダイアグラムとbraidingの等式から
 \begin{align}
     \label{eq:2-T-comm}
     \hat{T}_2 \hat{T}_1 = e^{-\iunit 2 \theta} \hat{T}_1 \hat{T}_2
@@ -222,11 +227,11 @@ $\mathcal{M}$ の任意の2点 $x,\, y \in \mathcal{M}$ を結ぶ曲線\footnote
     \irm{S}{CS} \coloneqq \frac{k}{4\pi} \int_{\mathcal{M}} \dd[3]{x} \epsilon^{\alpha\beta\gamma} \Tr \left[ a_\alpha \partial_\beta a_\gamma + \frac{2}{3} a_\alpha a_\beta a_\gamma \right] 
 \end{align}
 により定義する．第2項は可換な場合には必ず零になるので前節では登場しなかった．
-$\irm{S}{CS}$ が時空 $\mathcal{M}$ の座標（もしくはチャート）の取り方によらない\footnote{\textbf{内在的} (intrinsic) である，と言うことがある．}であることは，ゲージ場を1-形式 $a$ として書き表したときに
+$\irm{S}{CS}$ が時空 $\mathcal{M}$ の計量によらない\footnote{\textbf{計量不変} (metric invariant) であると言う．}ことは，ゲージ場を1-形式 $a$ として書き表したときに
 \begin{align}
-    \irm{S}{CS} = \frac{k}{4\pi} \int_{\mathcal{M}} \left( a \wedge \dd{a} + \frac{2}{3} a \wedge a \wedge a \right) 
+    \irm{S}{CS} = \frac{k}{4\pi} \int_{\mathcal{M}} \Tr \left( a \wedge \dd{a} + \frac{2}{3} a \wedge a \wedge a \right) 
 \end{align}
-と書けることからわかる．
+と書けることからわかる\footnote{...と言うのは微妙に的を外している．より正確には $2+1$ 次元多様体 $\mathcal{M}$ を教会に持つような4次元多様体 $\mathcal{N}$ を用意し，$\mathcal{N}$ の作用 $\mathcal{S}[a] \coloneqq k/(4\pi) \int_{\mathcal{N}} \Tr (F \wedge F)$ を部分積分することで $\mathcal{S}{CS}$ の別の定義が与えられる．}．
 % を，成分計算により確認しておこう．$\mathcal{M}$ の一般座標変換 $(x^\mu) \lto (x'{}^\mu)$ を考えたとき，
 
 $\irm{S}{CS}$ にゲージ変換\eqref{eq:gauge-transform}を施した結果は
@@ -238,14 +243,14 @@ $\irm{S}{CS}$ にゲージ変換\eqref{eq:gauge-transform}を施した結果は
 \eqref{eq:CS-gauge}から，$\irm{S}{CS}$ は厳密にはゲージ不変ではない．然るに，もし $k \in \mathbb{Z}$ ならば（このとき $k$ の値は\textbf{level}と呼ばれる），分配関数 $Z (\mathcal{M})$ がゲージ不変な形になってくれるので問題ない，と考える．
 $2+1$ 次元においては，1つのゲージ場からなる作用であって
 \begin{itemize}
-    \item トポロジカル不変性（i.e. ホモトピー不変性）
+    \item トポロジカル不変性（i.e. 計量不変性）
     \item 上述の意味のゲージ不変性
 \end{itemize}
 の2つを充たすものは他にない．
 
 \subsection{Wilson loopと結び目不変量}
 
-
+Wilson loopの真空期待値が結び目不変量になることが知られている．
 
 % \begin{align}
 %     &\irm{S}{CS} = \frac{k}{4\pi} \int_{\mathcal{M}} \dd[3]{x} \epsilon^{\alpha\beta\gamma} \Tr \left[ a_\alpha \partial_\beta a_\gamma + \frac{2}{3} a_\alpha a_\beta a_\gamma \right] \\

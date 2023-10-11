@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.29)  11 OCT 2023 03:39
+This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.29)  11 OCT 2023 10:16
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/chap2.tex
@@ -1401,30 +1401,30 @@ LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
 
 ]
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 56.
+(Font)              scaled to size 9.24713pt on input line 61.
 (load cache: extra_lmsans10-regular.luc)(load cache: extra_lmsans10-bold.luc)
 LaTeX Font Info:    Font shape `JT3/gt/b/n' in size <10> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 56.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 61.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 56.
+(Font)              scaled to size 9.24713pt on input line 61.
 LaTeX Font Info:    Font shape `JY3/gt/b/n' in size <10> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 56.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 61.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 56.
+(Font)              scaled to size 9.24713pt on input line 61.
 (load cache: extra_lmroman5-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 71.
+(Font)              scaled to size 4.62357pt on input line 76.
  [2](load cache: extra_lmroman8-bold.luc)
 LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <8> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 111.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 116.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 7.3977pt on input line 111.
+(Font)              scaled to size 7.3977pt on input line 116.
 LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <8> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 111.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 116.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 7.3977pt on input line 111.
+(Font)              scaled to size 7.3977pt on input line 116.
  [3] [4]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 177.
+LaTeX Font Info:    Trying to load font information for U+euf on input line 182.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ) [5] [6] [7] (./out/chap2.aux)
@@ -1436,19 +1436,19 @@ Package rerunfilecheck Info: File `chap2.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 53718 strings out of 478285
- 156557,1977958 words of node,token memory allocated
- 2112 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 11 glue, 4 kern, 1 glyph, 634 attribute, 62 glue_spec, 70 attribute_list, 2 write, 14 user_defined nodes
-   avail lists: 1:57,2:42119,3:381,4:607,5:312,6:48,7:4848,8:89,9:2209,10:22,11:21
+ 53720 strings out of 478285
+ 195698,1977958 words of node,token memory allocated
+ 2174 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 13 glue, 4 kern, 1 glyph, 656 attribute, 62 glue_spec, 72 attribute_list, 2 write, 14 user_defined nodes
+   avail lists: 1:57,2:51648,3:419,4:583,5:369,6:48,7:5793,8:89,9:2572,10:26,11:24
  71912 multiletter control sequences out of 65536+600000
  104 fonts using 70492039 bytes
  138i,18n,144p,1816b,981s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on chap2.pdf (7 pages, 336159 bytes).
+</usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on chap2.pdf (7 pages, 361136 bytes).
 
-PDF statistics: 263 PDF objects out of 1000 (max. 8388607)
- 201 compressed objects within 3 object streams
- 40 named destinations out of 1000 (max. 131072)
+PDF statistics: 275 PDF objects out of 1000 (max. 8388607)
+ 211 compressed objects within 3 object streams
+ 42 named destinations out of 1000 (max. 131072)
  48 words of extra memory for PDF output out of 10000 (max. 100000000)
 
