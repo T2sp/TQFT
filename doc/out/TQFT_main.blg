@@ -3,45 +3,45 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: TQFT_main.aux
 The style file: myh-physrev.bst
 Database file #1: TQFTrefs.bib
-You've used 4 entries,
+You've used 5 entries,
             1990 wiz_defined-function locations,
-            639 strings with 5387 characters,
-and the built_in function-call counts, 740 in all, are:
-= -- 48
-> -- 36
+            649 strings with 5580 characters,
+and the built_in function-call counts, 938 in all, are:
+= -- 61
+> -- 46
 < -- 0
-+ -- 11
-- -- 7
-* -- 58
-:= -- 101
-add.period$ -- 4
-call.type$ -- 4
++ -- 14
+- -- 9
+* -- 74
+:= -- 126
+add.period$ -- 5
+call.type$ -- 5
 change.case$ -- 1
 chr.to.int$ -- 0
-cite$ -- 4
-duplicate$ -- 37
-empty$ -- 82
-format.name$ -- 11
-if$ -- 171
+cite$ -- 5
+duplicate$ -- 48
+empty$ -- 103
+format.name$ -- 14
+if$ -- 218
 int.to.chr$ -- 0
-int.to.str$ -- 4
-missing$ -- 4
-newline$ -- 20
-num.names$ -- 4
-pop$ -- 25
+int.to.str$ -- 5
+missing$ -- 5
+newline$ -- 24
+num.names$ -- 5
+pop$ -- 29
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 30
+skip$ -- 40
 stack$ -- 0
-substring$ -- 23
-swap$ -- 9
+substring$ -- 33
+swap$ -- 12
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 6
-width$ -- 5
-write$ -- 34
+while$ -- 8
+width$ -- 6
+write$ -- 41
 is.kanji.str$ -- 0

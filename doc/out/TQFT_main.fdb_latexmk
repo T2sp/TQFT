@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex out/TQFT_main"] 1696987078 "out/TQFT_main.aux" "out/TQFT_main.bbl" "out/TQFT_main" 1697004346 0
-  "./TQFTrefs.bib" 1696667613 6477 54495be52182ea32734b6a284f12a765 ""
+["bibtex out/TQFT_main"] 1697006430 "out/TQFT_main.aux" "out/TQFT_main.bbl" "out/TQFT_main" 1697006444 0
+  "./TQFTrefs.bib" 1697006350 6890 3af87f31c13529f69240f93575f7fba9 ""
   "./myh-physrev.bst" 1687527611 17141 2e35e7d2990544349d72280dee109834 ""
-  "out/TQFT_main.aux" 1697004342 7677 6afed8a4400a37cbc5e80c63db9febec "lualatex"
+  "out/TQFT_main.aux" 1697006442 7727 7c5d2e8adce19b7b844923b23b808fd9 "lualatex"
   (generated)
   "out/TQFT_main.bbl"
   "out/TQFT_main.blg"
   (rewritten before read)
-["lualatex"] 1697004323 "/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/TQFT_main.tex" "out/TQFT_main.pdf" "TQFT_main" 1697004346 0
+["lualatex"] 1697006431 "/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/TQFT_main.tex" "out/TQFT_main.pdf" "TQFT_main" 1697006444 0
   "/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/TQFT_main.tex" 1696836078 7853 06969c3b8976fec1467703d450f8adba ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/haranoajigothic-medium.luc" 1680092069 1875369 563a49d56453118cc2bc098475a23186 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/haranoajimincho-regular.luc" 1680092052 1961878 305e540f3545673854903467c3d18712 ""
@@ -605,12 +605,12 @@
   "TQFT_main.tex" 1696836078 7853 06969c3b8976fec1467703d450f8adba ""
   "appendixA.tex" 1695008898 1490 3791366ead13f430ffe8ae3ba63813d7 ""
   "chap1.tex" 1696943977 32037 18cc2c6ef48dc21f477937cc06f90d4c ""
-  "chap2.tex" 1697004302 22999 d88b86d64bb1ba5478fad602ccfc8378 ""
+  "chap2.tex" 1697006376 23019 46e4fab7480b73a8ef9178f9b8667ead ""
   "figs/braidg_generator.png" 1695007673 28870 82bd8c0c3f8819a343ed42fbe50ef37c ""
-  "out/TQFT_main.aux" 1697004342 7677 6afed8a4400a37cbc5e80c63db9febec "lualatex"
-  "out/TQFT_main.bbl" 1696987078 737 306e8d78bdc2fee019f2f0eeb128c68d "bibtex out/TQFT_main"
-  "out/TQFT_main.out" 1697004342 3938 cf285946221f361f523fc46d35cd1a13 "lualatex"
-  "out/TQFT_main.toc" 1697004342 2655 b298782fe475baaf475405862e98e256 "lualatex"
+  "out/TQFT_main.aux" 1697006442 7727 7c5d2e8adce19b7b844923b23b808fd9 "lualatex"
+  "out/TQFT_main.bbl" 1697006431 837 458f18b5fe066d1644f19718728617d0 "bibtex out/TQFT_main"
+  "out/TQFT_main.out" 1697006442 3938 cf285946221f361f523fc46d35cd1a13 "lualatex"
+  "out/TQFT_main.toc" 1697006442 2655 b298782fe475baaf475405862e98e256 "lualatex"
   (generated)
   "out/TQFT_main.aux"
   "out/TQFT_main.log"
