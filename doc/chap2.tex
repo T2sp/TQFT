@@ -136,7 +136,7 @@ $\hat{T}_1,\, \hat{T}_2$ は非可換であり，基底状態への作用を考�
 \begin{align}
     \sum_{n=1}^N \frac{q_n}{\mu} \delta (\bm{x} - \bm{x}_n) = b^0
 \end{align}
-となる．つまり，位置 $\bm{x}_n$ に強さ $q_n / \mu$ の磁束管が点在している，という描像になり，磁束のピン留め現象を説明できることがわかった．
+となる．つまり，位置 $\bm{x}_n$ に強さ $q_n / \mu$ の磁束管が点在している，という描像になり，charge-flux compositeを説明できている．
 
 \subsection{プロパゲーター}
 
@@ -164,7 +164,7 @@ $a_0 = 0$ なるゲージをとると，ラグランジアン密度におけるC
 \begin{align}
     \comm{a_1(\bm{x})}{a_2(\bm{y})} = \frac{\iunit \hbar}{\mu} \delta^2 (\bm{x} - \bm{y})
 \end{align}
-を要請する．
+を要請する\footnote{しかし，トーラス上の座標をどのように取るかと言うことは問題である．}．
 
 さて，このときトーラス $T^2$ 上の2つのサイクル $C_1,\, C_2$ に対してWilsonループ
 \begin{align}
@@ -175,7 +175,7 @@ $\comm{A}{B}$ がc数である場合のBCH公式から
 \begin{align}
     W_1 W_2 &= e^{\iunit q^2 / (\mu \hbar)} W_2 W_1
 \end{align}
-を得る．これは\eqref{eq:2-T-comm}を説明している．つまり，演算子 $T_1,\, T_2$ とはWilson loopのことだったのである．
+を得る．これは\eqref{eq:2-T-comm}を説明している．つまり，演算子 $T_1,\, T_2$ とはWilson loopのことだったのである\footnote{疑問：座標の時間成分はどこへ行ったのか？}．
 
 \section{非可換Chern-Simons理論}
 
@@ -202,9 +202,9 @@ $\comm{A}{B}$ がc数である場合のBCH公式から
     \label{eq:gauge-transform}
     a_\mu(x) \lto U^{-1}(x) \bigl(a_\mu(x) + \partial_\mu\bigr) U(x)
 \end{align}
-の形をする．このゲージ変換がWilson lineを不変に保つことを，無限小の場合に確認しておこう．
+の形をする．このゲージ変換がWilson loopを不変に保つことを，無限小の場合に確認しておこう．
 
-$\mathcal{M}$ の任意の2点 $x,\, y \in \mathcal{M}$ を結ぶ曲線\footnote{閉曲線でなくとも良い．閉曲線ならばWilson loopと呼ばれる．} $C \colon [0,\, 1] \lto \mathcal{M}$ をとり，\textbf{Wlison line}を
+$\mathcal{M}$ の任意の2点 $x,\, y \in \mathcal{M}$ を結ぶ曲線\footnote{閉曲線でなくとも良い．閉曲線ならばWilson loopと呼ばれる．} $C \colon [0,\, 1] \lto \mathcal{M}$ をとり，\textbf{Wilson line}を
 \begin{align}
     \tilde{W}_C (x,\, y) \coloneqq \mathcal{P} \exp \left( \int_C \dd{x^\mu} a_\mu (x) \right)
 \end{align}
@@ -218,25 +218,25 @@ $\mathcal{M}$ の任意の2点 $x,\, y \in \mathcal{M}$ を結ぶ曲線\footnote
     &= U(x)^{-1} \bigl[ 1 + a_\mu (x) \dd{x^\mu} \bigr] \bigl[ U(x) + \partial_\mu U(x) \dd{x^\mu} \bigr] \\
     &= 1 + U^{-1}(x)\bigl[ a_\mu + \partial_\mu \bigr] U(x) \dd{x^\mu}
 \end{align}
-である．
+である\footnote{無限小の場合はゲージ不変であるように見えるが，一般にWilson line自身はゲージ不変\underline{ではない}．}．
 
 \subsection{Chern-Simons作用}
 
 いささか天下り的だが，\textbf{Chern-Simons action}を
 \begin{align}
-    \irm{S}{CS} \coloneqq \frac{k}{4\pi} \int_{\mathcal{M}} \dd[3]{x} \epsilon^{\alpha\beta\gamma} \Tr \left[ a_\alpha \partial_\beta a_\gamma + \frac{2}{3} a_\alpha a_\beta a_\gamma \right] 
+    \irm{S}{CS}[a_\mu] \coloneqq \frac{k}{4\pi} \int_{\mathcal{M}} \dd[3]{x} \epsilon^{\alpha\beta\gamma} \Tr \left[ a_\alpha \partial_\beta a_\gamma + \frac{2}{3} a_\alpha a_\beta a_\gamma \right] 
 \end{align}
 により定義する．第2項は可換な場合には必ず零になるので前節では登場しなかった．
 $\irm{S}{CS}$ が時空 $\mathcal{M}$ の計量によらない\footnote{\textbf{計量不変} (metric invariant) であると言う．}ことは，ゲージ場を1-形式 $a$ として書き表したときに
 \begin{align}
-    \irm{S}{CS} = \frac{k}{4\pi} \int_{\mathcal{M}} \Tr \left( a \wedge \dd{a} + \frac{2}{3} a \wedge a \wedge a \right) 
+    \irm{S}{CS}[a] = \frac{k}{4\pi} \int_{\mathcal{M}} \Tr \left( a \wedge \dd{a} + \frac{2}{3} a \wedge a \wedge a \right) 
 \end{align}
-と書けることからわかる\footnote{...と言うのは微妙に的を外している．より正確には $2+1$ 次元多様体 $\mathcal{M}$ を教会に持つような4次元多様体 $\mathcal{N}$ を用意し，$\mathcal{N}$ の作用 $\mathcal{S}[a] \coloneqq k/(4\pi) \int_{\mathcal{N}} \Tr (F \wedge F)$ を部分積分することで $\mathcal{S}{CS}$ の別の定義が与えられる．}．
+と書けることからわかる\footnote{...と言うのは微妙に的を外している．より正確には $2+1$ 次元多様体 $\mathcal{M}$ を教会に持つような4次元多様体 $\mathcal{N}$ を用意し，$\mathcal{N}$ の作用 $\mathcal{S}[a] \coloneqq k/(4\pi) \int_{\mathcal{N}} \Tr (F \wedge F)$ を部分積分することで $\irm{S}{CS}$ の別の定義が与えられる．}．
 % を，成分計算により確認しておこう．$\mathcal{M}$ の一般座標変換 $(x^\mu) \lto (x'{}^\mu)$ を考えたとき，
 
 $\irm{S}{CS}$ にゲージ変換\eqref{eq:gauge-transform}を施した結果は
 \begin{align}
-    &\irm{S}{CS} \lto \irm{S}{CS} + 2\pi \nu k, \label{eq:CS-gauge} \\
+    &\irm{S}{CS}[a_\mu] \lto \irm{S}{CS}[a_\mu] + 2\pi \nu k, \label{eq:CS-gauge} \\
     \WHERE &\nu \coloneqq \frac{1}{24 \pi^2} \int_{\mathcal{M}} \dd[3]{x} \epsilon^{\alpha\beta\gamma} \Tr \bigl[ (U^{-1} \partial_\alpha U)(U^{-1} \partial_\beta U)(U^{-1} \partial_\gamma U) \bigr] 
 \end{align}
 となる．$\nu$ は写像 $U \colon \mathcal{M} \lto G$ の\textbf{巻きつき数} (winding number)，もしくは\textbf{Pontryagin index}と呼ばれ，常に整数値をとる．この極めて非自明な結果についても後述する．
