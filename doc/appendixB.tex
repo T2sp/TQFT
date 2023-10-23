@@ -1,0 +1,449 @@
+\documentclass[TQFT_main]{subfiles}
+
+\begin{document}
+
+% \setcounter{}{}
+\chapter{ベクトル場の話}
+
+$C^\infty$ 多様体 $M$ 上の $C^\infty$ 関数全体の集合のことを $C^\infty (M)$ と書く．
+
+$C^\infty$ 多様体の1つの極大 $C^\infty$ アトラスを $\bm{C^\infty}$ \textbf{構造} (smooth structure) と呼ぶことにする．
+集合 $M$ の上に $C^\infty$ 構造を与えるには，例えば次のようにすればよい~\cite[p.21, Lemma 1.35]{Lee2012smooth}：
+
+\begin{mylem}[label=lem:cinfty-chart]{$C^\infty$ 構造の構成}
+	\begin{itemize}
+		\item \underline{集合} $M$
+		\item $M$ の部分集合族 $\Familyset[\big]{U_\lambda}{\lambda \in \Lambda}$
+		\item 写像の族 $\Familyset[\big]{\varphi_\lambda \colon U_\lambda \lto \mathbb{R}^n}{\lambda \in \Lambda}$
+	\end{itemize}
+	の3つ組であって以下の条件を充たすものを与える：
+	\begin{description}
+		\item[\textbf{(DS-1)}]  $\forall \lambda \in \Lambda$ に対して 
+		$\varphi_\lambda (U_\lambda) \subset \mathbb{R}^n$ は $\mathbb{R}^n$ の開集合\footnote{いつものように，$\mathbb{R}^n$ にはEuclid位相を入れる．}であり，
+		$\varphi_\lambda \colon U_\lambda \lto \varphi_\lambda (U_\lambda)$
+		は全単射である．
+		\item[\textbf{(DS-2)}]  $\forall \alpha,\, \beta \in \Lambda$ に対して $\varphi_\alpha (U_\alpha \cap U_\beta),\, \varphi_\beta (U_\alpha \cap U_\beta) \subset \mathbb{R}^n$ は $\mathbb{R}^n$ の開集合である．
+		\item[\textbf{(DS-3)}]  $\forall \alpha,\, \beta \in \Lambda$ に対して，$U_\alpha \cap U_\beta \neq \emptyset$ ならば $\varphi_\beta \circ \varphi_\alpha^{-1} \colon \varphi_\alpha (U_\alpha \cap U_\beta) \lto \varphi_\beta (U_\alpha \cap U_\beta)$ は $C^\infty$ 級である．
+		\item[\textbf{(DS-4)}]  添字集合 $\Lambda$ の\underline{可算濃度の}部分集合 $I \subset \Lambda$ が存在して
+		$\Familyset[\big]{U_i}{i \in I}$ が $M$ の被覆になる．
+		\item[\textbf{(DS-5)}]  $p,\, q \in M$ が $p \neq q$ ならば，
+		ある $\lambda \in \Lambda$ が存在して $p,\, q \in U_\lambda$ を充たすか，
+		またはある $\alpha,\, \beta \in \Lambda$ が存在して $U_\alpha \cap U_\beta = \emptyset$ かつ $p \in U_\alpha,\; q \in U_\beta$ を充たす．
+	\end{description}
+	このとき，$M$ の $C^\infty$ 構造であって，$\forall \lambda \in \Lambda$ に対して $(U_\lambda,\, \varphi_\lambda)$ を\hyperref[diffmani]{$C^\infty$ チャート}として持つものが一意的に存在する．
+\end{mylem}
+
+\begin{proof}
+    % ~\cite[p.21, Lemma 1.35]{Lee2012smooth}を参照．
+    \begin{description}
+		\item[\textbf{位相の構成}]　
+		
+		　$\mathbb{R}^n$ の\hyperref[thm.metrictopo]{Euclid位相}を $\mathscr{O}_{\mathbb{R}^n}$ と表記する．集合
+		\begin{align}
+			\mathscr{B} \coloneqq \bigl\{\, \varphi_\lambda^{-1}(U) \bigm| \lambda \in \Lambda,\; U \in \mathscr{O}_{\mathbb{R}^n} \,\bigr\} 
+		\end{align}
+		が開基の公理 \textsf{\textbf{(B1)}}, \textsf{\textbf{(B2)}} を充たすことを確認する．
+		\begin{description}
+			\item[\textbf{(B1)}] \textsf{\textbf{(DS-4)}}より明らか．
+			\item[\textbf{(B2)}] $B_1,\, B_2 \in \mathscr{B}$ を任意にとる．
+			このとき $\mathscr{B}$ の定義から，ある $\alpha,\, \beta \in \Lambda$ および $U,\, V \in \mathscr{O}_{\mathbb{R}^n}$ が存在して $B_1 = \varphi_\alpha^{-1}(U),\, B_2 = \varphi_\beta^{-1}(V)$ と書ける．
+			故に
+			\begin{align}
+				B_1 \cap B_2 &= \varphi_\alpha^{-1}(U) \cap \varphi_\beta^{-1}(V) \\
+				&= \varphi_\alpha^{-1} \bigl( U \cap (\varphi_\alpha \circ \varphi_\beta^{-1})(V) \bigr) \\
+				&= \varphi_\alpha^{-1} \bigl( U \cap (\varphi_\beta \circ \varphi_\alpha^{-1})^{-1}(V) \bigr)
+			\end{align}
+			が成り立つが，\textsf{\textbf{(DS-3)}}より $\varphi_\beta \circ \varphi_\alpha^{-1}$ は連続なので $(\varphi_\beta \circ \varphi_\alpha^{-1})^{-1}(V) \in \mathscr{O}_{\mathbb{R}^n}$ である．よって
+			\begin{align}
+				B_1 \cap B_2 \in \mathscr{B}
+			\end{align}
+			であり，\textsf{\textbf{(B2)}}が示された．
+		\end{description}
+		従って $\mathscr{B}$ を開基とする $M$ の位相 $\mathscr{O}_M$ が存在する．
+		\item[$\bm{\varphi_\lambda}$ \textbf{が同相写像であること}]　
+		
+		　$\forall \lambda \in \Lambda$ を1つ固定する．$\mathscr{O}_M$ の構成と補題\ref{lem:sets}-(4) より，$\forall V \in \mathscr{O}_{\mathbb{R}^n}$ に対して
+		$\varphi_\lambda^{-1}\bigl( V \cap \varphi_\lambda(U_\lambda) \bigr) = \varphi_\lambda^{-1}(V) \cap U_\lambda$ は $U_\lambda$ の開集合である\footnote{$U_\lambda$ には $(M,\,\mathscr{O}_M)$ からの相対位相が，$\varphi_\lambda(U_\lambda)$ には $(\mathbb{R}^n,\, \mathbb{R}^n)$ からの相対位相が入っている．}．i.e. $\varphi_\lambda \colon U_\lambda \lto \varphi_\lambda(U_\lambda)$ は連続である．
+		
+		　$\forall B \in \mathscr{B}$ をとる．このとき $\varphi_\lambda(B \cap U_\lambda) = \varphi_\lambda(B) \cap \varphi_\lambda(U_\lambda)$ が成り立つが，$\mathscr{O}_M$ の定義より $\varphi_\lambda(B) \in \mathscr{O}_{\mathbb{R}^n}$ なので $\varphi_\lambda(B \cap U_\lambda)$ は $\varphi_\lambda(U_\lambda)$ の開集合である．
+		相対位相の定義とde Morgan則より $U_\lambda$ の任意の開集合は $B \cap U_\lambda$ の形をした部分集合の和集合で書けるので，位相空間の公理から $\varphi_\lambda$ は $U_\lambda$ の開集合を $\varphi_\lambda(U_\lambda)$ の開集合に移す．
+		i.e. $\varphi_\lambda \colon U_\lambda \lto \varphi_\lambda(U_\lambda)$ は連続な全単射でかつ開写像であるから同相写像である．
+
+		\item[\textbf{Hausdorff性}]　
+		
+		　位相空間 $(M,\, \mathscr{O}_M)$ がHausdorff空間であることを示す．
+		$M$ の異なる2点 $p,\, q$ を勝手にとる．このとき\textsf{\textbf{(DS-5)}}より，
+		\begin{itemize}
+			\item ある $\lambda \in \Lambda$ が存在して $p,\, q \in U_\lambda$ を充たす
+			\item ある $\alpha,\, \beta \in \Lambda$ が存在して $U_\alpha \cap U_\beta = \emptyset$ かつ $p \in U_\alpha,\; q \in U_\beta$ を充たす
+		\end{itemize}
+		のいずれかである．後者ならば証明することは何もない．
+
+		　前者の場合を考える．このとき $\varphi_\lambda(U_\lambda)$ は $\mathbb{R}^n$ の開集合だから，$\mathbb{R}^n$ のHausdorff性から $\varphi_\lambda(U_\lambda)$ もHausdorff空間であり，従って $\varphi_\lambda(U_\lambda)$ の開集合 $U,\, V \subset \varphi_\lambda(U_\lambda)$ であって $\varphi_\lambda(p) \in U \AND \varphi_\lambda(q) \in V \AND U \cap V = \emptyset$ を充たすものが存在する．
+		このとき $\varphi_\lambda^{-1}(U) \cap \varphi_\lambda^{-1}(V) = \varphi^{-1}_\lambda(U\cap V) = \emptyset$ で，かつ $\mathscr{O}_M$ の構成から $\varphi_\lambda^{-1}(U),\, \varphi_\lambda^{-1}(V) \subset M$ はどちらも $M$ の開集合である．
+		そのうえ $p \in \varphi_\lambda^{-1}(U) \AND q \in \varphi_\lambda^{-1}(V)$ が成り立つので $M$ はHausdorff空間である．
+
+		\item[\textbf{第2可算性}]　
+		
+		　$\mathbb{R}^n$ は\hyperref[def:second-countable]{第2可算}なので，$\forall \lambda \in \Lambda$ に対して $\varphi_\lambda(U_\lambda)$ も第2可算である．$\varphi_\lambda \colon U_\lambda \lto \varphi_\lambda (U_\lambda)$ は同相写像なので，$U_\lambda$ も第2可算である．
+		従って\textsf{\textbf{(DS-4)}}から $M$ も第2可算である．
+	\end{description}
+	
+    以上の考察から，位相空間 $(M,\, \mathscr{O}_M)$ が位相多様体であることが示された．
+	さらに\textsf{\textbf{(DS-3)}}より $\mathcal{A} \coloneqq \Familyset[\big]{(U_\lambda,\, \varphi_\lambda)}{\lambda \in \Lambda}$ は $(M,\, \mathscr{O}_M)$ の $C^\infty$ アトラスであることもわかる．
+
+	% 最後に，$\mathcal{A}$ の極大アトラス $\mathcal{A}^+$ が，\underline{集合} $M$ 上の，与えられた全ての $(U_\lambda,\, \varphi_\lambda)$ を $C^\infty$ チャートとする唯一の微分構造であることを示す．
+
+	% \item[\textbf{位相の一意性}]　
+	
+	% 与えられた集合 $M$ の上の位相 $\mathscr{T}$ であって，位相空間 $(M,\, \mathscr{T})$ が第2可算なHausdorff空間となるようなものを任意にとる．
+	% $\forall \lambda \in \Lambda$ に対して，$U_\lambda \in \mathscr{T}$ でかつ位相 $\mathscr{T}$ についても $\varphi_\lambda \colon U_\lambda \lto \varphi_\lambda (U_\lambda)$ が同相写像であるとしよう\footnote{$(U_\lambda,\, \varphi_\lambda)$ を（位相多様体の）チャートに持つ必要十分条件．}．
+    % このとき 
+	% % 与えられた全単射 $\varphi_\lambda \colon U_\lambda \lto \varphi_\lambda(U_\lambda)$ が同相写像であるためには，
+    % $\forall V \in 2^{U_\lambda}$ に対して
+	% \begin{align}
+	% 	V \in \mathscr{T} \IFF \varphi_\lambda(V) \in \mathscr{O}_{\mathbb{R}^n}
+	% \end{align}
+	% が成り立つので，$\forall A \in \mathscr{O}_M$ について
+	% そしてこのとき
+\end{proof}
+
+補題\ref{lem:cinfty-chart}は，$M$ が境界付き多様体のときも殆ど同様に成り立つ．
+
+\section{接束}
+
+境界あり/なし $C^\infty$ 多様体 $M$ を与える．
+$M$ の\textbf{接束} (tangent bundle) とは
+集合
+\begin{align}
+    \bm{TM} \coloneqq \coprod_{p \in M} T_p M
+\end{align}
+のことである．$TM$ の任意の元は $\textcolor{red}{p} \in M,\, v \in T_{\textcolor{red}{p}} M$ を用いて $(\textcolor{red}{p},\, v)$ と書かれる．
+このことから，\textbf{射影} (projection) と呼ばれる全射
+\begin{align}
+    \bm{\pi} \colon \bm{TM} \lto M,\; (p,\, v) \lmto p
+\end{align}
+が自然に定義できる．
+
+\begin{myprop}[label=prop:tangentbundle]{接束の $C^\infty$ 構造}
+    任意の $n$ 次元境界あり/なし $C^\infty$ 多様体 $M$ に対して，$TM$ は $\pi$ が $C^\infty$ 級となるような自然な $2n$ 次元の $C^\infty$ 構造を持つ．
+\end{myprop}
+
+\begin{proof}
+    $M$ が境界を持たないとする．
+    $M$ の $C^\infty$ 構造を $\{(U_\alpha,\, \varphi_\alpha)\}_{\alpha \in \Lambda}$ と書く．
+    % $\forall \alpha \in \Lambda$ に対して
+    % $(U_\alpha,\, \varphi_\alpha) = \bigl( U_\lambda,\, (x^\mu) \bigr)$
+    写像の族
+    \begin{align}
+        \left\{\tilde{\varphi}_\alpha \colon \pi^{-1} (U_\alpha) \lto \mathbb{R}^{2n},\; \left(p,\, v^\mu \eval{\pdv{}{x^\mu}}_p \right) \lmto \bigl( x^1 (p),\, \dots,\, x^n(p),\, v^1,\, \dots,\, v^n \bigr) \right\}_{\alpha \in \Lambda}
+    \end{align}
+    を定める．ただし $(x^\mu)$ はチャート $(U_\alpha,\, \varphi_\alpha)$ の座標関数である．
+    このとき
+    \begin{itemize}
+        \item 集合 $TM$
+        \item $TM$ の部分集合族 $\bigl\{\, \pi^{-1}(U_\alpha) \,\bigr\}_{\alpha \in \Lambda}$
+        \item 写像の族 $\bigl\{\, \tilde{\varphi}_\alpha \,\bigr\}_{\alpha \in \Lambda}$
+    \end{itemize}
+    の3つ組が補題\ref{lem:cinfty-chart}の5条件を充たすことを確認する．
+    \begin{description}
+        \item[\textbf{(DS-1)}] $\forall \alpha \in \Lambda$ に対して $(U_\alpha,\, \varphi_\alpha)$ は $M$ の $C^\infty$ チャートなので $\varphi_\alpha(U_\alpha) \subset \mathbb{R}^n$ は $\mathbb{R}^n$ の開集合である．ゆえに積位相の定義から $\tilde{\varphi}_\alpha \bigl( \pi^{-1} (U_\alpha) \bigr) = \varphi_\alpha (U_\alpha) \times \mathbb{R}^n \subset \mathbb{R}^{2n}$ は $\mathbb{R}^{2n}$ の開集合．
+        また，写像
+        \begin{align}
+            \tilde{\varphi}_\alpha \colon \pi^{-1} (U_\alpha) \lto \varphi_\alpha (U_\alpha) \times \mathbb{R}^n,\; \left(p,\, v^\mu \eval{\pdv{}{x^\mu}}_p \right) \lmto \bigl( x^1 (p),\, \dots,\, x^n(p),\, v^1,\, \dots,\, v^n \bigr) 
+        \end{align}
+        は写像
+        \begin{align}
+            \tilde{\varphi_\alpha}^{-1} \colon \varphi_\alpha(U_\alpha) \times \mathbb{R}^n \lto \pi^{-1} (U_\alpha),\; \bigl( x^1,\, \dots,\, x^n,\, v^1,\, \dots,\, v^n \bigr) \lmto \left(\varphi_\alpha^{-1}(x^1,\, \dots,\, x^n),\, v^\mu \eval{\pdv{}{x^\mu}}_{\varphi_\alpha^{-1}(x^1,\, \dots,\, x^n)} \right)
+        \end{align}
+        を逆写像に持つので全単射である．
+        \item[\textbf{(DS-2, 3)}] $\forall \alpha,\, \beta \in \Lambda$ に対して
+        \begin{align}
+            \tilde{\varphi}_\alpha \bigl( \pi^{-1}(U_\alpha) \cap \pi^{-1}(U_\beta) \bigr) &= \varphi_\alpha (U_\alpha \cap U_\beta) \times \mathbb{R}^n, \\
+            \tilde{\varphi}_\beta \bigl( \pi^{-1}(U_\alpha) \cap \pi^{-1}(U_\beta) \bigr) &= \varphi_\beta (U_\alpha \cap U_\beta) \times \mathbb{R}^n
+        \end{align}
+        はどちらも $\mathbb{R}^{2n}$ の開集合である．さらに自然基底の変換則より
+        \begin{align}
+            &\tilde{\varphi}_\beta \circ \tilde{\varphi}_\alpha^{-1} (x^1,\, \dots,\, x^n,\, v^1,\, \dots,\, v^n) \\
+            &= \left( y^1(x),\, \dots,\, y^n (x),\, \pdv{y^1}{x^\mu}()(x) v^\mu,\, \dots,\, \pdv{y^n}{x^\mu}()(x) v^\mu \right) 
+        \end{align}
+        なので $\tilde{\varphi}_\beta \circ \tilde{\varphi}_\alpha^{-1} $ は $C^\infty$ 級である．ただしチャート $(U_\alpha,\, \varphi_\alpha),\, (U_\beta,\,\varphi_\beta)$ の座標関数をそれぞれ $(x^\mu),\, (y^\mu)$ と書き，$x \coloneqq\varphi_\alpha^{-1}(x^1,\, \dots,\, x^n)$ とおいた．
+        \item[\textbf{(DS-4)}] $\{(U_\alpha,\, \varphi_\alpha)\}_{\alpha \in \Lambda}$ は $M$ のアトラスなので，可算濃度の部分集合 $I \subset \Lambda$ が存在して $\{\, U_i\,\}_{i \in I}$ が $M$ の被覆になる．このとき
+        \begin{align}
+            TM = \coprod_{p \in \bigcup_{i \in I} U_i} T_p M = \bigcup_{i \in I} \coprod_{p_i \in U_i} T_{p_i} M = \bigcup_{i \in I} \pi^{-1} (U_i)
+        \end{align}
+        が言える．
+        \item[\textbf{(DS-5)}] $TM$ の任意の異なる2点 $(p,\, v),\, (q,\, w)$ をとる．
+        $p = q$ ならば，$p \in U_\alpha$ を充たす $\alpha \in \Lambda$ に対して\footnote{$\{U_\alpha\}$ は $M$ の開被覆なので，このような $\alpha$ は必ず存在する．} $(p,\, v),\, (q,\,w) \in \pi^{-1} (\{p\}) \subset \pi^{-1}(U_\alpha)$ が成り立つ．
+        $p \neq q$ ならば，$U_\alpha \cap U_\beta =\emptyset$ かつ $p \in U_\alpha,\, q \in U_\beta$ を充たすような $\alpha,\, \beta \in \Lambda$ が存在する\footnote{$M$ の極大アトラスをとっているため．}．このとき，$TM$ の定義から明らかに $\pi^{-1} (U_\alpha) \cap \pi^{-1}(U_\beta) = \emptyset$ でかつ $(p,\, v) \in \pi^{-1}(U_\alpha),\, (q,\, w) \in \pi^{-1}(U_\beta)$ が成り立つ．
+    \end{description}
+    
+    % $\tilde{\varphi_\alpha}$ の値域を制限して $\tilde{\varphi_\alpha} \colon \pi^{-1} (U) \lto \varphi_\alpha(U) \times \mathbb{R}^{n}$ だと見做すと
+    % \begin{align}
+    %     \tilde{\varphi_\alpha}^{-1} \colon \varphi_\alpha(U) \times \mathbb{R}^n \lto \pi^{-1} (U),\; \bigl( x^1,\, \dots,\, x^n,\, v^1,\, \dots,\, v^n \bigr) \lmto \left(\varphi_\alpha^{-1}(x^1,\, \dots,\, x^n),\, v^\mu \eval{\pdv{}{x^\mu}}_{\varphi_\alpha^{-1}(x^1,\, \dots,\, x^n)} \right)
+    % \end{align}
+    % が逆写像になり，全単射である．
+
+\end{proof}
+
+\section{ベクトル場の定義}
+
+\begin{mydef}[label=def:vecf]{ベクトル場}
+    境界あり/なし $C^\infty$ 多様体 $M$ を与える．
+    \begin{itemize}
+        \item $M$ 上の\textbf{ベクトル場} (vector field) とは，接束 $TM$ の切断のことを言う．i.e. \underline{連続写像}\footnote{$TM$ の位相は命題\ref{prop:tangentbundle}で構成したものを選ぶ．} $X \colon M \lto TM$ であって $\pi \circ X = \mathrm{id}_M$ を充たすもののこと．
+        \item $M$ 上の $\bm{C^\infty}$ ベクトル場とは，$M$ 上のベクトル場 $X$ であって，$TM$ に命題\ref{prop:tangentbundle}の $C^\infty$ 構造を入れたときに $C^\infty$ 写像となるもののこと．
+        \item $M$ 上のベクトル場 $X$ の\textbf{台} (support) とは，閉集合\footnote{ここで言う $0$ とは，厳密には $(p,\, 0) \in TM$ のことである．一点集合 $\{(p,\, 0) \}$ はコンパクトだが，$T M$ は命題\ref{prop:tangentbundle}よりHausdorff空間なので閉集合でもある．故に $T M \setminus \{(p,\, 0) \}$ は開集合であり，$X \colon M \lto TM$ は連続写像なので $X^{-1}(TM \setminus \{0\})$ も開集合である．これの閉包を取ることで $\supp X$ が得られる．}
+        \begin{align}
+            \bm{\supp X} \coloneqq \overline{\bigl\{\, p \in M \bigm| X_p \neq 0 \,\bigr\} }
+        \end{align}
+        のこと．ただし $\overline{\cdot}$ は閉包を取ることを意味する．
+        特に $\supp X$ がコンパクト集合であるとき，$X$ は\textbf{コンパクト台を持つ} (compactly supported) と言う．
+        \item $M$ の任意のベクトル場 $X$ および任意のチャート $\bigl(U,\, (x^\mu)\bigr)$ を与える．このとき $n$ 個の関数 $X^\mu \colon U \lto \mathbb{R}$ を
+        \begin{align}
+            X_p \eqqcolon \bm{X^\mu (p)} \eval{\pdv{}{x^\mu}}_p
+        \end{align}
+        によって定義し，$X$ の\textbf{成分関数} (component function) と呼ぶ．
+    \end{itemize}
+\end{mydef}
+
+\begin{marker}
+    ベクトル場 $X \colon M \lto TM$ による点 $ p\in M$ の行き先を $X(p)$ と書く代わりに $\bm{X_p}$ と書く．さらに，混乱の恐れがないときは $X_p = (p,\, v)\quad (v \in T_p M)$ のとき $v$ のことを $X_p$ と書く場合がある．
+\end{marker}
+
+
+\begin{myprop}[label=prop:smoothvecf]{ベクトル場の $C^\infty$ 性}
+    境界あり/なし $C^\infty$ 多様体 $M$ と $M$ の任意の $C^\infty$ チャート $(U,\, (x^\mu))$ と $M$ 上のベクトル場 $X$ を与える．
+    このとき，制限 $X|_U$ が $C^\infty$ ベクトル場となる必要十分条件は $X$ の $U$ 上の成分関数が全て $C^\infty$ 関数になることである．
+\end{myprop}
+
+\begin{proof}
+    命題\ref{prop:tangentbundle}の証明における $TM$ の $C^\infty$ チャートの構成より明らか．
+\end{proof}
+
+\begin{myexample}[label=def:coord-vecf]{座標ベクトル場}
+    $C^\infty$ 多様体 $M$ の任意のチャート $\bigl( U,\, (x^\mu) \bigr)$ に対して，写像
+    \begin{align}
+        \pdv{}{x^\mu} \colon U \lto TM,\; p \lmto \left(p,\, \eval{\pdv{}{x^\mu}}_p\right)
+    \end{align}
+    は $U$ 上の $C^\infty$ ベクトル場となる．
+    $C^\infty$ 性は，成分関数が $p \lmto \delta^\nu_\mu$ なる定数関数なので命題\ref{prop:smoothvecf}から従う．
+\end{myexample}
+
+境界あり/なし $C^\infty$ 多様体 $M$ 上の \underline{$C^\infty$ ベクトル場}全体の集合を $\bm{\mathfrak{X}(M)}$ と書く．
+
+\begin{myprop}[label=prop:vecf-module]{$\mathfrak{X}(M)$ の加群としての構造}
+    \begin{itemize}
+        \item $\mathfrak{X}(M)$ 上の加法とスカラー乗法を
+        \begin{align}
+            (X + Y)_p &\coloneqq (p,\, X_p + Y_p) \\
+            (\lambda X)_p &\coloneqq (p,\, \lambda X_p)
+        \end{align}
+        と定義すると $\mathfrak{X}(M)$ は $\mathbb{R}$ ベクトル空間になる．
+        \item $\mathfrak{X}(M)$ 上の $C^\infty (M)$ に関する加法とスカラー乗法を
+        \begin{align}
+            (X + Y)_p &\coloneqq (p,\, X_p + Y_p) \\
+            (f X)_p &\coloneqq (p,\, f(p) X_p)
+        \end{align}
+        と定義すると $\mathfrak{X}(M)$ は左 $C^\infty (M)$ 加群になる．
+    \end{itemize}
+\end{myprop}
+
+\begin{proof}
+    命題\ref{prop:smoothvecf}および $C^\infty(M)$ が和と積
+    \begin{align}
+        (f + g)(p) &\coloneqq f(p) + g(p) \\
+        (fg)(p) &\coloneqq f(p) g(p)
+    \end{align}
+    に関して環になることから従う．加法単位元はどちらの場合も関数 $p \lmto (p,\, 0)$ である．
+\end{proof}
+
+\begin{mydef}[label=def:smoothframe]{フレーム}
+    $n$ 次元 $C^\infty$ 多様体 $M$ を与える．
+    \begin{itemize}
+        \item ベクトル場\footnote{$C^\infty$ とは限らない}の順序付き $k$ 対 $(X_1,\, \dots,\, X_k)$ が部分集合 $A \subset M$ 上\textbf{線型独立} (linearly independent) であるとは， $\forall p \in A$ において $(X_1|_p,\, \dots,\, X_k|_p)$ が $\mathbb{R}$ ベクトル空間 $T_p M$ の元として線型独立であることを言う．
+        \item $M$ の\textbf{局所フレーム} (local frame) とは，ある開集合 $U \subset M$ 上の線型独立なベクトル場\footnote{$C^\infty$ とは限らない}の $n$ 対 $(E_1,\, \dots,\, E_n)$ であって，$\forall p \in U$ において $(X_1|_p,\, \dots,\, X_k|_p)$ が $T_p M$ を貼るようなもののこと．
+        \item $U = M$ 上の局所フレームのことを\textbf{大域的フレーム} (global frame) と呼ぶ．
+        \item 局所フレーム  $(E_1,\, \dots,\, E_n)$ であって $E_i$ が $C^\infty$ ベクトル場であるもののことを $\bm{C^\infty}$ \textbf{フレーム} (smooth frame) と呼ぶ．
+    \end{itemize}
+\end{mydef}
+
+\begin{mydef}[label=def:parallel]{平行化可能性}
+    $n$ 次元 $C^\infty$ 多様体 $M$ が $C^\infty$ の大域的フレームを持つとき，$M$ は\textbf{平行化可能} (parallelizable) であると言う．
+\end{mydef}
+
+
+\subsection{$C^\infty$ 関数の微分としてのベクトル場}
+
+\hyperref[def:vecf]{ベクトル場の定義}に $C^\infty (M)$ に作用する微分作用素としての意味を持たせることができる．これによって，微分方程式とベクトル場の繋がりが明らかになる．
+
+任意の $M$ 上のベクトル場 $X$ および $M$ の開集合 $U \subset M$ 上定義された任意の $C^\infty$ 関数 $f \colon U \lto \mathbb{R}$ を与える．
+このとき関数\footnote{この時点では $C^\infty$ とは限らない．}
+\begin{align}
+    Xf \colon U \lto \mathbb{R},\; p \lmto X_p f
+\end{align}
+を考えることができる．
+% 特に，点 $p \in M$ における接ベクトルの $C^\infty$ 関数への作用が $p$ の任意の開近傍上で完全に決まることを思い出せば，$p \in V \subset U$ を充たす $M$ の任意の開集合 $U,\, V$ に対して
+% \begin{align}
+%     (Xf)|_V = X(f|_V)
+% \end{align}
+% である．
+
+\begin{myprop}[label=prop:smoothvecf-2]{ベクトル場の $C^\infty$ 性}
+    境界あり/なし $C^\infty$ 多様体 $M$ と $M$ の任意の $C^\infty$ チャート $(U,\, (x^\mu))$ と $M$ 上のベクトル場 $X$ を与える．
+    このとき以下の3つは同値である：
+    \begin{enumerate}
+        \item $X$ は\hyperref[def:vecf]{$C^\infty$ ベクトル場}
+        \item $\forall f \in C^\infty (M)$ に対して，関数 $Xf \colon M \lto \mathbb{R}$ は $M$ 上 $C^\infty$ 級である．
+        \item 任意の開集合 $U \subset M$ および任意の $f \in C^\infty (U)$ に対して，関数 $Xf \colon U \lto \mathbb{R}$ は $U$ 上 $C^\infty$ 級である．
+    \end{enumerate}
+    
+\end{myprop}
+
+\begin{proof}
+    ~\cite[p.180, Proposition 8.14]{Lee2012smooth}を参照．
+\end{proof}
+
+命題\ref{prop:smoothvecf-2}より，$\forall X \in \mathfrak{X}(M)$ は線型写像
+\begin{align}
+    X \colon C^\infty (M) \lto C^\infty(M),\; f \lmto Xf
+\end{align}
+を誘導することが分かった．その上，接空間の元のLeibniz則から
+\begin{align}
+    X(fg) = f\, Xg + g\, Xf
+\end{align}
+が成り立つこともわかる．このことから $\mathbb{R}$-線型写像 $X \colon C^\infty (M) \lto C^\infty(M)$ は\textbf{微分} (derivation) である．逆に，$C^\infty(M)$ に作用する任意の微分は次の意味であるベクトル場と同一視できる：
+
+\begin{myprop}[label=prop:vecf-derivation]{微分とベクトル場}
+    写像 $D \colon C^\infty (M) \lto C^\infty(M)$ が微分である，i.e. $\mathbb{R}$-線型写像でかつLeibniz則を充たす．
+    
+    $\IFF$ ある $X \in \mathfrak{X}(M)$ が存在して，$\forall f \in C^\infty(M)$ に対して $D(f) = Xf$ が成り立つ．
+\end{myprop}
+
+\begin{proof}
+    ~\cite[p.180, Proposition 8.15]{Lee2012smooth}
+\end{proof}
+
+\subsection{ベクトル場と $C^\infty$ 写像}
+
+$M,\, N$ を $C^\infty$ 多様体，$F \colon M \lto N$ を $C^\infty$ 写像とする．このとき $F$ によって $\mathfrak{X}(M)$ と $\mathfrak{X}(N)$ の間の自然な対応が生まれることを見る．
+
+まず，接ベクトルの微分を思いだそう．これは $\forall p \in M$ に対して定まる
+\begin{align}
+    T_{p} F \colon T_p M \lto T_{F(p)} N,\; v \lmto \bigl(f \mapsto v(f \circ F)\bigr)
+\end{align}
+という対応であり，基点付き $C^\infty$ 多様体の圏 $\DIFF_0$ から $\mathbb{R}$-ベクトル空間の圏 $\VEC{\mathbb{R}}$ への関手
+\begin{align}
+    T_p \colon \DIFF_0 \lto \VEC{\mathbb{R}}
+\end{align}
+を構成するのだった．
+% つまり，$T_p$ と言う操作は
+% \begin{itemize}
+%     \item 基点付き $C^\infty$ 多様体\footnote{$p \in M$ で，ある種の空間対と捉えられる．} $(M,\, \{p\}) \in \Obj{\DIFF_0}$ に対して接空間 $T_p M \in \VEC{\mathbb{R}}$ を対応づける
+%     \begin{align}
+%         T_p \colon M \lmto T_p M
+%     \end{align}
+%     \item 2つの基点付き $C^\infty$ 多様体 $(M,\, \{p\}),\, (N,\, \{q\}) \in \Obj{\DIFF_0}$ の間の任意の $C^\infty$ 写像\footnote{これは基点付き $C^\infty$ 多様体の圏 $\DIFF_0$ の射であり，基点を保存することが暗に仮定される．つまり，自動的に $q = F(p)$ であることが約束されている．} $F \in \Homo_{\DIFF_0} (M,\, N)$ を $\mathbb{R}$-線型写像 $T_p F \in \Homo_{\VEC{\mathbb{R}}} (T_p M,\, T_q N)$ に対応づける
+%     \begin{align}
+%         T_p \colon F \lmto T_p F
+%     \end{align}
+%     \item 
+%     \begin{align}
+%         T_p (\mathrm{id}_M) &= 1_{T_p M} \\
+%         T_p (G \circ F) &= T_q (G) \circ T_p (F)
+%     \end{align}
+%     を充たす
+% \end{itemize}
+% ものである．
+
+\begin{mydef}[label=def:F-related]{}
+    境界あり/なし $C^\infty$ 多様体 $M,\, N$ と $C^\infty$ 写像 $F \colon M \lto N$ を与える．
+
+    $M$ 上のベクトル場\footnote{\hyperref[def:vecf]{$C^\infty$}でなくとも良い．} $X$ と $N$ 上のベクトル場\footnote{\hyperref[def:vecf]{$C^\infty$}でなくとも良い．} $Y$ が $\bm{F}$\textbf{-related} であるとは，
+    $\forall p \in M$ に対して
+    \begin{align}
+        T_p F (X_p) = Y_{F(p)}
+    \end{align}
+    が成り立つことと定義する．
+\end{mydef}
+
+
+\begin{myprop}[label=prop:F-related]{}
+    境界あり/なし $C^\infty$ 多様体 $M,\, N$ と $C^\infty$ 写像 $F \colon M \lto N$ を与える．
+
+    $X \in \mathfrak{X}(M)$ と $Y \in \mathfrak{X}(N)$ が\hyperref[def:F-related]{$F$-related} である必要十分条件は，
+    $N$ の任意の開集合 $U \subset N$ に対して，$\forall f \in C^\infty (U)$ が
+    \begin{align}
+        X(f \circ F) = (Y f) \circ F \in C^\infty (M)
+    \end{align}
+    を充たすことである．
+\end{myprop}
+
+\begin{proof}
+    $\forall p \in M$ と，$F(p) \in N$ の任意の開近傍上で定義された任意の $C^\infty$ 関数 $f$ に対して
+    \begin{align}
+        X(f \circ F)(p) = X_p (f \circ F) = T_p F (X_p) (f), \\
+        \bigl((Yf) \circ F\bigr)(p) = (Yf) \bigl( F(p) \bigr) = Y_{F(p)} (f)
+    \end{align}
+    が成り立つ．
+\end{proof}
+
+\begin{myexample}[]{}
+    $C^\infty$ 写像 $F \colon \mathbb{R} \lto \mathbb{R}^2,\; t\lmto (\cos t,\, \sin t)$ を考える．
+    このとき，$\mathbb{R}$ のチャート $\bigl(\mathbb{R},\, (t)\bigr)$ による\hyperref[def:coord-vecf]{座標ベクトル場}
+    \begin{align}
+        \dv{}{t} \in \mathfrak{X}(\mathbb{R})
+    \end{align}
+    は，$\mathbb{R}$ のチャート $\bigl(\mathbb{R}^2,\, (x,\, y)\bigr)$ において
+    \begin{align}
+        Y \coloneqq - y \pdv{}{x} + x \pdv{}{y} \in \mathfrak{X} (\mathbb{R}^2)
+    \end{align}
+    と定義される\footnote{\hyperref[def:vecf]{成分関数}が それぞれ $Y^1 \colon (x,\, y) \lmto -y,\; Y^2 \colon (x,\, y) \lmto x$ だということ．} $C^\infty$ ベクトル場 $Y$ と \hyperref[def:F-related]{$F$-related}である．
+    実際，$\forall t \in \mathbb{R}$ および $\forall f \in C^\infty (\mathbb{R}^2)$ に対して
+    \begin{align}
+        T_t F\left(\eval{\dv{}{t}}_t\right) (f) &= \dv{}{t}() \bigl( f(\cos t,\, \sin t) \bigr) \\
+        &= \dv{(\cos t)}{t} \pdv{f}{x}()(\cos t,\, \sin t) + \dv{(\sin t)}{t} \pdv{f}{y}()(\cos t,\, \sin t) \\
+        &= - \sin t \, \pdv{f}{x}()\bigl(F(t)\bigr) + \cos t \, \pdv{f}{y} \bigl(F(t)\bigr) \\
+        &= Y^1 \bigl( F(t) \bigr)  \eval{\pdv{}{x}}_{F(t)}(f) + Y^2 \bigl( F(t) \bigr)  \eval{\pdv{}{y}}_{F(t)} (f) \\
+        &= Y_{F(t)} (f)
+    \end{align}
+    が成り立つ．
+\end{myexample}
+
+$F$-relratedなベクトル場は必ず存在するとは限らない．
+
+\begin{myprop}[label=prop:diffeo-Frelated]{$C^\infty$ ベクトル場の押し出し}
+    $F \colon M \lto N$ が微分同相写像ならば，$\forall \textcolor{blue}{X} \in \mathfrak{X}(M)$ に対して $F$-related な $\textcolor{red}{Y} \in \mathfrak{X}(N)$ が一意的に存在する．
+\end{myprop}
+
+\begin{proof}
+    図式
+    \begin{center}
+        \begin{tikzcd}[row sep=large, column sep=large]
+            &M \ar[r, blue, "X"]\ar[d, "F"'] &TM \ar[d, "T_{p} F"] \\
+            &N \ar[r, red, dashed] &TN
+        \end{tikzcd}
+    \end{center}
+    において $p = F^{-1}(q)$ とすることで，
+    \begin{align}
+        \textcolor{red}{Y} \colon N \lto TN,\; q \lmto \Bigl( q,\, T_{F^{-1}(q)} F \bigl(\textcolor{blue}{X}_{F^{-1}(q)}\bigr)  \Bigr) 
+    \end{align}
+    が所望の $Y \in \mathfrak{X}(N)$ となる．
+\end{proof}
+
+\begin{marker}
+    命題\ref{prop:diffeo-Frelated}で得られた $Y$ は $F$ による $X$ の\textbf{押し出し} (pushforward) と呼ばれ，よく $\bm{F_* X}$ と略記される．
+\end{marker}
+
+
+\begin{mycol}[label=col:pushforward]{押し出しの計算}
+    \begin{align}
+        \bigl( (F_* X) f \bigr) \circ F = X(f \circ F)
+    \end{align}
+\end{mycol}
+
+\section{積分曲線と流れ}
+
+
+
+\end{document}
