@@ -108,7 +108,7 @@ $C^\infty$ 多様体の1つの極大 $C^\infty$ アトラスを $\bm{C^\infty}$ 
 	% そしてこのとき
 \end{proof}
 
-補題\ref{lem:cinfty-chart}は，$M$ が境界付き多様体のときも殆ど同様に成り立つ．
+補題\ref{lem:cinfty-chart}とほとんど同じ手順で境界付き多様体を作ることもできる．
 
 \section{接束}
 
@@ -192,7 +192,7 @@ $M$ の\textbf{接束} (tangent bundle) とは
     境界あり/なし $C^\infty$ 多様体 $M$ を与える．
     \begin{itemize}
         \item $M$ 上の\textbf{ベクトル場} (vector field) とは，接束 $TM$ の切断のことを言う．i.e. \underline{連続写像}\footnote{$TM$ の位相は命題\ref{prop:tangentbundle}で構成したものを選ぶ．} $X \colon M \lto TM$ であって $\pi \circ X = \mathrm{id}_M$ を充たすもののこと．
-        \item $M$ 上の $\bm{C^\infty}$ ベクトル場とは，$M$ 上のベクトル場 $X$ であって，$TM$ に命題\ref{prop:tangentbundle}の $C^\infty$ 構造を入れたときに $C^\infty$ 写像となるもののこと．
+        \item $M$ 上の $\bm{C^\infty}$ \textbf{ベクトル場}とは，$M$ 上のベクトル場 $X$ であって，$TM$ に命題\ref{prop:tangentbundle}の $C^\infty$ 構造を入れたときに $C^\infty$ 写像となるもののこと．
         \item $M$ 上のベクトル場 $X$ の\textbf{台} (support) とは，閉集合\footnote{ここで言う $0$ とは，厳密には $(p,\, 0) \in TM$ のことである．一点集合 $\{(p,\, 0) \}$ はコンパクトだが，$T M$ は命題\ref{prop:tangentbundle}よりHausdorff空間なので閉集合でもある．故に $T M \setminus \{(p,\, 0) \}$ は開集合であり，$X \colon M \lto TM$ は連続写像なので $X^{-1}(TM \setminus \{0\})$ も開集合である．これの閉包を取ることで $\supp X$ が得られる．}
         \begin{align}
             \bm{\supp X} \coloneqq \overline{\bigl\{\, p \in M \bigm| X_p \neq 0 \,\bigr\} }
@@ -444,6 +444,197 @@ $F$-relratedなベクトル場は必ず存在するとは限らない．
 
 \section{積分曲線と流れ}
 
+\subsection{積分曲線}
+
+\begin{mydef}[label=def:integral-curve]{積分曲線}
+    境界あり/なし \cinfty 多様体 $M$ を与える． 
+    $M$ 上の\hyperref[def:vecf]{ベクトル場}\footnote{\cinfty とは限らない} $X$ の\textbf{積分曲線} (integral curve) とは，$C^\infty$ 曲線\footnote{よって，$J \subset \mathbb{R}$ である．} $\gamma \colon J \lto M$ であって，任意の時刻 $t \in J$ において
+    \begin{align}
+        \dot{\gamma} (t) = X_{\gamma(t)}
+    \end{align}
+    を充たすもののことを言う．
+\end{mydef}
+
+チャート $(U,\, \varphi) = \bigl(U,\, (x^\mu)\bigr)$ を取り，$\gamma$ を $\varphi \circ \gamma (t) \eqqcolon \bigl( \gamma^1(t),\, \dots,\, \gamma^{\dim M} (t) \bigr)$ のように座標表示すると，
+\begin{align}
+    \dot{\gamma} (t) &= \dv{\gamma^\mu}{t}() (t)\, \eval{\pdv{}{x^\mu}}_{\gamma(t)}, \\
+    X_{\gamma (t)} &= X^\mu \bigl( \gamma(t) \bigr) \, \eval{\pdv{}{x^\mu}}_{\gamma(t)}
+\end{align}
+と書ける．
+つまり，積分曲線とは連立常微分方程式系
+\begin{align}
+    \dv{\gamma^1}{t}() (t) &= X^1 \bigl( \gamma^1(t),\, \dots,\, \gamma^{\dim M}(t) \bigr) , \\
+    &\vdots \\
+    \dv{\gamma^{\dim M}}{t}() (t) &= X^{\dim M} \bigl( \gamma^1(t),\, \dots,\, \gamma^{\dim M}(t) \bigr)
+\end{align}
+の解 $\bigl( \gamma^1(t),\, \dots,\, \gamma^{\dim M} (t) \bigr)$ のことである．
+
+\begin{myprop}[label=prop:existence-integral]{積分曲線の存在}
+    境界あり/なし \cinfty 多様体 $M$ と，その上の\hyperref[def:vecf]{\cinfty ベクトル場} $X \in \mathfrak{X}(M)$ を与える．
+    $\forall p \in M$ に対して，ある $\varepsilon > 0$ と \cinfty 曲線 $\gamma \colon (-\varepsilon,\, \varepsilon) \lto M$ が存在して
+    初期条件 $\gamma(0) = p$ を充たす $X$ の\hyperref[def:integral-curve]{積分曲線}になる．
+\end{myprop}
+
+\begin{proof}
+    常微分方程式の解の存在定理から従う．
+\end{proof}
+
+\subsection{流れ}
+
+\begin{mydef}[label=def:global-flow]{大域的な流れ}
+    \cinfty 多様体 $M$ へのLie群\footnote{$\mathbb{R}$ を加法に関して群と見做す．} $\mathbb{R}$ の左作用
+    \begin{align}
+        \theta \colon \mathbb{R} \times M \lto M
+    \end{align}
+    のことを $M$ 上の\textbf{大域的な流れ} (global flow) と呼ぶ．
+    \tcblower
+    大域的な流れ $\theta \colon \mathbb{R} \times M \lto M$ が与えられたとき，
+    \begin{itemize}
+        \item $\forall t \in \mathbb{R}$ に対する連続写像 $\bm{\theta_t} \colon M \lto M$ を $\theta_t(p) \coloneqq \theta(t,\, p)$ により定める．
+        \item $\forall p \in M$ に対する連続曲線 $\bm{\theta^{(p)}} \colon \mathbb{R} \lto M$ を $\theta^{(p)}(t) \coloneqq \theta(t,\, p)$ により定める．
+    \end{itemize}
+\end{mydef}
+
+\begin{myprop}[label=prop:infinitesimal-generator]{大域的な流れの無限小生成子}
+    \cinfty 多様体 $M$ 上の \cinfty 級の大域的な流れ $\theta \colon \mathbb{R} \times M \lto M$ を与える．
+    $M$ 上のベクトル場
+    \begin{align}
+        V \colon M \lto TM,\; p \lmto \left( p,\, \dot{\theta^{(p)}} (0)  \right) 
+    \end{align}
+    のことを $\theta$ の\textbf{無限小生成子} (infinitesimal generator) と呼ぼう．
+
+    このとき $V \in \mathfrak{X}(M)$ であり，$\forall p \in M$ に対して\cinfty 曲線 $\theta^{(p)} \colon \mathbb{R} \lto M$ は $V$ の\hyperref[def:integral-curve]{積分曲線}である．
+\end{myprop}
+
+\begin{proof}
+    $V \in \mathfrak{X}(M)$ を示すには，命題\ref{prop:smoothvecf-2}より任意の開集合 $U \subset M$ 上定義された任意の \cinfty 関数 $f \in C^\infty (U)$ に対して $V f \in C^\infty (U)$ であることを示せば良い．
+    実際このとき $\forall p \in U$ に対して
+    \begin{align}
+        Vf (p) &= V_p f = \dot{\theta^{(p)}} (0) f 
+        = T_0 \theta^{(p)} \left( \eval{\dv{}{t}}_{0} \right) 
+        = \eval{\dv{}{t}}_0 f \bigl( \theta^{(p)} (t) \bigr) = \eval{\pdv{}{t}}_{(0,\, p)} f \bigl( \theta(t,\, p) \bigr) 
+    \end{align}
+    が成り立つ\footnote{ややこしいが，\cinfty 曲線 $\gamma \colon I \lto M$ の微分 $\dot{\gamma} (t_0)$ は，厳密には $\mathbb{R}$ の接ベクトル $\eval{\dv*{}{t}}_{t_0}$ の微分 $T_{t_0} \gamma \bigl( \eval{\dv*{}{t}}_{t_0} \bigr) \in T_{\gamma(t_0)} M$ のことだった．}．
+    $f \bigl( \theta(t,\, p) \bigr) $ は \cinfty 写像の合成なので $\mathbb{R} \times U$ 上 \cinfty 級であり，その任意の偏導関数もまた \cinfty 級となる．
+
+    次に $\forall p\in M,\; \forall t \in \mathbb{R}$ に対して $\dot{\theta^{(p)}} (t) = V_{\theta^{(p)}(t)}$ が成り立つことを示す．
+    $\forall p \in M$ を1つ固定し，$\forall u \in \mathbb{R}$ に対して $q \coloneqq \theta^{(p)} (u)$ とおくと，
+    \begin{align}
+        \theta^{(q)} (u) = \theta_t(q) = \theta (u,\, \theta(t,\, p)) = \theta (u + t,\, p) = \theta^{(p)} (u + t)
+    \end{align}
+    である．従って $q$ の開近傍上で定義された任意の \cinfty 関数 $f$ に対して
+    \begin{align}
+        V_q f &= \dot{\theta^{(q)}} (0) f = \eval{\dv{}{t}}_0 f \bigl( \theta^{(q)} (t) \bigr) = \eval{\dv{}{t}}_0 f \bigl( \theta^{(p)} (u + t) \bigr) = \dot{\theta^{(p)}} (u) f
+    \end{align}
+    これが示すべきことであった．
+\end{proof}
+
+命題\ref{prop:infinitesimal-generator}の逆に，$\forall X \in \mathfrak{X}(M)$ が $M$ 上の何かしらの\hyperref[def:global-flow]{大域的な流れ}の無限小生成子になっていると言いたくなるが，必ずしもそうではない．つまり，\hyperref[def:integral-curve]{積分曲線}が $\mathbb{R}$ のある部分集合上で定義できないような \cinfty ベクトル場が存在する．
+
+% \cite[p.211, Example 9.9]{Lee2012smooth}
+\begin{myexample}[label=ex:local-flow]{}
+    $M = \mathbb{R}^2 \setminus \{0\}$ とし，標準的なチャート $\bigl(M,\, (x,\, y)\bigr)$ を取る．
+    \exref{def:coord-vecf}の座標ベクトル場 $V \coloneqq \pdv{}{x}$ を考えよう．
+    初期条件 $\gamma (0) = (-1,\, 0) \in M$ を充たす $V$ の積分曲線 $\gamma$ は，常微分方程式
+    \begin{align}
+        \dv{\gamma^1}{t}()(t) &= 1, \\
+        \dv{\gamma^2}{t}()(t)&= 0
+    \end{align}
+    を解くことで一意に $\gamma(t) \coloneqq (t-1,\, 0)$ と求まる．しかるに $\gamma$ は $\mathbb{R}$ の点 $t = 1$ 上定義不能である．
+\end{myexample}
+
+
+\begin{mydef}[label=def:local-flow]{局所的な流れ}
+    $M$ を \cinfty 多様体とする．
+    \begin{itemize}
+        \item \textbf{流れの定義域} (flow domain) とは，開集合 $\bm{\mathcal{D}} \subset \mathbb{R} \times M$ であって，$\forall p \in M$ に対して集合
+        \begin{align}
+            \mathcal{D}^{(p)} \coloneqq \bigl\{\, t \in \mathbb{R} \bigm| (t,\, p) \in \mathcal{D} \,\bigr\}  \subset \mathbb{R}
+        \end{align}
+        が $0$ を含む開区間となっているようなもののことを言う．
+        \item $M$ 上の\textbf{局所的な流れ} (local flow) とは，流れの定義域を定義域にもつ連続写像
+        \begin{align}
+            \theta \colon \mathcal{D} \lto M
+        \end{align}
+        であって，$\forall p \in M$ に対して以下が成り立つもののこと：
+        \begin{enumerate}
+            \item \begin{align}
+                \theta (0,\, p) = p
+            \end{align}
+            \item $\forall s \in \mathcal{D}^{(p)},\; \forall t \in \mathcal{D}^{(\theta(s,\, p))}$ に対して，
+            \begin{align}
+                s + t \in \mathcal{D}^{(p)} \IMP \theta \bigl( t,\, \theta(s,\, p) \bigr)  = \theta(t + s,\, p)
+            \end{align}
+        \end{enumerate}
+        \item \textbf{極大積分曲線} (maximal integral curve) とは，\hyperref[def:integral-curve]{積分曲線}であって定義域をこれ以上大きな開区間に延長できないようなもののこと．
+        \textbf{極大局所流} (maximal local flow) とは，これ以上流れの定義域を拡張できないような局所的な流れのこと．
+    \end{itemize}
+    \tcblower
+    局所的な流れ $\theta \colon \mathcal{D} \lto M$ が与えられたとき，
+    \begin{itemize}
+        \item $\forall \textcolor{blue}{t} \in \mathbb{R}$ に対して，$M$ の部分集合 $\bm{M_{\textcolor{blue}{t}}} \subset M$ を
+        \begin{align}
+            \bm{M_{\textcolor{blue}{t}}} \coloneqq \bigl\{\, p \in M \bigm| (\textcolor{blue}{t},\, p) \in \mathcal{D} \,\bigr\} 
+        \end{align}
+        と定める\footnote{$\mathcal{D}^{(p)}$ は流れの領域 $\mathcal{D}$ を，点 $(0,\, p)$ を通るように「横に切り」，$M_{\textcolor{blue}{t}}$ は「縦に切る」と言うイメージ．}．
+        \item $\forall (t,\, p) \in \mathcal{D}$ に対する連続写像 $\bm{\theta_t} \colon M_t \lto M,\; \bm{\theta^{(p)}} \colon \mathcal{D}^{(p)} \lto M$ をそれぞれ $\theta_t (p) = \theta^{(p)} (t) \coloneqq \theta(t,\, p)$ により定める．
+    \end{itemize}
+\end{mydef}
+
+\begin{myprop}[label=prop:infinitesimal-generator-local]{局所的な流れの無限小生成子}
+    \cinfty 多様体 $M$ 上の \cinfty 級の局所的な流れ $\theta \colon \mathcal{D} \lto M$ を与える．
+    $M$ 上のベクトル場
+    \begin{align}
+        V \colon M \lto TM,\; p \lmto \left( p,\, \dot{\theta^{(p)}} (0)  \right) 
+    \end{align}
+    のことを\footnote{\hyperref[def:local-flow]{流れの定義域の定義}から $M_0 = M$ であることに注意．このとき，接ベクトルの局所性から $\forall p \in M$ に対して $\dot{\theta^{(p)}} (0)$ が定義される．} $\theta$ の\textbf{無限小生成子} (infinitesimal generator) と呼ぼう．
+
+    このとき $V \in \mathfrak{X}(M)$ であり，$\forall p \in M$ に対して\cinfty 曲線 $\theta^{(p)} \colon \mathcal{D}^{(p)} \lto M$ は $V$ の\hyperref[def:integral-curve]{積分曲線}である．
+\end{myprop}
+
+\begin{proof}
+    
+\end{proof}
+
+命題\ref{prop:infinitesimal-generator-local}は逆も言える：
+
+\begin{mytheo}[label=thm:fundamental-flow]{流れの基本定理}
+    $\forall V \in \mathfrak{X}(M)$ に対して，\hyperref[def:local-flow]{極大局所流} $\theta \colon \mathcal{D} \lto M$ であって無限小生成子が $V$ であるようなものが一意的に存在する．
+    さらに，この $\theta$ は以下の性質をみたす：
+    \begin{enumerate}
+        \item $\forall p \in M$ に対し，$\theta^{(p)} \colon \mathcal{D}^{(p)} \lto M$ は初期条件 $\theta^{(p)}(0) = p$ を充たす $V$ の唯一の\hyperref[def:local-flow]{極大積分曲線}である．
+        \item 
+        \begin{align}
+            s \in \mathcal{D}^{(p)} \IMP \mathcal{D}^{(\theta(s,\, p))} = \bigl\{\, t - s \bigm| t \in \mathcal{D}^{(p)} \,\bigr\} \eqqcolon \mathcal{D}^{(p)} - s
+        \end{align}
+        \item $\forall t \in \mathbb{R}$ に対して，\hyperref[def:local-flow]{集合 $M_t$}は $M$ の開集合であり，連続写像 $\theta_t \colon M_t \lto M_{-t}$ は $\theta_{-t}$ を逆にもつ微分同相写像である．
+    \end{enumerate}
+    \tcblower
+    上述の極大局所流 $\theta$ のことを，$\bm{V}$ \textbf{によって生成された流れ} (flow generated by $V$) と呼ぶ．
+\end{mytheo}
+
+\begin{proof}
+    ~\cite[p.212, Theorem 9.12]{Lee2012smooth}を参照．
+\end{proof}
+
+\subsection{完備なベクトル場}
+
+\begin{mydef}[label=def:complete-vecf]{ベクトル場の完備性}
+    \hyperref[def:vecf]{\cinfty ベクトル場} $X \in \mathfrak{X}(M)$ が\textbf{完備} (complete) であるとは，それが\hyperref[def:global-flow]{大域的な流れ}を\hyperref[thm:fundamental-flow]{生成する}ことを言う．
+\end{mydef}
+
+\begin{mytheo}[label=thm:complete-compace]{コンパクト台を持つベクトル場は完備}
+    \cinfty ベクトル場 $X$ が\hyperref[def:vecf]{コンパクト台を持つ}ならば，$X$ は\hyperref[def:complete-vecf]{完備}である．
+\end{mytheo}
+
+\begin{proof}
+    ~\cite[p.216, Theorem 9.16]{Lee2012smooth}
+\end{proof}
+
+
+\begin{mycol}[label=col:complete-compact]{コンパクト多様体のベクトル場は完備}
+    コンパクトな \cinfty 多様体上の任意の \cinfty ベクトル場は完備である．
+\end{mycol}
 
 
 \end{document}

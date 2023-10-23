@@ -899,10 +899,13 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
 INPUT ./out/appendixB.aux
 INPUT ./out/appendixB.out
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb

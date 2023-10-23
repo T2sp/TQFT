@@ -915,6 +915,9 @@ INPUT ./appendixA.tex
 INPUT ./appendixA.tex
 INPUT ./appendixB.tex
 INPUT ./appendixB.tex
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/euler/eufb10.tfm
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/euler/eufb7.tfm
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/euler/eufb5.tfm
 INPUT ./out/TQFT_main.bbl
 INPUT ./out/TQFT_main.bbl
 INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmmono10-regular.luc
@@ -923,6 +926,7 @@ INPUT ./out/TQFT_main.aux
 INPUT ./out/TQFT_main.out
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb
@@ -947,8 +951,10 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pf
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufb10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb

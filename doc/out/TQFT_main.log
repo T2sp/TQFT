@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.29)  22 OCT 2023 23:27
+This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.29)  23 OCT 2023 23:38
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/TQFT_main.tex
@@ -1223,7 +1223,7 @@ warning  (map file): entry for 'ascgrp' already exists, duplicates ignored
 ) (/usr/local/texlive/2023/texmf-dist/tex/luatex/luatexja/patches/lltjp-array.sty
 Package: lltjp-array 2019-07-18 Patch to array for LuaTeX-ja
 )
-Package translations Info: No language package found. I am going to use `english' as default language. on input line 263.
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 264.
  (./out/TQFT_main.aux
 
 LaTeX Warning: Label `ex:1-3nonabelian' multiply defined.
@@ -1231,34 +1231,34 @@ LaTeX Warning: Label `ex:1-3nonabelian' multiply defined.
 )
 \openout1 = TQFT_main.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 263.
-LaTeX Font Info:    ... okay on input line 263.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 263.
-LaTeX Font Info:    ... okay on input line 263.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 263.
-LaTeX Font Info:    ... okay on input line 263.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 263.
-LaTeX Font Info:    ... okay on input line 263.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 263.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 263.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 264.
+LaTeX Font Info:    ... okay on input line 264.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 264.
+LaTeX Font Info:    ... okay on input line 264.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 264.
+LaTeX Font Info:    ... okay on input line 264.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 264.
+LaTeX Font Info:    ... okay on input line 264.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 264.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 264.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 263.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 263.
-LaTeX Font Info:    ... okay on input line 263.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 263.
-LaTeX Font Info:    ... okay on input line 263.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 263.
-LaTeX Font Info:    ... okay on input line 263.
-LaTeX Font Info:    Checking defaults for JY3/mc/m/n on input line 263.
-LaTeX Font Info:    ... okay on input line 263.
-LaTeX Font Info:    Checking defaults for JT3/mc/m/n on input line 263.
-LaTeX Font Info:    ... okay on input line 263.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 263.
-LaTeX Font Info:    ... okay on input line 263.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 263.
-LaTeX Font Info:    ... okay on input line 263.
+LaTeX Font Info:    ... okay on input line 264.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 264.
+LaTeX Font Info:    ... okay on input line 264.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 264.
+LaTeX Font Info:    ... okay on input line 264.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 264.
+LaTeX Font Info:    ... okay on input line 264.
+LaTeX Font Info:    Checking defaults for JY3/mc/m/n on input line 264.
+LaTeX Font Info:    ... okay on input line 264.
+LaTeX Font Info:    Checking defaults for JT3/mc/m/n on input line 264.
+LaTeX Font Info:    ... okay on input line 264.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 264.
+LaTeX Font Info:    ... okay on input line 264.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 264.
+LaTeX Font Info:    ... okay on input line 264.
  (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count395
@@ -1278,7 +1278,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 263.
+Package hyperref Info: Link coloring ON on input line 264.
  (./out/TQFT_main.out) (./out/TQFT_main.out)
 \@outlinefile=\write7
 
@@ -1298,67 +1298,67 @@ Package siunitx Warning: Detected the "physics" package:
 (/usr/local/texlive/2023/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 263.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 264.
 
-Package chemgreek Info: Activating mapping `default' on line 263.
+Package chemgreek Info: Activating mapping `default' on line 264.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 
-Package tikz-feynman Warning: Consider loading TikZ-Feynman with \usepackage[compat=1.1.0]{tikz-feynman} so that you can be warned if TikZ-Feynman changes. on input line 263.
+Package tikz-feynman Warning: Consider loading TikZ-Feynman with \usepackage[compat=1.1.0]{tikz-feynman} so that you can be warned if TikZ-Feynman changes. on input line 264.
 
 Package pgfplots notification 'compat/show suggested version=true': you might benefit from \pgfplotsset{compat=1.18} (current compat level: 1.15).
 
 \c@lstlisting=\count401
 (load cache: extra_lmroman17-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 15.97903pt on input line 269.
+(Font)              scaled to size 15.97903pt on input line 270.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 15.97903pt on input line 269.
+(Font)              scaled to size 15.97903pt on input line 270.
 (load cache: extra_lmroman12-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 269.
+(Font)              scaled to size 11.09656pt on input line 270.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 269.
+(Font)              scaled to size 11.09656pt on input line 270.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 5.54828pt on input line 269.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 269.
+(Font)              scaled to size 5.54828pt on input line 270.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 270.
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 269.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 270.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 269.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 270.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 269.
+(Font)              scaled to size 11.09656pt on input line 270.
 (load cache: extra_haranoajigothic-medium.luc)
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 7.3977pt on input line 269.
+(Font)              scaled to size 7.3977pt on input line 270.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 5.54828pt on input line 269.
+(Font)              scaled to size 5.54828pt on input line 270.
  [1
 
 ]
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 271.
+(Font)              scaled to size 9.24713pt on input line 272.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 271.
+(Font)              scaled to size 9.24713pt on input line 272.
 (load cache: extra_lmsans10-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 271.
+(Font)              scaled to size 23.00687pt on input line 272.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 271.
+(Font)              scaled to size 23.00687pt on input line 272.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 271.
+(Font)              scaled to size 23.00687pt on input line 272.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 271.
+(Font)              scaled to size 23.00687pt on input line 272.
 (load cache: extra_lmsans17-regular.luc) (./out/TQFT_main.toc
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
 (Font)              scaled to size 6.47299pt on input line 2.
@@ -1511,7 +1511,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 230.
 
 [8]
-<./figs/braidg_generator.png, id=297, 493.845pt x 163.61125pt>
+<./figs/braidg_generator.png, id=322, 493.845pt x 163.61125pt>
 File: ./figs/braidg_generator.png Graphic file (type png)
 <use ./figs/braidg_generator.png>
 Package luatex.def Info: ./figs/braidg_generator.png  used on input line 247.
@@ -1545,11 +1545,59 @@ LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 ]
 付録B
 
-LaTeX Warning: Hyper reference `diffmani' on page 20 undefined on input line 31.
+LaTeX Warning: Hyper reference `diffmani' on page 20 undefined on input line 33.
 
-) (./out/TQFT_main.bbl [20
 
-](load cache: extra_lmmono10-regular.luc)
+LaTeX Warning: Hyper reference `thm.metrictopo' on page 20 undefined on input line 41.
+
+[20
+
+]
+
+LaTeX Warning: Reference `lem:sets' on page 21 undefined on input line 65.
+
+
+LaTeX Warning: Hyper reference `def:second-countable' on page 21 undefined on input line 88.
+
+[21]
+Overfull \hbox (41.84575pt too wide) detected at line 158
+[][]
+ []
+
+[22] [23] [24] [25]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 276.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 276.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\infty' on input line 276.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 276.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 327.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 327.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\infty' on input line 327.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 327.
+
+[26] [27] [28]) (./out/TQFT_main.bbl [29](load cache: extra_lmmono10-regular.luc)
 LaTeX Font Info:    Font shape `JT3/gt/m/it' in size <10> not available
 (Font)              Font shape `JT3/gt/m/n' tried instead on input line 10.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
@@ -1558,7 +1606,7 @@ LaTeX Font Info:    Font shape `JY3/gt/m/it' in size <10> not available
 (Font)              Font shape `JY3/gt/m/n' tried instead on input line 10.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 9.24713pt on input line 10.
-) [21
+) [30
 
 ] (./out/TQFT_main.aux)
 
@@ -1568,23 +1616,23 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `TQFT_main.out' has not changed.
-(rerunfilecheck)             Checksum: 002CDBB4EE8A6C419DFDEC317090E1EA;4039.
+(rerunfilecheck)             Checksum: 767A6BBC75FC65619FBD753C104239A7;4677.
 )
 
 Here is how much of LuaTeX's memory you used:
- 54076 strings out of 478285
- 195712,1977958 words of node,token memory allocated
- 4068 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 29 glue, 4 kern, 16 sub_mlist, 1 glyph, 1448 attribute, 62 glue_spec, 144 attribute_list, 2 write, 14 user_defined, 1 pdf_action nodes
-   avail lists: 1:37,2:51564,3:847,4:661,5:557,6:96,7:5792,8:123,9:2868,10:26,11:38
- 72174 multiletter control sequences out of 65536+600000
- 132 fonts using 80173815 bytes
+ 54259 strings out of 478285
+ 195707,1977958 words of node,token memory allocated
+ 7030 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 33 glue, 4 kern, 16 sub_mlist, 1 glyph, 2790 attribute, 62 glue_spec, 266 attribute_list, 2 write, 14 user_defined, 2 pdf_action nodes
+   avail lists: 1:36,2:53938,3:1483,4:1053,5:566,6:100,7:5788,8:123,9:2868,10:26,11:38
+ 72311 multiletter control sequences out of 65536+600000
+ 135 fonts using 80343223 bytes
  118i,18n,128p,1796b,1603s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmmono8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-bolditalic.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on TQFT_main.pdf (22 pages, 578293 bytes).
+</usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmmono8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-bolditalic.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufb10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
+Output written on TQFT_main.pdf (31 pages, 673641 bytes).
 
-PDF statistics: 660 PDF objects out of 1000 (max. 8388607)
- 542 compressed objects within 6 object streams
- 117 named destinations out of 1000 (max. 131072)
- 256 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 814 PDF objects out of 1000 (max. 8388607)
+ 683 compressed objects within 7 object streams
+ 163 named destinations out of 1000 (max. 131072)
+ 296 words of extra memory for PDF output out of 10000 (max. 100000000)
 

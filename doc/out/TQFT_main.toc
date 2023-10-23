@@ -27,4 +27,9 @@
 \contentsline {subsection}{\numberline {2.3.3}Wilson loopと結び目不変量}{18}{subsection.2.3.3}%
 \contentsline {chapter}{\numberline {付録A}結び目理論入門}{19}{appendix.A}%
 \contentsline {chapter}{\numberline {付録B}ベクトル場の話}{20}{appendix.B}%
-\contentsline {chapter}{参考文献}{21}{appendix*.3}%
+\contentsline {section}{\numberline {B.1}接束}{22}{section.B.1}%
+\contentsline {section}{\numberline {B.2}ベクトル場の定義}{24}{section.B.2}%
+\contentsline {subsection}{\numberline {B.2.1}$C^\infty $ 関数の微分としてのベクトル場}{26}{subsection.B.2.1}%
+\contentsline {subsection}{\numberline {B.2.2}ベクトル場と $C^\infty $ 写像}{27}{subsection.B.2.2}%
+\contentsline {section}{\numberline {B.3}積分曲線と流れ}{29}{section.B.3}%
+\contentsline {chapter}{参考文献}{30}{appendix*.3}%
