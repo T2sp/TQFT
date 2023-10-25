@@ -311,12 +311,12 @@ $\irm{x}{i},\, \irm{x}{f}$ の両方を含む $\mathcal{M}$ のチャート $\bi
 \end{align}
 の変換を受ける．このことから，場 $\varphi$ の変換\eqref{eq:2-inner1}に伴う共変微分自身の変換則は
 \begin{align}
-    \mathcal{D}_\mu (x) \lto \tilde{D_\mu} (x) = U(x)^{-1} \mathcal{D}_\mu (x) U(x)
+    \mathcal{D}_\mu (x) \lto \tilde{D_\mu} (x) = U(x) \mathcal{D}_\mu (x) U(x)^{-1}
 \end{align}
 となる．従って場 $A_\mu \colon \mathcal{M} \lto \gGL{N}{\mathbb{K}}$ の，場 $\varphi$ の変換\eqref{eq:2-inner1}に伴う変換則が
 \begin{align}
     \label{eq:def-gauge-transform}
-    A_\mu (x) \lto U(x)^{-1}\bigl(\partial_\mu + A_\mu(x) \bigr) U(x)
+    A_\mu (x) \lto U(x)\bigl(\partial_\mu + A_\mu(x) \bigr) U(x)^{-1}
 \end{align}
 だと分かった．このような場の変換則を\textbf{ゲージ変換} (gauge transformation) と呼ぶ．
 % \begin{align}
@@ -565,7 +565,7 @@ $\xi = (E,\, \pi,\, B,\, F)$ を\hyperref[def.fiber-1]{ファイバー束}とす
 全ての $U_\alpha \cap U_\beta$ に関する変換関数の族 $\{t_{\alpha\beta}\}$ が $\forall b \in U_\alpha \cap U_\beta \cap U_\gamma$ に対して条件
 \begin{align}
 	\label{eq.cocycle}
-	t_{\alpha\beta}(b) \circ t_{\beta\gamma}(b) = t_{\alpha\gamma}(b)
+	t_{\alpha\beta}(b) t_{\beta\gamma}(b) = t_{\alpha\gamma}(b)
 \end{align}
 を充たすことは図式\ref{fig.fiber2}より明かである．
 次の命題は，ファイバー束 $(E,\, \pi,\, B,\, F)$ を構成する「素材」には
@@ -581,7 +581,7 @@ $\xi = (E,\, \pi,\, B,\, F)$ を\hyperref[def.fiber-1]{ファイバー束}とす
 	\begin{itemize}
         \item \cinfty 多様体 $B,\, F$
         \item $B$ の開被覆 $\{ U_\lambda \}_{\lambda \in \Lambda}$
-        \item \textbf{コサイクル条件}\eqref{eq.cocycle}を充たす\cinfty 関数の族 $\{t_{\alpha\beta} \colon U_\beta \cap U_\alpha \to \Diff F\}$
+        \item \textbf{コサイクル条件}\eqref{eq.cocycle}を充たす\cinfty 関数の族 $\{t_{\alpha\beta} \colon U_\beta \cap U_\alpha \to G\}$
     \end{itemize}
     を与える．
     このとき，構造群 $G$ と変換関数 $\{t_{\alpha\beta}\}_{\alpha,\, \beta \in \Lambda}$ を持つファイバー束 $\xi = (E,\, \pi,\, B,\, F)$ が存在する．
@@ -589,11 +589,11 @@ $\xi = (E,\, \pi,\, B,\, F)$ を\hyperref[def.fiber-1]{ファイバー束}とす
 \begin{proof}
 	まず手始めに，cocycle条件\eqref{eq.cocycle}より
 	\begin{align}
-		t_{\alpha\alpha}(b) \circ t_{\alpha\alpha} (b ) = t_{\alpha\alpha}(b),\quad \forall b \in U_\alpha
+		t_{\alpha\alpha}(b) t_{\alpha\alpha} (b) = t_{\alpha\alpha}(b),\quad \forall b \in U_\alpha
 	\end{align}
-	だから $t_{\alpha\alpha}(b) = \mathrm{id}_{F}$ であり，また
+	だから $t_{\alpha\alpha}(b) = 1_G$ であり，また
 	\begin{align}
-		t_{\alpha\beta}(b) \circ t_{\beta\alpha} (b) = t_{\alpha\alpha}(b) = \mathrm{id}_{F},\quad \forall b \in U_\alpha \cap U_\beta
+		t_{\alpha\beta}(b) t_{\beta\alpha} (b) = t_{\alpha\alpha}(b) = 1_G,\quad \forall b \in U_\alpha \cap U_\beta
 	\end{align}
 	だから $t_{\beta\alpha}(b) = t_{\alpha\beta}(b)^{-1}$ である．
 
@@ -607,22 +607,22 @@ $\xi = (E,\, \pi,\, B,\, F)$ を\hyperref[def.fiber-1]{ファイバー束}とす
 	さて，$\mathcal{E}$ 上の二項関係 $\sim$ を以下のように定める：
 	\begin{align}
 		\label{eq.prop9-1_equiv}
-		\sim\; \coloneqq \Bigl\{ \bigl( \, (\alpha,\, b,\, f),\, (\beta,\, c,\, h)\, \bigr) \in \mathcal{E} \times \mathcal{E} \Bigm| b=c,\; f = t_{\alpha\beta}(b)(h) \Bigr\} 
+		\sim\; \coloneqq \Bigl\{ \bigl( \, (\alpha,\, b,\, f),\, (\beta,\, c,\, h)\, \bigr) \in \mathcal{E} \times \mathcal{E} \Bigm| b=c,\; f = t_{\alpha\beta}(b) \btr h \Bigr\} 
 	\end{align}
-	$\sim$ が同値関係の公理\ref{ax.equiv}を充たすことを確認する：
+	$\sim$ が同値関係の公理を充たすことを確認する：
 	\begin{description}
-		\item[\textbf{反射律}] 冒頭の議論から $t_{\alpha\alpha}(b) = \mathrm{id}_F$ なので良い．
+		\item[\textbf{反射律}] 冒頭の議論から $t_{\alpha\alpha}(b) = 1_G$ なので良い．
 		\item[\textbf{対称律}] 冒頭の議論から $t_{\beta\alpha}(b) = t_{\alpha\beta}(b)^{-1}$  なので，
 		\begin{align}
-			(\alpha,\, b,\, f) \sim (\beta,\, c,\, h) \quad &\Longrightarrow \quad b=c,\; f = t_{\alpha\beta}(b)(h) \\
-			&\Longrightarrow \quad c=b,\; h = t_{\alpha\beta}(b)^{-1}(f) = t_{\beta\alpha}(b)(f) \\
+			(\alpha,\, b,\, f) \sim (\beta,\, c,\, h) \quad &\Longrightarrow \quad b=c,\; f = t_{\alpha\beta}(b) \btr h \\
+			&\Longrightarrow \quad c=b,\; h = t_{\alpha\beta}(b)^{-1} \btr f = t_{\beta\alpha}(b) \btr f \\
 			&\Longrightarrow \quad (\beta,\, c,\, h) \sim (\alpha,\, b,\, f).
 		\end{align}
 		\item[\textbf{推移律}] cocycle条件\eqref{eq.cocycle}より
 		\begin{align}
 			(\alpha,\, b,\, f) \sim (\beta,\, c,\, h),\; (\beta,\, c,\, h) \sim (\gamma,\, d,\, k) \quad
-			&\Longrightarrow \quad b=c,\, c=d,\; f = t_{\alpha\beta}(b)(h),\, h = t_{\beta\gamma}(c)(k) \\
-			&\Longrightarrow \quad b=d,\; f = t_{\alpha\beta}(b) \circ t_{\beta\gamma}(b)(k) = t_{\alpha\gamma}(b)(k)  \\
+			&\Longrightarrow \quad b=c,\, c=d,\; f = t_{\alpha\beta}(b) \btr h,\, h = t_{\beta\gamma}(c) \btr k \\
+			&\Longrightarrow \quad b=d,\; f = \bigl(t_{\alpha\beta}(b) t_{\beta\gamma}(b)\bigr) \btr k = t_{\alpha\gamma}(b)\btr k  \\
 			&\Longrightarrow \quad (\alpha,\, b,\, f) \sim (\gamma,\, d,\, k).
 		\end{align}
 	\end{description}
@@ -852,7 +852,7 @@ $\xi = (E,\, \pi,\, B,\, F)$ を\hyperref[def.fiber-1]{ファイバー束}とす
 
 \begin{proof}
     $\xi$ の\hyperref[def.fiber-1]{局所自明化}を $\{\, \varphi_\lambda \,\}_{\lambda \in \Lambda}$，変換関数を $\{t_{\alpha\beta} \colon U_\alpha \cap U_\beta \to G\}_{\alpha,\, \beta \in \Lambda}$ と書く．
-	$\forall u \in P,\, \forall g \in G$ をとる．$\pi(u) \in U_\alpha$ となる $\alpha \in \Lambda$ を選び，対応する\hyperref[def.fiber-1]{局所自明化} $\varphi_\alpha$ による $u$ の像を $\varphi_\alpha (u) \eqqcolon (p,\, h) \in U_\alpha \times G$ とおく．
+	$\forall u \in P,\, \forall g \in G$ をとる．$\pi(u) \in U_\alpha$ となる $\alpha \in \Lambda$ を選び，対応する\hyperref[def.fiber-1]{局所自明化} $\varphi_\alpha$ による $u$ の像を $\varphi_\alpha (u) \eqqcolon (p,\, h) \in U_\alpha \times G$ とおく\footnote{つまり，$p \coloneqq \pi(u),\; h \coloneqq \mathrm{proj}_2 \circ \varphi_\alpha (u)$ と言うことである．}．
     このとき $G$ の $P$ への右作用 $\btl \colon P \times G \lto P$ を次のように定義する\footnote{右辺の $h \textcolor{red}{g}$ はLie群の乗法である．}：
     % \footnote{$G$ の $G$ 自身への右作用は，$G$ の右からの積演算を選ぶ．この作用は推移的かつ効果的である．}：
 	\begin{align}
@@ -865,11 +865,11 @@ $\xi = (E,\, \pi,\, B,\, F)$ を\hyperref[def.fiber-1]{ファイバー束}とす
 
 			$\beta \neq \alpha$ に対しても $\pi(u) \in U_\beta$ であるとする．このとき $\varphi_\beta(u) = (p,\, h') \in (U_\alpha \cap U_\beta) \times G$ と書けて，また変換関数の定義から
 			\begin{align}
-				h' = t_{\alpha\beta}(p) \cdot h \quad \bigl(\, t_{\alpha\beta}(p) \in G\, \bigr)
+				h' = t_{\alpha\beta}(p) h \quad \bigl(\, t_{\alpha\beta}(p) \in G\, \bigr)
 			\end{align}
 			である．したがって
 			\begin{align}
-				\varphi_\beta^{-1}(p,\, h' \cdot g) = \varphi_\beta^{-1}\bigl(p,\, t_{\alpha\beta}(p) \cdot h \cdot g\bigr) = \varphi_\beta^{-1}\bigl(p,\, t_{\alpha\beta}(p) \cdot (h \cdot g) \bigr) = \varphi_\beta^{-1} \circ (\varphi_\beta \circ \varphi_\alpha^{-1})(p,\, h \cdot g) = \varphi_\alpha^{-1}(p,\, h \cdot g)
+				\varphi_\beta^{-1}(p,\, h'g) = \varphi_\beta^{-1}\Bigl(p,\, \bigl(t_{\alpha\beta}(p) h\bigr)g\Bigr) = \varphi_\beta^{-1}\bigl(p,\, t_{\alpha\beta}(p)  hg \bigr) = \varphi_\beta^{-1} \circ (\varphi_\beta \circ \varphi_\alpha^{-1})(p,\, h g) = \varphi_\alpha^{-1}(p,\, h g)
 			\end{align}
 			が分かり，式\eqref{def:ractionP}の右辺は局所自明化の取り方によらない．
 		\item[\textbf{$\btl$ は右作用}]　
@@ -1083,7 +1083,7 @@ $\xi = (E,\, \pi,\, B,\, F)$ を\hyperref[def.fiber-1]{ファイバー束}とす
 \subsection{主束の接続とゲージ場の定義}
 
 % ベクトル空間 $V$ に値をとる微分形式とは，通常の $\mathcal{M}$ 上の微分形式 $\Omega^\bullet (\mathcal{M})$ に $V$ をテンソル積してできる系列 $V \otimes \Omega^\bullet (\mathcal{M})$ のことを言う．
-
+この小節は~\cite[第10章]{Nakahara2018topo2}，~\cite[Chapter 20]{Lee2012smooth}，~\cite[第6章]{Imai2013diff}による．
 Lie群 $G$ の上の\underline{微分同相写像}\footnote{従って，命題\ref{prop:diffeo-Frelated}から $L_g,\, R_g$ による\hyperref[prop:diffeo-Frelated]{ベクトル場の押し出し}が一意的に存在する．}
 \begin{align}
     \bm{L_g} \colon G &\lto G,\, x \lmto gx, \\
