@@ -336,7 +336,7 @@ $\irm{x}{i},\, \irm{x}{f}$ の両方を含む $\mathcal{M}$ のチャート $\bi
 ゲージ場は，主束の接続として定式化できる．特に，主束の同伴ベクトル束が重要である．
 
 まずファイバー束と主束を定義する．
-\cinfty 多様体の\textbf{微分同相群} (diffeomorphism group) $\bm{\Diff M}$ とは，
+\cinfty 多様体 $M$ のの\textbf{微分同相群} (diffeomorphism group) $\bm{\Diff M}$ とは，
 \begin{itemize}
     \item 台集合 $\Diff M \coloneqq \bigl\{\, f \colon M \lto M \bigm| \text{微分同相写像} \,\bigr\}$
     \item 単位元を恒等写像
@@ -367,12 +367,12 @@ $\irm{x}{i},\, \irm{x}{f}$ の両方を含む $\mathcal{M}$ のチャート $\bi
 
 \begin{mydef}[label=def.fiber-1]{\cinfty ファイバー束}
     Lie群 $G$ が \cinfty 多様体 $F$ に\hyperref[def:Lie-action]{効果的に作用}しているとする．
-    \textbf{ファイバー束} (fiber bundle) とは，
+    $\bm{C^\infty}$ \textbf{ファイバー束} (fiber bundle) とは，
     \begin{itemize}
         \item \cinfty 多様体 $E,\, B,\, F$
         \item \cinfty の全射 $\pi \colon E \lto B$
         \item Lie群 $G$ と，$G$ の $F$ への\hyperref[def:Lie-action]{左作用} $\btr \colon G \times F \lto F$
-        \item $B$ の開被覆 $\bigl\{\, U_\lambda  \,\bigr\}$
+        \item $B$ の開被覆 $\bigl\{\, U_\lambda  \,\bigr\}_{\lambda \in \Lambda}$
         \item 
         微分同相写像の族
         \begin{align}
@@ -453,13 +453,13 @@ $\irm{x}{i},\, \irm{x}{f}$ の両方を含む $\mathcal{M}$ のチャート $\bi
     \end{align}
     となり，チャート $\bigl( U_\alpha,\, (x^\mu) \bigr),\, \bigl( U_\beta,\, (y^\mu) \bigr)$ に対して
     \begin{align}
-        \varphi_\beta^{-1} \bigl( p,\, (v^1,\, \dots,\, v^n) \bigr) = v_\alpha^{-1} \bigl( p,\, \mqty[\pdv{y^1}{x^1}()(p) &\cdots &\pdv{y^1}{x^n}()(p) \\ \vdots &\ddots &\vdots \\ \pdv{y^n}{x^1}()(p) &\cdots &\pdv{y^n}{x^n}()(p)]\mqty[v^1 \\ \vdots \\ v^n] \bigr) 
+        \varphi_\beta^{-1} \bigl( p,\, (v^1,\, \dots,\, v^n) \bigr) = \varphi_\alpha^{-1} \bigl( p,\, \mqty[\pdv{y^1}{x^1}()(p) &\cdots &\pdv{y^1}{x^n}()(p) \\ \vdots &\ddots &\vdots \\ \pdv{y^n}{x^1}()(p) &\cdots &\pdv{y^n}{x^n}()(p)]\mqty[v^1 \\ \vdots \\ v^n] \bigr) 
     \end{align}
     となる．故に変換関数は
     \begin{align}
         t_{\alpha\beta} (p) \coloneqq \mqty[\pdv{y^1}{x^1}()(p) &\cdots &\pdv{y^1}{x^n}()(p) \\ \vdots &\ddots &\vdots \\ \pdv{y^n}{x^1}()(p) &\cdots &\pdv{y^n}{x^n}()(p)] \in \gGL{n}{\mathbb{R}}
     \end{align}
-    で，ファイバーへの構造群の左作用はただ数ベクトルに行列を掛けることである．
+    で，ファイバーへの構造群の左作用とはただ単に $n$ 次元の数ベクトルに行列を掛けることである．
 \end{myexample}
 
 
@@ -524,7 +524,7 @@ $\irm{x}{i},\, \irm{x}{f}$ の両方を含む $\mathcal{M}$ のチャート $\bi
 
 % $B$ 上の切断全体の集合を $\Gamma(B,\, E)$ と書くことにする．
 $\xi = (E,\, \pi,\, B,\, F)$ を\hyperref[def.fiber-1]{ファイバー束}とする．底空間 $B$ の開被覆 $\{ U_\lambda\}_{\lambda \in \Lambda}$ をとると，定義\ref{def.fiber-1}から，どの $\alpha \in \Lambda$ に対しても局所自明性（図\ref{subfig.fiber-l}）
-が成り立つ．ここでもう一つの $\beta \in \Lambda$ をとり，$U_\alpha \cap U_\beta$ に関して局所自明性の図式を横に並べることで，自明束 $\mathrm{proj}_1 \colon (U_\alpha \cap U_\beta) \times F \to U_\alpha \cap U_\beta$ の自己同型（図\ref{subfig.fiber-lm}）が得られる．
+が成り立つ．ここでもう一つの $\beta \in \Lambda$ をとり，$U_\alpha \cap U_\beta$ に関して局所自明性の図式を横に並べることで，自明束 $\mathrm{proj}_1 \colon (U_\alpha \cap U_\beta) \times F \to U_\alpha \cap U_\beta$ の\hyperref[def.bundlemap]{束の自己同型}（図\ref{subfig.fiber-lm}）が得られる．
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}{0.4\columnwidth}
@@ -572,14 +572,16 @@ $\xi = (E,\, \pi,\, B,\, F)$ を\hyperref[def.fiber-1]{ファイバー束}とす
 \begin{itemize}
 	\item 底空間となる\cinfty 多様体 $B$
 	\item ファイバーとなる\cinfty 多様体 $F$
+	\item Lie群 $G$ と，その $F$ への\hyperref[def:Lie-action]{左作用} $\btr \colon G \times F \lto F$
 	\item $B$ の開被覆 $\{ U_\lambda \}$
-	\item \eqref{eq.cocycle}を充たす\cinfty 関数族 $\{t_{\alpha\beta} \colon U_\beta \cap U_\alpha \to \Diff F\}$
+	\item \eqref{eq.cocycle}を充たす\cinfty 写像の族 $\{t_{\alpha\beta} \colon U_\beta \cap U_\alpha \to G\}_{\alpha,\, \beta \in \Lambda}$
 \end{itemize}
 があれば十分であることを主張する：
 
 \begin{myprop}[label=prop.cocycle]{ファイバー束の構成}
 	\begin{itemize}
         \item \cinfty 多様体 $B,\, F$
+        \item Lie群 $G$
         \item $B$ の開被覆 $\{ U_\lambda \}_{\lambda \in \Lambda}$
         \item \textbf{コサイクル条件}\eqref{eq.cocycle}を充たす\cinfty 関数の族 $\{t_{\alpha\beta} \colon U_\beta \cap U_\alpha \to G\}$
     \end{itemize}
@@ -607,40 +609,45 @@ $\xi = (E,\, \pi,\, B,\, F)$ を\hyperref[def.fiber-1]{ファイバー束}とす
 	さて，$\mathcal{E}$ 上の二項関係 $\sim$ を以下のように定める：
 	\begin{align}
 		\label{eq.prop9-1_equiv}
-		\sim\; \coloneqq \Bigl\{ \bigl( \, (\alpha,\, b,\, f),\, (\beta,\, c,\, h)\, \bigr) \in \mathcal{E} \times \mathcal{E} \Bigm| b=c,\; f = t_{\alpha\beta}(b) \btr h \Bigr\} 
+		(\alpha,\, b,\, f) \bm{\sim} \bigl(\beta,\, b,\, t_{\alpha\beta}(b) \btr f\bigr) \quad \forall b \in U_\alpha \cap U_\beta,\; \forall f \in F
 	\end{align}
 	$\sim$ が同値関係の公理を充たすことを確認する：
 	\begin{description}
 		\item[\textbf{反射律}] 冒頭の議論から $t_{\alpha\alpha}(b) = 1_G$ なので良い．
 		\item[\textbf{対称律}] 冒頭の議論から $t_{\beta\alpha}(b) = t_{\alpha\beta}(b)^{-1}$  なので，
 		\begin{align}
-			(\alpha,\, b,\, f) \sim (\beta,\, c,\, h) \quad &\Longrightarrow \quad b=c,\; f = t_{\alpha\beta}(b) \btr h \\
-			&\Longrightarrow \quad c=b,\; h = t_{\alpha\beta}(b)^{-1} \btr f = t_{\beta\alpha}(b) \btr f \\
+			&(\alpha,\, b,\, f) \sim (\beta,\, c,\, h) \\
+            &\Longrightarrow \quad b=c \in U_\alpha \cap U_\beta \AND f = t_{\alpha\beta}(b) \btr h \\
+			&\Longrightarrow \quad c=b \in U_\alpha \cap U_\beta \AND h = t_{\alpha\beta}(b)^{-1} \btr f = t_{\beta\alpha}(b) \btr f \\
 			&\Longrightarrow \quad (\beta,\, c,\, h) \sim (\alpha,\, b,\, f).
 		\end{align}
 		\item[\textbf{推移律}] cocycle条件\eqref{eq.cocycle}より
 		\begin{align}
-			(\alpha,\, b,\, f) \sim (\beta,\, c,\, h),\; (\beta,\, c,\, h) \sim (\gamma,\, d,\, k) \quad
-			&\Longrightarrow \quad b=c,\, c=d,\; f = t_{\alpha\beta}(b) \btr h,\, h = t_{\beta\gamma}(c) \btr k \\
-			&\Longrightarrow \quad b=d,\; f = \bigl(t_{\alpha\beta}(b) t_{\beta\gamma}(b)\bigr) \btr k = t_{\alpha\gamma}(b)\btr k  \\
+			&(\alpha,\, b,\, f) \sim (\beta,\, c,\, h) \AND (\beta,\, c,\, h) \sim (\gamma,\, d,\, k) \\
+			&\Longrightarrow \quad b=c \in U_\alpha \cap U_\beta \AND c=d \in U_\beta \cap U_\gamma\AND f = t_{\alpha\beta}(b) \btr h,\, h = t_{\beta\gamma}(c) \btr k \\
+			&\Longrightarrow \quad b=d \in U_\alpha \cap U_\beta \cap U_\gamma \AND f = \bigl(t_{\alpha\beta}(b) t_{\beta\gamma}(b)\bigr) \btr k = t_{\alpha\gamma}(b)\btr k  \\
 			&\Longrightarrow \quad (\alpha,\, b,\, f) \sim (\gamma,\, d,\, k).
 		\end{align}
 	\end{description}
 	したがって $\sim$ は同値関係である．
-	$\sim$ による $\mathcal{E}$ の商集合を $E$ と書き，\hyperref[def.quo-proj]{標準射影} (canonical injection) を $\mathrm{pr} \colon \mathcal{E} \to E,\; (\alpha,\, b,\, f)  \mapsto [ (\alpha,\, b,\, f)]$ と書くことにする．
+	$\sim$ による $\mathcal{E}$ の商集合を $E$ と書き，商写像を $\mathrm{pr} \colon \mathcal{E} \to E,\; (\alpha,\, b,\, f)  \mapsto [ (\alpha,\, b,\, f)]$ と書くことにする．
 
-	集合 $E$ に\hyperref[def.quotopo]{商位相}を入れて $E$ を位相空間にする．このとき開集合 $\{\alpha\} \times U_\alpha \times F \subset \mathcal{E}$ は $\mathrm{pr}$ によって $E$ の開集合 $\mathrm{pr}(\{\alpha\} \times U_\alpha \times F) \subset{E}$ に移される．ゆえに $E$ は $\bigl\{\, \mathrm{pr}(\{\alpha\} \times U_\alpha \times V_\beta)\, \bigr\}$ を座標近傍にもつ\cinfty 多様体である（ここに $\{ V_\beta \}$ は，\cinfty 多様体 $F$ の座標近傍である）．
+	集合 $E$ に商位相を入れて $E$ を位相空間にする．このとき商位相の定義から開集合 $\{\alpha\} \times U_\alpha \times F \subset \mathcal{E}$ は $\mathrm{pr}$ によって $E$ の開集合 $\mathrm{pr}(\{\alpha\} \times U_\alpha \times F) \subset{E}$ に移される．ゆえに $E$ は $\bigl\{\, \mathrm{pr}(\{\alpha\} \times U_\alpha \times V_\beta)\, \bigr\}$ を座標近傍にもつ\cinfty 多様体である（ここに $\{ V_\beta \}$ は，\cinfty 多様体 $F$ の座標近傍である）．
 	
-	次に\cinfty 写像 $\pi \colon E \to B$ を
+	次に\cinfty の全射 $\pi \colon E \lto B$ を
 	\begin{align}
 		\pi \bigl(\, [(\alpha,\, b,\, f)]\, \bigr) \coloneqq b
 	\end{align}
-	と定義すると，これは\hyperref[def.fiber-1]{局所自明化} 
+	と定義すると，これは $\forall \alpha \in \Lambda$ に対して微分同相写像
+    \footnote{
+        逆写像は $\varphi_\alpha^{-1} \colon U_\alpha \times F \lto \pi^{-1}(U_\alpha),\; (b,\, f) \lmto [(\alpha,\, b,\, f)]$ である．
+        $\varphi_\alpha$ も $\varphi_\alpha^{-1}$ も \cinfty 写像の合成で書けるので \cinfty 写像である．
+    }
 	\begin{align}
-		\varphi_\alpha \colon \pi^{-1}(U_\alpha) \to U_\alpha \times F,\; [(\alpha,\, b,\, f)] \mapsto (b,\, f)
+		\varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto U_\alpha \times F,\; [(\alpha,\, b,\, f)] \lmto (b,\, f)
 	\end{align}
 	による\hyperref[fig.bundle_homo]{局所自明性}を持つ．
-	従って組 $\xi = (E,\, \pi,\, B,\, F)$ はファイバー束になり，証明が終わる．
+	従って組 $\xi \coloneqq (E,\, \pi,\, B,\, F)$ は構造群 $G$，局所自明化 $\{\varphi_\alpha\}_{\alpha \in \Lambda}$，変換関数 $\{t_{\alpha\beta}\}_{\alpha,\, \beta \in \Lambda}$ を持つ\hyperref[def.fiber-1]{ファイバー束}になり，証明が終わる．
 \end{proof}
 % \subsection{構造群}
 
@@ -968,19 +975,19 @@ $\xi = (E,\, \pi,\, B,\, F)$ を\hyperref[def.fiber-1]{ファイバー束}とす
             (u,\, f) \textcolor{red}{\btl}\, g \coloneqq (u \btl g,\, g^{-1} \btr f)
         \end{align}
         と定義し，この右作用による $P \times F$ の軌道空間を $\bm{P \times_G F} \coloneqq (P \times F) / G$ と書く．
-        \item 商写像 $\varpi\colon P \times F \lto P \times _G F,\; (u,\, f) \lmto (u,\, f) \textcolor{red}{\btl}\, G$ を考える．このとき写像
+        \item 商写像 $\varpi\colon P \times F \lto P \times _G F,\; (u,\, f) \lmto (u,\, f) \textcolor{red}{\btl}\, G$ による $(u,\, f) \in P \times F$ の像を $u \times_G f \in P \times_G F$ と書く．このとき写像
         \begin{align}
-            q \colon P \times_G F \lto M,\; \varpi(u,\, f) \lmto \pi (u)
+            q \colon P \times_G F \lto M,\; u \times_G f \lmto \pi (u)
         \end{align}
         がwell-definedになる．
     \end{itemize}
-    このとき，$F \hookrightarrow P \times_G F \xrightarrow{q} M$ は構造群 $G$ をもち，変換関数が $G \hookrightarrow P \xrightarrow{\pi} M$ と同じであるような\hyperref[def.fiber-1]{ファイバー束}である．
+    このとき，$F \hookrightarrow P \times_G F \xrightarrow{q} M$ は構造群 $G$ をもち，変換関数が $G \hookrightarrow P \xrightarrow{\pi} M$ のそれと同じであるような\hyperref[def.fiber-1]{ファイバー束}である．
 \end{myprop}
 
 \begin{proof}
     $q$ のwell-definednessは，\eqref{def:ractionP}で定義した右作用 $\btl$ が $\pi(u)$ を不変に保つので明らか．
 
-    $G \hookrightarrow P \xrightarrow{\pi} M$ の開被覆，局所自明化，変換関数をそれぞれ $\{U_\lambda\}_{\lambda \in \Lambda},\, \{\varphi_\lambda \colon \pi^{-1}(U_\lambda) \lto U_\lambda \times G\}_{\lambda \in \Lambda},\, \bigl\{ t_{\alpha\beta} \colon M \lto G \bigr\}_{\alpha,\, \beta \in \Lambda}$ と書く．
+    主束 $G \hookrightarrow P \xrightarrow{\pi} M$ の開被覆，局所自明化，変換関数をそれぞれ $\{U_\lambda\}_{\lambda \in \Lambda},\, \{\varphi_\lambda \colon \pi^{-1}(U_\lambda) \lto U_\lambda \times G\}_{\lambda \in \Lambda},\, \bigl\{ t_{\alpha\beta} \colon M \lto G \bigr\}_{\alpha,\, \beta \in \Lambda}$ と書く．
     また，$\forall \lambda \in \Lambda$ に対して\hyperref[def.section]{局所切断} $s_\lambda \in \Gamma(P|_{U_\alpha})$ を
     \begin{align}
         s_\lambda \colon M \lto \pi^{-1}(U_\alpha),\; x \lmto \varphi_\lambda^{-1}(x,\, 1_G)
@@ -989,24 +996,39 @@ $\xi = (E,\, \pi,\, B,\, F)$ を\hyperref[def.fiber-1]{ファイバー束}とす
 
     このとき，$\forall \lambda \in \Lambda$ に対して \cinfty 写像
     \begin{align}
-        \psi_\lambda \colon q^{-1}(U_\lambda) \lto U_\lambda \times F,\; \varpi\bigl(s_\lambda(x),\, f\bigr) \lmto \bigl( x,\, f \bigr) 
+        \label{eq:loctriv-Borel}
+        \psi_\lambda \colon q^{-1}(U_\lambda) \lto U_\lambda \times F,\; s_\lambda(x) \times_G f \lmto \bigl( x,\, f \bigr) 
     \end{align}
-    がwell-definedな全単射になるので，族 
+    がwell-definedな
+    \footnote{$\forall u \times_G f \in q^{-1}(U_\lambda)$ をとる．このとき $q(u \times_G f) = \pi(u) \in U_\lambda$ なので $u \in P$ に\underline{主束 $G \hookrightarrow P \xrightarrow{\pi} M$ の}局所自明化 $\varphi_\lambda \colon \pi^{-1}(U_\lambda) \lto U_\lambda \times F$ を作用させることができる．
+        従って $g(u) \coloneqq  \mathrm{proj}_2 \circ \varphi_\lambda (u) \in G$ とおけば，
+        $G$ の $P$ への右作用の定義\eqref{def:ractionP}から $u = \varphi_\lambda^{-1} \bigl(\pi(u),\, g(u)\bigr) = \varphi_\lambda^{-1} \bigl( \pi(u),\, 1_G \bigr)  \btl g(u) = s_\lambda \bigl( \pi(u) \bigr)  \btl g(u)$ が成り立ち，$u \times_G f = \Bigl( s_\lambda \bigl( \pi(u) \bigr) \btl g(u) \Bigr) \times_G f =  s_\lambda \bigl( \pi(u) \bigr) \times_G \bigl(g(u) \btr f\bigr)$ と書くことができる．
+        よって \textbf{$\psi_\lambda$ の定義\eqref{eq:loctriv-Borel}において} $\bm{\psi_\lambda (u \times_G f) = \bigl( \pi(u),\, g(u) \btr f \bigr)}$ \textbf{であり}，全ての $q^{-1}(U_\lambda)$ の行き先が定義されていることがわかった．
+        次に $u \times_G f = u' \times_G f' \in q^{-1}(U_\lambda)$ であるとする．このとき右作用 $\textcolor{red}{\btl}$ の定義からある $h \in G$ が存在して $u' = \varphi_\lambda^{-1} \bigl( \pi(u'),\, g(u') \bigr) = u \btl h = \varphi_\lambda^{-1} \bigl( \pi(u),\, g(u) h \bigr),\; f' = h^{-1} \btr f$ が成り立つので，$\pi(u') = \pi(u),\; g(u') = g(u)h,\, f' = h^{-1} \btr f$ が言える．
+        従って $\psi_\lambda(u' \times_G f') = \bigl( \pi(u'),\, g(u') \btr f' \bigr) = \Bigl( \pi(u),\, \bigl(g(u) h\bigr) \btr \bigl( h^{-1} \btr f \bigr) \Bigr) = \bigl( \pi(u),\, g(u) \btr h \btr h^{-1} \btr f \bigr) \bigl( \pi(u),\, g(u) \btr f \bigr) = \psi_\lambda (u \times_G f)$ が成り立ち，$\psi_\lambda$ がwell-definedであることが示された．
+    }
+    微分同相写像になる
+    \footnote{
+        $\pi \colon P \lto M,\; g \coloneqq \mathrm{proj}_2 \circ \varphi_\lambda \colon q^{-1}(U_\lambda) \lto G,\; \btr \colon G \times F \lto F$ は全て \cinfty 写像の合成の形をしているので \cinfty 写像であり，$\psi_\lambda \coloneqq \bigl(\pi \times (\btr \circ (g \times \mathrm{id}_F))\bigr)$ もこれらの合成として書けている（写像 $\times,\, \mathrm{id}_F$ はもちろん \cinfty 級である）ので \cinfty 写像である．
+        well-definednessの証明と同じ議論で $\psi_\lambda$ の単射性がわかる．全射性は定義\eqref{eq:loctriv-Borel}より明らか．
+        逆写像 $(x,\, f) \lmto s_\lambda(x) \times_G f$ も，\cinfty 写像たちの合成 $q \circ (s_\lambda \times \mathrm{id}_F)$ なので \cinfty 写像である．
+    }
+    ので，族 
     \begin{align}
         \bigl\{ \psi_\lambda \colon q^{-1}(U_\lambda) \lto U_\lambda \times F \bigr\}_{\lambda \in \Lambda}
     \end{align}
     を $F \hookrightarrow P \times_G F \xrightarrow{q} M$ の局所自明化にとる．
     すると $\forall \alpha,\, \beta \in \Lambda,\; \forall (x,\, f) \in (U_\alpha \cap U_\beta) \times F$ に対して
     \begin{align}
-        \psi_\beta^{-1} (x,\, f) &= \varpi\bigl(s_\beta(x),\, f\bigr) \\
-        &= \varpi\bigl(\varphi_\beta^{-1}(x,\, 1_G),\, f\bigr) \\
-        &= \varpi\bigl(\varphi_\alpha^{-1}(x,\, t_{\alpha\beta}(x)1_G),\, f\bigr) \\
-        &= \varpi\bigl(\varphi_\alpha^{-1}(x,\, 1_G t_{\alpha\beta}(x)),\, f\bigr) \\
-        &= \varpi\bigl(\varphi_\alpha^{-1}(x,\, 1_G) \btl t_{\alpha\beta}(x),\, f\bigr) \\
-        &= \varpi\bigl(s_\alpha (x) \btl t_{\alpha\beta}(x),\, f\bigr) \\
+        \psi_\beta^{-1} (x,\, f) &= s_\beta(x) \times_G f \\
+        &= \varphi_\beta^{-1}(x,\, 1_G) \times_G f \\
+        &= \varphi_\alpha^{-1}(x,\, t_{\alpha\beta}(x)1_G) \times_G f \\
+        &= \varphi_\alpha^{-1}(x,\, 1_G t_{\alpha\beta}(x)) \times_G f \\
+        &= \bigl(\varphi_\alpha^{-1}(x,\, 1_G) \btl t_{\alpha\beta}(x)\bigr) \times_G f \\
+        &= \bigl(s_\alpha (x) \btl t_{\alpha\beta}(x)\bigr) \times_G f \\
         % &= \varpi\bigl(x  t_{\alpha\beta}(x),\, f\bigr) \\
-        &= \varpi \bigl( (s_\alpha (x) \btl t_{\alpha\beta}(x)) \btl t_{\alpha\beta}(x)^{-1},\, t_{\alpha\beta}(x) \btr f \bigr) \\
-        &= \varpi \bigl( s_\alpha (x),\, t_{\alpha\beta}(x) \btr f \bigr) \\
+        &= \Bigl( \bigl(s_\alpha (x) \btl t_{\alpha\beta}(x)\bigr) \btl t_{\alpha\beta}(x)^{-1} \Bigr) \times_G \bigl(t_{\alpha\beta}(x) \btr f\bigr) \\
+        &= s_\alpha (x) \times_G \bigl( t_{\alpha\beta}(x) \btr f \bigr) \\
         &= \psi_\alpha^{-1} (x,\, t_{\alpha\beta}(x) \btr f)
     \end{align}
     が成り立つので $F \hookrightarrow P \times_G F \xrightarrow{q} M$ の変換関数は
@@ -1037,7 +1059,7 @@ $\xi = (E,\, \pi,\, B,\, F)$ を\hyperref[def.fiber-1]{ファイバー束}とす
 \end{align}
 の\hyperref[def.section]{局所切断} $\phi \colon U_\alpha \lto P \times_\rho \mathbb{K}^N$ を，ある一つの\hyperref[def.fiber-1]{局所自明化} $\sigma_\alpha \colon q^{-1}(U_\alpha) \lto U_\alpha \times \mathbb{K}^N$ によって座標表示した（ものの第2成分を取り出してきたもの）
 \begin{align}
-    \varphi = \mathrm{proj}_2 \circ \sigma_\alpha \circ \phi \colon \mathcal{M} \lto \mathbb{K}^N
+    \varphi = \mathrm{proj}_2 \circ \sigma_\alpha \circ \phi \colon U_\alpha \lto \mathbb{K}^N
 \end{align}
 のことだと見做せる．と言うのも，こう考えることで場の変換性\eqref{eq:2-inner1}
 \begin{align}
@@ -1046,7 +1068,7 @@ $\xi = (E,\, \pi,\, B,\, F)$ を\hyperref[def.fiber-1]{ファイバー束}とす
 が，時空の2つの開集合 $V,\, \tilde{V} \subset \mathcal{M}$ の共通部分上における，局所自明化 $\sigma,\, \tilde{\sigma} \colon \pi^{-1} (V \cap \tilde{V}) \lto (V \cap \tilde{V}) \times \mathbb{K}^N$ の取り替え（内部自由度に関する一般座標変換のようなもの）に伴う変換関数 $U_{\tilde{V},\, V} \colon \mathcal{M} \lto G$ の作用
 \begin{align}
     \tilde{\sigma} \circ \sigma^{-1} \colon (V \cap \tilde{V}) \times \mathbb{K}^N &\lto (V \cap \tilde{V}) \times \mathbb{K}^N, \\
-    \bigl(x,\, \varphi(x)\bigr) &\lmto \Bigl(x,\, \rho\bigl(U_{\tilde{V},\, V}(x)\bigr)\bigl( \varphi(x) \bigr) \Bigr)
+    \bigl(x,\, \bm{\varphi(x)}\bigr) &\lmto \Bigl(x,\, \rho\bigl(U_{\tilde{V},\, V}(x)\bigr)\bigl( \varphi(x) \bigr) \Bigr) = \Bigl( x,\, \bm{U_{\tilde{V},\, V} (x) \varphi(x)} \Bigr) 
 \end{align}
 として上手く定式化できているのである．
 
