@@ -7,7 +7,7 @@
 
 $C^\infty$ 多様体 $M$ 上の $C^\infty$ 関数全体の集合のことを $C^\infty (M)$ と書く．
 
-$C^\infty$ 多様体の1つの極大 $C^\infty$ アトラスを $\bm{C^\infty}$ \textbf{構造} (smooth structure) と呼ぶことにする．
+$C^\infty$ 多様体の1つの極大 $C^\infty$ アトラスを $\bm{C^\infty}$ \textbf{構造} (smooth structure)\footnote{\textbf{微分構造} (differential structure) ということもある．} と呼ぶことにする．
 集合 $M$ の上に $C^\infty$ 構造を与えるには，例えば次のようにすればよい~\cite[p.21, Lemma 1.35]{Lee2012smooth}：
 
 \begin{mylem}[label=lem:cinfty-chart]{$C^\infty$ 構造の構成}
@@ -188,10 +188,10 @@ $M$ の\textbf{接束} (tangent bundle) とは
 
 \section{ベクトル場の定義}
 
-\begin{mydef}[label=def:vecf]{ベクトル場}
+\begin{mydef}[label=def:vecf, breakable]{ベクトル場}
     境界あり/なし $C^\infty$ 多様体 $M$ を与える．
     \begin{itemize}
-        \item $M$ 上の\textbf{ベクトル場} (vector field) とは，接束 $TM$ の切断のことを言う．i.e. \underline{連続写像}\footnote{$TM$ の位相は命題\ref{prop:tangentbundle}で構成したものを選ぶ．} $X \colon M \lto TM$ であって $\pi \circ X = \mathrm{id}_M$ を充たすもののこと．
+        \item $M$ 上の\textbf{ベクトル場} (vector field) とは，接束 $TM$ の切断のことを言う．i.e. \underline{連続写像}\footnote{$TM$ の位相は命題\ref{prop:tangentbundle}で構成したものを採用する．} $X \colon M \lto TM$ であって $\pi \circ X = \mathrm{id}_M$ を充たすもののこと．
         \item $M$ 上の $\bm{C^\infty}$ \textbf{ベクトル場}とは，$M$ 上のベクトル場 $X$ であって，$TM$ に命題\ref{prop:tangentbundle}の $C^\infty$ 構造を入れたときに $C^\infty$ 写像となるもののこと．
         \item $M$ 上のベクトル場 $X$ の\textbf{台} (support) とは，閉集合\footnote{ここで言う $0$ とは，厳密には $(p,\, 0) \in TM$ のことである．一点集合 $\{(p,\, 0) \}$ はコンパクトだが，$T M$ は命題\ref{prop:tangentbundle}よりHausdorff空間なので閉集合でもある．故に $T M \setminus \{(p,\, 0) \}$ は開集合であり，$X \colon M \lto TM$ は連続写像なので $X^{-1}(TM \setminus \{0\})$ も開集合である．これの閉包を取ることで $\supp X$ が得られる．}
         \begin{align}
@@ -205,10 +205,12 @@ $M$ の\textbf{接束} (tangent bundle) とは
         \end{align}
         によって定義し，$X$ の\textbf{成分関数} (component function) と呼ぶ．
     \end{itemize}
+    \tcblower
+    境界あり/なし $C^\infty$ 多様体 $M$ 上の \underline{$C^\infty$ ベクトル場}全体の集合を $\bm{\mathfrak{X}(M)}$ と書く．
 \end{mydef}
 
 \begin{marker}
-    ベクトル場 $X \colon M \lto TM$ による点 $ p\in M$ の行き先を $X(p)$ と書く代わりに $\bm{X_p}$ と書く．さらに，混乱の恐れがないときは $X_p = (p,\, v)\quad (v \in T_p M)$ のとき $v$ のことを $X_p$ と書く場合がある．
+    ベクトル場 $X \colon M \lto TM$ による点 $ p\in M$ の像を $X(p)$ と書く代わりに $\bm{X_p}$ と書く．さらに，混乱の恐れがないときは $X_p = (p,\, v)\quad (v \in T_p M)$ のとき $v$ のことを $X_p$ と書く場合がある．
 \end{marker}
 
 
@@ -229,8 +231,6 @@ $M$ の\textbf{接束} (tangent bundle) とは
     は $U$ 上の $C^\infty$ ベクトル場となる．
     $C^\infty$ 性は，成分関数が $p \lmto \delta^\nu_\mu$ なる定数関数なので命題\ref{prop:smoothvecf}から従う．
 \end{myexample}
-
-境界あり/なし $C^\infty$ 多様体 $M$ 上の \underline{$C^\infty$ ベクトル場}全体の集合を $\bm{\mathfrak{X}(M)}$ と書く．
 
 \begin{myprop}[label=prop:vecf-module]{$\mathfrak{X}(M)$ の加群としての構造}
     \begin{itemize}
@@ -258,11 +258,13 @@ $M$ の\textbf{接束} (tangent bundle) とは
     に関して環になることから従う．加法単位元はどちらの場合も関数 $p \lmto (p,\, 0)$ である．
 \end{proof}
 
+さらに，後で述べるが，$\mathfrak{X}(M)$ はLieブラケットについてLie代数をなす．
+
 \begin{mydef}[label=def:smoothframe]{フレーム}
     $n$ 次元 $C^\infty$ 多様体 $M$ を与える．
     \begin{itemize}
-        \item ベクトル場\footnote{$C^\infty$ とは限らない}の順序付き $k$ 対 $(X_1,\, \dots,\, X_k)$ が部分集合 $A \subset M$ 上\textbf{線型独立} (linearly independent) であるとは， $\forall p \in A$ において $(X_1|_p,\, \dots,\, X_k|_p)$ が $\mathbb{R}$ ベクトル空間 $T_p M$ の元として線型独立であることを言う．
-        \item $M$ の\textbf{局所フレーム} (local frame) とは，ある開集合 $U \subset M$ 上の線型独立なベクトル場\footnote{$C^\infty$ とは限らない}の $n$ 対 $(E_1,\, \dots,\, E_n)$ であって，$\forall p \in U$ において $(X_1|_p,\, \dots,\, X_k|_p)$ が $T_p M$ を貼るようなもののこと．
+        \item \hyperref[def:vecf]{ベクトル場}\footnote{$C^\infty$ とは限らない}の順序付き $k$ 対 $(X_1,\, \dots,\, X_k)$ が部分集合 $A \subset M$ 上\textbf{線型独立} (linearly independent) であるとは， $\forall p \in A$ において $(X_1|_p,\, \dots,\, X_k|_p)$ が $\mathbb{R}$ ベクトル空間 $T_p M$ の元として線型独立であることを言う．
+        \item $M$ の開集合 $U \subset M$ 上の\textbf{局所フレーム} (local frame) とは，$U$ 上線型独立なベクトル場\footnote{$C^\infty$ とは限らない}の $n$ 対 $(E_1,\, \dots,\, E_n)$ であって，$\forall p \in U$ において $(E_1|_p,\, \dots,\, E_n|_p)$ が $T_p M$ の基底となるもののこと．
         \item $U = M$ 上の局所フレームのことを\textbf{大域的フレーム} (global frame) と呼ぶ．
         \item 局所フレーム  $(E_1,\, \dots,\, E_n)$ であって $E_i$ が $C^\infty$ ベクトル場であるもののことを $\bm{C^\infty}$ \textbf{フレーム} (smooth frame) と呼ぶ．
     \end{itemize}
@@ -315,18 +317,34 @@ $M$ の\textbf{接束} (tangent bundle) とは
 が成り立つこともわかる．このことから $\mathbb{R}$-線型写像 $X \colon C^\infty (M) \lto C^\infty(M)$ は\textbf{微分} (derivation) である．逆に，$C^\infty(M)$ に作用する任意の微分は次の意味であるベクトル場と同一視できる：
 
 \begin{myprop}[label=prop:vecf-derivation]{微分とベクトル場}
-    写像 $D \colon C^\infty (M) \lto C^\infty(M)$ が微分である，i.e. $\mathbb{R}$-線型写像でかつLeibniz則を充たす．
-    
-    $\IFF$ ある $X \in \mathfrak{X}(M)$ が存在して，$\forall f \in C^\infty(M)$ に対して $D(f) = Xf$ が成り立つ．
+    写像 $D \colon C^\infty (M) \lto C^\infty(M)$ を与える．このとき以下の2つは同値である：
+    \begin{enumerate}
+        \item $D$ は微分である，i.e. $\mathbb{R}$-線型写像でかつLeibniz則を充たす．
+        \item ある $X \in \mathfrak{X}(M)$ が存在して，$\forall f \in C^\infty(M)$ に対して $D(f) = Xf$ が成り立つ．
+    \end{enumerate}
 \end{myprop}
 
 \begin{proof}
-    ~\cite[p.180, Proposition 8.15]{Lee2012smooth}
+    % ~\cite[p.180, Proposition 8.15]{Lee2012smooth}
+    (1) $\Longleftarrow$ (2) は既に示したので (1) $\Longrightarrow$ (2) を示す．
+
+    まず，写像 
+    \begin{align}
+        X \colon p \lmto \bigl(f \lmto D(f)(p)\bigr)
+    \end{align}
+    が\hyperref[def:vecf]{ベクトル場}であることを示す．そのためには $\forall p \in M$ に対して $X_p \in T_p M$ であること，i.e. $X(p)$ が $\forall f,\, g \in C^\infty(M),\; \forall \lambda \in \mathbb{R}$ に対して
+    \begin{align}
+        X_p(f+g) &= X_p(f) + X_p(g) \\
+        X_p(\lambda f) &=\lambda X_p(f) \\
+        X_p(fg) &= X_p(f)\, g(p) + f(p)\, X_p(g) 
+    \end{align}
+    を充たすことを示せば良いが，$D \colon C^\infty (M) \lto C^\infty (M)$ が微分であることからこれらは明らかである．
+    $D$ の定義から $\forall f \in C^\infty (M)$ に対して $Xf = Df \in C^\infty(M)$ なので，命題\ref{prop:smoothvecf-2}から $X \in \mathfrak{X}(M)$ も言える．
 \end{proof}
 
 \subsection{ベクトル場と $C^\infty$ 写像}
 
-$M,\, N$ を $C^\infty$ 多様体，$F \colon M \lto N$ を $C^\infty$ 写像とする．このとき $F$ によって $\mathfrak{X}(M)$ と $\mathfrak{X}(N)$ の間の自然な対応が生まれることを見る．
+$M,\, N$ を $C^\infty$ 多様体，$F \colon M \lto N$ を $C^\infty$ 写像とする．このとき $F$ によって $\mathfrak{X}(M)$ と $\mathfrak{X}(N)$ の間の自然な対応が生まれる場合がある\footnote{しかし，いつでも自然に対応するとは限らない．}ことを見る．
 
 まず，接ベクトルの微分を思いだそう．これは $\forall p \in M$ に対して定まる
 \begin{align}
@@ -368,7 +386,30 @@ $M,\, N$ を $C^\infty$ 多様体，$F \colon M \lto N$ を $C^\infty$ 写像と
 \end{mydef}
 
 
-\begin{myprop}[label=prop:F-related]{}
+\begin{myexample}[]{}
+    $C^\infty$ 写像 $F \colon \mathbb{R} \lto \mathbb{R}^2,\; t\lmto (\cos t,\, \sin t)$ を考える．
+    このとき，$\mathbb{R}$ のチャート $\bigl(\mathbb{R},\, (t)\bigr)$ による\hyperref[def:coord-vecf]{座標ベクトル場}
+    \begin{align}
+        \dv{}{t} \in \mathfrak{X}(\mathbb{R})
+    \end{align}
+    は，$\mathbb{R}^2$ のチャート $\bigl(\mathbb{R}^2,\, (x,\, y)\bigr)$ において
+    \begin{align}
+        Y \coloneqq - y \pdv{}{x} + x \pdv{}{y} \in \mathfrak{X} (\mathbb{R}^2)
+    \end{align}
+    と定義される\footnote{\hyperref[def:vecf]{成分関数}が それぞれ $Y^1 \colon (x,\, y) \lmto -y,\; Y^2 \colon (x,\, y) \lmto x$ だということ．} $C^\infty$ ベクトル場 $Y$ と \hyperref[def:F-related]{$F$-related}である．
+    実際，$\forall t \in \mathbb{R}$ および $\forall f \in C^\infty (\mathbb{R}^2)$ に対して
+    \begin{align}
+        T_t F\left(\eval{\dv{}{t}}_t\right) (f) &= \dv{}{t}() \bigl( f(\cos t,\, \sin t) \bigr) \\
+        &= \dv{(\cos t)}{t} \pdv{f}{x}()(\cos t,\, \sin t) + \dv{(\sin t)}{t} \pdv{f}{y}()(\cos t,\, \sin t) \\
+        &= - \sin t \, \pdv{f}{x}()\bigl(F(t)\bigr) + \cos t \, \pdv{f}{y} \bigl(F(t)\bigr) \\
+        &= Y^1 \bigl( F(t) \bigr)  \eval{\pdv{}{x}}_{F(t)}(f) + Y^2 \bigl( F(t) \bigr)  \eval{\pdv{}{y}}_{F(t)} (f) \\
+        &= Y_{F(t)} (f)
+    \end{align}
+    が成り立つ．
+\end{myexample}
+
+
+\begin{myprop}[label=prop:F-related]{$F$-relatedの特徴付け}
     境界あり/なし $C^\infty$ 多様体 $M,\, N$ と $C^\infty$ 写像 $F \colon M \lto N$ を与える．
 
     $X \in \mathfrak{X}(M)$ と $Y \in \mathfrak{X}(N)$ が\hyperref[def:F-related]{$F$-related} である必要十分条件は，
@@ -387,28 +428,6 @@ $M,\, N$ を $C^\infty$ 多様体，$F \colon M \lto N$ を $C^\infty$ 写像と
     \end{align}
     が成り立つ．
 \end{proof}
-
-\begin{myexample}[]{}
-    $C^\infty$ 写像 $F \colon \mathbb{R} \lto \mathbb{R}^2,\; t\lmto (\cos t,\, \sin t)$ を考える．
-    このとき，$\mathbb{R}$ のチャート $\bigl(\mathbb{R},\, (t)\bigr)$ による\hyperref[def:coord-vecf]{座標ベクトル場}
-    \begin{align}
-        \dv{}{t} \in \mathfrak{X}(\mathbb{R})
-    \end{align}
-    は，$\mathbb{R}$ のチャート $\bigl(\mathbb{R}^2,\, (x,\, y)\bigr)$ において
-    \begin{align}
-        Y \coloneqq - y \pdv{}{x} + x \pdv{}{y} \in \mathfrak{X} (\mathbb{R}^2)
-    \end{align}
-    と定義される\footnote{\hyperref[def:vecf]{成分関数}が それぞれ $Y^1 \colon (x,\, y) \lmto -y,\; Y^2 \colon (x,\, y) \lmto x$ だということ．} $C^\infty$ ベクトル場 $Y$ と \hyperref[def:F-related]{$F$-related}である．
-    実際，$\forall t \in \mathbb{R}$ および $\forall f \in C^\infty (\mathbb{R}^2)$ に対して
-    \begin{align}
-        T_t F\left(\eval{\dv{}{t}}_t\right) (f) &= \dv{}{t}() \bigl( f(\cos t,\, \sin t) \bigr) \\
-        &= \dv{(\cos t)}{t} \pdv{f}{x}()(\cos t,\, \sin t) + \dv{(\sin t)}{t} \pdv{f}{y}()(\cos t,\, \sin t) \\
-        &= - \sin t \, \pdv{f}{x}()\bigl(F(t)\bigr) + \cos t \, \pdv{f}{y} \bigl(F(t)\bigr) \\
-        &= Y^1 \bigl( F(t) \bigr)  \eval{\pdv{}{x}}_{F(t)}(f) + Y^2 \bigl( F(t) \bigr)  \eval{\pdv{}{y}}_{F(t)} (f) \\
-        &= Y_{F(t)} (f)
-    \end{align}
-    が成り立つ．
-\end{myexample}
 
 $F$-relratedなベクトル場は必ず存在するとは限らない．
 
@@ -442,7 +461,90 @@ $F$-relratedなベクトル場は必ず存在するとは限らない．
     \end{align}
 \end{mycol}
 
-\section{積分曲線と流れ}
+\subsection{Lieブラケット}
+
+\begin{mydef}[label=def:Lie-bracket]{Lieブラケット}
+    境界あり/なし \cinfty 多様体 $M$ を与える．
+    $\forall X,\, Y \in \mathfrak{X}(M)$ の\textbf{Lieブラケット} (Lie bracket) とは，
+    微分
+    \begin{align}
+        \label{eq:Liebracket}
+        \comm{X}{Y} \colon C^\infty (M) \lto C^\infty (M),\; f \lmto X(Y f) - Y(X f)
+    \end{align}
+    のことを言う．
+    \tcblower
+    微分 $\comm{X}{Y}$ を命題\ref{prop:vecf-derivation}の意味で \cinfty ベクトル場と見做したものも $\comm{X}{Y} \in \mathfrak{X}(M)$ と書く．
+\end{mydef}
+
+\eqref{eq:Liebracket} の写像 $\comm{X}{Y}$ が\hyperref[prop:vecf-derivation]{微分}であることを確認しておく．
+線形性はほぼ自明なのでLeibniz則を確認しよう：
+\begin{align}
+    \comm{X}{Y}(fg) &= X \bigl( Y(fg) \bigr) - Y \bigl( X(fg) \bigr) \\
+    &= X(f\, Yg + g\, Yf) - Y(f\, Xg + g\, Xf) \\
+    &= f\, XYg + \cancel{Yg\, Xf} + g\, XYf + \cancel{Yf\, Xg} - f\, YXg - \cancel{Xg\, Yf} - g\, YXf - \cancel{Xf\, Yg} \\
+    &= f\, (\comm{X}{Y}g) + g\, (\comm{X}{Y}f)
+\end{align}
+この途中式から，$f \lmto XY f$ が\underline{微分でない}こともわかる．つまり，$\mathbb{R}$ ベクトル空間 $\mathfrak{X}(M)$ （命題\ref{prop:vecf-module}）の上に，\underline{$f \lmto XYf$ によって定義される新たな積演算を入れようとしても上手くいかない}．
+その代わりに\hyperref[def:Lie-bracket]{Lieブラケット}が必要なのである．
+
+\begin{myprop}[label=prop:vecf-Liealg]{$\mathfrak{X}(M)$ のLie代数としての構造}
+    $\mathfrak{X}(M)$ 上の\hyperref[def:Lie-bracket]{Lieブラケット}は以下を充たす：
+    \begin{description}
+        \item[\textbf{(双線型性)}] $\forall a,\, b \in \mathbb{R}$ に対して
+        \begin{align}
+            \comm{aX + bY}{Z} &= a\comm{X}{Z} + b \comm{Y}{Z}, \\
+            \comm{Z}{aX + bY} &= a\comm{Z}{X} + b \comm{Z}{Y}
+        \end{align}
+        \item[\textbf{(反対称性)}] \begin{align}
+            \comm{X}{Y} = - \comm{Y}{X}
+        \end{align}
+        \item[\textbf{(Jacobi恒等式)}] \begin{align}
+            \comm{X}{\comm{Y}{Z}} + \comm{Y}{\comm{Z}{X}} + \comm{Z}{\comm{X}{Y}} = 0
+        \end{align}        
+    \end{description}
+    従って，$\mathfrak{X}(M)$ は $\comm{\;}{\,}$ について無限次元実Lie代数をなす．
+\end{myprop}
+
+\begin{myprop}[label=prop:Lie-bracket-natural]{Lieブラケットの自然性}
+    境界あり/なし \cinfty 多様体 $M,\, N$ と \cinfty 写像 $F \colon M \lto N$ を与える．
+    このとき，以下が成り立つ：
+    \begin{enumerate}
+        \item $X_1,\, X_2 \in \mathfrak{X}(M)$ がそれぞれ $Y_1,\, Y_2 \in \mathfrak{X}(N)$ と\hyperref[def:F-related]{$F$-related}ならば，
+        $\comm{X_1}{X_2} \in \mathfrak{X}(M)$ も $\comm{Y_1}{Y_2} \in \mathfrak{X}(N)$ と $F$-related である．
+        \item $F$ が微分同相写像ならば，$\forall X_1,\, X_2 \in \mathfrak{X}(M)$ に対して
+        \begin{align}
+            F_* \comm{X_1}{X_2} = \comm{F_* X_1}{F_* X_2}
+        \end{align}
+    \end{enumerate}
+    
+\end{myprop}
+
+\begin{proof}
+    \begin{enumerate}
+        \item $X_i$ と $Y_i$ が $F$-related ならば，命題\ref{prop:F-related}より $N$ の任意の開集合 $U \subset N$ に対して $\forall f \in C^\infty (U)$ が
+        \begin{align}
+            X_1 X_2 (f \circ F) &= X_1 \bigl( X_2(f \circ F) \bigr) = X_1 \bigl( (Y_2f) \circ F \bigr) = (Y_1Y_2 f) \circ F \in C^\infty (M), \\
+            X_2 X_1 (f \circ F) &= X_2 \bigl( X_1(f \circ F) \bigr) = X_2 \bigl( (Y_1f) \circ F \bigr) = (Y_2Y_1 f) \circ F \in C^\infty (M)
+        \end{align}
+        を充たす．従って
+        \begin{align}
+            \comm{X_1}{X_2}(f \circ F) &= X_1X_2(f \circ F) - X_2X_1(f \circ F) \\
+            &= (Y_1Y_2 f) \circ F - (Y_2Y_1f) \circ F \\
+            &= (\comm{Y_1}{Y_2} f) \circ F \in C^\infty (M)
+        \end{align}
+        が成り立つので，命題\ref{prop:F-related}より $\comm{X_1}{X_2} \in \mathfrak{X}(M)$ は $\comm{Y_1}{Y_2} \in \mathfrak{X}(N)$ と $F$-related である．
+        \item $F$ が微分同相写像ならば，\hyperref[prop:diffeo-Frelated]{押し出しの定義}より $F_* X_i \in \mathfrak{X}(N)$ は $X_i$ と $F$-related である．
+        よって (1) から $\comm{X_1}{X_2} \in \mathfrak{X}(M)$ と $\comm{F_* X_1}{F_* X_2} \in \mathfrak{X}(N)$ は $F$-related だが，
+        命題\ref{prop:diffeo-Frelated}より $\comm{X_1}{X_2} \in \mathfrak{X}(M)$ と $F$-related な $N$ 上の \cinfty ベクトル場は $F_* \comm{X_1}{X_2} \in \mathfrak{X}(N)$ ただ一つであるから
+        \begin{align}
+            F_*\comm{X_1}{X_2} = \comm{F_* X_1}{F_* X_2} \in \mathfrak{X}(N)
+        \end{align}
+        である．
+    \end{enumerate}
+    
+\end{proof}
+
+\section{積分曲線とフロー}
 
 \subsection{積分曲線}
 
@@ -469,6 +571,25 @@ $F$-relratedなベクトル場は必ず存在するとは限らない．
 \end{align}
 の解 $\bigl( \gamma^1(t),\, \dots,\, \gamma^{\dim M} (t) \bigr)$ のことである．
 
+\begin{myexample}[label=ex:integral-curve1]{}
+    $\mathbb{R}^2$ のチャート $\bigl(\mathbb{R}^2,\, (x,\, y)\bigr)$ において
+    \begin{align}
+        Y \coloneqq - y \pdv{}{x} + x \pdv{}{y} \in \mathfrak{X} (\mathbb{R}^2)
+    \end{align}
+    と定義される \cinfty ベクトル場 $Y$ の積分曲線 $\gamma \colon \mathbb{R} \lto \mathbb{R}^2,\; t \lmto \bigl( \gamma^1(t),\, \gamma^2 (t)\bigr) $ は連立常微分方程式
+    \begin{align}
+        \dv{\gamma^1}{t}()(t) &= - \gamma^2 (t), \\
+        \dv{\gamma^2}{t}()(t) &= \gamma^1 (t),
+    \end{align}
+    の解であり，積分定数 $(a,\, b) \in \mathbb{R}^2$ を用いて
+    \begin{align}
+        \gamma^1(t) &= a \cos t - b \sin t, \\
+        \gamma^2(t) &= a \sin t + b \cos t
+    \end{align}
+    と書ける．このように，初期条件を指定しない限り積分曲線は一意に定まらない．
+\end{myexample}
+
+
 \begin{myprop}[label=prop:existence-integral]{積分曲線の存在}
     境界あり/なし \cinfty 多様体 $M$ と，その上の\hyperref[def:vecf]{\cinfty ベクトル場} $X \in \mathfrak{X}(M)$ を与える．
     $\forall p \in M$ に対して，ある $\varepsilon > 0$ と \cinfty 曲線 $\gamma \colon (-\varepsilon,\, \varepsilon) \lto M$ が存在して
@@ -479,24 +600,138 @@ $F$-relratedなベクトル場は必ず存在するとは限らない．
     常微分方程式の解の存在定理から従う．
 \end{proof}
 
-\subsection{流れ}
+\begin{myprop}[label=prop:natural-integral-curve]{積分曲線の自然性}
+    境界あり/なし \cinfty 多様体 $M,\, N$ と \cinfty 写像 $F \colon M \lto N$ を任意に与える．
+    このとき，$\forall X \in \mathfrak{X}(M),\; \forall Y \in \mathfrak{X}(N)$ に対して以下の2つは同値である：
+    \begin{enumerate}
+        \item $X,\, Y$ が\hyperref[def:F-related]{$F$-related}
+        \item $\gamma \colon J \lto M$ が $X$ の\hyperref[def:integral-curve]{積分曲線}$\IMP F \circ \gamma \colon J \lto N$ は $Y$ の積分曲線
+    \end{enumerate}
+\end{myprop}
 
-\begin{mydef}[label=def:global-flow]{大域的な流れ}
-    \cinfty 多様体 $M$ へのLie群\footnote{$\mathbb{R}$ を加法に関して群と見做す．} $\mathbb{R}$ の左作用
+\begin{proof}
+    \begin{description}
+        \item[\textbf{(1) $\bm{\Longrightarrow}$ (2)}]　
+        
+        $X,\, Y$ が $F$-related であるとする．
+        $\gamma \colon J \lto M$ を $X$ の積分曲線とする．このとき $N$ の\cinfty 曲線 $\sigma \coloneqq F \circ \gamma\colon J \lto N$ は $\forall t \in J$ において
+        \begin{align}
+            \dot{\sigma} (t) &= T_0 (F \circ \gamma) \left( \eval{\dv{}{t}}_{t} \right) \\
+            &= T_{\gamma(t)} F \circ T_0 \gamma \left( \eval{\dv{}{t}}_{t} \right) \\
+            &= T_{\gamma(t)} F \bigl( \dot{\gamma} (t) \bigr) \\
+            &= T_{\gamma(t)} F \bigl( X_{\gamma(t)} \bigr) \\
+            &= Y_{F (\gamma(t))} \\
+            &= Y_{\sigma(t)}
+        \end{align}
+        を充たすので $Y$ の積分曲線である\footnote{2つ目の等号で接ベクトルの微分の関手性を使った}．
+
+        \item[\textbf{(1) $\bm{\Longleftarrow}$ (2)}] 　
+        
+        $X$ の積分曲線 $\gamma$ が与えられたとき $F \circ \gamma$ が $Y$ の積分曲線になるとする．
+        $\forall p \in M$ を1つとり，$\gamma \colon (-\varepsilon,\, \varepsilon) \lto M$ を初期条件 $\gamma(0) = p$ を充たす $X$ の積分曲線とする．命題\ref{prop:existence-integral-curve}によりこのような $\gamma$ が少なくとも1つ存在する．
+        このとき仮定より $F \circ \gamma \colon (-\varepsilon,\, \varepsilon) \lto N$ が初期条件 $(F\circ \gamma)(0) = F(p)$ を充たす $Y$ の積分曲線となるので
+        \begin{align}
+            Y_{F(p)} &= \dot{(F \circ \gamma)} (0) \\
+            &= T_{0} (F \circ \gamma) \left( \eval{\dv{}{t}}_{t=0} \right) \\
+            &= T_{\gamma(0)} F \circ T_0 \gamma \left( \eval{\dv{}{t}}_{t=0} \right) \\
+            &= T_{\gamma(0)} F \bigl( \dot{\gamma}(0) \bigr) \\
+            &= T_{\gamma(0)} F (X_{\gamma(0)}) \\
+            &= T_{p} F (X_p)
+        \end{align}
+        が成り立つので $X,\, Y$ は $F$-relatedである．
+    \end{description}
+    
+\end{proof}
+
+技術的な補題を示しておく：
+
+\begin{mylem}[label=lem:affine-integral-curve]{定義域のaffine変換}
+    境界あり/なし \cinfty 多様体 $M$ と，その上の\hyperref[def:vecf]{\cinfty ベクトル場} $X \in \mathfrak{X}(M)$ を与える．
+
+    $X$ の任意の\hyperref[def:integral-curve]{積分曲線} $\gamma \colon J \lto M$ を与える．このとき以下が成り立つ：
+    \begin{enumerate}
+        \item $\forall a \in \mathbb{R}$ に対して
+        \begin{align}
+            \tilde{J} \coloneqq \bigl\{\, t \in \mathbb{R} \bigm| at \in J \,\bigr\} 
+        \end{align}
+        とおくと，
+        \cinfty 曲線
+        \begin{align}
+            \tilde{\gamma} \colon \tilde{J} \lto M,\; t \lmto \gamma(at)
+        \end{align}
+        は \cinfty ベクトル場 $a X \in \mathfrak{X} (M)$ の積分曲線である．
+        \item  $\forall b \in \mathbb{R}$ に対して
+        \begin{align}
+            \widehat{J} \coloneqq \bigl\{\, t \in \mathbb{R} \bigm| t + b \in J \,\bigr\} 
+        \end{align}
+        とおくと，
+        \cinfty 曲線
+        \begin{align}
+            \widehat{\gamma} \colon \widehat{J} \lto M,\; t \lmto \gamma(t + b)
+        \end{align}
+        は \cinfty ベクトル場 $X \in \mathfrak{X} (M)$ の積分曲線である．
+    \end{enumerate}
+\end{mylem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item \cinfty 写像 $\mu_a \colon \tilde{J} \lto J,\; t \lmto at$ を考えると，$\tilde{\gamma} = \gamma \circ \mu_a$ である．
+        よって $\forall t_0 \in \tilde{J}$ および点 $\tilde{\gamma}(t_0) \in M$ の任意の開近傍上で定義された \cinfty 関数 $f$ に対してとても丁寧に計算すると
+        \footnote{
+            $\mathbb{R}$ の チャート $(\tilde{J},\, \mathrm{id}) = (\tilde{J},\, t)$ から $(\tilde{J},\, \mu_a) = (\tilde{J},\, (s)) = (\tilde{J},\, (at))$ への座標変換と見做して，$T_{t_0} \mu_a \left( \eval{\dv{}{t}}_{t=t_0} \right) = \dv{s}{t}()(t_0) \eval{\dv{}{s}}_{s=at_0} = a \eval{\dv{}{s}}_{s=at_0}$
+        }
+        \begin{align}
+            \dot{\tilde{\gamma}}(t_0) f
+            &= T_{t_0} \tilde{\gamma} \left( \eval{\dv{{t}}}_{t=t_0} \right) f
+            = \eval{\dv{{t}}}_{t=t_0} (f \circ \tilde{\gamma})(t)
+            = \eval{\dv{{t}}}_{t=t_0} (f \circ \gamma \circ \mu_a)(t) \\
+            &= T_{t_0} (\gamma \circ \mu_a) \left( \eval{\dv{{t}}}_{t=t_0} \right) f
+            = T_{\mu_a(t_0)} \gamma \circ T_{t_0} \mu_a \left( \eval{\dv{}{t}}_{t=t_0} \right) f \\
+            &= aT_{at_0} \gamma  \left( \eval{\dv{}{t}}_{t=at_0} \right) f
+            = a \dot{\gamma}(at_0) f
+            = a X_{\gamma(at_0)} f
+            = \bigl(a X_{\tilde{\gamma}(t_0)}\bigr) f
+        \end{align}
+        \item \cinfty 写像 $\tau_b \colon \tilde{J} \lto J,\; t \lmto t+b$ を考えると，$\widehat{\gamma} = \gamma \circ \tau_b$ である．
+        よって $\forall t_0 \in \widehat{J}$ および点 $\widehat{\gamma}(t_0) \in M$ の任意の開近傍上で定義された \cinfty 関数 $f$ に対してとても丁寧に計算すると
+        \footnote{
+            $\mathbb{R}$ の チャート $(\widehat{J},\, \mathrm{id}) = (\widehat{J},\, t)$ から $(\widehat{J},\, \tau_b) = (\widehat{J},\, (s)) = (\widehat{J},\, (t+b))$ への座標変換と見做して，$T_{t_0} \tau_a \left( \eval{\dv{}{t}}_{t=t_0} \right) = \dv{s}{t}()(t_0) \eval{\dv{}{s}}_{s=t_0 + b} = \eval{\dv{}{s}}_{s=t_0+b}$
+        }
+        \begin{align}
+            \dot{\widehat{\gamma}}(t_0) f
+            &= T_{t_0} \widehat{\gamma} \left( \eval{\dv{{t}}}_{t=t_0} \right) f
+            = \eval{\dv{{t}}}_{t=t_0} (f \circ \widehat{\gamma})(t)
+            = \eval{\dv{{t}}}_{t=t_0} (f \circ \gamma \circ \tau_b)(t) \\
+            &= T_{t_0} (\gamma \circ \tau_b) \left( \eval{\dv{{t}}}_{t=t_0} \right) f
+            = T_{\tau_b(t_0)} \gamma \circ T_{t_0} \tau_b \left( \eval{\dv{}{t}}_{t=t_0} \right) f\\
+            &= T_{t_0 + b} \gamma  \left( \eval{\dv{}{t}}_{t=t_0 + b} \right) f
+            = \dot{\gamma}(t_0 + b) f
+            = X_{\gamma(t_0 + b)} f 
+            = X_{\widehat{\gamma}(t_0)} f
+        \end{align}
+    \end{enumerate}
+    
+\end{proof}
+
+
+\subsection{フロー}
+
+\begin{mydef}[label=def:global-flow]{大域的なフロー}
+    \cinfty 多様体 $M$ へのLie群\footnote{$\mathbb{R}$ を加法に関して群と見做す．} $\mathbb{R}$ の\hyperref[def:Lie-action]{左作用}
     \begin{align}
         \theta \colon \mathbb{R} \times M \lto M
     \end{align}
-    のことを $M$ 上の\textbf{大域的な流れ} (global flow) と呼ぶ．
+    のことを $M$ 上の\textbf{大域的フロー} (global flow) と呼ぶ．
     \tcblower
-    大域的な流れ $\theta \colon \mathbb{R} \times M \lto M$ が与えられたとき，
+    大域的フロー $\theta \colon \mathbb{R} \times M \lto M$ が与えられたとき，
     \begin{itemize}
-        \item $\forall t \in \mathbb{R}$ に対する連続写像 $\bm{\theta_t} \colon M \lto M$ を $\theta_t(p) \coloneqq \theta(t,\, p)$ により定める．
-        \item $\forall p \in M$ に対する連続曲線 $\bm{\theta^{(p)}} \colon \mathbb{R} \lto M$ を $\theta^{(p)}(t) \coloneqq \theta(t,\, p)$ により定める．
+        \item $\forall \textcolor{blue}{t} \in \mathbb{R}$ に対する連続写像 $\bm{\theta_{\textcolor{blue}{t}}} \colon M \lto M$ を $\theta_{\textcolor{blue}{t}}(q) \coloneqq \theta(\textcolor{blue}{t},\, q)$ により定める．
+        \item $\forall \textcolor{red}{p} \in M$ に対する連続曲線 $\bm{\theta^{(\textcolor{red}{p})}} \colon \mathbb{R} \lto M$ を $\theta^{(\textcolor{red}{p})}(s) \coloneqq \theta(s,\, \textcolor{red}{p})$ により定める．
     \end{itemize}
 \end{mydef}
 
-\begin{myprop}[label=prop:infinitesimal-generator]{大域的な流れの無限小生成子}
-    \cinfty 多様体 $M$ 上の \cinfty 級の大域的な流れ $\theta \colon \mathbb{R} \times M \lto M$ を与える．
+\begin{myprop}[label=prop:infinitesimal-generator]{大域的フローの無限小生成子}
+    \cinfty 多様体 $M$ 上の \cinfty 級の大域的フロー $\theta \colon \mathbb{R} \times M \lto M$ を与える．
     $M$ 上のベクトル場
     \begin{align}
         V \colon M \lto TM,\; p \lmto \left( p,\, \dot{\theta^{(p)}} (0)  \right) 
@@ -511,25 +746,59 @@ $F$-relratedなベクトル場は必ず存在するとは限らない．
     実際このとき $\forall p \in U$ に対して
     \begin{align}
         Vf (p) &= V_p f = \dot{\theta^{(p)}} (0) f 
-        = T_0 \theta^{(p)} \left( \eval{\dv{}{t}}_{0} \right) 
-        = \eval{\dv{}{t}}_0 f \bigl( \theta^{(p)} (t) \bigr) = \eval{\pdv{}{t}}_{(0,\, p)} f \bigl( \theta(t,\, p) \bigr) 
+        = T_0 \theta^{(p)} \left( \eval{\dv{}{t}}_{t=0} \right) f
+        = \eval{\dv{}{t}}_{t=0} f \bigl( \theta^{(p)} (t) \bigr) = \eval{\pdv{}{t}}_{(0,\, p)} f \bigl( \theta(t,\, p) \bigr) 
     \end{align}
     が成り立つ\footnote{ややこしいが，\cinfty 曲線 $\gamma \colon I \lto M$ の微分 $\dot{\gamma} (t_0)$ は，厳密には $\mathbb{R}$ の接ベクトル $\eval{\dv*{}{t}}_{t_0}$ の微分 $T_{t_0} \gamma \bigl( \eval{\dv*{}{t}}_{t_0} \bigr) \in T_{\gamma(t_0)} M$ のことだった．}．
     $f \bigl( \theta(t,\, p) \bigr) $ は \cinfty 写像の合成なので $\mathbb{R} \times U$ 上 \cinfty 級であり，その任意の偏導関数もまた \cinfty 級となる．
 
-    次に $\forall p\in M,\; \forall t \in \mathbb{R}$ に対して $\dot{\theta^{(p)}} (t) = V_{\theta^{(p)}(t)}$ が成り立つことを示す．
-    $\forall p \in M$ を1つ固定し，$\forall u \in \mathbb{R}$ に対して $q \coloneqq \theta^{(p)} (u)$ とおくと，
+    次に $\forall \textcolor{red}{p}\in M$ を1つ固定する．このとき \cinfty 曲線 $\theta^{(\textcolor{red}{p})} \colon \mathbb{R} \lto M$ が，初期条件 $\theta^{(\textcolor{red}{p})} (0) = \textcolor{red}{p}$ を充たす $V$ の\hyperref[def:integral-curve]{積分曲線}であることを示す．
+    i.e. 示すべきは $\forall t \in \mathbb{R}$ に対して $\dot{\theta^{(\textcolor{red}{p})}} (t) = V_{\theta^{(\textcolor{red}{p})}(t)}$ が成り立つことである．
+    $\forall t \in \mathbb{R}$ を1つ固定して $q \coloneqq \theta^{(\textcolor{red}{p})} (t)$ とおくと，$\forall s \in \mathbb{R}$ に対して
     \begin{align}
-        \theta^{(q)} (u) = \theta_t(q) = \theta (u,\, \theta(t,\, p)) = \theta (u + t,\, p) = \theta^{(p)} (u + t)
+        \theta^{(q)} (s) = \theta_{s}(q) = \theta (s,\, \theta(t,\, \textcolor{red}{p})) = \theta (s + t,\, \textcolor{red}{p}) = \theta^{(\textcolor{red}{p})} (s + t)
     \end{align}
-    である．従って $q$ の開近傍上で定義された任意の \cinfty 関数 $f$ に対して
+    である．従って $q$ の任意の開近傍上で定義された任意の \cinfty 関数 $f$ に対して
     \begin{align}
-        V_q f &= \dot{\theta^{(q)}} (0) f = \eval{\dv{}{t}}_0 f \bigl( \theta^{(q)} (t) \bigr) = \eval{\dv{}{t}}_0 f \bigl( \theta^{(p)} (u + t) \bigr) = \dot{\theta^{(p)}} (u) f
+        V_q f &= \dot{\theta^{(q)}} (0) f = \eval{\dv{}{s}}_{s=0} f \bigl( \theta^{(q)} (s) \bigr) = \eval{\dv{}{s}}_{s=0} f \bigl( \theta^{(\textcolor{red}{p})} (s + t) \bigr) = \dot{\theta^{(\textcolor{red}{p})}} (t) f
     \end{align}
-    これが示すべきことであった．
+    が言える．これが示すべきことであった．
 \end{proof}
 
-命題\ref{prop:infinitesimal-generator}の逆に，$\forall X \in \mathfrak{X}(M)$ が $M$ 上の何かしらの\hyperref[def:global-flow]{大域的な流れ}の無限小生成子になっていると言いたくなるが，必ずしもそうではない．つまり，\hyperref[def:integral-curve]{積分曲線}が $\mathbb{R}$ のある部分集合上で定義できないような \cinfty ベクトル場が存在する．
+\begin{myexample}[]{}
+    \cinfty 写像
+    \begin{align}
+        \theta \colon \mathbb{R} \times \mathbb{R}^2 \lto \mathbb{R}^2,\; \bigl( t,\, (x,\, y) \bigr) \lmto \bigl( x \cos t - y \sin t,\, x \sin t + y \sin t \bigr) 
+    \end{align}
+    は $\forall t,\, s \in \mathbb{R},\; \forall (x,\, y) \in \mathbb{R}^2$ に対して 
+    \begin{align}
+        &\theta \bigl( 0,\, (x,\, y) \bigr) = (x,\, y), \\ 
+        &\theta \Bigl( s,\, \theta \bigl( t,\, (x,\, y) \bigr)  \Bigr) \\
+        &= \Bigl( (x \cos t - y \sin t) \cos s - (x \sin t + y \cos t) \sin s,\, (x \cos t - y\sin t) \sin s + (x \sin t + y \cos t) \cos s \Bigr) \\
+        &= \bigl( x \cos (s + t) - y \sin (s + t),\, x \sin (s + t) +  y \cos (s + t) \bigr) \\
+        &= \theta \bigl( s + t,\, (x,\, y) \bigr)
+    \end{align}
+    を充たすので，多様体 $\mathbb{R}^2$ 上の\hyperref[def:global-flow]{大域的フロー}である．
+    このとき $\forall \textcolor{red}{(a,\, b)} \in \mathbb{R}^2$ に対して
+    \begin{align}
+        \theta^{\bigl(\textcolor{red}{(a,\, b)}\bigr)} (t) = \bigl( \textcolor{red}{a} \cos t - \textcolor{red}{b} \sin t,\, \textcolor{red}{a} \sin t + \textcolor{red}{b} \sin t \bigr) 
+    \end{align}
+    であるから
+    \begin{align}
+        \dot{\theta^{\bigl(\textcolor{red}{(a,\, b)}\bigr)}} (0) 
+        &= T_0 \theta^{\bigl(\textcolor{red}{(a,\, b)}\bigr)}  \left( \eval{\dv{}{t}}_{t=0} \right) \\
+        &= \dv{(\textcolor{red}{a} \cos t - \textcolor{red}{b} \sin t)}{t}()(0) \eval{\pdv{}{x}}_{\theta^{(\textcolor{red}{(a,\, b)})} (0)} + \dv{(\textcolor{red}{a} \sin t + \textcolor{red}{b} \cos t)}{t}()(0) \eval{\pdv{}{y}}_{\theta^{(\textcolor{red}{(a,\, b)})} (t)} \\
+        &= - \textcolor{red}{b} \eval{\pdv{}{x}}_{\textcolor{red}{(a,\, b)}} + \textcolor{red}{a} \eval{\pdv{}{y}}_{\textcolor{red}{(a,\, b)}}
+    \end{align}
+    と計算できる．つまり，$\theta$ の\hyperref[prop:infinitesimal-generator]{無限小生成子}はベクトル場
+    \begin{align}
+        -y \pdv{}{x} + x \pdv{}{y} \in \mathfrak{X}(\mathbb{R}^2)
+    \end{align}
+    である．実際\exref{ex:integral-curve1}より，ベクトル場 $-y \pdv*{}{x} + x \pdv*{}{y}$ の\hyperref[def:integral-curve]{積分曲線}は $\theta^{\bigl(\textcolor{red}{(a,\, b)}\bigr)} (t)$ そのものである．特に，$\textcolor{red}{(a,\, b)}$ は初期条件を表している．
+\end{myexample}
+
+
+命題\ref{prop:infinitesimal-generator}の逆に，$\forall X \in \mathfrak{X}(M)$ が $M$ 上の何かしらの\hyperref[def:global-flow]{大域的フロー}の無限小生成子になっていると言いたくなるが，必ずしもそうではない．つまり，\hyperref[def:integral-curve]{積分曲線}が $\mathbb{R}$ のある部分集合上で定義できないような \cinfty ベクトル場が存在する．
 
 % \cite[p.211, Example 9.9]{Lee2012smooth}
 \begin{myexample}[label=ex:local-flow]{}
@@ -544,62 +813,77 @@ $F$-relratedなベクトル場は必ず存在するとは限らない．
 \end{myexample}
 
 
-\begin{mydef}[label=def:local-flow]{局所的な流れ}
+\begin{mydef}[label=def:local-flow, breakable]{局所的フロー}
     $M$ を \cinfty 多様体とする．
     \begin{itemize}
-        \item \textbf{流れの定義域} (flow domain) とは，開集合 $\bm{\mathcal{D}} \subset \mathbb{R} \times M$ であって，$\forall p \in M$ に対して集合
+        \item \textbf{フローの定義域} (flow domain) とは，開集合 $\bm{\mathcal{D}} \subset \mathbb{R} \times M$ であって，$\forall \textcolor{red}{p} \in M$ に対して集合
         \begin{align}
-            \mathcal{D}^{(p)} \coloneqq \bigl\{\, t \in \mathbb{R} \bigm| (t,\, p) \in \mathcal{D} \,\bigr\}  \subset \mathbb{R}
+            \mathcal{D}^{(\textcolor{red}{p})} \coloneqq \bigl\{\, t \in \mathbb{R} \bigm| (t,\, \textcolor{red}{p}) \in \mathcal{D} \,\bigr\}  \subset \mathbb{R}
         \end{align}
-        が $0$ を含む開区間となっているようなもののことを言う．
-        \item $M$ 上の\textbf{局所的な流れ} (local flow) とは，流れの定義域を定義域にもつ連続写像
+        が $0$ を含む\underline{開区間}\footnote{この条件が命題\ref{prop:infinitesimal-generator-local}の証明の鍵となる．}となっているようなもののことを言う．
+        \item $M$ 上の\textbf{局所的フロー} (local flow) とは，フローの定義域を定義域にもつ連続写像
         \begin{align}
             \theta \colon \mathcal{D} \lto M
         \end{align}
         であって，$\forall p \in M$ に対して以下が成り立つもののこと：
-        \begin{enumerate}
-            \item \begin{align}
+        \begin{description}
+            \item[\textbf{(LF-1)}]  
+            \begin{align}
                 \theta (0,\, p) = p
             \end{align}
-            \item $\forall s \in \mathcal{D}^{(p)},\; \forall t \in \mathcal{D}^{(\theta(s,\, p))}$ に対して，
+            \item[\textbf{(LF-2)}] $\forall s \in \mathcal{D}^{(p)},\; \forall t \in \mathcal{D}^{(\theta(s,\, p))}$ に対して，
             \begin{align}
                 s + t \in \mathcal{D}^{(p)} \IMP \theta \bigl( t,\, \theta(s,\, p) \bigr)  = \theta(t + s,\, p)
             \end{align}
-        \end{enumerate}
+        \end{description}
         \item \textbf{極大積分曲線} (maximal integral curve) とは，\hyperref[def:integral-curve]{積分曲線}であって定義域をこれ以上大きな開区間に延長できないようなもののこと．
-        \textbf{極大局所流} (maximal local flow) とは，これ以上流れの定義域を拡張できないような局所的な流れのこと．
+        \textbf{極大局所フロー} (maximal local flow) とは，これ以上フローの定義域を拡張できないような局所的フローのこと．
     \end{itemize}
     \tcblower
-    局所的な流れ $\theta \colon \mathcal{D} \lto M$ が与えられたとき，
+    局所的フロー $\theta \colon \mathcal{D} \lto M$ が与えられたとき，
     \begin{itemize}
         \item $\forall \textcolor{blue}{t} \in \mathbb{R}$ に対して，$M$ の部分集合 $\bm{M_{\textcolor{blue}{t}}} \subset M$ を
         \begin{align}
             \bm{M_{\textcolor{blue}{t}}} \coloneqq \bigl\{\, p \in M \bigm| (\textcolor{blue}{t},\, p) \in \mathcal{D} \,\bigr\} 
         \end{align}
-        と定める\footnote{$\mathcal{D}^{(p)}$ は流れの領域 $\mathcal{D}$ を，点 $(0,\, p)$ を通るように「横に切り」，$M_{\textcolor{blue}{t}}$ は「縦に切る」と言うイメージ．}．
-        \item $\forall (t,\, p) \in \mathcal{D}$ に対する連続写像 $\bm{\theta_t} \colon M_t \lto M,\; \bm{\theta^{(p)}} \colon \mathcal{D}^{(p)} \lto M$ をそれぞれ $\theta_t (p) = \theta^{(p)} (t) \coloneqq \theta(t,\, p)$ により定める．
+        と定める\footnote{$\mathcal{D}^{(p)}$ はフローの領域 $\mathcal{D}$ を，点 $(0,\, p)$ を通るように「横に切り」，$M_{\textcolor{blue}{t}}$ は「縦に切る」と言うイメージ．}．
+        \item $\forall (\textcolor{blue}{t},\, \textcolor{red}{p}) \in \mathcal{D}$ に対する連続写像
+        \footnote{極大局所フロー $\theta$ に関しては，$\theta_t$ の値域が実は $M_{-t}$ であることが，定理\ref{thm:fundamental-flow}-(2) によりわかる．} 
+        $\bm{\theta_{\textcolor{blue}{t}}} \colon M_{\textcolor{blue}{t}} \lto M$ および連続曲線 $\bm{\theta^{(\textcolor{red}{p})}} \colon \mathcal{D}^{(\textcolor{red}{p})} \lto M$ をそれぞれ 
+        \begin{align}
+            \theta_{\textcolor{blue}{t}} (q) &\coloneqq \theta(\textcolor{blue}{t},\, q),\\ 
+            \theta^{(\textcolor{red}{p})} (s) &\coloneqq \theta(s,\, \textcolor{red}{p})
+        \end{align}
+        により定める．
     \end{itemize}
 \end{mydef}
 
-\begin{myprop}[label=prop:infinitesimal-generator-local]{局所的な流れの無限小生成子}
-    \cinfty 多様体 $M$ 上の \cinfty 級の局所的な流れ $\theta \colon \mathcal{D} \lto M$ を与える．
+\begin{myprop}[label=prop:infinitesimal-generator-local,breakable]{局所的フローの無限小生成子}
+    \cinfty 多様体 $M$ 上の \cinfty 級の局所的フロー $\theta \colon \mathcal{D} \lto M$ を与える．
     $M$ 上のベクトル場
     \begin{align}
         V \colon M \lto TM,\; p \lmto \left( p,\, \dot{\theta^{(p)}} (0)  \right) 
     \end{align}
-    のことを\footnote{\hyperref[def:local-flow]{流れの定義域の定義}から $M_0 = M$ であることに注意．このとき，接ベクトルの局所性から $\forall p \in M$ に対して $\dot{\theta^{(p)}} (0)$ が定義される．} $\theta$ の\textbf{無限小生成子} (infinitesimal generator) と呼ぼう．
+    のことを\footnote{\hyperref[def:local-flow]{フローの定義域の定義}から $M_0 = M$ であることに注意．このとき，接ベクトルの局所性から $\forall p \in M$ に対して $\dot{\theta^{(p)}} (0)$ が定義される．} $\theta$ の\textbf{無限小生成子} (infinitesimal generator) と呼ぼう．
 
     このとき $V \in \mathfrak{X}(M)$ であり，$\forall p \in M$ に対して\cinfty 曲線 $\theta^{(p)} \colon \mathcal{D}^{(p)} \lto M$ は $V$ の\hyperref[def:integral-curve]{積分曲線}である．
 \end{myprop}
 
 \begin{proof}
-    
+    $V \in \mathfrak{X}(M)$ であることに関しては命題\ref{prop:infinitesimal-generator}の証明がそのまま適用できる．
+
+    $\forall \textcolor{red}{p} \in M$ を1つ固定する． 
+    $\forall t \in \mathcal{D}^{(\textcolor{red}{p})}$ に対して，\hyperref[def:local-flow]{フローの定義域の定義}より $\mathcal{D}^{(\textcolor{red}{p})},\, \mathcal{D}^{\bigl(\theta^{(\textcolor{red}{p})}(t)\bigr)} \subset \mathbb{R}$ はどちらも $0$ を含む開区間であるから，
+    十分小さい $\varepsilon > 0$ に対しては $(t - \varepsilon,\, t + \varepsilon) \subset \mathcal{D}^{(\textcolor{red}{p})}$ かつ $(-\varepsilon,\, \varepsilon) \subset \mathcal{D}^{\bigl(\theta^{(\textcolor{red}{p})}(t)\bigr)}$ が成り立つ．
+    このとき $\forall s \in (-\varepsilon,\, \varepsilon) \subset \mathcal{D}^{\bigl(\theta^{(\textcolor{red}{p})}(t)\bigr)}$ をとってくると $t + s \in (t - \varepsilon,\, t + \varepsilon) \subset \mathcal{D}^{(\textcolor{red}{p})}$ であるから，\hyperref[def:local-flow]{局所的フローの定義}の条件 \textbf{\textsf{(LF-2)}} より $\theta(s,\, \theta(t,\, \textcolor{red}{p})) = \theta(s+t,\, \textcolor{red}{p})$ が成り立つ．
+    あとはこの $s$ に対して命題\ref{prop:infinitesimal-generator}の証明を適用すれば良い．
 \end{proof}
 
-命題\ref{prop:infinitesimal-generator-local}は逆も言える：
+\hyperref[def:local-flow]{極大局所フロー}に対しては命題\ref{prop:infinitesimal-generator-local}の逆も言える~\cite[p.212, Theorem 9.12]{Lee2012smooth}：
 
-\begin{mytheo}[label=thm:fundamental-flow]{流れの基本定理}
-    $\forall V \in \mathfrak{X}(M)$ に対して，\hyperref[def:local-flow]{極大局所流} $\theta \colon \mathcal{D} \lto M$ であって無限小生成子が $V$ であるようなものが一意的に存在する．
+\begin{mytheo}[label=thm:fundamental-flow,breakable]{フローの基本定理}
+    $M$ を\underline{境界なし} \cinfty 多様体とする．
+    $\forall V \in \mathfrak{X}(M)$ に対して，\hyperref[def:local-flow]{極大局所フロー} $\theta \colon \mathcal{D} \lto M$ であって無限小生成子が $V$ であるようなものが一意的に存在する．
     さらに，この $\theta$ は以下の性質をみたす：
     \begin{enumerate}
         \item $\forall p \in M$ に対し，$\theta^{(p)} \colon \mathcal{D}^{(p)} \lto M$ は初期条件 $\theta^{(p)}(0) = p$ を充たす $V$ の唯一の\hyperref[def:local-flow]{極大積分曲線}である．
@@ -610,18 +894,172 @@ $F$-relratedなベクトル場は必ず存在するとは限らない．
         \item $\forall t \in \mathbb{R}$ に対して，\hyperref[def:local-flow]{集合 $M_t$}は $M$ の開集合であり，連続写像 $\theta_t \colon M_t \lto M_{-t}$ は $\theta_{-t}$ を逆にもつ微分同相写像である．
     \end{enumerate}
     \tcblower
-    上述の極大局所流 $\theta$ のことを，$\bm{V}$ \textbf{によって生成された流れ} (flow generated by $V$) と呼ぶ．
+    上述の極大局所フロー $\theta$ のことを，$\bm{V}$ \textbf{によって生成されたフロー} (flow generated by $V$) と呼ぶ．
 \end{mytheo}
 
 \begin{proof}
-    ~\cite[p.212, Theorem 9.12]{Lee2012smooth}を参照．
+    % ~\cite[p.212, Theorem 9.12]{Lee2012smooth}を参照．
+    $\forall V \in \mathfrak{X}(M)$ を1つ固定する．
+    \begin{description}
+        \item[\textbf{定義域を共有する２つの積分曲線が交差しないこと}]　
+        
+        命題\ref{prop:existence-integral}より，$J \subset \mathbb{R}$ を開区間として，$V$ の積分曲線 $\gamma,\, \tilde{\gamma} \colon J \lto M$ をとることができる．
+        ここで，ある $t_0 \in J$ において $\gamma(t_0) = \tilde{\gamma} (t_0)$ であると仮定する\footnote{時刻 $t_0 \in J$ において2つの積分曲線 $\gamma,\, \tilde{\gamma}$ が交差するということ．}．このとき $\gamma = \tilde{\gamma}$ でなくてはならないことを示そう．
+
+        　部分集合 $\mathcal{S} \subset J$ を
+        \begin{align}
+            \mathcal{S} \coloneqq \bigl\{\, t \in J \bigm| \gamma(t) = \tilde{\gamma}(t) \,\bigr\} 
+        \end{align}
+        と定義する．示すべきは $\mathcal{S} = J$ である．仮定より $t_0 \in \mathcal{S}$ なので $\mathcal{S}$ は空でない．
+        また，積多様体 $M \times M$ 上の連続曲線 $\alpha \colon J \lto M \times M$ を $\alpha(t) \coloneqq \bigl( \gamma(t),\, \tilde{\gamma}(t) \bigr)$ と定義すると，$M$ の部分空間 $\Delta \coloneqq \bigl\{\, (p,\, p) \in M \times M \,\bigr\}$ を使って $\mathcal{S} = \alpha^{-1}(\Delta)$ と書けるが，任意の \cinfty 多様体がHausdorff空間であることから $\Delta$ は閉集合であり
+        \footnote{$(M \times M) \setminus \Delta$ が開集合である $\IFF \forall (p,\, q) \in (M \times M) \setminus \Delta$ に対して $p,\, q \in M$ の開近傍 $p \in U \subset M,\; q \in V \subset M$ が存在して $U \times V \subset (M \times M) \setminus \Delta$ を充たす $\IFF \forall (p,\, q) \in (M \times M) \setminus \Delta$ に対して $p,\, q \in M$ の開近傍 $p \in U \subset M,\, q \in V \subset M$ が存在して $U \cap V = \emptyset$ を充たす $\IFF M$ がHausdorff空間である}
+        ，$\alpha$ が連続写像なので $\mathcal{S}$ も $J$ の閉集合であることがわかる．
+        一方で $\forall t_1 \in \mathcal{S}$ をとると，\hyperref[def:integral-curve]{積分曲線の定義}から $\gamma,\, \tilde{\gamma}$ は点 $\gamma(t_1) \in M$ を含むある \cinfty チャートの上の同一の常微分方程式の解であり，かつ初期条件 $\gamma(t_1) = \tilde{\gamma}(t_1)$ を充たす．故に常微分方程式の解の一意性から，ある $t_1$ を含む開区間 $I_{t_1} \subset \mathbb{R}$ 上で $\gamma|_{I_{t_1}} = \tilde{\gamma}|_{I_{t_1}}$ が成り立つ．
+        i.e. $t_1 \in I_{t_1} \cap J \subset \mathcal{S}$ で，$t_1 \in \mathcal{S}$ は任意だったので $\mathcal{S}$ は $J$ の開集合でもある．
+        さらに $J$ は連結なので，$J = \mathcal{S}$ が示された\footnote{$\mathcal{S} \subset J$ が開かつ閉なので $J \setminus \mathcal{S} \subset J$ は開集合であり，$J = \mathcal{S} \cup (J\setminus \mathcal{S})$ かつ $\mathcal{S} \cap (J \setminus \mathcal{S}) = \emptyset$ が成り立つ．$J$ は連結なので $\mathcal{S},\, J \setminus \mathcal{S}$ のどちらかが空でなくてはならないが $\mathcal{S} \neq \emptyset$ だったので $J \setminus \mathcal{S} = \emptyset \IFF J = \mathcal{S}$ が言えた．}
+        \item[\textbf{極大局所フロー $\bm{\theta \colon \mathcal{D} \lto M}$ の構成}]　
+        
+        $\forall p \in M$ を1つ固定する．
+        初期条件 $\gamma (0) = p$ を充たす\footnote{従って $0 \in J_\gamma$ とする．} $V$ の積分曲線 $\gamma \colon J_\gamma \lto M$ 全体の集合を $\mathcal{I}^{(p)}$ とおき，
+        \begin{align}
+            \mathcal{D}^{(p)} \coloneqq \bigcup_{\gamma \in \mathcal{I}^{(p)}} J_\gamma
+        \end{align}
+        と定義する．先述の議論から $M$ の \cinfty 曲線
+        \begin{align}
+            \theta^{(p)} \colon \mathcal{D}^{(p)} \lto M,\; t \lmto \Bigl( \gamma(t) \ST \gamma \in \mathcal{I}^{(p)} \AND t \in J_\gamma \Bigr)
+        \end{align}
+        はwell-definedであり，かつその構成から明らかに初期条件 $\theta^{(p)} (0) = p$ を充たす唯一の\hyperref[def:local-flow]{極大積分曲線}である．
+        
+        　$p \in M$ は任意だったので，ここで
+        \begin{align}
+            \mathcal{D} &\coloneqq \bigl\{\, (t,\, p) \in \mathbb{R} \times M \bigm| t \in \mathcal{D}^{(p)} \,\bigr\}, \\
+            \theta &\colon \mathcal{D} \lto M,\; (t,\, p) \lmto \theta^{(p)}(t)
+        \end{align}
+        と定義する．これが\hyperref[def:local-flow]{局所フローの定義}の条件 \textbf{\textsf{(LF-1)}},  \textbf{\textsf{(LF-2)}} を充たすことを確認する．
+        \begin{description}
+            \item[\textbf{(LF-1)}] 構成より明らか．
+            \item[\textbf{(LF-2)}] $\forall p \in M,\; \forall s \in \mathcal{D}^{(p)}$ をとり，$q \coloneqq \theta(s,\, p)$ とおく．このとき $\forall t \in \mathcal{D}^{(p)} - s$ に対して $s+t \in \mathcal{D}^{(p)}$ が成り立つ．
+            ここで，\cinfty 曲線
+            \begin{align}
+                \gamma \colon \mathcal{D}^{(p)} - s \lto M,\; t \lmto \theta(t+s,\, p) = \theta^{(p)}(t+s)
+            \end{align}
+            は補題\ref{lem:affine-integral-curve}-(2)より初期条件 $\gamma(0) = q$ を充たす $V$ の積分曲線である
+            % \footnote{
+            %     $\theta^{(p)} \colon \mathcal{D}^{(p)} \lto M$ が $V$ の積分曲線なので，$\forall t_0 \in \mathcal{D}^{(p)} - s$ および点 $\gamma(t_0) \in M$ の任意の開近傍上で定義された任意の \cinfty 関数 $f$ に対して 
+            %     $\dot{\gamma}(t_0) f = T_{t_0} \gamma \bigl( \eval{\dv{}{t}}_{t=t_0} \bigr)f = \eval{\dv{}{t}}_{t=t_0} (f \circ \gamma)(t) = \eval{\dv{}{t}}_{t=t_0} (f \circ \theta^{(p)})(t+s) = T_{t_0 + s} \theta^{(p)} \bigl( \eval{\dv{}{t}}_{t=t_0 + s} \bigr) f =  V_{\theta^{(p)}(t_0 + s)}f = V_{\gamma(t_0)}f$ が言える．
+            % }
+            が，常微分方程式の解の一意性から $\gamma = \theta^{(q)}|_{\mathcal{D}^{(p)} - s}$ が成り立つ．あとは $\mathcal{D}^{(p)} - s = \mathcal{D}^{(q)}$ を示せば，$\forall t \in \mathcal{D}^{(q)}$ に対して
+            \begin{align}
+                \theta \bigl( t,\,\theta(s,\, p) \bigr) = \theta (t,\, q) = \theta^{(q)}(t) \;\textcolor{red}{=}\; \gamma(t) = \theta(t+s,\, p)
+            \end{align}
+            となって\textbf{\textsf{(LF-2)}}の証明が完了する．
+
+            　$\theta^{(q)}$ が極大積分曲線なので $\mathcal{D}^{(p)} - s \subset \mathcal{D}^{(q)}$ が言える．
+            $\mathcal{D}^{(p)} - s \supset \mathcal{D}^{(q)}$ を示そう．
+            まず $0 \in \mathcal{D}^{(p)}$ なので $-s \in \mathcal{D}^{(p)} - s \subset \mathcal{D}^{(q)}$ が言える．
+            従って $\theta(-s,\, q) = \theta^{(q)}(-s) = \gamma(-s) = \theta^{(p)}(0) = p$ であり，
+            $\forall t \in \mathcal{D}^{(q)} + s$ に対して $-s+t \in \mathcal{D}^{(p)}$ が成り立つ．
+            \cinfty 曲線
+            \begin{align}
+                \gamma \colon \mathcal{D}^{(q)} + s \lto M,\; t \lmto \theta(t-s,\, q) = \theta^{(q)}(t-s)
+            \end{align}
+            は補題\ref{lem:affine-integral-curve}-(2)より初期条件 $\gamma(0) = p$ を充たす $V$ の積分曲線なので，常微分方程式の解の一意性から $\gamma = \theta^{(p)}|_{\mathcal{D}^{(q)} + s}$ が言えて，$\theta^{(p)}$ の極大性から $\mathcal{D}^{(q)} + s \subset \mathcal{D}^{(p)} \IFF \mathcal{D}^{(p)} - s \supset \mathcal{D}^{(q)}$ が示された．
+            \item[\textbf{$\bm{\mathcal{D} \subset \mathbb{R} \times M}å$ が開集合かつ $\bm{\theta}$ が $\bm{C^\infty}$ 級}]　
+            
+            部分集合 $W \subset \mathcal{D}$ を
+            \begin{align}
+                W \coloneqq \biggl\{\, (t,\, p) \in \mathcal{D} \Biggm| 
+                \begin{subarray}{l}
+                    \text{以下を充たす開近傍}\; (t,\, p) \in J \times U \subset \mathcal{D}\; \text{が存在：}\\ 
+                    \quad (1) \; J\subset \mathbb{R}\; \text{は開区間で}\; 0,\, t \in J \\
+                    \quad (2) \; U \subset M\; \text{は}\; p\; \text{の開近傍} \\
+                    \quad (3) \; \theta|_{J \times U}\; \text{が}\, C^\infty\, \text{級}
+                \end{subarray}
+                \,\Biggr\} 
+            \end{align}
+            と定義する．$W = \mathcal{D}$ を背理法により示す．まず $\exists (\tau,\, p_0) \in \mathcal{D} \setminus W$ を仮定する．
+            常微分方程式の解の存在定理より $(0,\, p_0) \in W$ なので，$\tau > 0$ としよう．$\tau < 0$ のときも議論は全く同様である．
+
+            　$t_0 \coloneqq \sup \bigl\{\, t \in \mathbb{R} \bigm| (t,\, p_0) \in W \,\bigr\}$ とする．このとき $0 < t_0 < \tau$ でかつ $0,\, \tau \in \mathcal{D}^{(p_0)}$ なので $t_0 \in \mathcal{D}^{(p_0)}$ が言える．
+            $q_0 \coloneqq \theta^{(p_0)}(t_0)$ とおこう．常微分方程式の解の存在定理から，ある $\varepsilon > 0$ と $q_0$ の開近傍 $q_0 \in U_0 \subset M$ が存在して $(-\varepsilon,\, \varepsilon) \times U_0 \subset W$ となる．
+            ここで $t_1 \in (t_0 -\varepsilon,\, t_0)$ を $\theta^{(p_0)}(t_1) \in U_0$ を充たすようにとる．このとき $t_1 < t_0$ なので $(t_1,\, p_0) \in W$ であり，故にある $\delta > 0$ と $p_0$ の開近傍 $p_0 \in U_1 \subset M$ が存在して $(t_1 - \delta,\, t_1 + \delta) \times U_1 \subset W$ となる．従って $W$ の定義から， $\theta$ は $[0,\, t_1 + \delta) \times U_1$ 上で \cinfty 級である．
+            $\theta(t_1,\, p_0) \in U_0$ なので，$\theta(\{t_1\} \times U_1) \subset U_0$ を充たすような $U_1$ をとることができる
+            % \footnote{
+            %     $U_0$ が開集合なので，点 $\theta(t_1,\, p_0) \in U_0$ の開近傍 $\theta(t_1,\, p_0) \in V_1 \subset U_0$ が存在する．例えば
+            % }
+            ．さて，
+            \begin{align}
+                \tilde{\theta} \colon [0,\, t_1 + \varepsilon) \times U_1 &\lto M,\\ 
+                (t,\, p) &\lmto
+                \begin{cases}
+                    \theta_t(p), &(t,\, p) \in [0,\, t_1) \times U_1 \\
+                    \theta_{t-t_1}\circ \theta_{t_1}(p), &(t,\, p) \in (t_1-\varepsilon,\, t_1 + \varepsilon) \times U_1
+                \end{cases}
+            \end{align}
+            と定義した写像 $\tilde{\theta}$ は，$\theta$ が条件 \textbf{\textsf{(LF-2)}} を充たすことから $(t_1 - \varepsilon,\, t_1) \times U_1$ 上 $\theta_t (p) = \theta_{t-t_1}\circ \theta_{t_1}(p)$ となりwell-definedで，かつ $U_1,\, t_1,\, \varepsilon$ の取り方から \cinfty 級である．
+            その上 $\forall p \in U_1$ に対して \cinfty 曲線 $t \lmto \tilde{\theta}(t,\, p)$ は $V$ の積分曲線なので，$\tilde{\theta}$ は $(t_0,\, p_0) \notin W$ への $\theta$ の \cinfty 級の延長である．しかるにこのことは $t_0$ の取り方に矛盾する．
+        \end{description}
+    \end{description}
+    \begin{enumerate}
+        \item $\mathcal{D}^{(p)},\; \theta^{(p)}$ の構成から明らか．
+        \item \textbf{\textsf{(LF-2)}}の確認で示した．
+        \item $\mathcal{D}$ が $\mathbb{R} \times M$ の開集合なので，$\forall t \in \mathbb{R}$ に対して $M_t \coloneqq \bigl\{\, p \in M \bigm| (t,\, p) \in \mathcal{D} \,\bigr\}$ は開集合である．
+        \footnote{
+            写像 $\iota_t \colon M \lto \mathbb{R} \times M,\; p \lmto (t,\, p)$ は，開区間と開集合の直積 $J \times U \subset \mathbb{R} \times M$ に対して $t \in J$ なら $\iota_t^{-1}(J \times U) = U$，$t \notin J$ なら $\iota_t^{-1}(J \times U) = \emptyset$ となるので連続写像である． 
+            従って $M_t = \iota_t^{-1}(\mathcal{D}) \subset M$ は $M$ の開集合．
+        }
+        ．また，(2) から
+        \begin{align}
+            p \in M_t &\IMP t \in \mathcal{D}^{(p)} \\
+            &\IMP \mathcal{D}^{(\theta_t(p))} = \mathcal{D}^{(p)} - t \\
+            &\IMP -t \in \mathcal{D}^{(\theta_t(p))} \\
+            &\IMP \theta_t (p) \in M_{-t}
+        \end{align}
+        が言えるので $\theta_t (M_t) \subset M_{-t}$ である．
+        さらに\textbf{\textsf{(LF-2)}}から $\theta_{-t} \circ \theta_t = \mathrm{id}_{M_t},\; \theta_t \circ \theta_{-t} = \mathrm{id}_{M_{-t}}$ が言える．
+        $\theta$ が \cinfty 級なので $\theta_t,\, \theta_{-t}$ も \cinfty 級であるから $\theta_t \colon M_t \lto M_{-t}$ は微分同相写像である．
+    \end{enumerate}
+    
 \end{proof}
+
+\begin{mytheo}[label=thm:fundamental-flow-boundary]{境界付き多様体におけるフローの基本定理}
+    $M$ を\underline{境界付き多様体}とし，$V \in \mathfrak{X}(M)$ は $\partial M$ に接する\footnote{i.e. $\forall p \in \partial M$ において $V_p \in T_p (\partial M) \subset T_p M$ が成り立つ．}とする．このとき定理\ref{thm:fundamental-flow}と全く同じ結果が $V$ に対して成り立つ．
+\end{mytheo}
+
+\begin{proof}
+    \cite[p.227, Theorem 9.34]{Lee2012smooth}
+\end{proof}
+
 
 \subsection{完備なベクトル場}
 
 \begin{mydef}[label=def:complete-vecf]{ベクトル場の完備性}
-    \hyperref[def:vecf]{\cinfty ベクトル場} $X \in \mathfrak{X}(M)$ が\textbf{完備} (complete) であるとは，それが\hyperref[def:global-flow]{大域的な流れ}を\hyperref[thm:fundamental-flow]{生成する}ことを言う．
+    \hyperref[def:vecf]{\cinfty ベクトル場} $X \in \mathfrak{X}(M)$ が\textbf{完備} (complete) であるとは，それが\hyperref[def:global-flow]{大域的なフロー}を\hyperref[thm:fundamental-flow]{生成する}ことを言う．
 \end{mydef}
+
+\begin{mylem}[label=lem:uniformtime]{uniform time lemma}
+    \cinfty 多様体 $M$ およびその上の \cinfty ベクトル場 $V \in \mathfrak{X}(M)$ を与える．
+    $\theta \colon \mathcal{D} \lto M$ を\hyperref[thm:fundamental-flow]{$V$ が生成するフロー}とする．
+
+    このとき，ある $\varepsilon > 0$ が存在して $\forall p \in M$ に対して $(-\varepsilon,\, \varepsilon) \subset \mathcal{D}^{(p)}$ を充たすならば，$V$ は完備である．
+\end{mylem}
+
+\begin{proof}
+    主張の仮定が満たされているとする．このとき $V$ が完備であることを背理法により示す．
+    そのためにまずある $p \in M$ が存在して，$\mathcal{D}^{(p)}$ が上に有界であると仮定する．下に有界な場合も同様の議論ができる．
+
+    　$b \coloneqq \sup \mathcal{D}^{(p)}$ とおき，$t_0 \in (b - \varepsilon,\, b)$ を1つとる．$q \coloneqq \theta^{(p)} (t_0)$ とおく．
+    仮定より $V$ の積分曲線 $\theta^{(p)}$ は少なくとも $(-\varepsilon,\, \varepsilon)$ 上では定義されている．ここで \cinfty 曲線
+    \begin{align}
+        \gamma \colon (-\varepsilon,\, t_0 + \varepsilon) \lto M,\; 
+        t \lmto \begin{cases}
+            \theta^{(p)}(t), &t \in (-\varepsilon,\, b) \\
+            \theta^{(q)}(t-t_0), &t \in (t_0-\varepsilon,\, t_0 + \varepsilon)
+        \end{cases}
+    \end{align}
+    と定義すると，これは $\forall t \in (t_0-\varepsilon,\, b)$ に対して\hyperref[def:local-flow]{\textbf{\textsf{(LF-2)}}}より $\theta^{(q)} (t-t_0) = \theta_{t-t_0}(q) = \theta(t-t_0) \circ \theta_{t_0} (p) = \theta_t (p) = \theta^{(p)} (t)$ が成り立つのでwell-definedである．
+    特に補題\ref{lem:affine-integral-curve}-(2)より $\gamma$ は初期条件 $\gamma(0) = p$ を充たす $V$ の積分曲線なので $(-\varepsilon,\, t_0 + \varepsilon) \subset \mathcal{D}^{(p)}$ ということになるが，$t_0 + \varepsilon > b$ より $b$ の取り方に矛盾する．
+\end{proof}
 
 \begin{mytheo}[label=thm:complete-compace]{コンパクト台を持つベクトル場は完備}
     \cinfty ベクトル場 $X$ が\hyperref[def:vecf]{コンパクト台を持つ}ならば，$X$ は\hyperref[def:complete-vecf]{完備}である．
@@ -635,6 +1073,20 @@ $F$-relratedなベクトル場は必ず存在するとは限らない．
 \begin{mycol}[label=col:complete-compact]{コンパクト多様体のベクトル場は完備}
     コンパクトな \cinfty 多様体上の任意の \cinfty ベクトル場は完備である．
 \end{mycol}
+
+
+\begin{mytheo}[label=thm:left-invariant-complete]{Lie群の左不変ベクトル場は完備}
+    Lie群 $G$ を与える．このとき $\forall X \in \mathfrak{X}^L(G)$ は完備である．
+\end{mytheo}
+
+\begin{proof}
+    \hyperref[def:left-invariant]{左不変ベクトル場} $X \in \mathfrak{X}(G)$ の定義は，$\forall g \in G$ に対して $X$ が自分自身と \hyperref[def:F-related]{$L_g$-related} であることだった．
+
+    さて，$\theta \colon \mathcal{D} \lto G$ を\hyperref[thm:fundamental-flow]{$X$ が生成するフロー}とする．
+    このとき $\theta^{(1_G)} \colon \mathcal{D}^{(1_G)} \lto G$ に関して $\mathcal{D}^{(1_G)}$ は開区間なので，十分小さい $\varepsilon > 0$ に対して $(-\varepsilon,\, \varepsilon) \subset \mathcal{D}^{(1_G)}$ を充たすようにできる．
+
+    $\forall g \in G$ を1つとる．$X$ は自分自身と $L_g$-relatedなので，命題\ref{prop:natural-integral-curve}より $L_g \circ \theta^{(1_g)} \colon \mathcal{D}^(1_G) \lto G$ は初期条件 $(L_g \circ \theta^{(1_G)})(0) = g$ を充たす $X$ の積分曲線である．よって定理\ref{thm:fundamental-flow}-(1) から，少なくとも $(-\varepsilon,\, \varepsilon)$ 上で $\theta^{(g)} = L_g \circ \theta^{(1_G)}$ が言える．i.e. $(-\varepsilon,\, \varepsilon) \subset \mathcal{D}^{(g)}$ であるから，補題\ref{lem:uniformtime}から $X$ は完備である．
+\end{proof}
 
 
 \end{document}

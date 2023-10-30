@@ -836,14 +836,8 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
 INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc
 INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmroman10-bold.luc
-INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmsans10-regular.luc
-INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmsans10-regular.luc
-INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmsans10-bold.luc
-INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmsans10-bold.luc
 INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman7-regular.luc
 INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmroman7-regular.luc
-INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman7-italic.luc
-INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmroman7-italic.luc
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
@@ -866,6 +860,14 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm
 INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman6-regular.luc
 INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmroman6-regular.luc
+INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman8-bold.luc
+INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmroman8-bold.luc
+INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmsans10-regular.luc
+INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmsans10-regular.luc
+INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmsans10-bold.luc
+INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmsans10-bold.luc
+INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman7-italic.luc
+INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmroman7-italic.luc
 INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-italic.luc
 INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmroman10-italic.luc
 INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bolditalic.luc
@@ -926,6 +928,7 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pf
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufb10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb

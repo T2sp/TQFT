@@ -1,6 +1,6 @@
 # Fdb version 4
-["lualatex"] 1698293201 "/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/chap2.tex" "out/chap2.pdf" "chap2" 1698293217 0
-  "/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/chap2.tex" 1698293185 94989 1bf1fcfad952db4509a9e3ef4421c00b ""
+["lualatex"] 1698654430 "/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/chap2.tex" "out/chap2.pdf" "chap2" 1698654451 0
+  "/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/chap2.tex" 1698654404 110397 8c22e8a159ae8ef4f3e5ae5c5d496e60 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/haranoajigothic-medium.luc" 1680092069 1875369 563a49d56453118cc2bc098475a23186 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/haranoajimincho-regular.luc" 1680092052 1961878 305e540f3545673854903467c3d18712 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmmono9-regular.luc" 1680092053 81875 4186f491346ae8e27e9de854d6400326 ""
@@ -50,7 +50,7 @@
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/ltj-jisx0208.luc" 1680092053 93919 1f6dc76354e6e3b148c06f9f9254f22e ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/ltj-kinsoku_default.luc" 1680091971 17654 e3e3c85f63c77f4caa824d338e2428e0 ""
   "/Users/takamatoshinori/Library/texmf/tex/latex/myalgebra/myalgebra.sty" 1696761281 3864 d0e97e653d13cdfd347812612b1e38bf ""
-  "/Users/takamatoshinori/Library/texmf/tex/latex/mygeometry/mygeometry.sty" 1698170135 1484 91abc87ceb92f4475cc99fc7a0761711 ""
+  "/Users/takamatoshinori/Library/texmf/tex/latex/mygeometry/mygeometry.sty" 1698644039 1518 50d69d421b87d3f8589a1bb28074c97b ""
   "/Users/takamatoshinori/Library/texmf/tex/latex/mylogics/mylogics.sty" 1690527392 1426 70e6644af870eb1122a25027d1b960bb ""
   "/usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf" 1677185994 4690004 f38d025815e65462ac61ddc6a192e733 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf" 1677185994 6355816 b639bf61ed5bcdb176671541b66519c7 ""
@@ -149,6 +149,7 @@
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb" 1248133631 29407 8c6dfc0f2d83bfc4807c3b1dc90ef23e ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb" 1248133631 30457 bc0868ebece724ed7c3d37e3d9bff7bd ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb" 1248133631 30273 87a352d78b6810ae5cfdc68d2fb827b2 ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib5.pfb" 1248133631 40540 ffff783419ea8147938742206b9b7b57 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb" 1248133631 38151 b99966dad75d57fae7995e2606557fa7 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb" 1248133631 39386 0bb525d495ceab21fe797301a586e0d7 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb" 1248133631 35479 892d27442ef9ef29ce1ee57aa0e8a665 ""
@@ -605,9 +606,9 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1680072210 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/luahbtex/lualatex.fmt" 1680072074 11876436 fe019cd16c56b2a02a7f439a19527237 ""
   "TQFT_main.tex" 1698071677 7884 0323a20d42314139376a79d9d3629722 ""
-  "chap2.tex" 1698293185 94989 1bf1fcfad952db4509a9e3ef4421c00b ""
-  "out/chap2.aux" 1698293216 8575 4057d78f62062750174afe66552dda0a "lualatex"
-  "out/chap2.out" 1698293216 981 103de40b38d54cc22ac7aeb9eb1831e5 "lualatex"
+  "chap2.tex" 1698654404 110397 8c22e8a159ae8ef4f3e5ae5c5d496e60 ""
+  "out/chap2.aux" 1698654450 8863 a083c5ef5ea7f41a36996460e5594e25 "lualatex"
+  "out/chap2.out" 1698654450 981 103de40b38d54cc22ac7aeb9eb1831e5 "lualatex"
   (generated)
   "out/chap2.aux"
   "out/chap2.log"

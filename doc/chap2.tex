@@ -6,6 +6,8 @@
 
 \newcommand{\btl}{\blacktriangleleft}
 \newcommand{\btr}{\blacktriangleright}
+\newcommand{\Lie}[1]{#1^{\mathrm{L}}}
+\newcommand{\evalunit}{\mathrm{ev}_{1_G}}
 
 \chapter{Chern-Simons理論の導入}
 
@@ -83,10 +85,10 @@ $\hat{T}_1,\, \hat{T}_2$ は非可換であり，基底状態への作用を考�
 
 \section{可換Chern-Simons理論の経験的導入}
 
-ゲージ場\footnote{一般相対論に倣い，時空を表す多様体 $\mathcal{M}$ の座標のうち時間成分を $x^0$，空間成分を $x^1,\, x^2$ とする．} $a_\alpha = (a_0,\, a_1,\, a_2)$ が印加された $N$ 粒子2次元系であって，ラグランジアンが
+ゲージ場\footnote{一般相対論に倣い，時空を表す多様体 $\mathcal{M}$ の座標のうち時間成分を $x^0$，空間成分を $x^1,\, x^2$ とする．} $A_\alpha = (a_0,\, a_1,\, a_2)$ が印加された $N$ 粒子2次元系であって，ラグランジアンが
 \begin{align}
     \label{eq:lagrangian-SC}
-    L = L_0 + \int_\Sigma \dd[2]{x} \left( \frac{\mu}{2} \epsilon^{\alpha\beta\gamma} a_{\alpha} \partial_\beta a_\gamma -  j^\alpha a_\alpha \right) \eqqcolon L_0 + \int_{\Sigma} \dd[2]{x} \mathcal{L}
+    L = L_0 + \int_\Sigma \dd[2]{x} \left( \frac{\mu}{2} \epsilon^{\alpha\beta\gamma} A_{\alpha} \partial_\beta A_\gamma -  j^\alpha A_\alpha \right) \eqqcolon L_0 + \int_{\Sigma} \dd[2]{x} \mathcal{L}
 \end{align}
 と書かれるものを考える．ただし，$L_0$ は場と粒子の結合を無視したときの粒子のラグランジアンであり，空間を表す多様体を $\Sigma$ で書いた．
 粒子 $n$ はチャージ $q_n$ を持つものとし，$j^\alpha = (j^0,\, \bm{j})$ は
@@ -103,18 +105,18 @@ $\hat{T}_1,\, \hat{T}_2$ は非可換であり，基底状態への作用を考�
 ラグランジアン\eqref{eq:lagrangian-SC}のゲージ不変性は次のようにしてわかる：
 ゲージ変換
 \begin{align}
-    a_\alpha \lto a_\alpha + \partial_\alpha \chi
+    A_\alpha \lto A_\alpha + \partial_\alpha \chi
 \end{align}
 による $\mathcal{L}$ の変化は
 \begin{align}
-    \frac{\mu}{2} \epsilon^{\alpha\beta\gamma} \partial_{\alpha}\chi \partial_\beta a_\gamma + \cancel{\frac{\mu}{2} \epsilon^{\alpha\beta\gamma} a_\alpha\partial_\beta \partial_\gamma \chi + \frac{\mu}{2} \epsilon^{\alpha\beta\gamma} \partial_{\alpha}\chi \partial_\beta \partial_\gamma \chi} 
+    \frac{\mu}{2} \epsilon^{\alpha\beta\gamma} \partial_{\alpha}\chi \partial_\beta A_\gamma + \cancel{\frac{\mu}{2} \epsilon^{\alpha\beta\gamma} A_\alpha\partial_\beta \partial_\gamma \chi + \frac{\mu}{2} \epsilon^{\alpha\beta\gamma} \partial_{\alpha}\chi \partial_\beta \partial_\gamma \chi} 
     -  j^\alpha \partial_\alpha \chi
 \end{align}
 であるから，空間積分を実行すると
 \begin{align}
-    &\int_{\Sigma} \dd[2]{x} \frac{\mu}{2} \partial_\alpha \bigl( \epsilon^{\alpha\beta\gamma} \chi \partial_\beta a_\gamma \bigr) - \int_{\Sigma} \dd[2]{x} \frac{\mu}{2} \cancel{\epsilon^{\alpha\beta\gamma} \chi \partial_\alpha\partial_\beta a_\gamma }
+    &\int_{\Sigma} \dd[2]{x} \frac{\mu}{2} \partial_\alpha \bigl( \epsilon^{\alpha\beta\gamma} \chi \partial_\beta A_\gamma \bigr) - \int_{\Sigma} \dd[2]{x} \frac{\mu}{2} \cancel{\epsilon^{\alpha\beta\gamma} \chi \partial_\alpha\partial_\beta A_\gamma }
     - \int_{\Sigma} \dd[2]{x} \partial_\alpha \bigl( j^\alpha \chi \bigr) + \int_{\Sigma} \dd[2]{x} \cancel{\partial_\alpha} j^\alpha \chi \\
-    &= \int_{\partial \Sigma} \dd S_\alpha \left(\frac{\mu}{2} \epsilon^{\alpha\beta\gamma} \chi \partial_\beta a_\gamma - j^\alpha \chi \right)
+    &= \int_{\partial \Sigma} \dd S_\alpha \left(\frac{\mu}{2} \epsilon^{\alpha\beta\gamma} \chi \partial_\beta A_\gamma - j^\alpha \chi \right)
 \end{align}
 となる．ただしチャージの保存則 $\partial_\alpha j^\alpha = 0$ を使った．このことから，もし空間を表す多様体 $\Sigma$ の境界が $\partial \Sigma = \emptyset$ ならば\footnote{このような多様体の中で重要なのが\textbf{閉多様体} (closed manifold) である．}ラグランジアンはゲージ不変である．
 
@@ -122,20 +124,20 @@ $\hat{T}_1,\, \hat{T}_2$ は非可換であり，基底状態への作用を考�
 
 ラグランジアン密度 $\mathcal{L}$ から導かれるEuler-Lagrange方程式は
 \begin{align}
-    \pdv{\mathcal{L}}{a_\alpha} = \partial_\beta \left( \pdv{\mathcal{L}}{\partial_\beta a_\alpha} \right) 
+    \pdv{\mathcal{L}}{A_\alpha} = \partial_\beta \left( \pdv{\mathcal{L}}{(\partial_\beta A_\alpha)} \right) 
 \end{align}
 である．
 \begin{align}
-    \pdv{\mathcal{L}}{a_\alpha} 
-    &= \frac{\mu}{2} \epsilon^{\alpha \beta\gamma }\partial_\beta a_\gamma - j^\alpha, \\
-    \partial_\beta \left( \pdv{\mathcal{L}}{\partial_\beta a_\alpha} \right) 
-    &= \partial_\beta \left( \frac{\mu}{2} \epsilon^{\alpha \beta \gamma} a_\alpha \right) = -\frac{\mu}{2} \epsilon^{\alpha\beta\gamma} \partial_{\beta} a_\gamma
+    \pdv{\mathcal{L}}{A_\alpha} 
+    &= \frac{\mu}{2} \epsilon^{\alpha \beta\gamma }\partial_\beta A_\gamma - j^\alpha, \\
+    \partial_\beta \left( \pdv{\mathcal{L}}{(\partial_\beta A_\alpha)} \right) 
+    &= \partial_\beta \left( \frac{\mu}{2} \epsilon^{\alpha \beta \gamma} A_\alpha \right) = -\frac{\mu}{2} \epsilon^{\alpha\beta\gamma} \partial_{\beta} A_\gamma
 \end{align}
 なのでこれは
 \begin{align}
-    j^\alpha = \mu \epsilon^{\alpha\beta\gamma} \partial_\beta a_\gamma
+    j^\alpha = \mu \epsilon^{\alpha\beta\gamma} \partial_\beta A_\gamma
 \end{align}
-となる．特に第0成分は，「磁場」$\bm{b} \coloneqq \curl{\bm{a}}$ を導入することで
+となる．特に第0成分は，「磁場」$\bm{b} \coloneqq \curl{\bm{A}}$ を導入することで
 \begin{align}
     \sum_{n=1}^N \frac{q_n}{\mu} \delta (\bm{x} - \bm{x}_n) = b^0
 \end{align}
@@ -145,57 +147,57 @@ $\hat{T}_1,\, \hat{T}_2$ は非可換であり，基底状態への作用を考�
 
 簡単のため，全ての粒子のチャージが等しく $q$ であるとする．$N$ 粒子の配位空間 $\mathcal{C}$ における初期配位と終了時の配位をそれぞれ $\{\irm{\bm{x}}{i}\},\, \{\irm{\bm{x}}{f}\}$ とし，それらを繋ぐ経路全体の集合を $\mathcal{C}(\irm{\bm{x}}{i},\, \irm{\bm{x}}{f})$ と書くと，プロパゲーターは経路積分によって
 \begin{align}
-    \sum_{l \in \mathcal{C}(\irm{\bm{x}}{i},\, \irm{\bm{x}}{f})} e^{\iunit S_0[l]/\hbar } \int_{\mathcal{M}} \mathcal{D} a_\mu (x)\, e^{\iunit \irm{S}{CS}[a_\mu (x)]/\hbar} e^{\iunit (q/\hbar) \int_l \dd{x^\alpha} a_\alpha (x) }
+    \sum_{l \in \mathcal{C}(\irm{\bm{x}}{i},\, \irm{\bm{x}}{f})} e^{\iunit S_0[l]/\hbar } \int_{\mathcal{M}} \mathcal{D}\bigl( A_\mu (x)\bigr)\; e^{\iunit \irm{S}{CS}[A_\mu (x)]/\hbar} e^{\iunit (q/\hbar) \int_l \dd{x^\alpha} A_\alpha (x) }
 \end{align}
-と計算される．ここに $\mathcal{D} a_\mu (x)$ は汎函数積分の測度を表す．詳細は後述するが，場に関する汎函数積分を先に実行してしまうと，実は
+と計算される．ここに $\mathcal{D}\bigl(A_\mu (x)\bigr)$ は汎函数積分の測度を表す．詳細は後述するが，場に関する汎函数積分を先に実行してしまうと，実は
 \begin{align}
     \sum_{l \in \mathcal{C}(\irm{\bm{x}}{i},\, \irm{\bm{x}}{f})} e^{\iunit S_0 [l] /\hbar + \iunit \theta W(l)}
 \end{align}
-の形になることが知られている．ここに $W(l)$ は，経路 $l$ の巻きつき数である．経路に依存する位相因子 $e^{\iunit \theta W(l)}$ 前章で議論した $\pi_1 \mathcal{C}$ の1次元ユニタリ表現そのものであり，エニオンの統計性が発現する機構がChern-Simons項により説明できることを示唆している．
+の形になることが知られている．ここに $W(l)$ は，経路 $l$ の巻きつき数である．経路に依存する位相因子 $e^{\iunit \theta W(l)}$ は前章で議論した $\pi_1 \mathcal{C}$ の1次元ユニタリ表現そのものであり，エニオンの統計性が発現する機構がChern-Simons項により説明できることを示唆している．
 
 \subsection{真空中の可換Chern-Simons理論}
 
 粒子が存在しないとき，経路積分は
 \begin{align}
-    Z(\mathcal{M}) \coloneqq \int_{\mathcal{M}} \mathcal{D} a_\mu (x)\, e^{\iunit \irm{S}{CS}[a_\mu (x)]/\hbar}
+    Z(\mathcal{M}) \coloneqq \int_{\mathcal{M}} \mathcal{D} A_\mu (x)\, e^{\iunit \irm{S}{CS}[A_\mu (x)]/\hbar}
 \end{align}
 の形をする．$Z(\mathcal{M})$ は $\mathcal{M}$ についてホモトピー不変であり，\textbf{分配関数} (partition function) と呼ばれる．$Z(\mathcal{M})$ がTQFTにおいて重要な役割を果たすことを後の章で見る．
 
 \subsection{正準量子化}
 
-$a_0 = 0$ なるゲージをとると，ラグランジアン密度におけるChern-Simons項は $-a_1 \partial_0 a_2 + a_2 \partial_0 a_1$ の形になる．これは $a_1$ （resp. $a_2$）が $a_2$ （resp. $a_1$）の共役運動量であることを意味するので，正準量子化を行うならば
+$A_0 = 0$ なるゲージをとると，ラグランジアン密度におけるChern-Simons項は $-A_1 \partial_0 A_2 + A_2 \partial_0 A_1$ の形になる．これは $A_1$ （resp. $A_2$）が $A_2$ （resp. $A_1$）の共役運動量であることを意味するので，正準量子化を行うならば
 \begin{align}
-    \comm{a_1(\bm{x})}{a_2(\bm{y})} = \frac{\iunit \hbar}{\mu} \delta^2 (\bm{x} - \bm{y})
+    \comm{A_1(\bm{x})}{A_2(\bm{y})} = \frac{\iunit \hbar}{\mu} \delta^2 (\bm{x} - \bm{y})
 \end{align}
 を要請する\footnote{しかし，トーラス上の座標をどのように取るかと言うことは問題である．}．
 
 さて，このときトーラス $T^2$ 上の2つのサイクル $C_1,\, C_2$ に対してWilsonループ
 \begin{align}
-    W_j = \exp \left( \frac{\iunit q}{\hbar} \oint_{C_j} \dd{\bm{x}} \vdot \bm{a} \right) 
+    W_j = \exp \left( \frac{\iunit q}{\hbar} \oint_{C_j} \dd{\bm{x}} \vdot \bm{A} \right) 
 \end{align}
 を考える．
 $\comm{A}{B}$ がc数である場合のBCH公式から
 \begin{align}
     W_1 W_2 &= e^{\iunit q^2 / (\mu \hbar)} W_2 W_1
 \end{align}
-を得る．これは\eqref{eq:2-T-comm}を説明している．つまり，演算子 $T_1,\, T_2$ とはWilson loopのことだったのである\footnote{疑問：座標の時間成分はどこへ行ったのか？}．
+を得るが，これは\eqref{eq:2-T-comm}を説明している．つまり，演算子 $T_1,\, T_2$ とはWilson loopのことだったのである\footnote{疑問：座標の時間成分はどこへ行ったのか？}．
 
 \section{非可換Chern-Simons理論の経験的導入}
 
-この節では自然単位系を使う．前節を一般化して，ゲージ場 $a_\mu (x)$ があるLie代数 $\mathfrak{g}$ に値をとるものとしよう．つまり，Lie代数 $\mathfrak{g}$ の基底を $\sigma_a / (2\iunit)$ とすると\footnote{因子 $1/(2\iunit)$ は物理学における慣習である．ややこしいことに，文献によってこの因子が異なる場合がある．}
+この節では自然単位系を使う．前節を一般化して，ゲージ場 $A_\mu (x)$ があるLie代数 $\mathfrak{g}$ に値をとるものとしよう．つまり，Lie代数 $\mathfrak{g}$ の基底を $\sigma_a / (2\iunit)$ とすると\footnote{因子 $1/(2\iunit)$ は物理学における慣習である．ややこしいことに，文献によってこの因子が異なる場合がある．}
 \begin{align}
-    a_\mu (x) = a_\mu^a (x) \frac{\sigma_a}{2\iunit}
+    A_\mu (x) = A_\mu^a (x) \frac{\sigma_a}{2\iunit}
 \end{align}
 と書かれるような状況を考える\footnote{ゲージ接続がLie代数に値をとる1-形式である，ということ．}．$\sigma_a \in \mathfrak{g}$ が一般に非可換であることから，このような理論は非可換Chern-Simons理論と呼ばれる．
 
-時空多様体 $\mathcal{M}$ 上の閉曲線 $l$ に沿った\textbf{Wilson loop}は，\textbf{経路順序積} (path ordering) $\mathcal{P}$ を用いて
+時空多様体 $\mathcal{M}$ 上の閉曲線 $\gamma$ に沿った\textbf{Wilson loop}は，\textbf{経路順序積} (path ordering) $\mathcal{P}$ を用いて
 \begin{align}
-    W_l \coloneqq \Tr \left[ \mathcal{P} \exp \left( \oint_l \dd{x}^\mu a_\mu (x) \right)  \right] 
+    W_\gamma \coloneqq \Tr \left[ \mathcal{P} \exp \left( \oint_\gamma \dd{x}^\mu A_\mu (x) \right)  \right] 
 \end{align}
-と定義される．Aharonov-Bohm位相の一般化という気持ちであるが，経路 $l$ の異なる2点 $x,\, y$ を取ってきたときに $a_\mu (x)$ と $a_\mu (x')$ が一般に非可換であることが話をややこしくする．
+と定義される．Aharonov-Bohm位相の一般化という気持ちであるが，経路 $\gamma$ の異なる2点 $x,\, y$ を取ってきたときに $A_\mu (x)$ と $A_\mu (y)$ が一般に非可換であることが話をややこしくする．
 % 経路順序積 $\mathcal{P}$ は
 % \begin{align}
-%     \mathcal{P} \exp \left( \oint_l \dd{x}^\mu a_\mu (x) \right) 
+%     \mathcal{P} \exp \left( \oint_l \dd{x}^\mu A_\mu (x) \right) 
 %     \coloneqq 
 % \end{align}
 \subsection{ゲージ不変性}
@@ -203,43 +205,64 @@ $\comm{A}{B}$ がc数である場合のBCH公式から
 非可換Chern-Simons理論におけるゲージ変換は，$U \colon \mathcal{M} \lto G$ を用いて
 \begin{align}
     \label{eq:gauge-transform}
-    a_\mu(x) \lto U^{-1}(x) \bigl(a_\mu(x) + \partial_\mu\bigr) U(x)
+    A_\mu(x) \lto U(x) \bigl(A_\mu(x) + \partial_\mu\bigr) U(x)^{-1}
 \end{align}
-の形をする．このゲージ変換がWilson loopを不変に保つことを，無限小の場合に確認しておこう．
+の形をする．このゲージ変換がWilson loopを不変に保つことを確認しておこう．
 
-$\mathcal{M}$ の任意の2点 $x,\, y \in \mathcal{M}$ を結ぶ曲線\footnote{閉曲線でなくとも良い．閉曲線ならばWilson loopと呼ばれる．} $C \colon [0,\, 1] \lto \mathcal{M}$ をとり，\textbf{Wilson line}を
+$\mathcal{M}$ の任意の2点 $\irm{x}{i},\, \irm{x}{f} \in \mathcal{M}$ を結ぶ曲線 $\gamma \colon [\irm{t}{i},\, \irm{t}{f}] \lto \mathcal{M}$ をとり，\textbf{Wilson line}を
 \begin{align}
-    \tilde{W}_C (x,\, y) \coloneqq \mathcal{P} \exp \left( \int_C \dd{x^\mu} a_\mu (x) \right)
+    \tilde{W}_\gamma (x,\, y) \coloneqq \mathcal{P} \exp \left( \int_C \dd{x^\mu} A_\mu (x) \right)
 \end{align}
-で定義する．無限小だけ離れた2点 $x,\, x + \dd{x}$ を取ってくると
+で定義する．$[\irm{t}{i},\, \irm{t}{f}]$ の分割 $\irm{t}{i} \eqqcolon t_0 < t_1 < \dots < t_N \coloneqq \irm{t}{f}$ を与えて $x_i \coloneqq \gamma(t_i),\; \dd{x_i} \coloneqq x_{i+1} - x_{i}$ とおく\footnote{$\dd{x_i}$ は，厳密には2点 $x_i,\, x_{i+1}$ を含むある $\mathcal{M}$ のチャート $\bigl( U,\, (x^\mu) \bigr)$ をとってきた時の座標関数の値の差 $\dd{x_i}^\mu \coloneqq x^\mu(x_{i+1}) - x^\mu(x_{i})$ として理解する．}と，
 \begin{align}
-    \tilde{W}_C (x,\, x + \dd{x}) = 1 + a_\mu (x)\dd{x^\mu}
+    \tilde{W}_\gamma (\irm{x}{i},\, \irm{x}{f}) 
+    &= \mathcal{P} \exp \left( \int_{\irm{x}{i}}^{x_1} \dd{x}^\mu A_\mu (x) + \int_{x_1}^{x_2} \dd{x}^\mu A_\mu (x) + \cdots + \int_{x_{N-1}}^{\irm{x}{f}} \dd{x}^\mu A_\mu (x) \right) \\
+    &\coloneqq \lim_{N \to \infty} \exp \left(\int_{\irm{x}{i}}^{x_1} \dd{x}^\mu A_\mu (x)\right) \exp \left( \int_{x_1}^{x_2} \dd{x}^\mu A_\mu (x) \right) \cdots \exp \left( \int_{x_{N-1}}^{\irm{x}{f}} \dd{x}^\mu A_\mu (x) \right) \\
+    &= \lim_{N \to \infty} \tilde{W}_{\gamma|_{[\irm{t}{i},\, t_1]}} (\irm{x}{i},\, x_1) \tilde{W}_{\gamma|_{[t_1,\, t_2]}} (x_1,\, x_2) \cdots \tilde{W}_{\gamma|_{[t_{N-1},\, \irm{t}{f}]}} (x_{N-1},\, \irm{x}{f}) 
 \end{align}
-と書けるので，
+と書ける．
+% 無限小だけ離れた2点 $x,\, x + \dd{x} \in \mathcal{M}$ を取ってくると
+% \begin{align}
+%     \tilde{W}_C (x,\, x + \dd{x}) = 1 + A_\mu (x)\dd{x^\mu}
+% \end{align}
+% と書けるので，
+$N$ が十分大きい時は $0 \le \forall i \le N-1$ に対して $\abs{\dd{x_i}}$ が十分小さく，
 \begin{align}
-    \tilde{W}_C (x,\, x + \dd{x}) &\lto U^{-1}(x) \tilde{W}_C (x,\, x + \dd{x}) U(x + \dd{x}) \\
-    &= U(x)^{-1} \bigl[ 1 + a_\mu (x) \dd{x^\mu} \bigr] \bigl[ U(x) + \partial_\mu U(x) \dd{x^\mu} \bigr] \\
-    &= 1 + U^{-1}(x)\bigl[ a_\mu + \partial_\mu \bigr] U(x) \dd{x^\mu}
+    \tilde{W}_{\gamma|_{[t_{i},\, t_{i+1}]}} (x_{i},\, x_{i+1})
+    &\approx \exp \left(\int_{x_i}^{x_{i+1}} \dd{x}^\mu A_\mu (x)\right) \\ 
+    &\approx 1 + \int_{x_{i}}^{x_{i+1}} \dd{x}^\mu A_\mu (x) \\
+    &\approx 1 + A_\mu (x_i)\, \dd{x_i}^\mu
 \end{align}
-である\footnote{無限小の場合はゲージ不変であるように見えるが，一般にWilson line自身はゲージ不変\underline{ではない}．}．
+と書ける\footnote{$N \to \infty$ の極限で等式になる．}．このときゲージ変換\eqref{eq:gauge-transform}に伴って
+\begin{align}
+    \tilde{W}_{\gamma|_{[t_{i},\, t_{i+1}]}} (x_{i},\, x_{i+1})
+    &\lto 1 + U(x_{i}) \bigl(A_\mu (x_{i}) + \partial_\mu\bigr) U(x_{i})^{-1}\, \dd{x_{i}}^\mu \\
+    &\approx U(x_i)\bigl( 1 + A_\mu (x_i) \dd{x_i}^\mu \bigr) \bigl(U(x_{i})^{-1} + \partial_\mu (U(x_{i})^{-1})\, \dd{x_i}^\mu \bigr) \\
+    &\approx U(x_i) \tilde{W}_{\gamma|_{[t_{i},\, t_{i+1}]}} (x_{i},\, x_{i+1}) U(x_{i+1})^{-1}
+\end{align}
+と変換するので，結局 $\irm{x}{i},\, \irm{x}{f} \in \mathcal{M}$ を繋ぐWlison lineがゲージ変換\eqref{eq:gauge-transform}に伴って
+\begin{align}
+    \tilde{W}_\gamma (\irm{x}{i},\, \irm{x}{f}) \lto U(\irm{x}{i}) \tilde{W}_\gamma (\irm{x}{i},\, \irm{x}{f}) U(\irm{x}{f})^{-1}
+\end{align}
+と変換することがわかった．Wlison loopの場合は $\irm{x}{i} = \irm{x}{f}$ でかつトレースをとるので，ゲージ不変になる．
 
 \subsection{Chern-Simons作用}
 
 いささか天下り的だが，\textbf{Chern-Simons action}を
 \begin{align}
-    \irm{S}{CS}[a_\mu] \coloneqq \frac{k}{4\pi} \int_{\mathcal{M}} \dd[3]{x} \epsilon^{\alpha\beta\gamma} \Tr \left[ a_\alpha \partial_\beta a_\gamma + \frac{2}{3} a_\alpha a_\beta a_\gamma \right] 
+    \irm{S}{CS}[A_\mu] \coloneqq \frac{k}{4\pi} \int_{\mathcal{M}} \dd[3]{x} \epsilon^{\alpha\beta\gamma} \Tr \left[ A_\alpha \partial_\beta A_\gamma + \frac{2}{3} A_\alpha A_\beta A_\gamma \right] 
 \end{align}
 により定義する．第2項は可換な場合には必ず零になるので前節では登場しなかった．
-$\irm{S}{CS}$ が時空 $\mathcal{M}$ の計量によらない\footnote{\textbf{計量不変} (metric invariant) であると言う．}ことは，ゲージ場を1-形式 $a$ として書き表したときに
+$\irm{S}{CS}$ が時空 $\mathcal{M}$ の計量によらない\footnote{\textbf{計量不変} (metric invariant) であると言う．}ことは，ゲージ場をLie代数値1-形式 $A \in \Omega^1(\mathcal{M}) \otimes \mathfrak{g}$ として書き表したときに
 \begin{align}
-    \irm{S}{CS}[a] = \frac{k}{4\pi} \int_{\mathcal{M}} \Tr \left( a \wedge \dd{a} + \frac{2}{3} a \wedge a \wedge a \right) 
+    \irm{S}{CS}[A] = \frac{k}{4\pi} \int_{\mathcal{M}} \Tr \left( A \wedge \dd{A} + \frac{2}{3} A \wedge A \wedge A \right) 
 \end{align}
-と書けることからわかる\footnote{...と言うのは微妙に的を外している．より正確には $2+1$ 次元多様体 $\mathcal{M}$ を教会に持つような4次元多様体 $\mathcal{N}$ を用意し，$\mathcal{N}$ の作用 $\mathcal{S}[a] \coloneqq k/(4\pi) \int_{\mathcal{N}} \Tr (F \wedge F)$ を部分積分することで $\irm{S}{CS}$ の別の定義が与えられる．}．
+と書けることからわかる\footnote{...と言うのは微妙に的を外している．より正確には $2+1$ 次元多様体 $\mathcal{M}$ を境界に持つような4次元多様体 $\mathcal{N}$ を用意し，$\mathcal{N}$ の作用 $\mathcal{S}[A] \coloneqq k/(4\pi) \int_{\mathcal{N}} \Tr (F \wedge F)$ を部分積分することで $\irm{S}{CS}$ の別の定義が与えられる．}．
 % を，成分計算により確認しておこう．$\mathcal{M}$ の一般座標変換 $(x^\mu) \lto (x'{}^\mu)$ を考えたとき，
 
 $\irm{S}{CS}$ にゲージ変換\eqref{eq:gauge-transform}を施した結果は
 \begin{align}
-    &\irm{S}{CS}[a_\mu] \lto \irm{S}{CS}[a_\mu] + 2\pi \nu k, \label{eq:CS-gauge} \\
+    &\irm{S}{CS}[A_\mu] \lto \irm{S}{CS}[A_\mu] + 2\pi \nu k, \label{eq:CS-gauge} \\
     \WHERE &\nu \coloneqq \frac{1}{24 \pi^2} \int_{\mathcal{M}} \dd[3]{x} \epsilon^{\alpha\beta\gamma} \Tr \bigl[ (U^{-1} \partial_\alpha U)(U^{-1} \partial_\beta U)(U^{-1} \partial_\gamma U) \bigr] 
 \end{align}
 となる．$\nu$ は写像 $U \colon \mathcal{M} \lto G$ の\textbf{巻きつき数} (winding number)，もしくは\textbf{Pontryagin index}と呼ばれ，常に整数値をとる．この極めて非自明な結果についても後述する．
@@ -256,23 +279,23 @@ $2+1$ 次元においては，1つのゲージ場からなる作用であって
 % Wilson loopの真空期待値が結び目不変量になることが知られている．
 
 % \begin{align}
-%     &\irm{S}{CS} = \frac{k}{4\pi} \int_{\mathcal{M}} \dd[3]{x} \epsilon^{\alpha\beta\gamma} \Tr \left[ a_\alpha \partial_\beta a_\gamma + \frac{2}{3} a_\alpha a_\beta a_\gamma \right] \\
-%     &\lto \frac{k}{4\pi} \int_{\mathcal{M}} \dd[3]{x} \epsilon^{\alpha\beta\gamma} \Tr \left[ (U^{-1} a_\alpha U + U^{-1} \partial_\alpha U) \partial_\beta (U^{-1} a_\gamma U + U^{-1} \partial_\gamma U) \right. \\
-%     &\quad \left. + \frac{2}{3} (U^{-1} a_\alpha U + U^{-1} \partial_\alpha U) (U^{-1} a_\beta U + U^{-1} \partial_\beta U) (U^{-1} a_\gamma U + U^{-1} \partial_\gamma U) \right] \\
-%     &= \frac{k}{4\pi} \int_{\mathcal{M}} \dd[3]{x} \epsilon^{\alpha\beta\gamma} \Tr \left[ U^{-1} a_\alpha U (\partial_\beta U^{-1}) a_\gamma U + U^{-1} a_\alpha (\partial_\beta a_\gamma) U + U^{-1} a_\alpha a_\gamma (\partial_\beta U)  \right. \\
-%     &\quad + U^{-1} (\partial_\alpha U) (\partial_\beta U^{-1}) a_\gamma U + U^{-1} (\partial_\alpha U)(\partial_\beta a_\gamma) U + U^{-1} (\partial_\alpha U) a_\gamma (\partial_\beta U) \\
-%     &\quad + U^{-1} a_\alpha U (\partial_\beta U^{-1}) (\partial_\gamma U) + U^{-1} a_\alpha (\partial_\beta\partial_\gamma U) \\
+%     &\irm{S}{CS} = \frac{k}{4\pi} \int_{\mathcal{M}} \dd[3]{x} \epsilon^{\alpha\beta\gamma} \Tr \left[ A_\alpha \partial_\beta A_\gamma + \frac{2}{3} A_\alpha A_\beta A_\gamma \right] \\
+%     &\lto \frac{k}{4\pi} \int_{\mathcal{M}} \dd[3]{x} \epsilon^{\alpha\beta\gamma} \Tr \left[ (U^{-1} A_\alpha U + U^{-1} \partial_\alpha U) \partial_\beta (U^{-1} A_\gamma U + U^{-1} \partial_\gamma U) \right. \\
+%     &\quad \left. + \frac{2}{3} (U^{-1} A_\alpha U + U^{-1} \partial_\alpha U) (U^{-1} A_\beta U + U^{-1} \partial_\beta U) (U^{-1} A_\gamma U + U^{-1} \partial_\gamma U) \right] \\
+%     &= \frac{k}{4\pi} \int_{\mathcal{M}} \dd[3]{x} \epsilon^{\alpha\beta\gamma} \Tr \left[ U^{-1} A_\alpha U (\partial_\beta U^{-1}) A_\gamma U + U^{-1} A_\alpha (\partial_\beta A_\gamma) U + U^{-1} A_\alpha A_\gamma (\partial_\beta U)  \right. \\
+%     &\quad + U^{-1} (\partial_\alpha U) (\partial_\beta U^{-1}) A_\gamma U + U^{-1} (\partial_\alpha U)(\partial_\beta A_\gamma) U + U^{-1} (\partial_\alpha U) A_\gamma (\partial_\beta U) \\
+%     &\quad + U^{-1} A_\alpha U (\partial_\beta U^{-1}) (\partial_\gamma U) + U^{-1} A_\alpha (\partial_\beta\partial_\gamma U) \\
 %     &\quad + U^{-1} (\partial_\alpha U) U (\partial_\beta U^{-1}) (\partial_\gamma U) + U^{-1} (\partial_\alpha U) (\partial_\beta\partial_\gamma U) \\
-%     &\quad + \frac{2}{3} U^{-1} a_\alpha a_\beta a_\gamma U \\
-%     &\quad + \frac{2}{3} U^{-1} \bigl( (\partial_\alpha U) U^{-1} a_\beta a_\gamma + a_\alpha (\partial_\beta U) U^{-1} a_\gamma + a_\alpha a_\beta (\partial_\gamma U) U^{-1}\bigr) U \\
-%     &\quad + \frac{2}{3} U^{-1} \bigl( (\partial_\alpha U) U^{-1} (\partial_\beta U) a_\gamma + a_\alpha (\partial_\beta U) U^{-1} (\partial_\gamma U) U^{-1} + (\partial_\alpha U) U^{-1} a_\beta (\partial_\gamma U) U^{-1}\bigr) U \\
+%     &\quad + \frac{2}{3} U^{-1} A_\alpha A_\beta A_\gamma U \\
+%     &\quad + \frac{2}{3} U^{-1} \bigl( (\partial_\alpha U) U^{-1} A_\beta A_\gamma + A_\alpha (\partial_\beta U) U^{-1} A_\gamma + A_\alpha A_\beta (\partial_\gamma U) U^{-1}\bigr) U \\
+%     &\quad + \frac{2}{3} U^{-1} \bigl( (\partial_\alpha U) U^{-1} (\partial_\beta U) A_\gamma + A_\alpha (\partial_\beta U) U^{-1} (\partial_\gamma U) U^{-1} + (\partial_\alpha U) U^{-1} A_\beta (\partial_\gamma U) U^{-1}\bigr) U \\
 %     &\quad \left.+ \frac{2}{3} U^{-1} (\partial_\alpha U) U^{-1} (\partial_\beta U) (\partial_\gamma U)  \right] \\
-%     &= \irm{S}{CS} + \frac{k}{4\pi} \int_{\mathcal{M}} \dd[3]{x} \epsilon^{\alpha\beta\gamma} \Tr \left[ a_\alpha U (\partial_\beta U^{-1}) a_\gamma + U^{-1} a_\alpha a_\gamma (\partial_\beta U)  \right. \\
-%     &\quad + (\partial_\alpha U) (\partial_\beta U^{-1}) a_\gamma + (\partial_\alpha U)(\partial_\beta a_\gamma) + U^{-1} (\partial_\alpha U) a_\gamma (\partial_\beta U) \\
-%     &\quad + U^{-1} a_\alpha U (\partial_\beta U^{-1}) (\partial_\gamma U) + U^{-1} a_\alpha (\partial_\beta\partial_\gamma U) \\
+%     &= \irm{S}{CS} + \frac{k}{4\pi} \int_{\mathcal{M}} \dd[3]{x} \epsilon^{\alpha\beta\gamma} \Tr \left[ A_\alpha U (\partial_\beta U^{-1}) A_\gamma + U^{-1} A_\alpha A_\gamma (\partial_\beta U)  \right. \\
+%     &\quad + (\partial_\alpha U) (\partial_\beta U^{-1}) A_\gamma + (\partial_\alpha U)(\partial_\beta A_\gamma) + U^{-1} (\partial_\alpha U) A_\gamma (\partial_\beta U) \\
+%     &\quad + U^{-1} A_\alpha U (\partial_\beta U^{-1}) (\partial_\gamma U) + U^{-1} A_\alpha (\partial_\beta\partial_\gamma U) \\
 %     &\quad + U^{-1} (\partial_\alpha U) U (\partial_\beta U^{-1}) (\partial_\gamma U) + U^{-1} (\partial_\alpha U) (\partial_\beta\partial_\gamma U) \\
-%     &\quad + \frac{2}{3} \bigl( (\partial_\alpha U) U^{-1} a_\beta a_\gamma + a_\alpha (\partial_\beta U) U^{-1} a_\gamma + a_\alpha a_\beta (\partial_\gamma U) U^{-1}\bigr) \\
-%     &\quad + \frac{2}{3} \bigl( (\partial_\alpha U) U^{-1} (\partial_\beta U) a_\gamma + a_\alpha (\partial_\beta U) U^{-1} (\partial_\gamma U) U^{-1} + (\partial_\alpha U) U^{-1} a_\beta (\partial_\gamma U) U^{-1}\bigr) \\
+%     &\quad + \frac{2}{3} \bigl( (\partial_\alpha U) U^{-1} A_\beta A_\gamma + A_\alpha (\partial_\beta U) U^{-1} A_\gamma + A_\alpha A_\beta (\partial_\gamma U) U^{-1}\bigr) \\
+%     &\quad + \frac{2}{3} \bigl( (\partial_\alpha U) U^{-1} (\partial_\beta U) A_\gamma + A_\alpha (\partial_\beta U) U^{-1} (\partial_\gamma U) U^{-1} + (\partial_\alpha U) U^{-1} A_\beta (\partial_\gamma U) U^{-1}\bigr) \\
 %     &\quad \left.+ \frac{2}{3} U^{-1} (\partial_\alpha U) U^{-1} (\partial_\beta U) U^{-1} (\partial_\gamma U)  \right] \\
 % \end{align}
 
@@ -282,25 +305,35 @@ $2+1$ 次元においては，1つのゲージ場からなる作用であって
 
 % \subsection{ゲージ場の定義}
 
-場 $\varphi \colon \mathcal{M} \lto \mathbb{K}^N,\; x \lmto \bigl(\varphi_1(x),\, \dots,\, \varphi_N(x)\bigr)$ が線型Lie群 $G \subset \gGL{N}{\mathbb{K}}$ で記述される\footnote{ここでは $\mathbb{K} = \mathbb{R},\, \mathbb{C}$ としておく．}内部対称性を持っているような系を考える．
-つまり，任意の \cinfty 写像 $U \colon \mathcal{M} \lto G$ に対して\footnote{内部対称性と言うのは，$U$ が定数写像とは限らないことを意味する．}，系のラグランジアン密度の場に関する項 $\mathcal{L}[\varphi_\mu (x)]$ が $\mathcal{L}\bigl[\, [U(x)]^j_i \varphi_j (x) \bigr] = \mathcal{L}[\varphi_i (x)]$ を充たすとする．
+場\footnote{この段階では，\textbf{場}とはその配位を記述する空間 $F$ （これは \cinfty 多様体だったりベクトル空間だったりする）と \cinfty 写像 $\varphi \colon \mathcal{M} \lto F$ の組のことと考える．この描像は後にファイバー束の \cinfty 切断として定式化される．} $\varphi \colon \mathcal{M} \lto \mathbb{K}^N,\; x \lmto \bigl(\varphi_1(x),\, \dots,\, \varphi_N(x)\bigr)$ が線型Lie群 $G \subset \gGL{N}{\mathbb{K}}$ で記述される\footnote{ここでは $\mathbb{K} = \mathbb{R},\, \mathbb{C}$ としておく．}内部対称性を持っているような系を考える．
+つまり，ゲージ原理を要請し，任意の \cinfty 写像 $U \colon \mathcal{M} \lto G$ に対して\footnote{\underline{内部}対称性という言葉を使うのは，$U$ が定数写像とは限らないことを意味する．}，系のラグランジアン密度の場に関する項 $\mathcal{L}[\varphi_\mu (x)]$ が $\mathcal{L}\bigl[\, [U(x)]^j_i \varphi_j (x) \bigr] = \mathcal{L}[\varphi_i (x)]$ を充たすとする．
+もしくは，場 $\varphi \colon \mathcal{M} \lto \mathbb{K}^N$ であって，時空の各点 $x \in \mathcal{M}$ および任意の \cinfty 写像 $U \colon \mathcal{M} \lto G$ に対して $\varphi (x) \lto U(x) \varphi (x)$ と変換する
+\footnote{
+    一般相対論の数学的定式化におけるテンソル場の変換性は，時空の多様体 $\mathcal{M}$ 上の一般座標変換（i.e. チャートの取り替え）に由来するものであった．
+    同じように，ここで考えている場の変換性はどのような数学的定式化に由来するのかということを考えると，時空 $\mathcal{M}$ を底空間とする主束 $G \hookrightarrow P \xrightarrow{\pi} \mathcal{M}$ の同伴ベクトル束 $\mathbb{K}^N \hookrightarrow P \times_\rho \mathbb{K}^N \xrightarrow{q} \mathcal{M}$ における，$\mathcal{M}$ のチャートの取り替えに伴う局所自明化の取り替え（i.e. 変換関数のファイバーへの作用）の概念に行き着くのである．詳細は次の小節で議論する．
+}
+ものを考えると言っても良い．
 
-この系を経路積分により量子化することを見据えて，場の配位空間の幾何学を考察すると見通しが良いだろう．
+
+この系を経路積分により量子化することを見据えて，このような変換性を充たす全ての場がなす空間の幾何学を考察すると見通しが良いだろう．
 そのため，まず時空上の無限小だけ離れた2点 $\irm{x}{i},\, \irm{x}{f} \in \mathcal{M}$ における場の配位 $\varphi(\irm{x}{i}),\, \varphi(\irm{x}{f})$ を比較しよう．
-内部自由度による変換性を議論したいので，$\varphi (\irm{x}{f}) - \varphi(\irm{x}{i})$ なる量を調べても意味がない．$\irm{x}{i},\, \irm{x}{f}$ を結ぶ \cinfty 曲線 $\gamma \colon [\irm{t}{i},\, \irm{t}{f}] \lto \mathcal{M}$ を持ってきて，$\gamma$ に沿って $\varphi(\irm{x}{i})$ を $\irm{x}{t}$ まで流してやるのが良い．つまり，場の配位空間 $\mathbb{K}^N$ 上の \cinfty 曲線 $\varphi^{(\gamma)} \coloneqq \varphi \circ \gamma \colon [\irm{t}{i},\, \irm{t}{f}]$ を考えれば，
-量 $\varphi (\irm{x}{f}) - \varphi^{(\gamma)}(\irm{t}{f})$ は $U(\irm{x}{f}) \in G$ による変換を受ける．
-$\irm{x}{i},\, \irm{x}{f}$ の両方を含む $\mathcal{M}$ のチャート $\bigl( U,\, (x^\mu) \bigr)$ を持ってきて成分計算すると，$\dd{x} \coloneqq \irm{x}{f} - \irm{x}{i}$ が\footnote{厳密にはこれは座標関数の差 $\dd{x}^\mu \coloneqq x^\mu(\irm{x}{f}) - x^\mu(\irm{x}{i})$ の絶対値が小さいことを主張している．}微小なのでTaylor展開において $\dd{x}$ の1次の項まで残すことで
+内部自由度による変換性を議論したいので，$\varphi (\irm{x}{f}) - \varphi(\irm{x}{i})$ なる量を調べても意味がない．$\irm{x}{i},\, \irm{x}{f}$ を結ぶ \cinfty 曲線 $\gamma \colon [\irm{t}{i},\, \irm{t}{f}] \lto \mathcal{M}$ を持ってきて，$\gamma$ に沿って $\varphi(\irm{x}{i})$ を $\irm{x}{f}$ まで流してやるのが良い．つまり，場の配位を記述する空間 $\mathbb{K}^N$ 上の \cinfty 曲線 $\varphi^{(\gamma)} \coloneqq \varphi \circ \gamma \colon [\irm{t}{i},\, \irm{t}{f}]$ を考えれば，
+量 $\varphi (\irm{x}{f}) - \varphi^{(\gamma)}(\irm{t}{f})$ は $U(\irm{x}{f}) \in G$ による変換を受けるはずである．
+$\irm{x}{i},\, \irm{x}{f}$ の両方を含む $\mathcal{M}$ のチャート $\bigl( V,\, (x^\mu) \bigr)$ を持ってきて成分計算すると，$\dd{x} \coloneqq \irm{x}{f} - \irm{x}{i}$ が\footnote{厳密にはこれは座標関数の差 $\dd{x}^\mu \coloneqq x^\mu(\irm{x}{f}) - x^\mu(\irm{x}{i})$ の絶対値が小さいことを主張している．}微小なのでTaylor展開において $\dd{x}$ の1次の項まで残すことで
 \begin{align}
-    \varphi^{(\gamma)}_i(\irm{t}{f}) &\eqqcolon \varphi_i (\irm{x}{i}) + [\, A_\mu(x) \,]^j_i \varphi_j (x) \dd{x}^\mu \label{eq:2-gauge1} \\
+    \varphi^{(\gamma)}_i(\irm{t}{f}) &\eqqcolon \varphi_i (\irm{x}{i}) - [\, \textcolor{red}{A_\mu(x)} \,]^j_i \varphi_j (x) \dd{x}^\mu \label{eq:2-gauge1} \\
     \varphi(\irm{x}{f}) &= \varphi (\irm{x}{i}) + \partial_\mu \varphi (x) \dd{x}^\mu
 \end{align}
-と書ける．ただし，式\eqref{eq:2-gauge1}の右辺によって $\dim \mathcal{M}$ 個の成分を持つ\underline{新しい場} $A_\mu \colon \mathcal{M} \lto \gGL{N}{\mathbb{K}}$ を定義した．この場は\textbf{ゲージ場}と呼ばれる．
+と書けるはずである
+% \footnote{この定義の係数は，物理で使うベクトルポテンシャル $\mathcal{A}_\mu$ と $A_\mu = \iunit \mathcal{A}_\mu$ の関係にある．}
+．ただし，式\eqref{eq:2-gauge1}の右辺によって $\dim \mathcal{M}$ 個の成分を持つ\underline{新しい場} $A_\mu \colon \mathcal{M} \lto \gGL{N}{\mathbb{K}}$ を定義した．この場は\textbf{ゲージ場}と呼ばれる．
 
-ゲージ場 $A_\mu$ の変換性を調べるには，量
+ゲージ場 $A_\mu$ を時空の各点 $x \in \mathcal{M}$ における変換性によって特徴付けよう．
+そのためには，量
 \begin{align}
-    \varphi (\irm{x}{f}) - \varphi^{(\gamma)}(\irm{t}{f}) = \bigl( \partial_\mu \varphi (x) - A_\mu(x) \varphi (x) \bigr) \dd{x}^\mu
+    \varphi (\irm{x}{f}) - \varphi^{(\gamma)}(\irm{t}{f}) = \bigl( \partial_\mu \varphi (x) + A_\mu(x) \varphi (x) \bigr) \dd{x}^\mu
 \end{align}
-が $U(\irm{x}{f}) \in G$ による変換を受けることに注目すれば良い．つまり，\textbf{共変微分}と呼ばれる線型写像を $\mathcal{D}_\mu (x) \coloneqq \partial_\mu - \iunit A_\mu (x)$ で定義すると，$\forall x \in \mathcal{M}$ における，内部対称性による変換
+が $U(\irm{x}{f}) \in G$ による変換を受けることに注目すれば良い．つまり，\textbf{共変微分}と呼ばれる線型写像を $\mathcal{D}_\mu (x) \coloneqq \partial_\mu + A_\mu (x)$ で定義すると，$\forall x \in \mathcal{M}$ における，内部対称性による変換
 \begin{align}
     \label{eq:2-inner1}
     \varphi(x) \lto \tilde{\varphi}(x) \coloneqq U(x) \varphi (x)
@@ -326,7 +359,7 @@ $\irm{x}{i},\, \irm{x}{f}$ の両方を含む $\mathcal{M}$ のチャート $\bi
 % が $t \in [0,\, 1]$ を変化させた時にどのように変化するかを考察しよう．
 % いつもの如くまずは $\irm{x}{i},\, \irm{x}{f}$ が無限小だけ離れている場合を考える．無駄に煩雑になるので $\irm{x}{i} = x$，$\irm{x}{f} = x + \dd{x}$ と書いておく．
 % Lie群 $G$ のLie代数 $\mathfrak{g}$ およびその基底 $\sigma_a / (2\iunit)$ を考えると，$\forall g \in G$ はある $\theta^a \sigma_a / (2\iunit)$ によって $g = \exp (\iunit \theta^a \sigma_a)$ 
-\subsection{内部対称性を持つ場の定式化}
+\subsection{主束と内部対称性の定式化}
 
 % 前小節では場 $\varphi$ が $N$ 次元ベクトル空間に値を持つ場合を考えた．つまり，場の配位空間と呼ぶべきものはランク $N$ の\textbf{ベクトル束} (vector bundle) であった：
 
@@ -335,8 +368,8 @@ $\irm{x}{i},\, \irm{x}{f}$ の両方を含む $\mathcal{M}$ のチャート $\bi
 % \end{mydef}
 ゲージ場は，主束の接続として定式化できる．特に，主束の同伴ベクトル束が重要である．
 
-まずファイバー束と主束を定義する．
-\cinfty 多様体 $M$ のの\textbf{微分同相群} (diffeomorphism group) $\bm{\Diff M}$ とは，
+まずファイバー束と主束を定義し，内部対称性を持つ場の記述には主束の同伴ベクトル束が適していることを見る\footnote{従って，この小節で行うのはゲージ場が登場する舞台の定式化であって，ゲージ場自身の定式化は次の小節で行う．}．
+\cinfty 多様体 $M$ の\textbf{微分同相群} (diffeomorphism group) $\bm{\Diff M}$ とは，
 \begin{itemize}
     \item 台集合 $\Diff M \coloneqq \bigl\{\, f \colon M \lto M \bigm| \text{微分同相写像} \,\bigr\}$
     \item 単位元を恒等写像
@@ -365,7 +398,7 @@ $\irm{x}{i},\, \irm{x}{f}$ の両方を含む $\mathcal{M}$ のチャート $\bi
     \end{itemize}
 \end{mydef}
 
-\begin{mydef}[label=def.fiber-1]{\cinfty ファイバー束}
+\begin{mydef}[label=def.fiber-1,breakable]{\cinfty ファイバー束}
     Lie群 $G$ が \cinfty 多様体 $F$ に\hyperref[def:Lie-action]{効果的に作用}しているとする．
     $\bm{C^\infty}$ \textbf{ファイバー束} (fiber bundle) とは，
     \begin{itemize}
@@ -394,7 +427,7 @@ $\irm{x}{i},\, \irm{x}{f}$ の両方を含む $\mathcal{M}$ のチャート $\bi
             \bigl\{\, t_{\alpha\beta} \colon B \lto G \bigm| \forall (p,\, f) \in (U_\alpha \cap U_\beta) \times F,\; \varphi_\beta^{-1} (p,\, f) = \varphi_\alpha^{-1} \bigl(p,\, t_{\alpha\beta} (p) \btr f\bigr)  \,\bigr\}_{\alpha,\, \beta \in \Lambda}
         \end{align}
     \end{itemize}
-    の6つのデータの組みのこと．記号としては $\bm{(E,\, \pi,\, B,\, F)}$ や $F \hookrightarrow E \xrightarrow{\pi} B$ と書く．
+    の6つのデータの組みのこと．記号としては $\bm{(E,\, \pi,\, B,\, F)}$ や $\bm{F \hookrightarrow E \xrightarrow{\pi} B}$ と書く．
 	% \cinfty 多様体 $F,\, E,\, B$ と \cinfty 写像 $\pi \colon E \lto B$ を与える．
     % $\pi$ が以下の条件を充たすとき，組 $(E,\, \pi ,\, B,\, F)$ を $F$ をファイバーとする $\bm{C^\infty}$ \textbf{ファイバー束} (smooth fiber bundle) と呼ぶ：
 	% \begin{description}
@@ -581,7 +614,7 @@ $\xi = (E,\, \pi,\, B,\, F)$ を\hyperref[def.fiber-1]{ファイバー束}とす
 \begin{myprop}[label=prop.cocycle]{ファイバー束の構成}
 	\begin{itemize}
         \item \cinfty 多様体 $B,\, F$
-        \item Lie群 $G$
+        \item Lie群 $G$ と，$G$ の $F$ への\hyperref[def:Lie-action]{左作用} $\btr \colon G \times F \lto G$
         \item $B$ の開被覆 $\{ U_\lambda \}_{\lambda \in \Lambda}$
         \item \textbf{コサイクル条件}\eqref{eq.cocycle}を充たす\cinfty 関数の族 $\{t_{\alpha\beta} \colon U_\beta \cap U_\alpha \to G\}$
     \end{itemize}
@@ -928,7 +961,7 @@ $\xi = (E,\, \pi,\, B,\, F)$ を\hyperref[def.fiber-1]{ファイバー束}とす
         P \coloneqq \coprod_{x \in M} P_x, \quad
         \pi \colon P \lto M,\; (x,\, f) \lmto x
     \end{align}
-    と定める．$\gGL{n}{\mathbb{K}} P \xrightarrow{\pi} M$ に適切な局所自明化を入れて，変換関数が $\{t_{\alpha\beta}\colon M \lto \gGL{n}{\mathbb{K}}\}$ になるような主束を構成してみよう．
+    と定める．$\gGL{n}{\mathbb{K}} \hookrightarrow P \xrightarrow{\pi} M$ に適切な局所自明化を入れて，変換関数が $\{t_{\alpha\beta}\colon M \lto \gGL{n}{\mathbb{K}}\}$ になるような主束を構成してみよう．
 
     　$\mathbb{K}^n$ の標準基底を $e_1,\, \dots,\, e_n$ とすると，
     $\forall f \in P_x$ に対して $f$ は $E_x$ の基底 $f(e_1),\, \dots,\, f(e_n)$ と同一視される．実際，$\forall v = v^\mu e_\mu \in \mathbb{K}^n$ に対して
@@ -984,6 +1017,8 @@ $\xi = (E,\, \pi,\, B,\, F)$ を\hyperref[def.fiber-1]{ファイバー束}とす
     このとき，$F \hookrightarrow P \times_G F \xrightarrow{q} M$ は構造群 $G$ をもち，変換関数が $G \hookrightarrow P \xrightarrow{\pi} M$ のそれと同じであるような\hyperref[def.fiber-1]{ファイバー束}である．
 \end{myprop}
 
+逆に，与えられた主束を素材にして，変換関数を共有するファイバー束を構成することができる．
+
 \begin{proof}
     $q$ のwell-definednessは，\eqref{def:ractionP}で定義した右作用 $\btl$ が $\pi(u)$ を不変に保つので明らか．
 
@@ -1005,7 +1040,7 @@ $\xi = (E,\, \pi,\, B,\, F)$ を\hyperref[def.fiber-1]{ファイバー束}とす
         $G$ の $P$ への右作用の定義\eqref{def:ractionP}から $u = \varphi_\lambda^{-1} \bigl(\pi(u),\, g(u)\bigr) = \varphi_\lambda^{-1} \bigl( \pi(u),\, 1_G \bigr)  \btl g(u) = s_\lambda \bigl( \pi(u) \bigr)  \btl g(u)$ が成り立ち，$u \times_G f = \Bigl( s_\lambda \bigl( \pi(u) \bigr) \btl g(u) \Bigr) \times_G f =  s_\lambda \bigl( \pi(u) \bigr) \times_G \bigl(g(u) \btr f\bigr)$ と書くことができる．
         よって \textbf{$\psi_\lambda$ の定義\eqref{eq:loctriv-Borel}において} $\bm{\psi_\lambda (u \times_G f) = \bigl( \pi(u),\, g(u) \btr f \bigr)}$ \textbf{であり}，全ての $q^{-1}(U_\lambda)$ の行き先が定義されていることがわかった．
         次に $u \times_G f = u' \times_G f' \in q^{-1}(U_\lambda)$ であるとする．このとき右作用 $\textcolor{red}{\btl}$ の定義からある $h \in G$ が存在して $u' = \varphi_\lambda^{-1} \bigl( \pi(u'),\, g(u') \bigr) = u \btl h = \varphi_\lambda^{-1} \bigl( \pi(u),\, g(u) h \bigr),\; f' = h^{-1} \btr f$ が成り立つので，$\pi(u') = \pi(u),\; g(u') = g(u)h,\, f' = h^{-1} \btr f$ が言える．
-        従って $\psi_\lambda(u' \times_G f') = \bigl( \pi(u'),\, g(u') \btr f' \bigr) = \Bigl( \pi(u),\, \bigl(g(u) h\bigr) \btr \bigl( h^{-1} \btr f \bigr) \Bigr) = \bigl( \pi(u),\, g(u) \btr h \btr h^{-1} \btr f \bigr) \bigl( \pi(u),\, g(u) \btr f \bigr) = \psi_\lambda (u \times_G f)$ が成り立ち，$\psi_\lambda$ がwell-definedであることが示された．
+        従って $\psi_\lambda(u' \times_G f') = \bigl( \pi(u'),\, g(u') \btr f' \bigr) = \Bigl( \pi(u),\, \bigl(g(u) h\bigr) \btr \bigl( h^{-1} \btr f \bigr) \Bigr) = \bigl( \pi(u),\, g(u) \btr h \btr h^{-1} \btr f \bigr) = \bigl( \pi(u),\, g(u) \btr f \bigr) = \psi_\lambda (u \times_G f)$ が成り立ち，$\psi_\lambda$ がwell-definedであることが示された．
     }
     微分同相写像になる
     \footnote{
@@ -1057,20 +1092,23 @@ $\xi = (E,\, \pi,\, B,\, F)$ を\hyperref[def.fiber-1]{ファイバー束}とす
 \begin{align}
     \mathbb{K}^N \hookrightarrow P \times_\rho \mathbb{K}^N \xrightarrow{q} \mathcal{M}
 \end{align}
-の\hyperref[def.section]{局所切断} $\phi \colon U_\alpha \lto P \times_\rho \mathbb{K}^N$ を，ある一つの\hyperref[def.fiber-1]{局所自明化} $\sigma_\alpha \colon q^{-1}(U_\alpha) \lto U_\alpha \times \mathbb{K}^N$ によって座標表示した（ものの第2成分を取り出してきたもの）
+の\hyperref[def.section]{局所切断} $\phi \colon V_\alpha \lto P \times_\rho \mathbb{K}^N$ を，ある一つの\hyperref[def.fiber-1]{局所自明化} $\sigma_\alpha \colon q^{-1}(V_\alpha) \lto V_\alpha \times \mathbb{K}^N$ によって座標表示したもの（の第2成分を取り出してきたもの）
 \begin{align}
-    \varphi = \mathrm{proj}_2 \circ \sigma_\alpha \circ \phi \colon U_\alpha \lto \mathbb{K}^N
+    \varphi = \mathrm{proj}_2 \circ \sigma_\alpha \circ \phi \colon V_\alpha \lto \mathbb{K}^N
 \end{align}
 のことだと見做せる．と言うのも，こう考えることで場の変換性\eqref{eq:2-inner1}
 \begin{align}
     \varphi(x) \lto \tilde{\varphi}(x) \coloneqq U(x) \varphi (x)
 \end{align}
-が，時空の2つの開集合 $V,\, \tilde{V} \subset \mathcal{M}$ の共通部分上における，局所自明化 $\sigma,\, \tilde{\sigma} \colon \pi^{-1} (V \cap \tilde{V}) \lto (V \cap \tilde{V}) \times \mathbb{K}^N$ の取り替え（内部自由度に関する一般座標変換のようなもの）に伴う変換関数 $U_{\tilde{V},\, V} \colon \mathcal{M} \lto G$ の作用
+が，時空 $\mathcal{M}$ の2つのチャート $\bigl(V,\, (x^\mu)\bigr),\, \bigl(\tilde{V},\, (\tilde{x}^\mu)\bigr)$ の共通部分 $V \cap \tilde{V}$ 上における，局所自明化 $\sigma,\, \tilde{\sigma} \colon q^{-1} (V \cap \tilde{V}) \lto (V \cap \tilde{V}) \times \mathbb{K}^N$ の取り替え（内部自由度に関する一般座標変換のようなもの）に伴う変換関数 $U_{\tilde{V},\, V} \colon \mathcal{M} \lto G$ の作用
 \begin{align}
     \tilde{\sigma} \circ \sigma^{-1} \colon (V \cap \tilde{V}) \times \mathbb{K}^N &\lto (V \cap \tilde{V}) \times \mathbb{K}^N, \\
     \bigl(x,\, \bm{\varphi(x)}\bigr) &\lmto \Bigl(x,\, \rho\bigl(U_{\tilde{V},\, V}(x)\bigr)\bigl( \varphi(x) \bigr) \Bigr) = \Bigl( x,\, \bm{U_{\tilde{V},\, V} (x) \varphi(x)} \Bigr) 
 \end{align}
-として上手く定式化できているのである．
+として上手く定式化できているのである
+\footnote{
+    変換性によって場を定義していたので，数学的定式化はこれで良い．なお，この定式化は主束の全空間 $P$ の情報を一切使っていないが，これは命題\ref{prop.cocycle}の表れである．実際，この節の冒頭の議論で顕に登場したのは時空 $\mathcal{M}$，場の配位を記述する空間 $\mathbb{K}^N$，内部対称性を表すLie群 $G$ とその表現 $\rho \colon G \lto \gGL{N}{\mathbb{K}}$，場の局所的変換を表す \cinfty 写像 $U \colon \mathcal{M} \lto G$ だけだったので，その数学的定式化が $P$ によらないのは妥当だと思う．
+}．
 
 % \begin{myprop}[]{}
 % 	主 $G$-束 $\xi = (P,\, \pi,\, M,\, G)$ が自明束になるための必要十分条件は，それが切断（定義\ref{def.section}）を持つことである．
@@ -1102,113 +1140,264 @@ $\xi = (E,\, \pi,\, B,\, F)$ を\hyperref[def.fiber-1]{ファイバー束}とす
 % 	\end{figure}%
 % \end{proof}
 
-\subsection{主束の接続とゲージ場の定義}
+\subsection{指数写像}
 
 % ベクトル空間 $V$ に値をとる微分形式とは，通常の $\mathcal{M}$ 上の微分形式 $\Omega^\bullet (\mathcal{M})$ に $V$ をテンソル積してできる系列 $V \otimes \Omega^\bullet (\mathcal{M})$ のことを言う．
-この小節は~\cite[第10章]{Nakahara2018topo2}，~\cite[Chapter 20]{Lee2012smooth}，~\cite[第6章]{Imai2013diff}による．
+主束の接続の話に入る前に，Lie群のLie代数について考察する．
+この小節は~\cite[Chapter 20]{Lee2012smooth}，~\cite[第6章]{Imai2013diff}による．
+
 Lie群 $G$ の上の\underline{微分同相写像}\footnote{従って，命題\ref{prop:diffeo-Frelated}から $L_g,\, R_g$ による\hyperref[prop:diffeo-Frelated]{ベクトル場の押し出し}が一意的に存在する．}
 \begin{align}
     \bm{L_g} \colon G &\lto G,\, x \lmto gx, \\
     \bm{R_g} \colon G &\lto G,\, x \lmto xg, \\
 \end{align}
 のことをそれぞれ\textbf{左移動}，\textbf{右移動}と言う．
-\textbf{左不変}\hyperref[def:vecf]{ベクトル場}とは，$\mathbb{R}$-ベクトル空間
-\begin{align}
-    \bm{\mathfrak{X}^L (G)} \coloneqq \bigl\{\, X \in \mathfrak{X}(G) \bigm| \forall g \in G,\; (L_g)_* X = X \,\bigr\} 
-\end{align}
-の元のことである．$\mathfrak{X}^L (G)$ はベクトル場のLieブラケットについて閉じ，~\cite[p.188, Proposition 8.30]{Lee2012smooth}Lie代数の公理を充たす．
 
-線型写像
-\begin{align}
-    \iota \colon \mathfrak{X}^L(G) \lto T_{1_G} G,\; X \lmto X_{1_G}
-\end{align}
-を考える．$\forall X \in \mathfrak{X}^L(G),\; \forall g \in G$ に対して $X_g = \bigl((L_g)_* X\bigr)_{1_G} = X_{1_G}$ であるから $X \in \mathfrak{X}^L (G)$ は $X_{1_G}$ だけで完全に決まる．i.e. $\iota$ は単射である．
-逆に $\forall v \in T_{1_G} G$ に対して，ベクトル場 $X \colon G \lto TG,\; g \lmto \bigl( g,\, T_{1_G}(L_g) v \bigr)$ は $v = \iota(X)$ でかつ $X \in \mathfrak{X}^L(G)$ を充たすので $\iota$ は全射である．
+\begin{mydef}[label=def:left-invariant]{左不変ベクトル場}
+    Lie群 $G$ の\textbf{左不変ベクトル場} (left-invariant vector field) とは，$\mathbb{R}$-ベクトル空間
+    \begin{align}
+        \bm{\mathfrak{X}^L (G)} \coloneqq \bigl\{\, X \in \mathfrak{X}(G) \bigm| \forall g \in G,\; (L_g)_* X = X \,\bigr\} 
+    \end{align}
+    の元のこと．i.e. $\forall g \in G$ に対して自分自身と \hyperref[def:F-related]{$L_g$-related} な \cinfty ベクトル場のことを言う．
+\end{mydef}
 
-ここで $\bm{\mathfrak{g}} \coloneqq T_{1_G} G$ とおき，$\mathfrak{g}$ 上のLieブラケットを
+$\forall g \in G$ と $\forall X,\, Y \in \mathfrak{X}^L(G)$ をとる．このとき $(L_g)_* X = X,\; (L_g)_* Y = Y$ なので，命題\ref{prop:Lie-bracket-natural}の後半から
 \begin{align}
-    \comm{X}{Y} \coloneqq \comm{\iota^{-1}(X)}{\iota^{-1}(Y)}_{1_G} \in \mathfrak{g}
+    (L_g)_* \comm{X}{Y} = \comm{(L_g)_* X}{(L_g)_* Y} = \comm{X}{Y}
 \end{align}
-と定義すれば $\iota$ はLie代数の同型となる．この意味で $\mathfrak{g}$ のことを\textbf{Lie群} $\bm{G}$ \textbf{のLie代数}と呼ぶ．
-さて，慣例に従って $X\in \mathfrak{g}$ に対して $\bm{X^\#} \coloneqq \iota^{-1}(X)$ と書く．
+が言える．i.e. 
+% \textbf{左不変}\hyperref[def:vecf]{ベクトル場}とは，$\mathbb{R}$-ベクトル空間
+\underline{$\mathfrak{X}^L (G)$ は\hyperref[def:Lie-bracket]{Lieブラケット}について閉じるので，体 $\mathbb{R}$ 上のLie代数になる}．
 
-Lie群 $G$ の\textbf{1パラメータ部分群} (one parameter subgroup) とは，Lie群の準同型写像 $\mathbb{R} \lto G,\; t\lmto g_t$ の像 $\{g_t\}_{t \in \mathbb{R}}$ のことを言う．
-\begin{myprop}[label=prop:Exp]{指数写像の存在}
-    $G$ をLie群，$\mathfrak{g}$ をそのLie代数とする．このとき以下が成り立つ：
-    \begin{enumerate}
-        \item $\forall X \in \mathfrak{g}$ に対して，\hyperref[def:vecf]{ベクトル場} $X^\# \in \mathfrak{X}^L (G)$ は\hyperref[def:complete-vecf]{完備}である．従って\hyperref[def:global-flow]{大域的な流れ}\footnote{つまり，Lie群 $\mathbb{R}$ の\hyperref[def:Lie-action]{作用}．} $\theta \colon \mathbb{R} \times G \lto G$ を生成する．
-        \item $\forall X \in \mathfrak{g},\; \forall t \in \mathbb{R}$ に対して $\exp_G (t X) \coloneqq \theta(t,\, 1_G)$ と書くと，$\theta_t = R_{\exp_G (tX)} \colon G \lto G$ が成り立つ．
-        \item $\forall X \in \mathfrak{g},\; \forall s,\, t \in \mathbb{R}$ に対して $\exp_G (sX) \exp_G (tX) = \exp_G ((s+t)X) \in G$ が成り立つ．i.e.
-        $\{\exp_G (tX)\}_{t \in \mathbb{R}}$ 
-        は $G$ の1パラメータ部分群である．
-        \item $\forall X \in \mathfrak{g}$ に対して
-        $\eval{\dv{}{t}}_{t=0} \bigl(\exp_G (tX)\bigr) = X \in \mathfrak{g}$ が成り立つ．
-        \item 対応 $X \lmto \{\exp_G (tX)\}_{t \in \mathbb{R}}$ は $\mathfrak{g}$ から $G$ の1パラメータ部分群全体の全単射である．
-    \end{enumerate}
-    従って，\textbf{指数写像} $\exp_G \colon \mathfrak{g} \lmto G$ が定義される．
+\begin{myprop}[label=prop:LieAlg]{}
+    $G$ をLie群とする．このとき評価写像
+    \begin{align}
+        \evalunit \colon \mathfrak{X}^L(M) \lto T_{1_G} G,\; X \lmto X_{1_G}
+    \end{align}
+    はベクトル空間の同型写像である．
+    % よって $\dim \mathfrak{X}^L(G) = \dim G$ である．
 \end{myprop}
 
 \begin{proof}
+    $\evalunit$ が $\mathbb{R}$-線型写像であることは明らか．
+    \begin{description}
+        \item[\textbf{$\bm{\evalunit}$ が単射}]　
+        
+        $\Ker \evalunit = \{ 0 \}$ を示す．$\forall X \in \Ker \evalunit$ に対して $\evalunit (X) = X_{1_G} = 0$ が成り立つ．
+        一方 $X \in \mathfrak{X}^L(G)$ でもあるので，$\forall g \in G$ に対して $X_g = X_{L_g(1_G)} = (T_{1_G} L_g)(X_{1_G}) = 0$ が言える\footnote{2つ目の等号で\hyperref[def:F-related]{$L_g$-related}の定義を使った．}．
+        \item[\textbf{$\bm{\evalunit}$ が全射}]　
+        
+        $\forall v \in T_{1_G} G$ を1つとり，\hyperref[def:vecf]{\cinfty ベクトル場} $\Lie{v} \in \mathfrak{X}(G)$ を
+        \begin{align}
+            \label{eq:vL}
+            \Lie{v} \colon G \lto TG,\; g \lmto T_{1_G} (L_g) (v)
+        \end{align}
+        と定義する
+        \footnote{
+            $\Lie{v}$ が \cinfty であることは次のようにしてわかる：$\forall f \in C^\infty (G)$ をとる．$\gamma(0) = 1_G,\; \dot{\gamma}(0) = v$ を充たす \cinfty 曲線 $\gamma \colon (-\delta,\, \delta) \lto G$ をとると，$\forall g \in G$ に対して $(\Lie{v} f)(g) = v (f \circ L_g) = \dot{\gamma}(0) (f \circ L_g) = \eval{\dv{}{t}}_{t=0} (f \circ L_g \circ \gamma)(t)$ と書ける．$f \circ L_g \circ \gamma \colon (-\delta,\, \delta) \times G \lto \mathbb{R}$ と見做すとこれは \cinfty 写像の合成なので \cinfty 写像であり，右辺は $g$ に関して \cinfty 級である．
+        }．
+        $\forall g \in G$ に対して $\Lie{v}$ が自分自身と $L_g$-related であることを示す．
+        実際，$\forall h \in G$ に対して
+        \begin{align}
+            T_h(L_g) (\Lie{v}|_h) &= T_h(L_g) \circ T_{1_G}(L_h)(v) = T_{1_G}(L_g \circ L_h)(v) = T_{1_G}(L_{gh})(v) = \Lie{v}|_{gh} = \Lie{v}|_{L_g(h)}
+        \end{align}
+        が言える．i.e. $\Lie{v} \in \mathfrak{X}^L(G)$ である．
+        従って $\Lie{v}$ に $\evalunit$ を作用させることができ，$\evalunit (\Lie{v}) = \Lie{v}|_{1_G} = T_{1_G} L_{1_G} (v) = v \in \Im \evalunit$ が言えた．
+    \end{description}
+\end{proof}
+
+
+
+% 線型写像
+% \begin{align}
+%     \iota \colon \mathfrak{X}^L(G) \lto T_{1_G} G,\; X \lmto X_{1_G}
+% \end{align}
+% を考える．$\forall X \in \mathfrak{X}^L(G),\; \forall g \in G$ に対して $X_g = \bigl((L_g)_* X\bigr)_{1_G} = X_{1_G}$ であるから $X \in \mathfrak{X}^L (G)$ は $X_{1_G}$ だけで完全に決まる．i.e. $\iota$ は単射である．
+% 逆に $\forall v \in T_{1_G} G$ に対して，ベクトル場 $X \colon G \lto TG,\; g \lmto \bigl( g,\, T_{1_G}(L_g) v \bigr)$ は $v = \iota(X)$ でかつ $X \in \mathfrak{X}^L(G)$ を充たすので $\iota$ は全射である．
+
+ここで $\bm{\mathfrak{g}} \coloneqq T_{1_G} G$ とおき，命題\ref{prop:LieAlg}の\eqref{eq:vL}を使って $\mathfrak{g}$ 上のLieブラケットを
+\begin{align}
+    \comm{X}{Y} \coloneqq \comm{\Lie{X}}{\Lie{Y}}_{1_G} \in \mathfrak{g}
+\end{align}
+と定義すれば $\evalunit$ はLie代数の同型となる．この意味で $\mathfrak{g}$ のことを\textbf{Lie群} $\bm{G}$ \textbf{のLie代数}と呼ぶ．
+% さて，慣例に従って $X\in \mathfrak{g}$ に対して $\bm{X^\#} \coloneqq \iota^{-1}(X)$ と書く．
+
+\begin{mytheo}[label=thm:induced-LieAlg-hom]{誘導されるLie代数の準同型}
+    Lie群 $G,\, H$ とLie群の準同型 $F \colon G \lto H$ を与える．
     \begin{enumerate}
-        \item 命題\ref{prop:existence-integral}より，ベクトル場 $X^{\#}$ の\hyperref[def:integral-curve]{積分曲線} $\gamma_{1_G} \colon (-\varepsilon,\, \varepsilon) \lto G$ で，$\gamma_\varepsilon (0) = 1_G$ を充たすものが存在する．
-        このとき $\forall g \in G$ に対して \cinfty 曲線を
-        \begin{align}
-            \gamma_g \colon (-\varepsilon,\, \varepsilon) \lto G,\; t \lmto g \gamma_{1_G} (t)
-        \end{align}
-        と定義すると
-        \begin{align}
-            \eval{\dv{}{s}}_{s=0} \gamma_g(t + s) 
-            &= \eval{\dv{}{s}}_{s=0}\bigl( L_g \circ \gamma_{1_G}(t + s)\bigr) \\
-            &= T_{\gamma_{1_G}(t)} (L_g) \left( \eval{\dv{}{s}}_{s=0} \gamma_{1_G}(t + s) \right) \\
-            &= T_{\gamma_{1_G}(t)} (L_g) \left( (X^\#)_{\gamma_{1_G} (t)} \right) \\
-            &= (X^\#)_{\gamma_{g} (t)}
-        \end{align}
-        が成り立つので，$\gamma_g$ は初期条件 $\gamma_g (0) = g$ を充たす $X^\#$ の積分曲線である．
+        \item このとき，$\forall X \in \mathfrak{g}$ に対して $Y \in \mathfrak{h}$ がただ一つ存在して，$\Lie{X}$ と $\Lie{Y}$ が\hyperref[def:F-related]{$F$-related}になる．i.e. $\Lie{Y} = F_* \Lie{X}$ である．
+        \item $T_{1_G} F \colon \mathfrak{g} \lto \mathfrak{h},\; X \lmto T_{1_G}F(X)$ はLie代数の準同型である．
+    \end{enumerate}
+\end{mytheo}
 
-        　ここで $g_1 \coloneqq \gamma_{1_G} (\varepsilon/2),\; g_2 \coloneqq \gamma_{1_G}(-\varepsilon/2)$ とおいて
+\begin{proof}
+    \begin{enumerate}
+        \item $Y = T_{1_G} F(X) \in \mathfrak{h}$ に対して $\Lie{X}$ と $\Lie{Y}$ が $F$-relatedであることを示す．
+        実際，$F$ がLie群の準同型であることから
+        $\forall g,\, h \in G$ について
         \begin{align}
-            \gamma_{1_G}(t) \coloneqq 
-            \begin{cases}
-                \gamma_{g_1} (t - \frac{\varepsilon}{2}), & t \in [\varepsilon/2,\, 3\varepsilon/2) \\
-                \gamma_{1_{G}} (t), & t \in [-\varepsilon/2,\, \varepsilon/2] \\
-                \gamma_{g_2} (t + \frac{\varepsilon}{2}), & t \in (-3\varepsilon/2,\, -\varepsilon/2] 
-            \end{cases}
+            F \circ L_g (h) = F(gh) = F(g)F(h) = L_{F(g)} \circ F(h)
         \end{align}
-        と定義すると $\gamma_{1_G} \colon (-3\varepsilon/2,\, 3\varepsilon/2) \lto G$ はwell-definedで，$X^\#$ の積分曲線となる．同様の議論で定義域を拡張すれば，初期条件 $\gamma_{1_G} (0) = 1_G$  を充たす $X^\#$ の積分曲線 $\gamma_{1_G} \colon \mathbb{R} \lto G$ が得られる．
+        が成り立つこと，i.e. $F \circ L_g = L_{F(g)} \circ F$ に注意すると
+        $\forall g \in G$ に対して
+        \begin{align}
+            T_g F (\Lie{X}|_g) &= T_g F \bigl( T_{1_G} L_g(X) \bigr) \\
+            &= T_{1_G}(F \circ L_g)(X) \\
+            &= T_{1_G}(L_{F(g)} \circ F)(X) \\
+            &= T_{1_H}(L_{F(g)}) \circ T_{1_G} F(X) \\
+            &= T_{1_H}(L_{F(g)})(Y) \\
+            &= Y_{F(g)}
+        \end{align}
+        が言える．系\ref{col:pushforward}より $F_* \Lie{X} = \Lie{Y}$ がわかるので $Y$ は一意的に定まる．
+        \item $\forall X,\, Y \in \mathfrak{g}$ をとる．(1) と命題\ref{prop:Lie-bracket-natural}-(1) より $\comm{F_* \Lie{X}}{F_* \Lie{Y}}$ は $\comm{\Lie{X}}{\Lie{Y}}$ と $F$-related であるが，(1) で示した一意性から
+        \begin{align}
+            F_*\comm{\Lie{X}}{\Lie{Y}} = \comm{F_* \Lie{X}}{F_* \Lie{Y}}
+        \end{align}
+        が言える．両辺の $1_H \in H$ における値をとることで
+        \begin{align}
+            T_{1_G}F (\comm{X}{Y}) = (F_*\comm{\Lie{X}}{\Lie{Y}})_{1_G} = (\comm{F_* \Lie{X}}{F_* \Lie{Y}})_{1_G} = \comm{X}{Y}
+        \end{align}
+        が示された．
+    \end{enumerate}
+\end{proof}
 
-        　次に，上の議論により得られた $\gamma_{1_G}$ を使って $\forall g \in G$ に対して
+
+\begin{mydef}[label=def:one-parameter-subgroup]{1パラメータ部分群}
+    Lie群の準同型写像 $\mathbb{R} \lto G$ のことをLie群 $G$ の\textbf{1パラメータ部分群} (one-parameter subgroup) と呼ぶ\footnote{1パラメータ部分群自身は\underline{部分Lie群ではない}．}．
+\end{mydef}
+
+\begin{myprop}[label=prop:one-parameter-basic]{1パラメータ部分群の特徴付け}
+    Lie群 $G$ を与える．
+    \begin{enumerate}
+        \item $G$ の任意の\hyperref[def:one-parameter-subgroup]{1パラメータ部分群} $\gamma \colon \mathbb{R} \lto G$ に対して，$\gamma$ を初期条件 $\gamma(0) = 1_G$ を充たす\hyperref[def:local-flow]{極大積分曲線}として持つ\hyperref[def:left-invariant]{左不変ベクトル場} $X \in \mathfrak{X}^L(G)$ が一意的に存在する．
+        \item $\forall X \in \mathfrak{X}^L(G)$ に対して，初期条件 $\gamma(0) = 1_G$ を充たす唯一の $X$ の極大積分曲線 $\gamma \colon \mathbb{R} \lto G$ は $G$ の1パラメータ部分群である．
+    \end{enumerate}
+    \tcblower
+    上述の対応によって $X \in \mathfrak{X}^L(G)$ から一意的に定まる1パラメータ部分群のことを\textbf{$\bm{X}$ が生成する1パラメータ部分群}と呼ぶ．
+\end{myprop}
+
+\begin{marker}
+    命題\ref{prop:LieAlg}の同型と併せると
+    \begin{align}
+        \bigl\{\, G\; \text{の1パラメータ部分群}  \,\bigr\} \overset{{}_*}{\longleftrightarrow} \mathfrak{X}^L(G) \overset{\evalunit}{\longleftrightarrow} T_{1_G} G
+    \end{align}
+    の1対1対応がある．i.e. $G$ の任意の1パラメータ部分群 $\gamma$ は，その初速度 $\dot{\gamma}(0) \in T_{1_G} G$ により完全に決定される．
+\end{marker}
+
+
+\begin{proof}
+    \begin{enumerate}
+        \item $G$ の1パラメータ部分群 $\gamma \colon \mathbb{R} \lto G$ を与える．
+        $\dv{}{t} \in \mathfrak{X}^L(\mathbb{R})$ なので，命題\ref{thm:induced-LieAlg-hom}より，$X \coloneqq \gamma_* \bigl(\dv{}{t}\bigr) \in \mathfrak{X}^L(G)$ は $\dv{}{t}$ と $\gamma$-related な唯一の左不変ベクトル場である．
+        このとき $\forall t_0 \in \mathbb{R}$ に大して
         \begin{align}
-            \gamma_g \colon \mathbb{R} \lto G,\; t \lmto g \gamma_{1_G}(t)
+            X_{\gamma(t_0)} = T_{t_0} \gamma \left( \eval{\dv{}{t}}_{t=t_0} \right) = \dot{\gamma}(t_0)
         \end{align}
-        と定義するとこれは $\gamma_g (0) = g$ を充たす $X^\#$ の積分曲線である．よって $X^\#$ は大域的な流れ
+        が成り立ち，$\gamma$ は初期条件 $\gamma(0) = 1_G$ を充たす$X$ の極大積分曲線である．
+        \item 定理\ref{thm:left-invariant-complete}より $\forall X \in \mathfrak{X}^L(G)$ は\hyperref[def:complete-vecf]{完備}なので，
+        $X$ は\hyperref[def:global-flow]{大域的なフロー}を\hyperref[thm:fundamental-flow]{生成する}．従って $\gamma(0) = 1_G$ を充たす $X$ の極大積分曲線 $\gamma$ が唯一存在し，その定義域が $\mathbb{R}$ になる．
+        
+        　$\forall g \in G$ をとる．\hyperref[def:left-invariant]{左不変ベクトル場の定義}より $X \in \mathfrak{X}^L(G)$ は $X$ 自身と \hyperref[def:F-related]{$L_g$-related}なので，命題\ref{prop:natural-integral-curve}から $L_g \circ \gamma \colon \mathbb{R} \lto G$ もまた $X$ の積分曲線である．
+        従って $\forall s \in \mathbb{R}$ に大して曲線 $L_{\gamma(s)} \circ \gamma \colon t \lmto L_{\gamma(s)} \bigl( \gamma(t) \bigr) = \gamma(s) \gamma(t)$ は $t=0$ において点 $\gamma(s) \in G$ を通過する $X$ の積分曲線である．
+        然るに補題\ref{lem:affine-integral-curve}-(2) より曲線 $t \colon t \lmto \gamma(s+t)$ もまた同一の初期条件を充たす $X$ の積分曲線なので，定理\ref{thm:fundamental-flow}よりこれらは $\forall t \in \mathbb{R}$ において一致しなくてはならない：
         \begin{align}
-            \theta \colon \mathbb{R} \times G \lto G,\; (t,\, g) \lmto \gamma_g(t)
+            \gamma(s) \gamma(t) = \gamma(s+t)
         \end{align}
-        を生成する．
-        \item (1) の証明より，$\forall t \in \mathbb{R},\, \forall g \in G$ に対して
-        \begin{align}
-            \exp_G (tX) &= \theta(t,\, 1_G) = \gamma_{1_G}(t), \\
-            \theta_t (g) &\coloneqq \theta(t,\, g) = \gamma_g(t) = g \gamma_{1_G} (t) = R_{\exp_G (tX)}(g)
-        \end{align}
-        が言える．
-        \item (1) で得た $\theta$ が大域的な流れなので
-        \begin{align}
-            \exp_G (sX) \exp_G (tX) &= \theta_t \bigl( 1_G\exp_G (sX) \bigr)  = \theta_t \circ \theta_s (1_G) = \theta_{s+t}(1_G) = \exp_G \bigl( (s+t) X\bigr) 
-        \end{align}
-        が成り立つ．
-        \item 
-        \begin{align}
-            \eval{\dv{}{t}}_{t=0} \bigl( \exp_G(tX) \bigr) &= \eval{\dv{}{t}}_{t=0} \gamma_{1_G} (t) = (X^\#)_{1_G} = \iota (X^\#) = X
-        \end{align}
-        \item 
+        i.e. $\gamma \colon \mathbb{R} \lto G$ は1パラメータ部分群である．
     \end{enumerate}
     
 \end{proof}
 
+\begin{mydef}[label=def:exp]{指数写像}
+    Lie群 $G$ を与える．$\mathfrak{g}$ を $G$ のLie代数とする．
+    $G$ の\textbf{指数写像} (exponential map) を
+    \begin{align}
+        \exp \colon \mathfrak{g} \lto G,\; X \lmto \gamma_{(X)}(1)
+    \end{align}
+    と定義する．ただし，$\gamma_{(X)} \colon \mathbb{R} \lto G$ は $\Lie{X} \in \mathfrak{X}^L(G)$ が \hyperref[prop:one-parameter-basic]{生成する1パラメータ部分群}である．
+\end{mydef}
+
+\begin{myprop}[label=prop:exp]{指数写像の性質}
+    
+\end{myprop}
+
+
+% \begin{myprop}[label=prop:Exp,breakable]{指数写像の性質}
+%     $G$ をLie群，$\mathfrak{g}$ をそのLie代数とする．このとき以下が成り立つ：
+%     \begin{enumerate}
+%         \item $\forall X \in \mathfrak{g}$ に対して，\hyperref[def:vecf]{ベクトル場} $X^\# \in \mathfrak{X}^L (G)$ は\hyperref[def:complete-vecf]{完備}である．従って\hyperref[def:global-flow]{大域的な流れ}\footnote{つまり，Lie群 $\mathbb{R}$ の\hyperref[def:Lie-action]{作用}．} $\theta \colon \mathbb{R} \times G \lto G$ を生成する．
+%         \item $\forall X \in \mathfrak{g},\; \forall t \in \mathbb{R}$ に対して $\exp_G (t X) \coloneqq \theta(t,\, 1_G)$ と書くと，$\theta_t = R_{\exp_G (tX)} \colon G \lto G$ が成り立つ．
+%         \item $\forall X \in \mathfrak{g},\; \forall s,\, t \in \mathbb{R}$ に対して $\exp_G (sX) \exp_G (tX) = \exp_G ((s+t)X) \in G$ が成り立つ．i.e.
+%         $\{\exp_G (tX)\}_{t \in \mathbb{R}}$ 
+%         は $G$ の1パラメータ部分群である．
+%         \item $\forall X \in \mathfrak{g}$ に対して
+%         $\eval{\dv{}{t}}_{t=0} \bigl(\exp_G (tX)\bigr) = X \in \mathfrak{g}$ が成り立つ．
+%         \item 対応 $X \lmto \{\exp_G (tX)\}_{t \in \mathbb{R}}$ は $\mathfrak{g}$ から $G$ の1パラメータ部分群全体の全単射である．
+%     \end{enumerate}
+%     従って，\textbf{指数写像} $\exp_G \colon \mathfrak{g} \lmto G$ が定義される．
+% \end{myprop}
+
+% \begin{proof}
+%     \begin{enumerate}
+%         \item 命題\ref{prop:existence-integral}より，ベクトル場 $X^{\#}$ の\hyperref[def:integral-curve]{積分曲線} $\gamma_{1_G} \colon (-\varepsilon,\, \varepsilon) \lto G$ で，$\gamma_\varepsilon (0) = 1_G$ を充たすものが存在する．
+%         このとき $\forall g \in G$ に対して \cinfty 曲線を
+%         \begin{align}
+%             \gamma_g \colon (-\varepsilon,\, \varepsilon) \lto G,\; t \lmto g \gamma_{1_G} (t)
+%         \end{align}
+%         と定義すると
+%         \begin{align}
+%             \eval{\dv{}{s}}_{s=0} \gamma_g(t + s) 
+%             &= \eval{\dv{}{s}}_{s=0}\bigl( L_g \circ \gamma_{1_G}(t + s)\bigr) \\
+%             &= T_{\gamma_{1_G}(t)} (L_g) \left( \eval{\dv{}{s}}_{s=0} \gamma_{1_G}(t + s) \right) \\
+%             &= T_{\gamma_{1_G}(t)} (L_g) \left( (X^\#)_{\gamma_{1_G} (t)} \right) \\
+%             &= (X^\#)_{\gamma_{g} (t)}
+%         \end{align}
+%         が成り立つので，$\gamma_g$ は初期条件 $\gamma_g (0) = g$ を充たす $X^\#$ の積分曲線である．
+
+%         　ここで $g_1 \coloneqq \gamma_{1_G} (\varepsilon/2),\; g_2 \coloneqq \gamma_{1_G}(-\varepsilon/2)$ とおいて
+%         \begin{align}
+%             \gamma_{1_G}(t) \coloneqq 
+%             \begin{cases}
+%                 \gamma_{g_1} (t - \frac{\varepsilon}{2}), & t \in [\varepsilon/2,\, 3\varepsilon/2) \\
+%                 \gamma_{1_{G}} (t), & t \in [-\varepsilon/2,\, \varepsilon/2] \\
+%                 \gamma_{g_2} (t + \frac{\varepsilon}{2}), & t \in (-3\varepsilon/2,\, -\varepsilon/2] 
+%             \end{cases}
+%         \end{align}
+%         と定義すると $\gamma_{1_G} \colon (-3\varepsilon/2,\, 3\varepsilon/2) \lto G$ はwell-definedで，$X^\#$ の積分曲線となる．同様の議論で定義域を拡張すれば，初期条件 $\gamma_{1_G} (0) = 1_G$  を充たす $X^\#$ の積分曲線 $\gamma_{1_G} \colon \mathbb{R} \lto G$ が得られる．
+
+%         　次に，上の議論により得られた $\gamma_{1_G}$ を使って $\forall g \in G$ に対して
+%         \begin{align}
+%             \gamma_g \colon \mathbb{R} \lto G,\; t \lmto g \gamma_{1_G}(t)
+%         \end{align}
+%         と定義するとこれは $\gamma_g (0) = g$ を充たす $X^\#$ の積分曲線である．よって $X^\#$ は大域的な流れ
+%         \begin{align}
+%             \theta \colon \mathbb{R} \times G \lto G,\; (t,\, g) \lmto \gamma_g(t)
+%         \end{align}
+%         を生成する．
+%         \item (1) の証明より，$\forall t \in \mathbb{R},\, \forall g \in G$ に対して
+%         \begin{align}
+%             \exp_G (tX) &= \theta(t,\, 1_G) = \gamma_{1_G}(t), \\
+%             \theta_t (g) &\coloneqq \theta(t,\, g) = \gamma_g(t) = g \gamma_{1_G} (t) = R_{\exp_G (tX)}(g)
+%         \end{align}
+%         が言える．
+%         \item (1) で得た $\theta$ が大域的な流れなので
+%         \begin{align}
+%             \exp_G (sX) \exp_G (tX) &= \theta_t \bigl( 1_G\exp_G (sX) \bigr)  = \theta_t \circ \theta_s (1_G) = \theta_{s+t}(1_G) = \exp_G \bigl( (s+t) X\bigr) 
+%         \end{align}
+%         が成り立つ．
+%         \item 
+%         \begin{align}
+%             \eval{\dv{}{t}}_{t=0} \bigl( \exp_G(tX) \bigr) &= \eval{\dv{}{t}}_{t=0} \gamma_{1_G} (t) = (X^\#)_{1_G} = \iota (X^\#) = X
+%         \end{align}
+%         \item 
+%     \end{enumerate}
+    
+% \end{proof}
+
 
 \begin{mydef}[label=def:diff-rep]{微分表現}
     $V$ を $\mathbb{K}$-ベクトル空間とする．Lie群 $G$ の表現 $\rho \colon G \lto \LGL (V)$ の，$1_G \in G$ における微分
-    $T_{1_G} \rho \colon \mathfrak{g} \lto \mathfrak{gl}(V)$ はLie代数の準同型である．この $T_{1_G} \rho$ のことを $\rho$の\textbf{微分表現} (differential representation) と呼ぶ．
+    $T_{1_G} \rho \colon \mathfrak{g} \lto \mathfrak{gl}(V)$ はLie代数の表現である．この $T_{1_G} \rho$ のことを $\rho$の\textbf{微分表現} (differential representation) と呼ぶ．
 \end{mydef}
 
 \begin{myexample}[label=def:Lie-adj]{随伴表現}
