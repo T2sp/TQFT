@@ -8,6 +8,7 @@
 \newcommand{\btr}{\blacktriangleright}
 \newcommand{\Lie}[1]{#1^{\mathrm{L}}}
 \newcommand{\evalunit}{\mathrm{ev}_{1_G}}
+\mathchardef\mhyphen="2D
 
 \chapter{Chern-Simons理論の導入}
 
@@ -1140,7 +1141,7 @@ $\xi = (E,\, \pi,\, B,\, F)$ を\hyperref[def.fiber-1]{ファイバー束}とす
 % 	\end{figure}%
 % \end{proof}
 
-\subsection{指数写像}
+\subsection{Lie群の指数写像}
 
 % ベクトル空間 $V$ に値をとる微分形式とは，通常の $\mathcal{M}$ 上の微分形式 $\Omega^\bullet (\mathcal{M})$ に $V$ をテンソル積してできる系列 $V \otimes \Omega^\bullet (\mathcal{M})$ のことを言う．
 主束の接続の話に入る前に，Lie群のLie代数について考察する．
@@ -1156,26 +1157,26 @@ Lie群 $G$ の上の\underline{微分同相写像}\footnote{従って，命題\r
 \begin{mydef}[label=def:left-invariant]{左不変ベクトル場}
     Lie群 $G$ の\textbf{左不変ベクトル場} (left-invariant vector field) とは，$\mathbb{R}$-ベクトル空間
     \begin{align}
-        \bm{\mathfrak{X}^L (G)} \coloneqq \bigl\{\, X \in \mathfrak{X}(G) \bigm| \forall g \in G,\; (L_g)_* X = X \,\bigr\} 
+        \bm{\Lie{\mathfrak{X}} (G)} \coloneqq \bigl\{\, X \in \mathfrak{X}(G) \bigm| \forall g \in G,\; (L_g)_* X = X \,\bigr\} 
     \end{align}
     の元のこと．i.e. $\forall g \in G$ に対して自分自身と \hyperref[def:F-related]{$L_g$-related} な \cinfty ベクトル場のことを言う．
 \end{mydef}
 
-$\forall g \in G$ と $\forall X,\, Y \in \mathfrak{X}^L(G)$ をとる．このとき $(L_g)_* X = X,\; (L_g)_* Y = Y$ なので，命題\ref{prop:Lie-bracket-natural}の後半から
+$\forall g \in G$ と $\forall X,\, Y \in \Lie{\mathfrak{X}}(G)$ をとる．このとき $(L_g)_* X = X,\; (L_g)_* Y = Y$ なので，命題\ref{prop:Lie-bracket-natural}の後半から
 \begin{align}
     (L_g)_* \comm{X}{Y} = \comm{(L_g)_* X}{(L_g)_* Y} = \comm{X}{Y}
 \end{align}
 が言える．i.e. 
 % \textbf{左不変}\hyperref[def:vecf]{ベクトル場}とは，$\mathbb{R}$-ベクトル空間
-\underline{$\mathfrak{X}^L (G)$ は\hyperref[def:Lie-bracket]{Lieブラケット}について閉じるので，体 $\mathbb{R}$ 上のLie代数になる}．
+\underline{$\Lie{\mathfrak{X}} (G)$ は\hyperref[def:Lie-bracket]{Lieブラケット}について閉じるので，体 $\mathbb{R}$ 上のLie代数になる}．
 
 \begin{myprop}[label=prop:LieAlg]{}
     $G$ をLie群とする．このとき評価写像
     \begin{align}
-        \evalunit \colon \mathfrak{X}^L(M) \lto T_{1_G} G,\; X \lmto X_{1_G}
+        \evalunit \colon \Lie{\mathfrak{X}}(M) \lto T_{1_G} G,\; X \lmto X_{1_G}
     \end{align}
     はベクトル空間の同型写像である．
-    % よって $\dim \mathfrak{X}^L(G) = \dim G$ である．
+    % よって $\dim \Lie{\mathfrak{X}}(G) = \dim G$ である．
 \end{myprop}
 
 \begin{proof}
@@ -1184,7 +1185,7 @@ $\forall g \in G$ と $\forall X,\, Y \in \mathfrak{X}^L(G)$ をとる．この�
         \item[\textbf{$\bm{\evalunit}$ が単射}]　
         
         $\Ker \evalunit = \{ 0 \}$ を示す．$\forall X \in \Ker \evalunit$ に対して $\evalunit (X) = X_{1_G} = 0$ が成り立つ．
-        一方 $X \in \mathfrak{X}^L(G)$ でもあるので，$\forall g \in G$ に対して $X_g = X_{L_g(1_G)} = (T_{1_G} L_g)(X_{1_G}) = 0$ が言える\footnote{2つ目の等号で\hyperref[def:F-related]{$L_g$-related}の定義を使った．}．
+        一方 $X \in \Lie{\mathfrak{X}}(G)$ でもあるので，$\forall g \in G$ に対して $X_g = X_{L_g(1_G)} = (T_{1_G} L_g)(X_{1_G}) = 0$ が言える\footnote{2つ目の等号で\hyperref[def:F-related]{$L_g$-related}の定義を使った．}．
         \item[\textbf{$\bm{\evalunit}$ が全射}]　
         
         $\forall v \in T_{1_G} G$ を1つとり，\hyperref[def:vecf]{\cinfty ベクトル場} $\Lie{v} \in \mathfrak{X}(G)$ を
@@ -1201,7 +1202,7 @@ $\forall g \in G$ と $\forall X,\, Y \in \mathfrak{X}^L(G)$ をとる．この�
         \begin{align}
             T_h(L_g) (\Lie{v}|_h) &= T_h(L_g) \circ T_{1_G}(L_h)(v) = T_{1_G}(L_g \circ L_h)(v) = T_{1_G}(L_{gh})(v) = \Lie{v}|_{gh} = \Lie{v}|_{L_g(h)}
         \end{align}
-        が言える．i.e. $\Lie{v} \in \mathfrak{X}^L(G)$ である．
+        が言える．i.e. $\Lie{v} \in \Lie{\mathfrak{X}}(G)$ である．
         従って $\Lie{v}$ に $\evalunit$ を作用させることができ，$\evalunit (\Lie{v}) = \Lie{v}|_{1_G} = T_{1_G} L_{1_G} (v) = v \in \Im \evalunit$ が言えた．
     \end{description}
 \end{proof}
@@ -1210,10 +1211,10 @@ $\forall g \in G$ と $\forall X,\, Y \in \mathfrak{X}^L(G)$ をとる．この�
 
 % 線型写像
 % \begin{align}
-%     \iota \colon \mathfrak{X}^L(G) \lto T_{1_G} G,\; X \lmto X_{1_G}
+%     \iota \colon \Lie{\mathfrak{X}}(G) \lto T_{1_G} G,\; X \lmto X_{1_G}
 % \end{align}
-% を考える．$\forall X \in \mathfrak{X}^L(G),\; \forall g \in G$ に対して $X_g = \bigl((L_g)_* X\bigr)_{1_G} = X_{1_G}$ であるから $X \in \mathfrak{X}^L (G)$ は $X_{1_G}$ だけで完全に決まる．i.e. $\iota$ は単射である．
-% 逆に $\forall v \in T_{1_G} G$ に対して，ベクトル場 $X \colon G \lto TG,\; g \lmto \bigl( g,\, T_{1_G}(L_g) v \bigr)$ は $v = \iota(X)$ でかつ $X \in \mathfrak{X}^L(G)$ を充たすので $\iota$ は全射である．
+% を考える．$\forall X \in \Lie{\mathfrak{X}}(G),\; \forall g \in G$ に対して $X_g = \bigl((L_g)_* X\bigr)_{1_G} = X_{1_G}$ であるから $X \in \Lie{\mathfrak{X}} (G)$ は $X_{1_G}$ だけで完全に決まる．i.e. $\iota$ は単射である．
+% 逆に $\forall v \in T_{1_G} G$ に対して，ベクトル場 $X \colon G \lto TG,\; g \lmto \bigl( g,\, T_{1_G}(L_g) v \bigr)$ は $v = \iota(X)$ でかつ $X \in \Lie{\mathfrak{X}}(G)$ を充たすので $\iota$ は全射である．
 
 ここで $\bm{\mathfrak{g}} \coloneqq T_{1_G} G$ とおき，命題\ref{prop:LieAlg}の\eqref{eq:vL}を使って $\mathfrak{g}$ 上のLieブラケットを
 \begin{align}
@@ -1269,17 +1270,17 @@ $\forall g \in G$ と $\forall X,\, Y \in \mathfrak{X}^L(G)$ をとる．この�
 \begin{myprop}[label=prop:one-parameter-basic]{1パラメータ部分群の特徴付け}
     Lie群 $G$ を与える．
     \begin{enumerate}
-        \item $G$ の任意の\hyperref[def:one-parameter-subgroup]{1パラメータ部分群} $\gamma \colon \mathbb{R} \lto G$ に対して，$\gamma$ を初期条件 $\gamma(0) = 1_G$ を充たす\hyperref[def:local-flow]{極大積分曲線}として持つ\hyperref[def:left-invariant]{左不変ベクトル場} $X \in \mathfrak{X}^L(G)$ が一意的に存在する．
-        \item $\forall X \in \mathfrak{X}^L(G)$ に対して，初期条件 $\gamma(0) = 1_G$ を充たす唯一の $X$ の極大積分曲線 $\gamma \colon \mathbb{R} \lto G$ は $G$ の1パラメータ部分群である．
+        \item $G$ の任意の\hyperref[def:one-parameter-subgroup]{1パラメータ部分群} $\gamma \colon \mathbb{R} \lto G$ に対して，$\gamma$ を初期条件 $\gamma(0) = 1_G$ を充たす\hyperref[def:local-flow]{極大積分曲線}として持つ\hyperref[def:left-invariant]{左不変ベクトル場} $X \in \Lie{\mathfrak{X}}(G)$ が一意的に存在する．
+        \item $\forall X \in \Lie{\mathfrak{X}}(G)$ に対して，初期条件 $\gamma(0) = 1_G$ を充たす唯一の $X$ の極大積分曲線 $\gamma \colon \mathbb{R} \lto G$ は $G$ の1パラメータ部分群である．
     \end{enumerate}
     \tcblower
-    上述の対応によって $X \in \mathfrak{X}^L(G)$ から一意的に定まる1パラメータ部分群のことを\textbf{$\bm{X}$ が生成する1パラメータ部分群}と呼ぶ．
+    上述の対応によって $X \in \Lie{\mathfrak{X}}(G)$ から一意的に定まる1パラメータ部分群のことを\textbf{$\bm{X}$ が生成する1パラメータ部分群}と呼ぶ．
 \end{myprop}
 
 \begin{marker}
     命題\ref{prop:LieAlg}の同型と併せると
     \begin{align}
-        \bigl\{\, G\; \text{の1パラメータ部分群}  \,\bigr\} \overset{{}_*}{\longleftrightarrow} \mathfrak{X}^L(G) \overset{\evalunit}{\longleftrightarrow} T_{1_G} G
+        \bigl\{\, G\; \text{の1パラメータ部分群}  \,\bigr\} \overset{{}_*}{\longleftrightarrow} \Lie{\mathfrak{X}}(G) \overset{\evalunit}{\longleftrightarrow} T_{1_G} G
     \end{align}
     の1対1対応がある．i.e. $G$ の任意の1パラメータ部分群 $\gamma$ は，その初速度 $\dot{\gamma}(0) \in T_{1_G} G$ により完全に決定される．
 \end{marker}
@@ -1288,16 +1289,16 @@ $\forall g \in G$ と $\forall X,\, Y \in \mathfrak{X}^L(G)$ をとる．この�
 \begin{proof}
     \begin{enumerate}
         \item $G$ の1パラメータ部分群 $\gamma \colon \mathbb{R} \lto G$ を与える．
-        $\dv{}{t} \in \mathfrak{X}^L(\mathbb{R})$ なので，命題\ref{thm:induced-LieAlg-hom}より，$X \coloneqq \gamma_* \bigl(\dv{}{t}\bigr) \in \mathfrak{X}^L(G)$ は $\dv{}{t}$ と $\gamma$-related な唯一の左不変ベクトル場である．
+        $\dv{}{t} \in \Lie{\mathfrak{X}}(\mathbb{R})$ なので，命題\ref{thm:induced-LieAlg-hom}より，$X \coloneqq \gamma_* \bigl(\dv{}{t}\bigr) \in \Lie{\mathfrak{X}}(G)$ は $\dv{}{t}$ と $\gamma$-related な唯一の左不変ベクトル場である．
         このとき $\forall t_0 \in \mathbb{R}$ に大して
         \begin{align}
             X_{\gamma(t_0)} = T_{t_0} \gamma \left( \eval{\dv{}{t}}_{t=t_0} \right) = \dot{\gamma}(t_0)
         \end{align}
         が成り立ち，$\gamma$ は初期条件 $\gamma(0) = 1_G$ を充たす$X$ の極大積分曲線である．
-        \item 定理\ref{thm:left-invariant-complete}より $\forall X \in \mathfrak{X}^L(G)$ は\hyperref[def:complete-vecf]{完備}なので，
+        \item 定理\ref{thm:left-invariant-complete}より $\forall X \in \Lie{\mathfrak{X}}(G)$ は\hyperref[def:complete-vecf]{完備}なので，
         $X$ は\hyperref[def:global-flow]{大域的なフロー}を\hyperref[thm:fundamental-flow]{生成する}．従って $\gamma(0) = 1_G$ を充たす $X$ の極大積分曲線 $\gamma$ が唯一存在し，その定義域が $\mathbb{R}$ になる．
         
-        　$\forall g \in G$ をとる．\hyperref[def:left-invariant]{左不変ベクトル場の定義}より $X \in \mathfrak{X}^L(G)$ は $X$ 自身と \hyperref[def:F-related]{$L_g$-related}なので，命題\ref{prop:natural-integral-curve}から $L_g \circ \gamma \colon \mathbb{R} \lto G$ もまた $X$ の積分曲線である．
+        　$\forall g \in G$ をとる．\hyperref[def:left-invariant]{左不変ベクトル場の定義}より $X \in \Lie{\mathfrak{X}}(G)$ は $X$ 自身と \hyperref[def:F-related]{$L_g$-related}なので，命題\ref{prop:natural-integral-curve}から $L_g \circ \gamma \colon \mathbb{R} \lto G$ もまた $X$ の積分曲線である．
         従って $\forall s \in \mathbb{R}$ に大して曲線 $L_{\gamma(s)} \circ \gamma \colon t \lmto L_{\gamma(s)} \bigl( \gamma(t) \bigr) = \gamma(s) \gamma(t)$ は $t=0$ において点 $\gamma(s) \in G$ を通過する $X$ の積分曲線である．
         然るに補題\ref{lem:affine-integral-curve}-(2) より曲線 $t \colon t \lmto \gamma(s+t)$ もまた同一の初期条件を充たす $X$ の積分曲線なので，定理\ref{thm:fundamental-flow}よりこれらは $\forall t \in \mathbb{R}$ において一致しなくてはならない：
         \begin{align}
@@ -1314,18 +1315,92 @@ $\forall g \in G$ と $\forall X,\, Y \in \mathfrak{X}^L(G)$ をとる．この�
     \begin{align}
         \exp \colon \mathfrak{g} \lto G,\; X \lmto \gamma_{(X)}(1)
     \end{align}
-    と定義する．ただし，$\gamma_{(X)} \colon \mathbb{R} \lto G$ は $\Lie{X} \in \mathfrak{X}^L(G)$ が \hyperref[prop:one-parameter-basic]{生成する1パラメータ部分群}である．
+    と定義する．ただし，$\gamma_{(X)} \colon \mathbb{R} \lto G$ は $\Lie{X} \in \Lie{\mathfrak{X}}(G)$ が \hyperref[prop:one-parameter-basic]{生成する1パラメータ部分群}である．
 \end{mydef}
 
 \begin{myprop}[label=prop:exp]{指数写像の性質}
-    
+    Lie群 $G$ を与える．$\mathfrak{g}$ を $G$ のLie代数とする．
+    \begin{enumerate}
+        \item $\exp \colon \mathfrak{g} \lto G$ は \cinfty 写像 
+        \item $\forall X \in \mathfrak{g}$ に対して，
+        \begin{align}
+            \gamma_{(X)} \colon \mathbb{R} \lto G,\; t \lmto \exp (tX)
+        \end{align}
+        は $\Lie{X} \in \Lie{\mathfrak{X}}(G)$ が\hyperref[prop:one-parameter-basic]{生成する1パラメータ部分群}である．
+        \item $\forall X \in \mathfrak{g},\; \forall s,\, t \in \mathbb{R}$ に対して
+        \begin{align}
+            \exp \bigl( (s+t) X\bigr) = \exp (sX) \exp(tX)
+        \end{align}
+        
+        \item $\forall X \in \mathfrak{g}$ に対して
+        \begin{align}
+            (\exp X)^{-1} = \exp (-X)
+        \end{align}
+        
+        % \item $T_0 \exp \colon T_0 \mathfrak{g} \lto T_{1_G} G \cong \mathfrak{g}$
+
+        \item $H$ を別のLie群，$\textcolor{blue}{F} \colon G \lto H$ を任意のLie群の準同型とするとき，以下の図式が可換になる：
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+            &\mathfrak{g} \ar[r, "T_{1_G} \textcolor{blue}{F}"]\ar[d, "\exp"'] &\mathfrak{h} \ar[d, "\exp"] \\
+            &G \ar[r, blue, "F"] &H
+        \end{tikzcd}
+        \end{center}
+        
+        \item $\forall X \in \mathfrak{g}$ に対して，左不変ベクトル場 $\Lie{X} \in \Lie{\mathfrak{X}}(G)$ が\hyperref[thm:fundamental-flow]{生成するフロー} $\theta_{(X)} \colon \mathbb{R} \times G \lto G$ に対して 
+        \begin{align}
+            \theta_{(X)}(t,\, g) = g \exp(tX) \, \bigl(\,\eqqcolon R_{\exp(tX)}(g)\,\bigr)
+        \end{align}
+        が成り立つ．
+    \end{enumerate}
 \end{myprop}
+
+\begin{proof}
+    \begin{enumerate}
+        \item ~\cite[p.519, Proposition 20.8-(1)]{Lee2012smooth}
+        \item $\gamma \colon \mathbb{R} \lto G$ を $\Lie{X} \in \Lie{\mathfrak{X}}(G)$ が\hyperref[prop:one-parameter-basic]{生成する1パラメータ部分群}とする．これは命題\ref{prop:one-parameter-basic}-(2) により $\gamma(0) = 1_G$ を充たす $\Lie{X}$ の唯一の\hyperref[thm:fundamental-flow]{極大積分曲線}である．
+        
+        　$\forall t \in \mathbb{R}$ をとる．このとき補題\ref{lem:affine-integral-curve}-(1) より，\cinfty 曲線 $\tilde{\gamma} \colon \mathbb{R} \lto G,\; s \lmto \gamma(ts)$ は初期条件 $\tilde{\gamma}(0) = 1_G$ を充たすベクトル場 $t \Lie{X}$ の極大積分曲線なので，その一意性から
+        \begin{align}
+            \gamma_{(X)}(t) = \exp (tX) = \tilde{\gamma}(1) = \gamma(t)
+        \end{align}
+        が成り立つ．i.e. $\gamma_{(X)} = \gamma$ が言えた．
+        \item (2) より $\gamma_{(X)}$ が1パラメータ部分群なので
+        \begin{align}
+            \exp \bigl( (s+t)X \bigr) = \gamma_{(X)}(s+t) = \gamma_{(X)}(s)\gamma_{(X)}(t) = \exp(sX)\exp(tX)
+        \end{align}
+        \item (2) より $\gamma_{(X)}$ が1パラメータ部分群なので
+        \begin{align}
+            \exp X \exp(-X) &= \gamma_{(X)} (1) \gamma_{(X)}(-1) = \gamma_{(X)}(0) = 1_G \\
+            \exp (-X) \exp X &= \gamma_{(X)} (-1) \gamma_{(X)}(1) = \gamma_{(X)}(0) = 1_G
+        \end{align}
+        が言える．i.e. $(\exp X)^{-1} = \exp (-X)$ である．
+        \item $\forall X \in \mathfrak{g}$ を1つ固定する．
+        % $\forall t \in \mathbb{R}$ を1つとる．
+        (2) より \cinfty 写像 $t \lmto \exp \bigl(t\, T_{1_G} \textcolor{blue}{F}(X)\bigr)$ は左不変ベクトル場 $\Lie{\bigl(T_{1_G} \textcolor{blue}{F}(X)\bigr)} = \textcolor{blue}{F}_*(\Lie{X}) \in \Lie{\mathfrak{X}}(G)$ が生成する1パラメータ部分群である．
+        ここで，$\sigma \colon \mathbb{R} \lto H,\; t \lmto \textcolor{blue}{F}\bigl(\exp (tX)\bigr)$ とおいたとき
+        \begin{align}
+            \dot{\sigma}(0)
+            &= T_{0} \bigl( \textcolor{blue}{F} \circ \exp (tX) \bigr) \left( \eval{\dv{}{t}}_{t=0} \right) \\
+            &= T_{1_G} \textcolor{blue}{F} \circ T_0 \bigl( \exp (tX)  \bigr)  \left( \eval{\dv{}{t}}_{t=0} \right) \\
+            &= T_{1_G} \textcolor{blue}{F} \bigl( \dot{\gamma_{(X)}}(0) \bigr) \\
+            &= T_{1_G} \textcolor{blue}{F} (X)
+        \end{align}
+        が成り立つので $\sigma$ もまた左不変ベクトル場 $\Lie{\bigl(T_{1_G} \textcolor{blue}{F} (X)\bigr)} \in \Lie{\mathfrak{X}}(G)$  が生成する1パラメータ部分群であり，その一意性から $\sigma(t) = \exp \bigl( t T_{1_G} \textcolor{blue}{F} (X) \bigr)$ が言える．
+        \item $\forall (t,\, g) \in \mathbb{R} \times G$ をとる．\hyperref[def:left-invariant]{左不変ベクトル場の定義}より $\Lie{X} \in \Lie{\mathfrak{X}}(G)$ は $\Lie{X}$ 自身と \hyperref[def:F-related]{$L_g$-related}なので，
+        命題\ref{prop:natural-integral-curve}から $L_g \circ \gamma_{(X)} \colon \mathbb{R} \lto G,\; t \lmto \exp (tX)$ もまた $\Lie{X}$ の極大積分曲線である．$L_g \circ \gamma_{(X)}(0) = g$ なので，極大積分曲線の一意性から $L_g \circ \gamma_{(X)} = \theta_{(X)}^{(g)}$ が言える．
+        従って
+        \begin{align}
+            g \exp(tX) = L_g(\exp(tX)) = L_g \circ \gamma_{(X)}(t) = \theta_{(X)}^{(g)}(t) = \theta_{(X)} (t,\, g).
+        \end{align}
+    \end{enumerate}
+\end{proof}
 
 
 % \begin{myprop}[label=prop:Exp,breakable]{指数写像の性質}
 %     $G$ をLie群，$\mathfrak{g}$ をそのLie代数とする．このとき以下が成り立つ：
 %     \begin{enumerate}
-%         \item $\forall X \in \mathfrak{g}$ に対して，\hyperref[def:vecf]{ベクトル場} $X^\# \in \mathfrak{X}^L (G)$ は\hyperref[def:complete-vecf]{完備}である．従って\hyperref[def:global-flow]{大域的な流れ}\footnote{つまり，Lie群 $\mathbb{R}$ の\hyperref[def:Lie-action]{作用}．} $\theta \colon \mathbb{R} \times G \lto G$ を生成する．
+%         \item $\forall X \in \mathfrak{g}$ に対して，\hyperref[def:vecf]{ベクトル場} $X^\# \in \Lie{\mathfrak{X}} (G)$ は\hyperref[def:complete-vecf]{完備}である．従って\hyperref[def:global-flow]{大域的な流れ}\footnote{つまり，Lie群 $\mathbb{R}$ の\hyperref[def:Lie-action]{作用}．} $\theta \colon \mathbb{R} \times G \lto G$ を生成する．
 %         \item $\forall X \in \mathfrak{g},\; \forall t \in \mathbb{R}$ に対して $\exp_G (t X) \coloneqq \theta(t,\, 1_G)$ と書くと，$\theta_t = R_{\exp_G (tX)} \colon G \lto G$ が成り立つ．
 %         \item $\forall X \in \mathfrak{g},\; \forall s,\, t \in \mathbb{R}$ に対して $\exp_G (sX) \exp_G (tX) = \exp_G ((s+t)X) \in G$ が成り立つ．i.e.
 %         $\{\exp_G (tX)\}_{t \in \mathbb{R}}$ 
@@ -1410,13 +1485,38 @@ $\forall g \in G$ と $\forall X,\, Y \in \mathfrak{X}^L(G)$ をとる．この�
     \begin{align}
         \Adj \colon G \lto \LGL (\mathfrak{g}),\; g \lmto T_{1_G} (F_g)
     \end{align}
-    はLie群 $G$ の表現となる．
+    はLie群 $G$ の表現となる\footnote{厳密には $\Adj$ の \cinfty 性を示さなくてはならない．証明は~\cite[p.534, Proposition 20.24]{Lee2012smooth}を参照．}．
     これをLie群 $G$ の\textbf{随伴表現} (adjoint representation) と呼ぶ．
-    $\Adj$ の微分表現は
+    
+    　$\Adj$ の微分表現を\hyperref[def:exp]{指数写像}を使って計算してみよう．
+    $\forall X \in \mathfrak{g}$ をとる．命題\ref{prop:exp}-(2) により曲線 $\gamma_{(X)} \colon t \lmto \exp(tX)$ は $X$ が生成する1パラメータ部分群なので，
+    命題\ref{prop:infinitesimal-generator-local}から $\dot{\gamma_{(X)}}(0) = X$ である．従って $\forall Y \in \mathfrak{g}$ に大して
     \begin{align}
-        \ad \colon \mathfrak{g} \lto \mathfrak{gl}(\mathfrak{g}),\; X \lmto (Y \mapsto \comm{X}{Y})
+        \bigl(T_{1_G}(\Adj) (X)\bigr)Y 
+        &= \Bigl( T_{1_G} (\Adj)\bigl(\dot{\gamma_{(X)}}(0)\bigr) \Bigr) Y \\
+        &= T_{1_G} (\Adj) \circ T_0 \gamma_{(X)} \left( \eval{\dv{}{t}}_{t=0} \right)  Y \\
+        &= T_{0} (\Adj \circ \gamma_{(X)}) \left( \eval{\dv{}{t}}_{t=0}  \right) Y \\
+        &= \left(\eval{\dv{}{t}}_{t=0} \Adj \bigl(\exp (tX)\bigr) \right) Y \\
+        &= \left(\eval{\dv{}{t}}_{t=0} \Adj \bigl(\exp (tX)\bigr)(Y) \right) \\
+        &= \eval{\dv{}{t}}_{t=0} \Bigl(T_{1_G}\bigl( F_{\exp (tX)}  \bigr)(Y) \Bigr) \\
+        &= \eval{\dv{}{t}}_{t=0} \Bigl(T_{1_G}\bigl( R_{(\exp (tX))^{-1}} \circ L_{\exp (tX)} \bigr)(\Lie{Y}_{1_G}) \Bigr)\\
+        &= \eval{\dv{}{t}}_{t=0} \Bigl(T_{L_{\exp (tX)}(1_G)}\bigl( R_{\exp (-tX)} \bigr) \circ T_{1_G} \bigl( L_{\exp (tX)} \bigr)(\Lie{Y}_{1_G}) \Bigr)\\
+        &= \eval{\dv{}{t}}_{t=0} \Bigl(T_{\exp (tX)}\bigl( R_{\exp (-tX)} \bigr) \bigl(\Lie{Y}_{\exp (tX)}\bigr) \Bigr)
     \end{align}
-    になる．
+    ここで，命題\ref{prop:exp}-(6) より $\Lie{X} \in \Lie{\mathfrak{X}}(G)$ が\hyperref[thm:fundamental-flow]{生成するフロー}が $\theta_{(X)}{}_t (g) = R_{\exp(tX)} (g)$ と書けることを思い出すと，
+    \begin{align}
+        &\eval{\dv{}{t}}_{t=0} \Bigl(T_{\exp (tX)}\bigl( R_{\exp (-tX)} \bigr) \bigl(\Lie{Y}_{\exp (tX)}\bigr) \Bigr) \\
+        &= \eval{\dv{}{t}}_{t=0} T_{\theta_{(X)}{}_t(1_G)} \bigl(\theta_{(X)}{}_{-t}\bigr) \bigl( \Lie{Y}_{\theta_{(X)}{}_t (1_G)} \bigr) \\
+        &= \lim_{t \to 0} \frac{T_{\theta_{(X)}{}_t(1_G)} \bigl(\theta_{(X)}{}_{-t}\bigr) \bigl( \Lie{Y}_{\theta_{(X)}{}_t (1_G)} \bigr) - \Lie{Y}_{1_G}}{t} \\
+        &= (\Liedv{\Lie{X}} \Lie{Y})_{1_G} \\
+        &= \comm{\Lie{X}}{\Lie{Y}} \\
+        &= \comm{X}{Y}
+    \end{align}
+    となる．ただし3つ目の等号でLie微分の定義を使った．結局
+    \begin{align}
+        \ad \coloneqq T_{1_G} (\Adj) \colon \mathfrak{g} \lto \mathfrak{gl}(\mathfrak{g}),\; X \lmto (Y \mapsto \comm{X}{Y})
+    \end{align}
+    であることが分かった．
     % 実際，$F_g = R_{g^{-1}} \circ L_g$ で，命題\ref{prop:Exp}-(2) より $\{R_{\exp_G (tX)}\}_{t \in \mathbb{R}}$ は $X^\#$ の生成する1パラメータ変換群だから，
     % \begin{align}
     %     \ad(X)(Y) &= \eval{\dv{}{t}}_{t=0}()
@@ -1424,32 +1524,140 @@ $\forall g \in G$ と $\forall X,\, Y \in \mathfrak{X}^L(G)$ をとる．この�
     
 \end{myexample}
 
+定理\ref{thm:fundamental-flow}によって，\cinfty 多様体 $M$ 上の\hyperref[def:vecf-complete]{完備}なベクトル場 $X$ がLie群 $\mathbb{R}$ の $M$ への作用 $\theta \colon \mathbb{R} \times M \lto M$ を一意に定めることが分かる．
+そしてこのような状況を指して，ベクトル場 $X$ はLie群 $\mathbb{R}$ の作用 $\theta$ の無限小生成子であると言うのだった．
+この考えを任意のLie群 $G$ の，任意の $M$ への作用に拡張することができる．
+つまり，任意のLie群 $G$ の任意の右作用 $\btl \colon M \times G \lto M$ は，ただ一つの無限小生成子を持つ．
+
 \begin{mydef}[label=def:fundamental-vecf]{基本ベクトル場}
     Lie群 $G$ が\cinfty 多様体 $M$ に\hyperref[def:Lie-action]{右から作用}しているとする．この右作用を $\btl \colon M \times G \lto M$ と書く．
     \begin{itemize}
-        \item $\forall g \in G$ に対して\textbf{右移動} $R_g \colon M \lto M$ を $R_g (x) \coloneqq x \btl g$ と定義する．
         \item $\forall X \in \mathfrak{g}$ に対して，\textbf{基本ベクトル場} (fundamental vector field) $\bm{X^{\#}} \in \mathfrak{X}(M)$ を次のように定める：
         \begin{align}
-            (X^{\#})_x \coloneqq \eval{\dv{}{t}}_{t=0} \bigl(x \btl \exp_G(tX)\bigr) \in T_x M
+            X^{\#}_x \coloneqq \eval{\dv{}{t}}_{t=0} \bigl(x \btl \exp(tX)\bigr) \in T_x M
         \end{align}
+        \item 写像
+        \begin{align}
+            \btl^{\#} \colon \mathfrak{g} \lto \mathfrak{X}(M),\; X \lmto X^\#
+        \end{align}
+        のことを\textbf{右作用 $\btl$ の無限小生成子}と呼ぶ．
+    \end{itemize}
+    \tcblower
+    上の状況下で
+    \begin{itemize}
+        \item $\forall \textcolor{blue}{g} \in G$ に対して\textbf{右作用移動} $R_{\textcolor{blue}{g}} \colon M \lto M$ を $R_g (x) \coloneqq x \btl \textcolor{blue}{g}$ と定義する．
+        \item $\forall \textcolor{red}{x} \in M$ に対して\textbf{右作用軌道} $R^{(\textcolor{red}{x})} \colon G \lto M$ を $R^{(x)} (g) \coloneqq \textcolor{red}{x} \btl g$ と定義する．
     \end{itemize}
 \end{mydef}
 
-$\forall X,\, Y \in \mathfrak{g}$ に対して
+$\forall X \in \mathfrak{g}$ に対して，\cinfty 写像\footnote{これは命題\ref{prop:exp}-(6)からの類推だと言える．}
 \begin{align}
-    \comm{X^{\#}}{Y^{\#}} = \comm{X}{Y}^{\#}
+    \theta_{(X)} \colon \mathbb{R} \times M \lto M,\; (t,\, x) \lmto x \btl \exp(tX) = R_{\exp(tX)} (x)
 \end{align}
-が成り立つ．
+は\hyperref[def:flow-global]{大域的フロー}である
+\footnote{
+    実際，命題\ref{prop:exp}から
+    \begin{align}
+        \theta_{(X)}(0,\, x) &= x \btl 1_G = x, \\
+        \theta_{(X)}(t+s,\, x) &= x \btl \exp \bigl( (s+t) X \bigr) \\
+        &= x \btl \bigl(\exp(sX)\exp(tX)\bigr) \\
+        &= x \btl \exp(sX) \btl \exp(tX) \\
+        &= \theta_{(X)} \bigl(t ,\, \theta_{(X)}(s,\, x)\bigr)
+    \end{align}
+    が成り立つ．
+}
+．
+この大域的フローの\hyperref[def:thm:fundamental-flow]{無限小生成子}はベクトル場
+\begin{align}
+    x \lmto \Bigl( x,\, \dot{\theta_{(X)}^{(x)}} (0) \Bigr) = \left( x,\, T_0 \bigl( \theta_{(X)}^{(x)} \bigr) \left( \eval{\dv{}{t}}_{t=0} \right)   \right) 
+\end{align}
+であるが\footnote{強引に書くと $\theta^{(x)}_{(X)} = R^{(x)} \circ \exp (\mhyphen X) \colon \mathbb{R} \lto M$ と言うことになる．}，これがまさに $X^\# \in \mathfrak{X}(M)$ になっている．つまり，基本ベクトル場は $\forall x \in M$ において，$\forall f \in C^\infty (M)$ に
+\begin{align}
+    X^\#_x f = T_0 \bigl( \theta_{(X)}^{(x)} \bigr) \left( \eval{\dv{}{t}}_{t=0} \right)f = \eval{\dv{}{t}}_{t=0} \bigl( f \circ \theta_{(X)}^{(x)}  \bigr) (t) = \eval{\dv{}{t}}_{t=0} f \bigl(x \btl \exp(tX)\bigr)
+\end{align}
+と作用する．
+
+もしくは，次のように考えることもできる：
+曲線 $\gamma_{(X)} \colon t  \lmto \exp(tX)$ は初速度 $\dot{\gamma_{(X)}}(0) = X$ なので，
+\begin{align}
+    T_{1_G}(R^{(x)}) (X) 
+    &= T_{1_G} (R^{(x)}) \bigl( \dot{\gamma_{(X)}}(0) \bigr) \\
+    &= T_{1_G} (R^{(x)}) \circ T_0 (\gamma_{(X)}) \left( \eval{\dv{}{t}}_{t=0} \right) \\
+    &= T_0 (R^{(x)} \circ \gamma_{(X)}) \left( \eval{\dv{}{t}}_{t=0} \right) \\
+    &= T_0 (\theta_{(X)}^{(x)})\left( \eval{\dv{}{t}}_{t=0} \right) \\
+    &= X^\#_x.
+\end{align}
+このことから $\btl^\#$ が $\mathbb{R}$-線型写像だとわかる．
+
+\begin{mylem}[label=lem:fundamental-vecf]{}
+    Lie群 $G$ の\cinfty 多様体 $M$ への右作用 $\btl \colon M \times G \lto M$ を与える．
+    
+    このとき $\forall x \in M$ および $\forall X \in \mathfrak{g}$ に対して，$\Lie{X} \in \Lie{\mathfrak{X}}(M)$ とその\hyperref[def:fundamental-vecf]{基本ベクトル場} $X^\#$ は $R^{(x)}$\hyperref[def:F-related]{-related}である
+\end{mylem}
+
+\begin{proof}
+    $\forall g,\, h \in G$ に対して
+    \begin{align}
+        R^{(x \btl g)}(h) = x \btl g \btl h = x \btl(gh) = x \btl L_g(h) = R^{(x)} \circ L_g(h)
+    \end{align}
+    が成り立つことに注意する．
+    $\forall g \in G$ をとり，$y \coloneqq R^{(x)}(g) = x \btl g$ とおく．$\Lie{X}$ が\hyperref[def:left-invariant]{左不変ベクトル場}であることから
+    \begin{align}
+        X^\#_y &= T_{1_G}(R^{(y)})(X) \\
+        &= T_{1_G} (R^{(x \btl g)}) (\Lie{X}_{1_G}) \\
+        &= T_{1_G} (R^{(x)} \circ L_g)(\Lie{X}_{1_G}) \\
+        &= T_{L_g(1_G)} (R^{(x)}) \circ T_{1_G}(L_g)(\Lie{X}_{1_G}) \\
+        &= T_{g} (R^{(x)}) (\Lie{X}_g)
+    \end{align}
+    が言えた．
+\end{proof}
+
+
+\begin{myprop}[label=prop:infinitesimal-generator-R]{$\btl^\#$ はLie代数の準同型}
+    Lie群 $G$ の\cinfty 多様体 $M$ への右作用 $\btl \colon M \times G \lto M$ を与える．
+    このとき\hyperref[def:fundamental-vecf]{右作用 $\btl^\#$ の無限小生成子}
+    \begin{align}
+        \btl^\# \colon \mathfrak{g} \lto \mathfrak{X}(M),\; X \lmto X^\#
+    \end{align}
+    はLie代数の準同型である．
+\end{myprop}
+
+\begin{proof}
+    % まず，$\forall x \in M$ および $\forall X \in \mathfrak{g}$ に対して，$\Lie{X} \in \Lie{\mathfrak{X}}(M)$ とその\hyperref[def:fundamental-vecf]{基本ベクトル場} $X^\#$ が\hyperref[def:F-related]{$R^(x)$-related}であることを示す．
+    % $\forall g \in G$ をとり，$y \coloneqq R^{(x)}(g) = x \btl g$ とおく．$\Lie{X}$ が\hyperref[def:left-invariant]{左不変ベクトル場}であることから
+    % \begin{align}
+    %     X^\#_y &= T_{1_G}(R^{(y)})(X) \\
+    %     &= T_{1_G} (R^{(x \btl g)}) (\Lie{X}_{1_G}) \\
+    %     &= T_{1_G} (R^{(x)} \circ L_g)(\Lie{X}_{1_G}) \\
+    %     &= T_{g} (R^{(x)}) \circ T_{1_G}(L_g)(\Lie{X}_{1_G}) \\
+    %     &= T_{g} (R^{(x)}) (\Lie{X}_g)
+    % \end{align}
+    % が言えた．
+    $\forall X,\, Y \in \mathfrak{g}$ をとる．
+    補題\ref{lem:fundamental-vecf}と\hyperref[prop:Lie-bracket-natural]{Lieブラケットの自然性}から $\forall x \in M$ に対して $\comm{\Lie{X}}{\Lie{Y}}$ と $\comm{X^\#}{Y^\#}$ が $R^{(x)}$-relatedだと分かる．i.e.
+    \begin{align}
+        \comm{X^\#}{Y^\#}_x = \comm{X^\#}{Y^\#}_{R^{(x)}(1_G)} = T_{1_G} (R^{(x)}) (\comm{\Lie{X}}{\Lie{Y}}_{1_G}) = T_{1_G} (R^{(x)}) (\comm{X}{Y}) = \comm{X}{Y}^\#_x
+    \end{align}
+    が言えた．
+\end{proof}
+
+% $\forall X,\, Y \in \mathfrak{g}$ に対して
+% \begin{align}
+%     \comm{X^{\#}}{Y^{\#}} = \comm{X}{Y}^{\#}
+% \end{align}
+% が成り立つ．
+
+\subsection{主束の接続}
 
 さて，Lie群に関する準備が終わったのでいよいよ\hyperref[def.PFD]{主束}の接続を定義する．
 \begin{mydef}[label=def:connection]{主束の接続}
-    $G \hookrightarrow P \xrightarrow{\pi} M$ を\hyperref[def.PFD]{主束}とする．$\forall g \in G$ に対して，命題\ref{prop.PFD_right}の右作用によって右移動を $R_g \colon P \lto P,\; u \lmto u \btl g$ と定義する．
+    $G \hookrightarrow P \xrightarrow{\pi} M$ を\hyperref[def.PFD]{主束}とする．$\forall g \in G$ に対して，命題\ref{prop.PFD_right}の右作用によって\hyperref[def:fundamental-vecf]{右作用移動}を $R_g \colon P \lto P,\; u \lmto u \btl g$ と定義する．
     \begin{itemize}
         \item 分布 $\bigl\{\, H_u \subset T_u P \bigm| u \in P \,\bigr\}$ が $P$ 上の\textbf{接続} (connection) であるとは，以下の2条件が成り立つことを言う：
         \begin{description}
             \item[\textbf{(C-1)}]  $\forall u \in P$ に対して
             \begin{align}
-                T_u P = \Ker T_u (\pi) \oplus H_u
+                T_u P = \Ker (T_u \pi) \oplus H_u
             \end{align}
             \item[\textbf{(C-2)}] $\forall u \in P,\; \forall g \in G$ に対して
             \begin{align}
@@ -1473,6 +1681,36 @@ $\forall X,\, Y \in \mathfrak{g}$ に対して
     
 \end{mydef}
 
+本題に入る前に，微分幾何学の風習への注意をしておく．境界あり/なし \cinfty 多様体 $M$ とその部分多様体 $S \subset M$ を与える．
+このとき包含写像を $\iota \colon S \hookrightarrow M$ と書くと，$\forall p \in S \subset M$ に対して $T_p S$ を $T_p \iota (T_p S)$ と同一視する
+\footnote{
+    つまり $\forall v \in T_p S$ は $\forall f \in C^\infty (S)$ に $v(f)$ として作用するが，$v \in T_p S \subset T_p M$ と見做す時は $\forall f \in C^\infty (M)$ に，$\bm{T_p \iota(v)}f = v(f \circ \iota) = v(f|_S)$ として作用する．
+}
+ことで $T_p M$ の部分ベクトル空間と見做すのである~\cite[p.116]{Lee2012smooth}．
+
+さて，主束 $G \hookrightarrow P \xrightarrow{\pi} M$ において $\forall u \in P$ を1つ固定する．
+$G_{\pi(u)} \coloneqq \pi^{-1}(\{\pi(u)\})$ とおいたとき，
+$\forall X \in T_u G_{\pi(u)} \subset T_u P$ （i.e. 点 $u \in \bm{P}$ におけるファイバー方向の接空間）の，$\pi \colon P \lto M$ の微分による像 $T_u \pi (X) \in T_{\pi(u)} M$ は，上述の注意より勝手な \cinfty 関数 $f \in C^\infty (M)$ に対して
+\begin{align}
+    T_u \pi (X)f = X(f \circ \pi|_{G_{\pi(u)}})
+\end{align}
+と作用する．然るに \cinfty 写像 $f \circ \pi|_{G_{\pi(u)}}$ は常に値 $f(\pi(u))$ を返す定数写像なので，$T_u \pi (X)f = 0$ が言える\footnote{定数関数に接ベクトルを作用させると $0$ になる：Leibniz則より，定数関数 $1 \colon M \lto \mathbb{R},\;p \lmto 1$ に対して $v(1) = v(1\cdot 1) = v(1) + v(1) \IMP v(1) = 0$．$v$ の線型性から一般の定数関数に対しても $0$ になることが言える．}．i.e. $X \in \Ker (T_u \pi)$ であり，
+\begin{align}
+    T_u G_{\pi(u)} \subset \Ker (T_u \pi)
+\end{align}
+が言えた．
+一方，$T_u \pi \colon T_u P \lto T_{\pi(u)} M$ は明らかに全射なので $\dim \Im (T_u \pi) = \dim T_{\pi(u)} M$ であり，故にファイバー束の局所自明性と階数-退化次元の定理から
+\begin{align}
+    \dim \Ker (T_u \pi) = \dim T_u P - \dim T_{\pi(u)} M = \dim T_u G_{\pi(u)}
+\end{align}
+が言える．結局
+\begin{align}
+    \label{eq:tangent-fiber}
+    T_u G_{\pi(u)} = \Ker (T_u \pi)
+\end{align}
+だと分かった．
+
+
 \begin{mytheo}[label=thm:connection-basic]{接続と接続形式の関係}
     $G \hookrightarrow P \xrightarrow{\pi} M$ を\hyperref[def.PFD]{主束}とする．
     \begin{enumerate}
@@ -1488,13 +1726,38 @@ $\forall X,\, Y \in \mathfrak{g}$ に対して
 \begin{proof}
     \begin{enumerate}
         \item $\omega \in \Omega^1(P;\, \mathfrak{g})$ を接続形式とする．
-        $\Ker T_u (\pi) = \bigl\{\, (X_u)^\# \in T_u P \bigm| X \in \mathfrak{g} \,\bigr\}$ であり，接続形式の定義から $\forall X \in \mathfrak{g}$ に対して $\omega (X^\#) = X$ が成り立つ．よって $T_u P = \Ker T_u(\pi) \oplus \Ker \omega_u$ である．
+        
+        \begin{description}
+            \item[\textbf{(C-1)}]　
+            
+            $\forall \textcolor{red}{u} \in P$ を1つ固定する．
+            まず $\Ker (T_u \pi) = \bigl\{\, X^\#_u \in T_u P \bigm| X \in \mathfrak{g} \,\bigr\}$ を示す．
+    
+            　$\forall X \in \mathfrak{g}$ をとり，\hyperref[def:global-flow]{大域的フロー}
+            \begin{align}
+                \theta_{(X)} \colon \mathbb{R} \times P \lto P,\; (t,\, u) \lmto u \btl \exp(tX)
+            \end{align}
+            を考える．$u = \theta_{(X)}^{(\textcolor{red}{u})}(0)$ および\hyperref[prop.PFD_right]{右作用の定義}から，$\forall t\in \mathbb{R}$ に対して
+            \begin{align}
+                \pi (u) = \pi \bigl(u \btl \exp(tX)\bigr) = \pi \bigl( \theta_{(X)}^{(\textcolor{red}{u})}(t) \bigr) 
+            \end{align}
+            が成り立つので $\theta_{(X)}^{(\textcolor{red}{u})} \colon \mathbb{R} \lto G_{\pi(\textcolor{red}{u})}$ であり，$X^\#_{\textcolor{red}{u}} \in T_{\textcolor{red}{u}} G_{\pi(\textcolor{red}{u})} = \Ker (T_{\textcolor{red}{u}} \pi)$ が言える．
+            % 逆に $\forall V \in T_{\textcolor{red}{u}} G_{\pi(\textcolor{red}{u})}$ に対して，
+            % \begin{align}
+            %     Vf = \eval{\dv{}{t}}_{t=0} f(\theta_{(X)}^{(\textcolor{red}{u})}(t))
+            % \end{align}
+            
+            　接続形式の定義から $\forall X \in \mathfrak{g}$ に対して $\omega (X^\#) = X$ が成り立つ．よって $T_u P = \Ker (T_u\pi) \oplus \Ker \omega_u$ である．
+    
+            \item[\textbf{(C-2)}]　
+            
+            $\forall v \in \Ker \omega_u$ をとる．このとき\textbf{\textsf{(CF-2)}}より
+            \begin{align}
+                \omega_{u \btl g} \bigl( T_u(R_g)(v) \bigr) = ((R_g)^* \omega)_u (v) = \Adj (g^{-1})\bigl(\omega_u(v)\bigr) = 0
+            \end{align}
+            が従い，$T_u(R_g)(\Ker \omega_u) \subset \Ker \omega_{u \btl g}$ である．両辺の次元が等しいので $T_u(R_g)(\Ker \omega_u) = \Ker \omega_{u \btl g}$ が言えた．
+        \end{description}
 
-        $\forall v \in \Ker \omega_u$ をとる．このとき\textbf{\textsf{(CF-2)}}より
-        \begin{align}
-            \omega_{u \btl g} \bigl( T_u(R_g)(v) \bigr) = ((R_g)^* \omega)_u (v) = \Adj (g^{-1})\bigl(\omega_u(v)\bigr) = 0
-        \end{align}
-        が従い，$T_u(R_g)(\Ker \omega_u) \subset \Ker \omega_{u \btl g}$ である．両辺の次元が等しいので $T_u(R_g)(\Ker \omega_u) = \Ker \omega_{u \btl g}$ が言えた．
         \item 
     \end{enumerate}
 \end{proof}
