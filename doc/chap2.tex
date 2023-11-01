@@ -1585,7 +1585,7 @@ $\forall X \in \mathfrak{g}$ に対して，\cinfty 写像\footnote{これは命
     &= T_{1_G} (R^{(x)}) \circ T_0 (\gamma_{(X)}) \left( \eval{\dv{}{t}}_{t=0} \right) \\
     &= T_0 (R^{(x)} \circ \gamma_{(X)}) \left( \eval{\dv{}{t}}_{t=0} \right) \\
     &= T_0 (\theta_{(X)}^{(x)})\left( \eval{\dv{}{t}}_{t=0} \right) \\
-    &= X^\#_x.
+    &= X^\#_x. \label{eq:fundamental-vecf}
 \end{align}
 このことから $\btl^\#$ が $\mathbb{R}$-線型写像だとわかる．
 
@@ -1640,6 +1640,65 @@ $\forall X \in \mathfrak{g}$ に対して，\cinfty 写像\footnote{これは命
     \end{align}
     が言えた．
 \end{proof}
+
+しばらくの間Lie群 $G$ （もしくはその部分群）のLie代数を $\mathrm{Lie}(G)$ と書くことにする．
+
+\begin{myprop}[label=prop:fundamental-vecf-basic]{基本ベクトル場の零点}
+    Lie群 $G$ の\cinfty 多様体 $M$ への右作用 $\btl \colon M \times G \lto M$ を与える．
+    このとき，以下の2つは同値である：
+    \begin{enumerate}
+        \item $X \in \mathfrak{g}$ の\hyperref[def:fundamental-vecf]{基本ベクトル場} $X^\#$ が点 $x \in M$ において $X^\#_x = 0$ になる
+        \item $X \in \mathrm{Lie}\bigl(\Stab (x)\bigr)$
+    \end{enumerate}
+    
+\end{myprop}
+
+\begin{proof}
+    \begin{description}
+        \item[\textbf{(1) $bm{\Longleftarrow}$ (2)}]　
+        
+        $X \in \mathrm{Lie}\bigl(\Stab (x)\bigr)$ ならば $\forall t \in \mathbb{R}$ に対して $\exp (tX) \in \mathrm{Stab} (x)$ である．従って
+        \begin{align}
+            X^\#_x = \eval{\dv{}{t}}_{t=0} x \btl \exp(tX) = \eval{\dv{}{t}}_{t=0} x = 0.
+        \end{align}
+        
+        \item[\textbf{(1) $bm{\Longrightarrow}$ (2)}]　
+        
+        $X^\#_x = 0$ とする．このとき定数写像 $\gamma \colon \mathbb{R} \lto M,\; t \lmto x$ が
+        \begin{align}
+            \dot{\gamma}(t) = 0 = X^\#_{\gamma(t)}
+        \end{align}
+        を充たすので，初期条件 $\gamma(0) = x$ を充たす $X^\# \in \mathfrak{X}(M)$ の極大積分曲線となる．
+        一方，$\theta_{(X)}^{(x)} \colon \mathbb{R} \lto M,\; t \lmto x \btl \exp(tX)$ もまた同一の初期条件をみたす $X^\#$ の極大積分曲線だったので，その一意性から $\theta_{(X)}^{(x)} = \gamma \IFF x \btl \exp(tX) = x\quad \forall t \in \mathbb{R} \IFF \exp(tX) \in \Stab(x)\quad \forall t \in \mathbb{R}$ が言えた．従って $X \in \mathrm{Lie}(\Stab(x))$ である．
+
+    \end{description}
+\end{proof}
+
+\begin{mycol}[label=col:fundamental-vecf-basic]{}
+    Lie群 $G$ の\cinfty 多様体 $M$ への右作用 $\btl \colon M \times G \lto M$ を与える．
+
+    このとき，$\forall x \in M$ の\hyperref[def:fundamental-vecf]{右作用軌道} $R^{(x)} \colon G \lto M$ の微分
+    \begin{align}
+        T_{1_G} (R^{(x)}) \colon \mathfrak{g} \lto T_x M
+    \end{align}
+    に対して
+    \begin{align}
+        \Ker \bigl( T_{1_G}(R^{(x)}) \bigr) = \mathrm{Lie} \bigl( \Stab(x) \bigr) 
+    \end{align}
+    が成り立つ．
+\end{mycol}
+
+\begin{proof}
+    $\forall X \in \mathfrak{g}$ をとる．\eqref{eq:fundamental-vecf}と命題\ref{prop:fundamental-vecf-basic}から
+    \begin{align}
+        X \in \Ker \bigl( T_{1_G}(R^{(x)}) \bigr) 
+        &\IFF  T_{1_G}(R^{(x)}) (X) = 0 \\
+        &\IFF X^\#_x = 0 \\
+        &\IFF X \in \mathrm{Lie} \bigl( \Stab(x) \bigr) 
+    \end{align}
+    
+\end{proof}
+
 
 % $\forall X,\, Y \in \mathfrak{g}$ に対して
 % \begin{align}
@@ -1701,7 +1760,8 @@ $\forall X \in T_u G_{\pi(u)} \subset T_u P$ （i.e. 点 $u \in \bm{P}$ にお�
 が言えた．
 一方，$T_u \pi \colon T_u P \lto T_{\pi(u)} M$ は明らかに全射なので $\dim \Im (T_u \pi) = \dim T_{\pi(u)} M$ であり，故にファイバー束の局所自明性と階数-退化次元の定理から
 \begin{align}
-    \dim \Ker (T_u \pi) = \dim T_u P - \dim T_{\pi(u)} M = \dim T_u G_{\pi(u)}
+    \label{eq:dim}
+    \dim \Ker (T_u \pi) = \dim T_u P - \dim T_{\pi(u)} M = \dim T_u G_{\pi(u)} = \dim G
 \end{align}
 が言える．結局
 \begin{align}
@@ -1732,16 +1792,39 @@ $\forall X \in T_u G_{\pi(u)} \subset T_u P$ （i.e. 点 $u \in \bm{P}$ にお�
             
             $\forall \textcolor{red}{u} \in P$ を1つ固定する．
             まず $\Ker (T_u \pi) = \bigl\{\, X^\#_u \in T_u P \bigm| X \in \mathfrak{g} \,\bigr\}$ を示す．
-    
-            　$\forall X \in \mathfrak{g}$ をとり，\hyperref[def:global-flow]{大域的フロー}
+            \hyperref[prop.PFD_right]{右作用の定義}から $\forall g \in G$ に対して $\pi \circ R^{(u)} (g) = \pi(u \btl g) = \pi(u)$，i.e. $\pi \circ R^{(u)}$ は定数写像であることに注意する．
+            
+            　$\forall X \in \mathfrak{g}$ をとる．
+            このとき\eqref{eq:fundamental-vecf}より $X^\#_u = T_{1_G}(R^{(u)})(X)$ だが，$\pi \circ R^{(u)}$ は定数写像なので
             \begin{align}
-                \theta_{(X)} \colon \mathbb{R} \times P \lto P,\; (t,\, u) \lmto u \btl \exp(tX)
+                T_{u}\pi (X^\#_u) &= T_{u}\pi \circ T_{1_G}(R^{(u)})(X) \\
+                &= T_{1_G}(\pi \circ R^{(u)}) (X) \\
+                &= 0
             \end{align}
-            を考える．$u = \theta_{(X)}^{(\textcolor{red}{u})}(0)$ および\hyperref[prop.PFD_right]{右作用の定義}から，$\forall t\in \mathbb{R}$ に対して
+            が分かる．i.e. $X^\#_u \in \Ker (T_u \pi)$ である．
+
+            　次に
             \begin{align}
-                \pi (u) = \pi \bigl(u \btl \exp(tX)\bigr) = \pi \bigl( \theta_{(X)}^{(\textcolor{red}{u})}(t) \bigr) 
+                T_{1_G}\bigl(R^{(u)} \bigr) \colon \mathfrak{g} \lto \Ker (T_u \pi)
             \end{align}
-            が成り立つので $\theta_{(X)}^{(\textcolor{red}{u})} \colon \mathbb{R} \lto G_{\pi(\textcolor{red}{u})}$ であり，$X^\#_{\textcolor{red}{u}} \in T_{\textcolor{red}{u}} G_{\pi(\textcolor{red}{u})} = \Ker (T_{\textcolor{red}{u}} \pi)$ が言える．
+            がベクトル空間の同型写像であることを示す．
+            系\ref{col:fundamental-vecf-basic}から，$\Ker T_{1_G}\bigl(R^{(u)} \bigr) = \mathrm{Lie}\bigl( \Stab (u) \bigr)$ だが，命題\ref{prop.PFD_right}より右作用 $\btl$ は自由なので $ \Stab (u) = \{1_G\}$ である．従って $\Ker T_{1_G}\bigl(R^{(u)} \bigr) = \{0\}$ であり，$T_{1_G}\bigl(R^{(u)} \bigr)$ は単射．
+            % 上の議論から $\Im T_{1_G}\bigl(R^{(u)} \bigr) \subset \Ker (T_u \pi)$ も分かる．このときベクトル空間の短完全列
+            % \begin{align}
+            %     0 \lto \Ker (T_u \pi) \lto T_u P \xrightarrow{T_u\pi} T_{\pi(u)} M \lto 0
+            % \end{align}
+            \eqref{eq:dim}より $\dim \mathfrak{g} = \dim G = \dim \Ker (T_u \pi)$ なので $T_{1_G}\bigl(R^{(u)} \bigr)$ はベクトル空間の同型写像である．
+            以上より，$\bigl\{\, X^\#_u \in T_u P \bigm| X \in \mathfrak{g} \,\bigr\} = \Im T_{1_G}\bigl(R^{(u)} \bigr) = \Ker (T_u \pi)$ が示された．
+
+            % \hyperref[def:global-flow]{大域的フロー}
+            % \begin{align}
+            %     \theta_{(X)} \colon \mathbb{R} \times P \lto P,\; (t,\, u) \lmto u \btl \exp(tX)
+            % \end{align}
+            % を考える．$u = \theta_{(X)}^{(\textcolor{red}{u})}(0)$ および\hyperref[prop.PFD_right]{右作用の定義}から，$\forall t\in \mathbb{R}$ に対して
+            % \begin{align}
+            %     \pi (u) = \pi \bigl(u \btl \exp(tX)\bigr) = \pi \bigl( \theta_{(X)}^{(\textcolor{red}{u})}(t) \bigr) 
+            % \end{align}
+            % が成り立つので $\theta_{(X)}^{(\textcolor{red}{u})} \colon \mathbb{R} \lto G_{\pi(\textcolor{red}{u})}$ であり，$X^\#_{\textcolor{red}{u}} \in T_{\textcolor{red}{u}} G_{\pi(\textcolor{red}{u})} = \Ker (T_{\textcolor{red}{u}} \pi)$ が言える．
             % 逆に $\forall V \in T_{\textcolor{red}{u}} G_{\pi(\textcolor{red}{u})}$ に対して，
             % \begin{align}
             %     Vf = \eval{\dv{}{t}}_{t=0} f(\theta_{(X)}^{(\textcolor{red}{u})}(t))

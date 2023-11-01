@@ -23,19 +23,21 @@
 \contentsline {subsection}{\numberline {2.2.5}正準量子化}{16}{subsection.2.2.5}%
 \contentsline {section}{\numberline {2.3}非可換Chern-Simons理論の経験的導入}{16}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}ゲージ不変性}{17}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Chern-Simons作用}{17}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.2}Chern-Simons作用}{18}{subsection.2.3.2}%
 \contentsline {section}{\numberline {2.4}古典的ゲージ理論}{18}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}内部対称性を持つ場の定式化}{19}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}主束の接続とゲージ場の定義}{28}{subsection.2.4.2}%
-\contentsline {section}{\numberline {2.5}特性類とChern-Simons形式}{33}{section.2.5}%
-\contentsline {chapter}{\numberline {付録A}結び目理論入門}{34}{appendix.A}%
-\contentsline {chapter}{\numberline {付録B}ベクトル場の話}{35}{appendix.B}%
-\contentsline {section}{\numberline {B.1}接束}{37}{section.B.1}%
-\contentsline {section}{\numberline {B.2}ベクトル場の定義}{39}{section.B.2}%
-\contentsline {subsection}{\numberline {B.2.1}$C^\infty $ 関数の微分としてのベクトル場}{41}{subsection.B.2.1}%
-\contentsline {subsection}{\numberline {B.2.2}ベクトル場と $C^\infty $ 写像}{42}{subsection.B.2.2}%
-\contentsline {section}{\numberline {B.3}積分曲線と流れ}{44}{section.B.3}%
-\contentsline {subsection}{\numberline {B.3.1}積分曲線}{44}{subsection.B.3.1}%
-\contentsline {subsection}{\numberline {B.3.2}流れ}{45}{subsection.B.3.2}%
-\contentsline {subsection}{\numberline {B.3.3}完備なベクトル場}{48}{subsection.B.3.3}%
-\contentsline {chapter}{参考文献}{50}{appendix*.7}%
+\contentsline {subsection}{\numberline {2.4.1}主束と内部対称性の定式化}{19}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Lie群の指数写像}{29}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}主束の接続}{39}{subsection.2.4.3}%
+\contentsline {section}{\numberline {2.5}特性類とChern-Simons形式}{41}{section.2.5}%
+\contentsline {chapter}{\numberline {付録A}結び目理論入門}{42}{appendix.A}%
+\contentsline {chapter}{\numberline {付録B}ベクトル場の話}{43}{appendix.B}%
+\contentsline {section}{\numberline {B.1}接束}{45}{section.B.1}%
+\contentsline {section}{\numberline {B.2}ベクトル場の定義}{46}{section.B.2}%
+\contentsline {subsection}{\numberline {B.2.1}$C^\infty $ 関数の微分としてのベクトル場}{48}{subsection.B.2.1}%
+\contentsline {subsection}{\numberline {B.2.2}ベクトル場と $C^\infty $ 写像}{50}{subsection.B.2.2}%
+\contentsline {subsection}{\numberline {B.2.3}Lieブラケット}{52}{subsection.B.2.3}%
+\contentsline {section}{\numberline {B.3}積分曲線とフロー}{53}{section.B.3}%
+\contentsline {subsection}{\numberline {B.3.1}積分曲線}{53}{subsection.B.3.1}%
+\contentsline {subsection}{\numberline {B.3.2}フロー}{57}{subsection.B.3.2}%
+\contentsline {subsection}{\numberline {B.3.3}完備なベクトル場}{63}{subsection.B.3.3}%
+\contentsline {chapter}{参考文献}{65}{appendix*.7}%
