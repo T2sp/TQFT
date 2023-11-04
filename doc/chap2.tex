@@ -1641,7 +1641,7 @@ $\forall X \in \mathfrak{g}$ に対して，\cinfty 写像\footnote{これは命
     が言えた．
 \end{proof}
 
-しばらくの間Lie群 $G$ （もしくはその部分群）のLie代数を $\mathrm{Lie}(G) \coloneqq \mathfrak{g}$ と書くことにする\footnote{例えば~\cite{Lee2012smooth}では，$\mathrm{Lie}(G) \coloneqq \Lie{\mathfrak{X}}(G)$ と定義ているので注意．同型なのでそこまで問題にはならないが...}．
+しばらくの間Lie群 $G$ （もしくはその部分群）のLie代数を $\mathrm{Lie}(G) \coloneqq \mathfrak{g}$ と書くことにする\footnote{例えば~\cite{Lee2012smooth}では，$\mathrm{Lie}(G) \coloneqq \Lie{\mathfrak{X}}(G)$ と定義しているので注意．同型なので然程問題にはならないが...}．
 
 \begin{myprop}[label=prop:fundamental-vecf-basic]{基本ベクトル場の零点}
     Lie群 $G$ の\cinfty 多様体 $M$ への右作用 $\btl \colon M \times G \lto M$ を与える．
@@ -1657,11 +1657,11 @@ $\forall X \in \mathfrak{g}$ に対して，\cinfty 写像\footnote{これは命
     \begin{description}
         \item[\textbf{(1) $\bm{\Longleftarrow}$ (2)}]　
         
-        $X \in \mathrm{Lie}\bigl(\Stab (x)\bigr)$ ならば $\forall t \in \mathbb{R}$ に対して $\exp (tX) \in \mathrm{Stab} (x)$ である．従って
+        $X \in \mathrm{Lie}\bigl(\Stab (x)\bigr)$ ならば $\forall t \in \mathbb{R}$ に対して $\exp (tX) \in \mathrm{Stab} (x)$ である．従って $x \in M$ の近傍上で定義された任意の \cinfty 関数 $f$ に対して
         \begin{align}
-            X^\#_x = \eval{\dv{}{t}}_{t=0} x \btl \exp(tX) = \eval{\dv{}{t}}_{t=0} x = 0.
+            X^\#_x f = \eval{\dv{}{t}}_{t=0} f\bigl(x \btl \exp(tX)\bigr) = \eval{\dv{}{t}}_{t=0} f(x) = 0.
         \end{align}
-        
+        と計算できる\footnote{$f\bigl(x \btl \exp(tX)\bigr)$ が $t$ に関して定数関数なので．}
         \item[\textbf{(1) $\bm{\Longrightarrow}$ (2)}]　
         
         $X^\#_x = 0$ とする．このとき定数写像 $\gamma \colon \mathbb{R} \lto M,\; t \lmto x$ が

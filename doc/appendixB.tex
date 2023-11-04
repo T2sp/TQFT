@@ -193,7 +193,8 @@ $M$ の\textbf{接束} (tangent bundle) とは
     \begin{itemize}
         \item $M$ 上の\textbf{ベクトル場} (vector field) とは，接束 $TM$ の切断のことを言う．i.e. \underline{連続写像}\footnote{$TM$ の位相は命題\ref{prop:tangentbundle}で構成したものを採用する．} $X \colon M \lto TM$ であって $\pi \circ X = \mathrm{id}_M$ を充たすもののこと．
         \item $M$ 上の $\bm{C^\infty}$ \textbf{ベクトル場}とは，$M$ 上のベクトル場 $X$ であって，$TM$ に命題\ref{prop:tangentbundle}の $C^\infty$ 構造を入れたときに $C^\infty$ 写像となるもののこと．
-        \item $M$ 上のベクトル場 $X$ の\textbf{台} (support) とは，閉集合\footnote{ここで言う $0$ とは，厳密には $(p,\, 0) \in TM$ のことである．一点集合 $\{(p,\, 0) \}$ はコンパクトだが，$T M$ は命題\ref{prop:tangentbundle}よりHausdorff空間なので閉集合でもある．故に $T M \setminus \{(p,\, 0) \}$ は開集合であり，$X \colon M \lto TM$ は連続写像なので $X^{-1}(TM \setminus \{0\})$ も開集合である．これの閉包を取ることで $\supp X$ が得られる．}
+        \item $M$ 上のベクトル場 $X$ の\textbf{台} (support) とは，閉集合
+        \footnote{ここで言う $0$ とは，厳密には $(p,\, 0) \in TM$ のことである．一点集合 $\{(p,\, 0) \}$ はコンパクトだが，$T M$ は命題\ref{prop:tangentbundle}よりHausdorff空間なので $\{\, (p,\, 0)\, \}$ は閉集合でもある．故に $T M \setminus \{(p,\, 0) \}$ は開集合であり，$X \colon M \lto TM$ は連続写像なので $X^{-1}(TM \setminus \{0\})$ も開集合である．これの閉包を取ることで $\supp X$ が得られる．}
         \begin{align}
             \bm{\supp X} \coloneqq \overline{\bigl\{\, p \in M \bigm| X_p \neq 0 \,\bigr\} }
         \end{align}
@@ -374,7 +375,7 @@ $M,\, N$ を $C^\infty$ 多様体，$F \colon M \lto N$ を $C^\infty$ 写像と
 % \end{itemize}
 % ものである．
 
-\begin{mydef}[label=def:F-related]{}
+\begin{mydef}[label=def:F-related]{$F$-related}
     境界あり/なし $C^\infty$ 多様体 $M,\, N$ と $C^\infty$ 写像 $F \colon M \lto N$ を与える．
 
     $M$ 上のベクトル場\footnote{\hyperref[def:vecf]{$C^\infty$}でなくとも良い．} $X$ と $N$ 上のベクトル場\footnote{\hyperref[def:vecf]{$C^\infty$}でなくとも良い．} $Y$ が $\bm{F}$\textbf{-related} であるとは，
@@ -774,7 +775,8 @@ $F$-relratedなベクトル場は必ず存在するとは限らない．
     \begin{align}
         &\theta \bigl( 0,\, (x,\, y) \bigr) = (x,\, y), \\ 
         &\theta \Bigl( s,\, \theta \bigl( t,\, (x,\, y) \bigr)  \Bigr) \\
-        &= \Bigl( (x \cos t - y \sin t) \cos s - (x \sin t + y \cos t) \sin s,\, (x \cos t - y\sin t) \sin s + (x \sin t + y \cos t) \cos s \Bigr) \\
+        &= \Bigl( (x \cos t - y \sin t) \cos s - (x \sin t + y \cos t) \sin s,\\
+        &\qquad (x \cos t - y\sin t) \sin s + (x \sin t + y \cos t) \cos s \Bigr) \\
         &= \bigl( x \cos (s + t) - y \sin (s + t),\, x \sin (s + t) +  y \cos (s + t) \bigr) \\
         &= \theta \bigl( s + t,\, (x,\, y) \bigr)
     \end{align}
