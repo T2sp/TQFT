@@ -1090,5 +1090,119 @@ $F$-relratedなベクトル場は必ず存在するとは限らない．
     $\forall g \in G$ を1つとる．$X$ は自分自身と $L_g$-relatedなので，命題\ref{prop:natural-integral-curve}より $L_g \circ \theta^{(1_g)} \colon \mathcal{D}^(1_G) \lto G$ は初期条件 $(L_g \circ \theta^{(1_G)})(0) = g$ を充たす $X$ の積分曲線である．よって定理\ref{thm:fundamental-flow}-(1) から，少なくとも $(-\varepsilon,\, \varepsilon)$ 上で $\theta^{(g)} = L_g \circ \theta^{(1_G)}$ が言える．i.e. $(-\varepsilon,\, \varepsilon) \subset \mathcal{D}^{(g)}$ であるから，補題\ref{lem:uniformtime}から $X$ は完備である．
 \end{proof}
 
+\section{Lie微分}
+
+Euclid空間 $\mathbb{R}^d$ の点 $p \in \mathbb{R}^d$ における\hyperref[def:vecf]{ベクトル場} $X \in \mathfrak{X}(\mathbb{R}^d)$ の方向微分とは，数ベクトル $v \in \mathbb{R}^d$ を一つ指定して
+\begin{align}
+    D_v X (p) \coloneqq \eval{\dv{}{t}} X_{p + tv} = \lim_{t \to 0} \frac{X_{p+tv} - X_p}{t} = \lim_{t\to 0} \frac{X^\mu (p+tv) - X^\mu (p)}{t} \eval{\pdv{}{x^\mu}}_p \label{eq:direction}
+\end{align}
+と定義するのが妥当だろう．しかし，この定義は $\mathbb{R}^d$ が $\mathbb{R}$-ベクトル空間であることを使ってしまっており，一般の \cinfty 多様体 $M$ 上で同じことをやろうとしても上手くいかない．
+この問題を，ベクトル場の\hyperref[def:integral-curve]{積分曲線}を使って上手く解決したものが\textbf{Lie微分}である．
+
+\begin{mydef}[label=def:Liedv]{ベクトル場のLie微分}
+    境界あり/なし \cinfty 多様体 $M$ を与える．
+
+    ベクトル場 $X \in \mathfrak{X}(M)$ の，$\bm{V} \in \mathfrak{X}(M)$ \textbf{に沿ったLie微分} (Lie derivative of $X$ with respect to $V$) とは，
+    $\forall p \in M$ において
+    \begin{align}
+        (\Liedv{\bm{V}} X)_p &\coloneqq \eval{\dv{}{t}}_{t=0} T_{\theta_t (p)}(\theta_{-t})(X_{\theta_t(p)}) \\
+        &= \lim_{t\to 0} \frac{T_{\theta_t(p)} (\theta_{-t}) (X_{\theta_t (p)}) - X_p}{t}
+    \end{align}
+    と定義される \cinfty ベクトル場 $\bm{\Liedv{V} X} \in \mathfrak{X}(M)$ のこと．
+    ただし $\theta$ は $V$ が\hyperref[thm:fundamental-flow]{生成するフロー}である．
+\end{mydef}
+
+\begin{myprop}[label=prop:Liedv-smooth]{}
+    境界あり/なし \cinfty 多様体 $M$ と，その上の \cinfty ベクトル場 $V,\, X \in \mathfrak{X}(M)$ を与える．
+    もし $\partial M \neq \emptyset$ のときは $V$ は $\partial M$ に接する\footnote{i.e. $\forall p \in \partial M$ において $V_p \in T_p (\partial M) \subset T_p M$ が成り立つ．}とする．
+
+    このとき，$\forall p \in M$ において接ベクトル $(\Liedv{V} X)_p \in T_p M$ が存在し，$\Liedv{V}X$ は \cinfty ベクトル場になる．
+\end{myprop}
+
+\begin{proof}
+    $\mathfrak{D}$ を\hyperref[def:local-flow]{フローの定義域}，$\theta \colon \mathcal{D} \lto M$ を $V$ が\hyperref[thm:fundamental-flow]{生成するフロー}とする．
+    $\forall p \in M$ を1つ固定し，$p$ を含む $M$ のチャート $(U,\, \varphi) = \bigl( U,\, (x^\mu) \bigr) $ をとる．
+    開区間 $0 \in J_0 \subset \mathbb{R}$ と開集合 $p \in U_0 \subset U$ を，$J_0 \times U_0 \subset \mathcal{D}$ でかつ $\theta (J_0 \times U_0) \subset U$ を充たすようにとる\footnote{$\theta$ は \cinfty 写像なのでこのような $J_0,\, U_0$ をいつでもとることができる．}．
+    このとき $\forall t \in J_0$ および $\forall f \in C^\infty(U_0)$ に対して
+    \begin{align}
+        T_{\theta_t(p)}(\theta_{-t})(X_{\theta_t(p)}) f
+        &= X_{\theta_t(p)} (f \circ \theta_{-t}) \\
+        &= X^\mu (\theta_t(p)) \eval{\pdv{}{x^\mu}}_{\theta_t(p)} (f \circ \theta_{-t}) \\
+        &= X^\mu (\theta_t(p)) \eval{\pdv{}{x^\mu}}_{\varphi(\theta_t(p))} (f \circ \theta_{-t} \circ \varphi^{-1}) \\
+        &= X^\mu (\theta_t(p)) \eval{\pdv{}{x^\nu}}_{\varphi(\theta_{-t}(\theta_t(p)))} (f \circ \varphi^{-1}) \eval{\pdv{}{x^\mu}}_{\varphi(\theta_t(p))}(x^\nu \circ \theta_{-t} \circ \varphi^{-1}) \\
+        &= X^\mu (\theta_t(p)) \eval{\pdv{}{x^\mu}}_{\varphi(\theta_t(p))}(x^\nu \circ \theta_{-t} \circ \varphi^{-1}) \eval{\pdv{}{x^\nu}}_{\varphi(p)} (f \circ \varphi^{-1}) \\
+        &= \left(X^\mu (\theta_t(p)) \eval{\pdv{}{x^\mu}}_{\varphi(\theta_t(p))}(x^\nu \circ \theta_{-t} \circ \varphi^{-1}) \eval{\pdv{}{x^\nu}}_{p}\right) f
+    \end{align}
+    と計算できる．
+    $X^\mu \colon M \lto \mathbb{R},\, \theta_t \colon M_t \lto M_{-t},\, x^\nu \circ \theta_{-t} \circ \varphi^{-1} \colon \mathbb{R}^{\dim M} \lto \mathbb{R}$ の全てが \cinfty 写像なので $\eval{\pdv{}{x^\nu}}_{p} \in T_p M$ の係数は $p \in U_0$ に関して \cinfty 級である．
+    よって命題\ref{prop:smoothvecf}から写像 $M \lto \textcolor{red}{T_p M},\; p \lmto T_{\theta_t(p)}(\theta_{-t})(X_{\theta_t(p)})$ は \cinfty 級ベクトル場であり\footnote{従って $X_p \in \textcolor{red}{T_p M}$ との差をとることができる．}，示された．
+\end{proof}
+
+\begin{myexample}[]{}
+    $M = \mathbb{R}^d$ とし，$M$ のチャート $\bigl(\mathbb{R}^d,\, (x^\mu)\bigr)$ をとる．このとき \cinfty ベクトル場
+    \begin{align}
+        V \coloneqq v^\mu \pdv{}{x^\mu} \WHERE v^\mu = \mathrm{const}.
+    \end{align}
+    の\hyperref[thm:fundamental-flow]{生成するフロー}は
+    \begin{align}
+        \theta \colon \mathbb{R} \times \mathbb{R}^d \lto \mathbb{R}^d,\; \bigl(t,\, (p^1,\, \dots,\, p^d)\bigr) \lmto (p^1 + v^1 t,\, \dots,\, p^d + v^d t)
+    \end{align}
+    と書ける．故に，$X \in C^\infty(\mathbb{R}^d)$ の $V$ に沿った\hyperref[def:Liedv]{Lie微分}は
+    \begin{align}
+        (\Liedv{V} X)_p 
+        &= \lim_{t \to 0} \frac{T_{\theta_t(p)}(\theta_{-t})(X_{\theta_t}(p)) - X_p}{t} \\
+        &= \lim_{t \to 0} \frac{T_{p+vt}(\theta_{-t})(X_{p+vt}) - X_p}{t} \\
+        &= \lim_{t \to 0} \frac{1}{t} \left( X^\mu (p + vt) \pdv{x^\nu}{x^\mu}()(p+vt) \eval{\pdv{}{x^\nu}}_p - X^\mu(p) \eval{\pdv{}{x^\mu}}_p \right) \\
+        &= \lim_{t \to 0} \frac{X^\mu(p+tv) - X^\nu(p)}{t} \eval{\pdv{}{x^\mu}}_p \\
+        &= D_v X (p)
+    \end{align}
+    となって\eqref{eq:direction}を再現する．
+\end{myexample}
+
+\begin{mytheo}[label=thm:Liedv]{Lie微分の計算}
+    $M$ を境界あり/なし \cinfty 多様体とする．
+    このとき，$\forall V,\, X \in \mathfrak{X}(M)$ に対して
+    \begin{align}
+        \Liedv{\textcolor{red}{V}}{X} = \comm{\textcolor{red}{V}}{X}
+    \end{align}
+    が成り立つ．
+\end{mytheo}
+
+\begin{proof}
+    $\theta \colon \mathcal{D} \lto M$ を $V$ が\hyperref[thm:fundamental-flow]{生成するフロー}とする．
+    $\forall p \in M$ を1つ固定する．
+    十分小さい $t$ を取れば $(t,\, p) \in \mathcal{D}^{(p)}$ を充たすようにできる．
+    このとき $\forall f \in C^\infty (M)$ に対してTaylorの定理から
+    \begin{align}
+        f \circ \theta_t (p) = f \bigl( \theta^{(p)}(t) \bigr) = f(p) + t \eval{\dv{}{t}}_{t=0} f \bigl( \theta^{(p)}(t) \bigr) + \order{t^2} = f(p) + t \eval{\pdv{}{t}}_{(0,\, p)} f \bigl( \theta(t,\, p) \bigr) + \order{t^2}
+    \end{align}
+    と書ける．一方，\hyperref[prop:infinitesimal-generator-local]{無限小生成子の定義}から
+    \begin{align}
+        Vf \bigl( p \bigr) = \eval{\pdv{}{t}}_{(0,\, p)} f \bigl( \theta(t,\, p) \bigr) 
+    \end{align}
+    が成り立つので
+    \begin{align}
+        \label{eq:Liedv-f}
+        \lim_{t\to 0} \frac{f \circ \theta_t - f}{t} = Vf
+    \end{align}
+    が言える．
+    
+    さて，定理\ref{thm:fundamental-flow}-(3) より $\theta_{-t} \colon M_{-t} \lto M_t$ は微分同相写像なので，ベクトル場 $X|_{M_{-t}}$ の\hyperref[prop:diffeo-Frelated]{押し出し} $(\theta_{-t})_* X$ が一意的に存在し，
+    \begin{align}
+        T_{\theta_t(p)} (\theta_{-t})(X_{\theta_t (p)}) = \bigl((\theta_{-t})_* X\bigr)_{\theta_{-t} (\theta_t(p))} = \bigl((\theta_{-t})_* X\bigr)_{p}
+    \end{align}
+    を充たす．よって\eqref{eq:Liedv-f}と系\ref{col:pushforward}から
+    \begin{align}
+        (\Liedv{V} X) f
+        &= \lim_{t\to 0} \frac{\bigl((\theta_{-t})_* X\bigr)f - Xf}{t} \\
+        &= \lim_{t\to 0} \frac{X (f \circ \theta_{-t}) \circ \theta_t - Xf}{t} \\
+        &= \lim_{t\to 0} \frac{X (f \circ \theta_{-t}) \circ \theta_t - Xf \circ \theta_t + Xf \circ \theta_t - Xf}{t} \\
+        &= \lim_{t\to 0} X\left(\frac{f \circ \theta_{-t} - f}{t}\right) \circ \theta_{t}+ \lim_{t \to 0} \frac{Xf \circ \theta_t - Xf}{t} \\
+        &= X (-V) f + V(Xf) \\
+        &= \comm{V}{X}f
+    \end{align}
+    が言える．
+\end{proof}
+
 
 \end{document}

@@ -1503,16 +1503,16 @@ $\forall g \in G$ と $\forall X,\, Y \in \Lie{\mathfrak{X}}(G)$ をとる．こ
         &= \eval{\dv{}{t}}_{t=0} \Bigl(T_{L_{\exp (tX)}(1_G)}\bigl( R_{\exp (-tX)} \bigr) \circ T_{1_G} \bigl( L_{\exp (tX)} \bigr)(\Lie{Y}_{1_G}) \Bigr)\\
         &= \eval{\dv{}{t}}_{t=0} \Bigl(T_{\exp (tX)}\bigl( R_{\exp (-tX)} \bigr) \bigl(\Lie{Y}_{\exp (tX)}\bigr) \Bigr)
     \end{align}
-    ここで，命題\ref{prop:exp}-(6) より $\Lie{X} \in \Lie{\mathfrak{X}}(G)$ が\hyperref[thm:fundamental-flow]{生成するフロー}が $\theta_{(X)}{}_t (g) = R_{\exp(tX)} (g)$ と書けることを思い出すと，
+    ここで，命題\ref{prop:exp}-(6) より $\Lie{X} \in \Lie{\mathfrak{X}}(G)$ が\hyperref[thm:fundamental-flow]{生成するフロー}が $\theta_t (g) = R_{\exp(tX)} (g)$ と書かれることを思い出すと，
     \begin{align}
         &\eval{\dv{}{t}}_{t=0} \Bigl(T_{\exp (tX)}\bigl( R_{\exp (-tX)} \bigr) \bigl(\Lie{Y}_{\exp (tX)}\bigr) \Bigr) \\
-        &= \eval{\dv{}{t}}_{t=0} T_{\theta_{(X)}{}_t(1_G)} \bigl(\theta_{(X)}{}_{-t}\bigr) \bigl( \Lie{Y}_{\theta_{(X)}{}_t (1_G)} \bigr) \\
-        &= \lim_{t \to 0} \frac{T_{\theta_{(X)}{}_t(1_G)} \bigl(\theta_{(X)}{}_{-t}\bigr) \bigl( \Lie{Y}_{\theta_{(X)}{}_t (1_G)} \bigr) - \Lie{Y}_{1_G}}{t} \\
+        &= \eval{\dv{}{t}}_{t=0} T_{\theta_t(1_G)} \bigl(\theta_{-t}\bigr) \bigl( \Lie{Y}_{\theta_t (1_G)} \bigr) \\
+        &= \lim_{t \to 0} \frac{T_{\theta_t(1_G)} \bigl(\theta_{-t}\bigr) \bigl( \Lie{Y}_{\theta_t (1_G)} \bigr) - \Lie{Y}_{1_G}}{t} \\
         &= (\Liedv{\Lie{X}} \Lie{Y})_{1_G} \\
-        &= \comm{\Lie{X}}{\Lie{Y}} \\
+        &= \comm{\Lie{X}}{\Lie{Y}}_{1_G} \\
         &= \comm{X}{Y}
     \end{align}
-    となる．ただし3つ目の等号でLie微分の定義を使った．結局
+    となる．ただし3つ目の等号で\hyperref[def:Liedv]{Lie微分の定義}を使った．結局
     \begin{align}
         \ad \coloneqq T_{1_G} (\Adj) \colon \mathfrak{g} \lto \mathfrak{gl}(\mathfrak{g}),\; X \lmto (Y \mapsto \comm{X}{Y})
     \end{align}
@@ -1708,8 +1708,8 @@ $\forall X \in \mathfrak{g}$ に対して，\cinfty 写像\footnote{これは命
 
 \subsection{主束の接続}
 
-さて，Lie群に関する準備が終わったのでいよいよ\hyperref[def.PFD]{主束}の接続を定義する．
-\begin{mydef}[label=def:connection]{主束の接続}
+さて，Lie群に関する準備が終わったのでいよいよ\hyperref[def.PFD]{主束}の接続を定義する．この小節の内容は~\cite[第6章]{Imai2013diff}, \cite[\S 28]{Tu2017differential}が詳しい．
+\begin{mydef}[label=def:connection,breakable]{主束の接続}
     $G \hookrightarrow P \xrightarrow{\pi} M$ を\hyperref[def.PFD]{主束}とする．$\forall g \in G$ に対して，命題\ref{prop.PFD_right}の右作用によって\hyperref[def:fundamental-vecf]{右作用移動}を $R_g \colon P \lto P,\; u \lmto u \btl g$ と定義する．
     \begin{itemize}
         \item 分布 $\bigl\{\, H_u \subset T_u P \bigm| u \in P \,\bigr\}$ が $P$ 上の\textbf{接続} (connection) であるとは，以下の2条件が成り立つことを言う：
@@ -1735,6 +1735,7 @@ $\forall X \in \mathfrak{g}$ に対して，\cinfty 写像\footnote{これは命
             \begin{align}
                 (R_g)^* \omega = \Adj (g^{-1})(\omega)
             \end{align}
+            ただし $\Adj \colon G \lto \LGL (\mathfrak{g})$ はLie群 $G$ の\hyperref[def:Lie-adj]{随伴表現}である．
         \end{description}
     \end{itemize}
     
@@ -1768,8 +1769,55 @@ $\forall X \in T_u G_{\pi(u)} \subset T_u P$ （i.e. 点 $u \in \bm{P}$ にお�
     \label{eq:tangent-fiber}
     T_u G_{\pi(u)} = \Ker (T_u \pi)
 \end{align}
-だと分かった．
+だと分かった．さらに次の非常に重要な補題がある．この補題のために\hyperref[def:fundamental-vecf]{基本ベクトル場}を導入したと言っても過言ではない：
+\begin{mylem}[label=lem:connection]{}
+    $G \hookrightarrow P \xrightarrow{\pi} M$ を\hyperref[def.PFD]{主束}とする．
+    命題\ref{prop.PFD_right}で与えたLie群 $G$ の全空間 $P$ への\hyperref[def:fundamental-vecf]{右作用 $\btl \colon P \times G \lto P$ の無限小生成子} $\btl^\# \colon \mathfrak{g} \lto \mathfrak{X}(P),\; X \lmto X^\#$ について，
+    \begin{align}
+        \forall u \in P,\quad \bm{\Ker (T_{u} \pi) = \bigl\{\, X^\#_{u} \in T_{u} P \bigm| X \in \mathfrak{g} \,\bigr\}}
+    \end{align}
+    が成り立つ．
+\end{mylem}
 
+\begin{proof}
+    $\forall \textcolor{red}{u} \in P$ を1つ固定する．
+    \begin{description}
+        \item[\textbf{$\bm{\Ker (T_{\textcolor{red}{u}} \pi) \supset \bigl\{\, X^\#_{\textcolor{red}{u}} \in T_{\textcolor{red}{u}} P \bigm| X \in \mathfrak{g} \,\bigr\}}$}]　
+        
+        $\forall X \in \mathfrak{g}$ をとる．
+        このとき\eqref{eq:fundamental-vecf}より $X^\#_{\textcolor{red}{u}} = T_{1_G}(R^{(\textcolor{red}{u})})(X)$ だが，$\pi \circ R^{(\textcolor{red}{u})}$ は定数写像なので
+        \begin{align}
+            T_{\textcolor{red}{u}}\pi (X^\#_{\textcolor{red}{u}}) &= T_{\textcolor{red}{u}}\pi \circ T_{1_G}(R^{(\textcolor{red}{u})})(X) \\
+            &= T_{1_G}(\pi \circ R^{(\textcolor{red}{u})}) (X) \\
+            &= 0
+        \end{align}
+        が分かる．i.e. $X^\#_{\textcolor{red}{u}} \in \Ker (T_{\textcolor{red}{u}} \pi)$ である．
+    
+        \item[\textbf{$\bm{\Ker (T_{\textcolor{red}{u}} \pi) \subset \bigl\{\, X^\#_{\textcolor{red}{u}} \in T_{\textcolor{red}{u}} P \bigm| X \in \mathfrak{g} \,\bigr\}}$}]　
+        
+        まず，$\mathbb{R}$-線型写像
+        \begin{align}
+            T_{1_G}\bigl(R^{(\textcolor{red}{u})} \bigr) \colon \mathfrak{g} \lto \Ker (T_{\textcolor{red}{u}} \pi)
+        \end{align}
+        がベクトル空間の同型写像であることを示す．
+        系\ref{col:fundamental-vecf-basic}から $\Ker T_{1_G}\bigl(R^{(\textcolor{red}{u})} \bigr) = \mathrm{Lie}\bigl( \Stab (\textcolor{red}{u}) \bigr)$ だが，命題\ref{prop.PFD_right}より右作用 $\btl$ は\hyperref[def:Lie-action]{自由}なので $ \Stab (\textcolor{red}{u}) = \{1_G\}$ である．従って $\Ker T_{1_G}\bigl(R^{(\textcolor{red}{u})} \bigr) = \{0\}$ であり，$T_{1_G}\bigl(R^{(\textcolor{red}{u})} \bigr)$ は単射．
+        % 上の議論から $\Im T_{1_G}\bigl(R^{(\textcolor{red}{u})} \bigr) \s\textcolor{red}{u}bset \Ker (T_{\textcolor{red}{u}} \pi)$ も分かる．このときベクトル空間の短完全列
+        % \begin{align}
+        %     0 \lto \Ker (T_{\textcolor{red}{u}} \pi) \lto T_{\textcolor{red}{u}} P \xrightarrow{T_{\textcolor{red}{u}}\pi} T_{\pi(\textcolor{red}{u})} M \lto 0
+        % \end{align}
+        \eqref{eq:dim}より $\dim \mathfrak{g} = \dim G = \dim \Ker (T_{\textcolor{red}{u}} \pi)$ なので $T_{1_G}\bigl(R^{(\textcolor{red}{u})} \bigr)$ はベクトル空間の同型写像である．
+        
+        　以上より，$\forall v \in \Ker (T_{\textcolor{red}{u}} \pi)$ に対して $\bigl(T_{1_G} (R^{(\textcolor{red}{u})})\bigr)^{-1}(v) \in \mathfrak{g}$ であり，\eqref{eq:fundamental-vecf}から
+        \begin{align}
+            v = T_{1_G} (R^{(\textcolor{red}{u})}) \Bigl( \bigl(T_{1_G} (R^{(\textcolor{red}{u})})\bigr)^{-1}(v)\Bigr) = \Bigl(\bigl(T_{1_G} (R^{(\textcolor{red}{u})})\bigr)^{-1}(v)\Bigr)^\#_{\textcolor{red}{u}}
+        \end{align}
+        が言えた．
+    \end{description}
+
+\end{proof}
+
+\hyperref[def:connection]{接続の定義}は幾何学的にわかりやすいが，計算は絶望的である．
+幸いにして主束の接続を与えることと，全空間上の\hyperref[def:connection]{接続形式}を与えることは同値なのでなんとかなる：
 
 \begin{mytheo}[label=thm:connection-basic]{接続と接続形式の関係}
     $G \hookrightarrow P \xrightarrow{\pi} M$ を\hyperref[def.PFD]{主束}とする．
@@ -1785,68 +1833,129 @@ $\forall X \in T_u G_{\pi(u)} \subset T_u P$ （i.e. 点 $u \in \bm{P}$ にお�
 
 \begin{proof}
     \begin{enumerate}
-        \item $\omega \in \Omega^1(P;\, \mathfrak{g})$ を接続形式とする．
-        
+        \item 
+        $\forall u \in P$ を1つ固定する．命題\ref{prop.PFD_right}で与えたLie群 $G$ の全空間 $P$ への\hyperref[def:fundamental-vecf]{右作用 $\btl \colon P \times G \lto P$ の無限小生成子} $\btl^\# \colon \mathfrak{g} \lto \mathfrak{X}(P),\; X \lmto X^\#$ を考える．
         \begin{description}
             \item[\textbf{(C-1)}]　
             
-            $\forall \textcolor{red}{u} \in P$ を1つ固定する．
-            まず $\Ker (T_u \pi) = \bigl\{\, X^\#_u \in T_u P \bigm| X \in \mathfrak{g} \,\bigr\}$ を示す．
-            \hyperref[prop.PFD_right]{右作用の定義}から $\forall g \in G$ に対して $\pi \circ R^{(u)} (g) = \pi(u \btl g) = \pi(u)$，i.e. $\pi \circ R^{(u)}$ は定数写像であることに注意する．
-            
-            　$\forall X \in \mathfrak{g}$ をとる．
-            このとき\eqref{eq:fundamental-vecf}より $X^\#_u = T_{1_G}(R^{(u)})(X)$ だが，$\pi \circ R^{(u)}$ は定数写像なので
+            　接続形式の定義から $\forall X \in \mathfrak{g}$ に対して $\omega (X^\#) = X$ が成り立つ．i.e. $\omega_{u} \colon T_{u}P \lto \mathfrak{g}$ は全射であり，
+            $\mathbb{R}$-線型写像の系列\footnote{$i$ は包含準同型なので $\Ker \omega_{u} = \Im i$．$\omega_{u}$ が全射なので $\Im \omega_{u} = \mathfrak{g} = \Ker 0$．}
+            % よって $T_{u} P = \Ker (T_{u}\pi) \oplus \Ker \omega_{u}$ である．
             \begin{align}
-                T_{u}\pi (X^\#_u) &= T_{u}\pi \circ T_{1_G}(R^{(u)})(X) \\
-                &= T_{1_G}(\pi \circ R^{(u)}) (X) \\
-                &= 0
+                0 \lto \Ker \omega_{u} \xrightarrow{i} T_{u} P \xrightarrow{\omega_{u}} \mathfrak{g} \lto 0
             \end{align}
-            が分かる．i.e. $X^\#_u \in \Ker (T_u \pi)$ である．
-
-            　次に
+            は短完全列になる．
+            さらにこれは補題\ref{lem:connection}の証明で与えた線型写像 $\bigl( T_{1_G} (R^{(u)}) \bigr)^{-1} \colon \mathfrak{g} \lto \Ker (T_{u} \pi) \subset T_{u}P$ によって分裂するので
             \begin{align}
-                T_{1_G}\bigl(R^{(u)} \bigr) \colon \mathfrak{g} \lto \Ker (T_u \pi)
+                T_{u} \cong \mathfrak{g} \oplus \Ker \omega_{u} \cong \Ker (T_{u} \pi) \oplus \Ker \omega_{u}
             \end{align}
-            がベクトル空間の同型写像であることを示す．
-            系\ref{col:fundamental-vecf-basic}から，$\Ker T_{1_G}\bigl(R^{(u)} \bigr) = \mathrm{Lie}\bigl( \Stab (u) \bigr)$ だが，命題\ref{prop.PFD_right}より右作用 $\btl$ は自由なので $ \Stab (u) = \{1_G\}$ である．従って $\Ker T_{1_G}\bigl(R^{(u)} \bigr) = \{0\}$ であり，$T_{1_G}\bigl(R^{(u)} \bigr)$ は単射．
-            % 上の議論から $\Im T_{1_G}\bigl(R^{(u)} \bigr) \subset \Ker (T_u \pi)$ も分かる．このときベクトル空間の短完全列
-            % \begin{align}
-            %     0 \lto \Ker (T_u \pi) \lto T_u P \xrightarrow{T_u\pi} T_{\pi(u)} M \lto 0
-            % \end{align}
-            \eqref{eq:dim}より $\dim \mathfrak{g} = \dim G = \dim \Ker (T_u \pi)$ なので $T_{1_G}\bigl(R^{(u)} \bigr)$ はベクトル空間の同型写像である．
-            以上より，$\bigl\{\, X^\#_u \in T_u P \bigm| X \in \mathfrak{g} \,\bigr\} = \Im T_{1_G}\bigl(R^{(u)} \bigr) = \Ker (T_u \pi)$ が示された．
+            がわかる．
 
-            % \hyperref[def:global-flow]{大域的フロー}
-            % \begin{align}
-            %     \theta_{(X)} \colon \mathbb{R} \times P \lto P,\; (t,\, u) \lmto u \btl \exp(tX)
-            % \end{align}
-            % を考える．$u = \theta_{(X)}^{(\textcolor{red}{u})}(0)$ および\hyperref[prop.PFD_right]{右作用の定義}から，$\forall t\in \mathbb{R}$ に対して
-            % \begin{align}
-            %     \pi (u) = \pi \bigl(u \btl \exp(tX)\bigr) = \pi \bigl( \theta_{(X)}^{(\textcolor{red}{u})}(t) \bigr) 
-            % \end{align}
-            % が成り立つので $\theta_{(X)}^{(\textcolor{red}{u})} \colon \mathbb{R} \lto G_{\pi(\textcolor{red}{u})}$ であり，$X^\#_{\textcolor{red}{u}} \in T_{\textcolor{red}{u}} G_{\pi(\textcolor{red}{u})} = \Ker (T_{\textcolor{red}{u}} \pi)$ が言える．
-            % 逆に $\forall V \in T_{\textcolor{red}{u}} G_{\pi(\textcolor{red}{u})}$ に対して，
-            % \begin{align}
-            %     Vf = \eval{\dv{}{t}}_{t=0} f(\theta_{(X)}^{(\textcolor{red}{u})}(t))
-            % \end{align}
-            
-            　接続形式の定義から $\forall X \in \mathfrak{g}$ に対して $\omega (X^\#) = X$ が成り立つ．よって $T_u P = \Ker (T_u\pi) \oplus \Ker \omega_u$ である．
-    
             \item[\textbf{(C-2)}]　
             
-            $\forall v \in \Ker \omega_u$ をとる．このとき\textbf{\textsf{(CF-2)}}より
+            $\forall v \in \Ker \omega_{u}$ をとる．このとき\hyperref[def:connection]{\textbf{\textsf{(CF-2)}}}より $\forall g \in G$ に対して
             \begin{align}
-                \omega_{u \btl g} \bigl( T_u(R_g)(v) \bigr) = ((R_g)^* \omega)_u (v) = \Adj (g^{-1})\bigl(\omega_u(v)\bigr) = 0
+                \omega_{u \btl g} \bigl( T_{u}(R_g)(v) \bigr) = ((R_g)^* \omega)_{u} (v) = \Adj (g^{-1})\bigl(\omega_{u}(v)\bigr) = 0
             \end{align}
-            が従い，$T_u(R_g)(\Ker \omega_u) \subset \Ker \omega_{u \btl g}$ である．両辺の次元が等しいので $T_u(R_g)(\Ker \omega_u) = \Ker \omega_{u \btl g}$ が言えた．
+            が従い，$T_{u}(R_g)(\Ker \omega_{u}) \subset \Ker \omega_{u \btl g}$ が言えた．
+            両辺の次元が等しいので $T_u(R_g)(\Ker \omega_u) = \Ker \omega_{u \btl g}$ が言えた．
         \end{description}
 
-        \item 
+        \item　
+        
+        \begin{description}
+            \item[\textbf{(単射性)}]　
+            
+            \hyperref[def:connection]{接続形式} $\omega,\, \eta \in \Omega^1(P;\, \mathfrak{g})$ に対して $\bigl\{\, \Ker \omega_u \bigm| u \in P \,\bigr\} = \bigl\{\, \Ker \eta_u \bigm| u \in P \,\bigr\}$ が成り立つとする．
+            このとき $\forall u \in P$ に対して $\Ker \omega_u = \Ker \eta_u$ が成り立つ．
+            補題\ref{lem:connection}および (1) から $T_u P = \Ker (T_u \pi) \oplus \Ker \omega_u = \bigl\{\, X^\#_u \bigm| X \in \mathfrak{g} \,\bigr\} \oplus \Ker \omega_u$ の直和分解があり，$\forall v \in T_u P$ に対して $V \in \mathfrak{g},\; v^H \in \Ker \omega_u = \Ker \eta_u$ が一意的に存在して $v = V^\#_u + v^H$ と書ける．
+            よって\textbf{\textsf{(CF-1)}}から
+            \begin{align}
+                \omega_u(v) = \omega_u(V^\#_u) = V = \eta_u(V^\#_u) = \eta_u(v)
+            \end{align}
+            が分かった．i.e. $\omega_u = \eta_u$ である．$u$ は任意だったので $\omega = \eta$ が言えた．
+
+            \item[\textbf{(全射性)}]　
+            
+            主束 $G \hookrightarrow P \xrightarrow{\pi} M$ の\hyperref[def:connection]{接続} $\bigl\{\, H_u \subset T_u P \bigm| u \in P \,\bigr\}$ を与える．$\forall u \in P$ に対して
+            直和分解 $T_u P = \Ker (T_u \pi) \oplus H_u$ の垂直，水平部分空間成分への射影をそれぞれ 
+            \begin{align}
+                i_1 \colon T_u P &\lto \Ker (T_u \pi),\; v^V + v^H \lmto v^V \\
+                i_2 \colon T_u P &\lto H_u,\; v^V + v^H \lmto v^H
+            \end{align}
+            と書き，
+            $\omega \in \Omega^1(P;\, \mathfrak{g})$ を，$\forall u \in P$ に対して補題\ref{lem:connection}の証明で与えた同型写像 $T_{1_G} (R^{(u)}) \colon \mathfrak{g} \lto \Ker (T_u \pi)$ を用いて
+            \begin{align}
+                \omega_u \coloneqq \bigl(T_{1_G} (R^{(u)})\bigr)^{-1} \circ i_1 \colon T_u P \xrightarrow{i_1} \Ker (T_u \pi) \xrightarrow{\bigl(T_{1_G} (R^{(u)})\bigr)^{-1}} \mathfrak{g}
+            \end{align}
+            と定義する．この $\omega$ が\hyperref[def:connection]{\textbf{\textsf{(CF-1)}}, \textbf{\textsf{(CF-2)}}}を充たすことを示す：
+            \begin{description}
+                \item[\textbf{(CF-1)}]　
+                $\forall u \in P$ を1つ固定する．
+                $\forall X \in \mathfrak{g}$ をとる．補題\ref{lem:connection}より $X_u^\# \in \Ker (T_u\pi)$ だから，\eqref{eq:fundamental-vecf}より
+                \begin{align}
+                    \omega_u (X^\#_u) &= \bigl(T_{1_G} (R^{(u)})\bigr)^{-1} \circ i_1(X^\#_u) \\
+                    &= \bigl(T_{1_G} (R^{(u)})\bigr)^{-1} (X^\#_u) \\
+                    &= \bigl(T_{1_G} (R^{(u)})\bigr)^{-1} \bigl( T_{1_G}(R^{(u)})(X) \bigr)  \\
+                    &= X \label{eq:CF-1}
+                \end{align}
+                が言えた．
+                \item[\textbf{(CF-2)}]　
+                
+                $\forall u \in P$ を1つ固定する．
+                $\forall g \in G$ をとる．示すべきは $\forall v \in T_u P$ に対して
+                \begin{align}
+                    \bigl((R_g)^* \omega\bigr)_u (v) = \omega_{R_g(u)} \bigl( T_u (R_g)(v) \bigr) = \Adj (g^{-1})\bigl( \omega_u (v)\bigr)
+                \end{align}
+                が成り立つことである．
+                実際 $\textcolor{red}{i_1(v)} \in \Ker(T_u \pi)$ に対しては，補題\ref{lem:connection}からある $V \in \mathfrak{g}$ が一意的に存在して $i_1(v) = V^\#_u$ と書けるので
+                \begin{align}
+                    \omega_{R_g(u)} \Bigl( T_u (R_g)\bigl(\textcolor{red}{i_1(v)}\bigr) \Bigr)
+                    &= \omega_{u \btl g} \Bigl( T_u (R_g)\bigl(V^\#_u\bigr) \Bigr) &&\\
+                    &= \omega_{u \btl g} \Bigl( T_u (R_g)\circ T_{1_G}(R^{(u)})(V)\Bigr) &&\because\quad\text{\eqref{eq:fundamental-vecf}}\\
+                    &= \omega_{u \btl g} \Bigl( T_{1_G}(R_g \circ R^{(u)})(V)\Bigr) &&
+                \end{align}
+                となるが，$\forall x \in G$ に対して
+                \begin{align}
+                    R_g \circ R^{(u)}(x) 
+                    &= u \btl x \btl g 
+                    = u \btl (xg) 
+                    = u \btl (gg^{-1}xg)  \\
+                    &= (u \btl g)  \btl (g^{-1}xg) 
+                    = R^{(u \btl g)} \circ  F_{g^{-1}}(x) 
+                \end{align}
+                が成り立つ\footnote{記号は\exref{def:Lie-adj}を参照}ことから
+                \begin{align}
+                    \omega_{u \btl g} \Bigl( T_{1_G}(R_g \circ R^{(u)})(V)\Bigr) 
+                    &= \omega_{u \btl g} \bigl(T_{F_{g^{-1}}(1_G)} (R^{(u \btl g)}) \circ T_{1_G}(F_{g^{-1}}) (V) \bigr) &&\\
+                    &= \omega_{u \btl g} \bigl(T_{1_G} (R^{(u \btl g)}) \circ \Adj (g^{-1})(V)\bigr) &&\because\quad \Adj\; \text{の\hyperref[def:Lie-adj]{定義}}\\
+                    &= \omega_{u \btl g} \Bigl( \bigl( \Adj (g^{-1})(V) \bigr)^\#_{u \btl g} \Bigr) &&\because\quad \text{\eqref{eq:fundamental-vecf}}\\
+                    &= \bigl( T_{1_G}(R^{(u\btl g)}) \bigr)^{-1} \circ T_{1_G} (R^{(u \btl g)}) \circ \Adj (g^{-1})(V) &&\because\quad \text{\eqref{eq:CF-1}}\\
+                    &= \Adj (g^{-1})(V) &&\\
+                    &= \Adj (g^{-1})\omega_u(V^\#_u) &&\because\quad \text{\eqref{eq:CF-1}}\\
+                    &= \Adj (g^{-1})\omega_u\bigl(\textcolor{red}{i_1(v)}\bigr) &&
+                \end{align}
+                が言える．$\textcolor{blue}{i_2(v)} \in H_u$ に関しては，\hyperref[def:connection]{\textbf{\textsf{(C-2)}}}から $T_u (R_g)\bigl(\textcolor{blue}{i_2(v)}\bigr) \in H_{u \btl g}$ なので
+                \begin{align}
+                    \omega_{R_g(u)} \Bigl( T_u (R_g)\bigl(\textcolor{blue}{i_2(v)}\bigr) \Bigr) 
+                    &= \bigl( T_{1_G}(R^{(u \btl g)}) \bigr)^{-1} \circ i_1 \Bigl(T_u (R_g)\bigl(\textcolor{blue}{i_2(v)}\bigr)\Bigr) \\
+                    &= 0 \\
+                    &= \Adj(g^{-1}) \Bigl( \omega_u \bigl(\textcolor{blue}{i_2(v)}\bigr) \Bigr) 
+                \end{align}
+                が言える．$v = \textcolor{red}{i_1(v)} + \textcolor{blue}{i_2(v)}$ なので証明が完了した．
+                
+                
+            \end{description}
+            
+        \end{description}
+        
     \end{enumerate}
 \end{proof}
 
+\subsection{同伴ベクトル束上の共変微分}
 
-% \exref{def:associated-vect}を思い出すと，同伴ベクトル束の
+\exref{def:associated-vect}を思い出すと，主束に与えられた\hyperref[def:connection]{接続形式}が自然に同伴ベクトル束上の接続と結び付くような気がしてくる．
+実際それは正しい．
 
 \begin{mytheo}[label=thm:connection-assoc]{同伴ベクトル束上の接続}
     
