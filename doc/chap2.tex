@@ -212,7 +212,7 @@ $\comm{A}{B}$ がc数である場合のBCH公式から
 
 $\mathcal{M}$ の任意の2点 $\irm{x}{i},\, \irm{x}{f} \in \mathcal{M}$ を結ぶ曲線 $\gamma \colon [\irm{t}{i},\, \irm{t}{f}] \lto \mathcal{M}$ をとり，\textbf{Wilson line}を
 \begin{align}
-    \tilde{W}_\gamma (x,\, y) \coloneqq \mathcal{P} \exp \left( \int_C \dd{x^\mu} A_\mu (x) \right)
+    \tilde{W}_\gamma (x,\, y) \coloneqq \mathcal{P} \exp \left( \int_\gamma \dd{x^\mu} A_\mu (x) \right)
 \end{align}
 で定義する．$[\irm{t}{i},\, \irm{t}{f}]$ の分割 $\irm{t}{i} \eqqcolon t_0 < t_1 < \dots < t_N \coloneqq \irm{t}{f}$ を与えて $x_i \coloneqq \gamma(t_i),\; \dd{x_i} \coloneqq x_{i+1} - x_{i}$ とおく\footnote{$\dd{x_i}$ は，厳密には2点 $x_i,\, x_{i+1}$ を含むある $\mathcal{M}$ のチャート $\bigl( U,\, (x^\mu) \bigr)$ をとってきた時の座標関数の値の差 $\dd{x_i}^\mu \coloneqq x^\mu(x_{i+1}) - x^\mu(x_{i})$ として理解する．}と，
 \begin{align}
@@ -254,20 +254,20 @@ $N$ が十分大きい時は $0 \le \forall i \le N-1$ に対して $\abs{\dd{x_
     \irm{S}{CS}[A_\mu] \coloneqq \frac{k}{4\pi} \int_{\mathcal{M}} \dd[3]{x} \epsilon^{\alpha\beta\gamma} \Tr \left[ A_\alpha \partial_\beta A_\gamma + \frac{2}{3} A_\alpha A_\beta A_\gamma \right] 
 \end{align}
 により定義する．第2項は可換な場合には必ず零になるので前節では登場しなかった．
-$\irm{S}{CS}$ が時空 $\mathcal{M}$ の計量によらない\footnote{\textbf{計量不変} (metric invariant) であると言う．}ことは，ゲージ場をLie代数値1-形式 $A \in \Omega^1(\mathcal{M}) \otimes \mathfrak{g}$ として書き表したときに
+$\irm{S}{CS}[A]$ が時空 $\mathcal{M}$ の計量によらない\footnote{\textbf{計量不変} (metric invariant) であると言う．}ことは，ゲージ場をLie代数値1-形式 $A \in \Omega^1(\mathcal{M}) \otimes \mathfrak{g}$ として書き表したときに
 \begin{align}
     \irm{S}{CS}[A] = \frac{k}{4\pi} \int_{\mathcal{M}} \Tr \left( A \wedge \dd{A} + \frac{2}{3} A \wedge A \wedge A \right) 
 \end{align}
-と書けることからわかる\footnote{...と言うのは微妙に的を外している．より正確には $2+1$ 次元多様体 $\mathcal{M}$ を境界に持つような4次元多様体 $\mathcal{N}$ を用意し，$\mathcal{N}$ の作用 $\mathcal{S}[A] \coloneqq k/(4\pi) \int_{\mathcal{N}} \Tr (F \wedge F)$ を部分積分することで $\irm{S}{CS}$ の別の定義が与えられる．}．
+と書けることからわかる\footnote{...と言うのは微妙に的を外している．より正確には $2+1$ 次元多様体 $\mathcal{M}$ を境界に持つような4次元多様体 $\mathcal{N}$ を用意し，$\mathcal{N}$ の作用 $\mathcal{S}[A] \coloneqq k/(4\pi) \int_{\mathcal{N}} \Tr (F \wedge F)$ を部分積分することで $\irm{S}{CS}[A]$ を定義する．}．
 % を，成分計算により確認しておこう．$\mathcal{M}$ の一般座標変換 $(x^\mu) \lto (x'{}^\mu)$ を考えたとき，
 
-$\irm{S}{CS}$ にゲージ変換\eqref{eq:gauge-transform}を施した結果は
+$\irm{S}{CS}[A]$ にゲージ変換\eqref{eq:gauge-transform}を施した結果は
 \begin{align}
     &\irm{S}{CS}[A_\mu] \lto \irm{S}{CS}[A_\mu] + 2\pi \nu k, \label{eq:CS-gauge} \\
     \WHERE &\nu \coloneqq \frac{1}{24 \pi^2} \int_{\mathcal{M}} \dd[3]{x} \epsilon^{\alpha\beta\gamma} \Tr \bigl[ (U^{-1} \partial_\alpha U)(U^{-1} \partial_\beta U)(U^{-1} \partial_\gamma U) \bigr] 
 \end{align}
 となる．$\nu$ は写像 $U \colon \mathcal{M} \lto G$ の\textbf{巻きつき数} (winding number)，もしくは\textbf{Pontryagin index}と呼ばれ，常に整数値をとる．この極めて非自明な結果についても後述する．
-\eqref{eq:CS-gauge}から，$\irm{S}{CS}$ は厳密にはゲージ不変ではない．然るに，もし $k \in \mathbb{Z}$ ならば（このとき $k$ の値は\textbf{level}と呼ばれる），分配関数 $Z (\mathcal{M})$ がゲージ不変な形になってくれるので問題ない，と考える．
+\eqref{eq:CS-gauge}から，$\irm{S}{CS}[X]$ は厳密にはゲージ不変ではない．然るに，もし $k \in \mathbb{Z}$ ならば（このとき $k$ の値は\textbf{level}と呼ばれる），分配関数 $Z (\mathcal{M})$ がゲージ不変な形になってくれるので問題ない，と考える．
 $2+1$ 次元においては，1つのゲージ場からなる作用であって
 \begin{itemize}
     \item トポロジカル不変性（i.e. 計量不変性）
@@ -318,7 +318,7 @@ $2+1$ 次元においては，1つのゲージ場からなる作用であって
 
 この系を経路積分により量子化することを見据えて，このような変換性を充たす全ての場がなす空間の幾何学を考察すると見通しが良いだろう．
 そのため，まず時空上の無限小だけ離れた2点 $\irm{x}{i},\, \irm{x}{f} \in \mathcal{M}$ における場の配位 $\varphi(\irm{x}{i}),\, \varphi(\irm{x}{f})$ を比較しよう．
-内部自由度による変換性を議論したいので，$\varphi (\irm{x}{f}) - \varphi(\irm{x}{i})$ なる量を調べても意味がない．$\irm{x}{i},\, \irm{x}{f}$ を結ぶ \cinfty 曲線 $\gamma \colon [\irm{t}{i},\, \irm{t}{f}] \lto \mathcal{M}$ を持ってきて，$\gamma$ に沿って $\varphi(\irm{x}{i})$ を $\irm{x}{f}$ まで流してやるのが良い．つまり，場の配位を記述する空間 $\mathbb{K}^N$ 上の \cinfty 曲線 $\varphi^{(\gamma)} \coloneqq \varphi \circ \gamma \colon [\irm{t}{i},\, \irm{t}{f}]$ を考えれば，
+内部自由度による変換性を議論したいので，$\varphi (\irm{x}{f}) - \varphi(\irm{x}{i})$ なる量を調べても意味がない．$\irm{x}{i},\, \irm{x}{f}$ を結ぶ \cinfty 曲線 $\gamma \colon [\irm{t}{i},\, \irm{t}{f}] \lto \mathcal{M}$ を持ってきて，$\gamma$ に沿って $\varphi(\irm{x}{i})$ を $\irm{x}{f}$ まで流してやるのが良い．つまり，場の配位を記述する空間 $\mathbb{K}^N$ 上の \cinfty 曲線 $\varphi^{(\gamma)} \coloneqq \varphi \circ \gamma \colon [\irm{t}{i},\, \irm{t}{f}] \lto \mathbb{K}^N$ を考えれば，
 量 $\varphi (\irm{x}{f}) - \varphi^{(\gamma)}(\irm{t}{f})$ は $U(\irm{x}{f}) \in G$ による変換を受けるはずである．
 $\irm{x}{i},\, \irm{x}{f}$ の両方を含む $\mathcal{M}$ のチャート $\bigl( V,\, (x^\mu) \bigr)$ を持ってきて成分計算すると，$\dd{x} \coloneqq \irm{x}{f} - \irm{x}{i}$ が\footnote{厳密にはこれは座標関数の差 $\dd{x}^\mu \coloneqq x^\mu(\irm{x}{f}) - x^\mu(\irm{x}{i})$ の絶対値が小さいことを主張している．}微小なのでTaylor展開において $\dd{x}$ の1次の項まで残すことで
 \begin{align}
@@ -1420,7 +1420,7 @@ $\forall X \in \mathfrak{g}$ に対して，\cinfty 写像\footnote{これは命
 
 \begin{myprop}[label=prop:infinitesimal-generator-R]{$\btl^\#$ はLie代数の準同型}
     Lie群 $G$ の\cinfty 多様体 $M$ への右作用 $\btl \colon M \times G \lto M$ を与える．
-    このとき\hyperref[def:fundamental-vecf]{右作用 $\btl^\#$ の無限小生成子}
+    このとき\hyperref[def:fundamental-vecf]{右作用 $\btl$ の無限小生成子}
     \begin{align}
         \btl^\# \colon \mathfrak{g} \lto \mathfrak{X}(M),\; X \lmto X^\#
     \end{align}
@@ -1832,7 +1832,7 @@ $V$ を有限次元 $\mathbb{K}$-ベクトル空間，$\rho \colon G \lto \LGL(V
 $\forall \alpha \in \Lambda$ に対して\hyperref[def.section]{局所切断} $s_\alpha \in \Gamma(P|_{U_\alpha})$ を
 \begin{align}
     \label{eq:assoc-sec}
-    s_\alpha \colon M \lto \pi^{-1}(U_\alpha),\; x \lmto \varphi_\alpha^{-1}(x,\, 1_G)
+    s_\alpha \colon U_\alpha \lto \pi^{-1}(U_\alpha),\; x \lmto \varphi_\alpha^{-1}(x,\, 1_G)
 \end{align}
 と定めるとき，\hyperref[def:associated-vect]{同伴ベクトル束} $V \hookrightarrow P \times_\rho V \xrightarrow{q} M$ の局所自明化を
 \begin{align}
@@ -2263,10 +2263,10 @@ $\forall \alpha \in \Lambda$ に対して\hyperref[def.section]{局所切断} $s
 を持ち，局所自明化 $\Familyset[\big]{\psi_\alpha \colon q^{-1}(U_\alpha) \lto U_\alpha \times V}{\alpha \in \Lambda}$ は\eqref{eq:assoc-loctriv}の通りに $\psi_\alpha \bigl( s_\alpha(x) \times_\rho v \bigr) \coloneqq (x,\, v)$ と構成された．なお，命題\ref{prop:Borelconst}の証明の脚注で述べたようにこれは $\psi_\alpha(u \times_\rho v) \coloneqq \bigl( \pi(u),\, \mathrm{proj}_2 \circ \varphi_\alpha(u) \btr v \bigr)$ と定義することと同値である．
 以下では便宜上 $E \coloneqq P \times_\rho V$ とおく．
 
-さて，\underline{主束 $P$ 上の}\hyperref[def:connection]{接続形式} $\omega \in \Omega^1(P;\, \mathfrak{g})$ を任意に1つ与えよう．このとき定理\ref{thm:connection-assoc}-(2) により，\underline{同伴ベクトル束 $E$ 上の}\hyperref[def:connection-vect]{接続} $\nabla^E \colon \Gamma(E) \lto \Omega^1(M;\, E)$ が $\nabla^E \coloneqq \dd + \rho_* (\omega)$ として誘導される．
+さて，\underline{主束 $P$ 上の}\hyperref[def:connection]{接続形式} $\omega \in \Omega^1(P;\, \mathfrak{g})$ を任意に1つ与えよう．このとき定理\ref{thm:connection-assoc}-(2) により，\underline{同伴ベクトル束 $E$ 上の}\hyperref[def:connection-vect]{接続} $\nabla^E \colon \Gamma(E) \lto \Omega^1(M;\, E)$ が $\nabla^E \coloneqq \sharp^{-1}\circ \bigl(\dd + \rho_* (\omega)\bigr) \circ \sharp$ として誘導される．
 
 \eqref{eq:field-locsym}が示すように，Lie群 $G$ で記述される内部対称性を持つ場 $\phi$ は\underline{$E$ の}切断 $\phi \in \Gamma(E)$ を局所自明化 $\psi_\alpha$ によって表示した $\phi_\alpha \coloneqq \mathrm{proj}_2 \circ \psi_\alpha \circ \phi \colon U_\alpha \lto V$ と同一視された．
-ここで，$\phi \in \Gamma(E) = \Omega^0 (M;\, E)$ なので，ある\underline{$M$ 上の}\hyperref[def:vecf]{ベクトル場} $X \in \mathfrak{X}(M) = \Gamma(TM)$ に\hyperref[def:connection-vect]{沿った共変微分} $\nabla_X^E \colon \Gamma(E) \lto \Gamma(E),\; \phi \lmto \nabla^E\phi(X)$ を取ることができる．そして $\nabla^E_X (\phi) \in \Gamma (E)$ の局所自明化による表示 $(\nabla^E_X \phi)_\alpha \coloneqq \mathrm{proj}_2 \circ \psi_\alpha \circ \nabla^E_X \phi \colon U_\alpha \lto V$ もまた，$U_\alpha \cap U_\beta$ における $\psi_\alpha$ から $\psi_\beta$ への局所自明化の取り替えに伴って\eqref{eq:field-locsym}の変換を受ける：
+ここで，$\phi \in \Gamma(E) = \Omega^0 (M;\, E)$ なので，ある\underline{$M$ 上の}\hyperref[def:vecf]{ベクトル場} $X \in \mathfrak{X}(M) = \Gamma(TM)$ に\hyperref[def:connection-vect]{沿った共変微分} $\nabla_X^E \colon \Gamma(E) \lto \Gamma(E),\; \phi \lmto \nabla^E\phi(X)$ を取ることができる．そして $\nabla^E_X \phi \in \Gamma (E)$ の局所自明化による表示 $(\nabla^E_X \phi)_\alpha \coloneqq \mathrm{proj}_2 \circ \psi_\alpha \circ \nabla^E_X \phi \colon U_\alpha \lto V$ もまた，$U_\alpha \cap U_\beta$ における $\psi_\alpha$ から $\psi_\beta$ への局所自明化の取り替えに伴って\eqref{eq:field-locsym}の変換を受ける：
 \begin{align}
     \psi_\beta \circ \psi_\alpha^{-1} \colon (U_\alpha \cap U_\beta) \times V &\lto (U_\alpha \cap U_\beta) \times V, \\
     \Bigl( x,\, \bm{(\nabla_X^E\phi)_\alpha (x)} \Bigr) &\lmto \Bigl( x,\, \bm{(\nabla_X^E\phi)_\beta (x)}  \Bigr) = \Bigl( x,\, \bm{\rho\bigl(t_{\beta\alpha}(x)\bigr) \circ (\nabla_X^E\phi)_\alpha (x)}  \Bigr) 
@@ -2278,7 +2278,7 @@ $\forall \alpha \in \Lambda$ に対して\hyperref[def.section]{局所切断} $s
     = \bigl( \dd + \rho_* (s^*_\alpha \omega) \bigr)( \phi_\alpha ) (X)
     % &= \dd \phi_\alpha (X) + \rho_* \bigl( (s^*_\alpha \omega)(X) \bigr) (\phi_\alpha)
 \end{align}
-なので
+なので，$\forall x \in U_\alpha \cap U_\beta$ において
 \begin{align}
     &(\nabla_X^E\phi)_\beta (x) \\
     &= \eval{\bigl( \dd + \rho_* (s^*_\beta \omega) \bigr) ( \phi_\beta )}_x (X_x) \\
@@ -2286,7 +2286,7 @@ $\forall \alpha \in \Lambda$ に対して\hyperref[def.section]{局所切断} $s
     &= \eval{\rho \bigl( t_{\beta\alpha}(x) \bigr) \circ \bigl( \dd + \rho_* (s^*_\alpha \omega) \bigr) \circ \rho\bigl(t_{\beta\alpha}(x)\bigr)^{-1} (\phi_\beta)}_x (X_x) \\
     &= \eval{\rho \bigl( t_{\beta\alpha}(x) \bigr) \circ \bigl( \dd + \rho_* (s^*_\alpha \omega) \bigr) \circ \rho\bigl(t_{\beta\alpha}(x)^{-1}\bigr) (\phi_\beta)}_x (X_x)
 \end{align}
-だとわかる．i.e. $x \in M$ において
+だとわかる．i.e.
 \begin{align}
     \bigl(\dd + \rho_* (s^*_\beta \omega)\bigr)_x &= \rho \bigl( t_{\beta\alpha}(x) \bigr) \circ \bigl( \dd + \rho_* (s^*_\alpha \omega) \bigr)_x \circ \rho\bigl(t_{\beta\alpha}(x)^{-1}\bigr)
 \end{align}
@@ -2307,12 +2307,15 @@ $\forall \alpha \in \Lambda$ に対して\hyperref[def.section]{局所切断} $s
 \subsection{局所接続形式}
 
 先に進む前に，Maurer-Cartan形式についての注意をしておく．
-一般のLie群 $G$ において，\textbf{Maurer Cartan形式}とは
-\begin{align}
-    \theta_g \coloneqq T_g(L_{g^{-1}}) \colon T_g G \lto \mathfrak{g}
-\end{align}
-によって定義される\underline{$G$ 上の} $\mathfrak{g}$ 値1-形式 $\theta \in \Omega^1(G;\, \mathfrak{g})$ のことである．
-特に $G$ が $\LGL (V)$ の部分Lie群である場合，$\theta \colon TG \lto \mathfrak{g}$ はよく $g^{-1} \dd g$ と略記される．これの解釈は次の通りである：
+
+\begin{mydef}[label=def:Maurer-Cartan]{Maurer-Cartan形式}
+    Lie群 $G$ の\textbf{Maurer-Cartan形式}とは，
+    \begin{align}
+        \theta_g \coloneqq T_g(L_{g^{-1}}) \colon T_g G \lto \mathfrak{g}
+    \end{align}
+    によって定義される\underline{$G$ 上の} $\mathfrak{g}$ 値1-形式 $\theta \in \Omega^1(G;\, \mathfrak{g})$ のことを言う．
+\end{mydef}
+特に $G$ が $\LGL (V)$ の部分Lie群である場合，Maurer-Cartan形式 $\theta \colon TG \lto \mathfrak{g}$ はよく $g^{-1} \dd g$ と略記される．これの解釈は次の通りである：
 まず $\forall g \in G$ と $G$ 上の恒等写像 $\mathrm{id} \colon G \lto G,\; g \lmto g$ を同一視する．このとき $\dd g \colon TG \lto TG$ は，$\forall g \in G$ に対して $T_g (\mathrm{id}) = \mathrm{id}_{T_g G} \colon T_g G \lto T_g G$ と解釈する．
 すると，行列Lie群の場合 $T_g(L_{g^{-1}}) = L_{g^{-1}}$ なので $\forall v \in T_g G$ に対して
 \begin{align}
@@ -2341,32 +2344,74 @@ $\forall g \in G$ を1つ固定し，$\forall v \in T_p M$ をとる．すると
 ~\cite[第10章-1]{Nakahara2018topo2}に倣って，先ほど導入したゲージ場をより扱いやすい形にしよう．
 
 \begin{mytheo}[label=thm:local-connection]{貼り合わせによる接続形式の構成}
-    \hyperref[def.PFD]{主束} $G \hookrightarrow P \xrightarrow{\pi} M$ の開被覆 $\Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$ をとる．
+    \hyperref[def.PFD]{主束} $G \hookrightarrow P \xrightarrow{\pi} M$ と，その開被覆 $\Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$ および局所自明化 $\Familyset[\big]{\varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto U_\alpha \times G}{\alpha \in \Lambda}$ を与える．
+    \hyperref[def.section]{局所切断}の族 $\Familyset[\big]{s_\alpha \colon U_\alpha \lto \pi^{-1}(U_\alpha)}{\alpha \in \Lambda}$ を\eqref{eq:assoc-sec}で定義する． 
     
-    このとき\eqref{eq:assoc-loctriv}で定義した\hyperref[def.section]{局所切断}の族 $\Familyset[\big]{s_\alpha \colon U_\alpha \lto \pi^{-1}(U_\alpha)}{\alpha \in \Lambda}$ および $\mathfrak{g}$ 値1-形式の族 $\Familyset[\big]{A_\alpha \in \Omega^1(U_\alpha;\, \mathfrak{g})}{\alpha \in \Lambda}$ を与えると，
+    このとき任意の $\mathfrak{g}$ 値1-形式の族 $\Familyset[\big]{A_\alpha \in \Omega^1(U_\alpha;\, \mathfrak{g})}{\alpha \in \Lambda}$ を与えると，
     $\forall \alpha \in \Lambda$ に対して $A_\alpha = s_\alpha^* \omega$ を充たす\hyperref[def:connection]{接続形式} $\omega \in \Omega^1(P;\, \mathfrak{g})$ が存在する．
 \end{mytheo}
 
 \begin{proof}
-    ある $U_\alpha$ を1つ固定する．
+    ある $\alpha \in \Lambda$ を1つ固定する．
     \begin{align}
-        g_\alpha \colon \pi^{-1}(U_\alpha) \lto G,\; u \lmto \mathrm{proj}_2 \circ \varphi_\alpha (u)
+        g_\alpha \coloneqq \mathrm{proj}_2 \circ \varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto G
     \end{align}
-    と定義する．このとき $\varphi_\alpha(u) = \bigl( \pi(u),\, g_\alpha(u)\bigr) = s_\alpha \bigl(\pi(u)\bigr) \btl g_\alpha(u)$ が成り立つ．
+    とおく．このとき $\forall u \in \pi^{-1}(U_\alpha)$ に対して $\varphi_\alpha(u) = \bigl( \pi(u),\, g_\alpha(u)\bigr) = s_\alpha \bigl(\pi(u)\bigr) \btl g_\alpha(u)$ が成り立つ．
     
-    ここで $\mathfrak{g}$ 値1-形式 $\omega_\alpha \in \Omega^1(U_\alpha;\, \mathfrak{g})$ を $\forall u \in \pi^{-1}(U_\alpha)$ において
+    $\mathfrak{g}$ 値1-形式 $\omega_\alpha \in \Omega^1(P|_{U_\alpha};\, \mathfrak{g})$ を，$\forall u \in \pi^{-1}(U_\alpha)$ において
     \begin{align}
-        \omega_\alpha|_u \coloneqq \Adj \bigl( g_\alpha(u) \bigr)(\pi^* A_\alpha|_u) + \pi^*\theta|_u
+        \omega_\alpha|_u \coloneqq \Adj \bigl( g_\alpha(u)^{-1} \bigr)\bigl((\pi^* A_\alpha)_u\bigr) + (g_\alpha^*\theta)_u
     \end{align}
-    と定義すると，$\forall p \in \textcolor{red}{M}$ および $\forall v \in T_{p} M$ に対して
+    と定義する．ただし $\theta \in \Omega^1(G;\, \mathfrak{g})$ は\hyperref[def:Maurer-Cartan]{Maurer-Cartan形式}である．
+    このとき $\forall x \in \textcolor{red}{M}$ および $\forall v \in T_{x} M$ に対して
     \begin{align}
-        s_\alpha^* \omega_\alpha|_{p}(v)
-        &= \omega_\alpha|_{s_\alpha(p)} \bigl( T_{x} s_\alpha (v) \bigr) \\
-        &= \Adj \bigl( g_\alpha(s_\alpha(x)) \bigr)\bigl(\pi^* A_\alpha|_{s_\alpha(x)}(T_x s_\alpha(v))\bigr) + \pi^*\theta|_{s_\alpha(x)}\bigl( T_{x} s_\alpha (v) \bigr) \\
-        &= \Adj \bigl( 1_G \bigr)\bigl(\pi^* A_\alpha|_{s_\alpha(x)}(T_x s_\alpha(v))\bigr) + \pi^*\theta|_{s_\alpha(x)}\bigl( T_{x} s_\alpha (v) \bigr) \\
-        &= A_\alpha|_{s_\alpha(x)}\bigl(T_{s_\alpha(x)} \pi \circ T_x s_\alpha(v)\bigr)+ \theta|_{s_\alpha(x)}\bigl( T_{s_\alpha(x)}\pi \circ T_{x} s_\alpha (v) \bigr) \\
-        &=
+        (s_\alpha^* \omega_\alpha)_{x}(v)
+        &= \omega_\alpha|_{s_\alpha(x)} \bigl( T_{x} s_\alpha (v) \bigr) \\
+        &= \Adj \bigl( g_\alpha(s_\alpha(x))^{-1} \bigr)\bigl((\pi^* A_\alpha)_{s_\alpha(x)}(T_x s_\alpha(v))\bigr) + (g_\alpha^*\theta)_{s_\alpha(x)}\bigl( T_{x} s_\alpha (v) \bigr) \\
+        &= \Adj \bigl( 1_G \bigr)\Bigl(A_\alpha|_{x}\bigl(T_{s_\alpha(x)} \pi \circ T_x s_\alpha(v)\bigr)\Bigr) + \theta_{g_\alpha(s_\alpha(x))}\bigl( T_{s_\alpha(x)} g_\alpha \circ T_{x} s_\alpha (v) \bigr) \\
+        &= A_\alpha|_{x}\bigl(T_x(\pi \circ s_\alpha)(v)\bigr) + \theta_{1_G}\bigl( \cancel{T_{x} (g_\alpha \circ s_\alpha)} (v) \bigr) \\
+        &= A_\alpha|_{x}(v)
     \end{align}
+    が成り立つので $s_\alpha^* \omega_\alpha = A_\alpha$ である．ただし，最後の等号で $\pi \circ s_\alpha = \mathrm{id}_{U_\alpha}$ であることと $g_\alpha \circ s_\alpha$ が常に $1_G$ を返す定数写像であることを使った．この $\omega_\alpha$ が $U_\alpha$ 上で\hyperref[def:connection]{接続形式の公理}を充たすことを示す．
+    \begin{description}
+        \item[\textbf{(CF-1)}]　
+        
+        $\forall X \in \mathfrak{g}$ を1つとる．補題\ref{lem:connection}から，$\forall u \in \pi^{-1}(U_\alpha)$ に対して $T_u \pi (X^\#_u) = 0$ である．
+        \hyperref[prop.PFD_right]{右作用 $\btl$ の定義}から $\forall g \in G$ に対して $L_{g_\alpha(u)^{-1}} \circ g_\alpha \circ R^{(u)}(g) = g_\alpha(u)^{-1} g_\alpha (u) g = g$ が成り立つ，i.e. $L_{g_\alpha(u)^{-1}} \circ g_\alpha \circ R^{(u)} = \mathrm{id}_G$ であることから
+        \begin{align}
+            \omega_\alpha (X^\#)
+            &= \Adj \bigl( g_\alpha(u)^{-1} \bigr) \Bigl( A_\alpha|_{\pi(u)}\bigl( \cancel{T_u \pi (X^\#_u)} \bigr)  \Bigr) + \theta_{g_\alpha(u)} \bigl( T_u g_\alpha (X^\#_u) \bigr) \\
+            &= T_{g_\alpha(u)} (L_{g_\alpha(u)^{-1}}) \circ T_u g_\alpha \circ T_{1_G} (R^{(u)})(X) &&\because\quad \text{\eqref{eq:fundamental-vecf}} \\
+            &= T_{1_G} (L_{g_\alpha(u)^{-1}} \circ g_\alpha \circ R^{(u)})(X) \\
+            &= X
+        \end{align}
+        が言えた．
+        \item[\textbf{(CF-2)}]　
+        
+        $\forall u \in P$ を1つ固定する．$\forall v \in T_u P,\; \forall g \in G$ に対して
+        \begin{align}
+            (R_g^* \omega_\alpha)_u(v)
+            &= \omega_\alpha|_{R_g(u)} \bigl( T_u (R_g) (v)\bigr) \\
+            &= \Adj \bigl( g_\alpha (u \btl g)^{-1} \bigr) \Bigl( A_\alpha|_{\pi(u \btl g)} \bigl(T_{u \btl g} \pi \circ T_u (R_g) (v)\bigr) \Bigr) + \theta_{g_\alpha(u \btl g)} \bigl( T_{u \btl g} g_\alpha \circ T_u (R_g)(v) \bigr)  \\
+            &= \Adj \bigl( g^{-1}g_\alpha (u)^{-1} \bigr) \Bigl( A_\alpha|_{\pi(u)} \bigl(T_{u} (\pi \circ R_g) (v)\bigr) \Bigr) + \theta_{g_\alpha(u)g} \bigl( T_{u \btl g} (g_\alpha \circ R_g)(v) \bigr)  \\
+            &= \Adj \bigl( g^{-1} \bigr) \circ \Adj \bigl(g_\alpha (u)^{-1}\bigr) \Bigl( A_\alpha|_{\pi(u)} \bigl(T_{u} \pi (v)\bigr) \Bigr) + T_{u} (L_{g^{-1}g_\alpha(u)^{-1}} \circ g_\alpha \circ R_g)(v) \\
+            &= \Adj \bigl( g^{-1} \bigr) \circ \Adj \bigl(g_\alpha (u)^{-1}\bigr) \bigl( (\pi^* A_\alpha)_u (v) \bigr) + T_{u} (L_{g^{-1}g_\alpha(u)^{-1}} \circ g_\alpha \circ R_g)(v)
+        \end{align}
+        一方，$\mathcal{R}_g \colon G \lto G,\; h \lmto hg$ とおくと
+        \begin{align}
+            \Adj(g^{-1}) \bigl( (g_\alpha^* \theta)_u (v) \bigr)
+            &= T_{1_G} (F_{g^{-1}}) \circ \theta_{g_\alpha(u)}\bigl(T_u g_\alpha(v)\bigr) \\
+            &= T_{1_G} (L_{g^{-1}} \circ \mathcal{R}_g) \circ T_{g_\alpha(u)} (L_{g_\alpha(u)^{-1}}) \circ T_u g_\alpha(v) \\
+            &= T_u (L_{g^{-1}} \circ \mathcal{R}_g \circ L_{g_\alpha (u)^{-1}} \circ g_\alpha)(v) \\
+            &= T_u (L_{g^{-1}} \circ L_{g_\alpha (u)^{-1}} \circ g_\alpha \circ R_g)(v) \\
+            &= T_u (L_{g^{-1}g_\alpha (u)^{-1}} \circ g_\alpha \circ R_g)(v)
+        \end{align}
+        であるから，
+        \begin{align}
+            R_g^* \omega_\alpha = \Adj \bigl( g^{-1} \bigr)\bigl( \omega_\alpha \bigr) 
+        \end{align}
+        が示された．
+    \end{description}
     
 \end{proof}
 
