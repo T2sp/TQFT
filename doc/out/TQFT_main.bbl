@@ -29,4 +29,12 @@ J.~M. Lee,
 今野宏,
 \newblock {\em 微分幾何学} (東京大学出版会, 2013).
 
+\bibitem{Tu2017differential}
+L.~W. Tu,
+\newblock {\em Differential geometry: connections, curvature, and characteristic classes} (Springer, 2017).
+
+\bibitem{Nakahara2018topo2}
+中原幹夫, 久木田真吾, 佐久間一浩, and 綿村尚毅,
+\newblock {\em 理論物理学のための幾何学とトポロジー\rm{II} 原著第\rm{2}版} (日本評論社, 2021).
+
 \end{thebibliography}
