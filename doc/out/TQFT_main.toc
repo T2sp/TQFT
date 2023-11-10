@@ -30,18 +30,18 @@
 \contentsline {subsection}{\numberline {2.4.3}主束の接続}{39}{subsection.2.4.3}%
 \contentsline {subsection}{\numberline {2.4.4}同伴ベクトル束上の共変微分とゲージ場の定義}{44}{subsection.2.4.4}%
 \contentsline {subsection}{\numberline {2.4.5}局所接続形式}{54}{subsection.2.4.5}%
-\contentsline {subsection}{\numberline {2.4.6}水平持ち上げ}{56}{subsection.2.4.6}%
-\contentsline {section}{\numberline {2.5}特性類とChern-Simons形式}{56}{section.2.5}%
-\contentsline {chapter}{\numberline {付録A}結び目理論入門}{57}{appendix.A}%
-\contentsline {chapter}{\numberline {付録B}ベクトル場の話}{58}{appendix.B}%
-\contentsline {section}{\numberline {B.1}接束}{60}{section.B.1}%
-\contentsline {section}{\numberline {B.2}ベクトル場の定義}{61}{section.B.2}%
-\contentsline {subsection}{\numberline {B.2.1}$C^\infty $ 関数の微分としてのベクトル場}{63}{subsection.B.2.1}%
-\contentsline {subsection}{\numberline {B.2.2}ベクトル場と $C^\infty $ 写像}{65}{subsection.B.2.2}%
-\contentsline {subsection}{\numberline {B.2.3}Lieブラケット}{67}{subsection.B.2.3}%
-\contentsline {section}{\numberline {B.3}積分曲線とフロー}{68}{section.B.3}%
-\contentsline {subsection}{\numberline {B.3.1}積分曲線}{68}{subsection.B.3.1}%
-\contentsline {subsection}{\numberline {B.3.2}フロー}{72}{subsection.B.3.2}%
-\contentsline {subsection}{\numberline {B.3.3}完備なベクトル場}{78}{subsection.B.3.3}%
-\contentsline {section}{\numberline {B.4}Lie微分}{79}{section.B.4}%
-\contentsline {chapter}{参考文献}{83}{appendix*.7}%
+\contentsline {subsection}{\numberline {2.4.6}水平持ち上げ}{59}{subsection.2.4.6}%
+\contentsline {section}{\numberline {2.5}特性類とChern-Simons形式}{59}{section.2.5}%
+\contentsline {chapter}{\numberline {付録A}結び目理論入門}{60}{appendix.A}%
+\contentsline {chapter}{\numberline {付録B}ベクトル場の話}{61}{appendix.B}%
+\contentsline {section}{\numberline {B.1}接束}{63}{section.B.1}%
+\contentsline {section}{\numberline {B.2}ベクトル場の定義}{64}{section.B.2}%
+\contentsline {subsection}{\numberline {B.2.1}$C^\infty $ 関数の微分としてのベクトル場}{66}{subsection.B.2.1}%
+\contentsline {subsection}{\numberline {B.2.2}ベクトル場と $C^\infty $ 写像}{68}{subsection.B.2.2}%
+\contentsline {subsection}{\numberline {B.2.3}Lieブラケット}{70}{subsection.B.2.3}%
+\contentsline {section}{\numberline {B.3}積分曲線とフロー}{71}{section.B.3}%
+\contentsline {subsection}{\numberline {B.3.1}積分曲線}{71}{subsection.B.3.1}%
+\contentsline {subsection}{\numberline {B.3.2}フロー}{75}{subsection.B.3.2}%
+\contentsline {subsection}{\numberline {B.3.3}完備なベクトル場}{81}{subsection.B.3.3}%
+\contentsline {section}{\numberline {B.4}Lie微分}{82}{section.B.4}%
+\contentsline {chapter}{参考文献}{86}{appendix*.7}%

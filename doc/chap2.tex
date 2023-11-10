@@ -2315,7 +2315,7 @@ $\forall \alpha \in \Lambda$ に対して\hyperref[def.section]{局所切断} $s
     \end{align}
     によって定義される\underline{$G$ 上の} $\mathfrak{g}$ 値1-形式 $\theta \in \Omega^1(G;\, \mathfrak{g})$ のことを言う．
 \end{mydef}
-特に $G$ が $\LGL (V)$ の部分Lie群である場合，Maurer-Cartan形式 $\theta \colon TG \lto \mathfrak{g}$ はよく $g^{-1} \dd g$ と略記される．これの解釈は次の通りである：
+特に $G$ が $\LGL (V)$ の部分Lie群である場合，Maurer-Cartan形式 $\theta \colon TG \lto \mathfrak{g}$ はよく $\bm{g^{-1} \mathrm{d} g}$ と略記される．これの解釈は次の通りである：
 まず $\forall g \in G$ と $G$ 上の恒等写像 $\mathrm{id} \colon G \lto G,\; g \lmto g$ を同一視する．このとき $\dd g \colon TG \lto TG$ は，$\forall g \in G$ に対して $T_g (\mathrm{id}) = \mathrm{id}_{T_g G} \colon T_g G \lto T_g G$ と解釈する．
 すると，行列Lie群の場合 $T_g(L_{g^{-1}}) = L_{g^{-1}}$ なので $\forall v \in T_g G$ に対して
 \begin{align}
@@ -2323,7 +2323,7 @@ $\forall \alpha \in \Lambda$ に対して\hyperref[def.section]{局所切断} $s
 \end{align}
 と書けるのである．
 
-さて，ここで任意の\cinfty 写像 $t \colon M \lto G$ をとる．このとき，$G$ が $\LGL (V)$ の部分Lie群ならば，Maurer-Cartan形式の $t$ による引き戻しが $t^* \theta = t^{-1} \dd t \in \Omega^1(M;\, \mathfrak{g})$ と表記できることを確認しよう．
+さて，ここで任意の\cinfty 写像 $t \colon M \lto G$ をとる．このとき，$G$ が $\LGL (V)$ の部分Lie群ならば，Maurer-Cartan形式の $t$ による引き戻しが $t^* \theta = \bm{t^{-1} \mathrm{d} t} \in \Omega^1(M;\, \mathfrak{g})$ と表記できることを確認しよう．
 $\forall g \in G$ を1つ固定し，$\forall v \in T_p M$ をとる．すると
 \begin{align}
     (t^* \theta)_p (v)
@@ -2344,74 +2344,170 @@ $\forall g \in G$ を1つ固定し，$\forall v \in T_p M$ をとる．すると
 ~\cite[第10章-1]{Nakahara2018topo2}に倣って，先ほど導入したゲージ場をより扱いやすい形にしよう．
 
 \begin{mytheo}[label=thm:local-connection]{貼り合わせによる接続形式の構成}
-    \hyperref[def.PFD]{主束} $G \hookrightarrow P \xrightarrow{\pi} M$ と，その開被覆 $\Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$ および局所自明化 $\Familyset[\big]{\varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto U_\alpha \times G}{\alpha \in \Lambda}$ を与える．
+    \hyperref[def.PFD]{主束} $G \hookrightarrow P \xrightarrow{\pi} M$ と，その開被覆 $\Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$，局所自明化 $\Familyset[\big]{\varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto U_\alpha \times G}{\alpha \in \Lambda}$，変換関数 $\Familyset[\big]{t_{\alpha\beta} \colon U_\alpha \cap U_\beta \lto G}{\alpha,\, \beta \in \Lambda}$ を与える．
     \hyperref[def.section]{局所切断}の族 $\Familyset[\big]{s_\alpha \colon U_\alpha \lto \pi^{-1}(U_\alpha)}{\alpha \in \Lambda}$ を\eqref{eq:assoc-sec}で定義する． 
-    
-    このとき任意の $\mathfrak{g}$ 値1-形式の族 $\Familyset[\big]{A_\alpha \in \Omega^1(U_\alpha;\, \mathfrak{g})}{\alpha \in \Lambda}$ を与えると，
-    $\forall \alpha \in \Lambda$ に対して $A_\alpha = s_\alpha^* \omega$ を充たす\hyperref[def:connection]{接続形式} $\omega \in \Omega^1(P;\, \mathfrak{g})$ が存在する．
+    $\theta \in \Omega^1(G;\, \mathfrak{g})$ を\hyperref[def:Maurer-Cartan]{Maurer-Cartan形式}とする．
+    \begin{enumerate}
+        \item $\forall \alpha,\, \beta \in \Lambda$ および $\forall x \in U_\alpha \cap U_\beta$ において，
+        $\forall v \in T_x \textcolor{red}{M}$ は\footnote{~\cite[p.36, 補題10.1]{Nakahara2018topo2}には誤植がある}
+        \begin{align}
+            T_x s_\beta (v) = T_{s_\alpha(x)}(R_{t_{\beta\alpha}(x)}) \circ T_x s_\alpha (v) + \eval{\bigl((t_{\beta\alpha}^*\theta)_x(v)\bigr)^\#}_{s_\beta(x)}
+        \end{align}
+        を充たす．
+        \item  $\mathfrak{g}$ 値1-形式の族 $\Familyset[\big]{A_\alpha \in \Omega^1(\textcolor{red}{U_\alpha};\, \mathfrak{g})}{\alpha \in \Lambda}$ が $\forall \alpha,\, \beta \in \Lambda$ について
+        \begin{align}
+            \label{eq:compatible}
+            A_\beta|_x = \Adj \bigl( t_{\beta\alpha}(x)^{-1} \bigr) \bigl( A_\alpha|_x \bigr) + (t_{\beta\alpha}^* \theta)_x, \quad \forall x \in U_\alpha \cap U_\beta
+        \end{align}
+        を充たすならば，$\forall \alpha \in \Lambda$ に対して $A_\alpha = s_\alpha^* \omega$ を充たす\hyperref[def:connection]{接続形式} $\omega \in \Omega^1(P;\, \mathfrak{g})$ が存在する．
+    \end{enumerate}
 \end{mytheo}
 
 \begin{proof}
-    ある $\alpha \in \Lambda$ を1つ固定する．
-    \begin{align}
-        g_\alpha \coloneqq \mathrm{proj}_2 \circ \varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto G
-    \end{align}
-    とおく．このとき $\forall u \in \pi^{-1}(U_\alpha)$ に対して $\varphi_\alpha(u) = \bigl( \pi(u),\, g_\alpha(u)\bigr) = s_\alpha \bigl(\pi(u)\bigr) \btl g_\alpha(u)$ が成り立つ．
-    
-    $\mathfrak{g}$ 値1-形式 $\omega_\alpha \in \Omega^1(P|_{U_\alpha};\, \mathfrak{g})$ を，$\forall u \in \pi^{-1}(U_\alpha)$ において
-    \begin{align}
-        \omega_\alpha|_u \coloneqq \Adj \bigl( g_\alpha(u)^{-1} \bigr)\bigl((\pi^* A_\alpha)_u\bigr) + (g_\alpha^*\theta)_u
-    \end{align}
-    と定義する．ただし $\theta \in \Omega^1(G;\, \mathfrak{g})$ は\hyperref[def:Maurer-Cartan]{Maurer-Cartan形式}である．
-    このとき $\forall x \in \textcolor{red}{M}$ および $\forall v \in T_{x} M$ に対して
-    \begin{align}
-        (s_\alpha^* \omega_\alpha)_{x}(v)
-        &= \omega_\alpha|_{s_\alpha(x)} \bigl( T_{x} s_\alpha (v) \bigr) \\
-        &= \Adj \bigl( g_\alpha(s_\alpha(x))^{-1} \bigr)\bigl((\pi^* A_\alpha)_{s_\alpha(x)}(T_x s_\alpha(v))\bigr) + (g_\alpha^*\theta)_{s_\alpha(x)}\bigl( T_{x} s_\alpha (v) \bigr) \\
-        &= \Adj \bigl( 1_G \bigr)\Bigl(A_\alpha|_{x}\bigl(T_{s_\alpha(x)} \pi \circ T_x s_\alpha(v)\bigr)\Bigr) + \theta_{g_\alpha(s_\alpha(x))}\bigl( T_{s_\alpha(x)} g_\alpha \circ T_{x} s_\alpha (v) \bigr) \\
-        &= A_\alpha|_{x}\bigl(T_x(\pi \circ s_\alpha)(v)\bigr) + \theta_{1_G}\bigl( \cancel{T_{x} (g_\alpha \circ s_\alpha)} (v) \bigr) \\
-        &= A_\alpha|_{x}(v)
-    \end{align}
-    が成り立つので $s_\alpha^* \omega_\alpha = A_\alpha$ である．ただし，最後の等号で $\pi \circ s_\alpha = \mathrm{id}_{U_\alpha}$ であることと $g_\alpha \circ s_\alpha$ が常に $1_G$ を返す定数写像であることを使った．この $\omega_\alpha$ が $U_\alpha$ 上で\hyperref[def:connection]{接続形式の公理}を充たすことを示す．
-    \begin{description}
-        \item[\textbf{(CF-1)}]　
+    \begin{enumerate}
+        \item $\forall \alpha,\, \beta \in \Lambda$ を固定し，$\forall x \in U_\alpha \cap U_\beta$ を取る．
+        $\forall v \in T_x M$ を1つ固定する．
+        $\gamma \colon J \lto U_\alpha \cap U_\beta$ を，初期条件 $\gamma(0) = x$ を充たす，$v$ が\hyperref[thm:fundamental-flow]{生成する極大積分曲線}\footnote{従って開区間 $J \subset \mathbb{R}$ は $0$ を含む．}とする．
+        \hyperref[def.fiber-1]{変換関数の定義}および\hyperref[prop.PFD_right]{ $P$ への右作用 $\btl$ の定義}から $s_\beta (x) = \varphi_\beta^{-1}(x,\, 1_G) = \varphi_\alpha^{-1}\bigl(x,\, t_{\beta\alpha}(x)\bigr) = s_\alpha(x) \btl t_{\beta\alpha}(x)$ が成り立つ．i.e. \cinfty 写像 $\Delta \colon M \lto M \times M,\; x \lmto (x,\, x)$ について $s_\beta = \btl \circ (s_\alpha \times t_{\beta\alpha}) \circ \Delta$ と書けるので，
+        \begin{align}
+            T_x s_\beta (v)
+            &= T_x s_\beta \bigl( \dot{\gamma}(0) \bigr) \\
+            &= T_x s_\beta \circ T_0 (\gamma) \left( \eval{\dv{}{t}}_{t=0} \right) \\
+            &= T_0 (s_\beta \circ \gamma) \left( \eval{\dv{}{t}}_{t=0} \right) \\
+            &= T_0 \bigl(\btl \circ (s_\alpha \times t_{\beta\alpha}) \circ \Delta \circ \gamma\bigr) \left( \eval{\dv{}{t}}_{t=0} \right) \\
+            &= T_{\bigl(s_\alpha(\gamma(0)),\, t_{\beta\alpha}(\gamma(0))\bigr)} \btl \circ T_0 \bigl((s_\alpha \times t_{\beta\alpha}) \circ \Delta \circ \gamma\bigr) \left( \eval{\dv{}{t}}_{t=0} \right) \\
+            &= T_{\bigl(s_\alpha(x),\, t_{\beta\alpha}(x)\bigr)} \btl \circ T_0 \bigl((s_\alpha \times t_{\beta\alpha}) \circ \Delta \circ \gamma\bigr) \left( \eval{\dv{}{t}}_{t=0} \right)
+            % &= \eval{\dv{}{t}}_{t=0} s_\beta \bigl( \gamma(t) \bigr) \\
+            % &= \eval{\dv{}{t}}_{t=0} s_\alpha \bigl( \gamma(t) \bigr) \btl t_{\beta\alpha} \bigl( \gamma(t) \bigr) \\
+            % &= \eval{\dv{}{t}}_{t=0} R_{t_{\beta\alpha}(\gamma(t))} \circ s_\alpha \bigl(\gamma(t) \bigr) 
+        \end{align}
+        ここで $T_0\bigl((s_\alpha \times t_{\beta\alpha}) \circ \Delta \circ \gamma \bigr) \colon T_0 J \lto T_{\bigl( s_\alpha(x),\, t_{\beta\alpha}(x) \bigr)} (P \times G)$ であるが，ベクトル空間の同型
+        \begin{align}
+            &\iota \colon T_{(u,\, g)}(P \times G) \lto T_u M \oplus T_g G,\; v \lmto \bigl( T_{(u,\, g)}(\mathrm{proj}_1) (v),\, T_{(u,\, g)}(\mathrm{proj}_2)(v) \bigr) \\
+            &\iota^{-1} \colon T_u P \oplus T_g G \lto T_{(u,\, g)}(M \times G),\; (v,\, w) \lmto T_u (\mathrm{inj}_1)(v) + T_g (\mathrm{inj})(w)
+        \end{align}
+        を使う\footnote{$\mathrm{inj}_1 \colon P \lto P \times G,\; x \lmto (x,\, g),\quad \mathrm{inj}_2 \colon G \lto P \times G,\; g \lmto (u,\, g)$}と
+        \begin{align}
+            &T_0 \bigl((s_\alpha \times t_{\beta\alpha}) \circ \Delta \circ \gamma\bigr) \left( \eval{\dv{}{t}}_{t=0} \right) \\
+            &= \iota^{-1} \circ \iota \circ T_0 \bigl((s_\alpha \times t_{\beta\alpha}) \circ \Delta \circ \gamma\bigr) \left( \eval{\dv{}{t}}_{t=0} \right) \\
+            &= \iota^{-1} \left( T_{0}(\mathrm{proj}_1 \circ (s_\alpha \times t_{\beta\alpha}) \circ \Delta \circ \gamma) \left( \eval{\dv{}{t}}_{t=0} \right) ,\, T_{0}(\mathrm{proj}_2 \circ (s_\alpha \times t_{\beta\alpha}) \circ \Delta \circ \gamma)\left( \eval{\dv{}{t}}_{t=0} \right)  \right)\\
+            &= T_{s_\alpha(x)} (\mathrm{inj}_1) \circ T_{0}(s_\alpha \circ \gamma) \left( \eval{\dv{}{t}}_{t=0} \right) + T_{t_{\beta\alpha}(x)} (\mathrm{inj}_2) \circ T_{0}(t_{\beta\alpha} \circ \gamma)\left( \eval{\dv{}{t}}_{t=0} \right) \\
+            &= T_{0} (\mathrm{inj}_1 \circ s_\alpha \circ \gamma) \left( \eval{\dv{}{t}}_{t=0} \right) + T_{0} (\mathrm{inj}_2 \circ t_{\beta\alpha} \circ \gamma)\left( \eval{\dv{}{t}}_{t=0} \right)
+        \end{align}
+        と計算できるので，
+        \begin{align}
+            &T_{\bigl(s_\alpha(x),\, t_{\beta\alpha}(x)\bigr)} \btl \circ T_0 \bigl((s_\alpha \times t_{\beta\alpha}) \circ \Delta \circ \gamma\bigr) \left( \eval{\dv{}{t}}_{t=0} \right) \\
+            &= T_{0} (\btl \circ \mathrm{inj}_1 \circ s_\alpha \circ \gamma) \left( \eval{\dv{}{t}}_{t=0} \right) 
+            + T_{0} (\btl \circ \mathrm{inj}_2 \circ t_{\beta\alpha} \circ \gamma)\left( \eval{\dv{}{t}}_{t=0} \right) \\
+            &= \eval{\dv{}{t}}_{t=0} \Bigl( s_\alpha \bigl( \gamma(t) \bigr) \btl t_{\beta\alpha}(x) \Bigr)
+            + \eval{\dv{}{t}}_{t=0} \Bigl( s_\alpha(x) \btl t_{\beta\alpha} \bigl( \gamma(t) \bigr) \Bigr)\\
+            &= \eval{\dv{}{t}}_{t=0} \bigl( R_{t_{\beta\alpha}(x)} \circ s_\alpha \circ \gamma(t) \bigr)
+            + \eval{\dv{}{t}}_{t=0} \bigl( R^{(s_\alpha(x))} \circ t_{\beta\alpha} \circ \gamma(t) \bigr) \\
+            &= T_0 (R_{t_{\beta\alpha}(x)} \circ s_\alpha \circ \gamma) \left( \eval{\dv{}{t}}_{t=0} \right) 
+            + T_0 (R^{(s_\alpha(x))} \circ t_{\beta\alpha} \circ \gamma) \left( \eval{\dv{}{t}}_{t=0} \right) \\
+            &= T_{s_\alpha(x)} (R_{t_{\beta\alpha(x)}}) \circ T_{x} s_\alpha \circ T_0 \gamma \left( \eval{\dv{}{t}}_{t=0} \right) 
+            + T_{t_{\beta\alpha}(x)} (R^{(s_\alpha(x))}) \circ T_x t_{\beta\alpha} \circ T_0 \gamma \left( \eval{\dv{}{t}}_{t=0} \right) \\
+            &= T_{s_\alpha(x)} (R_{t_{\beta\alpha(x)}}) \circ T_{x} s_\alpha (v)
+            + T_{x} (R^{(s_\alpha(x))} \circ t_{\beta\alpha}) (v)
+        \end{align}
+        を得る．一方\eqref{eq:fundamental-vecf}から
+        \begin{align}
+            \bigl((t_{\beta\alpha}^* \theta)_x (v) \bigr)^\#|_{s_\beta(x)}
+            &= \bigl( \theta_{t_{\beta\alpha}(x)}(T_{x} t_{\beta\alpha} v) \bigr)^\#|_{s_\alpha(x) \btl t_{\beta\alpha}(x)} \\
+            &= T_{1_G} ( R^{(s_\alpha(x) \btl t_{\beta\alpha}(x) )} ) \circ T_{t_{\beta\alpha}(x)}(L_{t_{\beta\alpha}(x)^{-1}}) \circ T_{x} t_{\beta\alpha} (v) \\
+            &= T_{x} ( R^{(s_\alpha(x))} \circ L_{t_{\beta\alpha}(x)} \circ L_{t_{\beta\alpha}(x)^{-1}} \circ t_{\beta\alpha}) (v) \\
+            &= T_{x} ( R^{(s_\alpha(x))} \circ t_{\beta\alpha}) (v)
+        \end{align}
+        と計算できる．
+        % $\forall g \in G$ に対して $R^{(s_\alpha(x))}(g) = s_\alpha(x) \btl g = s_\alpha(x) \btl L_g (1_G)$
+        \item 
+        条件\eqref{eq:compatible}を充たす$\mathfrak{g}$ 値1-形式の族 $\Familyset[\big]{A_\alpha \in \Omega^1(U_\alpha;\, \mathfrak{g})}{\alpha \in \Lambda}$ を与える．
+        $\forall \alpha \in \Lambda$ に対して
+        \begin{align}
+            g_\alpha \coloneqq \mathrm{proj}_2 \circ \varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto G
+        \end{align}
+        とおく．このとき $\forall u \in \pi^{-1}(U_\alpha)$ に対して $\varphi_\alpha(u) = \bigl( \pi(u),\, g_\alpha(u)\bigr) = s_\alpha \bigl(\pi(u)\bigr) \btl g_\alpha(u)$ が成り立つ．
         
-        $\forall X \in \mathfrak{g}$ を1つとる．補題\ref{lem:connection}から，$\forall u \in \pi^{-1}(U_\alpha)$ に対して $T_u \pi (X^\#_u) = 0$ である．
-        \hyperref[prop.PFD_right]{右作用 $\btl$ の定義}から $\forall g \in G$ に対して $L_{g_\alpha(u)^{-1}} \circ g_\alpha \circ R^{(u)}(g) = g_\alpha(u)^{-1} g_\alpha (u) g = g$ が成り立つ，i.e. $L_{g_\alpha(u)^{-1}} \circ g_\alpha \circ R^{(u)} = \mathrm{id}_G$ であることから
+        　$\forall \alpha \in \Lambda$ に対して，$\mathfrak{g}$ 値1-形式 $\omega_\alpha \in \Omega^1(P|_{U_\alpha};\, \mathfrak{g})$ を，$\forall u \in \pi^{-1}(U_\alpha)$ において
         \begin{align}
-            \omega_\alpha (X^\#)
-            &= \Adj \bigl( g_\alpha(u)^{-1} \bigr) \Bigl( A_\alpha|_{\pi(u)}\bigl( \cancel{T_u \pi (X^\#_u)} \bigr)  \Bigr) + \theta_{g_\alpha(u)} \bigl( T_u g_\alpha (X^\#_u) \bigr) \\
-            &= T_{g_\alpha(u)} (L_{g_\alpha(u)^{-1}}) \circ T_u g_\alpha \circ T_{1_G} (R^{(u)})(X) &&\because\quad \text{\eqref{eq:fundamental-vecf}} \\
-            &= T_{1_G} (L_{g_\alpha(u)^{-1}} \circ g_\alpha \circ R^{(u)})(X) \\
-            &= X
+            \omega_\alpha|_u \coloneqq \Adj \bigl( g_\alpha(u)^{-1} \bigr)\bigl((\pi^* A_\alpha)_u\bigr) + (g_\alpha^*\theta)_u
         \end{align}
-        が言えた．
-        \item[\textbf{(CF-2)}]　
-        
-        $\forall u \in P$ を1つ固定する．$\forall v \in T_u P,\; \forall g \in G$ に対して
+        と定義する．
+        $\forall x \in \textcolor{red}{U_\alpha}$ および $\forall v \in T_{x} M$ に対して
         \begin{align}
-            (R_g^* \omega_\alpha)_u(v)
-            &= \omega_\alpha|_{R_g(u)} \bigl( T_u (R_g) (v)\bigr) \\
-            &= \Adj \bigl( g_\alpha (u \btl g)^{-1} \bigr) \Bigl( A_\alpha|_{\pi(u \btl g)} \bigl(T_{u \btl g} \pi \circ T_u (R_g) (v)\bigr) \Bigr) + \theta_{g_\alpha(u \btl g)} \bigl( T_{u \btl g} g_\alpha \circ T_u (R_g)(v) \bigr)  \\
-            &= \Adj \bigl( g^{-1}g_\alpha (u)^{-1} \bigr) \Bigl( A_\alpha|_{\pi(u)} \bigl(T_{u} (\pi \circ R_g) (v)\bigr) \Bigr) + \theta_{g_\alpha(u)g} \bigl( T_{u \btl g} (g_\alpha \circ R_g)(v) \bigr)  \\
-            &= \Adj \bigl( g^{-1} \bigr) \circ \Adj \bigl(g_\alpha (u)^{-1}\bigr) \Bigl( A_\alpha|_{\pi(u)} \bigl(T_{u} \pi (v)\bigr) \Bigr) + T_{u} (L_{g^{-1}g_\alpha(u)^{-1}} \circ g_\alpha \circ R_g)(v) \\
-            &= \Adj \bigl( g^{-1} \bigr) \circ \Adj \bigl(g_\alpha (u)^{-1}\bigr) \bigl( (\pi^* A_\alpha)_u (v) \bigr) + T_{u} (L_{g^{-1}g_\alpha(u)^{-1}} \circ g_\alpha \circ R_g)(v)
+            (s_\alpha^* \omega_\alpha)_{x}(v)
+            &= \omega_\alpha|_{s_\alpha(x)} \bigl( T_{x} s_\alpha (v) \bigr) \\
+            &= \Adj \bigl( g_\alpha(s_\alpha(x))^{-1} \bigr)\bigl((\pi^* A_\alpha)_{s_\alpha(x)}(T_x s_\alpha(v))\bigr) + (g_\alpha^*\theta)_{s_\alpha(x)}\bigl( T_{x} s_\alpha (v) \bigr) \\
+            &= \Adj \bigl( 1_G \bigr)\Bigl(A_\alpha|_{x}\bigl(T_{s_\alpha(x)} \pi \circ T_x s_\alpha(v)\bigr)\Bigr) + \theta_{g_\alpha(s_\alpha(x))}\bigl( T_{s_\alpha(x)} g_\alpha \circ T_{x} s_\alpha (v) \bigr) \\
+            &= A_\alpha|_{x}\bigl(T_x(\pi \circ s_\alpha)(v)\bigr) + \theta_{1_G}\bigl( \cancel{T_{x} (g_\alpha \circ s_\alpha)} (v) \bigr) \\
+            &= A_\alpha|_{x}(v)
         \end{align}
-        一方，$\mathcal{R}_g \colon G \lto G,\; h \lmto hg$ とおくと
-        \begin{align}
-            \Adj(g^{-1}) \bigl( (g_\alpha^* \theta)_u (v) \bigr)
-            &= T_{1_G} (F_{g^{-1}}) \circ \theta_{g_\alpha(u)}\bigl(T_u g_\alpha(v)\bigr) \\
-            &= T_{1_G} (L_{g^{-1}} \circ \mathcal{R}_g) \circ T_{g_\alpha(u)} (L_{g_\alpha(u)^{-1}}) \circ T_u g_\alpha(v) \\
-            &= T_u (L_{g^{-1}} \circ \mathcal{R}_g \circ L_{g_\alpha (u)^{-1}} \circ g_\alpha)(v) \\
-            &= T_u (L_{g^{-1}} \circ L_{g_\alpha (u)^{-1}} \circ g_\alpha \circ R_g)(v) \\
-            &= T_u (L_{g^{-1}g_\alpha (u)^{-1}} \circ g_\alpha \circ R_g)(v)
-        \end{align}
-        であるから，
-        \begin{align}
-            R_g^* \omega_\alpha = \Adj \bigl( g^{-1} \bigr)\bigl( \omega_\alpha \bigr) 
-        \end{align}
-        が示された．
-    \end{description}
+        が成り立つので $s_\alpha^* \omega_\alpha = A_\alpha$ である．ただし，最後の等号で $\pi \circ s_\alpha = \mathrm{id}_{U_\alpha}$ であることと $g_\alpha \circ s_\alpha$ が常に $1_G$ を返す定数写像であることを使った．
+        \begin{description}
+            \item[\textbf{$\bm{\omega_\alpha}$ が $\bm{U_\alpha}$ 上で\hyperref[def:connection]{接続形式の公理}を充たすこと}]　
+            
+            \begin{description}
+                \item[\textbf{(CF-1)}]　
+
+                $\forall X \in \mathfrak{g}$ を1つとる．補題\ref{lem:connection}から，$\forall u \in \pi^{-1}(U_\alpha)$ に対して $T_u \pi (X^\#_u) = 0$ である．
+                \hyperref[prop.PFD_right]{右作用 $\btl$ の定義}から $\forall g \in G$ に対して $L_{g_\alpha(u)^{-1}} \circ g_\alpha \circ R^{(u)}(g) = g_\alpha(u)^{-1} g_\alpha (u) g = g$ が成り立つ，i.e. $L_{g_\alpha(u)^{-1}} \circ g_\alpha \circ R^{(u)} = \mathrm{id}_G$ であることから
+                \begin{align}
+                    \omega_\alpha (X^\#)
+                    &= \Adj \bigl( g_\alpha(u)^{-1} \bigr) \Bigl( A_\alpha|_{\pi(u)}\bigl( \cancel{T_u \pi (X^\#_u)} \bigr)  \Bigr) + \theta_{g_\alpha(u)} \bigl( T_u g_\alpha (X^\#_u) \bigr) \\
+                    &= T_{g_\alpha(u)} (L_{g_\alpha(u)^{-1}}) \circ T_u g_\alpha \circ T_{1_G} (R^{(u)})(X) &&\because\quad \text{\eqref{eq:fundamental-vecf}} \\
+                    &= T_{1_G} (L_{g_\alpha(u)^{-1}} \circ g_\alpha \circ R^{(u)})(X) \\
+                    &= X
+                \end{align}
+                が言えた．
+                \item[\textbf{(CF-2)}]　
+
+                $\forall u \in P$ を1つ固定する．$\forall v \in T_u P,\; \forall g \in G$ に対して
+                \begin{align}
+                    (R_g^* \omega_\alpha)_u(v)
+                    &= \omega_\alpha|_{R_g(u)} \bigl( T_u (R_g) (v)\bigr) \\
+                    &= \Adj \bigl( g_\alpha (u \btl g)^{-1} \bigr) \Bigl( A_\alpha|_{\pi(u \btl g)} \bigl(T_{u \btl g} \pi \circ T_u (R_g) (v)\bigr) \Bigr) + \theta_{g_\alpha(u \btl g)} \bigl( T_{u \btl g} g_\alpha \circ T_u (R_g)(v) \bigr)  \\
+                    &= \Adj \bigl( g^{-1}g_\alpha (u)^{-1} \bigr) \Bigl( A_\alpha|_{\pi(u)} \bigl(T_{u} (\pi \circ R_g) (v)\bigr) \Bigr) + \theta_{g_\alpha(u)g} \bigl( T_{u \btl g} (g_\alpha \circ R_g)(v) \bigr)  \\
+                    &= \Adj \bigl( g^{-1} \bigr) \circ \Adj \bigl(g_\alpha (u)^{-1}\bigr) \Bigl( A_\alpha|_{\pi(u)} \bigl(T_{u} \pi (v)\bigr) \Bigr) + T_{u} (L_{g^{-1}g_\alpha(u)^{-1}} \circ g_\alpha \circ R_g)(v) \\
+                    &= \Adj \bigl( g^{-1} \bigr) \circ \Adj \bigl(g_\alpha (u)^{-1}\bigr) \bigl( (\pi^* A_\alpha)_u (v) \bigr) + T_{u} (L_{g^{-1}g_\alpha(u)^{-1}} \circ g_\alpha \circ R_g)(v)
+                \end{align}
+                一方，$\mathcal{R}_g \colon G \lto G,\; h \lmto hg$ とおくと
+                \begin{align}
+                    \Adj(g^{-1}) \bigl( (g_\alpha^* \theta)_u (v) \bigr)
+                    &= T_{1_G} (F_{g^{-1}}) \circ \theta_{g_\alpha(u)}\bigl(T_u g_\alpha(v)\bigr) \\
+                    &= T_{1_G} (L_{g^{-1}} \circ \mathcal{R}_g) \circ T_{g_\alpha(u)} (L_{g_\alpha(u)^{-1}}) \circ T_u g_\alpha(v) \\
+                    &= T_u (L_{g^{-1}} \circ \mathcal{R}_g \circ L_{g_\alpha (u)^{-1}} \circ g_\alpha)(v) \\
+                    &= T_u (L_{g^{-1}} \circ L_{g_\alpha (u)^{-1}} \circ g_\alpha \circ R_g)(v) \\
+                    &= T_u (L_{g^{-1}g_\alpha (u)^{-1}} \circ g_\alpha \circ R_g)(v)
+                \end{align}
+                であるから，
+                \begin{align}
+                    R_g^* \omega_\alpha = \Adj \bigl( g^{-1} \bigr)\bigl( \omega_\alpha \bigr) 
+                \end{align}
+                が示された．
+            \end{description}
+            \item[\textbf{$\bm{\omega_\alpha} = \bm{\omega_\beta}$}]　
+            
+            (1) より，$\forall x \in U_\alpha \cap U_\beta$ および $v \in T_x M$ に対して
+            \begin{align}
+                A_\beta|_x (v)
+                &= (s_\beta^* \omega_\beta)_x(v) \\
+                &= \omega_\beta|_{s_\beta(x)} \bigl(T_{x} s_\beta (v)\bigr) \\
+                &= \omega_\beta|_{s_\alpha(x) \btl t_{\beta\alpha}(x)} \bigl(T_{s_\alpha(x)} (R_{t_{\beta\alpha}(x)}) \circ T_{x} s_\alpha (v)\bigr)
+                + \omega_\beta|_{s_\beta(x)} \bigl( (t_{\beta\alpha}^* \theta)_x(v)^\#|_{s_\beta(x)} \bigr) \\
+                &= (R_{t_{\beta\alpha}(x)}^*\omega_\beta)_{s_\alpha(x)} \bigl(T_x s_\alpha(v)\bigr)
+                + (t_{\beta\alpha}^* \theta)_x(v) \\
+                &= \Adj \bigl( t_{\beta\alpha}(x)^{-1} \bigr) \bigl(s_\alpha^* \omega_\beta|_x (v)\bigr) + (t_{\beta\alpha}^* \theta)_x(v) \\
+                &= \Adj \bigl( t_{\beta\alpha}(x)^{-1} \bigr) \bigl(A_\alpha|_x(v)\bigr) + (t^*_{\beta\alpha} \theta)_x(v) \\
+                &= \Adj \bigl( t_{\beta\alpha}(x)^{-1} \bigr) \bigl(s_\alpha^* \omega_\alpha|_x(v)\bigr) + (t^*_{\beta\alpha} \theta)_x(v)
+            \end{align}
+            が言える．よって $s_\alpha^* \omega_\beta = s_\alpha^* \omega_\alpha$ である．
+            % $\forall w \in T_{s_\alpha(x)}P$ に対して，
+            % \begin{align}
+            %     \omega_\beta|_{s_\alpha(x)}(w) 
+            % \end{align}
+            
+        \end{description}    
+    \end{enumerate}
     
 \end{proof}
 
