@@ -1,0 +1,474 @@
+\documentclass[TQFT_main]{subfiles}
+
+\begin{document}
+
+\setcounter{chapter}{2}
+
+\chapter{位相的場の理論}
+
+この章は~\cite[Chapter7]{Simon2021}および~\cite{Baez2011physics}に相当する．この節で登場する多様体は特に断らない限り常に $C^\infty$ 多様体である．また，体 $\mathbb{K}$ と言ったら $\mathbb{K} = \mathbb{R},\, \mathbb{C},\, \mathbb{H}$ のいずれかを指すことにしよう．
+
+\section{モノイダル圏}
+
+まず手始めに，モノイダル圏とストリング図式の準備をする．
+特に，コボルディズム圏と有限次元Hilbert空間の圏が\hyperref[def:compact]{コンパクト}\hyperref[def:braided-monoidal]{対称モノイダル圏}であることの直感的な説明をする．
+
+\subsection{モノイダル圏の定義}
+
+\begin{mydef}[label=def:monoidal-category,breakable]{モノイダル圏}
+    \textbf{モノイダル圏} (monidal category) は，以下の5つのデータからなる：
+    \begin{itemize}
+        \item 圏 $\mathcal{C}$
+        \item \textbf{テンソル積} (tensor product) と呼ばれる関手 $\otimes \colon \mathcal{C} \times \mathcal{C} \lto \mathcal{C}$
+        \item \textbf{単位対象} (unit object) $I \in \Obj{\mathcal{C}}$
+        \item \textbf{associator}と呼ばれる自然同値
+        \begin{align}
+            \Familyset[\big]{a_{X,\, Y,\, Z} \colon (X \otimes Y) \otimes Z \xrightarrow{\cong} X \otimes (Y \otimes Z)}{X,\, Y,\, Z \in \Obj{\mathcal{C}}}
+        \end{align}
+        \item \textbf{left/right unitors}と呼ばれる自然同値
+        \begin{align}
+            &\Familyset[\big]{l_X \colon I \otimes X \xrightarrow{\cong} X}{X \in \Obj{\mathcal{X}}}, \\
+            &\Familyset[\big]{r_X \colon X \otimes I \xrightarrow{\cong} X}{X \in \Obj{\mathcal{X}}}
+        \end{align}
+        
+    \end{itemize}
+    これらは $\forall X,\, Y,\, Z,\, W \in \Obj{\mathcal{C}}$ について以下の2つの図式を可換にする：
+    \begin{description}
+        \item[\textbf{(triangle diagram)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &(X \otimes I) \otimes Y \ar[rr, "a_{X,\, I,\, Y}"]\ar[dr, "r_X \otimes 1_Y"'] & &X \otimes (I \otimes Y) \ar[dl, "1_X \otimes l_Y"] \\
+                & &X \otimes Y &
+            \end{tikzcd}
+        \end{center}
+        
+        \item[\textbf{(pentagon diagram)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                & &((W \otimes X) \otimes Y) \otimes Z \ar[ddl, "a_{W \otimes X,\, Y,\, Z}"']\ar[dr, "a_{W,\, X,\, Y} \otimes 1_Z"] & \\
+                & & &(W \otimes (X \otimes Y)) \otimes Z \ar[dd, "a_{W,\, X \otimes Y,\, Z}"] \\
+                &(W \otimes X) \otimes (Y \otimes Z) \ar[ddr, "a_{W,\, X,\, Y \otimes Z}"'] & & \\
+                & & &W \otimes ((X \otimes Y) \otimes Z) \ar[dl, "1_Z \otimes a_{X,\, Y,\, Z}"]\\
+                & &W \otimes (X \otimes (Y \otimes Z)) &
+            \end{tikzcd}
+        \end{center}
+        
+    \end{description}
+
+\end{mydef}
+
+定義\ref{def:monoidal-category}は，ストリング図式 (string diagram) で理解するのが良い．
+\hyperref[def:monoidal-category]{モノイダル圏}の射 $f \colon X \lto Y,\; f' \colon X' \lto Y'$ があったら，そのテンソル積 $f \otimes f' \colon X \otimes X' \lto Y \otimes Y'$ は，ストリング図式上では次のようになる．
+
+また，単位対象 $I \in \Obj{\mathcal{C}}$ は空白として表す．従って例えば射 $f \colon I \lto X$ は次のようになる：
+
+
+\begin{myexample}[label=Cob-string]{コボルディズム圏}
+    厳密な構成\footnote{例えば，$(B,\, f)$-structureの定義から始めるコボルディズムの統一的な扱いは~\cite[CHAPTER 1]{Kochman1996bordism}などを参照．}は後回しにして，\textbf{コボルディズム圏} (cobordism category) を直感的に導入しよう．
+    圏 $\COB_{D+1}$ は，
+    \begin{itemize}
+        \item $D$ 次元多様体を対象
+        \item $D+1$ 次元の\textbf{コボルディズム} (cobordism) を射
+    \end{itemize}
+    とするような圏のことを言う．
+    $D+1$ 次元のコボルディズム $\mathcal{M} \colon X \lto Y$ と言うのは，$D+1$ 次元多様体 $\mathcal{M}$ であって，$\partial \mathcal{M} = X \amalg Y$ となっているようなもの（の微分同相類）のことである：
+
+    射 $\mathcal{M} \colon X \lto Y,\; \mathcal{N} \colon Y \lto Z$ の合成 $\mathcal{N} \circ \mathcal{M} \colon X \lto Y \lto Z$ は次の図式が物語る：
+
+    圏 $\COB_{D+1}$ は，disjoint unionに関して\hyperref[def:monoidal-category]{モノイダル圏}になる：
+\end{myexample}
+
+\begin{myexample}[label=Hilb]{有限次元Hilbert空間の圏}
+    有限次元 $\mathbb{K}$-Hilbert空間の圏 $\HILB$ とは，
+    \begin{itemize}
+        \item 有限次元 $\mathbb{K}$-Hilbert空間を対象
+        \item 線型写像を射
+        \item 写像の合成を射の合成
+    \end{itemize}
+    に持つような圏のことを言う．$\HILB$ はベクトル空間のテンソル積 $V_1 \otimes V_2$ の上に内積を
+    \begin{align}
+        \langle v_1 \otimes v_2,\, w_1 \otimes w_2 \rangle \coloneqq \langle v_1,\, w_1 \rangle_1 \langle v_2,\, w_2 \rangle_2
+    \end{align}
+    と定義することで\hyperref[def:monoidal-category]{モノイダル圏}になる．
+\end{myexample}
+
+\subsection{組紐付きモノイダル圏}
+
+\begin{mydef}[label=def:braided-monoidal]{組紐付きモノイダル圏}
+    \textbf{組紐付きモノイダル圏} (braided monoidal category) とは，以下の2つからなる：
+    \begin{itemize}
+        \item \hyperref[def:monoidal-category]{モノイダル圏} $\mathcal{C}$
+        \item \textbf{組紐} (braiding) と呼ばれる自然同型
+        \begin{align}
+            \Familyset[\big]{b_{X,\, Y} \colon X \otimes Y \xrightarrow{\cong} Y \otimes X}{X,\, Y \in \Obj{\mathcal{C}}}
+        \end{align}
+    \end{itemize}
+    これらは $\forall X,\, Y,\, Z \in \Obj{\mathcal{C}}$ について以下の図式を可換にする：
+    \begin{description}
+        \item[\textbf{(hexagon diagrams)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &X \otimes (Y \otimes Z) \ar[r, "a_{X,\, Y,\, Z}^{-1}"]\ar[d, "b_{X,\, Y \otimes Z}"] &(X \otimes Y) \otimes Z \ar[r, "b_{X,\, Y} \otimes 1_Z"] &(Y \otimes X) \otimes Z \ar[d, "a_{Y,\, X,\, Z}"] \\
+                &(Y \otimes Z) \otimes X &Y \otimes (Z \otimes X) \ar[l, "a_{Y,\, Z,\, X}^{-1}"] &Y \otimes (X \otimes Z) \ar[l, "1_X \otimes b_{X,\, Z}"]
+            \end{tikzcd}
+        \end{center}
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &(X \otimes Y) \otimes Z \ar[r, "a_{X,\, Y,\, Z}"]\ar[d, "b_{X \otimes Y ,\, Z}"] &X \otimes (Y \otimes Z) \ar[r, "1_X \otimes b_{Y,\, Z}"] &X \otimes (Z \otimes Y) \ar[d, "a_{X,\, Z,\, Y}^{-1}"] \\
+                &Z \otimes (X \otimes Y) &(Z \otimes X) \otimes Y \ar[l, "a_{Z,\, X,\, Y}"] &(X \otimes Z) \otimes Y \ar[l, "b_{X,\, Z} \otimes 1_Y"]
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+    \tcblower
+    組紐付きモノイダル圏 $\mathcal{C}$ であって，$\mathcal{C}$ の組紐が $b_{X,\, Y} = b_{Y,\, X}^{-1}$ を充たすもののことを\textbf{対称モノイダル圏} (symmetric monoidal category) と呼ぶ．
+\end{mydef}
+
+ストリング図式で組紐を書く場合は次のようにする：
+
+このとき\hyperref[def:braided-monoidal]{hexagon diagrams}はとてもわかりやすくなる：
+
+\hyperref[def:braided-monoidal]{対称モノイダル圏}の条件も一目瞭然である：
+
+
+\begin{myexample}[label=ex:Cob-braided]{$\COB_{D+1}$ の組紐}
+    $\COB_{D+1}$ の組紐 $b_{X,\, Y} \colon X \otimes Y \lto Y \otimes X$ は，多様体 $(X \times [0,\, 1]) \amalg (Y \times [0,\, 1])$ と微分同相であるような $D+1$ 次元多様体のことを言う：
+    図から，$\COB_{D+1}$ は対称モノイダル圏である．
+\end{myexample}
+
+\begin{myexample}[label=ex:Hilb-braided]{$\HILB$ の組紐}
+    $\HILB$ の組紐は
+    \begin{align}
+        b_{X,\, Y} \colon X \otimes Y &\lto Y \otimes X, \\
+        x \otimes y &\lmto y \otimes x
+    \end{align}
+    である．これがベクトル空間の同型写像であることが示される．明らかに $b_{X,\, Y} = b_{Y,\, X}^{-1}$ なので $\HILB$ は対称モノイダル圏である．
+\end{myexample}
+
+\subsection{閉圏・コンパクト圏・ダガー圏}
+
+圏 $\mathcal{C}$ を与える．\textbf{Hom 関手} (Hom functor) とは，関手
+\begin{align}
+    \mathrm{Hom}{} \colon \mathcal{C}^{\mathrm{op}} \times \mathcal{C} \lto \SETS
+\end{align}
+であって
+\begin{align}
+    (X,\, Y) &\lmto \Hom{\mathcal{C}} (X,\, Y) \\
+    \Bigl(\, (f,\, g) \colon (\textcolor{red}{X'},\, Y) \lto (\textcolor{red}{X},\, Y')\, \Bigr)  &\lmto \Bigl(\, \Hom{\mathcal{C}}(X,\, Y) \lto \Hom{\mathcal{C}}(X',\, Y'),\; h \lmto g \circ h \circ f \,\bigr) 
+\end{align}
+なる対応を与えるもののこと．
+
+\begin{mydef}[label=def:closed-monoidal,breakable]{閉圏}
+    \hyperref[def:monoidal-category]{モノイダル圏} $\mathcal{C}$ を与える．
+    \begin{itemize}
+        \item $\mathcal{C}$ が\textbf{左に閉じている} (left closed) とは，\textbf{internal hom functor}と呼ばれる関手
+        \begin{align}
+            \multimap \colon \mathcal{C}^{\mathrm{op}} \times \mathcal{C} \lto \SETS
+        \end{align}
+        と，\textbf{currying}と呼ばれる自然同型
+        \begin{align}
+            \Familyset[\big]{c_{X,\, Y,\, Z} \colon \Hom{}(X \otimes Y,\, Z) \xrightarrow{\cong} \Hom{}(X,\, Y \multimap Z)}{X,\, Y,\, Z \in \Obj{\mathcal{C}}}
+        \end{align}
+        の2つが存在することを言う．
+        \item $\mathcal{C}$ が\textbf{右に閉じている} (right closed) とは，\textbf{internal hom functor}と呼ばれる関手と，\textbf{currying}と呼ばれる自然同型
+        \begin{align}
+            \Familyset[\big]{c_{X,\, Y,\, Z} \colon \Hom{}(X \otimes Y,\, Z) \xrightarrow{\cong} \Hom{}(Y,\, X \multimap Z)}{X,\, Y,\, Z \in \Obj{\mathcal{C}}}
+        \end{align}
+        の2つが存在することを言う．
+    \end{itemize}
+\end{mydef}
+
+\hyperref[def:braided-monoidal]{対称モノイダル圏}しか考えないので，以降では右に閉じているかどうかしか気にしないことにする．
+
+\begin{mydef}[label=def:dual,breakable]{双対}
+    \hyperref[def:monoidal-category]{モノイダル圏} $\mathcal{C}$ およびその任意の対象 $X,\, X^* \in \Obj{\mathcal{C}}$ を与える．
+    $X^*$ が $X$ の\textbf{右双対} (right dual) であり，かつ $X$ が $X^*$ の\textbf{左双対} (left dual) であるとは，
+    \begin{itemize}
+        \item \textbf{unit}と呼ばれる射
+        \begin{align}
+            i_X \colon I \lto X^* \otimes X
+        \end{align}
+        \item \textbf{counit}と呼ばれる射
+        \begin{align}
+            e_X \colon X \otimes X^* \lto I
+        \end{align}
+    \end{itemize}
+    が存在して以下の図式を可換にすることを言う：
+    \begin{description}
+        \item[\textbf{(zig-zag equations)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &X \otimes I \ar[dddd, "r_X"]\ar[drr, "1_X \otimes i_x"]& & \\
+                & & &X \otimes (X^* \otimes X) \ar[d, "a_{X,\, X^*,\, X}^{-1}"] \\
+                & & &(X \otimes X^*) \otimes X \ar[d, "e_X \otimes 1_X"] \\
+                & & &I \otimes X \ar[dll, "l_X"] \\
+                &X & &
+            \end{tikzcd}
+        \end{center}
+        
+
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &I \otimes X^* \ar[dddd, "l_{X^*}"]\ar[drr, "i_X \otimes 1_{X^*}"]& & \\
+                & & &(X^* \otimes X) \otimes X^* \ar[d, "a_{X^*,\, X,\, X^*}"] \\
+                & & &X^* \otimes (X \otimes X^*) \ar[d, "1_{X^*} \otimes e_X"] \\
+                & & &X^* \otimes I \ar[dll, "r_{X^*}"] \\
+                &X^* & &
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+\end{mydef}
+
+双対のストリング図式は，単に矢印を逆にすれば良い：
+
+このとき\hyperref[def:dual]{zig-zag equations}が本当にジグザグしていることがわかる：
+
+\begin{mydef}[label=def:compact]{コンパクト圏}
+    \hyperref[def:monoidal-category]{モノイダル圏} $\mathcal{C}$ は，$\forall X \in \Obj{\mathcal{C}}$ が\hyperref[def:dual]{左・右双対}を持つとき\textbf{コンパクト} (compact) であると言われる．
+\end{mydef}
+
+\begin{myexample}[label=ex:Cob-closed]{$\COB$ のunitとcounit}
+    $\COB_{D+1}$ における $X \in \Obj{\COB_{D+1}}$ の\hyperref[def:dual]{双対}とは，向き付けを逆にした $D$ 次元多様体 $X$ のことである．
+    特に $\COB_3$ における\hyperref[def:dual]{unit, counit}はそれぞれU字管とそれを逆さにしたもののような見た目をしている：
+
+    \hyperref[def:closed-monoidal]{internal hom functor}を $X \multimap Y \coloneqq X^* \otimes Y$ とすれば，図から $\COB_{3}$ が\hyperref[def:closed-monoidal]{閉圏}であることを直接確認できる．
+\end{myexample}
+
+
+\begin{myexample}[label=ex:Hilb-closed]{$\HILB$ のunitとcounit}
+    $\HILB$ において $I = \mathbb{C}$ である． 
+    従って，$X \in \Obj{\HILB}$ の\hyperref[def:dual]{双対}とは双対ベクトル空間 $\Hom{\mathbb{C}} (X,\, \mathbb{C})$ のことである．ブラ空間のことだと言っても良い．
+    特に，自然な同型 $X^* \otimes Y \cong \Hom{\mathbb{C}} (X,\, Y)$ を使うと
+    $X$ の\hyperref[def:dual]{unit}は
+    \begin{align}
+        i_X \colon I &\lto X^* \otimes X, \\
+        c &\lmto c\, \mathrm{id}_X
+    \end{align}
+    で，\hyperref[def:dual]{counit}は
+    \begin{align}
+        e_X \colon X \otimes X^* &\lto I, \\
+        x \otimes f &\lmto f(x)
+    \end{align}
+    であることがわかる．
+    \hyperref[def:closed-monoidal]{internal hom functor}を $X \multimap Y \coloneqq X^* \otimes Y \cong \Hom{\mathbb{C}}(X,\, Y)$ とすれば $\HILB$ が\hyperref[def:closed-monoidal]{閉圏}であることを直接確認できる．
+\end{myexample}
+% 他に，任意のLie群の有限次元表現は\hyperref[def:compact]{コンパクト}\hyperref[def:braided-monoidal]{対称モノイダル圏}を成すらしい．
+
+実は，コンパクト圏は自動的に\hyperref[def:closed-monoidal]{閉圏}になる．これは
+\begin{align}
+    X \multimap Y \coloneqq X^* \otimes Y
+\end{align}
+としてinternal hom functorを定義することで確認できる．
+
+
+\begin{mydef}[label=def:dagger-monoidal]{ダガー圏}
+    圏 $\mathcal{C}$ が\textbf{ダガー圏} (dagger category) であるとは，
+    関手
+    \begin{align}
+        \dagger \colon \mathcal{C} \lto \mathcal{C}^{\mathrm{op}}
+    \end{align}
+    が存在して以下を充たすことを言う：
+    \begin{enumerate}
+        \item $\forall X \in \Obj{\mathcal{C}}$ に対して $X^\dagger = X$ を充たす．
+        \item $\mathcal{C}$ の任意の射 $f \colon X \lto Y$ に対して $(f^\dagger)^\dagger = f$ を充たす．
+    \end{enumerate}
+\end{mydef}
+
+\begin{myexample}[label=ex:Cob-dagger]{$\COB$ のdagger}
+    $\COB_{D+1}$ における $\mathcal{M} \colon X \lto Y$ のダガーは，上下を逆にしてから $\mathcal{M}$ の連結成分毎に向きを逆にすることで得られる．
+\end{myexample}
+
+
+\begin{myexample}[label=ex:Hilb-dagger]{$\HILB$ のdagger}
+    $\HILB$ における $f\colon X \lto Y$ のダガーは，$\forall \phi \in X,\; \forall \psi \in Y$ に対して
+    \begin{align}
+        \langle f^\dagger (\psi),\, \phi \rangle \coloneqq \langle \psi,\, f(\phi) \rangle
+    \end{align}
+    とすることで定義される．
+\end{myexample}
+
+\subsection{モノイダル関手}
+
+モノイダル関手とは，ざっくり言うと\hyperref[def:monoidal-category]{モノイダル圏}の構造を保存するような関手のことである：
+\begin{mydef}[label=def:monidal-functor,breakable]{モノイダル関手}
+    2つの\hyperref[def:monoidal-category]{モノイダル圏} $\mathcal{C},\, \mathcal{D}$ の間の関手
+    \begin{align}
+        F \colon \mathcal{C} \lto \mathcal{D}
+    \end{align}
+    が\textbf{lax monoidal functor}であるとは，
+    \begin{itemize}
+        \item 射
+        \begin{align}
+            \varepsilon \colon I_{\mathcal{D}} \lto F(I_{\mathcal{C}})
+        \end{align}
+        
+        \item 自然変換
+        \begin{align}
+            \Familyset[\big]{\mu_{X,\, Y} \colon F(X) \otimes_{\mathcal{D}} F(Y) \lto F(X \otimes_{\mathcal{C}} Y)}{X,\, Y \in \Obj{\mathcal{C}}}
+        \end{align}
+    \end{itemize}
+    があって，$\forall X,\, Y,\, Z \in \Obj{\mathcal{C}}$ に対して以下の図式が可換になること：
+    \begin{description}
+        \item[\textbf{(associatibity)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &(F(X) \otimes_{\mathcal{D}} F(Y)) \otimes_{\mathcal{D}} F(Z) \ar[d, "\mu_{X,\, Y} \otimes 1_{F(Z)}"']\ar[r, "a^{\mathcal{D}}_{F(X),\, F(Y),\, F(Z)}"'] &F(X) \otimes_{\mathcal{D}} (F(Y) \otimes_{\mathcal{D}} F(Z)) \ar[d, "1_{F(X)} \otimes \mu_{Y,\, Z}"]\\
+                &F(X \otimes_{\mathcal{C}} Y) \otimes_{\mathcal{D}} F(Z) \ar[d, "\mu_{X \otimes_{\mathcal{C}} Y,\, Z}"'] & F(X) \otimes_{\mathcal{D}} F(Y \otimes_{\mathcal{C}} Z) \ar[d, "\mu_{X,\, Y \otimes_{\mathcal{C}} Z}"] \\
+                &F((X \otimes_{\mathcal{C}} Y) \otimes_{\mathcal{C}} Z) \ar[r, "F(a_{X,\, Y,\, Z}^{\mathcal{C}})"'] &F(X \otimes_{\mathcal{C}} (Y \otimes_{\mathcal{C}} Z))
+            \end{tikzcd}
+        \end{center}
+        
+        \item[\textbf{(unitality)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &I_{\mathcal{D}} \otimes_{\mathcal{D}} F(X) \ar[d, "l^{\mathcal{D}}_{F(X)}"']\ar[r, "\varepsilon \otimes 1_{F(X)}"] &F(I_{\mathcal{C}}) \otimes_{\mathcal{D}} F(X) \ar[d, "\mu_{I_{\mathcal{C}},\, X}"] \\
+                &F(X) &F(I_{\mathcal{C}} \otimes_{\mathcal{C}} X) \ar[l, "F(l^{\mathcal{C}}_X)"]
+            \end{tikzcd}
+        \end{center}
+
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &F(X) \otimes_{\mathcal{D}}  I_{\mathcal{D}} \ar[d, "r^{\mathcal{D}}_{F(X)}"']\ar[r, "1_{F(X)} \otimes \varepsilon"] &F(X) \otimes_{\mathcal{D}} F(I_{\mathcal{C}})  \ar[d, "\mu_{X,\, I_{\mathcal{C}}}"] \\
+                &F(X) &F(X \otimes_{\mathcal{C}} I_{\mathcal{C}}) \ar[l, "F(r^{\mathcal{C}}_X)"]
+            \end{tikzcd}
+        \end{center}
+        
+    \end{description}
+    \tcblower
+    \begin{itemize}
+        \item lax monoidal functor $F$ の $\varepsilon$ と $\mu_{X,\, Y}$ が全て同型射ならば，$F$ は\textbf{strong monoidal functor}と呼ばれる．
+        \item lax monoidal functor $F$ の $\varepsilon$ と $\mu_{X,\, Y}$ が全て恒等射ならば，$F$ は\textbf{strict monoidal functor}と呼ばれる．
+    \end{itemize}
+\end{mydef}
+
+
+\section{TQFTの定義}
+
+\textbf{位相的場の理論} (Topological Quantum Field Theory; TQFT) の枠組みをトップダウンに導入する．
+
+\subsection{Atiyahの公理系}
+
+まず，全ての出発点としてAtiyahの公理系\cite{Atiyah1988tqft}というものがある：
+
+\begin{myaxiom}[label=ax:Atiyah-TQFT,breakable]{Atiyahの公理系（若干簡略版）}
+    体 $\mathbb{K}$ 上の\footnote{原論文~\cite{Atiyah1988tqft}では環としていて，ベクトル空間の代わりに環上の有限生成加群を扱っている．今回はHilbert空間しか考えないので体 $\mathbb{K}$ としておいた．}，$D$ 次元の\textbf{位相的場の理論} (Topological Quantum Field Theory; TQFT) とは，以下の2つのデータからなる：
+    \begin{enumerate}
+        \item 向き付けられた (oriented) $D$ 次元の閉多様体 (closed manifold) $\Sigma$ に対応づけられた\underline{有限次元} $\mathbb{K}$-ベクトル空間 $V(\Sigma)$ 
+        \item 向き付けられた $D+1$ 次元の境界付き多様体 $M$ に対応づけられたベクトル $Z(M) \in V(\partial M)$ 
+    \end{enumerate}
+    これらのデータは以下の条件を充たす：
+    \begin{description}
+        \item[\textbf{(TQFT-1)}]　
+        
+        $Z$ は向きを保つ微分同相写像について\textbf{関手的} (functorial) に振る舞う．
+        
+        % i.e. $D$ 次元閉多様体 $\Sigma,\, \Sigma',\, \Sigma''$ の間の向きを保つ微分同相写像 $f \colon \Sigma \lto \Sigma',\, g \colon \Sigma' \lto \Sigma''$  に対して，$Z(f) \colon Z(\Sigma) \lto Z(\Sigma')$ はベクトル空間の同型写像で，$Z(g \circ f) = Z(g) \circ Z(f)$ が成り立つ．
+        % $f$ が $D+1$ 次元多様体 $M,\, M'$ であって $\Sigma = \partial M,\; \Sigma' = \partial M'$ を充たすものの上に $f \colon M \lto M'$ と拡張される場合は $Z(f) \colon Z(M) \lmto Z(M')$ を充たす．
+        
+        \item[\textbf{(TQFT-2)}]　
+        
+        $Z$ は\textbf{対合的} (involutory) である．
+        
+        % i.e. $\Sigma$ の逆の向きを $-\Sigma$ と書くとき，$Z(-\Sigma) = Z(\Sigma)^*$ （i.e. $Z(\Sigma)$ の双対ベクトル空間\footnote{$Z(\Sigma)$ は有限次元だと仮定しているので，$Z(\Sigma)$ をケット空間，$Z(\Sigma)^*$ をブラ空間と見做せる．}）を充たす．
+
+        \item[\textbf{(TQFT-3)}]　
+        
+        $Z$ は\textbf{モノイダル的} (multiplicative\footnote{「乗法的」というと語弊がありそうなのでモノイダル的と言った．}) である．
+
+        % i.e. $\Sigma,\, \Sigma'$ について，$Z(\Sigma \amalg \Sigma') = Z(\Sigma) \otimes Z(\Sigma')$ を充たす．
+    \end{description}
+    % $D$ 次元の\textbf{位相的場の理論} (Topological Quantum Field Theory; TQFT) とは，
+    % \hyperref[Cob-string]{コボルディズム圏}からある\hyperref[def:braided-monoidal]{対称モノイダル圏} $\mathcal{D}$ への\hyperref[def:monidal-functor]{strict monoidal functor}\footnote{strong monoidal functorとする場合もある（例えば\url{https://ncatlab.org/nlab/show/cobordism}）ようだが，原論文~\cite{Atiyah1988tqft}ではstrict monoidal functorになっていた．}
+    % \begin{align}
+    %     Z \colon \COB_{D+1} \lto \mathcal{D}
+    % \end{align}
+    % のこと．
+\end{myaxiom}
+
+~\cite{Atiyah1988tqft}に倣って公理の意味を精査していく．
+\begin{description}
+    \item[\textbf{(TQFT-1)}]　
+    
+    この公理は2つの要請を持つ：
+    \begin{enumerate}
+        \item $D$ 次元閉多様体 $\Sigma,\, \Sigma',\, \Sigma''$ の間の向きを保つ微分同相写像 $f \colon \Sigma \lto \Sigma',\, g \colon \Sigma' \lto \Sigma''$  に対して，$V(f) \colon V(\Sigma) \lto V(\Sigma')$ はベクトル空間の同型写像で，$V(g \circ f) = V(g) \circ V(f)$ が成り立つ．
+        \item 向きを保つ微分同相写像 $f \colon \Sigma \lto \Sigma'$ が，$D+1$ 次元多様体 $M,\, M'$ であって $\Sigma = \partial M,\; \Sigma' = \partial M'$ を充たすものの上に $f \colon M \lto M'$ と拡張される場合に $V(f) \bigl(Z(M)\bigr) = Z(M')$ を充たす．
+    \end{enumerate}
+
+    \item[\textbf{(TQFT-2)}]　
+    
+    $\Sigma$ の逆の向きを $\Sigma^*$ と書く\footnote{\exref{ex:Cob-closed}の意味で $\Sigma$ の双対となっている．}とき，$V(\Sigma^*) = V(\Sigma)^*$ を充たす\footnote{$V(\Sigma)$ が有限次元なので，$V(\Sigma)^*$ はブラ空間と見做せる．}．
+
+    \item[\textbf{(TQFT-3)}]　
+    
+    この公理は5つの要請を持つ：
+    \begin{enumerate}
+        \item $D$ 次元閉多様体 $\Sigma_1,\, \Sigma_2$ に対して
+        \begin{align}
+            V(\Sigma_1 \amalg \Sigma_2) = V(\Sigma_1) \otimes V(\Sigma_2)
+        \end{align}
+        が成り立つこと．
+        \item $D+1$ 次元多様体 $M,\, M_1,\, M_2$ に対して $\partial M_1 = \Sigma_1 \amalg \Sigma_3,\; \partial M_2 = \Sigma_2 \amalg \Sigma_3^*,\; M = M_1 \cup_{\Sigma_3} M_2$ が成り立つならば，
+        \begin{align}
+            Z(M) = \braket{Z(M_1)}{Z(M_2)}
+        \end{align}
+        ただし，
+        \begin{align}
+            \braket{\,}{\,} \colon V(\partial M_1) \otimes V(\partial M_2) = V(\Sigma_1) \otimes V(\Sigma_3) \otimes V(\Sigma_3)^* \otimes V(\Sigma_2) &\lto V(\partial M) = V(\Sigma_1) \otimes V(\Sigma_2), \\
+            \ket{\psi_1} \otimes \ket{\psi_3} \otimes \bra{\varphi_3} \otimes \ket{\psi_2} &\lmto \braket{\varphi_3}{\psi_3} \ket{\psi_1} \otimes \ket{\psi_2}
+        \end{align}
+        である．
+        \item (2) において $\Sigma_3 = \emptyset$ ならば，
+        \begin{align}
+            Z(M) = Z(M_1) \otimes Z(M_2)
+        \end{align}
+        \item (1) から\footnote{$\COB_{D+1}$ の単位対象は $\emptyset$ なので $\emptyset = \emptyset \amalg \emptyset$．よって (1) から $V(\emptyset) = V(\emptyset) \otimes V(\emptyset)$．これを充たすのは $V(\emptyset) = 0,\, \mathbb{K}$（\hyperref[def:monoidal-category]{モノイダル圏} $\VEC{\mathbb{K}}$ の単位対象は $\mathbb{K}$ である）のどちらかしかないので，非自明な方を採用する．}，
+        \begin{align}
+            V(\emptyset) = \mathbb{K}
+        \end{align}
+        \item (3) から\footnote{$\emptyset = \emptyset \amalg \emptyset$ なので (3) から $Z(\emptyset) = Z(\emptyset) \otimes Z(\emptyset)$．これを充たす $V(\emptyset) = \mathbb{K}$ の元は $0,\, 1$ しかないので，非自明な方を採用する．}，
+        \begin{align}
+            Z(\emptyset) = 1
+        \end{align}
+    \end{enumerate}
+\end{description}
+
+今や別の同値な定義ができる．$D+1$ 次元多様体 $M$ の境界 $\partial M$ を
+\begin{align}
+    \partial M = \Sigma_1^* \amalg \Sigma_2
+\end{align}
+と分解すると\footnote{どちらか一方が $\emptyset$ になっても良い}，\textsf{\textbf{(TQFT-3)}}-(1) より
+$Z(M) \in V(\partial M) = Z(\Sigma_1)^* \otimes Z(\Sigma_2) \cong \Hom{\mathbb{K}} \bigl( Z(\Sigma_1),\, Z(\Sigma_2) \bigr)$ が言えるので，$Z(M)$ を線型写像 $Z(M) \colon V(\Sigma_1) \lto V(\Sigma_2)$ と同一視できるのである．
+\textsf{\textbf{(TQFT-1)}}もあわせると，結局これまで $V,\, Z$ と書いていたものは\hyperref[def:monidal-functor]{strong monoidal functor}
+\begin{align}
+    Z \colon \COB_{D+1} \lto \VEC{\mathbb{K}}
+\end{align}
+の1つに集約することができる．
+
+\begin{mydef}[label=def:TQFT]{TQFTの定義}
+    $D$ 次元の\textbf{位相的場の理論} (Topological Quantum Field Theory; TQFT) とは，
+    \hyperref[Cob-string]{コボルディズム圏}からある\hyperref[def:braided-monoidal]{対称モノイダル圏} $\mathcal{D}$ への\hyperref[def:monidal-functor]{strict monoidal functor}\footnote{strong monoidal functorとする場合もある（例えば\url{https://ncatlab.org/nlab/show/cobordism}）ようだが，原論文~\cite{Atiyah1988tqft}ではstrict monoidal functorになっていた．}
+    \begin{align}
+        Z \colon \COB_{D+1} \lto \mathcal{D}
+    \end{align}
+    のこと．
+\end{mydef}
+
+興味があるのは $\mathcal{D} = \VEC{\mathbb{K}},\, \HILB$ の場合なので，以下では\hyperref[ax:Atiyah-TQFT]{TQFT}と言ったら\hyperref[def:monidal-functor]{strict monoidal functor}
+\begin{align}
+    Z \colon \COB_{D+1} \lto \VEC{\mathbb{K}},\, \HILB
+\end{align}
+を指すことにしよう．
+
+% \subsection{粒子の追加}
+
+
+
+
+\end{document}

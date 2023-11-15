@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{Simon2021}
 S.~Simon,
@@ -36,5 +36,17 @@ L.~W. Tu,
 \bibitem{Nakahara2018topo2}
 中原幹夫, 久木田真吾, 佐久間一浩, and 綿村尚毅,
 \newblock {\em 理論物理学のための幾何学とトポロジー\rm{II} 原著第\rm{2}版} (日本評論社, 2021).
+
+\bibitem{Baez2011physics}
+J.~Baez and M.~Stay,
+\newblock {\em Physics, topology, logic and computation: a Rosetta Stone} (Springer, 2011).
+
+\bibitem{Kochman1996bordism}
+S.~O. Kochman,
+\newblock {\em Bordism, stable homotopy and Adams spectral sequences} (American Mathematical Soc., 1996).
+
+\bibitem{Atiyah1988tqft}
+M.~F. Atiyah,
+\newblock Publications Math\'ematiques de l'IH\'ES {\bf 68}, 175 (1988).
 
 \end{thebibliography}
