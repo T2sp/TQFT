@@ -8,3 +8,4 @@
 - [第3回 (2023/10/25)](https://u-tokyo-ac-jp.zoom.us/rec/share/1U4pbj7SD8ekAukKAB1PSMAEwvb9RPYBlE95abDhYbmRGQ6vRYTyADICZWoVEVt0.osme1ddr_qaNFakc?startTime=1698197580000)
 - [第4回 (2023/11/1)](https://u-tokyo-ac-jp.zoom.us/rec/share/ip0-7FqDmz2GyOfYkmvhUTk4Vqk7NzoecfMJHzEPOF28_3DlBd-DYhwnpZYyuBw2.mk2EiPsYZ4Ch2mNJ?startTime=1698802518000)
 - [第5回 (2023/11/8)](https://u-tokyo-ac-jp.zoom.us/rec/share/qisNB-ypzcInYRlOg0WARfsIV9hFgj7USyOFunEraP4Ml_vjcGQTgk9GCTTcE2yM.B6Fs9TBkS7EOzKmv?startTime=1699407155000)
+- [第6回（2023/11/15）](https://u-tokyo-ac-jp.zoom.us/rec/share/_FqlmT_-pvkPVv8r8Loh6seLEYRqGclmQSOCfEiuox3tqMUDnCXwHvLo4UPmyTPO.3Xga_JMW2ljWfQ1J?startTime=1700011783000)
