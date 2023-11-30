@@ -202,22 +202,18 @@
         
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
-                &X \otimes I \ar[dddd, "r_X"]\ar[drr, "1_X \otimes i_x"]& & \\
-                & & &X \otimes (X^* \otimes X) \ar[d, "a_{X,\, X^*,\, X}^{-1}"] \\
+                &X \otimes I \ar[dd, "r_X"']\ar[rr, "1_X \otimes i_X"] & &X \otimes (X^* \otimes X) \ar[d, "a_{X,\, X^*,\, X}^{-1}"] \\
                 & & &(X \otimes X^*) \otimes X \ar[d, "e_X \otimes 1_X"] \\
-                & & &I \otimes X \ar[dll, "l_X"] \\
-                &X & &
+                &X & &I \otimes X \ar[ll, "l_X"] \\
             \end{tikzcd}
         \end{center}
         
 
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
-                &I \otimes X^* \ar[dddd, "l_{X^*}"]\ar[drr, "i_X \otimes 1_{X^*}"]& & \\
-                & & &(X^* \otimes X) \otimes X^* \ar[d, "a_{X^*,\, X,\, X^*}"] \\
+                &I \otimes X^* \ar[dd, "l_{X^*}"']\ar[rr, "i_X \otimes 1_{X^*}"] & &(X^* \otimes X) \otimes X^* \ar[d, "a_{X^*,\, X,\, X^*}"] \\
                 & & &X^* \otimes (X \otimes X^*) \ar[d, "1_{X^*} \otimes e_X"] \\
-                & & &X^* \otimes I \ar[dll, "r_{X^*}"] \\
-                &X^* & &
+                &X^* & &X^* \otimes I \ar[ll, "r_{X^*}"] \\
             \end{tikzcd}
         \end{center}
     \end{description}
@@ -403,7 +399,7 @@
 
     \item[\textbf{(TQFT-2)}]　
     
-    $\Sigma$ の逆の向きを $\Sigma^*$ と書く\footnote{\exref{ex:Cob-closed}の意味で $\Sigma$ の双対となっている．}とき，$V(\Sigma^*) = V(\Sigma)^*$ を充たす\footnote{$V(\Sigma)$ が有限次元なので，$V(\Sigma)^*$ はブラ空間と見做せる．}．
+    $\Sigma$ の向きを逆にして得られる $D$ 次元閉多様体を $\Sigma^*$ と書く\footnote{\exref{ex:Cob-closed}の意味で，圏 $\COB_{D+1}$ における $\Sigma \in \Obj{\COB_{D+1}}$ の双対となっている．}とき，$V(\Sigma^*) = V(\Sigma)^*$ を充たす\footnote{$V(\Sigma)$ が有限次元なので，$V(\Sigma)^*$ はブラ空間と見做せる．}．
 
     \item[\textbf{(TQFT-3)}]　
     
@@ -466,9 +462,15 @@ $Z(M) \in V(\partial M) = Z(\Sigma_1)^* \otimes Z(\Sigma_2) \cong \Hom{\mathbb{K
 \end{align}
 を指すことにしよう．
 
-% \subsection{粒子の追加}
+% \section{フュージョンと $V(\Sigma)$ の次元}
+
+% \subsection{粒子とフュージョン-可換な場合}
 
 
+
+% \subsection{粒子とフュージョン-非可換な場合}
+% \subsection{$F$ 行列}
+% \subsection{$R$ 行列}
 
 
 \end{document}
