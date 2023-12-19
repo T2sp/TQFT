@@ -42,16 +42,17 @@
 \contentsline {subsection}{\numberline {3.2.1}Atiyahの公理系}{68}{subsection.3.2.1}%
 \contentsline {section}{\numberline {3.3}一般化対称性}{70}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}通常の対称性}{71}{subsection.3.3.1}%
-\contentsline {chapter}{\numberline {付録A}結び目理論入門}{74}{appendix.A}%
-\contentsline {chapter}{\numberline {付録B}ベクトル場の話}{75}{appendix.B}%
-\contentsline {section}{\numberline {B.1}接束}{77}{section.B.1}%
-\contentsline {section}{\numberline {B.2}ベクトル場の定義}{78}{section.B.2}%
-\contentsline {subsection}{\numberline {B.2.1}$C^\infty $ 関数の微分としてのベクトル場}{80}{subsection.B.2.1}%
-\contentsline {subsection}{\numberline {B.2.2}ベクトル場と $C^\infty $ 写像}{82}{subsection.B.2.2}%
-\contentsline {subsection}{\numberline {B.2.3}Lieブラケット}{84}{subsection.B.2.3}%
-\contentsline {section}{\numberline {B.3}積分曲線とフロー}{85}{section.B.3}%
-\contentsline {subsection}{\numberline {B.3.1}積分曲線}{85}{subsection.B.3.1}%
-\contentsline {subsection}{\numberline {B.3.2}フロー}{89}{subsection.B.3.2}%
-\contentsline {subsection}{\numberline {B.3.3}完備なベクトル場}{95}{subsection.B.3.3}%
-\contentsline {section}{\numberline {B.4}Lie微分}{96}{section.B.4}%
-\contentsline {chapter}{参考文献}{100}{appendix*.7}%
+\contentsline {subsection}{\numberline {3.3.2}高次対称性}{76}{subsection.3.3.2}%
+\contentsline {chapter}{\numberline {付録A}結び目理論入門}{79}{appendix.A}%
+\contentsline {chapter}{\numberline {付録B}ベクトル場の話}{80}{appendix.B}%
+\contentsline {section}{\numberline {B.1}接束}{82}{section.B.1}%
+\contentsline {section}{\numberline {B.2}ベクトル場の定義}{83}{section.B.2}%
+\contentsline {subsection}{\numberline {B.2.1}$C^\infty $ 関数の微分としてのベクトル場}{85}{subsection.B.2.1}%
+\contentsline {subsection}{\numberline {B.2.2}ベクトル場と $C^\infty $ 写像}{87}{subsection.B.2.2}%
+\contentsline {subsection}{\numberline {B.2.3}Lieブラケット}{89}{subsection.B.2.3}%
+\contentsline {section}{\numberline {B.3}積分曲線とフロー}{90}{section.B.3}%
+\contentsline {subsection}{\numberline {B.3.1}積分曲線}{90}{subsection.B.3.1}%
+\contentsline {subsection}{\numberline {B.3.2}フロー}{94}{subsection.B.3.2}%
+\contentsline {subsection}{\numberline {B.3.3}完備なベクトル場}{100}{subsection.B.3.3}%
+\contentsline {section}{\numberline {B.4}Lie微分}{101}{section.B.4}%
+\contentsline {chapter}{参考文献}{105}{appendix*.7}%

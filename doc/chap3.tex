@@ -485,6 +485,30 @@ $\mathcal{M}$ に計量 $g_{\mu\nu}$ が与えられたとき，\textbf{音楽�
 \end{align}
 と定義する．
 
+$\mathcal{M}$ の $p$ 次元部分多様体\footnote{コンパクトかつ向き付け可能だとしておけば問題が起こりにくい．} $N \subset \mathcal{M}$ 上で $p$-形式 $\omega \in \Omega^p(\mathcal{M})$ を積分する場合，包含写像 $\iota \colon N \hookrightarrow \mathcal{M}$ による引き戻し $\iota^* \colon \Omega^p(\mathcal{M}) \lto \Omega^p(N)$ を用いて
+\begin{align}
+    \int_{N} \omega \coloneqq \int_N \iota^*\omega
+\end{align}
+と定義する．このとき，Poincar\"{e}双対を考えることで
+\begin{align}
+    \int_N \omega = \int_{\mathcal{M}} \omega \wedge \delta(N)
+\end{align}
+を充たす $\delta(N) \in \Omega^{D+1-p}(\mathcal{M})$ （\textbf{デルタ関数 $p$-形式}と呼ぶ）の存在がわかる\footnote{厳密な扱いは~\cite[p.270]{Nicolaescu2022lecture}を参照．ここでは雑に扱う．}．
+Stokesの定理から
+\begin{align}
+    \int_{\mathcal{M}} \omega \wedge \delta(\partial N) 
+    &= \int_{\partial N} \omega 
+    = \int_{N} \dd{\omega} 
+    = \int_\mathcal{M} \dd{\omega} \wedge \delta(N) \\
+    &= \int_{\mathcal{M}} \dd \bigl( \omega \wedge \delta(N) \bigr) + (-1)^{p+1} \int_{\mathcal{M}} \omega \wedge \dd(\delta(N)) \\
+    &= (-1)^{p+1} \int_{\mathcal{M}} \omega \wedge \dd (\delta(N))
+\end{align}
+がわかるので，
+\begin{align}
+    \dd{\delta(N)} = (-1)^{p+1} \delta(\partial N)
+\end{align}
+が成り立つ．
+
 \subsection{通常の対称性}
 
 $N$ 成分の場\footnote{場 $\varphi$ の成分を表す添字として $a,\, b,\, c,\, \dots$ を使う．} $\varphi \colon \mathcal{M} \lto \mathbb{K}^N,\; x \lmto \bigl(\, \varphi_{\bm{i}} (x) \,\bigr)_{1 \le \bm{i} \le N}$ は，ある\hyperref[def:vect]{ベクトル束} $\mathbb{K}^N \hookrightarrow E \xrightarrow{\pi} \mathcal{M}$ の\hyperref[def.section]{切断}と理解する．
@@ -544,6 +568,7 @@ $\varphi$ がon shellなので\eqref{eq:EL}を使うと
 \end{align}
 が成り立つ．i.e. \textbf{Noetherカレント}を $\dim \mathcal{M}$ 個の $X^\mu|_{\partial \mathcal{M}} = 0$ を充たす $C^\infty$ 関数 $X^\mu$ を用いて
 \begin{align}
+    \label{eq:Noether-current}
     j^\mu(x) \coloneqq \pdv{\mathcal{L}}{\bigl(\partial_\mu\varphi_a(x)\bigr)} h_a (x) - X^\mu(x)
 \end{align}
 で定義すると，これが保存則
@@ -583,15 +608,214 @@ Poisson括弧が
     \comm{-\iunit\hat{Q}}{\hat{\varphi}_a(x)} = h_a(x)
 \end{align}
 となる．
-% \section{フュージョンと $V(\Sigma)$ の次元}
 
-% \subsection{粒子とフュージョン-可換な場合}
+\begin{myexample}[label=ex:3-1]{$D+1$ 次元自由フェルミオン系}
+    時空 $\mathcal{M}$ をMinkowski時空，場をスピン束 $\mathbb{C}^4 \hookrightarrow S \xrightarrow{\pi} \mathcal{M}$ の切断 $\psi \in \Gamma(S)$ とする（Dirac場）．
+    作用はガンマ行列 $\gamma^\mu$，Dirac共役 $\overline{\psi} \coloneqq \iunit \psi^\dagger \gamma^0$ を用いて
+    \begin{align}
+        S[\psi] = -\int_{\mathcal{M}} \dd[D+1]{x} \overline{\psi}(x) (\gamma^\mu \partial_\mu + m) \psi(x)
+    \end{align}
+    と書かれる．Euler-Lagrange方程式\eqref{eq:EL}は，$\overline{\psi},\, \psi$ に関する変分によってそれぞれ
+    \begin{align}
+        (\gamma^\mu \partial_\mu + m) \psi &= 0, \\
+        \partial_\mu\overline{\psi}\gamma^\mu - m \overline{\psi} &= 0
+    \end{align}
+    となる．
+
+    この系のon shellな対称性変換は，例えば $e^{\iunit \theta} \in \LU(1)$ による
+    \begin{align}
+        \mathcal{T} \colon \Gamma(S) &\lto \Gamma(S),\; \psi \lmto e^{\iunit \theta} \psi
+    \end{align}
+    がある．$\mathcal{T}$ を生成する無限小変換は $e^{\iunit \theta}$ のTaylor展開より $\mathcal{T}_{\iunit \theta \psi} \colon \psi \lmto \psi + \iunit \theta \psi$ である．つまり，先ほどの議論で登場した $h \in \Gamma(S)$ は今回の場合 $\iunit \psi$ に相当する．
+    よってon shellな対称性変換 $\mathcal{T}$ に対応するNoetherカレント\eqref{eq:Noether-current}は
+    \begin{align}
+        \label{eq:Noether-current-ex3-1}
+        j^\mu(x) = \pdv{\mathcal{L}}{\partial_\mu \psi} \iunit \psi = -\iunit \overline{\psi} \gamma^\mu \psi
+    \end{align}
+    と求まる．$\mathcal{M} = \mathbb{R}^D \times \mathbb{R}$ であるから，Noetherチャージは
+    \begin{align}
+        Q = -\iunit \int_{\mathbb{R}^D} \dd[D]{x} \overline{\psi}(x) \gamma^0 \psi(x)
+    \end{align}
+    であり，正準量子化すると\eqref{eq:generator-Q}より
+    \begin{align}
+        \comm{\iunit \hat{Q}}{\hat{\psi}(x)} = -\iunit\hat{\psi}(x)
+    \end{align}
+    が成り立つ．ここから有限変換 $\mathcal{T}$ に戻すには，指数写像を用いれば良い．こうして
+    \begin{align}
+        \label{eq:transform-3-1}
+        \exp (\iunit \theta \hat{Q}) \hat{\psi}(x) \exp (-\iunit \theta \hat{Q}) = e^{-\iunit \theta} \hat{\psi}(x)
+    \end{align}
+    だと分かった．
+    ここで~\cite[p.6]{GaiottoKapustinSeibergWillett2015}に倣って $g \coloneqq e^{\iunit \theta},\, R_g \coloneqq e^{-\iunit\theta},\, \hat{U}_g (\mathbb{R}^D) \coloneqq \exp (\iunit \theta \hat{Q})$ とおく．
+    \begin{itemize}
+        \item $U_g (\mathbb{R}^D)$ を $\mathcal{M}$ の $D$ 次元部分多様体 $\mathbb{R}^D$ に付随する\textbf{対称性演算子}
+        \item $\hat{\psi}$ を\textbf{荷電物体} (charged object)
+    \end{itemize}
+    と呼ぼう．$\forall g,\, g' \in \LU(1)$ に対して，対称性演算子は群のように振る舞う：
+    \begin{align}
+        \hat{U}_g (\mathbb{R}^D) \hat{U}_{g'} (\mathbb{R}^D) = \hat{U}_{gg'} (\mathbb{R}^D)
+    \end{align}
+\end{myexample}
 
 
+時間一定面を $\mathbb{R}^D \subset \mathcal{M}$ にとったのは，正準量子化により\eqref{eq:generator-Q}を導くためであった．
+しかるに，時間一定面を任意の $D$ 次元部分多様体 $\mathcal{M}^{(D)} \subset \mathcal{M}$ にとれるのではないかと期待される．
+積分領域が複雑になるので微分形式を使うと見通しが良い．
+\begin{align}
+    \star j \coloneqq \star \flat (j^\mu \partial_\mu)
+\end{align}
+とおこう．このとき
+\begin{align}
+    \dd \star j = \partial_\mu j^\mu \dd[D+1]{x}
+\end{align}
+が成り立つので，Noetherカレントの保存則\eqref{eq:conservation-Noether}は単に $\dd \star j = 0$ と書ける．
+Noetherチャージは
+\begin{align}
+    Q = \int_{\mathcal{M}^{(D)}} \star j = \int_{\mathcal{M}}  \star j \wedge \delta(\mathcal{M}^{(D)})
+\end{align}
+である．$\mathcal{M}^{(D)} \lto \mathcal{M}^{(D)} + \delta \mathcal{M}^{(D)} \WHERE \delta \mathcal{M}^{(D)} = \partial X^{(D+1)}$ なる時間一定面の変形を考えると，$Q$ の変化は保存則から
+\begin{align}
+    \delta Q = \int_{\delta \mathcal{M}^{(D)}} \star j = \int_{X^{(D)}} \dd \star j = 0
+\end{align}
+だと分かった．i.e.
+\begin{align}
+    \hat{U}_{e^{\iunit \theta}} (\mathcal{M}^{(D)}) = \hat{U}_{e^{\iunit \theta}} (\mathcal{M}^{(D)} + \delta \mathcal{M}^{(D)})
+\end{align}
+である．この意味で対称性演算子は\textbf{トポロジカル演算子}とも呼ばれる．
+しかし，$\mathcal{M}$ 上に荷電物体が存在しているときは\eqref{eq:transform-3-1}に注意しなくてはいけない．
 
-% \subsection{粒子とフュージョン-非可換な場合}
-% \subsection{$F$ 行列}
-% \subsection{$R$ 行列}
+　時間一定面の変形をするので，量子化を経路積分で行う方が見通しが良い．経路積分では，任意の観測可能量 $\hat{\mathcal{O}}$ の期待値が
+\begin{align}
+    \ev{\hat{\mathcal{O}}} = \int [\dd{\psi}] e^{\iunit S[\psi]} \mathcal{O}
+\end{align}
+と計算される．今，勝手な場の演算子 $\mathcal{O}(z)$ に対して
+\begin{align}
+    \ev{\hat{\psi}(y) \hat{\mathcal{O}}(z)}
+    &= \int [\dd{\psi}] e^{\iunit S[\psi]} \psi(y) \mathcal{O}(z)
+\end{align}
+を計算しよう．
+荷電物体 $\hat{\psi}(y)$ を囲むような時間一定面 $\mathcal{M}^{(D)} \subset \mathcal{M} \WHERE y \in \mathcal{M}^{(D)},\, z \notin \mathcal{M}^{(D)}$ をとり，
+$D+1$ 次元部分多様体 $\mathcal{M}^{(D+1)} \subset \mathbb{M}$ であって $\mathcal{M}^{(D)} = \partial \mathcal{M}^{(D+1)}$ を充たすようなものをとる．
+そして局所的な場の $\LU (1)$ 変換
+\begin{align}
+    \mathcal{T} \colon \Gamma(S) &\lto \Gamma(S), \psi \lmto \bigl( x \mapsto e^{\iunit \theta(x)} \psi \bigr)  \\
+    \WHERE \theta(x) &= 
+    \begin{cases}
+        \theta, & x \in \mathcal{M}^{(D)}, \\
+        0, & x \notin \mathcal{M}^{(D)}
+    \end{cases}
+\end{align}
+を行う．すると，Noetherカレントの表式\eqref{eq:Noether-current-ex3-1}を用いて
+\begin{align}
+    S[\mathcal{T}(\psi)] - S[\psi]
+    &= - \int_{\mathcal{M}} \dd[D+1]{x} \iunit \overline{\psi}(x) \gamma^\mu \psi(x) \partial_\mu \theta(x) \\
+    &= \int_{\mathcal{M}} \dd[D+1]{x} \iunit \partial_\mu\bigl(\overline{\psi}(x) \gamma^\mu \psi(x)\bigr) \theta(x) \\
+    &= -\int_{\mathcal{M}} \dd[D+1]{x} \partial_\mu j^\mu(x)  \theta(x) \\
+    &= -\theta \int_{\mathcal{M}^{D+1}} \dd \star j \\
+    &= -\theta \int_{\mathcal{M}^{D}} \star j 
+\end{align}
+であることがわかる．つまり，変換 $\mathcal{T}$ の下で
+\begin{align}
+    \ev{\hat{\psi}(y)\hat{\mathcal{O}}(z)}
+    &= \int [\dd{\psi}] e^{\iunit S[\psi]} \exp\left(-\iunit \theta \int_{\mathcal{M}^{D}} \star j\right) e^{\iunit \theta}\psi(y) \mathcal{O}(z)
+\end{align}
+と計算される．
+\begin{align}
+    \label{eq:0-form-topo-ops}
+    \ev{\textcolor{red}{R_g \hat{\psi}(y)}\hat{\mathcal{O}}(z)} = \int [\dd{\psi}] e^{\iunit S[\psi]} \textcolor{red}{U_g (\mathcal{M}^{(D)}) \psi(y)} \mathcal{O}(z)
+\end{align}
+と言うことである．
+% むしろこれを対称性演算子 $U_g(\mathcal{M}^{(D)})$ の定義としよう．
+
+\subsection{高次対称性}
+
+\exref{ex:3-1}は，荷電物体が $0$ 次元に分布していた．これを $p$ 次元に分布した物体に置き換えることで $p$-form symmetry の概念が得られる~\cite[p.10]{GaiottoKapustinSeibergWillett2015}：
+
+\begin{mydef}[label=def:p-form-sym]{$p$-form symmetry}
+    $D+1$ 次元の場の量子論が群 $G$ による\textbf{$\bm{p}$-form symmetry}を持つとは，
+    時空 $\mathcal{M}$ の任意の $D-p$ 次元部分多様体 $\mathcal{M}^{(D-p)} \subset \mathcal{M}$ および $\forall g \in G$ に対して
+    \textbf{対称性演算子(トポロジカル演算子)}（topological operator) $U_g (\mathcal{M}^{(D-p)})$ が存在して以下を充たすことを言う：
+    \begin{itemize}
+        \item $U_g (\mathcal{M}^{(D-p)})$ は任意の $p$ 次元部分多様体 $\mathcal{C}^{(p)} \subset \mathcal{M}$ の台を持つ\textbf{荷電物体（演算子）} (charged object, operator) $V(\mathcal{C}^{(p)})$ に作用する．
+        \item $\forall g,\, g' \in G$ に対して群の規則 (group law)
+        \begin{align}
+            U_g (\mathcal{M}^{(D-p)}) U_{g'} (\mathcal{M}^{(D-p)}) = U_{gg'} (\mathcal{M}^{(D-p)})
+        \end{align}
+        が成り立つ．
+        \item 任意の $p$ 次元部分多様体 $\mathcal{C}^{(p)} \subset \mathcal{M}$ に対して，それに「絡む」十分小さな $D-p$-球 $S^{D-p} \subset \mathcal{M}$ に対して，\eqref{eq:0-form-topo-ops}と同じく経路積分の期待値の意味で
+        \begin{align}
+            U_g (S^{D-p}) V(\mathcal{C}^{(p)}) = R_g (V) V(\mathcal{C}^{(p)})
+        \end{align}
+        が成り立つ．ただし $R \colon G \lto \LGL(\{\text{荷電物体}\})$ は群 $G$ の表現である．
+    \end{itemize}
+\end{mydef}
+
+\begin{myexample}[label=ex:3-2]{$3+1$ 次元 $\LU(1)$ ゲージ理論}
+    物質場のない $\LU(1)$ ゲージ理論を考える．ゲージ場を\hyperref[thm:local-connection]{局所接続形式}\footnote{厳密には $\mathcal{M}$ の開集合上の $\mathfrak{u}(1)$-値1形式} $a = a_\mu \dd{x^\mu} \in \Omega^1(\mathcal{M};\, \mathfrak{u}(1))$ として与え，場の強さを $f \coloneqq \dd{a}$ とおく．$f = f_{\mu\nu} \dd{x}^\mu \wedge \dd{x}^\nu$ と成分表示すると $f_{\mu\nu} = \partial_\mu a_\nu - \partial_\nu a_\mu$ となる．
+
+    　作用は
+    \begin{align}
+        S[a] = - \frac{1}{2e^2} \int_{\mathcal{M}} \dd[4]{x} f \wedge \star f =  - \frac{1}{4e^2} \int_{\mathcal{M}} \dd[4]{x} f_{\mu\nu} f^{\mu\nu}
+    \end{align}
+    と書かれる．$\delta a \in \Omega^1(\mathcal{M};\, \mathfrak{u}(1))$ を用いた作用の変分は
+    \begin{align}
+        \delta_{\delta a} S[a] 
+        &= -\frac{1}{e^2} \int_{\mathcal{M}}\dd(\delta a) \wedge \star f \\
+        &= -\frac{1}{e^2} \int_{\mathcal{M}} \dd(\delta a\wedge \star f) - \frac{1}{e^2} \int_{\mathcal{M}} \delta a \wedge \dd \star f
+    \end{align}
+    なので，Euler-Lagrange方程式とBianchi恒等式から
+    \begin{align}
+        \dd \star f &= 0, \\
+        \dd f &= 0
+    \end{align}
+    が言える（Maxwell方程式）．これをカレントの保存則と見做して，任意の $3-1 = 2$ 次元部分多様体 $\mathcal{M}^{(2)} \subset \mathcal{M}$ 上のトポロジカル演算子を
+    \begin{align}
+        \uirm{U}{E}{}_{e^{\iunit\theta}} (\mathcal{M}^{(2)}) &\coloneqq \exp \left( \iunit \theta \int_{\mathcal{M}^{(2)}} \frac{\star f}{e^2} \right) \\
+        \uirm{U}{M}{}_{e^{\iunit\theta}} (\mathcal{M}^{(2)}) &\coloneqq \exp \left( \iunit \theta \int_{\mathcal{M}^{(2)}} \frac{f}{2\pi} \right)
+    \end{align}
+    と定義しよう．$\uirm{U}{E}{}_{e^{\iunit\theta}} (\mathcal{M}^{(2)})$ が作用する荷電物体は\textbf{Wilson loop}
+    \begin{align}
+        W(\mathcal{C}^{(1)}) \coloneqq \exp \left( \iunit \int_{\mathcal{C}^{(1)}} a\right) 
+    \end{align}
+    である．このことを示そう．
+
+    　簡単のため $S \coloneqq \mathcal{M}^{(2)},\, C \coloneqq \mathcal{C}^{(1)}$ と略記する．今，絡み数が
+    \begin{align}
+        \mathrm{Link}(S,\, C) = \int_{\mathcal{M}} \delta(C) \wedge \delta(V) = 1
+    \end{align}
+    となるように $S,\, C$ をとる．ただし $C \cap V$ が一点集合で，かつ $\partial V = S$ を充たすような $3$ 次元部分多様体 $V \subset \mathcal{M}$ をとった．
+    ゲージ場の変換
+    \begin{align}
+        \mathcal{T} \colon a \lmto a + \theta \delta(V)
+    \end{align}
+    の下で場の強さは $f \lmto f + \theta \dd(\delta(V)) = f - \theta \delta(S)$ となり，作用は\footnote{$\omega \wedge \star \eta = \eta \wedge \star \omega$ に注意．}
+    \begin{align}
+        S[\mathcal{T}(a)] - S[a]
+        &= -\frac{1}{2e^2} \int_{\mathcal{M}} \bigl(f - \theta \delta(S) \bigr) \wedge \star\bigl(f - \theta \delta(S) \bigr) - S[a] \\
+        &= \frac{\theta}{2e^2} \int_{\mathcal{M}} \bigl( \delta(S) \wedge \star f + f \wedge \star \delta(S) - \theta \delta(S) \wedge \star \delta(S) \bigr) \\
+        &= \frac{\theta}{e^2} \int_{\mathcal{M}} \bigl( \delta(S) \wedge \star f - \theta \delta(S) \wedge \star \delta(S) \bigr) \\
+        &= \theta \int_{S} \frac{\star f}{e^2} - \frac{\theta^2}{2e^2} \int_S \delta(S)
+    \end{align}
+    と変換する．一方，Wilsonループは
+    \begin{align}
+        W(C) 
+        & \lmto \exp \left( \iunit \int_C (a + \theta \delta(V)) \right)  \\
+        & \lmto \exp \left( \iunit \int_C a + \iunit \theta \int_{\mathcal{M}}\delta(V) \wedge \delta(C) \right) \\
+        & \lmto \exp \left( \iunit \int_C a - \iunit \theta \mathrm{Link}(S,\, C) \right) \\
+        & \lmto e^{-\iunit \theta} \exp \left( \iunit \int_C a \right)
+    \end{align}
+    と変換するので\footnote{トポロジカル演算子を $\exp \left[\iunit \theta \left(\int_{S} \frac{\star f}{e^2} - \frac{\theta^2}{2e^2} \int_S \delta(S)\right)\right]$ と再定義した．}，
+    \begin{align}
+        \ev{W(C) \mathcal{O}}
+        &= \int [\dd{a}] e^{\iunit S[a]} \uirm{U}{E}{}_{e^{\iunit \theta}} (S) e^{-\iunit \theta} W(C) O
+    \end{align}
+    i.e.
+    \begin{align}
+        \ev{\textcolor{red}{e^{\iunit \theta} W(C)} \mathcal{O}} = \int [\dd{a}] e^{\iunit S[a]} \textcolor{red}{\uirm{U}{E}{}_{e^{\iunit \theta}} (S) W(C)} \mathcal{O}
+    \end{align}
+    が分かった．
+
+\end{myexample}
 
 
 \end{document}

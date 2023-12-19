@@ -49,4 +49,13 @@ S.~O. Kochman,
 M.~F. Atiyah,
 \newblock Publications Math\'ematiques de l'IH\'ES {\bf 68}, 175 (1988).
 
+\bibitem{Nicolaescu2022lecture}
+L.~I. Nicolaescu,
+\newblock Lectures on the geometry of manifolds, 2022,
+\newblock Available at \url{https://www3.nd.edu/~lnicolae/Lectures.pdf}.
+
+\bibitem{GaiottoKapustinSeibergWillett2015}
+D.~{Gaiotto}, A.~{Kapustin}, N.~{Seiberg}, and B.~{Willett},
+\newblock Journal of High Energy Physics {\bf 2015}, 172 (2015), \href{http://arxiv.org/abs/1412.5148}{[1412.5148]}.
+
 \end{thebibliography}
