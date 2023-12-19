@@ -462,6 +462,127 @@ $Z(M) \in V(\partial M) = Z(\Sigma_1)^* \otimes Z(\Sigma_2) \cong \Hom{\mathbb{K
 \end{align}
 を指すことにしよう．
 
+\section{一般化対称性}
+
+エニオンのフュージョン則を議論する前に少し寄り道をして，\textbf{一般化対称性} (generalized symmetry)\footnote{\textbf{高次対称性} (higher form symmetry) と呼ばれることもある．} の話をする．
+この節では自然単位系を使う．
+時空を表す $D + 1$ 次元多様体を $\mathcal{M}$ と書き，$\mathcal{M}$ のチャートの座標関数を $(x^0,\, x^1,\, \dots,\, x^{D}) \eqqcolon (t,\, \bm{x})$ と書く．特に $D$ 次元多様体 $\Sigma$ を使って $\mathcal{M} = \Sigma \times \mathbb{R} \OR \Sigma \times S^1$ と書ける場合は $x^0 \eqqcolon t$ で $\mathbb{R} \OR S^1$ 成分のチャート（時間）を表すことにし，$\Sigma$ のことを時間一定面と呼ぶ．
+$\mathcal{M}$ としてMinkowski時空を考える場合，Minkowski計量としては $[\eta_{\mu\nu}] \coloneqq (-1,\, +1,\, \dots,\, +1)$ を用いる．Minkowski計量でない一般の計量テンソルは $g \coloneqq g_{\mu\nu} \dd{x}^\mu \otimes \dd{x}^\nu \in \Gamma (T^*\mathcal{M} \otimes T^* \mathcal{M})$ と表記し，共役計量テンソルを $g^{\mu\nu} \partial_\mu \otimes \partial_\nu \in \Gamma(T \mathcal{M} \otimes T \mathcal{M})$ と表記する．
+
+$\mathcal{M}$ に計量 $g_{\mu\nu}$ が与えられたとき，\textbf{音楽同型} (musical isomorphism) を
+\begin{align}
+    \flat \colon \mathfrak{X}(\mathcal{M}) &\lto \Omega^1(\mathcal{M}),\; X^\mu \partial_\mu \lmto g_{\mu\nu} X^\nu \dd{x^\mu}, \\
+    \sharp \colon \Omega^1(\mathcal{M}) &\lto \mathfrak{X}(\mathcal{M}),\; \omega_\mu \dd{x^\mu} \lmto g^{\mu\nu} \omega_\nu \partial_\mu
+\end{align}
+で定義する．Hodge starは
+\begin{align}
+    \star \colon \Omega^p(\mathcal{M}) &\lto \Omega^{D+1-p},\\ 
+    \dd{x^{\mu_1}} \wedge \cdots \wedge \dd{x^{\mu_p}} &\lmto \frac{1}{(D+1-p)!} g^{\mu_1 \nu_1} \cdots g^{\mu_p \nu_p} \epsilon_{\nu_1 \cdots \nu_p \mu_{p+1} \cdots \mu_{D+1}} \dd{x}^{\mu_{p+1}} \wedge \cdots \wedge \dd{x}^{\mu_{D+1}}
+\end{align}
+を線型に拡張することで定義される．特に不変体積要素を
+\begin{align}
+    \dd[D+1]{x} \coloneqq \star 1 = \sqrt{\abs{g}} \dd{x^1} \wedge \cdots \wedge \dd{x^{D+1}}
+\end{align}
+と定義する．
+
+\subsection{通常の対称性}
+
+$N$ 成分の場\footnote{場 $\varphi$ の成分を表す添字として $a,\, b,\, c,\, \dots$ を使う．} $\varphi \colon \mathcal{M} \lto \mathbb{K}^N,\; x \lmto \bigl(\, \varphi_{\bm{i}} (x) \,\bigr)_{1 \le \bm{i} \le N}$ は，ある\hyperref[def:vect]{ベクトル束} $\mathbb{K}^N \hookrightarrow E \xrightarrow{\pi} \mathcal{M}$ の\hyperref[def.section]{切断}と理解する．
+場の変換性はベクトル束の変換関数に由来する．
+
+局所的な場のラグランジアン密度 $\mathcal{L} \bigl( \varphi_a(x),\, \partial_\mu \varphi_a(x) \bigr)$ を持つ古典系を考える．
+この系の作用は
+\begin{align}
+    S[\varphi] \coloneqq \int_{\mathcal{M}} \dd[D+1]{x} \mathcal{L} \bigl( \varphi_a(x),\, \partial_\mu\varphi_a(x) \bigr) 
+\end{align}
+と書かれる．場に関する作用の変分とは，勝手な「微小」切断 $\delta\psi \in \Gamma(E)$ による場の微小変換
+\begin{align}
+    \mathcal{T}_{\delta\varphi} \colon \Gamma (E) \lto \Gamma (E),\; \varphi \lmto \varphi + \delta\psi
+\end{align}
+を用いて
+\begin{align}
+    \delta_{\delta\psi} S[\varphi] \coloneqq S[\mathcal{T}_{\delta\psi} (\varphi)] - S[\varphi]
+\end{align}
+と定義される．顕にはStokesの定理を使って
+\begin{align}
+    \label{eq:var-action}
+    \delta_{\delta \psi} S[\varphi] 
+    &= \int_{\mathcal{M}} \dd[D+1]{x} \left( \pdv{\mathcal{L}}{\varphi_a(x)} \delta \psi_a (x) + \pdv{\mathcal{L}}{\bigl(\partial_\mu \varphi_a(x)\bigr)} \partial_\mu \bigl(\delta\psi_a(x)\bigr) \right) \\
+    &= \int_{\partial\mathcal{M}} \star \flat\left(\pdv{\mathcal{L}}{\bigl(\partial_\mu \varphi_a(x)\bigr)} \delta\psi_a(x)\right) +  \int_{\mathcal{M}} \dd[D+1]{x} \left( \pdv{\mathcal{L}}{\varphi_a(x)} - \partial_\mu\left(\pdv{\mathcal{L}}{\bigl(\partial_\mu \varphi_a(x)\bigr)}\right) \right) \delta\psi_a(x)
+\end{align}
+と書けるが，境界条件 $\partial\mathcal{M} = \emptyset$ または $\delta \psi|_{\partial \mathcal{M}} = 0$ を要請して第1項を落とすのが普通である．
+
+\textbf{最小作用の原理}とは，古典論で実現される場の配位（このような場の配位は\textbf{on shell}であると呼ばれる） $\irm{\varphi}{on\, shell} \in \Gamma(E)$ に対して，
+\begin{align}
+    \label{eq:LeastAction}
+    \forall \delta\psi,\; \delta_{\delta \psi} S[\irm{\varphi}{on\, shell}] = 0
+\end{align}
+を要請するものである．\eqref{eq:var-action}から，on shellな場 $\irm{\varphi}{on shell} \in \Gamma(E)$ が充たすべき方程式としてEuler-Lagrange方程式
+\begin{align}
+    \label{eq:EL}
+    1 \le \forall i \le N,\;\forall x \in \mathcal{M},\; \eval[\pdv{\mathcal{L}}{\varphi_a(x)} - \partial_\mu\left(\pdv{\mathcal{L}}{\bigl(\partial_\mu \varphi_a(x)\bigr)}\right)|_{\irm{\varphi}{on\, shell}(x),\, \partial_\mu \irm{\varphi}{on\, shell}(x)} = 0
+\end{align}
+が得られるのだった．煩雑なので以後 $\mathcal{L}$ の引数は適宜省略する．
+
+\textbf{on shellな対称性変換}\footnote{\textbf{off shellな対称性変換}も同様に定義できる．}とは，\underline{on shellな}場の間の変換
+\begin{align}
+    \mathcal{T} \colon \irm{\Gamma(E)}{on\, shell} \lto \irm{\Gamma(E)}{on shell}
+\end{align}
+であって作用を不変にするもののことである．つまり，最小作用の原理\eqref{eq:LeastAction}とは異なり \underline{$\varphi$ ではなく $\mathcal{T}$ が}
+% 古典場のEuler-Lagrange方程式\eqref{eq:EL}の導出との違いは，
+\begin{align}
+    \forall \varphi \in \irm{\Gamma(E)}{on\, shell},\; \delta_{\mathcal{T}} S[\varphi] = 0
+\end{align}
+によって定義される．ここに $\delta_{\mathcal{T}} S[\varphi] \coloneqq S[\mathcal{T}(\varphi)] - S[\varphi]$ とおいた．
+特に対称性変換 $\mathcal{T}$ が大域的な微小パラメータ $\varepsilon$ および $\partial_0 \varphi$ に陽に依存しない\footnote{この仮定は\eqref{eq:generator-Q}の導出で使うだけ（実はもっと条件を弱めることもできる）なので，Noetherの定理の導出には必要ない．} $h \in \Gamma(E)$ を用いて $\mathcal{T}(\varphi) = \mathcal{T}_{\varepsilon h}(\varphi)$ と書かれる場合を考えよう．
+$\varphi$ がon shellなので\eqref{eq:EL}を使うと
+\begin{align}
+    0 = \delta_{\mathcal{T}} S[\varphi]
+    &= \int_{\mathcal{M}} \dd[D+1]{x} \varepsilon \left( \pdv{\mathcal{L}}{\varphi_a(x)} h_a (x) + \pdv{\mathcal{L}}{\bigl(\partial_\mu \varphi_a(x)\bigr)} \partial_\mu \bigl(h_a(x)\bigr) \right) \\
+    &= \int_{\mathcal{M}} \dd[D+1]{x} \varepsilon \left( \partial_\mu \left(\pdv{\mathcal{L}}{\bigl(\partial_\mu\varphi_a(x)\bigr)}\right) h_a (x) + \pdv{\mathcal{L}}{\bigl(\partial_\mu \varphi_a(x)\bigr)} \partial_\mu \bigl(h_a(x)\bigr) \right) \\
+    &= \int_{\mathcal{M}} \dd[D+1]{x} \varepsilon \partial_\mu \left(\pdv{\mathcal{L}}{\bigl(\partial_\mu\varphi_a(x)\bigr)} h_a (x)\right)
+\end{align}
+が成り立つ．i.e. \textbf{Noetherカレント}を $\dim \mathcal{M}$ 個の $X^\mu|_{\partial \mathcal{M}} = 0$ を充たす $C^\infty$ 関数 $X^\mu$ を用いて
+\begin{align}
+    j^\mu(x) \coloneqq \pdv{\mathcal{L}}{\bigl(\partial_\mu\varphi_a(x)\bigr)} h_a (x) - X^\mu(x)
+\end{align}
+で定義すると，これが保存則
+\begin{align}
+    \label{eq:conservation-Noether}
+    \partial_\mu j^\mu(x) = 0
+\end{align}
+を充たすことが分かった．このように，on shellな対称性変換が存在するとそれに対応して保存則\eqref{eq:conservation-Noether}を充たすカレントが存在する（\textbf{Noetherの定理}）．
+
+ここで，$\mathcal{M} = \Sigma \times \mathbb{R}$ と書ける場合を考える．
+このとき\textbf{Noetherチャージ}を
+\begin{align}
+    Q(t) \coloneqq \int_\Sigma \dd[D]{x} j^0(t,\, \bm{x})
+\end{align}
+と定義すると，保存則\eqref{eq:conservation-Noether}から
+$\partial \Sigma = \emptyset$ または $j^\mu|_{\partial\Sigma} = 0$ を要請すれば
+\begin{align}
+    \dv{Q(t)}{t} = - \int_{\Sigma} \dd[D]{x} \partial_i j^i(t,\, \bm{x}) = 0
+\end{align}
+となって時間に依存しないことがわかる．
+さらに，$\pi^b(x) \coloneqq \pdv{\mathcal{L}}{(\partial_0 \varphi_b(x))}$ とおくと
+\begin{align}
+    Q = \int_\Sigma \dd[D]{x} \bigl( \pi^a(x) h_a(x) - X^\mu(x) \bigr) 
+\end{align}
+であるから，
+Poisson括弧が
+\begin{align}
+    \bigl\{\varphi_a(x),\, Q\bigr\}_{\mathrm{P}}
+    &= \int_{\mathcal{M}} \dd[D+1]{y} \left(\pdv{\varphi_a(x)}{\varphi_b(y)} \pdv{Q}{\pi^b(y)} - \pdv{\varphi_a(x)}{\pi^b(y)} \pdv{Q}{\varphi_b(y)}\right) \\
+    &= \int_{\mathcal{M}} \dd[D+1]{y} \left(\delta_a^b \delta^{D+1}(x-y) \int_\Sigma \dd[D]{z} \delta_b^c \delta^D(z-y) h_c(z) - 0 \right) \\
+    &= h_a(x)
+\end{align}
+と求まる．つまり，\underline{$Q$ はon shellな対称性変換 $\mathcal{T}_{\varepsilon h}$ の無限小生成子}\footnote{Hamiltonフローの意味である}である．
+従って，正準量子化を行うと
+\begin{align}
+    \label{eq:generator-Q}
+    \comm{-\iunit\hat{Q}}{\hat{\varphi}_a(x)} = h_a(x)
+\end{align}
+となる．
 % \section{フュージョンと $V(\Sigma)$ の次元}
 
 % \subsection{粒子とフュージョン-可換な場合}

@@ -26,30 +26,32 @@
 \contentsline {subsection}{\numberline {2.3.2}Chern-Simons作用}{18}{subsection.2.3.2}%
 \contentsline {section}{\numberline {2.4}古典的ゲージ理論の数学}{18}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}主束と内部対称性の定式化}{19}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Lie群の指数写像と基本ベクトル場}{29}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.4.3}主束の接続}{39}{subsection.2.4.3}%
-\contentsline {subsection}{\numberline {2.4.4}同伴ベクトル束上の共変微分とゲージ場の定義}{44}{subsection.2.4.4}%
-\contentsline {subsection}{\numberline {2.4.5}局所接続形式}{54}{subsection.2.4.5}%
-\contentsline {subsection}{\numberline {2.4.6}水平持ち上げ}{59}{subsection.2.4.6}%
-\contentsline {section}{\numberline {2.5}特性類とChern-Simons形式}{59}{section.2.5}%
-\contentsline {chapter}{\numberline {第3章}位相的場の理論}{60}{chapter.3}%
-\contentsline {section}{\numberline {3.1}モノイダル圏}{60}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}モノイダル圏の定義}{60}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}組紐付きモノイダル圏}{62}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}閉圏・コンパクト圏・ダガー圏}{63}{subsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.1.4}モノイダル関手}{66}{subsection.3.1.4}%
-\contentsline {section}{\numberline {3.2}TQFTの定義}{67}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Atiyahの公理系}{67}{subsection.3.2.1}%
-\contentsline {chapter}{\numberline {付録A}結び目理論入門}{70}{appendix.A}%
-\contentsline {chapter}{\numberline {付録B}ベクトル場の話}{71}{appendix.B}%
-\contentsline {section}{\numberline {B.1}接束}{73}{section.B.1}%
-\contentsline {section}{\numberline {B.2}ベクトル場の定義}{74}{section.B.2}%
-\contentsline {subsection}{\numberline {B.2.1}$C^\infty $ 関数の微分としてのベクトル場}{76}{subsection.B.2.1}%
-\contentsline {subsection}{\numberline {B.2.2}ベクトル場と $C^\infty $ 写像}{78}{subsection.B.2.2}%
-\contentsline {subsection}{\numberline {B.2.3}Lieブラケット}{80}{subsection.B.2.3}%
-\contentsline {section}{\numberline {B.3}積分曲線とフロー}{81}{section.B.3}%
-\contentsline {subsection}{\numberline {B.3.1}積分曲線}{81}{subsection.B.3.1}%
-\contentsline {subsection}{\numberline {B.3.2}フロー}{85}{subsection.B.3.2}%
-\contentsline {subsection}{\numberline {B.3.3}完備なベクトル場}{91}{subsection.B.3.3}%
-\contentsline {section}{\numberline {B.4}Lie微分}{92}{section.B.4}%
-\contentsline {chapter}{参考文献}{96}{appendix*.7}%
+\contentsline {subsection}{\numberline {2.4.2}Lie群の指数写像と基本ベクトル場}{30}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}主束の接続}{40}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.4}同伴ベクトル束上の共変微分とゲージ場の定義}{45}{subsection.2.4.4}%
+\contentsline {subsection}{\numberline {2.4.5}局所接続形式}{55}{subsection.2.4.5}%
+\contentsline {subsection}{\numberline {2.4.6}水平持ち上げ}{60}{subsection.2.4.6}%
+\contentsline {section}{\numberline {2.5}特性類とChern-Simons形式}{60}{section.2.5}%
+\contentsline {chapter}{\numberline {第3章}位相的場の理論}{61}{chapter.3}%
+\contentsline {section}{\numberline {3.1}モノイダル圏}{61}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}モノイダル圏の定義}{61}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}組紐付きモノイダル圏}{63}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}閉圏・コンパクト圏・ダガー圏}{64}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}モノイダル関手}{67}{subsection.3.1.4}%
+\contentsline {section}{\numberline {3.2}TQFTの定義}{68}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Atiyahの公理系}{68}{subsection.3.2.1}%
+\contentsline {section}{\numberline {3.3}一般化対称性}{70}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}通常の対称性}{71}{subsection.3.3.1}%
+\contentsline {chapter}{\numberline {付録A}結び目理論入門}{74}{appendix.A}%
+\contentsline {chapter}{\numberline {付録B}ベクトル場の話}{75}{appendix.B}%
+\contentsline {section}{\numberline {B.1}接束}{77}{section.B.1}%
+\contentsline {section}{\numberline {B.2}ベクトル場の定義}{78}{section.B.2}%
+\contentsline {subsection}{\numberline {B.2.1}$C^\infty $ 関数の微分としてのベクトル場}{80}{subsection.B.2.1}%
+\contentsline {subsection}{\numberline {B.2.2}ベクトル場と $C^\infty $ 写像}{82}{subsection.B.2.2}%
+\contentsline {subsection}{\numberline {B.2.3}Lieブラケット}{84}{subsection.B.2.3}%
+\contentsline {section}{\numberline {B.3}積分曲線とフロー}{85}{section.B.3}%
+\contentsline {subsection}{\numberline {B.3.1}積分曲線}{85}{subsection.B.3.1}%
+\contentsline {subsection}{\numberline {B.3.2}フロー}{89}{subsection.B.3.2}%
+\contentsline {subsection}{\numberline {B.3.3}完備なベクトル場}{95}{subsection.B.3.3}%
+\contentsline {section}{\numberline {B.4}Lie微分}{96}{section.B.4}%
+\contentsline {chapter}{参考文献}{100}{appendix*.7}%

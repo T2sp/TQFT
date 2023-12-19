@@ -473,28 +473,35 @@ $\irm{x}{i},\, \irm{x}{f}$ の両方を含む $\mathcal{M}$ のチャート $\bi
 	\item $\varphi_\lambda$ を\textbf{局所自明化} (local trivialization)
 	\item $t_{\alpha\beta}$ を\textbf{変換関数} (transition map)
 \end{itemize}
-と呼ぶ\footnote{紛らわしくないとき，ファイバー束 $(E,\, \pi,\, B,\, F)$ のことを $\pi \colon E \to B$ ，または単に $E$ と略記することがある．}．また，射影 $\pi$ による1点集合 $\{b\}$ の逆像 $\pi^{-1}(\{b\}) \subset E$ のことを\textbf{点} $\bm{b}$ \textbf{のファイバー} (fiber) と呼び，$F|_b$ と書く．\label{def:point-fiber}
+と呼ぶ\footnote{紛らわしくないとき，ファイバー束 $(E,\, \pi,\, B,\, F)$ のことを $\pi \colon E \to B$ ，または単に $E$ と略記することがある．}．また，射影 $\pi$ による1点集合 $\{b\}$ の逆像 $\pi^{-1}(\{b\}) \subset E$ のことを\textbf{点} $\bm{b}$ \textbf{のファイバー} (fiber) と呼び，$E_b$ と書く．\label{def:point-fiber}
 
 \begin{mydef}[label=def:vect]{ベクトル束}
-    ファイバーを $n$ 次元 $\mathbb{K}$-ベクトル空間とし，構造群を $\gGL{n}{\mathbb{K}}$ とするようなファイバー束のことを\textbf{階数 $\bm{n}$ のベクトル束} (vector bundle of rank $n$) と呼ぶ．
+    ファイバーを $n$ 次元 $\mathbb{K}$-ベクトル空間 $V$ とし，構造群を $\gGL{n}{\mathbb{K}}$ とするような\hyperref[def.fiber-1]{ファイバー束} $V \hookrightarrow E \xrightarrow{\pi} M$ であって，
+    その局所自明化 $\Familyset[\big]{\varphi_\lambda \colon \pi^{-1}(U_\lambda) \lto U_\lambda \times V}{\lambda \in \Lambda}$ が以下の条件を充たすもののことを\textbf{階数 $\bm{n}$ のベクトル束} (vector bundle of rank $n$) と呼ぶ：
+    \begin{description}
+        \item[\textbf{(vect-1)}]　
+        
+        $\forall \lambda \in \Lambda$ および $\forall x \in U_\lambda$ に対して，$\mathrm{proj}_2 \circ \varphi_\alpha|_{\pi^{-1}(\{x\})} \colon \pi^{-1}(\{x\}) \lto V$ は $\mathbb{K}$-ベクトル空間の同型写像である．
+    \end{description}
+    
 \end{mydef}
 
 \begin{myexample}[label=ex:tangentbundle]{接束}
-    $n$ 次元\cinfty 多様体 $M$ の\hyperref[def:tangentbundle]{接束}は，ベクトル束
-    $(TM,\, \pi,\, M,\, \mathbb{R}^n)$ である．
+    $n$ 次元\cinfty 多様体 $M$ の\hyperref[def:tangentbundle]{接束}は，構造群を $\LGL(n,\, \mathbb{R})$ とするベクトル束
+    $\mathbb{R}^n \hookrightarrow TM \xrightarrow{\pi} M$ である．
     実際，$M$ のチャート $\bigl( U_\lambda,\, (x^\mu) \bigr)$ に対して局所自明化は
     \begin{align}
         \varphi_\lambda \colon \pi^{-1} (U_\lambda) \lto U_\lambda \times \mathbb{R}^n,\; \left(p,\, v^\mu \eval{\pdv{}{x^\mu}}_p \right) \lmto \bigl(p,\, \mqty[v^1 \\ \vdots \\ v^n] \bigr)
     \end{align}
     となり，チャート $\bigl( U_\alpha,\, (x^\mu) \bigr),\, \bigl( U_\beta,\, (y^\mu) \bigr)$ に対して
     \begin{align}
-        \varphi_\beta^{-1} \bigl( p,\, (v^1,\, \dots,\, v^n) \bigr) = \varphi_\alpha^{-1} \bigl( p,\, \mqty[\pdv{y^1}{x^1}()(p) &\cdots &\pdv{y^1}{x^n}()(p) \\ \vdots &\ddots &\vdots \\ \pdv{y^n}{x^1}()(p) &\cdots &\pdv{y^n}{x^n}()(p)]\mqty[v^1 \\ \vdots \\ v^n] \bigr) 
+        \varphi_\beta^{-1} \bigl( p,\, (v^1,\, \dots,\, v^n) \bigr) = \varphi_\alpha^{-1} \bigl( p,\, \mqty[\pdv{x^1}{y^1}()(p) &\cdots &\pdv{x^1}{y^n}()(p) \\ \vdots &\ddots &\vdots \\ \pdv{x^n}{y^1}()(p) &\cdots &\pdv{x^n}{y^n}()(p)]\mqty[v^1 \\ \vdots \\ v^n] \bigr) 
     \end{align}
     となる．故に変換関数は
     \begin{align}
-        t_{\alpha\beta} (p) \coloneqq \mqty[\pdv{y^1}{x^1}()(p) &\cdots &\pdv{y^1}{x^n}()(p) \\ \vdots &\ddots &\vdots \\ \pdv{y^n}{x^1}()(p) &\cdots &\pdv{y^n}{x^n}()(p)] \in \gGL{n}{\mathbb{R}}
+        t_{\alpha\beta} (p) \coloneqq \mqty[\pdv{x^1}{y^1}()(p) &\cdots &\pdv{x^1}{y^n}()(p) \\ \vdots &\ddots &\vdots \\ \pdv{x^n}{y^1}()(p) &\cdots &\pdv{x^n}{y^n}()(p)] \in \gGL{n}{\mathbb{R}}
     \end{align}
-    で，ファイバーへの構造群の左作用とはただ単に $n$ 次元の数ベクトルに行列を掛けることである．
+    で，ファイバーへの構造群の左作用とはただ単に $n$ 次元の数ベクトルに行列を左から掛けることである．
 \end{myexample}
 
 
@@ -759,55 +766,74 @@ $\xi = (E,\, \pi,\, B,\, F)$ を\hyperref[def.fiber-1]{ファイバー束}とす
 このようにして得られる主束をファイバー束 $F \hookrightarrow E \xrightarrow{\pi} M$ に\textbf{同伴する} (associated) 主束と呼ぶ．
 
 \begin{myexample}[label=def:framebundle]{フレーム束}
-    $\mathbb{K}^n \hookrightarrow E \xrightarrow{\pi} M$ を，変換関数 $\{t_{\alpha\beta}\colon M \lto \gGL{n}{\mathbb{K}}\}$ を持つ\hyperref[def:vect]{階数 $n$ のベクトル束}とする．
+    変換関数 $\{t_{\alpha\beta}\colon M \lto \gGL{N}{\mathbb{K}}\}$ を持つ\hyperref[def:vect]{階数 $N$ のベクトル束} $\mathbb{K}^N \hookrightarrow E \xrightarrow{\pi} M$ に同伴する主束は，例えば次のようにして構成できる：
     $\forall x \in M$ に対して
     \begin{align}
-        P_x \coloneqq \bigl\{\, f \in \Hom{}(\mathbb{K}^n,\, E_x) \bigm| \textbf{同型写像} \,\bigr\} 
+        P_x \coloneqq \bigl\{\, f \in \Hom{}(\mathbb{K}^N,\, E_x) \bigm| \text{同型写像} \,\bigr\} 
     \end{align}
     とし，
     \begin{align}
         P \coloneqq \coprod_{x \in M} P_x, \quad
-        \pi \colon P \lto M,\; (x,\, f) \lmto x
+        \varpi \colon P \lto M,\; (x,\, f) \lmto x
     \end{align}
-    と定める．$\gGL{n}{\mathbb{K}} \hookrightarrow P \xrightarrow{\pi} M$ に適切な局所自明化を入れて，変換関数が $\{t_{\alpha\beta}\colon M \lto \gGL{n}{\mathbb{K}}\}$ になるような主束を構成してみよう．
+    と定める．$\gGL{N}{\mathbb{K}} \hookrightarrow P \xrightarrow{\varpi} M$ に適切な局所自明化を入れて，変換関数が $\{t_{\alpha\beta}\colon M \lto \gGL{N}{\mathbb{K}}\}$ となるような主束を構成する．
 
-    　$\mathbb{K}^n$ の標準基底を $e_1,\, \dots,\, e_n$ とすると，
-    $\forall f \in P_x$ に対して $f$ は $E_x$ の基底 $f(e_1),\, \dots,\, f(e_n)$ と同一視される．実際，$\forall v = v^\mu e_\mu \in \mathbb{K}^n$ に対して
-    \begin{align}
-        f(v) = v^\mu f(e_\mu)
-    \end{align}
-    である．よって $f_\mu \coloneqq f(e_\mu)$ とおいて $f = (f_1,\, \dots,\, f_n) \in P_x$ と表すことにする．
+    　$\forall (x,\, f) \in P_x$ をとる． 
+    このとき $\mathbb{K}^N$ の標準基底を $e_1,\, \dots,\, e_N$ とすると，$f \in \Hom{}(\mathbb{K}^n,\, E_x)$ は $E_x$ の基底 $f(e_1),\, \dots,\, f(e_N)$ と同一視される
+    \footnote{実際 $\forall v = v^\mu e_\mu \in \mathbb{K}^n$ に対して $f(v) = v^\mu f(e_\mu)$ が成り立つので，$f(e_1),\, \dots,\, f(e_N) \in E_x$ が指定されれば $f$ が一意的に決まる．}
+    ことに注意しよう．
+    このことに由来して，$f_\mu \coloneqq f(e_\mu)$ とおいて $f = (f_1,\, \dots,\, f_N) \in P_x$ と表すことにする．
     % $\gGL{n}{\mathbb{K}}$ の右作用は基底の取り替えに相当する．
 
-    　$E$ の局所自明化 $\{\varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto U_\alpha \times \mathbb{K}^n \}$ を与える．このとき，$n$ 個の $U_\alpha$ 上の\hyperref[def.section]{局所切断} $s_1,\, \dots s_n \in \Gamma(E|_{U_\alpha})$ を
+    　$E$ の局所自明化 $\{\varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto U_\alpha \times \mathbb{K}^n \}$ を与える．このとき，$n$ 個の \underline{$E$ の}\hyperref[def.section]{局所切断} $s_\alpha{}_1,\, \dots s_\alpha{}_N \in \Gamma(E|_{U_\alpha})$ を
     \begin{align}
-        s_\mu(x) = \varphi_\alpha^{-1} (x,\, e_\mu)
+        s_\alpha{}_\mu(x) \coloneqq \varphi_\alpha^{-1} (x,\, e_\mu)
     \end{align}
-    と定義すると，$\forall x \in U_\alpha$ に対して $s_1(x),\, \dots ,\, s_n(x)$ が $E_x$ の基底となる\footnote{このような切断の組のことを\textbf{フレーム場}と呼ぶ．}．
-    故に，$n$ 個の $P$ の局所切断 $p_\alpha \in \Gamma(P|_{U_\alpha})$ を
+    と定義すると，$\forall x \in U_\alpha$ に対して $s_\alpha{}_1(x),\, \dots ,\, s_{\alpha}{}_N(x)$ が $E_x$ の基底となる
+    \footnote{\hyperref[def:vect]{ベクトル束の定義}から $\mathrm{proj}_2 \circ \varphi_\alpha|_{E_x} \colon E_x \lto \mathbb{K}^N$ が $\mathbb{K}$-ベクトル空間の同型写像であるため．}．
+    故に，\underline{$P$ の}局所切断 $p_\alpha \in \Gamma(P|_{U_\alpha})$ を
     \begin{align}
-        p_\alpha (x) \coloneqq \bigl( s_1(x),\, \dots,\, s_n(x) \bigr) \in P_x
+        p_\alpha (x) \coloneqq \Bigl(x,\, \bigl( s_\alpha{}_1(x),\, \dots,\, s_\alpha{}_N(x) \bigr)\Bigr) \in P_x
     \end{align}
     により定義できる．
-    このとき，$\forall (x,\, f) = \bigl(x,\, (f_1,\, \dots,\, f_n)\bigr) \in \pi^{-1}(U_\alpha)$ に対してある $g \in \gGL{n}{\mathbb{K}}$ が存在して $f = p_\alpha(x) g$ と書ける．ただし $g$ は基底の取り替え行列で，ただ単に右から行列の積として右から作用している．故に $P$ の局所自明化を
+    このとき，$\forall (x,\, f) = \bigl(x,\, (f_1,\, \dots,\, f_N)\bigr) \in \varpi^{-1}(U_\alpha)$ に対してある $g \in \gGL{N}{\mathbb{K}}$ が存在して $f = p_\alpha(x) g$ と書ける．ただし $g$ は基底の取り替え行列で，ただ単に行列の積として右から作用している．
+    
+    ここで，目当ての \underline{$P$ の}局所自明化を
     \begin{align}
-        \psi_\alpha \colon \pi^{-1}(U_\alpha) \lto U_\alpha \times \gGL{n}{\mathbb{K}},\; (x,\, f) = (x,\, p_\alpha (x) g)\lmto (x,\, g)
+        \psi_\alpha \colon \varpi^{-1}(U_\alpha) \lto U_\alpha \times \gGL{n}{\mathbb{K}},\; (x,\, f) = \bigl(x,\, p_\alpha (x) g\bigr)\lmto (x,\, g)
     \end{align}
-    と定義できる．変換関数を計算すると
+    と定義する．変換関数を計算すると
     \begin{align}
         \psi_\beta^{-1}(x,\, g) 
         &= \bigl(x,\, p_\beta (x) g\bigr) \\
-        &= \Bigl(x,\, \bigl(\varphi_\beta^{-1}(x,\, e_1),\, \dots,\, \varphi_\beta^{-1}(x,\, e_n)\bigr) g\Bigr) \\
-        &= \biggl(x,\, \Bigl(\varphi_\alpha^{-1}\bigl(x,\, t_{\alpha\beta}(x) e_1\bigr),\, \dots,\, \varphi_\beta^{-1}\bigl(x,\, t_{\alpha\beta}(x) e_n\bigr)\Bigr) g\biggr) \\
+        &= \Bigl(x,\, \bigl(s_\beta{}_1(x),\, \dots,\, s_\beta{}_N(x)\bigr) g\Bigr) \\
+        &= \Bigl(x,\, \bigl(\varphi_\beta^{-1}(x,\, e_1),\, \dots,\, \varphi_\beta^{-1}(x,\, e_N)\bigr) g\Bigr) \\
+        &= \biggl(x,\, \Bigl(\varphi_\alpha^{-1}\bigl(x,\, t_{\alpha\beta}(x) e_1\bigr),\, \dots,\, \varphi_\alpha^{-1}\bigl(x,\, t_{\alpha\beta}(x) e_N\bigr)\Bigr) g\biggr) 
+        % \\
+        % &= \biggl(x,\, \Bigl(\varphi_\alpha^{-1}\bigl(x,\, e_1\bigr),\, \dots,\, \varphi_\alpha^{-1}\bigl(x,\, e_N\bigr)\Bigr) t_{\alpha\beta}(x) g\biggr) \\
+        % &= \biggl(x,\, \bigl(s_\alpha{}_{1}(x),\, \dots,\, s_\alpha{}_N(x)\bigr) t_{\alpha\beta}(x)g\biggr) \\
+        % &= \bigl(x,\, p_{\alpha} (x) t_{\alpha\beta}(x) g\bigr) \\
+        % &= \psi_\alpha^{-1} (x,\, t_{\alpha\beta}(x) g)
+    \end{align}
+    となるが，$e_\mu$ が標準基底なので
+    \begin{align}
+        t_{\alpha\beta}(x) e_\mu = \mqty[t_{\alpha\beta}(x)^1{}_\mu \\ t_{\alpha\beta}(x)^2{}_\mu \\ \vdots \\ t_{\alpha\beta}(x)^n{}_\mu] = e_\nu t_{\alpha\beta}(x)^\nu{}_\mu
+    \end{align}
+    が成り立つこと，および\hyperref[def:vect]{ベクトル束の定義}から $\mathrm{proj}_2 \circ \varphi_\alpha|_{E_x} \colon E_x \lto \mathbb{K}^N$ が $\mathbb{K}$-ベクトル空間の同型写像であることに注意すると
+    \begin{align}
+        &\biggl(x,\, \Bigl(\varphi_\alpha^{-1}\bigl(x,\, t_{\alpha\beta}(x) e_1\bigr),\, \dots,\, \varphi_\alpha^{-1}\bigl(x,\, t_{\alpha\beta}(x) e_N\bigr)\Bigr) g\biggr) \\
+        &= \biggl(x,\, \Bigl(\varphi_\alpha^{-1}\bigl(x,\, e_\nu\bigr) t_{\alpha\beta}(x)^\nu{}_1,\, \dots,\, \varphi_\alpha^{-1}\bigl(x,\, e_\nu\bigr)t_{\alpha\beta}(x)^\nu{}_N\Bigr) g\biggr) \\
+        &= \biggl(x,\, \Bigl(\varphi_\alpha^{-1}\bigl(x,\, e_1\bigr) ,\, \dots,\, \varphi_\alpha^{-1}\bigl(x,\, e_N\bigr)\Bigr) t_{\alpha\beta}(x)g\biggr) \\
+        &= \biggl(x,\, \bigl(s_\alpha{}_{1}(x),\, \dots,\, s_\alpha{}_N(x)\bigr) t_{\alpha\beta}(x)g\biggr) \\
         &= \bigl(x,\, p_{\alpha} (x) t_{\alpha\beta}(x) g\bigr) \\
         &= \psi_\alpha^{-1} (x,\, t_{\alpha\beta}(x) g)
     \end{align}
-    となり，目標が達成された．この $\gGL{n}{\mathbb{K}} \hookrightarrow P \xrightarrow{\pi} M$ のことを\textbf{フレーム束}と呼ぶ．
+    だとわかり，目標が達成された．この $\gGL{N}{\mathbb{K}} \hookrightarrow P \xrightarrow{\pi} M$ のことを\textbf{フレーム束}と呼ぶ．
 \end{myexample}
 
 逆に，与えられた主束を素材にして，変換関数を共有するファイバー束を構成することができる．
 
-\begin{myprop}[label=prop:Borelconst]{Borel構成}
+\begin{myprop}[label=prop:Borelconst,breakable]{Borel構成}
     $G \hookrightarrow P \xrightarrow{\pi} M$ を\hyperref[def.PFD]{主束}とし，Lie群 $G$ の \cinfty 多様体への\hyperref[def:Lie-action]{左作用} $\btr \colon G \times F \lto F$ を与える．
     \eqref{def:ractionP}で定義された $G$ の \underline{$P$ への右作用}を $\btl \colon P \times G \lto P$ と書く．
     \begin{itemize}
