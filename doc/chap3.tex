@@ -804,7 +804,7 @@ $D+1$ 次元部分多様体 $\mathcal{M}^{(D+1)} \subset \mathbb{M}$ であっ�
     \begin{align}
         \mathrm{Link}(S,\, C) = \int_{\mathcal{M}} \delta(C) \wedge \delta(V) = 1
     \end{align}
-    となるように $S,\, V,\, C = \partial V$ をとる．
+    となるように $C,\, V,\, S = \partial V$ をとる．
     ゲージ場の変換
     \begin{align}
         \mathcal{T} \colon a \lmto a + \theta \delta(V)
@@ -821,9 +821,9 @@ $D+1$ 次元部分多様体 $\mathcal{M}^{(D+1)} \subset \mathbb{M}$ であっ�
     \begin{align}
         W(C) 
         & \lmto \exp \left( \iunit \int_C (a + \theta \delta(V)) \right)  \\
-        & \lmto \exp \left( \iunit \int_C a + \iunit \theta \int_{\mathcal{M}}\delta(V) \wedge \delta(C) \right) \\
-        & \lmto \exp \left( \iunit \int_C a - \iunit \theta\, \Link(S,\, C) \right) \\
-        & \lmto e^{-\iunit \theta} \exp \left( \iunit \int_C a \right)
+        &= \exp \left( \iunit \int_C a + \iunit \theta \int_{\mathcal{M}}\delta(V) \wedge \delta(C) \right) \\
+        &= \exp \left( \iunit \int_C a - \iunit \theta\, \Link(S,\, C) \right) \\
+        &= e^{-\iunit \theta} \exp \left( \iunit \int_C a \right)
     \end{align}
     と変換するので\footnote{トポロジカル演算子を $\exp \left[\iunit \theta \left(\int_{S} \frac{\star f}{e^2} - \frac{\theta^2}{2e^2} \int_S \delta(S)\right)\right]$ と再定義した．}，
     \begin{align}

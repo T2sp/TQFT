@@ -54,13 +54,13 @@ M.~F. Atiyah,
 \newblock 高次対称性入門, 2022,
 \newblock Available at \url{https://ribf.riken.jp/~hidaka/yh/slide/hidaka_higher_form.pdf}.
 
+\bibitem{GaiottoKapustinSeibergWillett2015}
+D.~{Gaiotto}, A.~{Kapustin}, N.~{Seiberg}, and B.~{Willett},
+\newblock Journal of High Energy Physics {\bf 2015}, 172 (2015), \href{http://arxiv.org/abs/1412.5148}{[1412.5148]}.
+
 \bibitem{Nicolaescu2022lecture}
 L.~I. Nicolaescu,
 \newblock Lectures on the geometry of manifolds, 2022,
 \newblock Available at \url{https://www3.nd.edu/~lnicolae/Lectures.pdf}.
-
-\bibitem{GaiottoKapustinSeibergWillett2015}
-D.~{Gaiotto}, A.~{Kapustin}, N.~{Seiberg}, and B.~{Willett},
-\newblock Journal of High Energy Physics {\bf 2015}, 172 (2015), \href{http://arxiv.org/abs/1412.5148}{[1412.5148]}.
 
 \end{thebibliography}
