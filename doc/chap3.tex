@@ -485,29 +485,40 @@ $\mathcal{M}$ に計量 $g_{\mu\nu}$ が与えられたとき，\textbf{音楽�
 \end{align}
 と定義する．
 
-$\mathcal{M}$ の $p$ 次元部分多様体\footnote{コンパクトかつ向き付け可能だとしておけば問題が起こりにくい．} $N \subset \mathcal{M}$ 上で $p$-形式 $\omega \in \Omega^p(\mathcal{M})$ を積分する場合，包含写像 $\iota \colon N \hookrightarrow \mathcal{M}$ による引き戻し $\iota^* \colon \Omega^p(\mathcal{M}) \lto \Omega^p(N)$ を用いて
+$\mathcal{M}$ の $p$ 次元部分多様体\footnote{コンパクトかつ向き付け可能だとしておけば問題が起こりにくい．} $\mathcal{N} \subset \mathcal{M}$ 上で $p$-形式 $\omega \in \Omega^p(\mathcal{M})$ を積分する場合，包含写像 $\iota \colon \mathcal{N} \hookrightarrow \mathcal{M}$ による引き戻し $\iota^* \colon \Omega^p(\mathcal{M}) \lto \Omega^p(\mathcal{N})$ を用いて
 \begin{align}
-    \int_{N} \omega \coloneqq \int_N \iota^*\omega
+    \int_{\mathcal{N}} \omega \coloneqq \int_\mathcal{N} \iota^*\omega
 \end{align}
 と定義する．このとき，Poincar\"{e}双対を考えることで
 \begin{align}
-    \int_N \omega = \int_{\mathcal{M}} \omega \wedge \delta(N)
+    \int_{\mathcal{N}} \omega = \int_{\mathcal{M}} \omega \wedge \delta(\mathcal{N})
 \end{align}
-を充たす $\delta(N) \in \Omega^{D+1-p}(\mathcal{M})$ （\textbf{デルタ関数 $p$-形式}と呼ぶ）の存在がわかる\footnote{厳密な扱いは~\cite[p.270]{Nicolaescu2022lecture}を参照．ここでは雑に扱う．}．
-Stokesの定理から
+を充たす $\delta(\mathcal{N}) \in \Omega^{D+1-p}(\mathcal{M})$ （\textbf{デルタ関数 $p$-形式}と呼ぶ）の存在がわかる\footnote{厳密な扱いは~\cite[p.270]{Nicolaescu2022lecture}を参照．ここでは雑に扱う．}．
+さて，$\mathcal{N} = \partial \mathcal{M}^{(p+1)}$ の場合を考える．
+$\forall \omega \in \Omega^p (\mathcal{M})$ に対してStokesの定理から
 \begin{align}
-    \int_{\mathcal{M}} \omega \wedge \delta(\partial N) 
-    &= \int_{\partial N} \omega 
-    = \int_{N} \dd{\omega} 
-    = \int_\mathcal{M} \dd{\omega} \wedge \delta(N) \\
-    &= \int_{\mathcal{M}} \dd \bigl( \omega \wedge \delta(N) \bigr) + (-1)^{p+1} \int_{\mathcal{M}} \omega \wedge \dd(\delta(N)) \\
-    &= (-1)^{p+1} \int_{\mathcal{M}} \omega \wedge \dd (\delta(N))
+    \int_{\mathcal{M}} \omega \wedge \delta(\partial \mathcal{M}^{(p+1)}) 
+    &= \int_{\partial \mathcal{M}^{(p+1)}} \omega 
+    = \int_{\mathcal{M}^{(p+1)}} \dd{\omega} 
+    = \int_\mathcal{M} \dd{\omega} \wedge \delta(\mathcal{M}^{(p+1)}) \\
+    &= \int_{\mathcal{M}} \dd \bigl( \omega \wedge \delta(\mathcal{M}^{(p+1)}) \bigr) + (-1)^{p+1} \int_{\mathcal{M}} \omega \wedge \dd(\delta(\mathcal{M}^{(p+1)})) \\
+    &= (-1)^{p+1} \int_{\mathcal{M}} \omega \wedge \dd (\delta(\mathcal{M}^{(p+1)}))
 \end{align}
 がわかるので，
 \begin{align}
-    \dd{\delta(N)} = (-1)^{p+1} \delta(\partial N)
+    \label{eq:def-Intersection}
+    \dd{\delta(\mathcal{M}^{(p+1)})} = (-1)^{p+1} \delta(\partial \mathcal{M}^{(p+1)})
 \end{align}
-が成り立つ．
+が成り立つ．$p$ 次元部分多様体 $\mathcal{M}^{(p)}$ と $D+1-p$ 次元部分多様体 $\mathcal{M}^{(D+1-p)}$ に対して，これらの向きを考慮した\textbf{交点数}を
+\begin{align}
+    \mathrm{I} (\mathcal{M}^{(p)},\, \mathcal{M}^{(D+1-p)}) \coloneqq \int_{\mathcal{M}} \delta(\mathcal{M}^{(p)}) \wedge \delta(\mathcal{M}^{(D+1-p)})
+\end{align}
+で定義する．$\mathcal{C}^{(p-1)} = \partial\mathcal{M}^{(p)}$ を充たす $\mathcal{C}^{(p-1)}$ と $\mathcal{M}^{(D+1-p)}$ の\textbf{絡み数}は
+\begin{align}
+    \label{eq:def-Link}
+    \Link (\mathcal{C}^{(p-1)},\, \mathcal{M}^{(p)}) \coloneqq \mathrm{I} (\mathcal{M}^{(p)},\, \mathcal{M}^{(D+1-p)})
+\end{align}
+と定義される．
 
 \subsection{通常の対称性}
 
@@ -768,7 +779,7 @@ $D+1$ 次元部分多様体 $\mathcal{M}^{(D+1)} \subset \mathbb{M}$ であっ�
         \dd \star f &= 0, \\
         \dd f &= 0
     \end{align}
-    が言える（Maxwell方程式）．これをカレントの保存則と見做して，任意の $3-1 = 2$ 次元部分多様体 $\mathcal{M}^{(2)} \subset \mathcal{M}$ 上のトポロジカル演算子を
+    が言える（Maxwell方程式）．これをカレントの保存則と見做して，任意の $3-1 = 2$ 次元\underline{閉}部分多様体 $\mathcal{M}^{(2)} \subset \mathcal{M}$ 上のトポロジカル演算子を
     \begin{align}
         \uirm{U}{E}{}_{e^{\iunit\theta}} (\mathcal{M}^{(2)}) &\coloneqq \exp \left( \iunit \theta \int_{\mathcal{M}^{(2)}} \frac{\star f}{e^2} \right) \\
         \uirm{U}{M}{}_{e^{\iunit\theta}} (\mathcal{M}^{(2)}) &\coloneqq \exp \left( \iunit \theta \int_{\mathcal{M}^{(2)}} \frac{f}{2\pi} \right)
@@ -779,11 +790,11 @@ $D+1$ 次元部分多様体 $\mathcal{M}^{(D+1)} \subset \mathbb{M}$ であっ�
     \end{align}
     である．このことを示そう．
 
-    　簡単のため $S \coloneqq \mathcal{M}^{(2)},\, C \coloneqq \mathcal{C}^{(1)}$ と略記する．今，絡み数が
+    　簡単のため $S \coloneqq \mathcal{M}^{(2)},\, C \coloneqq \mathcal{C}^{(1)}$ と略記する．今，\hyperref[eq:def-Link]{絡み数}が
     \begin{align}
         \mathrm{Link}(S,\, C) = \int_{\mathcal{M}} \delta(C) \wedge \delta(V) = 1
     \end{align}
-    となるように $S,\, C$ をとる．ただし $C \cap V$ が一点集合で，かつ $\partial V = S$ を充たすような $3$ 次元部分多様体 $V \subset \mathcal{M}$ をとった．
+    となるように $S,\, V,\, C = \partial V$ をとる．
     ゲージ場の変換
     \begin{align}
         \mathcal{T} \colon a \lmto a + \theta \delta(V)
@@ -801,7 +812,7 @@ $D+1$ 次元部分多様体 $\mathcal{M}^{(D+1)} \subset \mathbb{M}$ であっ�
         W(C) 
         & \lmto \exp \left( \iunit \int_C (a + \theta \delta(V)) \right)  \\
         & \lmto \exp \left( \iunit \int_C a + \iunit \theta \int_{\mathcal{M}}\delta(V) \wedge \delta(C) \right) \\
-        & \lmto \exp \left( \iunit \int_C a - \iunit \theta \mathrm{Link}(S,\, C) \right) \\
+        & \lmto \exp \left( \iunit \int_C a - \iunit \theta\, \Link(S,\, C) \right) \\
         & \lmto e^{-\iunit \theta} \exp \left( \iunit \int_C a \right)
     \end{align}
     と変換するので\footnote{トポロジカル演算子を $\exp \left[\iunit \theta \left(\int_{S} \frac{\star f}{e^2} - \frac{\theta^2}{2e^2} \int_S \delta(S)\right)\right]$ と再定義した．}，
@@ -815,6 +826,21 @@ $D+1$ 次元部分多様体 $\mathcal{M}^{(D+1)} \subset \mathbb{M}$ であっ�
     \end{align}
     が分かった．
 
+    　トポロジカル演算子を2次元閉部分多様体上で定義したが，境界を持つ場合，i.e. $C \coloneqq \partial \mathcal{M}^{(2)}_C \neq \emptyset$ の場合はどうなるのか．
+    \begin{align}
+        H_\theta(\mathcal{M}^{(2)}_C) \coloneqq \exp \left( \iunit \theta \int_{\mathcal{M}^{(2)}_C} \frac{\star f}{e^2} \right)
+    \end{align}
+    を考える．境界を共有するもう1つの2次元部分多様体 $\mathcal{N}^{(2)}_C$ を持ってくると
+    \begin{align}
+        H_\theta(\mathcal{M}^{(2)}_C)H_\theta(\mathcal{N}^{(2)}_C)^{-1} = \exp \left( \iunit \theta \oint_{\mathcal{M}^{(2)}_C \cup_C \bigl(- \mathcal{N}^{(2)}_C\bigr)} \frac{\star f}{e^2} \right)
+    \end{align}
+    これは $\theta \in 2\pi \mathbb{Z}$ のとき $C$ にしかよらない．このことから，$\uirm{U}{M}{}_{e^{\iunit \eta}}(\mathcal{M}^{(2)}_C)$ が作用する荷電物体（\textbf{'t Hooft ループ}）を
+    Hodge dualなゲージ場 $\dd{b} \coloneqq \frac{2\pi}{e^2} \star f$ によって
+    \begin{align}
+        H_n (C) \coloneqq \exp \left( \iunit n \int_C b \right) 
+    \end{align}
+    と定義できる．
+    
 \end{myexample}
 
 

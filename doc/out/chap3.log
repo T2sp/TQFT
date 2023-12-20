@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.29)  20 DEC 2023 04:44
+This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.29)  20 DEC 2023 10:17
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/chap3.tex
@@ -1481,21 +1481,21 @@ File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 LaTeX Warning: Citation `Nicolaescu2022lecture' on page 11 undefined on input line 496.
 
 
-LaTeX Warning: Hyper reference `def:vect' on page 11 undefined on input line 514.
+LaTeX Warning: Hyper reference `def:vect' on page 11 undefined on input line 525.
 
 
-LaTeX Warning: Hyper reference `def.section' on page 11 undefined on input line 514.
+LaTeX Warning: Hyper reference `def.section' on page 11 undefined on input line 525.
 
 [11] [12]
 
-LaTeX Warning: Citation `GaiottoKapustinSeibergWillett2015' on page 13 undefined on input line 649.
+LaTeX Warning: Citation `GaiottoKapustinSeibergWillett2015' on page 13 undefined on input line 660.
 
 [13] [14] [15]
 
-LaTeX Warning: Citation `GaiottoKapustinSeibergWillett2015' on page 16 undefined on input line 732.
+LaTeX Warning: Citation `GaiottoKapustinSeibergWillett2015' on page 16 undefined on input line 743.
 
 
-LaTeX Warning: Hyper reference `thm:local-connection' on page 16 undefined on input line 754.
+LaTeX Warning: Hyper reference `thm:local-connection' on page 16 undefined on input line 765.
 
 [16] [17] [18] (./out/chap3.aux)
 
@@ -1506,19 +1506,19 @@ Package rerunfilecheck Info: File `chap3.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 54513 strings out of 478285
- 195705,1977958 words of node,token memory allocated
- 4953 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 14 glue, 4 kern, 2 sub_mlist, 1 glyph, 1921 attribute, 62 glue_spec, 187 attribute_list, 2 write, 14 user_defined, 1 pdf_action nodes
-   avail lists: 1:41,2:55273,3:1470,4:1144,5:509,6:58,7:5123,8:74,9:2436,10:20,11:62
- 72658 multiletter control sequences out of 65536+600000
+ 54515 strings out of 478285
+ 244633,1977958 words of node,token memory allocated
+ 5025 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 14 glue, 4 kern, 2 sub_mlist, 1 glyph, 1954 attribute, 62 glue_spec, 190 attribute_list, 2 write, 14 user_defined, 1 pdf_action nodes
+   avail lists: 1:42,2:62622,3:1470,4:1144,5:600,6:59,7:5794,8:74,9:2796,10:20,11:62
+ 72660 multiletter control sequences out of 65536+600000
  107 fonts using 70882143 bytes
  138i,22n,144p,1816b,1423s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmmono8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on chap3.pdf (18 pages, 474942 bytes).
+Output written on chap3.pdf (18 pages, 481928 bytes).
 
-PDF statistics: 454 PDF objects out of 1000 (max. 8388607)
- 366 compressed objects within 4 object streams
+PDF statistics: 456 PDF objects out of 1000 (max. 8388607)
+ 368 compressed objects within 4 object streams
  89 named destinations out of 1000 (max. 131072)
  48 words of extra memory for PDF output out of 10000 (max. 100000000)
 
