@@ -344,46 +344,45 @@ $\mathbb{R}^n$ における逆関数定理から始める．まず距離空間�
 \end{mytheo}    
 
 \begin{proof}
-    $\forall p \in M$ を1つ固定する．以降では $p$ を含む $M$ の任意の $C^\infty$ チャート $(U,\, \varphi) = \bigl( U,\, (x^\mu) \bigr) $ および $F(p)$ を含む $N$ の任意の $C^\infty$ チャート $(V,\, \psi) = \bigl( V,\, (y'{}^\mu) \bigr) $ に対して
+    $\forall p \in M$ を1つ固定する．以降では $p$ を含む $M$ の任意の $C^\infty$ チャート $(U,\, \varphi) = \bigl( U,\, (x^\mu) \bigr) $ および $F(p)$ を含む $N$ の任意の $C^\infty$ チャート $(V,\, \psi) = \bigl( V,\, (x'{}^\mu) \bigr) $ に対して
     \begin{align}
         \widehat{U} &\coloneqq \varphi(U) \subset \mathbb{R}^{\dim M}, \\
         \widehat{V} &\coloneqq \psi(V) \subset \mathbb{R}^{\dim N}, \\
         \widehat{F} &\coloneqq \psi \circ F \circ \varphi^{-1} \colon \widehat{U} \lto \widehat{V}, \\
         \widehat{p} &\coloneqq \varphi(p) \in \widehat{U}
     \end{align}
-    とおく．
+    とおく．便宜上 $C^\infty$ チャート $\bigl(U,\, (x^\mu)\bigr),\, \bigl(V,\, (x'{}^\mu)\bigr)$ の座標関数をそれぞれ
+    \begin{align}
+        &(x,\, y) = (x^1,\, \dots,\, x^{\rank F},\, y^1,\, \dots,\, y^{\dim M - \rank F})
+        \coloneqq (x^1,\, \dots,\, x^{\dim M})  \\
+        % \colon U \lto \widehat{U} \subset \mathbb{R}^{\rank F} \times \mathbb{R}^{\dim M - \rank F} \\
+        &(v,\, w) = (v^1,\, \dots,\, v^{\rank F},\, w^1,\, \dots,\, w^{\dim N - \rank F})
+        \coloneqq (x'{}^1,\, \dots,\, x'{}^{\dim N}) 
+        % \colon V \lto \widehat{V} \subset \mathbb{R}^{\rank F} \times \mathbb{R}^{\dim N - \rank F}
+    \end{align}
+    とおき直す．また，2つの $C^\infty$ 写像を
+    \begin{align}
+        Q \colon \widehat{U} &\lto \mathbb{R}^{\rank F},\; (x,\, y) \lmto \bigl( \widehat{F}^1(x,\, y),\, \dots,\, \widehat{F}^{\rank F} (x,\, y) \bigr) \\
+        R \colon \widehat{U} &\lto \mathbb{R}^{\dim N - \rank F},\; (x,\, y) \lmto \bigl( \widehat{F}^{\rank F + 1}(x,\, y),\, \dots,\, \widehat{F}^{\dim N} (x,\, y) \bigr)
+    \end{align}
+    と定義する．このとき $\widehat{F} = (Q,\, R)$ と書ける．
     
-    仮定より $F$ は\hyperref[def:rank-smooth]{定ランク}なので，点 $\widehat{p} \in \widehat{U}$ において線型写像 $T_{\widehat{p}} \widehat{F} \colon T_{\widehat{p}} \widehat{U} \lto T_{\widehat{F} (\widehat{p})} \widehat{V}$ の表現行列のランクは $\rank F$ である．従って $T_{\widehat{p}} \widehat{U},\, T_{\widehat{F} (\widehat{p})} \widehat{V}$ の自然基底の順番を入れ替える，i.e. 局所座標の順番を入れ替える\footnote{座標を入れ替える写像は微分同相写像なので，$M,\, N$ の $C^\infty$ 構造の中には座標の入れ替えによって互いに移り合えるような $C^\infty$ チャートたちが含まれている．}ことで $T_{\widehat{p}} \widehat{F}$ の表現行列（これは $C^\infty$ 関数 $\widehat{F}$ の\hyperref[thm:inverse-function-Rn]{Jacobi行列} $D \widehat{F} (\widehat{p})$ である）の $\rank F$ 次首座小行列が正則になるように，i.e.
+    仮定より $F$ は\hyperref[def:rank-smooth]{定ランク}なので，点 $\widehat{p} \in \widehat{U}$ において線型写像 $T_{\widehat{p}} \widehat{F} \colon T_{\widehat{p}} \widehat{U} \lto T_{\widehat{F} (\widehat{p})} \widehat{V}$ の表現行列のランクは $\rank F$ である．
+    必要ならば $M,\, N$ の $C^\infty$ チャートを取り替えることで座標関数の順番を好きなように入れ替えることができる
+    \footnote{座標を入れ替える写像は微分同相写像なので，$M,\, N$ の $C^\infty$ 構造の中には座標の入れ替えによって互いに移り合えるような $C^\infty$ チャートたちが含まれている．}
+    ので，
+    $T_{\widehat{p}} \widehat{F}$ の表現行列\footnote{これは $C^\infty$ 関数 $\widehat{F}$ の\hyperref[thm:inverse-function-Rn]{Jacobi行列} $D \widehat{F} (\widehat{p})$ である．}の $\rank F$ 次首座小行列に対して
     \begin{align}
         \label{eq:hypothesis-rank-theorem}
-        \left[ \, \pdv{\widehat{F}^\mu}{x^\nu}()(\widehat{p}) \, \right]_{1 \le \mu,\, \nu \le \rank F} \in \LGL(\rank F,\, \mathbb{R})
+        \left[ \, \pdv{\widehat{F}^\mu}{x^\nu}()(\widehat{p}) \, \right]_{1 \le \mu,\, \nu \le \rank F} = \left[ \, \pdv{Q^\mu}{x^\nu}()(0,\, 0) \,\right]_{1 \le \mu,\, \nu \le \rank F} \in \LGL(\rank F,\, \mathbb{R})
     \end{align}
-    が成り立つようにできる．
-    このような $C^\infty$ チャートの取り方に合わせて 
-    $\widehat{U}$ の座標を 
-    \begin{align}
-        (x,\, y) = (x^1,\, \dots,\, x^{\rank F},\, y^1,\, \dots,\, y^{\dim M - \rank F}) \coloneqq (x^1,\, \dots,\, x^{\dim M})
-    \end{align}
-    とおき，
-    $\widehat{V}$ の座標を 
-    \begin{align}
-        (v^1,\, \dots,\, v^{\rank F},\, w^1,\, \dots,\, w^{\dim N - \rank F}) \coloneqq (x'{}^1,\, \dots,\, x'{}^{\dim N})
-    \end{align}
-    とおき直す．
-    するとある $C^\infty$ 写像
-    $Q \colon \widehat{U} \lto \mathbb{R}^{\rank F},\; R \colon \widehat{U} \lto \mathbb{R}^{\dim N - \rank F}$ を使って $\widehat{F} = (Q,\, R)$ と書くことができる．
-    さらに，$\widehat{U},\, \widehat{V}$ の原点を平行移動することでいつでも $\widehat{p} = (0,\, 0) \in \mathbb{R}^{\dim M},\, \widehat{F}(\widehat{p}) = (0,\, 0) \in \mathbb{R}^{\dim N}$ が成り立つようにできる\footnote{平行移動は微分同相写像なので，$M,\, N$ の $C^\infty$ 構造には平行移動によって互いに移り合えるような $C^\infty$ チャートたちが含まれている．}ので，以降常にそのような $C^\infty$ チャートをとることにする．
-    以上の準備の下で，仮定\eqref{eq:hypothesis-rank-theorem}は
-    \begin{align}
-        \label{eq:hypothesis-rank-theorem-1}
-        \left[ \, \pdv{Q^\mu}{x^\nu}()(0,\, 0) \,\right]_{1 \le \mu,\, \nu \le \rank F} \in \LGL(\rank F,\, \mathbb{R})
-    \end{align}
-    と同値である．
-    
+    が成り立つような $C^\infty$ チャート $\bigl( U,\, (x,\, y) \bigr),\, \bigl( V,\, (v,\, w) \bigr)$ が存在する．
+    さらに，$\widehat{U},\, \widehat{V}$ の原点を平行移動することでいつでも $\widehat{p} = (0,\, 0) \in \mathbb{R}^{\dim M},\, \widehat{F}(\widehat{p}) = (0,\, 0) \in \mathbb{R}^{\dim N}$ が成り立つようにできる\footnote{平行移動は微分同相写像なので，$M,\, N$ の $C^\infty$ 構造には平行移動によって互いに移り合えるような $C^\infty$ チャートたちが含まれている．}．
+
     ここまでの議論の要請を満たす $M,\, N$ の任意の $C^\infty$ チャート $(U,\, \varphi),\, (V,\, \psi)$ をとり， 
     $C^\infty$ 写像
     \begin{align}
-        \Phi \colon \widehat{U} \lto \mathbb{R}^{\dim M},\; (x,\, y) \lmto \bigl( Q(x,\, y),\, y \bigr) 
+        \widehat{\Phi} \colon \widehat{U} \lto \mathbb{R}^{\dim M},\; (x,\, y) \lmto \bigl( Q(x,\, y),\, y \bigr) 
     \end{align}
     を考える．点 $(0,\, 0) \in \widehat{U}$ における $\Psi$ のJacobi行列は
     \begin{align}
@@ -394,34 +393,34 @@ $\mathbb{R}^n$ における逆関数定理から始める．まず距離空間�
             0 & \unity_{\dim M - \rank F}
         ]
     \end{align}
-    となるが，仮定\eqref{eq:hypothesis-rank-theorem-1}よりこれは正則行列である．よって\hyperref[thm:inverse-function-Rn]{$\mathbb{R}^{\dim M}$ における逆関数定理}から
+    となるが，仮定\eqref{eq:hypothesis-rank-theorem}よりこれは正則行列である．よって\hyperref[thm:inverse-function-Rn]{$\mathbb{R}^{\dim M}$ における逆関数定理}から
     \begin{itemize}
-        \item 点 $(0,\, 0) \in \widehat{U}$ の連結な近傍 $\tilde{U_0} \subset \widehat{U}$
-        \item 点 $(0,\, 0) \in \mathbb{R}^{\dim M}$ の連結な近傍 $\widehat{U_0} \subset \mathbb{R}^{\dim M}$
+        \item 点 $(0,\, 0) \in \widehat{U}$ の連結な近傍 $\widehat{U_0} \subset \widehat{U}$
+        \item 点 $(0,\, 0) \in \mathbb{R}^{\dim M}$ の連結な近傍 $\tilde{U}_0 \subset \mathbb{R}^{\dim M}$
     \end{itemize}
-    が存在して $\Phi|_{\tilde{U}_0} \colon \tilde{U}_0 \lto \widehat{U_0}$ が微分同相写像になる．$\tilde{U}_0,\, \widehat{U_0}$ を適当に小さくとることで $\widehat{U_0}$ が開区間の直積であると仮定して良い．
-    $\Phi|_{\tilde{U}_0}$ の逆写像を $\Phi^{-1} \colon \widehat{U_0} \lto \tilde{U}_0,\; (x,\, y) \lmto \bigl( A(x,\, y),\, B(x,\, y) \bigr)$ と書くと $A \colon \widehat{U_0} \lto \mathbb{R}^{\rank F},\, B \colon \widehat{U_0} \lto \mathbb{R}^{\dim M -\rank F}$ はどちらも $C^\infty$ 写像で，
-    $\forall (x,\, y) \in \widehat{U_0}$ に対して
+    が存在して $\widehat{\Phi}|_{\widehat{U_0}} \colon \widehat{U_0} \lto \tilde{U}_0$ が微分同相写像になる．$\widehat{U_0},\, \tilde{U}_0$ を適当に小さくとり直すことで $\tilde{U}_0$ が開区間の直積であると仮定して良い．
+    $\widehat{\Phi}|_{\widehat{U_0}}$ の逆写像を $\widehat{\Phi}^{-1} \colon \tilde{U}_0 \lto \widehat{U_0},\; (x,\, y) \lmto \bigl( A(x,\, y),\, B(x,\, y) \bigr)$ と書くと $A \colon \tilde{U}_0 \lto \mathbb{R}^{\rank F},\, B \colon \tilde{U}_0 \lto \mathbb{R}^{\dim M -\rank F}$ はどちらも $C^\infty$ 写像で，
+    $\forall (x,\, y) \in \tilde{U}_0$ に対して
     \begin{align}
         (x,\, y) 
-        = \Phi \circ \Phi^{-1}(x,\, y)
+        = \widehat{\Phi} \circ \widehat{\Phi}^{-1}(x,\, y)
         = \Bigl( Q \bigl( A(x,\, y),\, B(x,\, y) \bigr),\, B(x,\, y)  \Bigr)
     \end{align}
     が成り立つ．よって
     \begin{align}
-        \Phi^{-1}(x,\, y) &= \bigl( A(x,\, y),\, y \bigr) , \\
+        \widehat{\Phi}^{-1}(x,\, y) &= \bigl( A(x,\, y),\, y \bigr) , \\
         x &= Q \bigl( A(x,\, y),\, y \bigr) 
     \end{align}
     であり，
     \begin{align}
-        \widehat{F} \circ \Phi^{-1} (x,\, y)
+        \widehat{F} \circ \widehat{\Phi}^{-1} (x,\, y)
         &= \widehat{F} \bigl( A(x,\, y),\, y \bigr)  \\
         &= \Bigl( Q \bigl( A(x,\, y),\, y \bigr),\,  R \bigl( A(x,\, y),\, y \bigr)  \Bigr) \\
         &= \Bigl( x,\,  R \bigl( A(x,\, y),\, y \bigr)  \Bigr)
     \end{align}
     が分かった．
-    従って $C^\infty$ 写像 $\tilde{R} \colon \widehat{U_0} \lto \mathbb{R}^{\dim N -\rank F},\, (x,\, y) \lmto R \bigl( A(x,\, y),\, y \bigr)$ と定義すると，
-    $\forall (x,\, y) \in \widehat{U_0}$ における $\widehat{F} \circ \Phi^{-1}$ のJacobi行列は
+    従って $C^\infty$ 写像 $\tilde{R} \colon \tilde{U}_0 \lto \mathbb{R}^{\dim N -\rank F},\, (x,\, y) \lmto R \bigl( A(x,\, y),\, y \bigr)$ と定義すると，
+    $\forall (x,\, y) \in \tilde{U}_0$ における $\widehat{F} \circ \widehat{\Phi}^{-1}$ のJacobi行列は
     \begin{align}
         D (\widehat{F} \circ \Psi^{-1}) (x,\, y) =
         \mqty[
@@ -430,47 +429,104 @@ $\mathbb{R}^n$ における逆関数定理から始める．まず距離空間�
             \left[\pdv{\tilde{R}^\mu}{x^\nu}()(x,\, y)\right]_{1 \le \mu \le \dim N - \rank F,\, 1 \le \nu \le \rank F} & \left[\pdv{\tilde{R}^\mu}{y^\nu}()(x,\, y)\right]_{1 \le \mu \le \dim N - \rank F,\, 1 \le \nu \le \dim M - \rank F} \\ 
         ]
     \end{align}
-    と計算できる．ところが，$\Phi^{-1}$ は微分同相写像なので $D(\Phi^{-1})(x,\, y) \in \LGL(\dim M,\, \mathbb{R})$ であり，行列 $D (\widehat{F} \circ \Phi^{-1})(x,\, y) = D(\widehat{F})(x,\, y) \circ D(\Phi^{-1})(x,\, y)$ のランクは $\rank F$ に等しい．よって $\forall (x,\, y) \in \tilde{U_0}$ において
+    と計算できる．ところが，仮定より行列 $D(\widehat{F})(x,\, y)$ のランクは $\rank F$ で，かつ $\widehat{\Phi}^{-1}$ は微分同相写像なので $D(\widehat{\Phi}^{-1})(x,\, y) \in \LGL(\dim M,\, \mathbb{R})$ であり，行列 $D (\widehat{F} \circ \widehat{\Phi}^{-1})(x,\, y) = D(\widehat{F})(x,\, y) \circ D(\widehat{\Phi}^{-1})(x,\, y)$ のランクは $\rank F$ に等しい．よって $\forall (x,\, y) \in \tilde{U_0}$ において
     \begin{align}
         \left[\pdv{\tilde{R}^\mu}{y^\nu}()(x,\, y)\right]_{1 \le \mu \le \dim N - \rank F,\, 1 \le \nu \le \dim M - \rank F} = 0
     \end{align}
-    でなくてはいけない．$\widehat{U_0}$ は開区間の直積の形で書けたので，このことから $\tilde{R}$ が $(y^1,\, \dots,\, y^{\dim M - \rank F})$ によらないことが分かった．
+    でなくてはいけない．$\tilde{U}_0$ は開区間の直積なので，このことから $\tilde{R}$ が $(y^1,\, \dots,\, y^{\dim M - \rank F})$ によらないことが分かった．
     よって $S(x) \coloneqq \tilde{R}(x,\, 0)$ とおくと
     \begin{align}
         \label{eq:thm-rank-1}
-        \widehat{F} \circ \Phi^{-1}(x,\, y) = \bigl( x,\, S(x) \bigr) 
+        \widehat{F} \circ \widehat{\Phi}^{-1}(x,\, y) = \bigl( x,\, S(x) \bigr) 
     \end{align}
     と書けることが分かった．
 
     最後に，点 $\widehat{F} (\widehat{p}) = (0,\, 0) \in \widehat{V}$ の適当な近傍を構成する．
-    開集合\footnote{写像 $f \colon \widehat{V} \lto \mathbb{R}^{\dim M},\; (v,\, w) \lmto (v,\, 0)$ は連続で，$\widehat{U_0} \subset \mathbb{R}^{\dim M}$ は開集合なので，$V_0 = \widehat{V} \cap f^{-1}(\widehat{U_0}) \subset \widehat{V}$ もまた開集合．} 
+    開集合\footnote{写像 $f \colon \widehat{V} \lto \mathbb{R}^{\dim M},\; (v,\, w) \lmto (v,\, 0)$ は連続で，$\tilde{U}_0 \subset \mathbb{R}^{\dim M}$ は開集合なので，$V_0 = \widehat{V} \cap f^{-1}(\tilde{U}_0) \subset \widehat{V}$ もまた開集合．} 
     $\widehat{V_0} \subset \widehat{V}$ を
     \begin{align}
-        \widehat{V_0} \coloneqq \bigl\{\, (v,\, w) \in \widehat{V} \bigm| (v,\, 0) \in \widehat{U_0} \,\bigr\} 
+        \widehat{V_0} \coloneqq \bigl\{\, (v,\, w) \in \widehat{V} \bigm| (v,\, 0) \in \tilde{U}_0 \,\bigr\} 
     \end{align}
     と定義すると，$\widehat{F} (\widehat{p}) = (0,\, 0) \in \widehat{V_0}$ なので $\widehat{V_0}$ は点 $\widehat{F} (\widehat{p})$ の近傍であり，
-    $\widehat{U_0}$ は開区間の直積なので\eqref{eq:thm-rank-1}から$\widehat{F} \circ \Phi^{-1}(\widehat{U_0}) \subset \widehat{V_0}$ が成り立つ．
-    そして $C^\infty$ 写像を
+    $\tilde{U}_0$ は開区間の直積なので\eqref{eq:thm-rank-1}から$\widehat{F} \circ \widehat{\Phi}^{-1}(\tilde{U}_0) \subset \widehat{V_0}$ が成り立つ．
+    そして $C^\infty$ 写像
     \begin{align}
-        \Psi \colon \widehat{V_0} \lto \mathbb{R}^{\dim N},\; (v,\, w) \lmto \bigl( v,\, w - S(v) \bigr) 
+        \widehat{\Psi} \colon \widehat{V_0} \lto \mathbb{R}^{\dim N},\; (v,\, w) \lmto \bigl( v,\, w - S(v) \bigr) 
     \end{align}
-    で定義する．$\Psi \colon \widehat{V_0} \lto \Psi(\widehat{V_0})$ は $C^\infty$ 写像
+    を考える．$\widehat{\Psi} \colon \widehat{V_0} \lto \widehat{\Psi}(\widehat{V_0})$ は $C^\infty$ 写像
     \begin{align}
-        \Psi^{-1} \colon \Psi(\widehat{V_0}) \lto \widehat{V_0},\; (s,\, t) \lmto \bigl( s,\, t + S(s) \bigr) 
+        \widehat{\Psi}^{-1} \colon \widehat{\Psi}(\widehat{V_0}) \lto \widehat{V_0},\; (s,\, t) \lmto \bigl( s,\, t + S(s) \bigr) 
     \end{align}
-    を逆写像に持つので微分同相写像であり，$(V_0,\, \Psi)$ は $N$ の $C^\infty$ チャートである．その上\eqref{eq:thm-rank-1}から $\forall (x,\, y) \in \widehat{U_0}$ に対して
+    を逆写像に持つので微分同相写像であり，$(V_0,\, \widehat{\Psi})$ は $N$ の $C^\infty$ チャートである．その上\eqref{eq:thm-rank-1}から $\forall (x,\, y) \in \tilde{U}_0$ に対して
     \begin{align}
-        \Psi \circ \widehat{F} \circ \Phi^{-1}(x,\, y) = \Psi\bigl(x,\, S(x)\bigr) = (x,\, 0)
+        \label{eq:thm-rank-ans}
+        \widehat{\Psi} \circ \widehat{F} \circ \widehat{\Phi}^{-1}(x,\, y) = \widehat{\Psi}\bigl(x,\, S(x)\bigr) = (x,\, 0)
     \end{align}
     となる．
 
-    以上より，$U_0 \coloneqq \varphi^{-1}(\widehat{U_0}),\; V_0 \coloneqq \psi^{-1} (\widehat{V_0})$ とおくと
+    以上をまとめると，
+    \begin{align}
+        U_0 &\coloneqq \varphi^{-1} (\widehat{U_0}) \subset M, \\
+        V_0 &\coloneqq \psi^{-1} (\widehat{V_0}) \subset N, \\
+        \Phi &\coloneqq \widehat{\Phi} \circ \varphi \colon U_0 \lto \Phi(U_0), \\
+        \Psi &\coloneqq \widehat{\Psi} \circ \psi \colon V_0 \lto \Psi(V_0)
+    \end{align}
+    とおくと $\Phi,\, \Psi$ は微分同相写像であり，
     \begin{itemize}
-        \item 点 $p \in M$ を含む $M$ のチャート $(U_0,\, \Phi \circ \varphi)$
-        \item 点 $F(p) \in N$ を含む $N$ のチャート $(V_0,\, \Psi \circ \psi)$
+        \item 点 $p \in M$ を含む $M$ の $C^\infty$ チャート $(U_0,\, \Phi)$
+        \item 点 $F(p) \in N$ を含む $N$ の $C^\infty$ チャート $(V_0,\, \Psi)$
     \end{itemize}
-    の2つ組は，$\forall (x,\, y) \in U_0$ に対して
+    の2つ組は\eqref{eq:thm-rank-ans}から $\forall (x,\, y) \in \Phi(U_0) = \tilde{U}_0$ に対して
+    \begin{align}
+        \Psi \circ F \circ \Phi (x,\, y) = \widehat{\Psi} \circ \widehat{F} \circ \widehat{\Phi}^{-1}(x,\, y) = (x,\, 0)
+    \end{align}
+    を充たすので証明が完了する．
 \end{proof}
+
+\begin{mycol}[label=col:rank]{}
+    \underline{境界を持たない} $C^\infty$ 多様体 $M,\, N$ と $C^\infty$ 写像 $F \colon M \lto N$ を与える．
+    このとき $M$ が連結ならば以下の2つは同値である：
+    \begin{enumerate}
+        \item $F$ は\hyperref[def:rank-smooth]{定ランク}
+        \item $\forall p \in M$ において，$p,\, F(p)$ を含む $M,\, N$ の $C^\infty$ チャート $(U,\, \varphi),\, (V,\, \psi)$ であって $F$ の座標表示 $\psi \circ F \circ \varphi^{-1} \colon \varphi(U) \lto \psi(V)$ が線型写像となるようなものが存在する．
+    \end{enumerate}
+\end{mycol}
+
+\begin{proof}
+    \begin{description}
+        \item[\textbf{(1) $\bm{\Longrightarrow}$ (2)}]　
+        
+        定理\ref{thm:rank}の\eqref{eq:coord-rep-canonical}は $F$ の座標表示が線型写像であることを意味する．
+
+        \item[\textbf{(1) $\bm{\Longleftarrow}$ (2)}]　
+        
+        任意の線型写像のランクは一意に定まるので，$\forall p \in M$ の近傍において $F$ の\hyperref[def:rank-smooth]{ランク}は一定だが，仮定より $M$ は連結なので $F$ は定ランクである．
+    \end{description}
+\end{proof}
+
+\begin{mytheo}[label=thm:rank-b]{はめ込みに関する局所的ランク定理（境界付き）}
+    \begin{itemize}
+        \item \underline{境界付き} $C^\infty$ 多様体 $M$ と\underline{境界を持たない} $C^\infty$ 多様体 $N$
+        \item \hyperref[def:submersion-smooth]{$C^\infty$ はめ込み}の $C^\infty$ 写像 $F \colon M \lto N$
+    \end{itemize}
+    を与える．
+    このとき $\forall p \in \textcolor{red}{\partial M}$ に対して
+    \begin{itemize}
+        \item 点 $p \in M$ を含む $M$ の $C^\infty$ 境界チャート $(U_0,\, \Phi)$ であって $\Phi(p) = 0 \in \mathbb{H}^{\dim M}$ を充たすもの
+        \item 点 $F(p) \in N$ を含む $N$ の $C^\infty$ チャート $(V_0,\, \Psi)$ であって $\Psi \bigl( F(p) \bigr) = 0 \in \mathbb{R}^{\dim N}$ かつ $F(U) \subset V$ を充たすもの
+    \end{itemize}
+    が存在して，$\forall (x^1,\, \dots,\, x^{\dim M}) \in \Phi(U) \subset \mathbb{H}^{\dim M}$ に対して
+    \begin{align}
+        \label{eq:coord-rep-canonical-b}
+        \Psi \circ F \circ \Phi^{-1} &(x^1,\, \dots,\, x^{\dim M}) = (x^1,\, \dots,\, x^{\dim M},\, \underbrace{0,\, \dots,\, 0}_{\dim N - \rank M}) \in \Psi(V) \subset \mathbb{R}^{\dim N}
+    \end{align}
+    を充たす．
+\end{mytheo}
+
+\begin{proof}
+    
+\end{proof}
+
 
 
 \section{部分多様体}

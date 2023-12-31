@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.29)  31 DEC 2023 21:05
+This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.29)  31 DEC 2023 23:17
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/appendixD.tex
@@ -1476,11 +1476,11 @@ LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <12> not available
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 11.09656pt on input line 250.
  [6] [7] [8]
-Overfull \hbox (34.47076pt too wide) detected at line 432
+Overfull \hbox (34.47076pt too wide) detected at line 431
 [][]
  []
 
-[9] [10] [11] (./out/appendixD.aux)
+[9] [10] [11] [12] (./out/appendixD.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1489,19 +1489,19 @@ Package rerunfilecheck Info: File `appendixD.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 53948 strings out of 478285
+ 53960 strings out of 478285
  195698,1977958 words of node,token memory allocated
- 6799 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 12 glue, 4 kern, 8 sub_mlist, 1 glyph, 2768 attribute, 62 glue_spec, 264 attribute_list, 2 write, 14 user_defined nodes
-   avail lists: 1:55,2:46435,3:686,4:730,5:580,6:61,7:5127,8:73,9:2604,10:14,11:12
- 72130 multiletter control sequences out of 65536+600000
+ 7262 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 13 glue, 4 kern, 8 sub_mlist, 1 glyph, 2977 attribute, 62 glue_spec, 283 attribute_list, 2 write, 14 user_defined nodes
+   avail lists: 1:55,2:46207,3:792,4:730,5:600,6:61,7:5153,8:81,9:2710,10:14,11:12
+ 72136 multiletter control sequences out of 65536+600000
  144 fonts using 84528223 bytes
  138i,20n,144p,1820b,1392s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on appendixD.pdf (11 pages, 399921 bytes).
+Output written on appendixD.pdf (12 pages, 408333 bytes).
 
-PDF statistics: 350 PDF objects out of 1000 (max. 8388607)
- 266 compressed objects within 3 object streams
- 48 named destinations out of 1000 (max. 131072)
+PDF statistics: 366 PDF objects out of 1000 (max. 8388607)
+ 281 compressed objects within 3 object streams
+ 54 named destinations out of 1000 (max. 131072)
  48 words of extra memory for PDF output out of 10000 (max. 100000000)
 
