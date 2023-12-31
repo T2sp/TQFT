@@ -63,4 +63,12 @@ L.~I. Nicolaescu,
 \newblock Lectures on the geometry of manifolds, 2022,
 \newblock Available at \url{https://www3.nd.edu/~lnicolae/Lectures.pdf}.
 
+\bibitem{Kugo1989qft2}
+九後汰一郎,
+\newblock {\em ゲージ場の量子論 II} (, 1989).
+
+\bibitem{FabriPicasso1966qft}
+E.~Fabri and L.~E. Picasso,
+\newblock Phys. Rev. Lett. {\bf 16}, 408 (1966).
+
 \end{thebibliography}

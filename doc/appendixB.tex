@@ -109,6 +109,38 @@ $C^\infty$ 多様体の1つの極大 $C^\infty$ アトラスを $\bm{C^\infty}$ 
 \end{proof}
 
 補題\ref{lem:cinfty-chart}とほとんど同じ手順で境界付き多様体を作ることもできる．
+\begin{align}
+    \mathbb{H}^n \coloneqq \bigl\{\, (x^1,\, \dots,\, x^n) \in \mathbb{R}^n \bigm| x^n \ge 0 \,\bigr\} 
+\end{align}
+とおく．
+
+\begin{mylem}[label=lem:cinfty-chart-b]{境界付き多様体の $C^\infty$ 構造の構成}
+	\begin{itemize}
+		\item \underline{集合} $M$
+		\item $M$ の部分集合族 $\Familyset[\big]{U_\lambda}{\lambda \in \Lambda}$
+		\item 写像の族 $\Familyset[\big]{\varphi_\lambda \colon U_\lambda \lto \mathbb{R}^n\, \mathrm{or}\, \mathbb{H}^n}{\lambda \in \Lambda}$
+	\end{itemize}
+	の3つ組であって以下の条件を充たすものを与える：
+	\begin{description}
+		\item[\textbf{(BDS-1)}]  $\forall \lambda \in \Lambda$ に対して 
+		$\varphi_\lambda (U_\lambda) \subset \mathbb{R}^n$（resp. $\mathbb{H}^n$）は $\mathbb{R}^n$ （resp. $\mathbb{H}^n$）の開集合\footnote{いつものように，$\mathbb{R}^n$ にはEuclid位相を入れ，$\mathbb{H}^n \subset \mathbb{R}^n$ には $\mathbb{R}^n$ からの相対位相を入れる．}であり，
+		$\varphi_\lambda \colon U_\lambda \lto \varphi_\lambda (U_\lambda)$
+		は全単射である．
+		\item[\textbf{(BDS-2)}]  $\forall \alpha,\, \beta \in \Lambda$ に対して $\varphi_\alpha (U_\alpha \cap U_\beta),\, \varphi_\beta (U_\alpha \cap U_\beta) \subset \mathbb{R}^n$ （resp. $\mathbb{H}^n$）は $\mathbb{R}^n$ （resp. $\mathbb{H}^n$）の開集合である．
+		\item[\textbf{(BDS-3)}]  $\forall \alpha,\, \beta \in \Lambda$ に対して，$U_\alpha \cap U_\beta \neq \emptyset$ ならば $\varphi_\beta \circ \varphi_\alpha^{-1} \colon \varphi_\alpha (U_\alpha \cap U_\beta) \lto \varphi_\beta (U_\alpha \cap U_\beta)$ は $C^\infty$ 級である．
+		\item[\textbf{(BDS-4)}]  添字集合 $\Lambda$ の\underline{可算濃度の}部分集合 $I \subset \Lambda$ が存在して
+		$\Familyset[\big]{U_i}{i \in I}$ が $M$ の被覆になる．
+		\item[\textbf{(BDS-5)}]  $p,\, q \in M$ が $p \neq q$ ならば，
+		ある $\lambda \in \Lambda$ が存在して $p,\, q \in U_\lambda$ を充たすか，
+		またはある $\alpha,\, \beta \in \Lambda$ が存在して $U_\alpha \cap U_\beta = \emptyset$ かつ $p \in U_\alpha,\; q \in U_\beta$ を充たす．
+	\end{description}
+	このとき，$M$ の $C^\infty$ 構造であって，$\forall \lambda \in \Lambda$ に対して $(U_\lambda,\, \varphi_\lambda)$ を\hyperref[diffmani]{$C^\infty$ チャート}として持つものが一意的に存在する．
+\end{mylem}
+
+\begin{proof}
+    補題\ref{lem:cinfty-chart}の証明において「$\mathbb{R}^n$」を「$\mathbb{R}^n$ または $\mathbb{H}^n$」に置き換えれば良い．
+\end{proof}
+
 
 \section{接束}
 
@@ -130,7 +162,7 @@ $M$ の\textbf{接束} (tangent bundle) とは
 \end{myprop}
 
 \begin{proof}
-    $M$ が境界を持たないとする．
+    まず $M$ が境界を持たないとする．
     $M$ の $C^\infty$ 構造を $\{(U_\alpha,\, \varphi_\alpha)\}_{\alpha \in \Lambda}$ と書く．
     % $\forall \alpha \in \Lambda$ に対して
     % $(U_\alpha,\, \varphi_\alpha) = \bigl( U_\lambda,\, (x^\mu) \bigr)$
@@ -168,7 +200,7 @@ $M$ の\textbf{接束} (tangent bundle) とは
             &= \left( y^1(x),\, \dots,\, y^n (x),\, \pdv{y^1}{x^\mu}()(x) v^\mu,\, \dots,\, \pdv{y^n}{x^\mu}()(x) v^\mu \right) 
         \end{align}
         なので $\tilde{\varphi}_\beta \circ \tilde{\varphi}_\alpha^{-1} $ は $C^\infty$ 級である．ただしチャート $(U_\alpha,\, \varphi_\alpha),\, (U_\beta,\,\varphi_\beta)$ の座標関数をそれぞれ $(x^\mu),\, (y^\mu)$ と書き，$x \coloneqq\varphi_\alpha^{-1}(x^1,\, \dots,\, x^n)$ とおいた．
-        \item[\textbf{(DS-4)}] $\{(U_\alpha,\, \varphi_\alpha)\}_{\alpha \in \Lambda}$ は $M$ のアトラスなので，可算濃度の部分集合 $I \subset \Lambda$ が存在して $\{\, U_i\,\}_{i \in I}$ が $M$ の被覆になる．このとき
+        \item[\textbf{(DS-4)}] $\{(U_\alpha,\, \varphi_\alpha)\}_{\alpha \in \Lambda}$ は $M$ のアトラスなので，高々可算濃度の部分集合 $I \subset \Lambda$ が存在して $\{\, U_i\,\}_{i \in I}$ が $M$ の被覆になる．このとき
         \begin{align}
             TM = \coprod_{p \in \bigcup_{i \in I} U_i} T_p M = \bigcup_{i \in I} \coprod_{p_i \in U_i} T_{p_i} M = \bigcup_{i \in I} \pi^{-1} (U_i)
         \end{align}
@@ -183,7 +215,18 @@ $M$ の\textbf{接束} (tangent bundle) とは
     %     \tilde{\varphi_\alpha}^{-1} \colon \varphi_\alpha(U) \times \mathbb{R}^n \lto \pi^{-1} (U),\; \bigl( x^1,\, \dots,\, x^n,\, v^1,\, \dots,\, v^n \bigr) \lmto \left(\varphi_\alpha^{-1}(x^1,\, \dots,\, x^n),\, v^\mu \eval{\pdv{}{x^\mu}}_{\varphi_\alpha^{-1}(x^1,\, \dots,\, x^n)} \right)
     % \end{align}
     % が逆写像になり，全単射である．
-
+    次に $M$ が境界を持つとする．$M$ の $C^\infty$ 構造を $\{(U_\alpha,\, \varphi_\alpha)\}_{\alpha \in \Lambda}$ と書き，$C^\infty$ チャート $(U_\alpha,\, \varphi_\alpha)$ のうち $\varphi_\alpha(U_\alpha) \approx \mathbb{R}^n$ であるものを\textbf{内部チャート}，$\varphi_\alpha(U_\alpha) \approx \mathbb{H}^n$ であるものを\textbf{境界チャート}と呼ぶ．
+    内部チャートに関しては $M$ が境界を持たない場合と同様に $\tilde{\varphi}_\alpha$ を定義し，境界チャートに関しては
+    \begin{align}
+        \tilde{\varphi}_\alpha \colon \pi^{-1} (U_\alpha) \lto \mathbb{R}^{n} \times \mathbb{H}^n = \mathbb{H}^{2n},\; \left(p,\, v^\mu \eval{\pdv{}{x^\mu}}_p \right) \lmto \bigl( v^1,\, \dots,\, v^n,\, x^1 (p),\, \dots,\, x^n(p) \bigr)
+    \end{align}
+    と定義する\footnote{$p \in \partial M$ においても $T_p M \cong T_{\varphi(p)} \mathbb{R}^n$ （$\varphi$ は境界チャートの局所座標）が成り立つことが証明できる．}ことで得られる
+    \begin{itemize}
+        \item 集合 $TM$
+        \item $TM$ の部分集合族 $\bigl\{\, \pi^{-1}(U_\alpha) \,\bigr\}_{\alpha \in \Lambda}$
+        \item 写像の族 $\Familyset[\big]{\tilde{\varphi}_\alpha}{\alpha \in \Lambda}$
+    \end{itemize}
+    の3つ組が補題\ref{lem:cinfty-chart-b}の5条件を充たすことを示せば良いが，議論は $M$ が境界を持たない場合と同様である．
 \end{proof}
 
 \section{ベクトル場の定義}

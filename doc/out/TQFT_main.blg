@@ -3,45 +3,47 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: TQFT_main.aux
 The style file: myh-physrev.bst
 Database file #1: TQFTrefs.bib
-You've used 15 entries,
+Warning--empty publisher in Kugo1989qft2
+You've used 17 entries,
             1990 wiz_defined-function locations,
-            709 strings with 6970 characters,
-and the built_in function-call counts, 2551 in all, are:
-= -- 159
-> -- 130
+            724 strings with 7216 characters,
+and the built_in function-call counts, 2890 in all, are:
+= -- 180
+> -- 146
 < -- 0
-+ -- 41
-- -- 26
-* -- 204
-:= -- 336
-add.period$ -- 15
-call.type$ -- 15
++ -- 46
+- -- 29
+* -- 233
+:= -- 378
+add.period$ -- 17
+call.type$ -- 17
 change.case$ -- 3
 chr.to.int$ -- 0
-cite$ -- 15
-duplicate$ -- 132
-empty$ -- 297
-format.name$ -- 41
-if$ -- 592
+cite$ -- 18
+duplicate$ -- 151
+empty$ -- 336
+format.name$ -- 46
+if$ -- 671
 int.to.chr$ -- 0
-int.to.str$ -- 15
-missing$ -- 19
-newline$ -- 66
-num.names$ -- 15
-pop$ -- 96
+int.to.str$ -- 17
+missing$ -- 22
+newline$ -- 74
+num.names$ -- 17
+pop$ -- 107
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 87
+skip$ -- 99
 stack$ -- 0
-substring$ -- 53
-swap$ -- 38
+substring$ -- 63
+swap$ -- 44
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 20
-width$ -- 17
-write$ -- 118
+warning$ -- 1
+while$ -- 23
+width$ -- 19
+write$ -- 132
 is.kanji.str$ -- 0
+(There was 1 warning)

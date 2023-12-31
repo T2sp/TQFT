@@ -642,8 +642,7 @@ Poisson括弧が
         \partial_\mu\overline{\psi}\gamma^\mu - m \overline{\psi} &= 0
     \end{align}
     となる．
-
-    この系のon shellな対称性変換は，例えば $e^{\iunit \theta} \in \LU(1)$ による
+    この系の対称性変換は，例えば $e^{\iunit \theta} \in \LU(1)$ による
     \begin{align}
         \mathcal{T} \colon \Gamma(S) &\lto \Gamma(S),\; \psi \lmto e^{\iunit \theta} \psi
     \end{align}
@@ -687,11 +686,13 @@ Poisson括弧が
 \end{align}
 とおこう．このとき
 \begin{align}
+    \label{eq:conservation-Noether-df}
     \dd \star j = \partial_\mu j^\mu \dd[D+1]{x}
 \end{align}
 が成り立つので，Noetherカレントの保存則\eqref{eq:conservation-Noether}は単に $\dd \star j = 0$ と書ける．
 Noetherチャージは
 \begin{align}
+    \label{eq:Noether-charge-df}
     Q = \int_{\mathcal{M}^{(D)}} \star j = \int_{\mathcal{M}}  \star j \wedge \delta(\mathcal{M}^{(D)})
 \end{align}
 である．$\mathcal{M}^{(D)} \lto \mathcal{M}^{(D)} + \delta \mathcal{M}^{(D)} \WHERE \delta \mathcal{M}^{(D)} = \partial X^{(D+1)}$ なる時間一定面の変形を考えると，$Q$ の変化は保存則から
@@ -852,6 +853,49 @@ $D+1$ 次元部分多様体 $\mathcal{M}^{(D+1)} \subset \mathbb{M}$ であっ�
     と定義できる．
 
 \end{myexample}
+
+\subsection{高次対称性の自発的破れ}
+
+まずは通常の対称性（$0$-form symmetry）の場合を考える．
+系がLie群 $G$ で特徴付けられる $0$-form symmetry を持つ場合を考えよう．このとき，無限小な対称性変換はLie代数 $\mathfrak{g}$ の自然基底 $\partial_A \in \mathfrak{g}$ を用いて\footnote{苦肉の策だが，Lie代数の添字を $A,\, B,\, C,\, \dots$ とする．さらに，$\mathfrak{g} = T_{1_G}G$ なので厳密には $\eval{\partial_A}_{1_G}$ と書くべきだがこれを $\partial_A$ と略記する．} 
+$\mathcal{T}_{\varepsilon^A \partial_A}$ と書けるので\footnote{場がベクトル束の切断として定式化されている場合，これは厳密には $G$ の（ファイバーに作用する）表現の微分表現を考えていることになる．今の場合，物理の慣習に従って $G$ は線型Lie群で，かつファイバーへの作用は基本表現だと思っているのでさほど問題にはならない．}，Noetherの定理より on shell な保存則\eqref{eq:conservation-Noether-df}を充たす $\dim G$ 個のNoetherカレント\eqref{eq:Noether-current} $j_A\quad (A = 1,\, \dots,\, \dim G)$ が存在し，
+それに付随して $\dim G$ 個の保存電荷 $Q_A(\mfd{D}) = \int_{\mfd{D}} \star j_A$ が存在して対称性変換の無限小生成子\eqref{eq:generator-Q}となるのだった．
+
+さて，Noetherの定理によって特徴付けられる対称性は必ずしも系の基底状態 $\ket{0}$ の対称性にならない．i.e. \underline{形式的には}
+\begin{enumerate}
+    \item $1 \le \forall A \le \dim G,\; \hat{Q}_A \ket{0} = 0$
+    \item $1 \le \exists A \le \dim G,\; \hat{Q}_A \ket{0} \neq 0$
+\end{enumerate}
+の2つの場合\footnote{もしくは，$U_g(\mfd{D}) \ket{0} = \ket{0}$ としても良い．}があり得る．(1) の場合，系は対称性を実現している，または系は\textbf{Wigner相} (Wigner phase) にあると言い，(2) の場合，系の対称性が\textbf{自発的に破れた}，または系は\textbf{Nambu-Goldstone相} (Nambu-Goldstone phase) にあると言う\cite[p.1]{Kugo1989qft2}．
+$0$-form symmetry の言葉に翻訳すると，\textbf{対称性の自発的破れ} (spontaneous symmetry breaking; SSB) とは，$0$-form symmetry を特徴付けるLie群 $G$ がその部分群 $H \subset G$ に縮小していることを指す\footnote{考えている場が構造群 $G$ を持つ\hyperref[def.fiber-1]{ファイバー束}として定式化されている場合，SSBは数学的には\textbf{構造群の収縮} (reduction of structure group) として定式化できる．}．
+SSBを特徴付けるには，上述のように素朴には $\hat{Q}_A \ket{0} \neq 0$ を充たす $1 \le A \le \dim G$ が存在するかどうかを確認すれば良いように見えるが，$\mel{0}{\hat{Q}_A \hat{Q}_A}{0} \propto \int_{\mfd{D}} \star 1$ なので\footnote{\textbf{Fabri–Picassoの定理}~\cite{FabriPicasso1966qft}}熱力学極限において $\hat{Q}_A\ket{0}$ は定義できない．
+そこで，代わりにある局所演算子（i.e. compactly supportedな演算子）$\hat{\phi}(x)$ が存在して
+\begin{align}
+    \label{def:0form-order-param}
+    \mel{0}{\comm{\iunit \hat{Q}_A}{\hat{\phi}(x)}}{0} \neq 0
+\end{align}
+を充たすことと特徴付ける．\eqref{def:0form-order-param}の左辺を系の\textbf{秩序変数} (order parameter) と呼ぶ．
+
+では，相対論的な系におけるNambu-Goldstoneの定理から出発しよう．
+
+\begin{mytheo}[label=thm:NG-relativistic]{Nambu-Goldstone（相対論的）}
+    考えている系が
+    \begin{enumerate}
+        \item 並進対称性とLorentz共変性を持ち，
+        \item あるNoetherカレント $j_A$ に対応する $0$-form symmetry が自発的に破れている
+    \end{enumerate}
+    とする．このとき，系は (2) を充たす $j_A$ とちょうど同じ数だけ線形分散を持つ零質量の独立な励起（\textbf{NGモード}）を持つ．
+\end{mytheo}
+
+\begin{proof}
+    系は場 $\varphi \in \Gamma(E)$ からなるとする．
+    この系の作用を $S[\varphi]$ と書く．Green関数の生成汎函数を，$J \in \Gamma(E)$ に関する汎函数として
+    \begin{align}
+        Z[J] \coloneqq e^{\iunit W[J]} \coloneqq 
+    \end{align}
+    
+    % 厳密な証明は少しややこしいので，Lie群 $G$ に関する $0$-form symmetry を持った実スカラー場 $\phi_a$ の系を考える．
+\end{proof}
 
 
 \end{document}

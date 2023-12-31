@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.29)  20 DEC 2023 23:35
+This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.29)  26 DEC 2023 14:33
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/chap3.tex
@@ -1494,16 +1494,44 @@ LaTeX Warning: Hyper reference `def.section' on page 11 undefined on input line 
 
 [11] [12] [13]
 
-LaTeX Warning: Citation `GaiottoKapustinSeibergWillett2015' on page 14 undefined on input line 670.
+LaTeX Warning: Citation `GaiottoKapustinSeibergWillett2015' on page 14 undefined on input line 669.
 
 [14] [15]
 
-LaTeX Warning: Citation `GaiottoKapustinSeibergWillett2015' on page 16 undefined on input line 753.
+LaTeX Warning: Citation `GaiottoKapustinSeibergWillett2015' on page 16 undefined on input line 754.
 
 
-LaTeX Warning: Hyper reference `thm:local-connection' on page 16 undefined on input line 775.
+LaTeX Warning: Hyper reference `thm:local-connection' on page 16 undefined on input line 776.
 
-[16] [17] [18] (./out/chap3.aux)
+[16] [17] [18]
+
+LaTeX Warning: Citation `Kugo1989qft2' on page 19 undefined on input line 869.
+
+
+LaTeX Warning: Hyper reference `def.fiber-1' on page 19 undefined on input line 870.
+
+
+LaTeX Warning: Citation `FabriPicasso1966qft' on page 19 undefined on input line 871.
+
+(load cache: extra_lmroman10-italic.luc)
+LaTeX Font Info:    Font shape `JT3/mc/m/it' in size <10> not available
+(Font)              Font shape `JT3/mc/m/n' tried instead on input line 891.
+LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
+(Font)              scaled to size 9.24713pt on input line 891.
+LaTeX Font Info:    Font shape `JY3/mc/m/it' in size <10> not available
+(Font)              Font shape `JY3/mc/m/n' tried instead on input line 891.
+LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
+(Font)              scaled to size 9.24713pt on input line 891.
+(load cache: extra_lmroman10-bolditalic.luc)
+LaTeX Font Info:    Font shape `JT3/mc/b/it' in size <10> not available
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 891.
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 9.24713pt on input line 891.
+LaTeX Font Info:    Font shape `JY3/mc/b/it' in size <10> not available
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 891.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 9.24713pt on input line 891.
+[19] [20] (./out/chap3.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1512,19 +1540,19 @@ Package rerunfilecheck Info: File `chap3.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 54518 strings out of 478285
+ 54553 strings out of 478285
  244633,1977958 words of node,token memory allocated
- 5258 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 13 glue, 4 kern, 2 sub_mlist, 1 glyph, 2064 attribute, 62 glue_spec, 200 attribute_list, 2 write, 14 user_defined, 1 pdf_action nodes
-   avail lists: 1:41,2:63670,3:1470,4:1144,5:678,6:58,7:5866,8:74,9:2849,10:19,11:62
- 72663 multiletter control sequences out of 65536+600000
- 107 fonts using 70882143 bytes
+ 5437 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 18 glue, 4 kern, 2 sub_mlist, 1 glyph, 2130 attribute, 62 glue_spec, 206 attribute_list, 2 write, 14 user_defined, 1 pdf_action nodes
+   avail lists: 1:41,2:63598,3:1470,4:1144,5:680,6:58,7:5895,8:74,9:2849,10:19,11:68
+ 72683 multiletter control sequences out of 65536+600000
+ 109 fonts using 71146159 bytes
  138i,22n,144p,1816b,1423s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmmono8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on chap3.pdf (18 pages, 482259 bytes).
+Output written on chap3.pdf (20 pages, 510060 bytes).
 
-PDF statistics: 457 PDF objects out of 1000 (max. 8388607)
- 369 compressed objects within 4 object streams
- 89 named destinations out of 1000 (max. 131072)
+PDF statistics: 489 PDF objects out of 1000 (max. 8388607)
+ 399 compressed objects within 4 object streams
+ 104 named destinations out of 1000 (max. 131072)
  48 words of extra memory for PDF output out of 10000 (max. 100000000)
 

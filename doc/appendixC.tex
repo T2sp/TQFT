@@ -1,0 +1,116 @@
+\documentclass[TQFT_main]{subfiles}
+
+\begin{document}
+
+% \setcounter{}{}
+\chapter{微分形式の話}
+
+$C^\infty$ 級の\hyperref[def:vect]{ベクトル束}を構成する便利な補題から出発しよう~\cite[p.253]{Lee2012smooth}
+
+\begin{mylem}[label=lem:smooth-vect-chart]{$C^\infty$ ベクトル束の構成}
+    \begin{itemize}
+        \item 境界あり/なし $C^\infty$ 多様体 $M$
+        \item $n$ 次元実ベクトル空間の族 $\Familyset[\big]{E_p}{p \in M}$ と全射
+        \begin{align}
+            \pi \colon \coprod_{p \in M} E_p \lto M,\; (p,\, v) \lmto p
+        \end{align}
+        \item $M$ の開被覆 $\Familyset[\big]{U_\lambda}{\lambda \in \Lambda}$
+        \item 全単射の族 $\Familyset[\big]{\psi_\lambda \colon \pi^{-1}(U_\lambda) \lto U_\lambda \times \mathbb{R}^n}{\lambda \in \Lambda}$
+        \item \underline{$C^\infty$ 写像}の族 $\Familyset[\big]{t_{\alpha\beta} \colon U_\alpha \cap U_\beta \lto \LGL(n,\, \mathbb{R})}{\alpha,\, \beta \in \Lambda}$
+    \end{itemize}
+    の5つ組であって以下の条件を充たすものを与える：
+    \begin{description}
+        \item[\textbf{(DVS-1)}] $\forall \lambda \in \Lambda$ および $\forall p \in U_\lambda$ に対して，制限
+        \begin{align}
+            \psi_\alpha|_{E_p} \colon E_p \lto \{p\} \times \mathbb{R}^n \cong \mathbb{R}^n
+        \end{align}
+        はベクトル空間の同型写像である．
+        \item[\textbf{(DVS-2)}] $\forall \alpha,\, \beta \in \Lambda$ および $\forall (p,\, v) \in (U_\alpha \cap U_\beta) \times \mathbb{R}^n$ に対して
+        \begin{align}
+            \psi_\beta^{-1} (p,\, v) = \psi_\alpha^{-1} \bigl( p,\, t_{\alpha\beta}(p)(v) \bigr) 
+        \end{align}
+        が成り立つ．
+    \end{description}
+    このとき，集合 $E \coloneqq \coprod_{p \in M} E_p$ 上の\hyperref[lem:cinfty-chart]{$C^\infty$ 構造}が一意的に存在して，
+    $\mathbb{R}^n \hookrightarrow E \xrightarrow{\pi} M$ が\hyperref[def:fiber-1]{局所自明化} $\Familyset[\big]{\psi_\lambda}{\lambda \in \Lambda}$ を持つ $C^\infty$ \hyperref[def:vect]{ベクトル束}になる．
+\end{mylem}
+
+\begin{proof}
+    $\forall p \in M$ を1つとる．
+    すると $\Familyset[\big]{U_\lambda}{\lambda \in \Lambda}$ は $M$ の開被覆なので，ある $\alpha_p \in \Lambda$ が存在して $p \in U_{\alpha_p}$ となる．
+    さらに $U_{\alpha_p}$ は開集合なので，$C^\infty$ チャート $(V_p,\, \varphi_p)$ であって $p \in V_p \subset U_{\alpha_p}$ を充たすものが存在する．
+    このとき，写像 $\tilde{\varphi}_p \colon \pi^{-1}(V_p) \lto \varphi_p(V_p) \times \mathbb{R}^n$ を
+    \begin{align}
+        \tilde{\varphi}_p \coloneqq (\varphi_p \times \mathrm{id}_{\mathbb{R}^n}) \circ \psi_{\alpha_p}|_{\pi^{-1}(V_p)}
+    \end{align}
+    と定義する．
+
+    まず，$M$ が境界を持たない場合に
+    \begin{itemize}
+        \item 集合 $E$
+        \item $E$ の部分集合族 $\Familyset[\big]{\pi^{-1}(V_p)}{p \in M}$
+        \item 写像の族 $\Familyset[\big]{\tilde{\varphi}_p \colon \pi^{-1}(V_p) \lto \varphi_p(V_p) \times \mathbb{R}^n}{p \in M}$
+    \end{itemize}
+    の3つ組が補題\ref{lem:cinfty-chart}の5条件を充たすこと，i.e. $E$ が境界を持たない $C^\infty$ 多様体になることを示そう．
+    \begin{description}
+        \item[\textbf{(DS-1)}] $\forall p \in M$ に対して $\psi_p \bigl( \pi^{-1}(V_p) \bigr) = \varphi_p(V_p) \times \mathbb{R}^n \subset \mathbb{R}^{\dim M} \times \mathbb{R}^n$ であり，$\varphi_p(V_p) \subset \mathbb{R}^{\dim M}$ はチャートの定義から $\mathbb{R}^{\dim M}$ の開集合なので $\psi_p \bigl( \pi^{-1}(V_p) \bigr)$ は $\mathbb{R}^{\dim M} \times \mathbb{R}^n$ の開集合である．
+        仮定より $\psi_{\alpha_p} \colon \pi^{-1}(V_p) \lto V_p \times \mathbb{R}^n$ は全単射であり，チャートの定義から $\varphi_p \times \mathrm{id}_{\mathbb{R}^n} \colon V_p \times \mathbb{R}^n \lto \varphi_p(V_p) \times \mathbb{R}^n$ は全単射なので $\psi_p = (\varphi_p \times \mathrm{id}_{\mathbb{R}^n}) \circ \tilde{\varphi}_{\alpha_p}$ も全単射である．
+        \item[\textbf{(DS-2, 3)}] $\forall p,\, q \in M$ をとる．このとき
+        \begin{align}
+            \tilde{\varphi}_{p} \bigl( \pi^{-1}(V_p) \cap \pi^{-1}(V_q) \bigr) &= \varphi_p(V_p \cap V_q) \times \mathbb{R}^n \\
+            \tilde{\varphi}_{q} \bigl( \pi^{-1}(V_p) \cap \pi^{-1}(V_q) \bigr) &= \varphi_q(V_p \cap V_q) \times \mathbb{R}^n
+        \end{align}
+        はどちらも $\mathbb{R}^{\dim M} \times \mathbb{R}^n$ の開集合である．
+        さらに $\forall (x,\, v) \in \tilde{\varphi}_p^{-1} \bigl( \pi^{-1}(V_p) \cap \pi^{-1}(V_q) \bigr)$ に対して
+        \begin{align}
+            \tilde{\varphi}_q \circ \tilde{\varphi}_p^{-1} (x,\, v) 
+            &= \tilde{\varphi}_q \circ \psi_{\alpha_p}^{-1} \bigl( \varphi_p^{-1}(x),\, v \bigr) \\
+            &= \tilde{\varphi}_q \circ \psi_{\alpha_q}^{-1} \Bigl( \varphi_p^{-1}(x),\, t_{\alpha_q,\alpha_p} \bigl( \varphi_p^{-1}(x) \bigr)(v) \Bigr) \\
+            &= \Bigl( \varphi_q \circ \varphi_p^{-1}(x),\,  t_{\alpha_q,\alpha_p} \bigl( \varphi_p^{-1}(x) \bigr)(v) \Bigr)
+        \end{align}
+        が成り立つが，$C^\infty$ チャートの定義から $\varphi_{\alpha_p},\, \varphi_{\alpha_q}$ は $C^\infty$ 写像で，かつ仮定より $t_{\alpha_q,\alpha_p}$ も $C^\infty$ 写像なので，最右辺は $C^\infty$ 写像の合成として書ける．よって $\tilde{\varphi}_q \circ \tilde{\varphi}_p^{-1}$ は $C^\infty$ 写像である．
+
+        \item[\textbf{(DS-4)}] $\Familyset[\big]{(V_p,\, \varphi_p)}{p \in M}$ は $M$ のアトラスなので，高々可算濃度の部分集合 $I \subset M$ が存在して $\Familyset[\big]{V_i}{i \in I}$ が $M$ の開被覆になる．このとき
+        \begin{align}
+            E = \coprod_{p \in \bigcup_{i \in I} V_i} E_p = \bigcup_{i \in I} \coprod_{p_i \in V_i} E_{p_i} = \bigcup_{i \in I} \pi^{-1} (V_i)
+        \end{align}
+        が言える．
+        \item[\textbf{(DS-5)}] 互いに相異なる $\xi = (p,\, v),\, \eta = (q,\, w) \in E$ をとる．もし $p = q$ ならば $\xi,\, \eta \in E_p \subset \pi^{-1}(V_p)$ である．
+        $p \neq q$ ならば，$V_p,\, V_q \subset M$ を $V_p \cap V_q = \emptyset$ を充たすようにとれる．すると $\pi^{-1}(V_p) \cap \pi^{-1}(V_q) = \pi^{-1}(V_p \cap V_q) = \emptyset$ でかつ $\xi \in \pi^{-1}(V_p),\, \eta \in \pi^{-1}(V_q)$ が成り立つ．
+    \end{description}
+    
+    次に，$M$ が境界付き多様体である場合を考える．
+    座標を入れ替える写像
+    \begin{align}
+        \mathrm{swap} \colon \mathbb{R}^{\dim M} \times \mathbb{R}^n \lto \mathbb{R}^{n} \times \mathbb{R}^{\dim M},\; (x^1,\, \dots,\, x^{\dim M},\, v^1,\, \dots,\, v^n) \lmto (v^1,\, \dots,\, v^n,\, x^1,\, \dots,\, x^{\dim M})
+    \end{align}
+    は微分同相写像\footnote{$\mathbb{R}^{\dim M + n}$ には標準的な $C^\infty$ 構造を入れる．}であり，境界チャート $(V_p,\, \varphi_p)$ に関して
+    \begin{align}
+        \mathrm{swap} \circ \psi_p  \bigl( \pi^{-1}(V_p) \bigr) = \mathbb{R}^n \times \varphi_p (V_p) \subset \mathbb{R}^n \times \mathbb{H}^{\dim M} = \mathbb{H}^{\dim M + n}
+    \end{align}
+    が成り立つ．よって
+    \begin{itemize}
+        \item 集合 $E$
+        \item $E$ の部分集合族 $\Familyset[\big]{\pi^{-1}(V_p)}{p \in M}$
+        \item 写像の族 $\Familyset[\big]{\mathrm{swap} \circ \tilde{\varphi}_p \colon \pi^{-1}(V_p) \lto \mathbb{R}^n \times \varphi_p(V_p)}{p \in M}$
+    \end{itemize}
+    の3つ組が補題\ref{lem:cinfty-chart-b}の5条件を充たすことを示せば良いが，議論は $M$ が境界を持たない場合と全く同様である．
+\end{proof}
+
+
+% \section{余接束}
+
+% 境界あり/なし $C^\infty$ 多様体 $M$ を与える．点 $p \in M$ における $M$ の接空間の双対ベクトル空間を\textbf{余接空間} (cotangent space) と呼び，$\bm{T_p^* M} \coloneqq (T_p M)^*$ と書く．
+% $M$ の\textbf{余接束} (cotangent bundle) とは集合
+% \begin{align}
+%     \bm{T^* M} \coloneqq \coprod_{p \in M} T_p^* M
+% \end{align}
+% のことである．$T^* M$ の射影を
+% \begin{align}
+%     \pi \colon T^* M \lto M,\; (p,\, \omega) \lmto p
+% \end{align}
+% と定義する．
+
+
+
+\end{document}
