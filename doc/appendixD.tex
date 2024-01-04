@@ -256,11 +256,11 @@ $\mathbb{R}^n$ における逆関数定理から始める．まず距離空間�
     $\forall p \in M$ が以下の条件を充たす近傍 $p \in U_p \subset M$ を持つことを言う：
     \begin{enumerate}
         \item $F(U_p) \subset N$ が開集合
-        \item $F|_U \colon U \lto F(U)$ が微分同相写像
+        \item $F|_{U_p} \colon U_p \lto F(U_p)$ が微分同相写像
     \end{enumerate}
 \end{mydef}
 
-\begin{mytheo}[label=thm:inverse-function]{境界を持たない多様体における逆関数定理}
+\begin{mytheo}[label=thm:inverse-function]{境界を持たない $C^\infty$ 多様体における逆関数定理}
     \begin{itemize}
         \item \underline{境界を持たない} $C^\infty$ 多様体 $M,\, N$
         \item $C^\infty$ 写像 $F \colon M \lto N$
@@ -290,12 +290,54 @@ $\mathbb{R}^n$ における逆関数定理から始める．まず距離空間�
     従って $U_0 \coloneqq \varphi^{-1} (\widehat{U_0}) \subset M,\, V_0 \coloneqq \psi^{-1}(\widehat{V_0}) \subset N$ とおけばこれらはそれぞれ点 $p,\, F(p)$ の連結な近傍で，かつ $F|_{U_0} = \psi^{-1}|_{V_0} \circ \widehat{F}|_{\widehat{U_0}} \circ \varphi|_{U_0} \colon U_0 \lto V_0$ は微分同相写像の合成なので微分同相写像である．
 \end{proof}
 
+定理\ref{thm:inverse-function}を，値域の $C^\infty$ 多様体が境界を持つ場合に拡張できる\footnote{定義域の $C^\infty$ 多様体が境界を持つ場合は上手くいかない．}．鍵となるのは次の補題である：
+
+\begin{mylem}[label=lem:singular-b]{}
+    \begin{itemize}
+        \item \underline{境界を持たない} $C^\infty$ 多様体 $M$
+        \item \underline{境界付き} $C^\infty$ 多様体 $N$
+        \item $C^\infty$ 写像 $F \colon M \lto N$
+    \end{itemize}
+    を与える．
+    このとき，点 $p \in M$ において $T_p F \colon T_p M \lto T_{F(p)} N$ が単射ならば $F(p) \in \Int N$ である．
+\end{mylem}
+
+\begin{proof}
+    $F(p) \in \partial N$ だと仮定し， 
+    点 $p \in M$ を含むチャート $(U,\, \varphi) = \bigl( U,\, (x^\mu) \bigr) $ および点 $F(p) \in \partial N$ の境界チャート $(V,\, \psi) = \bigl( V,\, (y^\mu) \bigr) $ をとる．
+    このとき $F$ の座標表示 $\widehat{F} \coloneqq \psi \circ F \circ \varphi^{-1} \colon \varphi(U) \lto \psi(V),\; x \lmto \bigl( \widehat{F}^1(x),\, \dots,\, \widehat{F}^{\dim N}(x) \bigr)$ は $\widehat{F}^{\dim N} \bigl( \varphi(p) \bigr) = 0$ を充たす．
+    ところで $\psi(V) \subset \mathbb{H}^n$ なので $\forall x \in \varphi(U)$ に対して $\widehat{F}^{\dim N} (x) \ge 0$ であり，$C^\infty$ 関数 $\widehat{F}^{\dim N} \colon \varphi(U) \lto \mathbb{R}$ は点 $\varphi(p) \in \varphi(U)$ において最小値をとることが分かった．
+    従って $\pdv*{\widehat{F}^{\dim N}}{x^\nu} ()\bigl(\varphi(p)\bigr) = 0\quad (1 \le \forall \nu \le \dim N)$ であり，点 $\varphi(p) \in \varphi(U)$ における $\widehat{F}$ のJacobi行列の第 $\dim N$ 行が全て $0$ だと言うことになるが，これは $T_p F$ が単射であることに矛盾．
+    よって背理法から $F(p) \notin \partial N \IFF F(p) \in \Int N$ が示された．
+\end{proof}
+
+\begin{mytheo}[label=thm:inverse-function-b]{$C^\infty$ 多様体における逆関数定理}
+    \begin{itemize}
+        \item \underline{境界を持たない} $C^\infty$ 多様体 $M$
+        \item \underline{境界あり/なし} $C^\infty$ 多様体 $N$
+        \item $C^\infty$ 写像 $F \colon M \lto N$
+    \end{itemize}
+    を与える．このとき，ある点 $p \in M$ において $T_p F \colon T_p M \lto T_{F(p)} N$ が全単射ならば，
+    \begin{itemize}
+        \item 点 $p \in M$ の連結な近傍 $p \in U_0 \subset M$
+        \item 点 $F(p) \in N$ の連結な近傍 $p \in V_0 \subset N$
+    \end{itemize}
+    が存在して $F|_{U_0} \colon U_0 \lto V_0$ が微分同相写像になる．
+\end{mytheo}
+
+\begin{proof}
+    $N$ が境界を持たない場合は定理\ref{thm:inverse-function}が使える．
+
+    $N$ が境界付き $C^\infty$ 多様体だとする．仮定より $T_p F$ は単射なので補題\ref{lem:singular-b}から $F(p) \in \Int N$ が分かる．
+    $\Int N$ は境界を持たない $C^\infty$ 多様体なので定理\ref{thm:inverse-function}の証明がそのまま成り立つ．
+
+\end{proof}
 
 
 \subsection{ランク定理}
 
 \begin{mydef}[label=def:rank-smooth]{$C^\infty$ 写像のランク}
-    $C^\infty$ 写像 $F \colon M \lto N$ を与える．
+    境界あり/なし $C^\infty$ 多様体 $M,\, N$ および $C^\infty$ 写像 $F \colon M \lto N$ を与える．
     \begin{itemize}
         \item 点 $p \in M$ における $F$ の\textbf{ランク} (rank) とは，線型写像 $T_p F \colon T_p M \lto T_{F(p)} N$ のランク，i.e. $\dim \bigl(\Im (T_p F)\bigr) \in \mathbb{Z}_{\ge 0}$ のこと．$\forall p \in M$ における $F$ のランクが等しいとき，$F$ は\textbf{定ランク} (constant rank) であると言い，$\bm{\rank F} \coloneqq \dim \bigl(\Im (T_p F)\bigr)$ と書く．
         \item 点 $p \in M$ における $F$ のランクが $\min \bigl\{\dim M,\, \dim N\bigr\}$ に等しいとき，$F$ は\textbf{点 $\bm{p}$ においてフルランク} (full rank at $p$) であると言う．
@@ -303,13 +345,51 @@ $\mathbb{R}^n$ における逆関数定理から始める．まず距離空間�
     \end{itemize}
 \end{mydef}
 
-\begin{mydef}[label=def:submersion-smooth]{$C^\infty$ 沈めこみ・はめ込み}
-    \hyperref[def:rank-smooth]{定ランク}の $C^\infty$ 写像 $F \colon M \lto N$ を与える．
+位相空間 $M,\, N$ を与える．連続写像 $F \colon M \lto N$ が\textbf{位相的埋め込み} (topological embedding) であるとは，$F(M) \subset N$ に $N$ からの相対位相を入れたときに写像 $F \colon M \lto F(M)$ が同相写像になることを言う．
+
+\begin{mydef}[label=def:submersion-smooth]{$C^\infty$ 沈めこみ・$C^\infty$ はめ込み・$C^\infty$ 埋め込み}
+    境界あり/なし $C^\infty$ 多様体 $M,\, N$ および\hyperref[def:rank-smooth]{定ランク}の $C^\infty$ 写像 $F \colon M \lto N$ を与える．
     \begin{itemize}
         \item $F$ が\textbf{ $\bm{C^\infty}$ 沈め込み} (smooth submersion) であるとは，$\forall p \in M$ において $T_p F \colon T_p M \lto T_{F(p)} N$ が全射である，i.e. $\rank F = \dim N$ であることを言う．
         \item $F$ が\textbf{ $\bm{C^\infty}$ はめ込み} (smooth immersion) であるとは，$\forall p \in M$ において $T_p F \colon T_p M \lto T_{F(p)} N$ が単射である，i.e. $\rank F = \dim M$ であること\footnote{階数・退化次元の定理から $\dim (\Ker T_p F) + \dim (\Im T_p F) = \dim M$ なので，$\rank F = \dim (\Im T_p F) = \dim M \IMP \dim (\Ker T_p F) = 0 \IFF \Ker T_p F = 0$}を言う．
+        \item $F$ が\textbf{ $\bm{C^\infty}$ 埋め込み} (smooth embedding) であるとは，$F$ が $C^\infty$ はめ込みであってかつ位相的埋め込みであることを言う．
     \end{itemize}
 \end{mydef}
+
+\begin{myprop}[label=prop:SI-basics]{局所微分同相写像と $C^\infty$ 沈めこみ・$C^\infty$ はめ込み}
+    \begin{itemize}
+        \item \underline{境界を持たない} $C^\infty$ 多様体 $M$
+        \item \underline{境界あり/なし} $C^\infty$ 多様体 $N$
+        \item 写像 $F \colon M \lto N$
+    \end{itemize}
+    を与える．このとき以下が成り立つ：
+    \begin{enumerate}
+        \item $F$ が\hyperref[def:loc-diffeo]{局所微分同相写像} $\IFF$ $F$ は\hyperref[def:submersion-smooth]{$C^\infty$ 沈め込み}かつ\hyperref[def:submersion-smooth]{$C^\infty$ はめ込み}
+        \item $\dim M = \dim N$ かつ $F$ が\hyperref[def:submersion-smooth]{$C^\infty$ 沈め込み}\underline{または}\hyperref[def:submersion-smooth]{$C^\infty$ はめ込み} $\IMP$ $F$ は\hyperref[def:loc-diffeo]{局所微分同相}
+    \end{enumerate}
+    
+\end{myprop}
+
+\begin{proof}
+    \begin{enumerate}
+        \item \begin{description}
+            \item[\textbf{$\bm{\Longrightarrow}$}]　
+            
+            $F$ が局所微分同相だとする．$\forall p \in M$ を1つ固定する．仮定よりこのとき $p$ の近傍 $p \in U \subset M$ であって $F|_U \colon U \lto F(U)$ が微分同相写像となるようなものがある．
+
+            特に\hyperref[def:loc-diffeo]{局所微分同相写像の定義}から $U,\, F(U)$ はそれぞれ $M,\, N$ の開集合なので，包含写像 $\iota_U \colon U \hookrightarrow M,\; \iota_{F(U)} \colon F(U) \hookrightarrow N$ の微分 $T_p (\iota_U) \colon T_p U \lto T_p M,\; T_{F(p)} \bigl( \iota_{F(U)} \bigr) \colon T_{F(p)} \bigl( F(U) \bigr) \lto T_{F(p)} N$ はベクトル空間の同型写像である．
+            さらに $F|_U$ が微分同相写像なので $T_p (F|_U) \colon T_p U \lto T_{F(p)} \bigl( F(U) \bigr) \cong T_{F(p)} N$ はベクトル空間の同型写像だが，$T_p (F|_U) = T_p (F \circ \iota_U) = T_p F \circ T_p (\iota_U)$ なので，$T_p F \colon T_p M \lto T_p N$ 自身もベクトル空間の同型写像である．
+            故に $\rank F = \dim M = \dim N$ が言える．
+            \item[\textbf{$\bm{\Longleftarrow}$}]　
+            
+            $F$ が $C^\infty$ 沈め込みかつ $C^\infty$ はめ込みであるとする．すると $\forall p \in M$ に対して $T_p F \lto T_p M \lto T_{F(p)} N$ は全単射なので，\hyperref[thm:inverse-function-b]{$C^\infty$ 多様体における逆関数定理}が使える．
+        \end{description}
+        \item $\forall p \in M$ をとる．
+        $\dim M = \dim N$ かつ $T_p F \colon T_p M \lto T_{F(p)}N$ が単射ならば，階数-退化次元の定理より $\dim (\Im T_p F) = \dim M - \dim (\Ker T_p F) = \dim M = \dim N$ なので $T_p F$ が全単射だとわかる．
+        $\dim M = \dim N$ かつ $T_p F \colon T_p M \lto T_{F(p)}N$ が全射ならば，階数-退化次元の定理より $\dim (\Ker T_p F) = \dim M - \dim (\Im T_p F) = \dim M - \dim N = 0$ なので $T_p F$ が全単射だとわかる．
+        よってどちらの場合も\hyperref[thm:inverse-function-b]{$C^\infty$ 多様体における逆関数定理}が使える．
+    \end{enumerate}
+\end{proof}
 
 \begin{mytheo}[label=thm:rank]{局所的ランク定理（境界を持たない場合）}
     \begin{itemize}
@@ -422,7 +502,8 @@ $\mathbb{R}^n$ における逆関数定理から始める．まず距離空間�
     従って $C^\infty$ 写像 $\tilde{R} \colon \tilde{U}_0 \lto \mathbb{R}^{\dim N -\rank F},\, (x,\, y) \lmto R \bigl( A(x,\, y),\, y \bigr)$ と定義すると，
     $\forall (x,\, y) \in \tilde{U}_0$ における $\widehat{F} \circ \widehat{\Phi}^{-1}$ のJacobi行列は
     \begin{align}
-        D (\widehat{F} \circ \Psi^{-1}) (x,\, y) =
+        &D (\widehat{F} \circ \Psi^{-1}) (x,\, y) \\
+        &= 
         \mqty[
             \unity_{\rank F} & 0 \\
             & \\
@@ -541,7 +622,8 @@ $\mathbb{R}^n$ における逆関数定理から始める．まず距離空間�
         \end{itemize}
         が存在して，$F$ の座標表示 $\Psi \circ F \circ \Phi^{-1} \colon \Phi(U_p) \lto \Psi(V_p)$ が\eqref{eq:coord-rep-canonical}を充たす．
         このことから，十分小さな任意の $\varepsilon \in \mathbb{R}^{\dim M - \rank F}$ に対して $\Psi \circ F \circ \Phi^{-1}(0,\, \dots,\, 0,\, \varepsilon) = \Psi \circ F \circ \Phi^{-1}(0,\, \cdots,\, 0)$ が成り立つことになり $F$ の単射性に矛盾．
-        \item (1), (2) より $F$ が全単射なら $F$ は $C^\infty$ 沈め込みかつ $C^\infty$ はめ込みであるから，$F$ は全単射な\hyperref[def:loc-diffeo]{局所微分同相写像}である．よって $F$ は微分同相写像である．
+        \item (1), (2) より $F$ が全単射なら $F$ は $C^\infty$ 沈め込みかつ $C^\infty$ はめ込みであるから，
+        命題\ref{prop:SI-basics}より $F$ は全単射な\hyperref[def:loc-diffeo]{局所微分同相写像}である．よって $F$ は微分同相写像である．
     \end{enumerate}
     
 \end{proof}
@@ -549,7 +631,8 @@ $\mathbb{R}^n$ における逆関数定理から始める．まず距離空間�
 
 \begin{mytheo}[label=thm:rank-b]{はめ込みに関する局所的ランク定理（境界付き）}
     \begin{itemize}
-        \item \underline{境界付き} $C^\infty$ 多様体 $M$ と\underline{境界を持たない} $C^\infty$ 多様体 $N$
+        \item \underline{境界付き} $C^\infty$ 多様体 $M$
+        \item \underline{境界を持たない} $C^\infty$ 多様体 $N$
         \item \hyperref[def:submersion-smooth]{$C^\infty$ はめ込み}の $C^\infty$ 写像 $F \colon M \lto N$
     \end{itemize}
     を与える．
@@ -569,6 +652,9 @@ $\mathbb{R}^n$ における逆関数定理から始める．まず距離空間�
 \begin{proof}
     
 \end{proof}
+
+\subsection{$C^\infty$ 埋め込み}
+
 
 
 
