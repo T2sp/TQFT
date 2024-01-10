@@ -766,7 +766,7 @@ $D+1$ 次元部分多様体 $\mathcal{M}^{(D+1)} \subset \mathbb{M}$ であっ�
         が成り立つ．
         \item 任意の $p$ 次元部分多様体 $\mathcal{C}^{(p)} \subset \mathcal{M}$ に対して，それに「絡む」十分小さな $D-p$-球 $S^{D-p} \subset \mathcal{M}$ に対して，\eqref{eq:0-form-topo-ops}と同じく経路積分の期待値の意味で
         \begin{align}
-            U_g (S^{D-p}) V(\mathcal{C}^{(p)}) = R_g (V) V(\mathcal{C}^{(p)})
+            U_g (S^{D-p}) V(\mathcal{C}^{(p)}) = R_g \bigl( V(\mathcal{C}^{(p)})\bigr)
         \end{align}
         が成り立つ．ただし $R \colon G \lto \LGL(\{\text{荷電物体}\})$ は群 $G$ の表現である．
     \end{itemize}
@@ -854,11 +854,13 @@ $D+1$ 次元部分多様体 $\mathcal{M}^{(D+1)} \subset \mathbb{M}$ であっ�
 
 \end{myexample}
 
-\subsection{高次対称性の自発的破れ}
+\subsection{対称性の自発的破れ}
 
 まずは通常の対称性（$0$-form symmetry）の場合を考える．
-系がLie群 $G$ で特徴付けられる $0$-form symmetry を持つ場合を考えよう．このとき，無限小な対称性変換はLie代数 $\mathfrak{g}$ の自然基底 $\partial_A \in \mathfrak{g}$ を用いて\footnote{苦肉の策だが，Lie代数の添字を $A,\, B,\, C,\, \dots$ とする．さらに，$\mathfrak{g} = T_{1_G}G$ なので厳密には $\eval{\partial_A}_{1_G}$ と書くべきだがこれを $\partial_A$ と略記する．} 
-$\mathcal{T}_{\varepsilon^A \partial_A}$ と書けるので\footnote{場がベクトル束の切断として定式化されている場合，これは厳密には $G$ の（ファイバーに作用する）表現の微分表現を考えていることになる．今の場合，物理の慣習に従って $G$ は線型Lie群で，かつファイバーへの作用は基本表現だと思っているのでさほど問題にはならない．}，Noetherの定理より on shell な保存則\eqref{eq:conservation-Noether-df}を充たす $\dim G$ 個のNoetherカレント\eqref{eq:Noether-current} $j_A\quad (A = 1,\, \dots,\, \dim G)$ が存在し，
+系がLie群 $G$ で特徴付けられる $0$-form symmetry を持つ場合を考えよう．このとき，無限小な対称性変換はLie代数 $\mathfrak{g}$ の基底 $T_A \in \mathfrak{g}$ を用いて\footnote{苦肉の策だが，Lie代数の添字を $A,\, B,\, C,\, \dots$ とする．} 
+$\mathcal{T}_{\varepsilon^A T_A}$ と書けるので
+\footnote{場がベクトル束の切断として定式化されている場合，これは厳密には $G$ の（ファイバーに作用する）表現の微分表現を考えていることになる．今の場合，物理の慣習に従って $G$ は線型Lie群で，かつファイバーへの作用は基本表現だと思っているのでさほど問題にはならない．}
+，Noetherの定理より on shell な保存則\eqref{eq:conservation-Noether-df}を充たす $\dim G$ 個のNoetherカレント\eqref{eq:Noether-current} $j_A\quad (A = 1,\, \dots,\, \dim G)$ が存在し，
 それに付随して $\dim G$ 個の保存電荷 $Q_A(\mfd{D}) = \int_{\mfd{D}} \star j_A$ が存在して対称性変換の無限小生成子\eqref{eq:generator-Q}となるのだった．
 
 さて，Noetherの定理によって特徴付けられる対称性は必ずしも系の基底状態 $\ket{0}$ の対称性にならない．i.e. \underline{形式的には}
@@ -869,33 +871,172 @@ $\mathcal{T}_{\varepsilon^A \partial_A}$ と書けるので\footnote{場がベ�
 の2つの場合\footnote{もしくは，$U_g(\mfd{D}) \ket{0} = \ket{0}$ としても良い．}があり得る．(1) の場合，系は対称性を実現している，または系は\textbf{Wigner相} (Wigner phase) にあると言い，(2) の場合，系の対称性が\textbf{自発的に破れた}，または系は\textbf{Nambu-Goldstone相} (Nambu-Goldstone phase) にあると言う\cite[p.1]{Kugo1989qft2}．
 $0$-form symmetry の言葉に翻訳すると，\textbf{対称性の自発的破れ} (spontaneous symmetry breaking; SSB) とは，$0$-form symmetry を特徴付けるLie群 $G$ がその部分群 $H \subset G$ に縮小していることを指す\footnote{考えている場が構造群 $G$ を持つ\hyperref[def.fiber-1]{ファイバー束}として定式化されている場合，SSBは数学的には\textbf{構造群の収縮} (reduction of structure group) として定式化できる．}．
 SSBを特徴付けるには，上述のように素朴には $\hat{Q}_A \ket{0} \neq 0$ を充たす $1 \le A \le \dim G$ が存在するかどうかを確認すれば良いように見えるが，$\mel{0}{\hat{Q}_A \hat{Q}_A}{0} \propto \int_{\mfd{D}} \star 1$ なので\footnote{\textbf{Fabri–Picassoの定理}~\cite{FabriPicasso1966qft}}熱力学極限において $\hat{Q}_A\ket{0}$ は定義できない．
-そこで，代わりにある局所演算子（i.e. compactly supportedな演算子）$\hat{\phi}(x)$ が存在して
+そこで，代わりにある局所演算子（i.e. compactly supportedな演算子）$\hat{\mathcal{O}}(x)$ が存在して
 \begin{align}
     \label{def:0form-order-param}
-    \mel{0}{\comm{\iunit \hat{Q}_A}{\hat{\phi}(x)}}{0} \neq 0
+    \mel{0}{\comm{\iunit \hat{Q}_A}{\hat{\mathcal{O}}(x)}}{0} \neq 0
 \end{align}
 を充たすことと特徴付ける．\eqref{def:0form-order-param}の左辺を系の\textbf{秩序変数} (order parameter) と呼ぶ．
 
 では，相対論的な系におけるNambu-Goldstoneの定理から出発しよう．
 
 \begin{mytheo}[label=thm:NG-relativistic]{Nambu-Goldstone（相対論的）}
-    考えている系が
+    考えている系がLie群 $G$ で特徴付けられる $0$-form symmetry を持ち，さらに
     \begin{enumerate}
         \item 並進対称性とLorentz共変性を持ち，
-        \item あるNoetherカレント $j_A$ に対応する $0$-form symmetry が自発的に破れている
+        \item 部分群 $H \subset G$ に対称性が自発的に破れている
     \end{enumerate}
-    とする．このとき，系は (2) を充たす $j_A$ とちょうど同じ数だけ線形分散を持つ零質量の独立な励起（\textbf{NGモード}）を持つ．
+    とする．このとき，系は線形分散を持つ零質量の独立な励起（\textbf{NGモード}）をちょうど $\dim G - \dim H$ 個持つ．
 \end{mytheo}
 
+定理\ref{thm:NG-relativistic}の条件 (1) はNGモードが互いに独立であり，かつ必ず線形分散を持つことの証明に使うのだが，かなりややこしい\footnote{例えば~\cite[p.7]{Kugo1989qft2}に漸近場を使った議論が載っている}ので，ここではNGモードが存在することだけの証明の概略を述べるに留める．
+
 \begin{proof}
-    系は場 $\varphi \in \Gamma(E)$ からなるとする．
-    この系の作用を $S[\varphi]$ と書く．Green関数の生成汎函数を，$J \in \Gamma(E)$ に関する汎函数として
+    系は場 $\varphi \in \Gamma(E)$ からなるとし，
+    この系の作用を $S[\varphi]$ と書く．Green関数の生成汎函数を
     \begin{align}
-        Z[J] \coloneqq e^{\iunit W[J]} \coloneqq 
+        Z[J] &= e^{\iunit W[J]} \coloneqq \mel{0}{\mathcal{T} \exp \left( \iunit \int_{\mathcal{M}} \dd[D+1]{x} J(x) \varphi(x) \right) }{0} \\
+        &= \frac{\displaystyle\int [\dd{\varphi}] \exp \left( S[\varphi] +  \int_{\mathcal{M}} \dd[D+1]{x} J(x) \varphi(x)  \right)}{\displaystyle \int [\dd{\varphi}] \exp S[\varphi]}
     \end{align}
-    
+    と定義し，有効作用を
+    \begin{align}
+        \Gamma[\psi] \coloneqq W[J] - \int_{\mathcal{M}} \dd[D+1]{x} J(x) \psi(x)
+    \end{align}
+    と定義する．ただし
+    \begin{align}
+        \psi(x) \coloneqq \frac{\delta W[J]}{\delta J(x)} = \frac{\displaystyle\mel{0}{\mathcal{T} \bigl\{ \hat{\varphi} (x) \exp \left( \iunit \int_{\mathcal{M}} \dd[D+1]{x} J(x) \varphi(x) \right) \bigr\}}{0}}{\displaystyle\mel{0}{\mathcal{T} \bigl\{ \exp \left( \iunit \int_{\mathcal{M}} \dd[D+1]{x} J(x) \varphi(x) \right) \bigr\}}{0}}
+    \end{align}
+    とおいた．さらに有効ポテンシャルを
+    \begin{align}
+        V(\varphi) \coloneqq - \frac{\Gamma[\varphi]|_{\varphi = \mathrm{const.}}}{\int_{\mathcal{M}} \dd[D+1]{x}}
+    \end{align}
+    と定義する．
+    QFTの一般論から，場の演算子の真空期待値 $\varphi_0 \coloneqq \mel{0}{\hat{\varphi}(x)}{0}$ に対して $\varphi_0 = \mathrm{argmin}\;  V(\varphi)$ であることが知られている．
+
+    簡単のため $G$ が線型Lie群で，系の対称性変換が $\mathcal{T}_{\iunit \varepsilon^A T_A \varphi}\; (A = 1,\, \dots,\, \dim G)$ と書ける場合を考える．
+    \eqref{eq:generator-Q}を思い出すと，このとき
+    \begin{align}
+        \comm{\iunit \hat{Q^A}}{\hat{\varphi}(x)} = \iunit T_A \hat{\varphi}(x)
+    \end{align}
+    が成り立つ．    
+    $\Gamma[\varphi],\, V[\varphi]$ もこの変換の下で不変なので
+    \begin{align}
+        &V(\varphi + \iunit \varepsilon^A T_A \varphi) = V(\varphi) \\
+        \IMP &\pdv{V(\varphi)}{\varphi_a} T_A{}_{ab} \varphi_b = 0 \\
+        \IMP &\pdv[2]{V(\varphi)}{\varphi_a}{\varphi_b} T_A{}_{bc} \varphi_c + \pdv{V(\varphi)}{\varphi_b} T_A{}_{ba} = 0 \label{eq:NG-rel-1}
+    \end{align}
+    ここで条件 (2) から
+    \begin{align}
+        \mel{0}{\comm{\iunit \hat{Q_A}}{\hat{\varphi}(x)}}{0} = \iunit T_A \mel{0}{\hat{\varphi}(x)}{0}
+        \begin{cases}
+            =0, &T_A \in \mathfrak{h},  \\
+            \neq 0, &T_A \notin \mathfrak{h}
+        \end{cases}
+    \end{align}
+    が成り立つので，
+    $v \coloneqq \mel{0}{\hat{\varphi}(x)}{0}$ とおくと，\eqref{eq:NG-rel-1}より破れた対称性に対応する任意の $1 \le A \le \dim G$ に対して
+    \begin{align}
+        \label{eq:NG-rel-2}
+        v \neq 0 \AND \eval{\pdv[2]{V(\varphi)}{\varphi_a}{\varphi_b}}_{\varphi = v} T_A v = 0
+    \end{align}
+    が成り立たねばならない．
+    ところで，真空期待値が $0$ になる場を $\tilde{\varphi}(x) \coloneqq \varphi(x) - v$ で定義すると
+    \begin{align}
+        V(\varphi) = V(v) + \frac{1}{2} \eval{\pdv[2]{V(\varphi)}{\varphi_a}{\varphi_b}}_{\varphi = v} \tilde{\varphi}_a \tilde{\varphi}_b + \order{\tilde{\varphi}^3}
+    \end{align}
+    となるから，行列 $\left[\eval{\pdv[2]{V(\varphi)}{\varphi_a}{\varphi_b}}_{\varphi = v}\right]_{1 \le a,\, b \le \dim G}$ を対角化した固有値が粒子の質量の2乗を与える．
+    従って\eqref{eq:NG-rel-2}から，$T_A \notin \mathfrak{h}$ ならば $T_A v$ がこの行列の固有値 $0$ に対応する固有ベクトル，i.e. ゼロ質量のNG粒子であることが分かった．
     % 厳密な証明は少しややこしいので，Lie群 $G$ に関する $0$-form symmetry を持った実スカラー場 $\phi_a$ の系を考える．
 \end{proof}
 
+
+一方，定理\ref{thm:NG-relativistic}のLorentz共変性の条件 (1) を外すと話はややこしくなる．
+まず，波数の小さいところにおいて分散関係が奇数冪であるようなNGモードを\textbf{Type-I}，偶数冪で書けるようなNGモードを\textbf{Type-II}と呼ぶ~\cite{nielsen1976HowCount}．
+そして 
+\begin{itemize}
+    \item 破れた対称性の個数を $\irm{N}{BG} \coloneqq \dim G - \dim H$
+    \item NGモードの総数を $\irm{N}{NGB}$
+    \item Type-I, Type-IIの個数をそれぞれ $\irm{N}{I},\, \irm{N}{II}$
+\end{itemize}
+とおこう．~\cite{nielsen1976HowCount}による結果は以下の通りである：
+
+\begin{mytheo}[label=thm:NG-nonrel]{Nielsen-Chadha}
+    \begin{align}
+        \irm{N}{I} + 2 \irm{N}{II} \ge \irm{N}{BG}
+    \end{align}
+\end{mytheo}
+
+\begin{proof}
+    
+\end{proof}
+
+さらに，~\cite{watanabe2012UnifiedDescription}によって以下が示された：
+
+\begin{mytheo}[label=thm:NG-nonrel-count]{Watanabe-Murayama}
+    $\Omega \coloneqq \int_\Sigma \dd[D]{x}$ とおき，$\rho_{AB} \coloneqq \lim_{\Omega \to \infty} \frac{-\iunit}{\Omega} \mel{0}{\comm{Q_A}{Q_B}}{0}$ と定義する．このとき以下が成り立つ：
+    \begin{align}
+        \irm{N}{BG} - \irm{N}{NGB} = \frac{1}{2} \rank \rho
+    \end{align}
+\end{mytheo}
+
+\begin{proof}
+    
+\end{proof}
+
+\subsection{高次対称性の自発的破れ}
+
+$0$ 次対称性の場合と同様に，$p$ 次対称性の自発的破れを議論することができる．この場合，秩序変数はある適当な関数（系によって異なる） $A(\mathcal{C}^{(p)})$ を使って
+\begin{align}
+    \label{def:pform-order-param}
+    \lim_{\mathcal{C}^{(p)} \to \infty} \expval{U_g (\mathcal{M}^{(D-p)}) A(\mathcal{C}^{(p)}) V(\mathcal{C}^{(p)})} = \lim_{\mathcal{C}^{(p)} \to \infty} \expval{A(\mathcal{C}^{(p)}) R_g \bigl( V(\mathcal{C}^{(p)})\bigr)} \neq 0
+\end{align}
+とすれば良い．ここに，$\mathcal{C}^{(p)} \to \infty$ は $\mathcal{C}^{(p)} \subset \mathcal{M}$ の「面積」$\mathrm{Area}(\mathcal{C}^{(p)}) \coloneqq \min \bigl\{\, \mathrm{vol}(\mathcal{M}^{(p+1)}) \bigm| \partial \mathcal{M}^{(p+1)} = \mathcal{C}^{(p)} \,\bigr\}$ を大きくとる極限を意味する．
+この極限における荷電物体の真空期待値の典型的な振る舞いは
+\begin{align}
+    \expval{V(\mathcal{C}^{(p)})} \sim 
+    \begin{cases}
+        e^{- \sigma\, \mathrm{Area}(\mathcal{C}^{(p)})} , & \text{unbroken} \\
+        e^{- \mu\, \mathrm{len}(\mathcal{C}^{(p)})} , & \text{broken}
+    \end{cases}
+\end{align}
+というもので，このとき $\lim_{\mathcal{C}^{(p)} \to \infty} f(\mathcal{C}^{(p)}) = \sigma\, \mathrm{Area}(\mathcal{C}^{(p)})$ なる関数 $f(\mathcal{C}^{(p)})$ を使って $A(\mathcal{C}^{(p)}) \coloneqq e^{+ f(\mathcal{C}^{(p)})}$ と定めることで\eqref{def:SSB-p-form}が得られる．
+\eqref{def:pform-order-param}は，\textbf{非対角長距離秩序} (Off Diagonal Long Range Order; ODLRO) の一般化だと見做せる\footnote{というのは，通常のODLROは $\lim_{\abs{x-y} \to \infty} \expval{\hat{\varphi}(x) \hat{\varphi}(y)} \neq 0$ となるものだが，これを点 $x,\, y \in \mathcal{M}$ を結ぶ線分 $\mathcal{C}^{(1)} \subset \mathcal{M}$ を使って $\lim_{\partial \mathcal{C}^{(1)} \to \infty} \expval{\hat{\varphi}(\partial \mathcal{C}^{(1)})} \neq 0$ と書ける．}
+
+演算子形式ではどうなるのだろうか？\eqref{def:0form-order-param}の素朴な一般化は
+\begin{align}
+    \expval{\comm{\iunit \hat{Q}(\mathcal{M}^{(D-p)})}{V(\mathcal{C}^{(p)})}}
+\end{align}
+であるが，これは $\mathcal{M}^{(D-p)},\, \mathcal{C}^{(p)}$ が共に閉多様体だと微妙なところがある．
+
+~\cite[p.5-6]{Lake2018SSB}に倣って，系が並進対称性を持つ場合にギャップレスな励起が存在することをざっと確認しよう．演算子形式で議論するので，時間一定面 $\mathcal{M}^(D) \subset \mathcal{M}$ を1つ固定し，
+微妙なことが起こらないように $\mathcal{M}^{(D-p)} \subset \mathcal{M}^{(D)}$ が境界を持つとする．
+保存則 $\dd \star j = 0$ を充たすカレント $\star j$ および\underline{$\mathcal{M}^{(D)}$ に関する}デルタ関数形式 $\delta^D(\mathcal{M}^{(D-p)})$ を使って $Q(\mathcal{M}^{(D-p)}) = \int_{\mathcal{M}^{(D)}} \star j \wedge \delta^D(\mathcal{M}^{(D-p)})$ と書ける．
+並進対称性から $\mel{0}{\star \hat{j} \wedge \delta^D(\mathcal{M}^{(D-p)})(x)}{n} = e^{\iunit p_n \cdot x} \mel{0}{\star \hat{j} \wedge \delta^D(\mathcal{M}^{(D-p)})(0)}{n}$ が成り立つので
+\begin{align}
+    &\expval{\comm{\iunit \hat{Q}(\mathcal{M}^{(D-p)})}{V(\mathcal{C}^{(p)})}} \\
+    &= \iunit \sum_n (2\pi)^{D} \delta^D(\bm{p}) \Bigl( \mel{0}{\star \hat{j} \wedge \delta^D(\mathcal{M}^{(D-p)}) (0)}{n} \mel{n}{V(\mathcal{C}^{p})}{0} e^{-\iunit E_n x^0} \\
+    &\qquad -  \mel{0}{V(\mathcal{C}^{p})}{n} \mel{n}{\star \hat{j} \wedge \delta^D(\mathcal{M}^{(D-p)}) (0)}{0} e^{\iunit E_n x^0}\Bigr) 
+\end{align}
+が言える．一方で左辺を $x^0 = t$ 方向に微分すると，保存則およびStokesの定理から
+\begin{align}
+    \partial_0\expval{\comm{\iunit \hat{Q}(\mathcal{M}^{(D-p)})}{V(\mathcal{C}^{(p)})}}
+    &= \int_{\mathcal{M}^{(D-p)}} \expval{\comm{\partial_0 \star j}{V(\mathcal{C}^{(p)})}} \\
+    &= -\int_{\partial\mathcal{M}^{(D-p)} \subset \partial \mathcal{M}^{(D)}} \expval{\comm{\star_{\mathcal{M}^{(D)}} j}{V(\mathcal{C}^{(p)})}}
+\end{align}
+となる．次元を数えることでいつでも $\mathcal{C}^{(p)} \cap \partial\mathcal{M}^{(D-p)} = \emptyset$ にできることがわかるので結局右辺は $0$ だとわかる．
+よってもし $\expval{\comm{\iunit \hat{Q}(\mathcal{M}^{(D-p)})}{V(\mathcal{C}^{(p)})}} \neq 0$ ならば $\bm{p} = 0$ のときに $E_n = 0$ となるような $n$ が存在する．
+
+\subsection{高次対称性のColeman-Mermin-Wagnerの定理}
+
+通常のColeman-Mermin-Wagnerの定理は，連続的 $0$ 次対称性が $1+1$ 次元以下では自発的に破れないことを主張する．
+これは $p$ 次対称性に拡張することができる：
+
+\begin{mytheo}[label=thm:pform-CMW]{高次対称性についてのColeman-Mermin-Wagnerの定理}
+    \underline{$D+1$ 次元時空}において，Lie群 $G$ で特徴付けられる $p \ge D - 1$ 次対称性は自発的に破れない．
+\end{mytheo}
+
+\begin{proof}
+    ~\cite[text]{Lake2018SSB}
+\end{proof}
 
 \end{document}

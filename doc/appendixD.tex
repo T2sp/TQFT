@@ -655,7 +655,28 @@ $\mathbb{R}^n$ における逆関数定理から始める．まず距離空間�
 
 \subsection{$C^\infty$ 埋め込み}
 
+\begin{myprop}[label=prop:embedding-basic]{}
+    境界あり/なし $C^\infty$ 多様体 $M,\, N$ および単射な \hyperref[def:submersion-smooth]{$C^\infty$ はめ込み} $F \colon M \lto N$ を与える．
+    このとき，以下のいずれかの条件が充たされれば $F$ は \hyperref[def:submersion-smooth]{$C^\infty$ 埋め込み}である：
+    \begin{enumerate}
+        \item $F$ は開写像または閉写像
+        \item $F$ は固有写像 (\textbf{proper map}\footnote{$Y$ の任意のコンパクト部分集合の逆像が $X$ のコンパクト部分集合})
+        \item $M$ はコンパクト
+        \item $\partial M = \emptyset$ かつ $\dim M = \dim N$
+    \end{enumerate}
+    
+\end{myprop}
 
+\begin{proof}
+    \begin{enumerate}
+        \item $F$ が開写像だとする．
+        $F \colon M \lto F(M)$ は全単射なので，逆写像 $F^{-1} \colon F(M) \lto M$ が存在する．このとき，$X$ の任意の開集合 $U \subset X$ に対して $(F^{-1})^{-1}(U) = F(U) \subset Y$ は仮定より $Y$ の開集合であるから，相対位相の定義より $F(M)$ においても開集合である．i.e. $F^{-1}$ は連続写像であり，$F \colon M \lto F(M)$ が同相写像だと分かった．
+        i.e. $F$ は位相的埋め込みである．
+        $F$ が閉写像の場合も同様．
+        \item 
+    \end{enumerate}
+    
+\end{proof}
 
 
 \section{部分多様体}

@@ -71,4 +71,20 @@ L.~I. Nicolaescu,
 E.~Fabri and L.~E. Picasso,
 \newblock Phys. Rev. Lett. {\bf 16}, 408 (1966).
 
+\bibitem{nielsen1976HowCount}
+H.~Nielsen and S.~Chadha,
+\newblock Nuclear Physics B {\bf 105}, 445 (1976).
+
+\bibitem{watanabe2012UnifiedDescription}
+H.~Watanabe and H.~Murayama,
+\newblock Physical Review Letters {\bf 108}, 251602 (2012), \href{http://arxiv.org/abs/1203.0609}{[1203.0609]}.
+
+\bibitem{Lake2018SSB}
+E.~{Lake},
+\newblock arXiv e-prints , arXiv:1802.07747 (2018), \href{http://arxiv.org/abs/1802.07747}{[1802.07747]}.
+
+\bibitem{Kugo1989qft1}
+九後汰一郎,
+\newblock {\em ゲージ場の量子論 I} (, 1989).
+
 \end{thebibliography}

@@ -4,46 +4,47 @@ The top-level auxiliary file: TQFT_main.aux
 The style file: myh-physrev.bst
 Database file #1: TQFTrefs.bib
 Warning--empty publisher in Kugo1989qft2
-You've used 17 entries,
+Warning--empty publisher in Kugo1989qft1
+You've used 21 entries,
             1990 wiz_defined-function locations,
-            724 strings with 7216 characters,
-and the built_in function-call counts, 2890 in all, are:
-= -- 180
-> -- 146
+            752 strings with 7827 characters,
+and the built_in function-call counts, 3801 in all, are:
+= -- 244
+> -- 178
 < -- 0
-+ -- 46
-- -- 29
-* -- 233
-:= -- 378
-add.period$ -- 17
-call.type$ -- 17
++ -- 56
+- -- 35
+* -- 322
+:= -- 485
+add.period$ -- 21
+call.type$ -- 21
 change.case$ -- 3
 chr.to.int$ -- 0
-cite$ -- 18
-duplicate$ -- 151
-empty$ -- 336
-format.name$ -- 46
-if$ -- 671
+cite$ -- 23
+duplicate$ -- 192
+empty$ -- 433
+format.name$ -- 56
+if$ -- 889
 int.to.chr$ -- 0
-int.to.str$ -- 17
-missing$ -- 22
-newline$ -- 74
-num.names$ -- 17
-pop$ -- 107
+int.to.str$ -- 21
+missing$ -- 27
+newline$ -- 90
+num.names$ -- 21
+pop$ -- 125
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 99
+skip$ -- 145
 stack$ -- 0
-substring$ -- 63
-swap$ -- 44
+substring$ -- 141
+swap$ -- 55
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 1
-while$ -- 23
-width$ -- 19
-write$ -- 132
+warning$ -- 2
+while$ -- 30
+width$ -- 23
+write$ -- 162
 is.kanji.str$ -- 0
-(There was 1 warning)
+(There were 2 warnings)
