@@ -322,7 +322,7 @@ $2+1$ 次元においては，1つのゲージ場からなる作用であって
 量 $\varphi (\irm{x}{f}) - \varphi^{(\gamma)}(\irm{t}{f})$ は $U(\irm{x}{f}) \in G$ による変換を受けるはずである．
 $\irm{x}{i},\, \irm{x}{f}$ の両方を含む $\mathcal{M}$ のチャート $\bigl( V,\, (x^\mu) \bigr)$ を持ってきて成分計算すると，$\dd{x} \coloneqq \irm{x}{f} - \irm{x}{i}$ が\footnote{厳密にはこれは座標関数の差 $\dd{x}^\mu \coloneqq x^\mu(\irm{x}{f}) - x^\mu(\irm{x}{i})$ の絶対値が小さいことを主張している．}微小なのでTaylor展開において $\dd{x}$ の1次の項まで残すことで
 \begin{align}
-    \varphi^{(\gamma)}_i(\irm{t}{f}) &\eqqcolon \varphi_i (\irm{x}{i}) - [\, \textcolor{red}{A_\mu(x)} \,]^j_i \varphi_j (x) \dd{x}^\mu \label{eq:2-gauge1} \\
+    \varphi^{(\gamma)}_i(\irm{t}{f}) &\eqqcolon \varphi_i (\irm{x}{i}) - [\, \textcolor{red}{A_\mu(\irm{x}{i})} \,]^j_i \varphi_j (\irm{x}{i}) \dd{x}^\mu \label{eq:2-gauge1} \\
     \varphi(\irm{x}{f}) &= \varphi (\irm{x}{i}) + \partial_\mu \varphi (x) \dd{x}^\mu
 \end{align}
 と書けるはずである
@@ -332,7 +332,7 @@ $\irm{x}{i},\, \irm{x}{f}$ の両方を含む $\mathcal{M}$ のチャート $\bi
 ゲージ場 $A_\mu$ を時空の各点 $x \in \mathcal{M}$ における変換性によって特徴付けよう．
 そのためには，量
 \begin{align}
-    \varphi (\irm{x}{f}) - \varphi^{(\gamma)}(\irm{t}{f}) = \bigl( \partial_\mu \varphi (x) + A_\mu(x) \varphi (x) \bigr) \dd{x}^\mu
+    \varphi (\irm{x}{f}) - \varphi^{(\gamma)}(\irm{t}{f}) = \bigl( \partial_\mu \varphi (\irm{x}{i}) + A_\mu(\irm{x}{i}) \varphi (\irm{x}{i}) \bigr) \dd{x}^\mu
 \end{align}
 が $U(\irm{x}{f}) \in G$ による変換を受けることに注目すれば良い．つまり，\textbf{共変微分}と呼ばれる線型写像を $\mathcal{D}_\mu (x) \coloneqq \partial_\mu + A_\mu (x)$ で定義すると，$\forall x \in \mathcal{M}$ における，内部対称性による変換
 \begin{align}
