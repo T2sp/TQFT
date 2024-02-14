@@ -1,6 +1,6 @@
 # Fdb version 4
-["lualatex"] 1704979730 "/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/chap2.tex" "out/chap2.pdf" "chap2" 1704979745 0
-  "/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/chap2.tex" 1704979729 194024 8cd5b1653b524011a1acc86d703a64f6 ""
+["lualatex"] 1707877704 "/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/chap2.tex" "out/chap2.pdf" "chap2" 1707877725 0
+  "/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/chap2.tex" 1707877703 195147 5ed4031d9a9f9825166dc55a83d82e00 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/haranoajigothic-medium.luc" 1680092069 1875369 563a49d56453118cc2bc098475a23186 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/haranoajimincho-regular.luc" 1680092052 1961878 305e540f3545673854903467c3d18712 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmmono8-regular.luc" 1688109666 81440 437a625e82075788cf1866975f3b9db1 ""
@@ -47,7 +47,7 @@
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/ltj-cid-auto-adobe-japan1.luc" 1680091968 1643631 91cfe6be2985e96c1aa98a60c52fbe03 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/ltj-jisx0208.luc" 1680092053 93919 1f6dc76354e6e3b148c06f9f9254f22e ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/ltj-kinsoku_default.luc" 1680091971 17654 e3e3c85f63c77f4caa824d338e2428e0 ""
-  "/Users/takamatoshinori/Library/texmf/tex/latex/myalgebra/myalgebra.sty" 1702740895 4068 8a6aae7649274026175578f0c5477c9a ""
+  "/Users/takamatoshinori/Library/texmf/tex/latex/myalgebra/myalgebra.sty" 1705464502 4069 c442ff2bb9c40d5c147be87ed8f8016c ""
   "/Users/takamatoshinori/Library/texmf/tex/latex/mygeometry/mygeometry.sty" 1703033365 1657 c85baf2e3936ac9091e6cf82100a4fc9 ""
   "/Users/takamatoshinori/Library/texmf/tex/latex/mylogics/mylogics.sty" 1702786163 1666 33c2f2cffbcd861013bb5112ac0c4e02 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf" 1677185994 4690004 f38d025815e65462ac61ddc6a192e733 ""
@@ -607,9 +607,9 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1680072210 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/luahbtex/lualatex.fmt" 1680072074 11876436 fe019cd16c56b2a02a7f439a19527237 ""
   "TQFT_main.tex" 1703918958 8051 c7826c0eacc4f07c0e25d5404958f6dd ""
-  "chap2.tex" 1704979729 194024 8cd5b1653b524011a1acc86d703a64f6 ""
-  "out/chap2.aux" 1704979744 13087 fcfd7e06581d5202f0e74d09d4afad4f "lualatex"
-  "out/chap2.out" 1704979744 1005 93f541ba30e4bb841bcf30c0904be6b9 "lualatex"
+  "chap2.tex" 1707877703 195147 5ed4031d9a9f9825166dc55a83d82e00 ""
+  "out/chap2.aux" 1707877724 13087 863ea5342891ce3bf7131464566462e8 "lualatex"
+  "out/chap2.out" 1707877724 1005 93f541ba30e4bb841bcf30c0904be6b9 "lualatex"
   (generated)
   "out/chap2.aux"
   "out/chap2.log"

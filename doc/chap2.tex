@@ -1183,6 +1183,9 @@ $\forall g \in G$ と $\forall X,\, Y \in \Lie{\mathfrak{X}}(G)$ をとる．こ
             \theta_{(X)}(t,\, g) = g \exp(tX) \, \bigl(\,\eqqcolon R_{\exp(tX)}(g)\,\bigr)
         \end{align}
         が成り立つ．
+
+        \item $T_0 (\exp) \colon T_0 \mathfrak{g} \lto \mathfrak{g}$ は恒等写像である．
+        \item 点 $0 \in \mathfrak{g}$ の近傍 $U \subset \mathfrak{g}$ および点 $1_G \in G$ の近傍 $V \subset G$ が存在して，$\exp|_U \colon U \lto V$ が微分同相写像になる．
     \end{enumerate}
 \end{myprop}
 
@@ -1224,6 +1227,18 @@ $\forall g \in G$ と $\forall X,\, Y \in \Lie{\mathfrak{X}}(G)$ をとる．こ
         \begin{align}
             g \exp(tX) = L_g(\exp(tX)) = L_g \circ \gamma_{(X)}(t) = \theta_{(X)}^{(g)}(t) = \theta_{(X)} (t,\, g).
         \end{align}
+
+        \item $\forall X \in T_0 \mathfrak{g}$ を1つとる．$\mathfrak{g}$ 上の $C^\infty$ 曲線 $\gamma \colon \mathbb{R} \lto \mathfrak{g},\; t \lmto t X$ は $\dot{\gamma}(0) = X$ を充たすので
+        \begin{align}
+            T_0 (\exp)(X)
+            &= T_0(\exp) \bigl( \dot{\gamma}(0) \bigr) \\
+            &= T_0 (\exp) \circ T_0 \gamma \left( \eval{\dv{}{t}}_{t=0} \right) \\
+            &= T_0 (\exp \circ \gamma)  \left( \eval{\dv{}{t}}_{t=0} \right) \\
+            &= \eval{\dv{}{t}}_{t=0} \exp(tX) \\
+            &= X
+        \end{align}
+        
+        \item (7) より点 $0 \in \mathfrak{g}$ において $T_0 (\exp) \colon T_0 \mathfrak{g} \lto \mathfrak{g} = T_{1_G} G$ が全単射なので，\hyperref[thm:inverse-function-b]{$C^\infty$ 多様体に関する逆関数定理}が使える．
     \end{enumerate}
 \end{proof}
 
