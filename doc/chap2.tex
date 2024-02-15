@@ -1051,7 +1051,7 @@ $\forall g \in G$ と $\forall X,\, Y \in \Lie{\mathfrak{X}}(G)$ をとる．こ
 \begin{align}
     \comm{X}{Y} \coloneqq \comm{\Lie{X}}{\Lie{Y}}_{1_G} \in \mathfrak{g}
 \end{align}
-と定義すれば $\evalunit$ はLie代数の同型となる．この意味で $\mathfrak{g}$ のことを\textbf{Lie群} $\bm{G}$ \textbf{のLie代数}と呼ぶ．
+と定義すれば $\evalunit$ はLie代数の同型写像となる．この意味で $\mathfrak{g}$ のことを\textbf{Lie群} $\bm{G}$ \textbf{のLie代数}と呼ぶ．
 % さて，慣例に従って $X\in \mathfrak{g}$ に対して $\bm{X^\#} \coloneqq \iota^{-1}(X)$ と書く．
 
 \begin{mytheo}[label=thm:induced-LieAlg-hom]{誘導されるLie代数の準同型}
@@ -1120,7 +1120,7 @@ $\forall g \in G$ と $\forall X,\, Y \in \Lie{\mathfrak{X}}(G)$ をとる．こ
 \begin{proof}
     \begin{enumerate}
         \item $G$ の1パラメータ部分群 $\gamma \colon \mathbb{R} \lto G$ を与える．
-        $\dv{}{t} \in \Lie{\mathfrak{X}}(\mathbb{R})$ なので，命題\ref{thm:induced-LieAlg-hom}より，$X \coloneqq \gamma_* \bigl(\dv{}{t}\bigr) \in \Lie{\mathfrak{X}}(G)$ は $\dv{}{t}$ と $\gamma$-related な唯一の左不変ベクトル場である．
+        $\dv{}{t} \in \Lie{\mathfrak{X}}(\mathbb{R})$ なので，定理\ref{thm:induced-LieAlg-hom}より，$X \coloneqq \gamma_* \bigl(\dv{}{t}\bigr) \in \Lie{\mathfrak{X}}(G)$ は $\dv{}{t}$ と $\gamma$-related な唯一の左不変ベクトル場である．
         このとき $\forall t_0 \in \mathbb{R}$ に大して
         \begin{align}
             X_{\gamma(t_0)} = T_{t_0} \gamma \left( \eval{\dv{}{t}}_{t=t_0} \right) = \dot{\gamma}(t_0)
@@ -1130,7 +1130,7 @@ $\forall g \in G$ と $\forall X,\, Y \in \Lie{\mathfrak{X}}(G)$ をとる．こ
         $X$ は\hyperref[def:global-flow]{大域的なフロー}を\hyperref[thm:fundamental-flow]{生成する}．従って $\gamma(0) = 1_G$ を充たす $X$ の極大積分曲線 $\gamma$ が唯一存在し，その定義域が $\mathbb{R}$ になる．
         
         　$\forall g \in G$ をとる．\hyperref[def:left-invariant]{左不変ベクトル場の定義}より $X \in \Lie{\mathfrak{X}}(G)$ は $X$ 自身と \hyperref[def:F-related]{$L_g$-related}なので，命題\ref{prop:natural-integral-curve}から $L_g \circ \gamma \colon \mathbb{R} \lto G$ もまた $X$ の積分曲線である．
-        従って $\forall s \in \mathbb{R}$ に大して曲線 $L_{\gamma(s)} \circ \gamma \colon t \lmto L_{\gamma(s)} \bigl( \gamma(t) \bigr) = \gamma(s) \gamma(t)$ は $t=0$ において点 $\gamma(s) \in G$ を通過する $X$ の積分曲線である．
+        従って $\forall s \in \mathbb{R}$ に対して曲線 $L_{\gamma(s)} \circ \gamma \colon t \lmto L_{\gamma(s)} \bigl( \gamma(t) \bigr) = \gamma(s) \gamma(t)$ は $t=0$ において点 $\gamma(s) \in G$ を通過する $X$ の積分曲線である．
         然るに補題\ref{lem:affine-integral-curve}-(2) より曲線 $t \colon t \lmto \gamma(s+t)$ もまた同一の初期条件を充たす $X$ の積分曲線なので，定理\ref{thm:fundamental-flow}よりこれらは $\forall t \in \mathbb{R}$ において一致しなくてはならない：
         \begin{align}
             \gamma(s) \gamma(t) = \gamma(s+t)
@@ -1372,7 +1372,7 @@ $\forall g \in G$ と $\forall X,\, Y \in \Lie{\mathfrak{X}}(G)$ をとる．こ
 
 定理\ref{thm:fundamental-flow}によって，\cinfty 多様体 $M$ 上の\hyperref[def:vecf-complete]{完備}なベクトル場 $X$ がLie群 $\mathbb{R}$ の $M$ への作用 $\theta \colon \mathbb{R} \times M \lto M$ を一意に定めることが分かる．
 そしてこのような状況を指して，ベクトル場 $X$ はLie群 $\mathbb{R}$ の作用 $\theta$ の無限小生成子であると言うのだった．
-この考えを任意のLie群 $G$ の，任意の $M$ への作用に拡張することができる．
+この考えを任意のLie群 $G$ の，任意の $M$ への\underline{右作用}に拡張することができる．
 つまり，任意のLie群 $G$ の任意の右作用 $\btl \colon M \times G \lto M$ は，ただ一つの無限小生成子を持つ．
 
 \begin{mydef}[label=def:fundamental-vecf]{基本ベクトル場}
@@ -1433,7 +1433,7 @@ $\forall X \in \mathfrak{g}$ に対して，\cinfty 写像\footnote{これは命
     &= T_0 (\theta_{(X)}^{(x)})\left( \eval{\dv{}{t}}_{t=0} \right) \\
     &= X^\#_x. \label{eq:fundamental-vecf}
 \end{align}
-このことから $\btl^\#$ が $\mathbb{R}$-線型写像だとわかる．なお，\eqref{eq:fundamental-vecf}は\hyperref[thm:connection-basic]{主束の接続形式を調べる}際に極めて重要な役割を果たす．
+このことから $\btl^\#$ が $\mathbb{R}$-線型写像だとわかる．なお，等式\eqref{eq:fundamental-vecf}は\hyperref[thm:connection-basic]{主束の接続形式を調べる}際に極めて重要な役割を果たす．
 
 \begin{mylem}[label=lem:fundamental-vecf]{}
     Lie群 $G$ の\cinfty 多様体 $M$ への右作用 $\btl \colon M \times G \lto M$ を与える．
@@ -1694,7 +1694,7 @@ $\forall X \in T_u G_{\pi(u)} \subset T_u P$ （i.e. 点 $u \in \bm{P}$ にお�
 
 \end{proof}
 
-\hyperref[def:connection]{接続の定義}は幾何学的にわかりやすいが，計算は絶望的である．
+\hyperref[def:connection]{接続の定義}は幾何学的イメージがわかりやすいが，計算は絶望的である．
 幸いにして主束の接続を与えることと，全空間上の\hyperref[def:connection]{接続形式}を与えることは同値なのでなんとかなる：
 
 \begin{mytheo}[label=thm:connection-basic]{接続と接続形式の関係}
