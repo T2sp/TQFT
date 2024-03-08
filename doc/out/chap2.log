@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.29)  14 FEB 2024 22:00
+This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.29)  8 MAR 2024 17:04
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/chap2.tex
@@ -1521,169 +1521,174 @@ LaTeX Warning: Hyper reference `def:F-related' on page 20 undefined on input lin
 
 LaTeX Warning: Hyper reference `def:vecf' on page 20 undefined on input line 1022.
 
+LaTeX Font Info:    Trying to load font information for U+dsrom on input line 1058.
+(/usr/local/texlive/2023/texmf-dist/tex/latex/doublestroke/Udsrom.fd
+File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
+) [20]
 
-LaTeX Warning: Hyper reference `def:F-related' on page 20 undefined on input line 1060.
-
-[20]
-
-LaTeX Warning: Reference `col:pushforward' on page 21 undefined on input line 1083.
-
-
-LaTeX Warning: Reference `prop:Lie-bracket-natural' on page 21 undefined on input line 1084.
-
-
-LaTeX Warning: Hyper reference `def:local-flow' on page 21 undefined on input line 1104.
+LaTeX Warning: Hyper reference `def:F-related' on page 21 undefined on input line 1104.
 
 [21]
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 1117.
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 1117.
-LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <24.88> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 1117.
-LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 1117.
-LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <24.88> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 1117.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 1117.
+
+LaTeX Warning: Reference `col:pushforward' on page 22 undefined on input line 1127.
 
 
-LaTeX Warning: Reference `thm:left-invariant-complete' on page 22 undefined on input line 1129.
+LaTeX Warning: Reference `prop:Lie-bracket-natural' on page 22 undefined on input line 1128.
 
 
-LaTeX Warning: Hyper reference `def:complete-vecf' on page 22 undefined on input line 1129.
-
-
-LaTeX Warning: Hyper reference `def:global-flow' on page 22 undefined on input line 1130.
-
-
-LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 22 undefined on input line 1130.
-
-
-LaTeX Warning: Hyper reference `def:F-related' on page 22 undefined on input line 1132.
-
-
-LaTeX Warning: Reference `prop:natural-integral-curve' on page 22 undefined on input line 1132.
-
-
-LaTeX Warning: Reference `lem:affine-integral-curve' on page 22 undefined on input line 1134.
-
-
-LaTeX Warning: Reference `thm:fundamental-flow' on page 22 undefined on input line 1134.
-
-
-LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 22 undefined on input line 1181.
+LaTeX Warning: Hyper reference `def:local-flow' on page 22 undefined on input line 1148.
 
 [22]
+LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
+(Font)              scaled to size 23.00687pt on input line 1161.
+LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
+(Font)              scaled to size 23.00687pt on input line 1161.
+LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <24.88> not available
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 1161.
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 23.00687pt on input line 1161.
+LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <24.88> not available
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 1161.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 23.00687pt on input line 1161.
 
-LaTeX Warning: Citation `Lee2012smooth' on page 23 undefined on input line 1194.
+
+LaTeX Warning: Reference `thm:left-invariant-complete' on page 23 undefined on input line 1173.
 
 
-LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 23 undefined on input line 1195.
+LaTeX Warning: Hyper reference `def:complete-vecf' on page 23 undefined on input line 1173.
 
 
-LaTeX Warning: Reference `lem:affine-integral-curve' on page 23 undefined on input line 1197.
+LaTeX Warning: Hyper reference `def:global-flow' on page 23 undefined on input line 1174.
+
+
+LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 23 undefined on input line 1174.
+
+
+LaTeX Warning: Hyper reference `def:F-related' on page 23 undefined on input line 1176.
+
+
+LaTeX Warning: Reference `prop:natural-integral-curve' on page 23 undefined on input line 1176.
+
+
+LaTeX Warning: Reference `lem:affine-integral-curve' on page 23 undefined on input line 1178.
+
+
+LaTeX Warning: Reference `thm:fundamental-flow' on page 23 undefined on input line 1178.
+
+
+LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 23 undefined on input line 1225.
 
 [23]
 
-LaTeX Warning: Hyper reference `def:F-related' on page 24 undefined on input line 1224.
+LaTeX Warning: Citation `Lee2012smooth' on page 24 undefined on input line 1238.
 
 
-LaTeX Warning: Reference `prop:natural-integral-curve' on page 24 undefined on input line 1225.
+LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 24 undefined on input line 1239.
 
 
-LaTeX Warning: Hyper reference `thm:inverse-function-b' on page 24 undefined on input line 1241.
+LaTeX Warning: Reference `lem:affine-integral-curve' on page 24 undefined on input line 1241.
+
+[24]
+
+LaTeX Warning: Hyper reference `def:F-related' on page 25 undefined on input line 1268.
 
 
-LaTeX Warning: Citation `Lee2012smooth' on page 24 undefined on input line 1334.
+LaTeX Warning: Reference `prop:natural-integral-curve' on page 25 undefined on input line 1269.
 
 
-LaTeX Warning: Reference `prop:infinitesimal-generator-local' on page 24 undefined on input line 1339.
+LaTeX Warning: Hyper reference `thm:inverse-function-b' on page 25 undefined on input line 1285.
 
 
-LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 24 undefined on input line 1352.
+LaTeX Warning: Citation `Lee2012smooth' on page 25 undefined on input line 1378.
 
 
-LaTeX Warning: Hyper reference `def:Liedv' on page 24 undefined on input line 1361.
-
-[24] [25]
-
-LaTeX Warning: Reference `thm:fundamental-flow' on page 26 undefined on input line 1373.
+LaTeX Warning: Reference `prop:infinitesimal-generator-local' on page 25 undefined on input line 1383.
 
 
-LaTeX Warning: Hyper reference `def:vecf-complete' on page 26 undefined on input line 1373.
+LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 25 undefined on input line 1396.
 
 
-LaTeX Warning: Hyper reference `def:flow-global' on page 26 undefined on input line 1403.
+LaTeX Warning: Hyper reference `def:Liedv' on page 25 undefined on input line 1405.
+
+[25] [26]
+
+LaTeX Warning: Reference `thm:fundamental-flow' on page 27 undefined on input line 1437.
 
 
-LaTeX Warning: Hyper reference `def:thm:fundamental-flow' on page 26 undefined on input line 1416.
-
-[26]
-
-LaTeX Warning: Hyper reference `def:F-related' on page 27 undefined on input line 1441.
+LaTeX Warning: Hyper reference `def:vecf-complete' on page 27 undefined on input line 1437.
 
 [27]
 
-LaTeX Warning: Hyper reference `prop:Lie-bracket-natural' on page 28 undefined on input line 1483.
+LaTeX Warning: Hyper reference `def:flow-global' on page 28 undefined on input line 1467.
 
 
-LaTeX Warning: Citation `Lee2012smooth' on page 28 undefined on input line 1490.
+LaTeX Warning: Hyper reference `def:thm:fundamental-flow' on page 28 undefined on input line 1480.
 
-[28] [29]
+[28]
 
-LaTeX Warning: Citation `Imai2013diff' on page 30 undefined on input line 1587.
+LaTeX Warning: Hyper reference `def:F-related' on page 29 undefined on input line 1505.
 
 
-LaTeX Warning: Citation `Tu2017differential' on page 30 undefined on input line 1587.
+LaTeX Warning: Hyper reference `prop:Lie-bracket-natural' on page 29 undefined on input line 1547.
 
-[30]
+[29]
 
-LaTeX Warning: Citation `Lee2012smooth' on page 31 undefined on input line 1627.
+LaTeX Warning: Citation `Lee2012smooth' on page 30 undefined on input line 1554.
 
-[31] [32] [33]
-Overfull \hbox (15.09593pt too wide) detected at line 1815
+[30] [31]
+
+LaTeX Warning: Citation `Imai2013diff' on page 32 undefined on input line 1651.
+
+
+LaTeX Warning: Citation `Tu2017differential' on page 32 undefined on input line 1651.
+
+
+LaTeX Warning: Citation `Lee2012smooth' on page 32 undefined on input line 1691.
+
+[32] [33] [34] [35]
+Overfull \hbox (15.09593pt too wide) detected at line 1879
 [][]
  []
 
 (load cache: extra_lmmono8-regular.luc)
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 7.3977pt on input line 1850.
-[34] [35] [36] [37] [38]
+(Font)              scaled to size 7.3977pt on input line 1914.
+[36] [37] [38] [39] [40]
 
-LaTeX Warning: Citation `Imai2013diff' on page 39 undefined on input line 2103.
+LaTeX Warning: Citation `Imai2013diff' on page 41 undefined on input line 2187.
 
-[39]
+[41]
 
-LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 40 undefined on input line 2158.
-
-
-LaTeX Warning: Hyper reference `def:Liedv' on page 40 undefined on input line 2159.
-
-[40] [41] [42]
-
-LaTeX Warning: Hyper reference `def:vecf' on page 43 undefined on input line 2310.
-
-[43] [44]
-
-LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 45 undefined on input line 2382.
+LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 42 undefined on input line 2242.
 
 
-LaTeX Warning: Citation `Nakahara2018topo2' on page 45 undefined on input line 2385.
+LaTeX Warning: Hyper reference `def:Liedv' on page 42 undefined on input line 2243.
 
+[42] [43] [44]
 
-LaTeX Warning: Citation `Nakahara2018topo2' on page 45 undefined on input line 2393.
-
-
-LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 45 undefined on input line 2411.
+LaTeX Warning: Hyper reference `def:vecf' on page 45 undefined on input line 2414.
 
 [45] [46]
-Overfull \hbox (37.87479pt too wide) detected at line 2513
+
+LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 47 undefined on input line 2486.
+
+
+LaTeX Warning: Citation `Nakahara2018topo2' on page 47 undefined on input line 2489.
+
+
+LaTeX Warning: Citation `Nakahara2018topo2' on page 47 undefined on input line 2497.
+
+[47]
+
+LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 48 undefined on input line 2515.
+
+[48] [49]
+Overfull \hbox (37.87479pt too wide) detected at line 2617
 [][]
  []
 
-[47] [48] [49] (./out/chap2.aux)
+[50] [51] (./out/chap2.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1692,19 +1697,19 @@ Package rerunfilecheck Info: File `chap2.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 54685 strings out of 478285
+ 54725 strings out of 478285
  244624,1977958 words of node,token memory allocated
- 47551 words of node memory still in use:
-   10 hlist, 2 vlist, 5 rule, 49 glue, 4 kern, 1 glyph, 21323 attribute, 62 glue_spec, 1950 attribute_list, 2 write, 13 user_defined, 8 pdf_action nodes
-   avail lists: 1:57,2:50282,3:1350,4:1273,5:672,6:59,7:6468,8:100,9:3510,10:29,11:42
- 72675 multiletter control sequences out of 65536+600000
- 129 fonts using 83721399 bytes
+ 49968 words of node memory still in use:
+   10 hlist, 2 vlist, 5 rule, 48 glue, 4 kern, 1 glyph, 22434 attribute, 62 glue_spec, 2051 attribute_list, 2 write, 13 user_defined, 8 pdf_action nodes
+   avail lists: 1:57,2:49070,3:1350,4:1484,5:672,6:59,7:6469,8:100,9:3510,10:29,11:32
+ 72698 multiletter control sequences out of 65536+600000
+ 134 fonts using 83953399 bytes
  138i,20n,144p,1816b,1542s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmmono8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman9-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufb10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on chap2.pdf (49 pages, 907075 bytes).
+</usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmmono8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman9-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/doublestroke/dsrom8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufb10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on chap2.pdf (51 pages, 923756 bytes).
 
-PDF statistics: 1139 PDF objects out of 1200 (max. 8388607)
- 898 compressed objects within 9 object streams
- 244 named destinations out of 1000 (max. 131072)
+PDF statistics: 1204 PDF objects out of 1440 (max. 8388607)
+ 923 compressed objects within 10 object streams
+ 250 named destinations out of 1000 (max. 131072)
  64 words of extra memory for PDF output out of 10000 (max. 100000000)
 

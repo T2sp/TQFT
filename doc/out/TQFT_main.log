@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.29)  14 FEB 2024 11:32
+This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.29)  6 MAR 2024 10:38
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/TQFT_main.tex
@@ -1564,75 +1564,76 @@ LaTeX Warning: Hyper reference `def.prodtopo' on page 25 undefined on input line
 
 LaTeX Warning: Hyper reference `def.disjoint_topo' on page 25 undefined on input line 644.
 
-[25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37]
+[25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38]
 
-LaTeX Warning: Hyper reference `def:vecf-complete' on page 38 undefined on input line 1373.
+LaTeX Warning: Hyper reference `def:vecf-complete' on page 39 undefined on input line 1437.
+
+[39]
+
+LaTeX Warning: Hyper reference `def:flow-global' on page 40 undefined on input line 1467.
 
 
-LaTeX Warning: Hyper reference `def:flow-global' on page 38 undefined on input line 1403.
+LaTeX Warning: Hyper reference `def:thm:fundamental-flow' on page 40 undefined on input line 1480.
 
-
-LaTeX Warning: Hyper reference `def:thm:fundamental-flow' on page 38 undefined on input line 1416.
-
-[38] [39] [40] [41] [42] [43] [44] [45]
-Overfull \hbox (15.09593pt too wide) detected at line 1815
+[40] [41] [42] [43] [44] [45] [46] [47]
+Overfull \hbox (15.09593pt too wide) detected at line 1879
 [][]
  []
 
-[46] [47] [48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58]
-Overfull \hbox (37.87479pt too wide) detected at line 2513
+[48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59] [60]
+Overfull \hbox (37.87479pt too wide) detected at line 2580
 [][]
  []
 
-[59] [60]) (./chap3.tex [61]
+[61] [62]) (./chap3.tex [63]
 第3章
 
 Overfull \hbox (2.8728pt too wide) in paragraph at lines 55--56
  [] 
  []
 
-[62
+[64
 
-] [63] [64] [65] [66] [67] [68] [69]
+] [65] [66] [67] [68] [69] [70] [71]
 Overfull \hbox (2.2334pt too wide) detected at line 421
 [][]
  []
 
-[70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80] [81] [82]
+[72] [73] [74] [75] [76] [77] [78] [79] [80] [81] [82] [83] [84]
 
-LaTeX Warning: Reference `def:SSB-p-form' on page 83 undefined on input line 1002.
+LaTeX Warning: Reference `def:SSB-p-form' on page 85 undefined on input line 1002.
 
-[83]) (./appendixA.tex [84]
+[85]) (./appendixA.tex [86]
 付録A
-) (./appendixB.tex [85
+) (./appendixB.tex [87
 
 ]
 付録B
 
-LaTeX Warning: Hyper reference `diffmani' on page 86 undefined on input line 33.
+LaTeX Warning: Hyper reference `diffmani' on page 88 undefined on input line 33.
 
 
-LaTeX Warning: Hyper reference `thm.metrictopo' on page 86 undefined on input line 41.
+LaTeX Warning: Hyper reference `thm.metrictopo' on page 88 undefined on input line 41.
 
-[86
+[88
 
 ]
 
-LaTeX Warning: Reference `lem:sets' on page 87 undefined on input line 65.
+LaTeX Warning: Reference `lem:sets' on page 89 undefined on input line 65.
 
 
-LaTeX Warning: Hyper reference `def:second-countable' on page 87 undefined on input line 88.
+LaTeX Warning: Hyper reference `def:second-countable' on page 89 undefined on input line 88.
 
-[87]
+[89]
 
-LaTeX Warning: Hyper reference `diffmani' on page 88 undefined on input line 137.
+LaTeX Warning: Hyper reference `diffmani' on page 90 undefined on input line 137.
 
-[88]
+[90]
 Overfull \hbox (41.84575pt too wide) detected at line 190
 [][]
  []
 
-[89] [90] [91]
+[91] [92] [93]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 322.
@@ -1649,7 +1650,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 322.
 
-[92]
+[94]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 389.
@@ -1666,13 +1667,13 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 389.
 
-[93] [94] [95] [96] [97] [98]
+[95] [96] [97] [98] [99] [100]
 
-LaTeX Warning: Reference `prop:existence-integral-curve' on page 99 undefined on input line 675.
+LaTeX Warning: Reference `prop:existence-integral-curve' on page 101 undefined on input line 675.
 
-[99] [100] [101] [102] [103] [104] [105]
+[101] [102] [103] [104] [105] [106] [107]
 Missing character: There is no å (U+00E5) in font cmmi10!
-[106] [107] [108] [109] [110]
+[108] [109] [110] [111] [112]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1251.
@@ -1690,18 +1691,18 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1251.
 
 
-LaTeX Warning: Hyper reference `def:fiber-1' on page 111 undefined on input line 1280.
+LaTeX Warning: Hyper reference `def:fiber-1' on page 113 undefined on input line 1280.
 
-[111] [112]) (./appendixC.tex [113]
+[113] [114]) (./appendixC.tex [115]
 付録C
-[114
+[116
 
 ]
 Overfull \hbox (14.90411pt too wide) detected at line 77
 [][]
  []
 
-) (./appendixD.tex [115]
+) (./appendixD.tex [117]
 付録D
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
@@ -1721,9 +1722,9 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 15.97903pt on input line 6.
-(load cache: extra_lmsans8-regular.luc) [116
+(load cache: extra_lmsans8-regular.luc) [118
 
-] [117] [118] [119] [120] [121] [122] [123] [124] [125] [126] [127] [128]
+] [119] [120] [121] [122] [123] [124] [125] [126] [127] [128] [129] [130]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 656.
@@ -1740,7 +1741,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 656.
 
-[129]) (./out/TQFT_main.bbl [130](load cache: extra_lmmono10-regular.luc)
+[131]) (./out/TQFT_main.bbl [132](load cache: extra_lmmono10-regular.luc)
 LaTeX Font Info:    Font shape `JT3/gt/m/it' in size <10> not available
 (Font)              Font shape `JT3/gt/m/n' tried instead on input line 10.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
@@ -1749,7 +1750,7 @@ LaTeX Font Info:    Font shape `JY3/gt/m/it' in size <10> not available
 (Font)              Font shape `JY3/gt/m/n' tried instead on input line 10.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 9.24713pt on input line 10.
-) [131
+) [133
 
 ] (./out/TQFT_main.aux)
 
@@ -1763,19 +1764,19 @@ Package rerunfilecheck Info: File `TQFT_main.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 56136 strings out of 478285
+ 56147 strings out of 478285
  305795,1977958 words of node,token memory allocated
- 78533 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 112 glue, 4 kern, 28 sub_mlist, 1 glyph, 35249 attribute, 62 glue_spec, 3216 attribute_list, 2 write, 14 user_defined, 18 pdf_action nodes
-   avail lists: 1:43,2:53992,3:1634,4:1272,5:780,6:98,7:6420,8:124,9:3529,10:37,11:149
- 73661 multiletter control sequences out of 65536+600000
+ 80141 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 112 glue, 4 kern, 28 sub_mlist, 1 glyph, 35986 attribute, 62 glue_spec, 3283 attribute_list, 2 write, 14 user_defined, 18 pdf_action nodes
+   avail lists: 1:39,2:53992,3:1634,4:1272,5:780,6:100,7:6420,8:124,9:3529,10:37,11:149
+ 73666 multiletter control sequences out of 65536+600000
  205 fonts using 96002255 bytes
  118i,22n,128p,1796b,1722s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman9-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmmono8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-bolditalic.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufb10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on TQFT_main.pdf (132 pages, 1551865 bytes).
+</usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman9-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmmono8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-bolditalic.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/doublestroke/dsrom8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufb10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
+Output written on TQFT_main.pdf (134 pages, 1564318 bytes).
 
-PDF statistics: 2705 PDF objects out of 2984 (max. 8388607)
- 2337 compressed objects within 24 object streams
- 675 named destinations out of 1000 (max. 131072)
+PDF statistics: 2731 PDF objects out of 2984 (max. 8388607)
+ 2360 compressed objects within 24 object streams
+ 681 named destinations out of 1000 (max. 131072)
  584 words of extra memory for PDF output out of 10000 (max. 100000000)
 

@@ -1,6 +1,6 @@
 # Fdb version 4
-["lualatex"] 1707915651 "/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/chap2.tex" "out/chap2.pdf" "chap2" 1707915672 0
-  "/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/chap2.tex" 1707915650 195186 09c5a251cda8e154ecfca296fb6b849b ""
+["lualatex"] 1709885052 "/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/chap2.tex" "out/chap2.pdf" "chap2" 1709885075 0
+  "/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/chap2.tex" 1709885051 204449 94d8f6574fbc7c3a265b7ae39f8eb7ed ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/haranoajigothic-medium.luc" 1680092069 1875369 563a49d56453118cc2bc098475a23186 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/haranoajimincho-regular.luc" 1680092052 1961878 305e540f3545673854903467c3d18712 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmmono8-regular.luc" 1688109666 81440 437a625e82075788cf1866975f3b9db1 ""
@@ -117,6 +117,8 @@
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy7.tfm" 1136768653 1120 2b3f9b25605010c69bc328bea6ac000f ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm" 1136768653 1116 25a7bf822c58caf309a702ef79f4afbb ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/doublestroke/dsrom10.tfm" 1136768653 452 168d896d9b2ead965bf08c9db69c947f ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/doublestroke/dsrom8.tfm" 1136768653 452 dc44cdd7c88ff2b15557f125edfc277b ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm" 1229303445 688 37338d6ab346c2f1466b29e195316aa4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm" 1229303445 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/rsfs/rsfs7.tfm" 1229303445 692 1b6510779f0f05e9cbf03e0f6c8361e6 ""
@@ -161,6 +163,8 @@
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb" 1248133631 33366 60462f3d16c3d0f024f1f856e64b09cd ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb" 1248133631 35309 940e81a5b9e04201a07e8b33a3ae6e64 ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb" 1136849748 17014 61891910dfe21ad76f9789fdafdd860e ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/doublestroke/dsrom8.pfb" 1136849748 17066 253bfbb6e5fc3054bb423ea41ca809e2 ""
   "/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2023/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty" 1576625341 40635 c40361e206be584d448876bba8a64a3b ""
   "/usr/local/texlive/2023/texmf-dist/tex/generic/bitset/bitset.sty" 1576016050 33961 6b5c75130e435b2bfdb9f480a09a39f9 ""
@@ -438,6 +442,7 @@
   "/usr/local/texlive/2023/texmf-dist/tex/latex/chemgreek/chemgreek.sty" 1579297960 47530 64600845afa9c25b782d42fa33f66772 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/cite/cite.sty" 1425427964 26218 19edeff8cdc2bcb704e8051dc55eb5a7 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/comment/comment.sty" 1472166125 10197 204f75d5d8d88aa345a8c402e879e63b ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/doublestroke/Udsrom.fd" 1137110062 211 101be7da01334f0b54b41fbe634f1ce4 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/doublestroke/dsfont.sty" 1137110062 230 7bc61880b468bfd38aedc173be7c3486 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/environ/environ.sty" 1399239813 4378 f429f0da968c278653359293040a8f52 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1579991033 13886 d1306dcf79a944f6988e688c1785f9ce ""
@@ -607,9 +612,9 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1680072210 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/luahbtex/lualatex.fmt" 1680072074 11876436 fe019cd16c56b2a02a7f439a19527237 ""
   "TQFT_main.tex" 1703918958 8051 c7826c0eacc4f07c0e25d5404958f6dd ""
-  "chap2.tex" 1707915650 195186 09c5a251cda8e154ecfca296fb6b849b ""
-  "out/chap2.aux" 1707915670 13087 863ea5342891ce3bf7131464566462e8 "lualatex"
-  "out/chap2.out" 1707915670 1005 93f541ba30e4bb841bcf30c0904be6b9 "lualatex"
+  "chap2.tex" 1709885051 204449 94d8f6574fbc7c3a265b7ae39f8eb7ed ""
+  "out/chap2.aux" 1709885074 13299 c008644232a64fed962cc4722fce7c9a "lualatex"
+  "out/chap2.out" 1709885074 1005 93f541ba30e4bb841bcf30c0904be6b9 "lualatex"
   (generated)
   "out/chap2.aux"
   "out/chap2.log"

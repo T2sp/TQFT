@@ -907,7 +907,7 @@ $\xi = (E,\, \pi,\, B,\, F)$ を\hyperref[def.fiber-1]{ファイバー束}とす
 
 \begin{myexample}[label=def:associated-vect]{同伴ベクトル束}
     \hyperref[def.fiber-1]{主束} $G \hookrightarrow P \xrightarrow{\pi} \mathcal{M}$ を任意に与える．
-    Lie群 $G$ の，$N$ 次元 $\mathbb{K}$ ベクトル空間 $V$ への\hyperref[def:Lie-action]{左作用}とは，Lie群 $G$ の表現 $\rho \colon G \lto \LGL (V)$ のことに他ならない\footnote{$\End V$ に標準的な \cinfty 構造を入れてLie群と見做したものを $\LGL (V)$ と書いた．}．
+    Lie群 $G$ の，$N$ 次元 $\mathbb{K}$ ベクトル空間 $V$ への\hyperref[def:Lie-action]{左作用}とは，Lie群 $G$ の $N$ 次元表現 $\rho \colon G \lto \LGL (V)$ のことに他ならない\footnote{$\End V$ に標準的な \cinfty 構造を入れてLie群と見做したものを $\LGL (V)$ と書いた．}．
     このとき，命題\ref{prop:Borelconst}の方法によって構成される階数 $N$ の\hyperref[def:vect]{ベクトル束}のことを $\bm{P \times_\rho V}$ と書き，\textbf{同伴ベクトル束} (associated vector bundle) と呼ぶ．
 \end{myexample}
 
@@ -939,7 +939,7 @@ $\xi = (E,\, \pi,\, B,\, F)$ を\hyperref[def.fiber-1]{ファイバー束}とす
 \end{align}
 として上手く定式化できているのである
 \footnote{
-    変換性によって場を定義していたので，数学的定式化はこれで良い．なお，この定式化は主束の全空間 $P$ の情報を一切使っていないが，これは命題\ref{prop.cocycle}の表れである．実際，この節の冒頭の議論で顕に登場したのは時空 $\mathcal{M}$，場の配位を記述する空間 $\mathbb{K}^N$，内部対称性を表すLie群 $G$ とその表現 $\rho \colon G \lto \gGL{N}{\mathbb{K}}$，場の局所的変換を表す \cinfty 写像 $U \colon \mathcal{M} \lto G$ だけだったので，その数学的定式化が $P$ によらないのは妥当だと思う．
+    物理では変換性によって場を定義するので，数学的定式化はこれで良い．なお，この定式化は主束の全空間 $P$ の情報を一切使っていないが，これは命題\ref{prop.cocycle}の表れである．実際，この節の冒頭の議論で顕に登場したのは時空 $\mathcal{M}$，場の配位を記述する空間 $\mathbb{K}^N$，内部対称性を表すLie群 $G$ とその表現 $\rho \colon G \lto \gGL{N}{\mathbb{K}}$，場の局所的変換を表す \cinfty 写像 $U \colon \mathcal{M} \lto G$ だけだったので，その数学的定式化が $P$ によらないのは妥当だと思う．
 }．
 
 % \begin{myprop}[]{}
@@ -1053,6 +1053,50 @@ $\forall g \in G$ と $\forall X,\, Y \in \Lie{\mathfrak{X}}(G)$ をとる．こ
 \end{align}
 と定義すれば $\evalunit$ はLie代数の同型写像となる．この意味で $\mathfrak{g}$ のことを\textbf{Lie群} $\bm{G}$ \textbf{のLie代数}と呼ぶ．
 % さて，慣例に従って $X\in \mathfrak{g}$ に対して $\bm{X^\#} \coloneqq \iota^{-1}(X)$ と書く．
+
+\begin{myexample}[label=ex:gl]{一般線型群とそのLie代数}
+    一般線型群 $\LGL(n,\, \mathbb{K}) \subset \Mat{n}{\mathbb{K}}$ のLie代数 $\Lgl(n,\, \mathbb{K}) \coloneqq T_{\unity_n} \LGL(n,\, \mathbb{K})$ を，$\LGL(n,\,\mathbb{K})$ のチャート $\bigl( \LGL(n,\,\mathbb{K}),\, (x^\mu{}_\nu) \bigr)$ の下で考える．
+    まず，$\mathbb{K}$-線型写像
+    \begin{align}
+        \alpha \colon \Lgl(n,\, \mathbb{K}) &\lto \Mat{n}{\mathbb{K}}, \\
+        a^\mu{}_\nu \eval{\pdv{}{x^\mu{}_\nu}}_{\unity_n} &\lmto \bigl[\, a^\mu{}_\nu \,\bigr]_{1 \le \mu,\, \nu \le n}
+    \end{align}
+    は明らかに $\mathbb{K}$-ベクトル空間の同型写像である．
+    $\forall a = a^\mu{}_\nu \eval{\pdv{}{x^\mu{}_\nu}}_{\unity_n} ,\, b = b^\mu{}_\nu \eval{\pdv{}{x^\mu{}_\nu}}_{\unity_n} \in \Lgl(n,\, \mathbb{K})$ 
+    をとる．このとき $\forall g = \bigl[ \, g^{\mu}{}_\nu \bigr]_{1 \le \mu,\, \nu \le n} \in \LGL(n,\, \mathbb{K})$ に関する左移動は
+    \begin{align}
+        L_g \bigl(\bigl[\, x^\mu{}_\nu \,\bigr]_{1 \le \mu,\, \nu \le n} \bigr) 
+        = \bigl[\, g^\mu{}_\rho x^\rho{}_\nu \,\bigr]_{1 \le \mu,\, \nu \le n}
+    \end{align}
+    なる $C^\infty$ 写像だから
+    \begin{align}
+        \Lie{a}{}_g = T_{1_G} (L_g) (a) 
+        &= a^\mu{}_\nu\, T_{1_G} (L_g) \left( \eval{\pdv{}{x^\mu{}_\nu}}_{\unity_n} \right) \\
+        &= a^\mu{}_\nu\, \pdv{[\, L_g \,]^\rho{}_\sigma}{x^\mu{}_\nu}()(\unity_n) \eval{\pdv{}{x^\rho{}_\sigma}}_{L_g(\unity_n)} \\
+        &= g^\rho{}_\mu a^\mu{}_\nu \eval{\pdv{}{x^\rho{}_\nu}}_{g}
+    \end{align}
+    と計算できる．i.e. 第 $(\mu,\, \nu)$ 成分を取り出す $C^\infty$ 関数を $\mathrm{pr}^\mu{}_\nu \colon \LGL(n,\, \mathbb{K}) \lto \mathbb{K}$ とおくと  $\forall f \in C^\infty\bigl(\LGL(n,\, \mathbb{K})\bigr)$ に対して $\Lie{a} f \in C^\infty \bigl(\LGL(n,\, \mathbb{K})\bigr)$ は
+    \begin{align}
+        \Lie{a} f(g) = a^\mu{}_\nu\, \mathrm{pr}^\rho{}_\mu(g) \pdv{f}{x^\rho{}_\nu}()(g)
+    \end{align}
+    と書ける．
+    よって
+    \begin{align}
+        \comm{a}{b} f
+        &= \comm{\Lie{a}}{\Lie{b}} f (\unity_n)\\
+        &= a^\mu{}_\nu\, \mathrm{pr}^\rho{}_\mu(\unity_n) \eval{\pdv{}{x^\rho{}_\nu}\left(b^\alpha{}_\beta\, \mathrm{pr}^\gamma{}_\alpha \pdv{f}{x^\gamma{}_\beta} \right)}_{\unity_n} \\
+        &\quad - b^\mu{}_\nu\, \mathrm{pr}^\rho{}_\mu(\unity_n) \eval{\pdv{}{x^\rho{}_\nu}\left(a^\alpha{}_\beta\, \mathrm{pr}^\gamma{}_\alpha \pdv{f}{x^\gamma{}_\beta} \right)}_{\unity_n}\\
+        &= a^\mu{}_\nu b^\nu{}_\beta\, \pdv{f}{x^\mu{}_\beta}()(\unity_n) + \cancel{a^\mu{}_\nu b^\alpha{}_\beta \pdv[2]{f}{x^\mu{}_\nu}{x^\alpha{}_\beta}()(\unity_n)} \\
+        &\quad - b^\mu{}_\nu a^\nu{}_\beta \pdv{f}{x^\mu{}_\beta}()(\unity_n) - \cancel{b^\mu{}_\nu a^\alpha{}_\beta \pdv[2]{f}{x^\mu{}_\nu}{x^\alpha{}_\beta}()(\unity_n)} \\
+        &= \left( (a^\mu{}_\rho b^\rho{}_\nu - b^\mu{}_\rho a^\rho{}_\nu) \eval{\pdv{}{x^\mu{}_\nu}}_{\unity_n}\right) f
+    \end{align}
+    であり，
+    \begin{align}
+        \alpha (\comm{a}{b}) = \bigl[\, a^\mu{}_\rho b^\rho{}_\nu - b^\mu{}_\rho a^\rho{}_\nu \,\bigr]_{1\le \mu,\, \nu \le n}
+    \end{align}
+    i.e. $\alpha$ はLie代数の同型写像だと分かった．
+\end{myexample}
+
 
 \begin{mytheo}[label=thm:induced-LieAlg-hom]{誘導されるLie代数の準同型}
     Lie群 $G,\, H$ とLie群の準同型 $F \colon G \lto H$ を与える．
@@ -1370,6 +1414,26 @@ $\forall g \in G$ と $\forall X,\, Y \in \Lie{\mathfrak{X}}(G)$ をとる．こ
     
 \end{myexample}
 
+\begin{myexample}[label=ex:gl-adj]{一般線型群の随伴表現}
+    $G = \LGL (n,\, \mathbb{K})$ としたときの\hyperref[def:Lie-adj]{随伴表現}を考える．$\LGL(n,\, \mathbb{K})$ のチャート $\bigl( \LGL(n,\, \mathbb{K}),\, (x^\mu{}_\nu) \bigr)$ をとると $\forall g = \bigl[\, g^\mu{}_\nu \,\bigr]_{1 \le \mu,\, \nu \le n} \in \LGL(n,\, \mathbb{K})$ に関して $C^\infty$ 写像 $F_g \colon G \lto G$ は
+    \begin{align}
+        F_g \bigl( \bigl[\, x^\mu{}_\nu \,\bigr]_{1 \le \mu,\, \nu \le n}  \bigr) = \bigl[ \, g^\mu{}_\rho x^\rho{}_\sigma [g^{-1}]^\sigma{}_\nu \, \bigr]_{1 \le \mu,\, \nu \le n}
+    \end{align}
+    と座標表示されるので，$\forall c^\mu{}_\nu \eval{\pdv{}{x^\mu{}_\nu}}_{\unity_n} \in \Lgl (n,\, \mathbb{K})$ の自然基底に関して
+    \begin{align}
+        \Ad(g) \left( c^\mu{}_\nu \eval{\pdv{}{x^\mu{}_\nu}}_{\unity_n} \right) 
+        &= c^\mu{}_\nu\, T_{\unity_n} \left( \eval{\pdv{}{x^\mu{}_\nu}}_{\unity_n} \right) \\
+        &= c^\mu{}_\nu\, \pdv{[\, F_g \,]^\rho{}_\sigma}{x^\mu{}_\nu}()(\unity_n) \eval{\pdv{}{x^\rho{}_\sigma}}_{F_g(\unity_n)} \\
+        &= g^\rho{}_\mu c^\mu{}_\nu [g^{-1}]^\nu{}_\sigma \eval{\pdv{}{x^\rho{}_\sigma}}_{\unity_n}
+    \end{align}
+    がわかる．\exref{ex:gl}のLie代数の同型写像 $\alpha \colon \Lgl(n,\, \mathbb{K}) \lto \Mat{n}{\mathbb{K}}$ を使うと，これは行列の積の意味で
+    \begin{align}
+        \alpha \circ \Ad (g)  \circ \alpha^{-1} (X) = g X g^{-1}
+    \end{align}
+    を意味する．
+    以上の議論は $G$ が $\LGL(n,\, \mathbb{K})$ の部分Lie群の場合にも成立するが，\underline{大抵の場合Lie代数の同型写像 $\alpha$ は省略される}．
+\end{myexample}
+
 定理\ref{thm:fundamental-flow}によって，\cinfty 多様体 $M$ 上の\hyperref[def:vecf-complete]{完備}なベクトル場 $X$ がLie群 $\mathbb{R}$ の $M$ への作用 $\theta \colon \mathbb{R} \times M \lto M$ を一意に定めることが分かる．
 そしてこのような状況を指して，ベクトル場 $X$ はLie群 $\mathbb{R}$ の作用 $\theta$ の無限小生成子であると言うのだった．
 この考えを任意のLie群 $G$ の，任意の $M$ への\underline{右作用}に拡張することができる．
@@ -1438,7 +1502,7 @@ $\forall X \in \mathfrak{g}$ に対して，\cinfty 写像\footnote{これは命
 \begin{mylem}[label=lem:fundamental-vecf]{}
     Lie群 $G$ の\cinfty 多様体 $M$ への右作用 $\btl \colon M \times G \lto M$ を与える．
     
-    このとき $\forall x \in M$ および $\forall X \in \mathfrak{g}$ に対して，$\Lie{X} \in \Lie{\mathfrak{X}}(M)$ とその\hyperref[def:fundamental-vecf]{基本ベクトル場} $X^\#$ は $R^{(x)}$\hyperref[def:F-related]{-related}である
+    このとき $\forall x \in M$ および $\forall X \in \mathfrak{g}$ に対して，$\Lie{X} \in \Lie{\mathfrak{X}}(G)$ とその\hyperref[def:fundamental-vecf]{基本ベクトル場} $X^\#$ は $R^{(x)}$\hyperref[def:F-related]{-related}である
 \end{mylem}
 
 \begin{proof}
@@ -1934,18 +1998,27 @@ $\forall \alpha \in \Lambda$ に対して\hyperref[def.section]{局所切断} $s
 
 \begin{myprop}[label=prop:assoc-basic]{}
     \hyperref[def.PFD]{主束} $G \hookrightarrow P \xrightarrow{\pi} M$ の\hyperref[def:associated-vect]{同伴ベクトル束} $V \hookrightarrow P \times_\rho V \xrightarrow{q} M$ を考える．
-    $\forall \omega \in \Omega^k (M;\, P \times_\rho V)$ に対して\footnote{つまり，$\omega$ は\hyperref[eq:E-valued]{$P \times_\rho V$ 値 $k$-形式}である．}，$\omega^\sharp \in \Omega^k_\rho(P;\, V)$ を
+    $\forall \omega \in \Omega^k (M;\, P \times_\rho V)$ に対して
+    % \footnote{つまり，$\omega$ は\hyperref[eq:E-valued]{$P \times_\rho V$ 値 $k$-形式}である．}，
+    $\omega^\sharp \in \Omega^k (P;\, V)$ を
     % $\forall u \in \textcolor{red}{P}$ に対して，$\omega_u^\sharp \in \Omega^k_\rho (P;\, V)$ を
     \begin{align}
         \omega^\sharp \colon u \lmto f_u^{-1} \circ (\pi^* \omega)_u
     \end{align}
     と定義する．
     \begin{enumerate}
+        \item $\omega^\sharp \in \Omega^k_\rho (P;\, V)$ である．
         \item 写像
         \begin{align}
             \sharp \colon \Omega^k (M;\, P \times_\rho V) \lto \Omega^k_\rho(P;\, V),\; \omega \lmto \omega^\sharp    
         \end{align}
         はベクトル空間の同型写像である．
+        \item $\forall s \in \Omega^k(M),\; \forall \eta \in \Omega^l(M;\, P \times_\rho V)$ に対して
+        \begin{align}
+            \sharp (s \wedge \eta) = (\pi^* s)\wedge \sharp \eta
+        \end{align}
+        が成り立つ．
+        % \footnote{この意味で，(2) と併せると $\sharp$ は $C^\infty(M),\, C^\infty(P)$-加群の同型写像のように振る舞うと言える．}．
         \item 
         $\forall \omega \in \Omega^k (M;\, P \times_\rho V)$ に対して
         \begin{align}
@@ -1956,9 +2029,10 @@ $\forall \alpha \in \Lambda$ に対して\hyperref[def.section]{局所切断} $s
 \end{myprop}
 
 \begin{proof}
+    $\forall \omega \in \Omega^k(M;\, P \times_\rho V)$ を1つ固定する．
     \begin{enumerate}
         \item 
-        $\forall \omega \in \Omega^k(M;\, P \times_\rho V)$ を1つ固定する．まず $\omega^\sharp$ が\hyperref[def:tensorial-form]{$\rho$ 型のtensorial $k$-form}であることを示す．
+        $\omega^\sharp$ が\hyperref[def:tensorial-form]{$\rho$ 型のtensorial $k$-form}であることを示す．
         \begin{description}
             \item[\textbf{$\bm{\omega^\sharp}$ が水平であること}]　
             
@@ -1991,7 +2065,7 @@ $\forall \alpha \in \Lambda$ に対して\hyperref[def.section]{局所切断} $s
             i.e. $(R_g)^* \omega^\sharp = \rho(g^{-1})(\omega^\sharp)$ が言えた．
         \end{description}
         
-        次に，$\mathbb{K}$-線型写像 $\sharp \colon \Omega^k (M;\, P \times_\rho V) \lto \Omega^k_\rho(P;\, V)$ が同型写像であることを示す．
+        \item $\mathbb{K}$-線型写像 $\sharp \colon \Omega^k (M;\, P \times_\rho V) \lto \Omega^k_\rho(P;\, V)$ がベクトル空間の同型写像であることを示す．
         \begin{description}
             \item[\textbf{$\bm{\sharp}$ の単射性}]　
             
@@ -2049,9 +2123,19 @@ $\forall \alpha \in \Lambda$ に対して\hyperref[def.section]{局所切断} $s
             \end{align}
             i.e. $\tilde{\omega} = \omega^\sharp$ が言えた．
         \end{description}
+        \item $\forall u \in P$ および $\forall v_1,\, \dots,\, v_{k+l} \in T_u P$ に対して
+        \begin{align}
+            &\sharp (s \wedge \eta)_u (v_1,\, \dots,\, v_{k+l}) \\
+            &= f^{-1}_u \circ \bigl(\pi^* (s \wedge \eta)\bigr)_u (v_1,\, \dots,\, v_{k+l}) \\
+            &= f^{-1}_u \Bigl( (\pi^* s \wedge \pi^* \eta)_u(v_1,\, \dots,\, v_{k+l}) \Bigr) \\
+            &= f^{-1}_u \left( \frac{1}{k! l!} \sum_{\sigma \in \mathfrak{S}_{k+l}} \sgn \sigma\, \underbrace{(\pi^* s)_u(v_{\sigma(1)},\, \dots,\, v_{\sigma(k)})}_{\in \mathbb{K}} \otimes (\pi^* \eta)_u(v_{\sigma(k+1)},\, \dots,\, v_{\sigma(k+l)}) \right) \\
+            &= \frac{1}{k! l!} \sum_{\sigma \in \mathfrak{S}_{k+l}} \sgn \sigma\, (\pi^* s)_u(v_{\sigma(1)},\, \dots,\, v_{\sigma(k)}) f^{-1}_u \left(  (\pi^* \eta)_u(v_{\sigma(k+1)},\, \dots,\, v_{\sigma(k+l)}) \right) \\
+            &= \bigl((\pi^* s) \wedge \sharp \eta\bigr)_u (v_1,\, \dots,\, v_{k+l})
+        \end{align}
+        が成り立つ．ただし最後から2番目の等号では $f_u^{-1}$ の $\mathbb{K}$-線型性を使った．
         \item 
-        $\forall \omega \in \Omega^k(M;\, P \times_\rho V)$ を1つ固定する．
-        このとき
+        % $\forall \omega \in \Omega^k(M;\, P \times_\rho V)$ を1つ固定する．
+        % このとき
         % \eqref{eq:assoc-sec}で定義した\hyperref[def.section]{局所切断} $s_\alpha \Gamma(P|_{U_\alpha})$ に対して，
         $\forall x \in U_\alpha,\; \forall w_1,\, \dots,\, w_k \in T_x M$ に対して
         \begin{align}
@@ -2091,7 +2175,7 @@ $\forall \alpha \in \Lambda$ に対して\hyperref[def.section]{局所切断} $s
         \begin{align}
             \dd^{\nabla^E}(\omega \otimes s) \coloneqq \dd{\omega} \otimes s + (-1)^{\deg \omega} \omega \wedge \nabla^E s
         \end{align}
-        と定義することで帰納的に定まる写像
+        と定義することで定まる写像
         \begin{align}
             \bm{\mathrm{d}^{\nabla^E}} \colon \Omega^\bullet (M;\, E) \lto \Omega^{\bullet+1} (M;\, E)
         \end{align}
@@ -2221,60 +2305,80 @@ $\forall \alpha \in \Lambda$ に対して\hyperref[def.section]{局所切断} $s
         \end{description}
         
         \item 
-        $\forall f \in C^\infty(M),\; \forall s \in \Gamma(E) = \Omega^0(M;\, E)$ に対して\hyperref[def:connection-vect]{Leibniz則}が成り立つことを示す．
-        $\forall u \in P$ において
-        \begin{align}
-            \sharp (fs)_u 
-            &= f_u^{-1} \circ \bigl(\pi^* (fs) \bigr)_u \\
-            &= f_u^{-1} \circ \Bigl((f s) \circ \pi(u)\Bigr) \\
-            &= f_u^{-1} \Bigl( f\bigl(\pi(u)\bigr)s\bigl(\pi(u) \bigr) \Bigr) \\
-            &= \bigl(f \circ \pi(u)\bigr) f_u^{-1} \circ (s \circ \pi)(u) &&\because\quad f_u^{-1}\; \text{の}\; \mathbb{K}\text{-線型性} \\
-            &= (\pi^* f)_u \,f_u^{-1} \circ (\pi^* s)_u \\
-            &= (\pi^* f)_u \,s^\sharp_u
-        \end{align}
-        が成り立つので $\sharp (fs) = (\pi^* f)\, s^\sharp$ である．よって
+        $\forall f \in C^\infty(M),\; \forall s \in \Gamma(E) = \Omega^0(M;\, E)$ に対して
+        \hyperref[def:connection-vect]{Leibniz則}が成り立つことを示す．
+        % $\forall \omega \in \Omega^k(M),\, \forall \eta \in \Omega^l(M;\, E)$ に対して
+        % \begin{align}
+        %     \sharp (\omega \wedge \eta)_u (v_1,\, \dots,\, v_{k+l})
+        %     &= f^{-1}_u \circ \bigl(\pi^* (\omega \wedge \eta)\bigr)_u (v_1,\, \dots,\, v_{k+l}) \\
+        %     &= f^{-1}_u \Bigl( (\pi^* \omega \wedge \pi^* \eta)_u(v_1,\, \dots,\, v_{k+l}) \Bigr) \\
+        %     &= f^{-1}_u \left( \frac{1}{k! l!} \sum_{\sigma \in \mathfrak{S}_{k+l}} \sgn \sigma\, \underbrace{(\pi^* \omega)_u(v_{\sigma(1)},\, \dots,\, v_{\sigma(k)})}_{\in \mathbb{K}} \otimes (\pi^* \eta)_u(v_{\sigma(k+1)},\, \dots,\, v_{\sigma(k+l)}) \right) \\
+        %     &= \frac{1}{k! l!} \sum_{\sigma \in \mathfrak{S}_{k+l}} \sgn \sigma\, (\pi^* \omega)_u(v_{\sigma(1)},\, \dots,\, v_{\sigma(k)}) f^{-1}_u \left(  (\pi^* \eta)_u(v_{\sigma(k+1)},\, \dots,\, v_{\sigma(k+l)}) \right) \\
+        %     &= \bigl((\pi^* \omega) \wedge \sharp \eta\bigr)_u
+        % \end{align}
+        % が成り立つ
+        % \begin{align}
+        %     \sharp (fs)_u 
+        %     &= f_u^{-1} \circ \bigl(\pi^* (fs) \bigr)_u \\
+        %     &= f_u^{-1} \circ \Bigl((f s) \circ \pi(u)\Bigr) \\
+        %     &= f_u^{-1} \Bigl( f\bigl(\pi(u)\bigr)s\bigl(\pi(u) \bigr) \Bigr) \\
+        %     &= \bigl(f \circ \pi(u)\bigr) f_u^{-1} \circ (s \circ \pi)(u) &&\because\quad f_u^{-1}\; \text{の}\; \mathbb{K}\text{-線型性} \\
+        %     &= (\pi^* f)_u \,f_u^{-1} \circ (\pi^* s)_u \\
+        %     &= (\pi^* f)_u \,s^\sharp_u
+        % \end{align}
+        % が成り立つので $\sharp (fs) = (\pi^* f)\, s^\sharp$ である．よって
+        外微分と引き戻しが可換であることに注意すると
         \begin{align}
             \nabla^E (fs)
-            &= \sharp^{-1} \circ \Bigl( \dd\bigl((\pi^* f)\, s^\sharp\bigr) + \rho_* \bigl( \omega ((\pi^* f)\, s^\sharp) \bigr)   \Bigr) \\
-            &= \sharp^{-1} \circ \Bigl(\dd(\pi^* f) \otimes s^\sharp + (\pi^* f)\, \dd (s^\sharp) + (\pi^* f)\, \rho_* \bigl( \omega (s^\sharp) \bigr)   \Bigr) \\
-            &= \sharp^{-1} \circ \Bigl(\sharp(\dd f \otimes s) + (\pi^* f)\, \sharp \bigl(\nabla^E(s)\bigr) \Bigr) \\
-            &= \dd f \otimes s + f \nabla^E s
+            &= \sharp^{-1} \circ \Bigl( \dd\bigl(\sharp (fs)\bigr) + \rho_* (\omega) \bigl( \sharp(fs) \bigr)   \Bigr) \\
+            &= \sharp^{-1} \circ \Bigl( \dd\bigl((\pi^* f)\, \sharp s\bigr) + \rho_* (\omega) \bigl( (\pi^* f)\, \sharp s \bigr)   \Bigr) & &\because\quad\text{命題\ref{prop:assoc-basic}-(3)}\\
+            &= \sharp^{-1} \circ \Bigl(\dd(\pi^* f) \otimes \sharp s + (\pi^* f)\, \dd (\sharp s) + (\pi^* f)\, \rho_* ( \omega ) (\sharp s)   \Bigr) \\
+            &= \sharp^{-1} \circ \Bigl(\pi^* (\dd f) \otimes \sharp s + (\pi^* f)\, \bigl(\dd + \rho_* ( \omega )\bigr) (\sharp s)   \Bigr) \\
+            &= \sharp^{-1} \circ \Bigl(\sharp(\dd f \otimes s) + (\pi^* f)\, \sharp \bigl(\nabla^E(s)\bigr) \Bigr) & &\because\quad\text{命題\ref{prop:assoc-basic}-(3)} \\
+            &= \dd f \otimes s + f \nabla^E s & &\because\quad\text{命題\ref{prop:assoc-basic}-(3)}
         \end{align}
         が言えた．
-        \item $\forall s \in \Gamma(E)$ に対して，命題\ref{prop:assoc-basic}-(2) より
+        \item $\forall s \in \Gamma(E)$ に対して，命題\ref{prop:assoc-basic}-(4) より
         \begin{align}
             \mathrm{proj}_2 \circ \psi_\alpha \circ (\nabla^E s)
             &= s_\alpha^*\bigl(\sharp (\nabla^E s)\bigr) \\
-            &= s_\alpha^* \Bigl( \bigl(\dd + \rho_* (\omega)\bigr)(s^\sharp) \Bigr) \\
-            &= s_\alpha^* \bigl(\dd(s^\sharp)\bigr) + s_\alpha^* \bigl( \rho_*(\omega) (s^\sharp)\bigr) \\
-            &= \dd\bigl(s_\alpha^*(s^\sharp)\bigr) + \rho_* \bigl( s_\alpha^*(\omega) \bigr)\bigl( s_\alpha^* (s^\sharp)\bigr) \\
-            &= \bigl( \dd + \rho_* (s_\alpha^* \omega) \bigr) s_\alpha a^*(s^\sharp) \\
+            &= s_\alpha^* \Bigl( \bigl(\dd + \rho_* (\omega)\bigr)(\sharp s) \Bigr) \\
+            &= s_\alpha^* \bigl(\dd(\sharp s)\bigr) + s_\alpha^* \bigl( \rho_*(\omega) (\sharp s)\bigr) \\
+            &= \dd\bigl(s_\alpha^*(\sharp s)\bigr) + \rho_* \bigl( s_\alpha^*\omega \bigr)\bigl( s_\alpha^* (\sharp s)\bigr) \\
+            &= \bigl( \dd + \rho_* (s_\alpha^* \omega) \bigr) s_\alpha^*(\sharp s) \\
             &= \bigl( \dd + \rho_* (s_\alpha^* \omega) \bigr) \bigl( \mathrm{proj}_2 \circ \psi_\alpha (s) \bigr)
         \end{align}
         が言える．
         \item $\forall s \in \Omega^k(M;\, E)$ をとる．
-        局所自明化 $\psi_\alpha \colon E|_{U_\alpha} \lto U_\alpha \times V$ について，命題\ref{prop:assoc-basic}-(2) より
+        局所自明化 $\psi_\alpha \colon E|_{U_\alpha} \lto U_\alpha \times V$ について，命題\ref{prop:assoc-basic}-(4) より
         \begin{align}
             &\mathrm{proj}_2 \circ \psi_\alpha \circ \bigl( \sharp^{-1} \circ (\dd + \rho_*(\omega) \wedge) \circ \sharp(s) \bigr) \\
-            &= s_\alpha^* \bigl( (\dd + \rho_*(\omega) \wedge)(s^\sharp)\bigr) \\
-            &= s_\alpha^* \bigl( \dd(s^\sharp) \bigr) + s_\alpha^* \bigl( \rho_*(\omega) \wedge s^\sharp \bigr) \\
-            &= \dd\bigl( s_\alpha^*(s^\sharp) \bigr) + \rho_* \bigl( s_\alpha^*(\omega) \bigr) \wedge s_\alpha^*(s^\sharp)  \\
-            &= \bigl( \dd + \rho_*(s_\alpha^*\omega) \wedge \bigr)  s_\alpha^*(s^\sharp) \\
+            &= s_\alpha^* \bigl( (\dd + \rho_*(\omega) \wedge)(\sharp s)\bigr) \\
+            &= s_\alpha^* \bigl( \dd(\sharp s) \bigr) + s_\alpha^* \bigl( \rho_*(\omega) \wedge \sharp s \bigr) \\
+            &= \dd\bigl( s_\alpha^*(\sharp s) \bigr) + \rho_* \bigl( s_\alpha^*(\omega) \bigr) \wedge s_\alpha^*(\sharp s)  \\
+            &= \bigl( \dd + \rho_*(s_\alpha^*\omega) \wedge \bigr)  s_\alpha^*(\sharp s) \\
             &= \bigl( \dd + \rho_*(s_\alpha^*\omega) \wedge \bigr)  \bigl(\mathrm{proj}_2 \circ \psi_\alpha(s) \bigr) 
         \end{align}
-        が言える\footnote{この命題の注で述べたことから，$s_\alpha^* \bigl( \rho_*(\omega) \wedge s^\sharp \bigr) =  \rho_* \bigl( s_\alpha^*(\omega) \bigr) \wedge s_\alpha^*(s^\sharp)$ が言える．}．
+        が言える．
+        % \footnote{この命題の注で述べたことから，$s_\alpha^* \bigl( \rho_*(\omega) \wedge \sharp s \bigr) =  \rho_* \bigl( s_\alpha^*(\omega) \bigr) \wedge s_\alpha^*(\sharp s)$ が言える．}．
         また，$\forall s \in \Omega^k(M),\; \forall t \in \Gamma(E)$ に対して
         \begin{align}
             &\mathrm{proj}_2 \circ \psi_\alpha \bigl( \dd{s} \otimes t + (-1)^{\deg s} s \wedge \nabla^E t \bigr) \\
-            &= s_\alpha^* \bigl( (\dd{s} \otimes t)^\sharp \bigr) + (-1)^{\deg s} s_\alpha^*\bigl( (s \wedge \nabla^E t)^\sharp\bigr) \\
-            &= \dd \bigl( s_\alpha^* (s^\sharp) \bigr) \otimes s_\alpha^* (t^\sharp)  + (-1)^{\deg s}s_\alpha^* (s^\sharp) \wedge s_\alpha^* \bigl( (\nabla^E t)^\sharp \bigr) \\
-            &= \dd \bigl( s_\alpha^* (s^\sharp) \bigr) \wedge s_\alpha^* (t^\sharp)  + (-1)^{\deg s} s_\alpha^* (s^\sharp) \wedge \dd \bigl( s_\alpha^*(t^\sharp) \bigr) + (-1)^{\deg s} s_\alpha^* (s^\sharp)  \wedge \rho_* (s_\alpha^* \omega)(s_\alpha^*(t^\sharp)) \\
-            &= \dd \bigl( s_\alpha^* (s^\sharp) \otimes s_\alpha^* (t^\sharp) \bigr) + \rho_* (s_\alpha^* \omega) \wedge (s_\alpha^* (s^\sharp) \otimes s_\alpha^*(t^\sharp)) \\
-            &= \bigl( \dd + \rho_*(s_\alpha^*\omega) \wedge \bigr)  \bigl(s_\alpha^* (s^\sharp) \otimes s_\alpha^* (t^\sharp)  \bigr) \\
+            &= s_\alpha^* \bigl( \sharp(\dd{s} \otimes t)\bigr) + (-1)^{\deg s} s_\alpha^*\bigl( \sharp (s \wedge \nabla^E t)\bigr) \\
+            &= s_\alpha^* \bigl( \pi^*(\dd{s}) \otimes \sharp t\bigr) + (-1)^{\deg s} s_\alpha^*\bigl( \pi^*(s) \wedge \sharp(\nabla^E t)\bigr) \qquad \because\quad \text{命題\ref{prop:assoc-basic}-(3)}\\
+            &= \dd \bigl( s_\alpha^* (\pi^* s) \bigr) \otimes s_\alpha^* (\sharp t)  + (-1)^{\deg s}s_\alpha^* (\pi^* s) \wedge s_\alpha^* \bigl( \sharp (\nabla^E t) \bigr) \\
+            &= \dd \bigl( s_\alpha^* (\pi^* s) \bigr) \otimes s_\alpha^* (\sharp t)  + (-1)^{\deg s} s_\alpha^* (\pi^* s) \wedge \dd \bigl( s_\alpha^*(\sharp t) \bigr) + (-1)^{\deg s} s_\alpha^* (\pi^* s)  \wedge \rho_* (s_\alpha^* \omega)(s_\alpha^*(\sharp t)) \\
+            &= \dd \bigl( s_\alpha^* (\pi^* s) \otimes s_\alpha^* (\sharp t) \bigr) + \rho_* (s_\alpha^* \omega) \wedge (s_\alpha^* (\pi^* s) \otimes s_\alpha^*(\sharp t)) \\
+            &= \bigl( \dd + \rho_*(s_\alpha^*\omega) \wedge \bigr)  s_\alpha^* \bigl((\pi^* s) \otimes (\sharp t)  \bigr) \\
+            &= \bigl( \dd + \rho_*(s_\alpha^*\omega) \wedge \bigr)  s_\alpha^* \bigl(\sharp(s \otimes t)  \bigr) \qquad \because\quad \text{命題\ref{prop:assoc-basic}-(3)}\\
             &= \bigl( \dd + \rho_*(s_\alpha^*\omega) \wedge \bigr)  \bigl(\mathrm{proj}_2 \circ \psi_\alpha (s \otimes t) \bigr)
         \end{align}
-        であるが，\hyperref[def:connection-vect]{共変外微分の定義}から最左辺は $\mathrm{proj}_2 \circ \psi_\alpha \circ \dd^{\nabla^E}(s \otimes t)$ と等しい．
-        共変外微分の定義から $d^{\nabla^E}$ が一般の $\Omega^k(M;\, E)$ に作用する場合についても言えた．
+        であるが，\hyperref[def:connection-vect]{共変外微分の定義}から最左辺は $\mathrm{proj}_2 \circ \psi_\alpha \circ \dd^{\nabla^E}(s \otimes t)$ と等しい．よって
+        \begin{align}
+            \dd^{\nabla^E} (s \otimes t) = \sharp^{-1} \circ \bigl( \dd + \rho_*(\omega) \wedge \bigr) \circ \sharp (s \otimes t)
+        \end{align}
+        が言えた．
+        共変外微分の定義から，$d^{\nabla^E}$ が一般の $\Omega^k(M;\, E)$ の元に作用する場合についても示された．
     \end{enumerate}
 \end{proof}
 
@@ -2310,7 +2414,7 @@ $\forall \alpha \in \Lambda$ に対して\hyperref[def.section]{局所切断} $s
 ここで，$\phi \in \Gamma(E) = \Omega^0 (M;\, E)$ なので，ある\underline{$M$ 上の}\hyperref[def:vecf]{ベクトル場} $X \in \mathfrak{X}(M) = \Gamma(TM)$ に\hyperref[def:connection-vect]{沿った共変微分} $\nabla_X^E \colon \Gamma(E) \lto \Gamma(E),\; \phi \lmto \nabla^E\phi(X)$ を取ることができる．そして $\nabla^E_X \phi \in \Gamma (E)$ の局所自明化による表示 $(\nabla^E_X \phi)_\alpha \coloneqq \mathrm{proj}_2 \circ \psi_\alpha \circ \nabla^E_X \phi \colon U_\alpha \lto V$ もまた，$U_\alpha \cap U_\beta$ における $\psi_\alpha$ から $\psi_\beta$ への局所自明化の取り替えに伴って\eqref{eq:field-locsym}の変換を受ける：
 \begin{align}
     \psi_\beta \circ \psi_\alpha^{-1} \colon (U_\alpha \cap U_\beta) \times V &\lto (U_\alpha \cap U_\beta) \times V, \\
-    \Bigl( x,\, \bm{(\nabla_X^E\phi)_\alpha (x)} \Bigr) &\lmto \Bigl( x,\, \bm{(\nabla_X^E\phi)_\beta (x)}  \Bigr) = \Bigl( x,\, \bm{\rho\bigl(t_{\beta\alpha}(x)\bigr) \circ (\nabla_X^E\phi)_\alpha (x)}  \Bigr) 
+    \Bigl( x,\, \bm{(\nabla_X^E\phi)_\alpha (x)} \Bigr) &\lmto \Bigl( x,\, \bm{(\nabla_X^E\phi)_\beta (x)}  \Bigr) = \Bigl( x,\, \bm{\rho\bigl(t_{\beta\alpha}(x)\bigr) \bigl( (\nabla_X^E\phi)_\alpha (x)\bigr)}  \Bigr) 
 \end{align}
 一方で，定理\ref{thm:connection-assoc}-(3)から
 \begin{align}
@@ -2358,7 +2462,7 @@ $\forall \alpha \in \Lambda$ に対して\hyperref[def.section]{局所切断} $s
 \end{mydef}
 特に $G$ が $\LGL (V)$ の部分Lie群である場合，Maurer-Cartan形式 $\theta \colon TG \lto \mathfrak{g}$ はよく $\bm{g^{-1} \mathrm{d} g}$ と略記される．これの解釈は次の通りである：
 まず $\forall g \in G$ と $G$ 上の恒等写像 $\mathrm{id} \colon G \lto G,\; g \lmto g$ を同一視する．このとき $\dd g \colon TG \lto TG$ は，$\forall g \in G$ に対して $T_g (\mathrm{id}) = \mathrm{id}_{T_g G} \colon T_g G \lto T_g G$ と解釈する．
-すると，行列Lie群の場合 $T_g(L_{g^{-1}}) = L_{g^{-1}}$ なので $\forall v \in T_g G$ に対して
+すると，\exref{ex:gl}, \exref{ex:gl-adj}の議論から行列Lie群の場合 $T_g(L_{g^{-1}}) = L_{g^{-1}}$ と見做して良いので，$\forall v \in T_g G$ に対して
 \begin{align}
     \theta_g(v) = T_g(L_{g^{-1}})(v) = L_{g^{-1}} \circ \mathrm{id}_{T_g G}(v) = g^{-1} \dd g(v)
 \end{align}
@@ -2551,6 +2655,14 @@ $\forall g \in G$ を1つ固定し，$\forall v \in T_p M$ をとる．すると
     \end{enumerate}
     
 \end{proof}
+
+% 定理\ref{thm:local-connection}の証明で行った計算は大変複雑であったが，以下で種々の局所表示を求める際に必要になる重要な部分だけまとめておく：
+
+% \begin{mylem}[label=lem:differential]{$C^\infty$ 写像の微分の便利公式}
+%     $C^\infty$ 多様体 $M,\, N,\, P$ および $C^\infty$ 写像 $f \colon M \lto N,\, g \colon M \lto P$ を与える．対角写像を $\Delta \colon M \lto M \times M,\; x \lmto (x,\, x)$ と書く．
+
+% \end{mylem}
+
 
 \subsection{水平持ち上げ}
 
