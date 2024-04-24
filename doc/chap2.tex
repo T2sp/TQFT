@@ -1894,7 +1894,7 @@ $\forall X \in T_u G_{\pi(u)} \subset T_u P$ （i.e. 点 $u \in \bm{P}$ にお�
     \end{enumerate}
 \end{proof}
 
-\subsection{同伴ベクトル束上の共変微分とゲージ場の定義}
+\subsection{同伴ベクトル束上の共変微分}
 
 $V$ を有限次元 $\mathbb{K}$-ベクトル空間，$\rho \colon G \lto \LGL(V)$ をLie群 $G$ の $\dim V < \infty$ 次元表現とする．
 
@@ -2449,7 +2449,7 @@ $\forall \alpha \in \Lambda$ に対して\hyperref[def.section]{局所切断} $s
 \end{align}
 と書けてゲージ変換\eqref{eq:def-gauge-transform}を再現する．つまり，\textbf{ゲージ場}とは，接続形式 $\omega$ の局所切断による引き戻し $s_\alpha^* \omega \in \Omega^1(U_\alpha;\, \mathfrak{g})$ のことだったのである．
 
-\subsection{局所接続形式}
+\subsection{局所接続形式とゲージ場}
 
 先に進む前に，Maurer-Cartan形式についての注意をしておく．
 
@@ -2771,29 +2771,38 @@ $\forall g \in G$ を1つ固定し，$\forall v \in T_p M$ をとる．すると
 
 % \end{mylem}
 
-
 \subsection{水平持ち上げ}
 
-\begin{mydef}[label=def:horizontal-lift]{水平持ち上げ}
-    主束 $G \hookrightarrow P \xrightarrow{\pi} M$ およびその\hyperref[def:connection]{接続形式} $\omega \in \Omega^1(P;\, \mathfrak{g})$ を与える．
-    $\gamma \colon [0,\, 1] \lto M$ を\underline{$M$ 上の} \cinfty 曲線とする．このとき，$\forall u \in \pi^{-1}(\{\gamma(0)\})$ に対して以下を充たす\underline{$P$ 上の} \cinfty 曲線 $\tilde{\gamma} \colon [0,\, 1] \lto P$ が一意的に存在し，$\gamma$ の\textbf{水平持ち上げ} (horizontal lift) と呼ばれる：
+\begin{mydef}[label=def:horizontal-lift-curve]{$C^\infty$ 曲線の水平持ち上げ}
+    \begin{itemize}
+        \item 主束 $G \hookrightarrow P \xrightarrow{\pi} M$ およびその\hyperref[def:connection]{接続形式} $\omega \in \Omega^1(P;\, \mathfrak{g})$
+        \item \underline{$M$ 上の} \cinfty 曲線 $\gamma \colon [0,\, 1] \lto M$
+    \end{itemize}
+    を与える．
+    このとき，$\forall u \in \pi^{-1}(\{\gamma(0)\})$ に対して以下を充たす\underline{$P$ 上の} \cinfty 曲線 $\tilde{\gamma} \colon [0,\, 1] \lto P$ が一意的に存在し，$\gamma$ の\textbf{水平持ち上げ} (horizontal lift) と呼ばれる：
     \begin{description}
-        \item[\textbf{(H-1)}] $\pi \circ \tilde{\gamma} = \gamma$
-        \item[\textbf{(H-2)}] $\tilde{\gamma}(0) = u$
-        \item[\textbf{(H-3)}] $\forall t \in [0,\, 1]$ に対して
+        \item[\textbf{(HC-1)}] $\pi \circ \tilde{\gamma} = \gamma$
+        \item[\textbf{(HC-2)}] $\tilde{\gamma}(0) = u$
+        \item[\textbf{(HC-3)}] $\forall t \in [0,\, 1]$ に対して
         \begin{align}
             \dot{\tilde{\gamma}}(t) \in \Ker \omega_{\tilde{\gamma}(t)}
         \end{align}
     \end{description}
 \end{mydef}
 
+$C^\infty$ 曲線のみならず，底空間上の $C^\infty$ ベクトル場もまた全空間に持ち上がる．
 
-% \underline{$M$ の}チャート $U_\alpha$ が $\gamma([0,\, 1]) \subset U_\alpha$ を充しているとしよう\footnote{この様な状況は，$\gamma$ を適当に分割すればいつでも作れる．}．
-% このとき，$\forall t \in [0,\, 1]$ に対して
-% \begin{align}
-%     \tilde{\gamma}(t) = s_\alpha \bigl( \gamma(t) \bigr) \btl g_\alpha (t) = \varphi_\alpha^{-1}\bigl( \gamma(t),\, g_\alpha(t) \bigr)  \in \pi^{-1}(\{\gamma(t)\})
-% \end{align}
-% を充たす \underline{$G$ 上の} \cinfty 曲線 $g_\alpha \colon [0,\, 1] \lto G$ を求めよう．
+\begin{mydef}[label=def:horizontal-lift-vecf]{$C^\infty$ ベクトル場の水平持ち上げ}
+    \begin{itemize}
+        \item 主束 $G \hookrightarrow P \xrightarrow{\pi} M$ およびその\hyperref[def:connection]{接続形式} $\omega \in \Omega^1(P;\, \mathfrak{g})$
+        \item \underline{$M$ 上の} \cinfty ベクトル場 $X \in \mathfrak{X}(M)$
+    \end{itemize}
+    このとき，$\forall u \in P$ に対して以下を充たす\underline{$P$ 上の} $C^\infty$ ベクトル場 $\tilde{X} \in \mathfrak{X}(P)$ が一意的に存在し，$X$ の\textbf{水平持ち上げ} (horizontal life) と呼ばれる：
+    \begin{description}
+        \item[\textbf{(HV-1)}] $T_u \pi (\tilde{X}_u) = X_{\pi(u)}$
+        \item[\textbf{(HV-2)}] $\tilde{X}_u \in \Ker \omega_u$
+    \end{description}
+\end{mydef}
 
 
 
