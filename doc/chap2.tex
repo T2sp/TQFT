@@ -2790,6 +2790,107 @@ $\forall g \in G$ を1つ固定し，$\forall v \in T_p M$ をとる．すると
     \end{description}
 \end{mydef}
 
+
+一意存在は本質的に常微分方程式の解の一意性による：
+
+\begin{mylem}[label=lem:horizontal-lift-curve]{水平持ち上げの公式}
+    \begin{itemize}
+        \item 主束 $G \hookrightarrow P \xrightarrow{\pi} M$ およびその\hyperref[def:connection]{接続形式} $\omega \in \Omega^1(P;\, \mathfrak{g})$
+        \item \underline{$M$ 上の} \cinfty ベクトル場 $X \in \mathfrak{X}(M)$
+    \end{itemize}
+    このとき，$\gamma$ の\hyperref[def:horizontal-lift-curve]{水平持ち上げ} $\tilde{\gamma} \colon [0,\, 1] \lto P$ が一意的に存在して以下を充たす：
+    \begin{enumerate}
+        \item $\forall t \in [0,\, 1]$ に対して
+        \begin{align}
+            \dot{\tilde{\gamma}} (t) = T_{s_\alpha(\gamma(t))} R_{g(t)} \circ T_{\gamma(t)}s_\alpha \bigl(\dot{\gamma}(t)\bigr) - \biggl(\Adj \bigl( g(t)^{-1} \bigr) \Bigl( s_\alpha^* \omega|_{\gamma(t)}\bigl(\dot{\gamma}(t)\bigr) \Bigr) \biggr)^\#_{\tilde{\gamma}(t)}
+        \end{align}
+        \item $\forall t \in [0,\, 1]$ に対して
+        \begin{align}
+            \dot{g}(t) = -T_{1_G} \rho_{g(t)} \Bigl(s_\alpha^* \omega|_{\gamma(t)} \bigl( \dot{\gamma}(t) \bigr)  \Bigr)
+        \end{align}
+    \end{enumerate}
+    ただし \underline{$G$ 上の} $C^\infty$ 曲線 $g \colon [0,\, 1] \lto G$ を 
+    \begin{align}
+        g \coloneqq \mathrm{proj}_2 \circ \varphi_\alpha \circ \tilde{\gamma}
+    \end{align}
+    で定義した．
+\end{mylem}
+
+\begin{proof}
+    定理\ref{thm:local-connection}と同様に
+    \begin{itemize}
+        \item 開被覆 $\Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$
+        \item 局所自明化 $\Familyset[\big]{\varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto U_\alpha \times G}{\alpha \in \Lambda}$，変換関数 $\Familyset[\big]{t_{\alpha\beta} \colon U_\alpha \cap U_\beta \lto G}{\alpha,\, \beta \in \Lambda}$ を与える．
+        \item \eqref{eq:assoc-sec}で定義される\hyperref[def.section]{局所切断}の族 $\Familyset[\big]{s_\alpha \colon U_\alpha \lto \pi^{-1}(U_\alpha)}{\alpha \in \Lambda}$
+    \end{itemize}
+    を与える．
+    $[0,\, 1] \subset \mathbb{R}$ はコンパクト集合なので連続写像 $\gamma \colon [0,\, 1] \lto M$ による像 $\gamma ([0,\, 1]) \subset M$ もまたコンパクトである．よって $\gamma([0,\, 1])$ を有限個の点で区切ることにより，ある $\alpha \in \Lambda$ が存在して $\gamma([0,\, 1]) \subset U_\alpha$ が成り立つと仮定して良い．
+    また，$\tilde{\gamma} ([0,\, 1]) \subset \pi^{-1}(U_\alpha)$ を充たす任意の $C^\infty$ 曲線 $\tilde{\gamma} \colon [0,\, 1] \lto P$ に対して定義される
+    \begin{align}
+        g \coloneqq \mathrm{proj}_2 \circ \varphi_\alpha \circ \tilde{\gamma} \colon [0,\, 1] \lto G
+    \end{align}
+    は $G$ 上の $C^\infty$ 曲線であり，\hyperref[prop.PFD_right]{全空間 $P$ への右作用の定義}から $\forall t \in [0,\, 1]$ に対して
+    \begin{align}
+        \tilde{\gamma}(t) = \varphi_\alpha^{-1} \Bigl( \pi\bigl(\tilde{\gamma}(t)\bigr),\, g(t) \Bigr) = s_\alpha \Bigl( \pi \bigl( \tilde{\gamma}(t) \bigr) \Bigr) \btl g(t)
+    \end{align}
+    が成り立つ．$C^\infty$ 写像 $\Delta \colon [0,\, 1] \lto [0,\, 1] \times [0,\, 1],\; t \lmto (t,\, t)$ を使うと
+    \begin{align}
+        \label{eq:horizontal-lift-curve-1}
+        \tilde{\gamma} = \btl \circ \bigl( (s_\alpha \circ \pi \circ \tilde{\gamma}) \times g \bigr) \circ \Delta
+    \end{align}
+    と書くこともできる．
+
+    ここで，$\tilde{\gamma}$ を $\gamma$ の水平持ち上げとする．すると条件 \textsf{\textbf{(HC-1)}} より\eqref{eq:horizontal-lift-curve-1}は $\tilde{\gamma} =  \btl \bigl( (s_\alpha \circ \gamma) \times g \bigr) \circ \Delta$ となるから，補題\ref{lem:diff-product}より
+    \begin{align}
+        \dot{\tilde{\gamma}}(t) 
+        &= T_t \tilde{\gamma} \left( \eval{\dv{}{s}}_{s=t} \right) \\
+        &= T_{(t,\, t)}\Bigl(\btl \circ \bigl( (s_\alpha \circ \gamma) \times g \bigr) \Bigr)\circ T_t \Delta \left( \eval{\dv{}{s}}_{s=t} \right) \\
+        &= T_{(t,\, t)}\Bigl(\btl \circ \bigl( (s_\alpha \circ \gamma) \times g \bigr) \Bigr)\circ T_t \Delta \left( \eval{\dv{}{s}}_{s=t} \right) \\
+        &= T_{t}(\btl \circ \mathrm{inj}_1^{g(t)} \circ s_\alpha \circ \gamma) \left( \eval{\dv{}{s}}_{s=t} \right) \\
+        &\quad + T_{t}(\btl \circ \mathrm{inj}_2^{s_\alpha (\gamma(t))} \circ g) \left( \eval{\dv{}{s}}_{s=t} \right) \\
+        &= T_{s_\alpha(\gamma(t))} R_{g(t)} \circ T_{\gamma(t)}s_\alpha \bigl(\dot{\gamma}(t)\bigr) \\
+        &\quad + T_{t} \bigl(R^{\bigl( s_\alpha(\gamma(t)) \bigr)} \circ g\bigr) \left( \eval{\dv{}{s}}_{s=t} \right) \label{eq:horizontal-lift-curve-4}
+    \end{align}
+    が分かった．補題\ref{lem:differential-of-local-section}の証明と同様の計算により，\hyperref[def:Maurer-Cartan]{Maurer-Carta}形式 $\theta \in \Omega^1(G;\, \mathfrak{g})$ を使った等式
+    \begin{align}
+        T_{t} \bigl(R^{\bigl( s_\alpha(\gamma(t)) \bigr)} \circ g\bigr) \left( \eval{\dv{}{s}}_{s=t} \right) 
+        &= \eval{\left( (g^* \theta)_t \left( \eval{\dv{}{s}}_{s=t} \right) \right)^\#}_{\tilde{\gamma}(t)}
+    \end{align}
+    が成り立つ．よって条件 \textsf{\textbf{(HC-2)}} より
+    \begin{align}
+        0 
+        &= \omega_{\tilde{\gamma}(t)} \bigl( \dot{\tilde{\gamma}} (t) \bigr) \\
+        &= (R_{g(t)}^* \omega)_{s_\alpha(\gamma(t))} \Bigl( T_{\gamma(t)}s_\alpha \bigl(\dot{\gamma}(t)\bigr) \Bigr) + (g^* \theta)_t \left( \eval{\dv{}{s}}_{s=t} \right) \\
+        &= \Adj \bigl( -g(t) \bigr) \Bigl( s_\alpha^* \omega|_{\gamma(t)}\bigl(\dot{\gamma}(t)\bigr) \Bigr) + \theta_{g(t)} \bigl( \dot{g}(t) \bigr) \label{eq:horizontal-lift-curve-2}
+    \end{align}
+    が従い，
+    \begin{align}
+        \label{eq:horizontal-lift-curve-3}
+        (g^* \theta)_t \left( \eval{\dv{}{s}}_{s=t} \right) = -\Adj \bigl( g(t)^{-1} \bigr) \Bigl( s_\alpha^* \omega|_{\gamma(t)}\bigl(\dot{\gamma}(t)\bigr) \Bigr)
+    \end{align}
+    が分かった．
+    \begin{enumerate}
+        \item \eqref{eq:horizontal-lift-curve-4}, \eqref{eq:horizontal-lift-curve-3}より
+        \begin{align}
+            \dot{\tilde{\gamma}} (t) = T_{s_\alpha(\gamma(t))} R_{g(t)} \circ T_{\gamma(t)}s_\alpha \bigl(\dot{\gamma}(t)\bigr) + \biggl( -\Adj \bigl( g(t)^{-1} \bigr) \Bigl( s_\alpha^* \omega|_{\gamma(t)}\bigl(\dot{\gamma}(t)\bigr) \Bigr) \biggr)^\#_{\tilde{\gamma}(t)}
+        \end{align}
+        \item \hyperref[def:Lie-adj]{$\Adj$ の定義}とMaurer-Cartan形式の定義より\eqref{eq:horizontal-lift-curve-2}は
+        \begin{align}
+            0
+            &= T_{1_G} (\lambda_{g^{-1}(t)} \circ \rho_{g(t)}) \Bigl( s_\alpha^* \omega|_{\gamma(t)} \bigl( \dot{\gamma}(t) \bigr)  \Bigr) + T_{g(t)} (\lambda_{g(t)^{-1}}) \bigl( \dot{g}(t) \bigr) \\
+            &= T_{1_G} (\lambda_{g^{-1}(t)}) \biggl( T_{1_G} \rho_{g(t)} \Bigl( s_\alpha^* \omega|_{\gamma(t)} \bigl( \dot{\gamma}(t) \bigr)  \Bigr) + \dot{g}(t) \biggr)
+        \end{align}
+        とも書けるが，Lie群の左移動が微分同相写像であることから $T_{1_G} (\lambda_{g^{-1}(t)})$ はベクトル空間の同型写像であり，
+        \begin{align}
+            \dot{g}(t) = -T_{1_G} \rho_{g(t)} \Bigl(s_\alpha^* \omega|_{\gamma(t)} \bigl( \dot{\gamma}(t) \bigr)  \Bigr)
+        \end{align}
+        が分かった．これは $g$ に関する常微分方程式であり，一意的な解を持つ．
+    \end{enumerate}
+    (2) の証明より $\tilde{\gamma}$ の一意存在も言えた．
+\end{proof}
+
+
+
 $C^\infty$ 曲線のみならず，底空間上の $C^\infty$ ベクトル場もまた全空間に持ち上がる．
 
 \begin{mydef}[label=def:horizontal-lift-vecf]{$C^\infty$ ベクトル場の水平持ち上げ}
@@ -2804,7 +2905,176 @@ $C^\infty$ 曲線のみならず，底空間上の $C^\infty$ ベクトル場も
     \end{description}
 \end{mydef}
 
+定理\ref{thm:connection-basic}より $\forall u \in P$ に対して
+\begin{align}
+    T_u \pi|_{\Ker \omega_u} \colon \Ker \omega_u \lto T_{\pi(u)} M
+\end{align}
+はベクトル空間の同型写像であるから，与えられた $X \in \mathfrak{X} (M)$ に対して接束 $TP$ の（$C^\infty$ とは限らない）切断 $\tilde{X}$ を
+\begin{align}
+    \tilde{X}_u \coloneqq \bigl( T_u \pi|_{\Ker \omega_u} \bigr)^{-1} (X_{\pi(u)})
+\end{align}
+と定義すればこれは\hyperref[def:horizontal-lift-vecf]{\textbf{\textsf{(HV-1)}}, \textsf{\textbf{(HV-2)}}}を充たす．逆に性質\hyperref[def:horizontal-lift-vecf]{\textbf{\textsf{(HV-1)}}, \textsf{\textbf{(HV-2)}}}を充たす接束 $TP$ の（$C^\infty$ とは限らない）任意の切断 $\tilde{Y}$ に対して，
+\begin{align}
+    \tilde{Y}_u = \bigl( T_u \pi|_{\Ker \omega_u} \bigr)^{-1} (X_{\pi(u)}) = \tilde{X}_u
+\end{align}
+が成り立つので，一意存在がわかった．あとはこのようにして構成した $\tilde{X}$ が $C^\infty$ ベクトル場であることを確かめれば良い．そのためには，命題\ref{prop:smoothvecf-2}より $\forall f \in C^\infty(P)$ に対して $\tilde{X} f$ が $C^\infty$ 関数になっていることを示せば良い．
 
+\begin{myprop}[]{水平持ち上げの $C^\infty$ 性}
+    $\tilde{X}$ は $C^\infty$ ベクトル場である．
+\end{myprop}
+
+\begin{proof}
+    $\forall X \in \mathfrak{X}(M)$ および $\forall u \in P$ を1つ固定する．
+    $X_{\pi(u)}$ は何らかの $C^\infty$ 曲線 $\gamma \colon [0,\, 1] \lto M$ の $t=0$ における速度ベクトルである．
+    $\gamma$ の\hyperref[def:horizontal-lift-curve]{水平持ち上げ} $\tilde{\gamma}$ であって $\tilde{\gamma} (0) = u$ を充たすものをとる．
+    このとき，一般に $\forall g \in G$ に対して $\pi \circ R_g = \pi$  が成り立つことに注意すると補題\ref{lem:assoc-basic}, \ref{lem:lem:horizontal-lift-curve}から
+    \begin{align}
+        T_u \pi \bigl(\dot{\tilde{\gamma}} (0)\bigr)
+        &= T_{u} (\pi \circ R_{g(0)}) \circ T_{\gamma(0)} s_\alpha \bigl( \dot{\gamma}(0) \bigr) - T_u \pi \biggl(\Adj \bigl( g(0)^{-1} \bigr) \Bigl( s_\alpha^* \omega|_{\gamma(0)}\bigl(\dot{\gamma}(0)\bigr) \Bigr) \biggr)^\#_{\tilde{\gamma}(t)} \\
+        &= T_u (\pi \circ s_\alpha) (X) \\
+        &= T_u (\mathrm{id}_{U_\alpha}) (X) \\
+        &= X
+    \end{align}
+    が従い，$\dot{\tilde{\gamma}}(0)$ は点 $u \in P$ において\hyperref[def:horizontal-lift-vecf]{\textbf{\textsf{(HV-1)}}, \textsf{\textbf{(HV-2)}}}を充たす．よって $\tilde{X}$ の一意性から
+    \begin{align}
+        \tilde{X}_{u} 
+        &= \dot{\tilde{\gamma}}(0)
+    \end{align}
+    である．
+
+    ここで $\forall f \in C^\infty (P)$ を1つ固定する．このとき
+    \begin{align}
+        \tilde{X} f|_u
+        &= \dot{\tilde{\gamma}}(0) f|_u \\
+        &= T_{s_\alpha(\gamma(0))} R_{g(0)} \circ T_{\gamma(0)} s_\alpha \bigl( X_{\pi(u)} \bigr) f - \biggl(\Adj \bigl( g(0)^{-1} \bigr) \Bigl( s_\alpha^* \omega|_{\pi(u)}\bigl(X_{\pi(u)}\bigr) \Bigr) \biggr)^\#_{u} f \\
+        &= X_{\pi(u)} (f \circ R_{g(0)} \circ s_\alpha) - \biggl(\Adj \bigl( g(0)^{-1} \bigr) \Bigl( s_\alpha^* \omega|_{\pi(u)}\bigl(X\bigr) \Bigr) \biggr)^\#_{u} f
+    \end{align}
+    であるが，$f \circ R_{g(0)} \circ s_\alpha \in C^\infty(U_\alpha)$ であることおよび写像 $U_\alpha \lto \mathfrak{g},\;  u \lmto \Adj \bigl( g(0)^{-1} \bigr) \Bigl( s_\alpha^* \omega|_{\pi(u)}\bigl(X\bigr) \Bigr)$ が $C^\infty$ 写像であることから，
+    あとは $C^\infty$ 写像 $A \colon P \lto \mathfrak{g}$ に関して定まる関数 $P \lto \mathbb{R},\; u \lmto A(u)^\# f$ が $C^\infty$ 級であることを言えば良い．
+    
+    ところで\hyperref[def:fundamental-vecf]{基本ベクトル場の定義}を思い出すと
+    \begin{align}
+        A(u)^\# f = \eval{\dv{}{t}}_{t=0} f \bigl( u \btl \exp(t A(u)) \bigr) = T_{0} \bigl( R^{(u)} \circ \exp (\mhyphen A(u)) \bigr) \left( \eval{\dv{}{t}}_{t=0} \right) 
+    \end{align}
+    であるが，$R^{(u)} \circ \exp (\mhyphen A(u)) \colon [0,\, 1] \lmto P$ は $\mu$ に関しても $C^\infty$ 級なので，$A(u)^\# f \in C^\infty (P)$ が言えた．
+\end{proof}
+
+\subsection{曲率形式}
+
+\begin{mydef}[label=def:curvature]{曲率 $2$ 形式}
+    主束 $G \hookrightarrow P \xrightarrow{\pi} M$ およびその\hyperref[def:connection]{接続形式} $\omega \in \Omega^1(P;\, \mathfrak{g})$ を与える．
+    
+    \textbf{曲率 $\bm{2}$ 形式} (curvature $2$ form) $\Omega \in \Omega^2(P;\, \mathfrak{g})$ を以下で定義する：
+    \begin{align}
+        \Omega \coloneqq \dd{\omega} + \frac{1}{2} \comm{\omega}{\omega}
+    \end{align}
+\end{mydef}
+
+\begin{marker}
+    $\Omega$ の定義の第2項は，Lie代数 $\mathfrak{g}$ の基底 $T^a \WHERE a = 1,\, \dots,\, \dim G$ をとったときに
+    \begin{align}
+        \frac{1}{2} \comm{\omega}{\omega} \coloneqq \frac{1}{2} \omega_a \wedge \omega_b \comm{T^a}{T^b}
+    \end{align}
+    という意味であって，\underline{$\mathfrak{g}$-値 $1$ 形式のウェッジ積という意味ではない}．
+\end{marker}
+
+\begin{mylem}[label=lem:extend-horizontal]{}
+    主束 $G \hookrightarrow P \xrightarrow{\pi} M$ およびその\hyperref[def:connection]{接続形式} $\omega \in \Omega^1(P;\, \mathfrak{g})$ を与える．
+    $\forall u \in P$ において，
+    \begin{enumerate}
+        \item $\forall v \in \Ker T_u \pi$ に対して，ある $V \in \mathfrak{g}$ が存在して $V^\#|_u = v$ を充たす．
+        \item $\forall v \in \Ker \omega_u$ に対して，ある $H \in \mathfrak{X}(M)$ が存在して $\tilde{H}|_u = v$ を充たす．ただし $\tilde{H}$ は $H$ の\hyperref[def:horizontal-lift-vecf]{水平持ち上げ}である．
+    \end{enumerate}
+    
+\end{mylem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 補題\ref{lem:connection}の証明より $T_{1_G} (R^{(u)}) \colon \mathfrak{g} \lto \Ker T_u \pi$ は全射だから，ある $V \in \mathfrak{g}$ が存在して $v = T_{1_G} (R^{(u)}) (V) = V^\#|_u$ を充たす．
+        \item $T_u \pi (v) \in T_{\pi(u)} M$ を $H \in \mathfrak{X}(M)$ に拡張すればよい．
+    \end{enumerate}
+\end{proof}
+
+\begin{mytheo}[label=thm:curvature]{曲率形式の性質}
+    主束 $G \hookrightarrow P \xrightarrow{\pi} M$ およびその\hyperref[def:connection]{接続形式} $\omega \in \Omega^1(P;\, \mathfrak{g})$ を与える．
+    $\Omega \in \Omega^2 (P;\, \mathfrak{g})$ を\hyperref[def:curvature]{曲率形式}とする．
+
+    \begin{enumerate}
+        \item $\forall u \in P$ および $\forall v,\, w \in T_u P$ において
+        \begin{align}
+            \Omega_u (v,\, w) = \dd \omega|_u \bigl( \uirm{v}{H},\, \uirm{w}{H} \bigr) 
+        \end{align}
+        \item $\forall g \in \Omega$ に対して
+        \begin{align}
+            R_g^* \Omega = \Adj (g^{-1}) \Omega
+        \end{align}
+        
+        \item \begin{align}
+            \dd{\Omega} = \comm{\Omega}{\omega}
+        \end{align}
+    \end{enumerate}
+    
+\end{mytheo}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 引数を場合分けする．
+        \begin{description}
+            \item[\textbf{$v,\, w \in \Ker \omega_u$}]　
+            
+            \begin{align}
+                \Omega_u (v,\, w) 
+                &= \dd{\omega}|_u (v,\, w) + \frac{1}{2} \comm{\omega_u}{\omega_u} (v,\, w) \\
+                &= \dd{\omega}|_u (v,\, w) + \frac{1}{2} \bigl(\comm{\omega_u(v)}{\omega_u(w)} - \comm{\omega_u(w)}{\omega_u(v)}\bigr) \\
+                &= \dd{\omega}|_u (v,\, w) \\
+                &= \dd{\omega}|_u (\uirm{v}{H},\, \uirm{w}{H})
+            \end{align}
+            
+            \item[\textbf{$v \in \Ker T_u \pi,\, w \in \Ker \omega_u$}]　
+            
+            $\comm{\omega_u}{\omega_u} (v,\, w) = 0$ である．補題\ref{lem:extend-horizontal}より $v$ は\hyperref[def:fundamental-vecf]{基本ベクトル場} $A^\#$ に拡張し，$w$ は\hyperref[def:horizontal-lift-vecf]{水平持ち上げ} $\tilde{B}$ に拡張する． 
+            外微分の公式から
+            \begin{align}
+                \dd{\omega} (A^{\#},\, \tilde{B}) 
+                &= A^{\#} \omega(\tilde{B}) - \tilde{B} \omega(A^\#) - \omega (\comm{A^{\#}}{\tilde{B}})
+            \end{align}
+            第一項は $\omega$ の性質から $0$ で，第2項は $\omega(A^\#) = A$ が $P$ 上の定数関数なので $0$ になる．第3項は，$\comm{A^{\#}}{\tilde{B}}$ が水平なので $0$ になる．
+            \item[\textbf{$v \in \Ker T_u \pi,\, w \in \Ker T_u \pi$}]　
+            
+            $v,\, w$ を補題\ref{lem:extend-horizontal}により拡張して $A^\#,\, B^\#$ にする．
+            このとき
+            \begin{align}
+                \Omega(A^\#,\, B^\#)
+                &= \dd{\omega} (A^\#,\, B^\#) + \comm{A}{B} \\
+                &= A^\# \omega(B^\#) - B^\# \omega(A^\#) - \omega(\comm{A^\#}{B^\#}) + \comm{A}{B} \\
+                &=  - \omega(\comm{A}{B}^\#) + \comm{A}{B}\\
+                &=  - \omega(\comm{A}{B}) + \comm{A}{B}\\
+                &= 0
+            \end{align}
+            が成り立つ．
+        \end{description}
+        \item 引き戻しが外微分，wedge積と可換なので
+        \begin{align}
+            R^*_g \Omega
+            &= \dd{R_g^* \omega} + \frac{1}{2} \comm{R_g^* \omega}{R_g^* \omega} \\
+            &= \Adj (g^{-1})\Omega
+        \end{align}
+        がわかる．
+        \item 
+        \begin{align}
+            \dd{\Omega}
+            &= \frac{1}{2} \bigl( \comm{\dd{\omega}}{\omega} - \comm{\omega}{\dd{\omega}} \bigr) \\
+            &= \comm{\dd{\omega}}{\omega} \\
+            &= \comm{\Omega}{\omega} - \frac{1}{2} \comm{\comm{\omega}{\omega}}{\omega} \\
+            &= \comm{\Omega}{\omega}
+        \end{align}
+    \end{enumerate}
+    
+\end{proof}
+
+定理\ref{thm:curvature}より，$\Omega$ は\hyperref[def:tensorial-form]{tensorial form of type $\Adj$}であることが分かった．
+
+\subsection{曲率形式の局所表示と場の強さ}
 
 \section{特性類とChern-Simons形式}
 
