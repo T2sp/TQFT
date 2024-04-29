@@ -2796,9 +2796,10 @@ $\forall g \in G$ を1つ固定し，$\forall v \in T_p M$ をとる．すると
 \begin{mylem}[label=lem:horizontal-lift-curve]{水平持ち上げの公式}
     \begin{itemize}
         \item 主束 $G \hookrightarrow P \xrightarrow{\pi} M$ およびその\hyperref[def:connection]{接続形式} $\omega \in \Omega^1(P;\, \mathfrak{g})$
-        \item \underline{$M$ 上の} \cinfty ベクトル場 $X \in \mathfrak{X}(M)$
+        \item \underline{$M$ 上の} \cinfty 曲線 $\gamma \colon [0,\, 1] \lto M$
+        \item $\forall u \in \pi^{-1} \bigl( \{\gamma(0)\} \bigr)$
     \end{itemize}
-    このとき，$\gamma$ の\hyperref[def:horizontal-lift-curve]{水平持ち上げ} $\tilde{\gamma} \colon [0,\, 1] \lto P$ が一意的に存在して以下を充たす：
+    を与える．このとき，$\gamma$ の\hyperref[def:horizontal-lift-curve]{水平持ち上げ} $\tilde{\gamma} \colon [0,\, 1] \lto P$ が一意的に存在して以下を充たす：
     \begin{enumerate}
         \item $\forall t \in [0,\, 1]$ に対して
         \begin{align}
@@ -2884,7 +2885,7 @@ $\forall g \in G$ を1つ固定し，$\forall v \in T_p M$ をとる．すると
         \begin{align}
             \dot{g}(t) = -T_{1_G} \rho_{g(t)} \Bigl(s_\alpha^* \omega|_{\gamma(t)} \bigl( \dot{\gamma}(t) \bigr)  \Bigr)
         \end{align}
-        が分かった．これは $g$ に関する常微分方程式であり，一意的な解を持つ．
+        が分かった．これは $g$ に関する常微分方程式であり，与えられた初期条件 $g(0) = \mathrm{proj}_2 \bigl( \varphi_\alpha(u) \bigr)$ に関して一意的な解を持つ．
     \end{enumerate}
     (2) の証明より $\tilde{\gamma}$ の一意存在も言えた．
 \end{proof}
@@ -2956,7 +2957,37 @@ $C^\infty$ 曲線のみならず，底空間上の $C^\infty$ ベクトル場も
     \begin{align}
         A(u)^\# f = \eval{\dv{}{t}}_{t=0} f \bigl( u \btl \exp(t A(u)) \bigr) = T_{0} \bigl( R^{(u)} \circ \exp (\mhyphen A(u)) \bigr) \left( \eval{\dv{}{t}}_{t=0} \right) 
     \end{align}
-    であるが，$R^{(u)} \circ \exp (\mhyphen A(u)) \colon [0,\, 1] \lmto P$ は $\mu$ に関しても $C^\infty$ 級なので，$A(u)^\# f \in C^\infty (P)$ が言えた．
+    であるが，$R^{(u)} \circ \exp (\mhyphen A(u)) \colon [0,\, 1] \lmto P$ は $u$ に関しても $C^\infty$ 級なので，$A(u)^\# f \in C^\infty (P)$ が言えた．
+\end{proof}
+
+\begin{myprop}[label=prop:horizontal-lift-vecf]{ベクトル場の水平持ち上げは右不変}
+    $\tilde{X}$ は右不変である．i.e. $\forall g \in G$ に対して自分自身と\hyperref[def:F-rel]{$R_g$-related}である．
+\end{myprop}
+
+\begin{proof}
+    $\forall u \in P,\; \forall g \in G$ を1つ固定する．このとき
+    \begin{align}
+        T_{u} \pi \bigl( (R_g{}_* \tilde{X})_{u} \bigr) 
+        &= T_{u} \pi \circ T_{u \btl g^{-1}} (R_{g}) (\tilde{X}_{u \btl g^{-1}}) \\
+        &= T_{u \btl g^{-1}} (\pi \circ R_g) (\tilde{X}_{u \btl g^{-1}}) \\
+        &= T_{u \btl g^{-1}} \pi (\tilde{X}_{u \btl g^{-1}}) \\
+        &= X_{\pi(u \btl g^{-1})} \\
+        &= X_{\pi(u)}
+    \end{align}
+    かつ
+    \begin{align}
+        \omega_{u} \bigl( (R_g{}_* \tilde{X})_u \bigr) 
+        &= \omega_{u} \bigl( T_{u \btl g^{-1}} (R_{g}) (\tilde{X}_{u \btl g^{-1}}) \bigr) \\
+        &= (R_g^* \omega)_{u \btl g^{-1}} (\tilde{X}_{u \btl g^{-1}}) \\
+        &= \Adj (g^{-1}) \bigl( \omega_{u \btl g^{-1}} (\tilde{X}_{u \btl g^{-1}}) \bigr)  \\
+        &= 0
+    \end{align}
+    なので，ベクトル場 $R_g{}_* \tilde{X}$ は\hyperref[def:horizontal-lift-vecf]{\textsf{\textbf{(HV-1)}}, \textsf{\textbf{(HV-2)}}}を充たす．i.e. $X$ の水平持ち上げである．
+    水平持ち上げの一意性から
+    \begin{align}
+        R_g{}_* \tilde{X}|_{u \btl g} = T_u (R_g)(\tilde{X}_u) = \tilde{X}_{u \btl g}
+    \end{align}
+    でなくてはいけない．
 \end{proof}
 
 \subsection{曲率形式}
@@ -2990,7 +3021,7 @@ $C^\infty$ 曲線のみならず，底空間上の $C^\infty$ ベクトル場も
 
 \begin{proof}
     \begin{enumerate}
-        \item 補題\ref{lem:connection}の証明より $T_{1_G} (R^{(u)}) \colon \mathfrak{g} \lto \Ker T_u \pi$ は全射だから，ある $V \in \mathfrak{g}$ が存在して $v = T_{1_G} (R^{(u)}) (V) = V^\#|_u$ を充たす．
+        \item 補題\ref{lem:connection}の証明より $T_{1_G} (R^{(u)}) \colon \mathfrak{g} \lto \Ker T_u \pi$ は全射だから，ある $V \in \mathfrak{g}$ が存在して $v = T_{1_G} (R^{(u)}) (V) = V^\#|_u$ を充たす．ただし最後の等号で\eqref{eq:fundamental-vecf}を使った．
         \item $T_u \pi (v) \in T_{\pi(u)} M$ を $H \in \mathfrak{X}(M)$ に拡張すればよい．
     \end{enumerate}
 \end{proof}
@@ -3009,18 +3040,25 @@ $C^\infty$ 曲線のみならず，底空間上の $C^\infty$ ベクトル場も
             R_g^* \Omega = \Adj (g^{-1}) \Omega
         \end{align}
         
-        \item \begin{align}
+        \item \textbf{(Bianchiの第2恒等式)}
+        \begin{align}
             \dd{\Omega} = \comm{\Omega}{\omega}
         \end{align}
     \end{enumerate}
     
 \end{mytheo}
 
+\begin{marker}
+    定理\ref{thm:curvature}-(1) を\hyperref[def:curvature]{曲率形式}の定義とすることもある（~\cite[p.43]{Nakahara2018topo2}など）．
+    その場合，我々が採用した定義\ref{def:curvature}は以下で与える証明と全く同じ議論によって導出され，\textbf{Cartanの構造方程式}と呼ばれる．
+\end{marker}
+
+
 \begin{proof}
     \begin{enumerate}
         \item 引数を場合分けする．
         \begin{description}
-            \item[\textbf{$v,\, w \in \Ker \omega_u$}]　
+            \item[\textbf{$\bm{v,\, w \in \Ker \omega_u}$}]　
             
             \begin{align}
                 \Omega_u (v,\, w) 
@@ -3030,16 +3068,35 @@ $C^\infty$ 曲線のみならず，底空間上の $C^\infty$ ベクトル場も
                 &= \dd{\omega}|_u (\uirm{v}{H},\, \uirm{w}{H})
             \end{align}
             
-            \item[\textbf{$v \in \Ker T_u \pi,\, w \in \Ker \omega_u$}]　
+            \item[\textbf{$\bm{v \in \Ker T_u \pi,\, w \in \Ker \omega_u}$}]　
             
-            $\comm{\omega_u}{\omega_u} (v,\, w) = 0$ である．補題\ref{lem:extend-horizontal}より $v$ は\hyperref[def:fundamental-vecf]{基本ベクトル場} $A^\#$ に拡張し，$w$ は\hyperref[def:horizontal-lift-vecf]{水平持ち上げ} $\tilde{B}$ に拡張する． 
+            $\comm{\omega_u}{\omega_u} (v,\, w) = 0$ である．補題\ref{lem:extend-horizontal}より $v$ は\hyperref[def:fundamental-vecf]{基本ベクトル場} $A^\# \in \mathfrak{X}(P)$ に拡張し，$w$ は\hyperref[def:horizontal-lift-vecf]{水平持ち上げ} $\tilde{B} \in \mathfrak{X}(P)$ に拡張する． 
             外微分の公式から
             \begin{align}
                 \dd{\omega} (A^{\#},\, \tilde{B}) 
                 &= A^{\#} \omega(\tilde{B}) - \tilde{B} \omega(A^\#) - \omega (\comm{A^{\#}}{\tilde{B}})
             \end{align}
-            第一項は $\omega$ の性質から $0$ で，第2項は $\omega(A^\#) = A$ が $P$ 上の定数関数なので $0$ になる．第3項は，$\comm{A^{\#}}{\tilde{B}}$ が水平なので $0$ になる．
-            \item[\textbf{$v \in \Ker T_u \pi,\, w \in \Ker T_u \pi$}]　
+            第1項は $\omega$ の性質から $0$ で，第2項は $\omega(A^\#) = A$ が\footnote{$\omega(A^\#) \in C^\infty (P)$ というのは，$\omega(A^\#) \colon P \lto \mathbb{R},\; u \lmto \omega_u(A^\#|_u)$ という意味である．} $P$ 上の定数関数なので $0$ になる．
+            第3項が $0$ になることを示すためには $\comm{A^{\#}}{\tilde{B}}$ が水平であることを示せば十分である．実際，
+            $A^\#$ の\hyperref[thm:fundamental-flow]{生成するフロー}が
+            \begin{align}
+                \theta \colon \mathbb{R} \times \mathbb{R} \times M \lto M,\; (t,\, x) \lmto R_{\exp(tX)}(x)
+            \end{align}
+            であることを\hyperref[def:fundamental-vecf]{思い出す}と，
+            \hyperref[def:Liedv]{Lie微分の定義}と\hyperref[thm:Liedv]{公式}から
+            \begin{align}
+                \comm{A^{\sharp}}{\tilde{B}}_u 
+                &= \lim_{t \to 0} \frac{T_{u \btl \exp(tA)} (R_{\exp(-tA)})(\tilde{B}_{u \btl \exp(tA)}) - \tilde{B}_{u}}{t}
+            \end{align}
+            が言える．$\tilde{B}_{u} \in \Ker \omega_u$ は明らかで，\hyperref[def:connection]{接続形式の定義}から
+            \begin{align}
+                \omega_u \bigl( T_{u \btl \exp(tA)} (R_{\exp(-tA)})(\tilde{B}_{u \btl \exp(tA)}) \bigr) 
+                &= \bigl( R_{\exp(-tA)}^* \omega \bigr)_{u \btl \exp(tA)} \bigl( \tilde{B}_{u \btl \exp(tA)}\bigr) \\
+                &= \Adj \bigl( \exp(tA) \bigr) \Bigl( \omega_{u \btl \exp(tA)}\bigl( \tilde{B}_{u \btl \exp(tA)}\bigr) \Bigr)  \\
+                &= 0
+            \end{align}
+            が言えるので $\comm{A^{\sharp}}{\tilde{B}}_u \in \Ker \omega_u$ が示された．
+            \item[\textbf{$\bm{v \in \Ker T_u \pi,\, w \in \Ker T_u \pi}$}]　
             
             $v,\, w$ を補題\ref{lem:extend-horizontal}により拡張して $A^\#,\, B^\#$ にする．
             このとき
@@ -3065,16 +3122,262 @@ $C^\infty$ 曲線のみならず，底空間上の $C^\infty$ ベクトル場も
             \dd{\Omega}
             &= \frac{1}{2} \bigl( \comm{\dd{\omega}}{\omega} - \comm{\omega}{\dd{\omega}} \bigr) \\
             &= \comm{\dd{\omega}}{\omega} \\
-            &= \comm{\Omega}{\omega} - \frac{1}{2} \comm{\comm{\omega}{\omega}}{\omega} \\
-            &= \comm{\Omega}{\omega}
+            &= \comm{\Omega}{\omega} - \frac{1}{2} \comm{\comm{\omega}{\omega}}{\omega} 
+            % &= \comm{\Omega}{\omega}
         \end{align}
+        ところで，$\omega = \omega_a T^a$ と展開すると
+        \begin{align}
+            \comm{\comm{\omega}{\omega}}{\omega}
+            &= \omega_a \wedge \omega_b \wedge \omega_c \comm{\comm{T_a}{T_b}}{T_c} \\
+            &= - \omega_a \wedge \omega_b \wedge \omega_c \comm{\comm{T_b}{T_c}}{T_a} - \omega_a \wedge \omega_b \wedge \omega_c \comm{\comm{T_c}{T_a}}{T_b} & \because\quad \text{Jacobiの恒等式}\\
+            &= -2 \omega_a \wedge \omega_b \wedge \omega_c \comm{\comm{T_a}{T_b}}{T_c} \\
+            &= -2 \comm{\comm{\omega}{\omega}}{\omega}
+        \end{align}
+        i.e. $\comm{\comm{\omega}{\omega}}{\omega} = 0$ が分かった．
+
     \end{enumerate}
     
 \end{proof}
 
-定理\ref{thm:curvature}より，$\Omega$ は\hyperref[def:tensorial-form]{tensorial form of type $\Adj$}であることが分かった．
+定理\ref{thm:curvature}より，$\Omega$ は\hyperref[def:tensorial-form]{tensorial form of type $\Adj$}であることが分かった．記号としては $\Omega \in \Omega^2_{\Adj} (P;\, \mathfrak{g})$ ということである．
+定理\ref{thm:curvature}-(1) は，\underline{主束上の}共変微分の定義のヒントになっている．
+
+\begin{mydef}[label=def:codv-pbun]{主束上の共変微分}
+    \begin{itemize}
+        \item 主束 $G \hookrightarrow P \xrightarrow{\pi} M$ およびその\hyperref[def:connection]{接続形式} $\omega \in \Omega^1(P;\, \mathfrak{g})$ を与える．
+        \item 有限次元ベクトル空間 $V$
+    \end{itemize}
+    を与える．
+    このとき，主束 $P$ 上の\textbf{共変微分} $\codd \colon \Omega^k (P;\, V) \lto \Omega^{k+1}(P;\, V)$ を
+    \begin{align}
+        \codd{\phi}|_u (v_1,\, \dots,\, v_{k+1}) \coloneqq \dd{\phi}|_u (\uirm{v_1}{H},\, \dots,\, \uirm{v_{k+1}}{H})
+    \end{align}
+    で定義する．ただし任意の $\phi \in \Omega^k (P;\, V),\; u \in P,\; v_1,\, \dots,\, v_{k+1} \in T_u P$ をとった．
+\end{mydef}
+
+この定義は\hyperref[def:connection-vect]{ベクトル束上の共変微分の定義}と見かけ上大きく異なっている．しかし，実は定理\ref{thm:connection-assoc}-(4) の意味で同じものだということが次の命題からわかる：
+
+\begin{myprop}[label=prop:codv-pbun]{主束上の共変微分の公式}
+    \begin{itemize}
+        \item 主束 $G \hookrightarrow P \xrightarrow{\pi} M$ およびその\hyperref[def:connection]{接続形式} $\omega \in \Omega^1(P;\, \mathfrak{g})$ を与える．
+        \item 有限次元ベクトル空間 $V$ 
+        \item Lie群 $G$ の表現 $\rho \colon G \lto \LGL(V)$
+    \end{itemize}
+    を与える．このとき，$\forall \phi \in \Omega^k_\rho (P;\, V)$ に対して以下が成り立つ：
+    \begin{align}
+        \codd{\phi} = \dd{\phi} + \rho_* (\omega) \wedge \phi
+    \end{align}
+\end{myprop}
+
+\begin{marker}
+    定理\ref{thm:connection-assoc}のときと同様に，
+    \begin{align}
+        \label{eq:codv-pbun}
+        \bigl(\rho_* (\omega) \wedge \phi\bigr)_u (v_1,\, \dots,\, v_{k+1})
+        &\coloneqq \frac{1}{1! k!} \sum_{\sigma \in \mathfrak{S}_{k+1}} \sgn{\sigma}\, T_u \rho \bigl( v_{\sigma(1)} \bigr) \bigl( \phi(v_{\sigma(2)},\, \dots,\, v_{\sigma(k+1)}) \bigr) 
+    \end{align}
+    という定義である．
+\end{marker}
+
+\begin{proof}
+    $\forall u \in P$ および $\forall v_1,\, \dots,\, v_{k+1} \in T_u P$ を固定する．示すべき式は全ての引数に関して線型だから，$v_i$ は水平であるか垂直であるかのどちらかであるとして良い．
+    さらに以下では補題\ref{lem:extend-horizontal}によって水平（resp. 垂直）な $v_i \in T_u P$ を水平（resp. 垂直）な $X_i \in \mathfrak{X}(P)$ に拡張する．
+    具体的には，$v_i \in T_u P$ 水平（resp. 垂直）ならば $X_i$ は\hyperref[def:horizontal-lift-vecf]{水平持ち上げ} $\tilde{B}_i$（resp. \hyperref[def:fundamental-vecf]{基本ベクトル場} $A_i{}^\# \in \mathfrak{X}(P)$）である．
+    
+    引数について場合分けする．
+    \begin{description}
+        \item[\textbf{$\bm{X_i}$ が全て水平}]　
+        
+        $\forall \sigma \in \mathfrak{S}_{k+1}$ に対して $\omega(X_{\sigma(1)}) = 0$ なので自明．
+
+        \item[\textbf{$\bm{X_i}$ のうち少なくとも2つが垂直}]　
+        
+        引数の入れ替えに関する反対称性より，$X_1 = A_1{}^\#,\, X_2 = A_2{}^\#$ を仮定しても一般性を損なわない．
+        このとき命題\ref{prop:infinitesimal-generator-R}より $\comm{X_1}{X_2} = \comm{A_1}{A_2}^\#$ が成り立つので $\comm{X_1}{X_2}$ もまた垂直である．
+        
+        まず，共変微分の定義から\eqref{eq:codv-pbun}の左辺は
+        \begin{align}
+            \codd{\phi}(X_1,\, \dots,\, X_{k+1}) = \dd{\phi}(0,\, 0,\, \dots) = 0
+        \end{align}
+        である．
+        よって\eqref{eq:codv-pbun}の右辺が $0$ になることを示せば良い．
+        実際，右辺第1項に関しては，外微分の公式より
+        \begin{align}
+            \dd{\phi}(X_1,\, \dots,\, X_{k+1})
+            &= \sum_{i=1}^{k+1} (-1)^{i-1} X_i \phi(\dots,\, \widehat{X_i},\, \dots) 
+            + \sum_{1 \le i < j \le k+1} (-1)^{i+j} \phi(\comm{X_i}{X_j},\, \dots,\, \widehat{X_i},\, \widehat{X_j},\, \dots) \label{eq:extdv-global} \\
+            &= 0 + 0
+        \end{align}
+        が言える．さらに右辺第2項に関して，$\phi$ の引数のうち少なくとも1つが水平なので
+        \begin{align}
+            \bigl(\rho_* (\omega) \wedge \phi\bigr) (X_1,\, \dots,\, X_{k+1}) = 0
+        \end{align}
+        がわかる．
+
+        \item[\textbf{$\bm{X_i}$ の1つのみが垂直で他が全て水平}]　
+        
+        引数の入れ替えに関する反対称性より，$X_1 = A_1{}^\#$ を仮定しても一般性を損なわない．
+
+        まず，共変微分の定義から\eqref{eq:codv-pbun}の左辺は
+        \begin{align}
+            \codd{\phi}(X_1,\, \dots,\, X_{k+1}) = \dd{\phi}(0,\, \dots) = 0
+        \end{align}
+        である．よって\eqref{eq:codv-pbun}の右辺が $0$ になることを示せば良い．
+        
+        \eqref{eq:codv-pbun}の右辺第1項に関しては，外微分の公式\eqref{eq:extdv-global}より非ゼロな項が
+        \begin{align}
+            X_1 \phi(X_2,\, \dots) + \sum_{2 \le j \le k+1} (-1)^{1+j} \phi(\comm{X_1}{X_j},\, X_2,\, \dots,\, \widehat{X_j},\, \dots)
+        \end{align}
+        だとわかる．ところが，命題\ref{prop:horizontal-lift-vecf}より $X_2,\, \dots,\, X_{k+1}$ が右不変なのでLie微分の公式より
+        \begin{align}
+            \comm{X_1}{X_j}_u
+            &= \comm{A_1{}^\#}{X_j}_u \\
+            &= \lim_{t\to 0} \frac{T_{u \btl \exp(tA_1)} (R_{\exp (-tA_1)}) (X_j|_{u \btl \exp(tA_1)}) - X_j|_u}{t} \\
+            &= \lim_{t\to 0} \frac{X_j|_{u \btl \exp(tA_1) \btl R_{\exp (-tA_1)}} - X_j|_u}{t} \\
+            &= \lim_{t\to 0} \frac{X_j|_u - X_j|_u}{t} \\
+            &= 0
+        \end{align}
+        が言えて，結局
+        \begin{align}
+            \dd{\phi}(X_1,\, \dots,\, X_{k+1}) = X_1 \phi(X_2,\, \dots) = A_1{}^\# \phi(X_2,\, \dots,\, X_{k+1})
+        \end{align}
+        が分かった．$f \in C^\infty (P)$ を $f(u) \coloneqq \phi_u(X_2|_u,\, \dots,\, X_{k+1}|_u)$ によって定義し，\eqref{eq:fundamental-vecf}を使ってさらに計算を進めると
+        \begin{align}
+            \bigl(A_1{}^\# \phi(X_2,\, \dots,\, X_{k+1})\bigr)|_u
+            &= (A_1{}^\# f)(u) \\
+            &= T_{1_G} (R^{(u)})(A_1) f \\
+            &= A_1 \bigl( f \circ R^{(u)} \bigr)
+        \end{align}
+        となるが，$\forall g \in G$ に対して
+        \begin{align}
+            f \circ R^{(u)} (g)
+            &= \phi_{R^{(u)}(g)} \bigl( X_2|_{R^{(u)}(g)},\, \dots,\, X_{k+1}|_{R^{(u)}(g)} \bigr)  \\
+            &= \phi_{u \btl g} \bigl( X_2|_{u \btl g},\, \dots,\, X_{k+1}|_{u \btl g} \bigr)  \\
+            &= \phi_{u \btl g} \bigl( T_u (R_g)(X_2|_u),\, \dots,\, T_u(R_g)(X_{k+1}|_{u}) \bigr) &&\because\quad X_j\, \text{の\hyperref[prop:horizontal-lift-vecf]{右不変性}} \\
+            &= (R_g^*\phi)_u (X_2|_u,\, \dots,\, X_{k+1}|_{u}) \\
+            &= \rho (g^{-1}) \bigl( \phi_u (X_2|_u,\, \dots,\, X_{k+1}|_{u})  \bigr) &&\because\quad \phi\, \text{の\hyperref[def:tensorial-form]{右同変性}} \\
+            &= \rho(g^{-1})\bigl( f(u) \bigr)
+        \end{align}
+        が成り立つので，
+        \begin{align}
+            A_1 \bigl( f \circ R^{(u)} \bigr) 
+            &= \eval{\dv{}{t}}_{t=0} \Bigl( \rho\bigl(\exp(t A_1)^{-1}\bigr) \bigl(f(u)\bigr)  \Bigr) \\
+            &= \left(\eval{\dv{}{t}}_{t=0} \rho\bigl(\exp(t A_1)^{-1}\bigr) \right) \bigl(f(u)\bigr) &&\because\quad \text{補題\ref{lem:diff-product}} \\
+            &= \left(\eval{\dv{}{t}}_{t=0} \rho\bigl(\exp(-t A_1)\bigr) \right) \bigl(f(u)\bigr) &&\because\quad \text{命題\ref{prop:exp}} \\
+            &= -\left(\eval{\dv{}{t}}_{t=0} \rho\bigl(\exp(t A_1)\bigr) \right) \bigl(f(u)\bigr) \\
+            &= - T_0 \bigl(\rho\circ \exp(\mhyphen A_1)\bigr)\left(\eval{\dv{}{t}}_{t=0} \right) \bigl(f(u)\bigr) \\
+            &= - T_{1_G} \rho \circ T_0 \bigl(\exp(\mhyphen A_1)\bigr)\left(\eval{\dv{}{t}}_{t=0} \right) \bigl(f(u)\bigr) \\
+            &= - \rho_* (A_1) f(u)
+        \end{align}
+        i.e. $A_1{}^\# \phi(X_2,\, \dots,\, X_{k+1}) = -\rho_* \bigl( A_1 \bigr) \phi(X_{2},\, \dots,\, X_{k+1})$ だと分かった\footnote{}．
+        一方，右辺第2項の非ゼロな項は
+        \begin{align}
+            &\frac{1}{k!} \sum_{\sigma \in \mathfrak{S}_{k+1},\, \sigma(1) = 1} \sgn{\sigma}\, \rho_* \bigl( \omega(X_1) \bigr) \bigl(\phi(X_{\sigma(2)},\, \dots,\, X_{\sigma(k+1)})\bigr) \\
+            &=\frac{1}{k!} \sum_{\sigma \in \mathfrak{S}_{k+1},\, \sigma(1) = 1} \sgn{\sigma}\, \rho_* \bigl( A_1 \bigr) \bigl(\phi(X_{\sigma(2)},\, \dots,\, X_{\sigma(k+1)})\bigr) \\
+            &= \rho_* \bigl( A_1 \bigr) \phi(X_{2},\, \dots,\, X_{k+1})
+        \end{align}
+        であるから，これらは相殺して $0$ になる．
+    \end{description}
+    
+\end{proof}
+
+特に $\Omega \in \Omega^2_{\Adj} (P;\, \mathfrak{g})$ なので，命題\ref{prop:codv-pbun}から
+\begin{align}
+    \codd{\Omega} 
+    &= \dd{\Omega} + \ad (\omega) \wedge \Omega \\
+    &= \dd{\Omega} + \omega_a \wedge \Omega_b\ad(T^a)(T^b) \\
+    &= \dd{\Omega} + \omega_a \wedge \Omega_b \comm{T^a}{T^b} \\
+    &= \dd{\Omega} + \comm{\omega}{\Omega}
+\end{align}
+だとわかる．よって\hyperref[thm:curvature]{Bianchiの第2恒等式}は\hyperref[def:codv-pbun]{共変微分}を使って
+\begin{align}
+    \label{eq:Bianchi-second}
+    \codd{\Omega} = 0
+\end{align}
+と書くこともできる．
 
 \subsection{曲率形式の局所表示と場の強さ}
+
+\hyperref[def.PFD]{主束} $G \hookrightarrow P \xrightarrow{\pi} M$ と，その開被覆 $\Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$，局所自明化 $\Familyset[\big]{\varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto U_\alpha \times G}{\alpha \in \Lambda}$，変換関数 $\Familyset[\big]{t_{\alpha\beta} \colon U_\alpha \cap U_\beta \lto G}{\alpha,\, \beta \in \Lambda}$ を与える．
+\hyperref[def.section]{局所切断}の族 $\Familyset[\big]{s_\alpha \colon U_\alpha \lto \pi^{-1}(U_\alpha)}{\alpha \in \Lambda}$ を\eqref{eq:assoc-sec}で定義する． 
+
+定理\ref{thm:local-connection}を参考に，\hyperref[def:curvature]{曲率形式}の局所表示を
+\begin{align}
+    \label{def:field-strength}
+    F_\alpha \coloneqq s_\alpha^* \Omega \in \Omega^2 (\textcolor{red}{U_\alpha};\, \mathfrak{g})
+\end{align}
+で定義する．曲率形式の定義と，引き戻しと外微分，wedge積が可換であることから
+\begin{align}
+    F_\alpha 
+    % &= s_\alpha^* \dd{\omega} + \frac{1}{2} s_\alpha^* \comm{\omega}{\omega} \\
+    &= \dd s_\alpha^* \omega + \frac{1}{2} \comm{s_\alpha^* \omega}{s_\alpha^* \omega} \\
+    &= \dd{A_\alpha} + \frac{1}{2} \comm{A_\alpha}{A_\alpha}
+\end{align}
+がわかる．$F_\alpha$ の，チャート $(U_\alpha (x^\mu))$ における成分表示 $F_\alpha = \textcolor{red}{\frac{1}{2} F_\alpha{}_{\mu\nu}} \dd{x^\mu} \wedge \dd{x^\nu}$ を求めてみる：
+\begin{align}
+    2F_\alpha
+    &= F_\alpha{}_{\mu\nu} \dd{x^\mu} \wedge \dd{x^\nu} \\
+    &= 2\partial_\mu A_\alpha{}_\nu \dd{x^\mu} \wedge \dd{x^\nu}  \\
+    &\quad + A_\alpha{}_a{}_{\mu} A_\alpha{}_b{}_\nu \dd{x^\mu} \wedge \dd{x^\nu} \comm{T^a}{T^b} \\
+    &= (\partial_\mu A_\alpha{}_\nu - \partial_\nu A_\alpha{}_\mu) \dd{x^\mu} \wedge \dd{x^\nu} \\
+    &\quad + \comm{A_\alpha{}_\mu}{A_\alpha{}_\nu} \dd{x^\mu} \wedge \dd{x^\nu}
+\end{align}
+より，
+\begin{align}
+    F_\alpha{}_{\mu\nu} = (\partial_\mu A_\alpha{}_\nu - \partial_\nu A_\alpha{}_\mu) + \comm{A_\alpha{}_\mu}{A_\alpha{}_\nu} 
+\end{align}
+と書くことができる．これは物理側で\textbf{場の強さ} (field strength) としてよく知られたものである．
+この意味で以降，$F_\alpha \in \Omega^2(U_\alpha;\, \mathfrak{g})$ のことを場の強さと呼ぶ．
+
+\begin{mytheo}[label=thm:curvature-local]{場の強さの変換則}
+    \hyperref[def.PFD]{主束} $G \hookrightarrow P \xrightarrow{\pi} M$ と，その開被覆 $\Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$，局所自明化 $\Familyset[\big]{\varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto U_\alpha \times G}{\alpha \in \Lambda}$，変換関数 $\Familyset[\big]{t_{\alpha\beta} \colon U_\alpha \cap U_\beta \lto G}{\alpha,\, \beta \in \Lambda}$ を与える．
+    \hyperref[def.section]{局所切断}の族 $\Familyset[\big]{s_\alpha \colon U_\alpha \lto \pi^{-1}(U_\alpha)}{\alpha \in \Lambda}$ を\eqref{eq:assoc-sec}で定義する． 
+    
+    このとき，$\forall \alpha,\, \beta \in \Lambda$ について
+    \begin{align}
+        F_{\beta}|_x = \Adj \bigl( t_{\alpha\beta}(x)^{-1} \bigr)(F_\alpha|_x),\quad \forall x \in U_\alpha \cap U_\beta
+    \end{align}
+    が成り立つ．
+\end{mytheo}
+
+\begin{proof}
+    % 定理\ref{thm:local-connection}より，
+    % \begin{align}
+    %     F_\beta|_x (v_1,\, v_2)
+    %     &= \eval{\dd{\Bigl(\Adj \bigl( t_{\alpha\beta}(x)^{-1} \bigr)(A_\alpha) \Bigr)}}_x (v_1,\, v_2) + \dd{t_{\alpha\beta}^* \theta}|_x (v_1,\, v_2) \\
+    %     &\quad + \comm{\Adj \bigl( t_{\alpha\beta}(x)^{-1} \bigr)\bigl(A_\alpha|_x(v_1)\bigr)}{\Adj \bigl( t_{\alpha\beta}(x)^{-1} \bigr)\bigl(A_\alpha(v_2)\bigr)} \\
+    %     &\quad + \comm{\Adj \bigl( t_{\alpha\beta}(x)^{-1} \bigr)\bigl(A_\alpha|_x(v_1)\bigr)}{t_{\alpha\beta}^* \theta|_x (v_2)} \\
+    %     &\quad + \comm{t_{\alpha\beta}^* \theta|_x (v_1)}{\Adj \bigl( t_{\alpha\beta}(x)^{-1} \bigr)\bigl(A_\alpha(v_2)\bigr)} \\
+    %     &\quad + \comm{t_{\alpha\beta}^* \theta|_x (v_1)}{t_{\alpha\beta}^* \theta|_x (v_2)} 
+    % \end{align}
+    % である．
+    $\forall x \in M,\; \forall v_1,\, v_2 \in T_x M$ を1つ固定する．
+    定理\ref{thm:curvature}-(1) より，
+    \begin{align}
+        F_\beta|_x (v_1,\, v_2)
+        &= s_\beta^* \Omega|_x(v_1,\, v_2) \\
+        &= \Omega|_{s_\beta(x)} \bigl( T_x s_\beta(v_1),\, T_x s_\beta(v_2) \bigr) \\
+        &= \dd{\omega}|_{s_\beta(x)} \bigl( \uirm{T_x s_\beta(v_1)}{H},\, \uirm{T_x s_\beta(v_2)}{H} \bigr)
+    \end{align}
+    ここで補題\ref{lem:differential-of-local-section}および\hyperref[def:connection]{水平部分空間の右不変性}から
+    \begin{align}
+        \uirm{T_x s_\beta(v_i)}{H} = T_{s_\alpha(x)}(R_{t_{\alpha\beta}(x)}) \circ \uirm{T_x s_\alpha(v_i)}{H}
+    \end{align}
+    なので，
+    \begin{align}
+        &\dd{\omega}|_{s_\beta(x)} \bigl( \uirm{T_x s_\beta(v_1)}{H},\, \uirm{T_x s_\beta(v_2)}{H} \bigr) \\
+        &= \eval{(R_{t_{\alpha\beta}(x)}^*\dd{\omega})}_{s_\alpha(x)} \bigl( \uirm{T_x s_\alpha(v_1)}{H},\, \uirm{T_x s_\alpha(v_2)}{H} \bigr) \\
+        &= \eval{\dd{\bigl(R_{t_{\alpha\beta}(x)}^*\omega\bigr)}}_{s_\alpha(x)} \bigl( \uirm{T_x s_\alpha(v_1)}{H},\, \uirm{T_x s_\alpha(v_2)}{H} \bigr) \\
+        &= \eval{\dd{\Bigl(\Adj \bigl( t_{\alpha\beta}(x)^{-1} \bigr)(\omega) \Bigr)}}_{s_\alpha(x)} \bigl( \uirm{T_x s_\alpha(v_1)}{H},\, \uirm{T_x s_\alpha(v_2)}{H} \bigr) \\
+        &= \Adj \bigl( t_{\alpha\beta}(x)^{-1} \bigr) \Bigl(\dd{\omega}|_{s_\alpha(x)} \bigl( \uirm{T_x s_\alpha(v_1)}{H},\, \uirm{T_x s_\alpha(v_2)}{H} \bigr)\Bigr) \\
+        &= \Adj \bigl( t_{\alpha\beta}(x)^{-1} \bigr) \Bigl(\Omega|_{s_\alpha(x)} \bigl( T_x s_\alpha(v_1),\, T_x s_\alpha(v_2) \bigr)\Bigr) \\
+        &= \Adj \bigl( t_{\alpha\beta}(x)^{-1} \bigr) \bigl(s_\alpha^*\Omega|_x(v_1,\, v_2)\bigr) \\
+        &= \Adj \bigl( t_{\alpha\beta}(x)^{-1} \bigr) \bigl(F_\alpha|_x(v_1,\, v_2)\bigr)
+    \end{align}
+    が言える．
+\end{proof}
+
+
 
 \section{特性類とChern-Simons形式}
 
