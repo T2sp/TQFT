@@ -3391,41 +3391,101 @@ $C^\infty$ 曲線のみならず，底空間上の $C^\infty$ ベクトル場も
 \end{align}
 は\hyperref[def:connection-vect]{ベクトル束 $E$ 上の接続}であった．これを\hyperref[def:horizontal-lift-curve]{水平持ち上げ}によって表示してみよう．
 
-$\forall s \in \Gamma(E),\; \forall X \in \mathfrak{X}(M)$ および $\forall p \in M$ を1つ固定する．すると
-\begin{align}
-    (\nabla^E_X s)|_p
-    &= (\nabla^E s)(X)|_p \\
-    &= \sharp^{-1} \circ \bigl(\dd (\sharp s) + \rho_* (\omega)(\sharp s) \bigr) (X)|_p
-\end{align}
-ここで，いつも通り
-\begin{itemize}
-    \item $M$ の開被覆 $\Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$
-    \item $P$ の局所自明化 $\Familyset[\big]{\varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto U_\alpha \times G}{\alpha \in \Lambda}$
-    \item $P$ の\hyperref[def.section]{局所切断}の族 $\Familyset[\big]{s_\alpha \colon U_\alpha \lto \pi^{-1}(U_\alpha),\; p \lmto \varphi_\alpha^{-1}(p,\, 1_G)}{\alpha \in \Lambda}$
-    \item $E$ の局所自明化 $\Familyset[\big]{\psi_\alpha \colon q^{-1}(U_\alpha) \lto U_\alpha \times V,\; s_\alpha(p) \times_\rho v \lmto (p,\, v)}{\alpha \in \Lambda}$
-\end{itemize}
-をとる．
-このとき\hyperref[prop:assoc-basic]{$\sharp$ の定義}から $\forall u \in \pi^{-1}(U_\alpha)$ において
-\begin{align}
-    \sharp s(u) 
-    &= f_u^{-1} \Bigl( s \bigl(\pi(u)\bigr) \Bigr)
-\end{align}
-である．
-ここで $s(x) \eqqcolon s_1 (x) \times_\rho s_2(x)$ および $g_\alpha \coloneqq \mathrm{proj}_2 \circ \varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto G$ とおくと
-\begin{align}
-    s(x) 
-    &= \Bigl[s_\alpha \Bigl( \pi \bigl(s_1(x)\bigr) \Bigr) \btl g_\alpha \bigl( s_1(x) \bigr) \Bigr] \times_\rho s_2(x) \\
-    &= \bigl(s_\alpha (x) \btl g_\alpha \bigl( s_1(x) \bigr) \bigr) \times_\rho s_2(x) \\
-    &= s_\alpha (x) \times_\rho \rho\Bigl(g_\alpha \bigl( s_1(x) \bigr)\Bigr)\Bigl(s_2(x)\Bigr) \\
-    &= 
-\end{align}
-と書けるので，$\xi_\alpha (x) \coloneqq \rho\Bigl(g_\alpha \bigl( s_1(x) \bigr)\Bigr)\Bigl(s_2(x)\Bigr)$ とおくと
+\begin{mytheo}[label=thm:codv-assoc-HL]{同伴ベクトル束上の共変微分の表示}
+    $\forall s \in \Gamma(E),\; \forall X \in \mathfrak{X}(M)$ および $\forall p \in M$ を1つ固定する．このとき，\underline{任意の}
+    \begin{itemize}
+        \item $C^\infty$ 曲線 $\gamma \colon [0,\, 1] \lto M$ であって $\gamma(0) = p,\; \dot{\gamma}(0) = X_p$ を充たすもの
+        \item $u \in \pi^{-1}(\{x\})$
+        \item $\gamma$ の\hyperref[def:horizontal-lift-curve]{水平持ち上げ} $\tilde{\gamma} \colon [0,\, 1] \lto P$ であって $\tilde{\gamma}(0) = u$ を充たすもの\footnote{$\gamma,\, u$ が与えられると $\tilde{\gamma}$ は一意に決まるのだった．}
+    \end{itemize}
+    に対して
+    \begin{align}
+        (\nabla^E_X s)|_p = \tilde{\gamma}(0) \times_\rho \dot{\eta}(0)
+    \end{align}
+    が成り立つ．特に右辺は $\gamma,\, u$ の取り方によらない．
+    ただし，$C^\infty$ 曲線 $\eta \colon [0,\, 1] \lto V$ を
+    \begin{align}
+        s \bigl( \gamma(t) \bigr) \eqqcolon \tilde{\gamma}(t) \times_\rho \eta(t)
+    \end{align}
+    で定義した．
+\end{mytheo}
+
+\begin{proof}
+    $\gamma,\, u$ を1つ固定する．命題\ref{prop:assoc-basic}-(2) の $\sharp$ の全射性の証明から
+    \begin{align}
+        (\nabla^E_X s)|_p
+        &= (\nabla^E s)(X)|_p \\
+        &= (\sharp^{-1} \circ \codd{} \circ \sharp s)_p (X_p) \\
+        &= \Bigl( \sharp^{-1}\bigl(\codd{} \circ \sharp s \bigr)\Bigr)_{\gamma(0)} \bigl( \dot{\gamma}(0) \bigr) \\
+        &= \tilde{\gamma}(0) \times_\rho \bigl(\codd{(\sharp s)}\bigr)_{\tilde{\gamma}(0)} \bigl( \dot{\tilde{\gamma}} (0) \bigr)  \\
+        &= \tilde{\gamma}(0) \times_\rho \left[ \dd (\sharp s)|_{\tilde{\gamma}(0)} \bigl( \dot{\tilde{\gamma}}(0) \bigr)  + \rho_* \Bigl( \cancel{\omega_{\tilde{\gamma}(0)}\bigl(\dot{\tilde{\gamma}}(0)\bigr)} \Bigr)\Bigl( \sharp s|_{\gamma(0)} \Bigr)    \right] \\
+        &= \tilde{\gamma}(0) \times_\rho T_0(\sharp s \circ \tilde{\gamma}) \left( \eval{\dv{}{t}}_{t=0} \right) 
+        % &= \tilde{\gamma}(0) \times_\rho f_{\tilde{\gamma}(0)}^{-1} \Bigl( \dd (\pi^* s)|_{\tilde{\gamma}(0)} \bigl( \dot{\tilde{\gamma}}(0) \bigr) \Bigr) \\
+        % &= \tilde{\gamma}(0) \times_\rho f_{\tilde{\gamma}(0)}^{-1} \Bigl( (\pi^*\dd{s})|_{\tilde{\gamma}(0)} \bigl( \dot{\tilde{\gamma}}(0) \bigr) \Bigr) \\
+        % &= \tilde{\gamma}(0) \times_\rho f_{\tilde{\gamma}(0)}^{-1} \left( \bigl((\pi \circ \tilde{\gamma})^*\dd{s}\bigr)|_{0} \left( \eval{\dv{}{t}}_{t=0} \right) \right) \\ 
+        % &= \tilde{\gamma}(0) \times_\rho f_{\tilde{\gamma}(0)}^{-1} \left( \bigl(\gamma^*\dd{s}\bigr)|_{0} \left( \eval{\dv{}{t}}_{t=0} \right) \right) \\ 
+        % &= \tilde{\gamma}(0) \times_\rho f_{\tilde{\gamma}(0)}^{-1} \Bigl( \dd{s}|_{\gamma(0)} \bigl( \dot{\gamma}(0) \bigr)  \Bigr) \\
+        % &= \tilde{\gamma}(0) \times_\rho f_{\tilde{\gamma}(0)}^{-1} \Bigl( \dot{(s \circ \gamma)} (0)  \Bigr) \\
+        % &= 
+    \end{align}
+    が成り立つ．ここで\hyperref[prop:assoc-basic]{$\sharp$ の定義}を思い出すと，$\forall t \in [0,\, 1]$ に対して
+    \begin{align}
+        \sharp s \circ \tilde{\gamma}(t) 
+        &= f^{-1}_{\tilde{\gamma}(t)} \Bigl( s \circ \pi \bigl( \tilde{\gamma}(t) \bigr)  \Bigr) \\
+        &= f^{-1}_{\tilde{\gamma}(t)} \Bigl( s \bigl( \gamma(t) \bigr) \Bigr)
+    \end{align}
+    が成り立つことが分かる．\hyperref[lem:assoc-basic]{$f^{-1}_{\tilde{\gamma}(t)}$ の定義}から
+    \begin{align}
+        \sharp s \circ \tilde{\gamma} = \eta
+    \end{align}
+    であり，
+    \begin{align}
+        (\nabla^E_X s)|_p = \tilde{\gamma}(0) \times_\rho \dot{\eta}(0)
+    \end{align}
+    が示された．
+\end{proof}
+% ここで\hyperref[prop:assoc-basic]{$\sharp$ の定義}を思い出すと，$\sharp s \in \Omega^0_\rho (P;\, V)$ は
+% \begin{align}
+%     (\sharp s)(u) 
+%     &= f_u^{-1} \circ (\pi^* s)_u \\
+%     &= f_u^{-1} \circ s \circ \pi (u) 
+% \end{align}
+% であるが，
+% $\forall x \times_\rho v \in q^{-1}\bigl(\{\pi(u)\}\bigr)$ および $\pi(u) \in U_\alpha$ を充たす任意の $\alpha \in \Lambda$ に対して $x \times_\rho v = \Bigl( s_\alpha \bigl( \pi(x) \bigr) \btl g_\alpha(x) \Bigr) \times_\rho v = s_\alpha \bigl( \pi(u) \bigr) \times_\rho \rho\bigl(g_\alpha(x)\bigr)(v) = \Bigl( s_\alpha \bigl( \pi(u) \bigr) \btl g_\alpha(u)\Bigr)\times_\rho \rho\bigl(g_\alpha(u)^{-1} g_\alpha(x)\bigr)(v) = u \times_\rho \rho\bigl(g_\alpha(u)^{-1} g_\alpha(x)\bigr)(v)$ が成り立つので，
+% \begin{align}
+%     f^{-1}_u \circ s \circ \pi(u)
+%     &= \rho\Bigl(g_\alpha(u)^{-1} g_\alpha \bigl( s_1(\pi(u)) \bigr) \Bigr)  \Bigl( s_2(\pi(u)) \Bigr) 
+% \end{align}
+
+% ここで，いつも通り
+% \begin{itemize}
+%     \item $M$ の開被覆 $\Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$
+%     \item $P$ の局所自明化 $\Familyset[\big]{\varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto U_\alpha \times G}{\alpha \in \Lambda}$
+%     \item $P$ の\hyperref[def.section]{局所切断}の族 $\Familyset[\big]{s_\alpha \colon U_\alpha \lto \pi^{-1}(U_\alpha),\; p \lmto \varphi_\alpha^{-1}(p,\, 1_G)}{\alpha \in \Lambda}$
+%     \item $E$ の局所自明化 $\Familyset[\big]{\psi_\alpha \colon q^{-1}(U_\alpha) \lto U_\alpha \times V,\; s_\alpha(p) \times_\rho v \lmto (p,\, v)}{\alpha \in \Lambda}$
+% \end{itemize}
+% をとる．
+% このとき\hyperref[prop:assoc-basic]{$\sharp$ の定義}から $\forall u \in \pi^{-1}(U_\alpha)$ において
+% \begin{align}
+%     \sharp s(u) 
+%     &= f_u^{-1} \Bigl( s \bigl(\pi(u)\bigr) \Bigr)
+% \end{align}
+% である．
+% ここで $s(x) \eqqcolon s_1 (x) \times_\rho s_2(x)$ および $g_\alpha \coloneqq \mathrm{proj}_2 \circ \varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto G$ とおくと
+% \begin{align}
+%     s(x) 
+%     &= \Bigl[s_\alpha \Bigl( \pi \bigl(s_1(x)\bigr) \Bigr) \btl g_\alpha \bigl( s_1(x) \bigr) \Bigr] \times_\rho s_2(x) \\
+%     &= \bigl(s_\alpha (x) \btl g_\alpha \bigl( s_1(x) \bigr) \bigr) \times_\rho s_2(x) \\
+%     &= s_\alpha (x) \times_\rho \rho\Bigl(g_\alpha \bigl( s_1(x) \bigr)\Bigr)\Bigl(s_2(x)\Bigr) \\
+%     &= 
+% \end{align}
+% と書けるので，$\xi_\alpha (x) \coloneqq \rho\Bigl(g_\alpha \bigl( s_1(x) \bigr)\Bigr)\Bigl(s_2(x)\Bigr)$ とおくと
 % \begin{align}
 %     \sharp s(u) 
 %     = 
 % \end{align}
 
-
+定理\ref{thm:codv-assoc-HL}を使って，同伴ベクトル束上の共変微分の局所表示を定理\ref{thm:connection-assoc}-(3) よりもあからさまな形で求めよう．
 \section{特性類とChern-Simons形式}
 
 \end{document}
