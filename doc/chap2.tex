@@ -3313,7 +3313,7 @@ $C^\infty$ 曲線のみならず，底空間上の $C^\infty$ ベクトル場も
     &= \dd s_\alpha^* \omega + \frac{1}{2} \comm{s_\alpha^* \omega}{s_\alpha^* \omega} \\
     &= \dd{A_\alpha} + \frac{1}{2} \comm{A_\alpha}{A_\alpha}
 \end{align}
-がわかる．$F_\alpha$ の，チャート $(U_\alpha (x^\mu))$ における成分表示 $F_\alpha = \textcolor{red}{\frac{1}{2} F_\alpha{}_{\mu\nu}} \dd{x^\mu} \wedge \dd{x^\nu}$ を求めてみる：
+がわかる．$F_\alpha$ の，チャート $(U_\alpha (x^\mu))$ における成分表示 $F_\alpha = \textcolor{red}{\frac{1}{2}} F_\alpha{}_{\mu\nu} \dd{x^\mu} \wedge \dd{x^\nu}$ を求めてみる：
 \begin{align}
     2F_\alpha
     &= F_\alpha{}_{\mu\nu} \dd{x^\mu} \wedge \dd{x^\nu} \\
@@ -3361,7 +3361,7 @@ $C^\infty$ 曲線のみならず，底空間上の $C^\infty$ ベクトル場も
     \end{align}
     ここで補題\ref{lem:differential-of-local-section}および\hyperref[def:connection]{水平部分空間の右不変性}から
     \begin{align}
-        \uirm{T_x s_\beta(v_i)}{H} = T_{s_\alpha(x)}(R_{t_{\alpha\beta}(x)}) \circ \uirm{T_x s_\alpha(v_i)}{H}
+        \uirm{T_x s_\beta(v_i)}{H} = T_{s_\alpha(x)}(R_{t_{\alpha\beta}(x)}) \bigl( \uirm{T_x s_\alpha(v_i)}{H}\bigr)
     \end{align}
     なので，
     \begin{align}
