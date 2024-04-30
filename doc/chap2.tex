@@ -2791,7 +2791,7 @@ $\forall g \in G$ を1つ固定し，$\forall v \in T_p M$ をとる．すると
 \end{mydef}
 
 
-一意存在は本質的に常微分方程式の解の一意性による：
+一意存在は本質的に常微分方程式の基本定理による：
 
 \begin{mylem}[label=lem:horizontal-lift-curve]{水平持ち上げの公式}
     \begin{itemize}
@@ -2890,6 +2890,29 @@ $\forall g \in G$ を1つ固定し，$\forall v \in T_p M$ をとる．すると
     (2) の証明より $\tilde{\gamma}$ の一意存在も言えた．
 \end{proof}
 
+\begin{myprop}[label=prop:horizontal-lift-init]{}
+    $\gamma$ の2つの\hyperref[def:horizontal-lift-curve]{水平持ち上げ} $\tilde{\gamma},\, \tilde{\gamma}'$ が，ある $g \in G$ について $\tilde{\gamma}'(0) = \tilde{\gamma}(0) \btl g$ を充たすとする．
+    このとき，$\forall t \in [0,\, 1]$ において $\tilde{\gamma}'(t) = \tilde{\gamma}(t) \btl g$ が成り立つ．
+\end{myprop}
+
+\begin{proof}
+    $C^\infty$ 曲線
+    \begin{align}
+        \tilde{\gamma} \btl g \colon [0,\, 1] \lto P,\; t \lmto \tilde{\gamma}(t) \btl g
+    \end{align}
+    は，$\pi \circ \tilde{\gamma} \btl g = \gamma$，$\tilde{\gamma} \btl g(0) = \tilde{\gamma}(0) \btl g$ を充たし，
+    \begin{align}
+        \omega_{\tilde{\gamma} \btl g}\bigl(\dot{\tilde{\gamma} \btl g} (t)\bigr)
+        &= (R_g^*\omega)_{\tilde{\gamma}(t)} \bigl( \dot{\tilde{\gamma}}(t) \bigr) \\
+        &= \Adj(g^{-1}) \Bigl(\omega_{\tilde{\gamma}(t)} \bigl( \dot{\tilde{\gamma}}(t) \bigr)\Bigr) \\
+        &= 0
+    \end{align}
+    も充たすので，初期条件 $\tilde{\gamma} \btl g(0) = \tilde{\gamma}(0) \btl g = \tilde{\gamma}'(0)$ を充たす水平持ち上げである．故に水平持ち上げの一意性から
+    \begin{align}
+        \tilde{\gamma}' = \tilde{\gamma} \btl g
+    \end{align}
+    が言える．
+\end{proof}
 
 
 $C^\infty$ 曲線のみならず，底空間上の $C^\infty$ ベクトル場もまた全空間に持ち上がる．
@@ -3485,6 +3508,152 @@ $C^\infty$ 曲線のみならず，底空間上の $C^\infty$ ベクトル場も
 % \end{align}
 
 定理\ref{thm:codv-assoc-HL}を使って，同伴ベクトル束上の共変微分の局所表示を定理\ref{thm:connection-assoc}-(3) よりもあからさまな形で求めよう．
+\begin{itemize}
+    \item $M$ の開被覆 $\Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$
+    \item $P$ の局所自明化 $\Familyset[\big]{\varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto U_\alpha \times G}{\alpha \in \Lambda}$
+    \item $P$ の変換関数 $\Familyset[\big]{t_{\alpha\beta} \colon U_\alpha \cap U_\beta \lto G}{\alpha \in \Lambda}$
+\end{itemize}
+を与える．その上で，いつも通りに
+\begin{itemize}
+    \item $P$ の\hyperref[def.section]{局所切断}の族 $\Familyset[\big]{s_\alpha \colon U_\alpha \lto \pi^{-1}(U_\alpha),\; p \lmto \varphi_\alpha^{-1}(p,\, 1_G)}{\alpha \in \Lambda}$
+    \item \underline{$E$ の}局所自明化 $\Familyset[\big]{\psi_\alpha \colon q^{-1}(U_\alpha) \lto U_\alpha \times V,\; s_\alpha(p) \times_\rho v \lmto (p,\, v)}{\alpha \in \Lambda}$
+\end{itemize}
+をとる．さらに $V$ の基底を $e_i \WHERE i = 1,\, \dots,\, \dim V$ とおき，$E = P \times_\rho V$ 上の局所切断の族を
+\begin{align}
+    \Familyset[\big]{e_\alpha{}_i \colon U_\alpha \lto q^{-1}(U_\alpha),\; x \lmto s_\alpha (x) \times_\rho e_i}{\alpha \in \Lambda}
+\end{align}
+で定義する．また，$C^\infty$ 曲線 $\gamma \colon [0,\, 1] \lto M$ の像は $U_\alpha$ に含まれているとし\footnote{$\gamma([0,\, 1]) \subset M$ はコンパクト集合なので，有限個の点で区切ればこの要請を充たすことができる．}，$\gamma$ の\hyperref[def:horizontal-lift-curve]{水平持ち上げ}を
+\begin{align}
+    \tilde{\gamma}(t) \eqqcolon s_\alpha \bigl( \gamma(t) \bigr) \btl g_\alpha(t)
+\end{align}
+と書く．ただし補題\ref{lem:horizontal-lift-curve}と同様に新しい $C^\infty$ 曲線 $g_\alpha \colon U_\alpha \lto G$ を $g_\alpha \coloneqq \mathrm{proj}_2 \circ \varphi_\alpha \circ \tilde{\gamma}$ により定義した．
+
+まず，局所切断 $e_\alpha{}_i$ の共変微分を求める．
+\begin{align}
+    e_\alpha{}_i \bigl( \gamma(t) \bigr) 
+    &= s_\alpha \bigl( \gamma(t) \bigr) \times_\rho e_i \\
+    &= \Bigl(s_\alpha \bigl( \gamma(t) \bigr) \btl g_\alpha(t)\Bigr) \times_\rho \rho \bigl( g_\alpha(t)^{-1} \bigr) \bigl( e_i \bigr) \\
+    &= \tilde{\gamma}(t) \times_\rho \rho \bigl( g_\alpha(t)^{-1} \bigr) \bigl( e_i \bigr)
+\end{align}
+であるから，
+定理\ref{thm:codv-assoc-HL}より
+\begin{align}
+    (\nabla_X^E e_\alpha{}_i)|_p 
+    &= \tilde{\gamma}(0) \times_\rho \eval{\dv{}{t}}_{t=0} \rho \bigl( g_\alpha(t)^{-1} \bigr) \bigl( e_i \bigr)
+\end{align}
+ここで $L^{(v)} \colon G \lto V,\; g \lto \rho(g)(v)$ を使って $\rho \bigl( g_\alpha(t)^{-1} \bigr) \bigl( e_i \bigr) = L^{(e_i)} \circ {}^{-1} \circ g_\alpha(t)$ と書けるので，
+\begin{align}
+    &\eval{\dv{}{t}}_{t=0} \rho \bigl( g_\alpha(t)^{-1} \bigr) \bigl( e_i \bigr)\\
+    &=  T_0(L^{(e_i)} \circ {}^{-1} \circ g_\alpha) \left( \eval{\dv{}{t}}_{t=0} \right) \\
+    &=  T_{g_\alpha(0)^{-1}} (L^{(e_i)}) \circ T_{g_\alpha(0)} ({}^{-1}) \bigl( \dot{g_\alpha}(0) \bigr) \\
+    &=  -T_{g_\alpha(0)} (L^{(e_i)} \circ \mathcal{L}_{g_\alpha(0)^{-1}} \circ \mathcal{R}_{g_\alpha(0)^{-1}}) \bigl( \dot{g_\alpha}(0) \bigr) \\
+    &=  -\eval{\dv{}{t}}_{t=0} \rho \bigl( g_\alpha(0)^{-1} g_\alpha(t) g_\alpha(0)^{-1} \bigr) \bigl( e_i \bigr) \\
+    &=  -\rho \bigl( g_\alpha(0)^{-1} \bigr) \circ \left(\eval{\dv{}{t}}_{t=0} \rho\bigl(g_\alpha(t)\bigr) \right) \circ \rho\bigl( g_\alpha(0)^{-1} \bigr) \bigl( e_i \bigr)  \\
+    &=  -\rho \bigl( g_\alpha(0)^{-1} \bigr) \circ \Bigl(T_{g_\alpha(0)} \rho \bigl(\dot{g_\alpha}(0)\bigr) \Bigr) \circ \rho\bigl( g_\alpha(0)^{-1} \bigr) \bigl( e_i \bigr)  \\
+    &=  \rho \bigl( g_\alpha(0)^{-1} \bigr) \circ \Bigl(T_{g_\alpha(0)} \rho \circ T_{1_G} \mathcal{R}_{g(0)} \bigl( A_\alpha|_{\gamma(0)}(X) \bigr) \Bigr) \circ \rho\bigl( g_\alpha(0)^{-1} \bigr) \bigl( e_i \bigr)  &&\because \quad \text{補題\ref{lem:horizontal-lift-curve}}\\
+    &=  \rho \bigl( g_\alpha(0)^{-1} \bigr) \circ \rho_* \bigl( A_\alpha|_{\gamma(0)}(X_p) \bigr) \bigl( e_i \bigr)  &&\because \quad \text{補題\ref{lem:horizontal-lift-curve}}
+\end{align}
+である\footnote{
+\begin{align}
+    0 
+    &= T_g (\mu \circ (\mathrm{id}_G \times {}^{-1}) \circ \Delta)(X) \\
+    &= T_g (\mu \circ \mathrm{inj}_1^{g^{-1}})(X) + T_g (\mu \circ \mathrm{inj}_2^{g} \circ {}^{-1})(X) \\
+    &= T_g (\mathcal{R}_{g^{-1}})(X) + T_{g^{-1}} (\mathcal{L}_g) \circ T_g ({}^{-1}) (X)
+\end{align}
+より
+\begin{align}
+    T_g ({}^{-1}) = -T_g (\mathcal{L}_{g^{-1}} \circ \mathcal{R}_{g^{-1}})
+\end{align}
+}から，
+\begin{align}
+    (\nabla_X^E e_\alpha{}_i)|_p  
+    &= \bigl( \tilde{\gamma}(0) \btl g_\alpha(0)^{-1} \bigr) \times_\rho \rho_* \bigl( A_\alpha|_{\gamma(0)}(X) \bigr) \bigl( e_i \bigr) \\
+    &= s_\alpha \bigl( \gamma(0) \bigr) \times_\rho \rho_* \bigl( A_\alpha|_{p}(X) \bigr) \bigl( e_i \bigr)
+\end{align}
+が分かった．特にチャート $(U_\alpha (x^\mu))$ において $A_\alpha = A_\alpha{}_a{}_\mu \dd{x^\mu} T^a,\; X = X^\mu (p)\, \eval{\pdv{}{x^\mu}}_p$ と展開すると
+\begin{align}
+    (\nabla_X^E e_\alpha{}_i)|_p  
+    &= s_\alpha \bigl( \gamma(0) \bigr) \times_\rho X^\nu(p) A_\alpha{}_a{}_\mu (p) \dd{x^\mu}|_p \left( \eval{\pdv{}{x^\mu}}_p \right)   \rho_* (T^a)(e_i) \\
+    &= s_\alpha \bigl( \gamma(0) \bigr) \times_\rho X^\nu(p) A_\alpha{}_a{}_\mu (p) \delta^\mu_\nu  \rho_* (T^a)(e_i) \\
+    &= s_\alpha \bigl( \gamma(0) \bigr) \times_\rho X^\mu(p) A_\alpha{}_a{}_\mu (p) \bigl[\, \rho_* (T^a) \,\bigr]^j{}_i\, e_j \\
+    &=  X^\mu(p) A_\alpha{}_a{}_\mu (p) \bigl[\, \rho_* (T^a) \,\bigr]^j{}_i\,  e_\alpha{}_j|_p
+\end{align}
+と成分表示が求まった．特に $X$ として座標ベクトル場 $\pdv{}{x^\mu}$ をとると
+\begin{align}
+    \nabla^E_{\pdv{}{x^\mu}} e_\alpha{}_i = A_\alpha{}_a{}_\mu \bigl[\, \rho_* (T^a) \,\bigr]^j{}_i\,  e_\alpha{}_j|_p
+\end{align}
+となる．
+
+次に，任意の切断 $s \in \Gamma(E)$ の場合を考える．$U_\alpha$ 上で $s(p) = s_\alpha(x) \times_\rho \xi_\alpha(x) = s_\alpha(x) \times_\rho \xi_\alpha(p)^i e_i = \xi_\alpha(p)^i e_\alpha{}_i$ と展開できるので，
+\hyperref[def:connection-vect]{ベクトル束上の共変微分の定義}より
+\begin{align}
+    \nabla^E_X s
+    &= \nabla^E s(X) \\
+    &= \dd{\xi_\alpha{}^i}(X) \otimes e_\alpha{}_i + \xi_\alpha{}^i \nabla^E e_\alpha{}_i(X) \\
+    &= X^\nu \pdv{\xi_\alpha{}^{i}}{x^\mu} \dd{x^\mu} \left( \pdv{}{x^\nu} \right)\, e_\alpha{}_i  + \xi_\alpha{}^i X^\mu A_\alpha{}_a{}_\mu \bigl[\, \rho_* (T^a) \,\bigr]^j{}_i\,  e_\alpha{}_j \\
+    &= X^\mu \left( \pdv{\xi_\alpha{}^{i}}{x^\mu} + A_\alpha{}_a{}_\mu \bigl[\, \rho_* (T^a) \,\bigr]^i{}_j \xi_\alpha{}^j \right) e_\alpha{}_i
+\end{align}
+と計算できる．
+
+\subsection{ホロノミー}
+
+主束 $G \hookrightarrow P \xrightarrow{\pi} M$ を与える．任意の $x \in M$ に対して
+\begin{align}
+    \Omega_x \coloneqq \bigl\{\, \gamma \colon [0,\, 1] \lto M \bigm| \text{区分的} C^\infty \text{曲線},\; \gamma(0) = \gamma(1) \,\bigr\}
+\end{align}
+とおく．
+
+\begin{myprop}[label=prop:holonomy]{ホロノミー}
+    \begin{itemize}
+        \item $\omega \in \Omega^1(P;\, \mathfrak{g})$ を\hyperref[def:connection]{接続形式}とする．
+        \item $x \in M$
+        \item $u \in \pi^{-1}(\{x\})$
+    \end{itemize}
+    を与え，写像 $\Phi_u \colon \Omega_x \lto G$ を
+    \begin{align}
+        \tilde{\gamma}(1) \eqqcolon \tilde{\gamma}(0) \btl \Phi_u (\gamma) \WHERE \tilde{\gamma}(0) = u
+    \end{align}
+    で定義する．このとき以下が成り立つ：
+    \begin{enumerate}
+        \item $\forall h \in G$ に対して
+        \begin{align}
+            \Phi_{u \btl h} (\gamma) = h^{-1} \Phi_u (\gamma) h
+        \end{align}
+        \item $\gamma_1,\, \gamma_2 \in \Omega_x$ に対して
+        \begin{align}
+            \Phi_u (\gamma_1 * \gamma_2) = \Phi_u (\gamma_2) \Phi_u (\gamma_1)
+        \end{align}
+        ただし $*$ は道の積である．
+    \end{enumerate}
+\end{myprop}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 命題\ref{prop:horizontal-lift-init}より $\tilde{\gamma} \btl h$ は $u \btl h$ を始点とする $\gamma$ の\hyperref[def:horizontal-lift-curve]{水平持ち上げ}であるから，
+        \begin{align}
+            (u \btl h) \btl \Phi_{u \btl h}(\gamma) = \tilde{\gamma} (1) \btl h = \bigl(u \btl \Phi_u(\gamma)\bigr) \btl h = u \btl h \btl \bigl( h^{-1} \Phi_u (\gamma) h \bigr) 
+        \end{align}
+        \item 命題\ref{prop:horizontal-lift-init}より $\tilde{\gamma_2} \btl \Phi_u(\gamma_1)$ は $\tilde{\gamma_1}(1) = u \btl \Phi_u(\gamma_1)$ を始点，$u \btl \Phi_u(\gamma_2) \Phi_u(\gamma_1)$ とする $\gamma_2$ の\hyperref[def:horizontal-lift-curve]{水平持ち上げ}であるから，水平持ち上げの一意性から
+        \begin{align}
+            u \btl \Phi_u (\gamma_1 * \gamma_2) = u \btl \Phi_u(\gamma_2) \Phi_u(\gamma_1)
+        \end{align}
+        が成り立つ．
+    \end{enumerate}
+\end{proof}
+
+\begin{mydef}[label=def:holonomy]{ホロノミー群}
+    主束 $G \hookrightarrow P \xrightarrow{\pi} M$ とその\hyperref[def:connection]{接続形式} $\omega \in \Omega^1(P;\, \mathfrak{g})$ を与える．
+    $\forall u \in P$ に対して，命題\ref{prop:holonomy}より部分集合
+    \begin{align}
+        \mathrm{Hol}_u(P,\, \omega) \coloneqq \Phi_u (\Omega_{\pi(u)})
+    \end{align}
+    は部分群をなす．この部分群のことを\textbf{ホロノミー群} (holonomy group) と呼ぶ．
+\end{mydef}
+
+\subsection{ゲージ理論}
+
+
+
 \section{特性類とChern-Simons形式}
 
 \end{document}
