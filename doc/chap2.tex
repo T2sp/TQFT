@@ -2826,7 +2826,7 @@ $\forall g \in G$ を1つ固定し，$\forall v \in T_p M$ をとる．すると
     \end{itemize}
     を与える．
     $[0,\, 1] \subset \mathbb{R}$ はコンパクト集合なので連続写像 $\gamma \colon [0,\, 1] \lto M$ による像 $\gamma ([0,\, 1]) \subset M$ もまたコンパクトである．よって $\gamma([0,\, 1])$ を有限個の点で区切ることにより，ある $\alpha \in \Lambda$ が存在して $\gamma([0,\, 1]) \subset U_\alpha$ が成り立つと仮定して良い．
-    また，$\tilde{\gamma} ([0,\, 1]) \subset \pi^{-1}(U_\alpha)$ を充たす任意の $C^\infty$ 曲線 $\tilde{\gamma} \colon [0,\, 1] \lto P$ に対して定義される
+    また，このとき $\tilde{\gamma} ([0,\, 1]) \subset \pi^{-1}(U_\alpha)$ を充たす任意の $C^\infty$ 曲線 $\tilde{\gamma} \colon [0,\, 1] \lto P$ に対して定義される
     \begin{align}
         g \coloneqq \mathrm{proj}_2 \circ \varphi_\alpha \circ \tilde{\gamma} \colon [0,\, 1] \lto G
     \end{align}
@@ -2852,7 +2852,7 @@ $\forall g \in G$ を1つ固定し，$\forall v \in T_p M$ をとる．すると
         &= T_{s_\alpha(\gamma(t))} R_{g(t)} \circ T_{\gamma(t)}s_\alpha \bigl(\dot{\gamma}(t)\bigr) \\
         &\quad + T_{t} \bigl(R^{\bigl( s_\alpha(\gamma(t)) \bigr)} \circ g\bigr) \left( \eval{\dv{}{s}}_{s=t} \right) \label{eq:horizontal-lift-curve-4}
     \end{align}
-    が分かった．補題\ref{lem:differential-of-local-section}の証明と同様の計算により，\hyperref[def:Maurer-Cartan]{Maurer-Carta}形式 $\theta \in \Omega^1(G;\, \mathfrak{g})$ を使った等式
+    が分かった．補題\ref{lem:differential-of-local-section}の証明と同様の計算により，\hyperref[def:Maurer-Cartan]{Maurer-Cartan}形式 $\theta \in \Omega^1(G;\, \mathfrak{g})$ を使った等式
     \begin{align}
         T_{t} \bigl(R^{\bigl( s_\alpha(\gamma(t)) \bigr)} \circ g\bigr) \left( \eval{\dv{}{s}}_{s=t} \right) 
         &= \eval{\left( (g^* \theta)_t \left( \eval{\dv{}{s}}_{s=t} \right) \right)^\#}_{\tilde{\gamma}(t)}
@@ -3377,6 +3377,53 @@ $C^\infty$ 曲線のみならず，底空間上の $C^\infty$ ベクトル場も
     が言える．
 \end{proof}
 
+\subsection{同伴ベクトル束上の共変微分の局所表示}
+
+\begin{itemize}
+    \item \hyperref[def.PFD]{主束} $G \hookrightarrow P \xrightarrow{\pi} M$
+    \item \hyperref[def:connection]{接続形式} $\omega \in \Omega^1(P;\, \mathfrak{g})$
+    \item 有限次元 $\mathbb{K}$-ベクトル空間 $V$ とLie群 $G$ の $\dim V$ 次元表現 $\rho \colon G \lto \LGL (V)$ 
+    \item \hyperref[def:associated-vect]{同伴ベクトル束} $V \hookrightarrow P \times_\rho V \xrightarrow{q} M$
+\end{itemize}
+を与える．$E \coloneqq P \times_\rho V$ とおく．定理\ref{thm:connection-assoc}-(2) より，
+\begin{align}
+    \nabla^E \coloneqq \sharp^{-1} \circ \codd{} \circ \sharp \colon \Gamma(E) \lto \Omega^1(M;\, E)
+\end{align}
+は\hyperref[def:connection-vect]{ベクトル束 $E$ 上の接続}であった．これを\hyperref[def:horizontal-lift-curve]{水平持ち上げ}によって表示してみよう．
+
+$\forall s \in \Gamma(E),\; \forall X \in \mathfrak{X}(M)$ および $\forall p \in M$ を1つ固定する．すると
+\begin{align}
+    (\nabla^E_X s)|_p
+    &= (\nabla^E s)(X)|_p \\
+    &= \sharp^{-1} \circ \bigl(\dd (\sharp s) + \rho_* (\omega)(\sharp s) \bigr) (X)|_p
+\end{align}
+ここで，いつも通り
+\begin{itemize}
+    \item $M$ の開被覆 $\Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$
+    \item $P$ の局所自明化 $\Familyset[\big]{\varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto U_\alpha \times G}{\alpha \in \Lambda}$
+    \item $P$ の\hyperref[def.section]{局所切断}の族 $\Familyset[\big]{s_\alpha \colon U_\alpha \lto \pi^{-1}(U_\alpha),\; p \lmto \varphi_\alpha^{-1}(p,\, 1_G)}{\alpha \in \Lambda}$
+    \item $E$ の局所自明化 $\Familyset[\big]{\psi_\alpha \colon q^{-1}(U_\alpha) \lto U_\alpha \times V,\; s_\alpha(p) \times_\rho v \lmto (p,\, v)}{\alpha \in \Lambda}$
+\end{itemize}
+をとる．
+このとき\hyperref[prop:assoc-basic]{$\sharp$ の定義}から $\forall u \in \pi^{-1}(U_\alpha)$ において
+\begin{align}
+    \sharp s(u) 
+    &= f_u^{-1} \Bigl( s \bigl(\pi(u)\bigr) \Bigr)
+\end{align}
+である．
+ここで $s(x) \eqqcolon s_1 (x) \times_\rho s_2(x)$ および $g_\alpha \coloneqq \mathrm{proj}_2 \circ \varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto G$ とおくと
+\begin{align}
+    s(x) 
+    &= \Bigl[s_\alpha \Bigl( \pi \bigl(s_1(x)\bigr) \Bigr) \btl g_\alpha \bigl( s_1(x) \bigr) \Bigr] \times_\rho s_2(x) \\
+    &= \bigl(s_\alpha (x) \btl g_\alpha \bigl( s_1(x) \bigr) \bigr) \times_\rho s_2(x) \\
+    &= s_\alpha (x) \times_\rho \rho\Bigl(g_\alpha \bigl( s_1(x) \bigr)\Bigr)\Bigl(s_2(x)\Bigr) \\
+    &= 
+\end{align}
+と書けるので，$\xi_\alpha (x) \coloneqq \rho\Bigl(g_\alpha \bigl( s_1(x) \bigr)\Bigr)\Bigl(s_2(x)\Bigr)$ とおくと
+% \begin{align}
+%     \sharp s(u) 
+%     = 
+% \end{align}
 
 
 \section{特性類とChern-Simons形式}
