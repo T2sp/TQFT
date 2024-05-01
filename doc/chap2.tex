@@ -3652,8 +3652,134 @@ $C^\infty$ 曲線のみならず，底空間上の $C^\infty$ ベクトル場も
 
 \subsection{ゲージ理論}
 
+% 物理で登場するベクトルポテンシャル $\mathcal{A}_\mu$ は，\hyperref[thm:local-connection]{ゲージ場}の成分と $A_\mu = \iunit \mathcal{A}_\mu$ の関係にある~\cite[p.37]{Nakahara2018topo2}．
+
+% \begin{myexample}[label=ex:U1-gauge-monopole]{$S^2$ 上の $\mathrm{U}(1)$ ゲージ理論}
+    
+% \end{myexample}
 
 
 \section{特性類とChern-Simons形式}
+
+\subsection{Lie代数上の不変多項式}
+
+$V$ を有限次元 $\mathbb{K}$-ベクトル空間，$V^*$ をその双対空間とする．$V$ の基底 $\{e_1,\, \dots,\, e_{\dim V}\} \subset V$ とその双対基底 $\{\varepsilon^1,\, \dots,\, \varepsilon^{\dim V}\} \subset V^*$ をとる．
+
+\begin{mydef}[label=def:polynomial]{$V$ 上の多項式}
+    \begin{itemize}
+        \item 対称化テンソル積
+        \begin{align}
+            \mathrm{Sym}^k (V^*) \coloneqq (V^*)^{\otimes k} / \braket{v \otimes w - w \otimes v}{v,\, w \in V^*}
+        \end{align}
+        の元のことを\textbf{$\bm{V}$ 上の $k$ 次多項式}と呼ぶ．
+        \item 対称化テンソル代数\footnote{ベクトル空間の直和なので，その元は $k$ 次多項式の有限和である．}
+        \begin{align}
+            \bigoplus_{k=0}^\infty \mathrm{Sym}^k (V^*)
+        \end{align}
+        の元のことを\textbf{$\bm{V}$ 上の多項式}と呼ぶ．
+    \end{itemize}
+    
+\end{mydef}
+
+関数 $f \colon V \lto \mathbb{K}$ が $V$ 上の $k$-次多項式である必要十分条件は
+\begin{align}
+    f = f_{i_1 \dots i_k} \varepsilon^{i_1} \cdots \varepsilon^{i_k}
+\end{align}
+の表示を持つことである．
+
+\begin{myexample}[]{$\Tr$ と $\det$}
+    $V = \Mat{n}{\mathbb{K}}$ とする．$V$ の基底として行列単位 $e_{i}{}^{j}$ をとる．このとき，関数
+    \begin{align}
+        \Tr \colon V \lto \mathbb{K},\; v^{i}{}_{j} e_{i}{}^{j} \lmto v^{i}{}_i
+    \end{align}
+    は
+    \begin{align}
+        \Tr (v) = \Tr (v^{i}{}_{j} e_{i}{}^{j}) = v^{i}{}_i = v^l{}_j \delta^j_i \delta_l^i = v^l{}_j \varepsilon^i{}_i (e_l{}^j) =  \varepsilon^{i}{}_i (v) 
+    \end{align}
+    を充たすので $1$ 次多項式である．一方，
+    \begin{align}
+        \det \colon V \lto \mathbb{K},\; v^{i}{}_{j} e_{i}{}^{j} \lmto \epsilon_{i_1,\, \dots,\, i_n} v^{i_1}{}_1 \cdots v^{i_n}{}_n
+    \end{align}
+    は
+    \begin{align}
+        \det (v) 
+        &= \det (v^{i}{}_{j} e_{i}{}^{j}) \\
+        &= \epsilon_{i_1 \dots i_n} v^{i_1}{}_1 \cdots v^{i_n}{}_n\\
+        &= \epsilon_{i_1 \dots i_n} v^{j_1}{}_{l_1} \cdots v^{j_n}{}_{l_n} \delta^{i_1}_{j_1} \delta^{l_1}_1 \cdots \delta^{i_n}_{j_n} \delta^{l_n}_n\\
+        &= \epsilon_{i_1 \dots i_n} v^{j_1}{}_{l_1} \cdots v^{j_n}{}_{l_n} \varepsilon^{i_1}{}_{1} (e_{j_1}{}^{l_1}) \cdots  \varepsilon^{i_n}{}_{n} (e_{j_n}{}^{l_n}) \\
+        &= \epsilon_{i_1 \dots i_n} \varepsilon^{i_1}{}_{1} (v) \cdots  \varepsilon^{i_n}{}_{n} (v)
+    \end{align}
+    を充たすので $n$ 次多項式である．
+\end{myexample}
+
+\begin{mydef}[label=def:invariant]{不変多項式}
+    Lie群 $G$ のLie代数 $\mathfrak{g}$ を与える．
+    \hyperref[def:polynomial]{多項式} $f \colon \mathfrak{g} \lto \mathbb{R}$ が $\bm{\mathrm{Ad}(G)}$\textbf{-不変}であるとは，$\forall g \in G,\; \forall X \in \mathfrak{g}$ に対して
+    \begin{align}
+        f \bigl( \Adj(g)(X) \bigr) = f(X) 
+    \end{align}
+    が成り立つことをいう．
+\end{mydef}
+
+$\Adj (G)$-不変多項式全体の集合を $\bm{\mathrm{Inv}(\mathfrak{g})}$ と書く．$\mathrm{Inv}(\mathfrak{g})$ は結合代数である．
+
+\subsection{Chern-Weil理論}
+
+\begin{itemize}
+    \item Lie群 $G$ のLie代数 $\mathfrak{g}$ とその基底 $T^a$
+    \item 主束 $G \hookrightarrow P \xrightarrow{\pi} M$
+    \item \hyperref[def:connection]{接続形式} $\omega \in \Omega^1(P;\, \mathfrak{g})$
+    \item \hyperref[def:curvature]{曲率形式} $\Omega \in \Omega^2(P;\, \mathfrak{g})$
+\end{itemize}
+を与える．$T^a$ の双対基底を $\tau_a$ とおく．曲率形式を $T^a$ で展開して $\Omega = \Omega_a T^a$ と書く．
+\hyperref[def:polynomial]{$k$ 次多項式} $f \colon \mathfrak{g} \lto \mathbb{R}$ が基底 $\{T^a\}$ に関して $f = f^{a_1 \dots a_{\dim G}} \tau_{a_1} \cdots \tau_{a_{\dim G}}$ の表示を持つとき，
+$f$ への $\Omega$ の代入 $f(\Omega) \in \Omega^{2k}(P)$ を
+\begin{align}
+    f(\Omega) \coloneqq f^{a_1 \dots a_{\dim G}} \Omega_{a_1} \wedge \cdots \wedge \Omega_{a_{\dim G}}
+\end{align}
+で定義する．この定義は $\mathfrak{g}$ の基底の取り方によらない．
+
+\begin{mytheo}[label=thm:Chern-Weil]{Chern-Weilの定理}
+    \begin{itemize}
+        \item 主束 $G \hookrightarrow P \xrightarrow{\pi} M$
+        \item \hyperref[def:connection]{接続形式} $\omega \in \Omega^1(P;\, \mathfrak{g})$
+        \item \hyperref[def:curvature]{曲率形式} $\Omega \in \Omega^2(P;\, \mathfrak{g})$
+        \item \hyperref[def:invariant]{$k$ 次不変多項式} $f \colon \mathfrak{g} \lto \mathbb{R}$
+    \end{itemize}
+    を与える．このとき以下が成り立つ：
+    \begin{enumerate}
+        \item ある $\Lambda \in \Omega^{2k}(M)$ が存在して $f(\Omega) = \pi^* \Lambda$ を充たす．
+        \item (1) の $\Lambda$ は閉形式である．i.e. $\dd{\Lambda} = 0$
+        \item de Rhamコホモロジー類 $\Lambda + \Im \dd{} \in \irm{H}{dR}^{2k} (M)$ は $\omega$ の取り方によらない．
+        したがって結合代数の準同型（\textbf{Chern-Weil準同型}）
+        \begin{align}
+            w \colon \mathrm{Inv}(\mathfrak{g}) \lto H^\bullet (M),\; f \lmto \Lambda + \Im \dd{}
+        \end{align}
+        が定まる．
+    \end{enumerate}
+\end{mytheo}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+    
+\end{proof}
+
+\begin{mydef}[label=def:characteristic-class-polynomial]{特性類}
+    \begin{itemize}
+        \item 主束 $G \hookrightarrow P \xrightarrow{\pi} M$
+        \item \hyperref[def:connection]{接続形式} $\omega \in \Omega^1(P;\, \mathfrak{g})$
+        \item \hyperref[def:curvature]{曲率形式} $\Omega \in \Omega^2(P;\, \mathfrak{g})$
+        \item \hyperref[def:invariant]{$k$ 次不変多項式} $f \colon \mathfrak{g} \lto \mathbb{R}$
+    \end{itemize}
+    を与える．このとき定理\ref{thm:Chern-Weil}の $\Lambda + \Im \dd{} \in \irm{H}{dR}^{2k} (M)$ のことを，$f$ による $P$ の\textbf{特性類} (characteristic class) と呼ぶ．
+\end{mydef}
+
+\subsection{特性類のホモトピー論的扱い}
+
+\subsection{いくつかの例}
+
+\subsection{Chern-Simons形式}
 
 \end{document}
