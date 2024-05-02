@@ -1896,91 +1896,59 @@ $\forall X \in T_u G_{\pi(u)} \subset T_u P$ （i.e. 点 $u \in \bm{P}$ にお�
 
 \subsection{同伴ベクトル束上の共変微分}
 
-$V$ を有限次元 $\mathbb{K}$-ベクトル空間，$\rho \colon G \lto \LGL(V)$ をLie群 $G$ の $\dim V < \infty$ 次元表現とする．
+% $V$ を有限次元 $\mathbb{K}$-ベクトル空間，$\rho \colon G \lto \LGL(V)$ をLie群 $G$ の $\dim V < \infty$ 次元表現とする．
 
 \begin{mydef}[label=def:tensorial-form,breakable]{tensorial form}
-    \hyperref[def.PFD]{主束} $G \hookrightarrow P \xrightarrow{\pi} M$ を与える．
-    $\forall g \in G$ に対して，命題\ref{prop.PFD_right}の右作用によって\hyperref[def:fundamental-vecf]{右作用移動}を $R_g \colon P \lto P,\; u \lmto u \btl g$ と定義する．
-    全空間 $P$ 上の\hyperref[eq:E-valued]{$V$-値 $k$ 形式} $\omega \in \Omega^k(P;\, V)$ を与える．
     \begin{itemize}
-        \item $\omega$ が\textbf{水平} (horizontal) であるとは，$\forall X \in \mathfrak{g}$ に対して
+        \item \hyperref[def.PFD]{主束} $G \hookrightarrow P \xrightarrow{\pi} M$
+        \item 有限次元 $\mathbb{K}$-ベクトル空間 $V$
+        \item Lie群 $G$ の有限次元表現 $\rho \colon G \lto \LGL(V)$
+    \end{itemize}
+    を与える．$\forall g \in G$ に対して，命題\ref{prop.PFD_right}の右作用によって\hyperref[def:fundamental-vecf]{右作用移動}を $R_g \colon P \lto P,\; u \lmto u \btl g$ と定義する．
+    全空間 $P$ 上の\hyperref[eq:E-valued]{$V$-値 $k$ 形式} $\phi \in \Omega^k(P;\, V)$ を与える．
+    \begin{itemize}
+        \item $\phi$ が\textbf{水平} (horizontal) であるとは，$\forall X \in \mathfrak{g}$ に対して
         \begin{align}
-            i_{X^\#} (\omega) = 0
+            i_{X^\#} (\phi) = 0
         \end{align}
         が成り立つことを言う\footnote{$i_{X^\#} \colon \Omega^k (P;\, V) \lto \Omega^{k-1}(P;\, V)$ は微分形式の\textbf{内部積} (interior product) である．}．
-        \item $\omega$ が $\bm{\rho}$ \textbf{型の右同変}
+        \item $\phi$ が $\bm{\rho}$ \textbf{型の右同変}
         \footnote{
             equivalent の訳語には\textbf{同変}があてられることが多い．何かしらの群作用を考えると言う意味があるようだ：\url{http://pantodon.jp/index.rb?body=equivariant_topology}
         }
         (right equivalent of type $\rho$) であるとは，$\forall g \in G$ に対して
         \begin{align}
-            (R_g)^* \omega = \rho(g^{-1})(\omega)
+            (R_g)^* \phi = \rho(g^{-1})(\phi)
         \end{align}
         が成り立つことを言う．
-        \item $\omega$ が $\bm{\rho}$ \textbf{型のtensorial $\bm{k}$-form} (tensorial form of type $\rho$) であるとは，
-        $\omega$ が水平かつ$\rho$ 型の右同変であることを言う．
+        \item $\phi$ が $\bm{\rho}$ \textbf{型のtensorial $\bm{k}$-form} (tensorial form of type $\rho$) であるとは，
+        $\phi$ が水平かつ$\rho$ 型の右同変であることを言う．
     \end{itemize}
     \tcblower
     $\rho$ 型のtensorial $k$-form全体がなす $\mathbb{K}$-ベクトル空間を $\bm{\Omega^k_\rho (P;\, V)}$ と書く．
 \end{mydef}
 
 \begin{marker}
-    補題\ref{lem:fundamental-vecf}より，$\omega \in \Omega^k(P;\, V)$ が水平であることは任意の $k$-個の \cinfty ベクトル場 $X_1,\, \dots,\, X_k \in \mathfrak{X}(P)$ に対して
+    補題\ref{lem:fundamental-vecf}より，$\phi \in \Omega^k(P;\, V)$ が水平であることは任意の $k$-個の \cinfty ベクトル場 $X_1,\, \dots,\, X_k \in \mathfrak{X}(P)$ に対して
     \begin{align}
-        \exists l\; \mathrm{s.t.}\; X_l\;\text{が\hyperref[def:connection]{垂直}} \IMP \omega (X_1,\, \dots,\, X_k) = 0
+        \exists l\; \mathrm{s.t.}\; X_l\;\text{が\hyperref[def:connection]{垂直}} \IMP \phi (X_1,\, \dots,\, X_k) = 0
     \end{align}
     が成り立つことと同値である．
     また，$P$ 上の任意の$0$-形式は引数を持たないので，自動的に水平ということになる．
 \end{marker}
 
-命題\ref{prop:Borelconst}を思い出すと，主束 $G \hookrightarrow P \xrightarrow{\pi} M$ の開被覆，局所自明化，変換関数をそれぞれ $\bigl\{ U_\alpha \bigr\}_{\alpha \in \Lambda},\; \bigl\{ \varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto U_\alpha \times G \bigr\}_{\alpha \in \Lambda},\; \bigl\{  t_{\alpha\beta} \colon M \lto G  \bigr\}_{\alpha,\, \beta \in \Lambda}$ とおき，
-$\forall \alpha \in \Lambda$ に対して\hyperref[def.section]{局所切断} $s_\alpha \in \Gamma(P|_{U_\alpha})$ を
-\begin{align}
-    \label{eq:assoc-sec}
-    s_\alpha \colon U_\alpha \lto \pi^{-1}(U_\alpha),\; x \lmto \varphi_\alpha^{-1}(x,\, 1_G)
-\end{align}
-と定めるとき，\hyperref[def:associated-vect]{同伴ベクトル束} $V \hookrightarrow P \times_\rho V \xrightarrow{q} M$ の局所自明化を
-\begin{align}
-    \label{eq:assoc-loctriv}
-    \psi_\alpha \colon q^{-1}(U_\alpha) \lto U_\alpha \times V,\; s_\alpha(x) \times_\rho v \lmto (x,\, v)
-\end{align}
-として定義するのだった．
-
-\begin{mylem}[label=lem:assoc-basic,breakable]{}
-    \hyperref[def.PFD]{主束} $G \hookrightarrow P \xrightarrow{\pi} M$ の\hyperref[def:associated-vect]{同伴ベクトル束} $V \hookrightarrow P \times_\rho V \xrightarrow{q} M$ を考える．
-    % \begin{enumerate}
-    %     \item $\forall u \in P$ に対して，$\mathbb{K}$-線型写像
-    %     \begin{align}
-    %         f_u \colon V \lto (P \times_\rho V)_{\pi(u)},\; v \lmto u \times_\rho v
-    %     \end{align}
-    %     は\footnote{$(P \times_\rho V)_{\pi(u)} \coloneqq q^{-1}(\{\pi(u)\})$ は点 $\pi(u) \in M$ の\hyperref[def.fiber-1]{ファイバー}．}ベクトル空間の同型写像である．
-    %     \item 引き戻し束
-    %     \begin{center}
-    %         \begin{tikzcd}[row sep=large, column sep=large]
-    %             &\textcolor{red}{\pi^*(P \times_\rho V)} \ar[d, red, "\mathrm{proj}_1"']\ar[r, "\mathrm{proj}_2"] &P \times_\rho V \ar[d, "q"] \\
-    %             &\textcolor{red}{P} \ar[r, "\pi"] &M
-    %         \end{tikzcd}
-    %     \end{center}
-    %     は，\hyperref[def.bundlemap]{束写像}
-    %     \begin{align}
-    %         \iota \colon P \times V \lto \pi^*(P \times_\rho V),\; (u,\, v) \lmto (u,\, u \times_\rho v)
-    %     \end{align}
-    %     によって自明束 $V \hookrightarrow P \times V \xrightarrow{\mathrm{proj}_1} P$ と同型になる：
-    %     \begin{center}
-    %         \begin{center}
-    %             \begin{tikzcd}[row sep=large, column sep=large]
-    %                 &P \times V \ar[r, red, "\cong"] \ar[dr, "\mathrm{proj}_1"'] &\textcolor{red}{\pi^*(P \times_\rho V)} \ar[d, red, "\mathrm{proj}_1"']\ar[r, "\mathrm{proj}_2"] &P \times_\rho V \ar[d, "q"] \\
-    %                 & &\textcolor{red}{P} \ar[r, "\pi"] &M
-    %             \end{tikzcd}
-    %         \end{center}
-    %     \end{center}
-    %     % \item 
-    % \end{enumerate}
-    このとき $\forall u \in P$ に対して，$\mathbb{K}$-線型写像
+\begin{mylem}[label=lem:assoc-basic,breakable]{同伴ベクトル束のファイバーの構造}
+    \begin{itemize}
+        \item \hyperref[def.PFD]{主束} $G \hookrightarrow P \xrightarrow{\pi} M$
+        \item 有限次元 $\mathbb{K}$-ベクトル空間 $V$
+        \item Lie群 $G$ の有限次元表現 $\rho \colon G \lto \LGL(V)$
+        \item 主束 $P$ の\hyperref[def:associated-vect]{同伴ベクトル束} $V \hookrightarrow P \times_\rho V \xrightarrow{q} M$
+    \end{itemize}
+    を与える．このとき，$\forall u \in P$ に対して $\mathbb{K}$-線型写像
     \begin{align}
-        f_u \colon V \lto (P \times_\rho V)_{\pi(u)},\; v \lmto u \times_\rho v
+        f_u \colon V \lto q^{-1}(\{\pi(u)\}),\; v \lmto u \times_\rho v
     \end{align}
-    は\footnote{$(P \times_\rho V)_{\pi(u)} \coloneqq q^{-1}(\{\pi(u)\})$ は点 $\pi(u) \in M$ の\hyperref[def.fiber-1]{ファイバー}．}ベクトル空間の同型写像である．
+    はベクトル空間の同型写像である．
 \end{mylem}
 
 \begin{proof}
@@ -1996,23 +1964,54 @@ $\forall \alpha \in \Lambda$ に対して\hyperref[def.section]{局所切断} $s
     だとわかる．i.e. $f_u$ は全射である．
 \end{proof}
 
-\begin{myprop}[label=prop:assoc-basic]{}
-    \hyperref[def.PFD]{主束} $G \hookrightarrow P \xrightarrow{\pi} M$ の\hyperref[def:associated-vect]{同伴ベクトル束} $V \hookrightarrow P \times_\rho V \xrightarrow{q} M$ を考える．
-    $\forall \omega \in \Omega^k (M;\, P \times_\rho V)$ に対して
-    % \footnote{つまり，$\omega$ は\hyperref[eq:E-valued]{$P \times_\rho V$ 値 $k$-形式}である．}，
-    $\omega^\sharp \in \Omega^k (P;\, V)$ を
-    % $\forall u \in \textcolor{red}{P}$ に対して，$\omega_u^\sharp \in \Omega^k_\rho (P;\, V)$ を
+
+命題\ref{prop:Borelconst}を思い出すと，主束 $G \hookrightarrow P \xrightarrow{\pi} M$ の開被覆，局所自明化，変換関数をそれぞれ $\bigl\{ U_\alpha \bigr\}_{\alpha \in \Lambda},\; \bigl\{ \varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto U_\alpha \times G \bigr\}_{\alpha \in \Lambda},\; \bigl\{  t_{\alpha\beta} \colon M \lto G  \bigr\}_{\alpha,\, \beta \in \Lambda}$ とおき，
+\underline{$P$ の}\hyperref[def.section]{局所切断}の族
+\begin{align}
+    \label{eq:assoc-sec}
+    \Familyset[\big]{s_\alpha \colon U_\alpha \lto \pi^{-1}(U_\alpha),\; x \lmto \varphi_\alpha^{-1}(x,\, 1_G)}{\alpha \in \Lambda}
+\end{align}
+を与えてから，
+\hyperref[def:associated-vect]{同伴ベクトル束} $V \hookrightarrow P \times_\rho V \xrightarrow{q} M$ の局所自明化を
+\begin{align}
+    \label{eq:assoc-loctriv}
+    \Familyset[\big]{\psi_\alpha \colon q^{-1}(U_\alpha) \lto U_\alpha \times V,\; s_\alpha(x) \times_\rho v \lmto (x,\, v)}{\alpha \in \Lambda}
+\end{align}
+として定義するのだった．
+
+\begin{myprop}[label=prop:assoc-basic]{tensorial formと同伴ベクトル束上の微分形式の対応}
+    \begin{itemize}
+        \item \hyperref[def.PFD]{主束} $G \hookrightarrow P \xrightarrow{\pi} M$
+        \item 有限次元 $\mathbb{K}$-ベクトル空間 $V$
+        \item Lie群 $G$ の有限次元表現 $\rho \colon G \lto \LGL(V)$
+        \item 主束 $P$ の\hyperref[def:associated-vect]{同伴ベクトル束} $V \hookrightarrow P \times_\rho V \xrightarrow{q} M$
+    \end{itemize}
+    を与える．
+    $\forall \phi \in \Omega^k (M;\, P \times_\rho V)$ に対して
+    % \footnote{つまり，$\phi$ は\hyperref[eq:E-valued]{$P \times_\rho V$ 値 $k$-形式}である．}，
+    $\phi^\sharp \in \Omega^k (P;\, V)$ を
+    % $\forall u \in \textcolor{red}{P}$ に対して，$\phi_u^\sharp \in \Omega^k_\rho (P;\, V)$ を
     \begin{align}
-        \omega^\sharp \colon u \lmto f_u^{-1} \circ (\pi^* \omega)_u
+        \phi^\sharp \colon u \lmto f_u^{-1} \circ \pi^* \phi|_u
     \end{align}
-    と定義する．
+    と定義する．また，$\forall \psi \in \Omega_\rho^k (P;\, V)$ に対して $\psi^\flat \in \Omega^k (M;\, P \times_\rho V)$ を，$\forall x \in \textcolor{red}{M},\; \forall w_1,\, \dots,\, w_k \in T_x \textcolor{red}{M}$ に対して
+    次のように定義する：
+    \begin{align}
+        \label{def:flat}
+        \psi^\flat|_x (w_1,\, \dots,\, w_k) \coloneqq u \times_\rho \psi_u (v_1,\, \dots,\, v_k)
+    \end{align}
+    ただし $u \in \pi^{-1}(\{x\})$ および $v_i \in (T_u \pi)^{-1} (\{w_i\})$ は\underline{任意}にとって良い．
     \begin{enumerate}
-        \item $\omega^\sharp \in \Omega^k_\rho (P;\, V)$ である．
+        \item $\phi^\sharp \in \Omega^k_\rho (P;\, V)$ である．
         \item 写像
         \begin{align}
-            \sharp \colon \Omega^k (M;\, P \times_\rho V) \lto \Omega^k_\rho(P;\, V),\; \omega \lmto \omega^\sharp    
+            \sharp \colon \Omega^k (M;\, P \times_\rho V) \lto \Omega^k_\rho(P;\, V),\; \phi \lmto \phi^\sharp    
         \end{align}
-        はベクトル空間の同型写像である．
+        はベクトル空間の同型写像であり，その逆写像は
+        \begin{align}
+            \flat \colon \Omega^k_\rho(P;\, V) \lto \Omega^k (M;\, P \times_\rho V),\; \psi \lmto \psi^\flat
+        \end{align}
+        である．
         \item $\forall s \in \Omega^k(M),\; \forall \eta \in \Omega^l(M;\, P \times_\rho V)$ に対して
         \begin{align}
             \sharp (s \wedge \eta) = (\pi^* s)\wedge \sharp \eta
@@ -2020,108 +2019,107 @@ $\forall \alpha \in \Lambda$ に対して\hyperref[def.section]{局所切断} $s
         が成り立つ．
         % \footnote{この意味で，(2) と併せると $\sharp$ は $C^\infty(M),\, C^\infty(P)$-加群の同型写像のように振る舞うと言える．}．
         \item 
-        $\forall \omega \in \Omega^k (M;\, P \times_\rho V)$ に対して
+        $\forall \phi \in \Omega^k (M;\, P \times_\rho V)$ に対して
         \begin{align}
-            \mathrm{proj}_2 \circ \psi_\alpha \circ \omega = s_\alpha^* (\omega^\sharp) \in \Omega^k (U_\alpha;\, V)
+            \mathrm{proj}_2 \circ \psi_\alpha \circ \phi = s_\alpha^* (\phi^\sharp) \in \Omega^k (U_\alpha;\, V)
         \end{align}
         が成り立つ．ただし $\psi_\alpha \colon q^{-1} (U_\alpha) \lto U_\alpha \times V$ は\eqref{eq:assoc-loctriv}で定義された局所自明化，$s_\alpha \colon M \lto \pi^{-1}(U_\alpha)$ は\eqref{eq:assoc-sec}で定義された\hyperref[def.section]{局所切断}とする．
     \end{enumerate}
 \end{myprop}
 
 \begin{proof}
-    $\forall \omega \in \Omega^k(M;\, P \times_\rho V)$ を1つ固定する．
+    $\forall \phi \in \Omega^k(M;\, P \times_\rho V)$ を1つ固定する．
     \begin{enumerate}
         \item 
-        $\omega^\sharp$ が\hyperref[def:tensorial-form]{$\rho$ 型のtensorial $k$-form}であることを示す．
+        $\phi^\sharp$ が\hyperref[def:tensorial-form]{$\rho$ 型のtensorial $k$-form}であることを示す．
         \begin{description}
-            \item[\textbf{$\bm{\omega^\sharp}$ が水平であること}]　
+            \item[\textbf{$\bm{\phi^\sharp}$ が水平であること}]　
             
             $\forall u \in P$ を1つ固定すると，$\forall X \in \mathfrak{g}$ および $\forall v_2,\, \dots,\, v_k \in T_u P$ に対して
             \begin{align}
-                \bigl(i_{X^\#}(\omega^\sharp)\bigr)_u(v_2,\, \dots,\, v_k)
-                &= f_u^{-1} \circ (\pi^* \omega)_u (X^\#_u,\, v_2,\, \dots,\, v_k)&& \\
-                &= f_u^{-1} \Bigl( \omega_u \bigl(T_u \pi (X^\#_u),\, T_u \pi (v_2),\, \dots,\, T_u \pi(v_k)\bigr) \Bigr)&& \\
-                &= f_u^{-1} \Bigl( \omega_u \bigl(0,\, T_u \pi (v_2),\, \dots,\, T_u \pi(v_k)\bigr) \Bigr) &&\because\quad \text{補題\ref{lem:connection}}
+                \bigl(i_{X^\#}(\phi^\sharp)\bigr)_u(v_2,\, \dots,\, v_k)
+                &= f_u^{-1} \circ (\pi^* \phi)_u (X^\#_u,\, v_2,\, \dots,\, v_k)&& \\
+                &= f_u^{-1} \Bigl( \phi_u \bigl(T_u \pi (X^\#_u),\, T_u \pi (v_2),\, \dots,\, T_u \pi(v_k)\bigr) \Bigr)&& \\
+                &= f_u^{-1} \Bigl( \phi_u \bigl(0,\, T_u \pi (v_2),\, \dots,\, T_u \pi(v_k)\bigr) \Bigr) &&\because\quad \text{補題\ref{lem:connection}}
             \end{align}
-            が成り立つが，$\omega_u$ は多重線型写像なので最右辺は $0$ になる．よって $i_{X^\#}(\omega^\sharp) = 0$ が言えた．
+            が成り立つが，$\phi_u$ は多重線型写像なので最右辺は $0$ になる．よって $i_{X^\#}(\phi^\sharp) = 0$ が言えた．
         
-            \item[\textbf{$\bm{\omega^\sharp}$ が $\rho$-型の右同変であること}]　
+            \item[\textbf{$\bm{\phi^\sharp}$ が $\rho$-型の右同変であること}]　
             
             $\forall u \in P$ を1つ固定し，$\forall v_1,\, v_2,\, \dots,\, v_k \in T_u P$ をとる．
             \hyperref[def:tensorial-form]{右作用移動の定義}を思い出すと $\forall g \in G$ に対して $\pi \circ R_g = \pi$ が成り立つので
             \begin{align}
-                &\bigl((R_g)^* \omega^\sharp\bigr)_u(v_1,\, \dots,\, v_k) \\
-                &= (\omega^\sharp)_{R_g(u)} \bigl( T_u (R_g)(v_1),\, \dots,\, T_u (R_g)(v_k) \bigr) \\
-                &= f^{-1}_{u \btl g} \Bigl( \omega_{\pi(u \btl g)} \bigl(  T_{u \btl g} \pi \circ T_u (R_g)(v_1),\, \dots,\, T_{u \btl g} \pi \circ T_u (R_g)(v_k) \bigr)  \Bigr) \\
-                &= f^{-1}_{u \btl g} \Bigl( \omega_{\pi(u)} \bigl(  T_{u} (\pi \circ R_g)(v_1),\, \dots,\, T_{u} (\pi \circ R_g)(v_k) \bigr)  \Bigr) \\
-                &= f^{-1}_{u \btl g} \Bigl( \omega_{\pi(u)} \bigl(  T_{u} \pi (v_1),\, \dots,\, T_{u} \pi (v_k) \bigr)  \Bigr) \\
-                &= f^{-1}_{u \btl g} \bigl( (\pi^*\omega)_u ( v_1,\, \dots,\, v_k)  \bigr) \\
-                &= f^{-1}_{u \btl g} \bigl( f_u \circ f^{-1}_u \circ (\pi^*\omega)_u ( v_1,\, \dots,\, v_k )  \bigr) \\
-                &= f^{-1}_{u \btl g} \Bigl( f_u \bigl(\omega^\sharp_u (v_1,\, \dots,\, v_k)  \bigr) \Bigr) &&\because \quad \omega^\sharp\; \text{の定義}\\
-                &= f^{-1}_{u \btl g} \bigl( u \times_\rho \omega^\sharp_u (v_1,\, \dots,\, v_k)  \bigr) &&\because \quad f_u\; \text{の\hyperref[lem:assoc-basic]{定義}} \\
-                &= f^{-1}_{u \btl g} \Bigl( (u \btl g) \times_\rho \rho(g)^{-1} \bigl(\omega^\sharp_u (v_1,\, \dots,\, v_k) \bigr)  \Bigr) &&\because \quad \times_\rho\; \text{の\hyperref[prop:Borelconst]{定義}} \\
-                &= \rho(g^{-1}) \bigl(\omega^\sharp_u (v_1,\, \dots,\, v_k) \bigr) &&\because\quad f_u\; \text{の\hyperref[lem:assoc-basic]{定義}}
+                &\bigl((R_g)^* \phi^\sharp\bigr)_u(v_1,\, \dots,\, v_k) \\
+                &= (\phi^\sharp)_{R_g(u)} \bigl( T_u (R_g)(v_1),\, \dots,\, T_u (R_g)(v_k) \bigr) \\
+                &= f^{-1}_{u \btl g} \Bigl( \phi_{\pi(u \btl g)} \bigl(  T_{u \btl g} \pi \circ T_u (R_g)(v_1),\, \dots,\, T_{u \btl g} \pi \circ T_u (R_g)(v_k) \bigr)  \Bigr) \\
+                &= f^{-1}_{u \btl g} \Bigl( \phi_{\pi(u)} \bigl(  T_{u} (\pi \circ R_g)(v_1),\, \dots,\, T_{u} (\pi \circ R_g)(v_k) \bigr)  \Bigr) \\
+                &= f^{-1}_{u \btl g} \Bigl( \phi_{\pi(u)} \bigl(  T_{u} \pi (v_1),\, \dots,\, T_{u} \pi (v_k) \bigr)  \Bigr) \\
+                &= f^{-1}_{u \btl g} \bigl( (\pi^*\phi)_u ( v_1,\, \dots,\, v_k)  \bigr) \\
+                &= f^{-1}_{u \btl g} \bigl( f_u \circ f^{-1}_u \circ (\pi^*\phi)_u ( v_1,\, \dots,\, v_k )  \bigr) \\
+                &= f^{-1}_{u \btl g} \Bigl( f_u \bigl(\phi^\sharp_u (v_1,\, \dots,\, v_k)  \bigr) \Bigr) &&\because \quad \phi^\sharp\; \text{の定義}\\
+                &= f^{-1}_{u \btl g} \bigl( u \times_\rho \phi^\sharp_u (v_1,\, \dots,\, v_k)  \bigr) &&\because \quad f_u\; \text{の\hyperref[lem:assoc-basic]{定義}} \\
+                &= f^{-1}_{u \btl g} \Bigl( (u \btl g) \times_\rho \rho(g)^{-1} \bigl(\phi^\sharp_u (v_1,\, \dots,\, v_k) \bigr)  \Bigr) &&\because \quad \times_\rho\; \text{の\hyperref[prop:Borelconst]{定義}} \\
+                &= \rho(g^{-1}) \bigl(\phi^\sharp_u (v_1,\, \dots,\, v_k) \bigr) &&\because\quad f_u\; \text{の\hyperref[lem:assoc-basic]{定義}}
             \end{align}
-            i.e. $(R_g)^* \omega^\sharp = \rho(g^{-1})(\omega^\sharp)$ が言えた．
+            i.e. $(R_g)^* \phi^\sharp = \rho(g^{-1})(\phi^\sharp)$ が言えた．
         \end{description}
         
         \item $\mathbb{K}$-線型写像 $\sharp \colon \Omega^k (M;\, P \times_\rho V) \lto \Omega^k_\rho(P;\, V)$ がベクトル空間の同型写像であることを示す．
         \begin{description}
             \item[\textbf{$\bm{\sharp}$ の単射性}]　
             
-            $\omega,\, \eta \in \Omega^k(M;\, P \times_\rho V)$ に対して $\omega^\sharp = \eta^\sharp$ が成り立つとする．このとき $\forall u \in P$ を1つ固定すると，$f_u$ は全単射なので $(\pi^* \omega)_u = (\pi^* \eta)_u$ が言える．i.e. 
+            $\phi,\, \eta \in \Omega^k(M;\, P \times_\rho V)$ に対して $\phi^\sharp = \eta^\sharp$ が成り立つとする．このとき $\forall u \in P$ を1つ固定すると，$f_u$ は全単射なので $(\pi^* \phi)_u = (\pi^* \eta)_u$ が言える．i.e. 
             $\forall v_1,\, \dots,\, v_k \in T_u P$ に対して
             \begin{align}
-                0 = \bigl(\pi^* (\omega - \eta)\bigr)_u(v_1,\, \dots,\, v_k) = (\omega_{\pi(u)} - \eta_{\pi(u)})\bigl(T_u \pi (v_1),\, \dots,\, T_u \pi(v_k)\bigr)
+                0 = \bigl(\pi^* (\phi - \eta)\bigr)_u(v_1,\, \dots,\, v_k) = (\phi_{\pi(u)} - \eta_{\pi(u)})\bigl(T_u \pi (v_1),\, \dots,\, T_u \pi(v_k)\bigr)
             \end{align}
-            が成り立つ．$T_u \pi \colon T_u P \lto T_{\pi(u)} M$ は全射なので $\omega - \eta = 0 \IFF \omega = \eta$ が言えた．
+            が成り立つ．$T_u \pi \colon T_u P \lto T_{\pi(u)} M$ は全射なので $\phi - \eta = 0 \IFF \phi = \eta$ が言えた．
+            
             \item[\textbf{$\bm{\sharp}$ の全射性}]　
             
-            $\forall \tilde{\omega} \in \Omega^k_\rho (P;\, V)$ を1つ固定する．このとき
-            $\omega \in \Omega^k (M;\, P \times_\rho V)$ を，$\forall x \in \textcolor{red}{M},\; \forall w_1,\, \dots,\, w_k \in T_x \textcolor{red}{M}$ に対して
-            \begin{align}
-                \omega_x(w_1,\, \dots,\, w_k) \coloneqq u \times_\rho \tilde{\omega}_u (v_1,\, \dots,\, v_k)
-            \end{align}
-            と定義する．ただし $u \in \pi^{-1}(\{x\}) \AND v_i \in (T_u \pi)^{-1}(\{w_i\})$ とする．
+            $\forall \psi \in \Omega^k_\rho (P;\, V)$ を1つ固定する．
+            まず，$\psi^\flat \in \Omega^k (M;\, P \times_\rho V)$ がwell-definedであることを示す．
+            そのためには $\forall x \in M,\; \forall w_1,\, \dots,\, w_k \in T_x M$ を固定し，\eqref{def:flat}の右辺が $u \in \pi^{-1}(\{x\})$ および $v_i \in (T_u\pi)^{-1} (\{w_i\})$ の取り方によらずに定まることを示せば良い．
+            
             \begin{description}
-                \item[\textbf{$\bm{\omega_x}$ はwell-defined}]　
-
+                \item[\textbf{$\bm{\psi^\flat}$ はwell-defined}]　
+                
                 まず $u \in \pi^{-1}(\{x\})$ を1つ固定する．このとき $v_i,\, v'_i \in (T_u \pi)^{-1}(\{w_i\})$ に対して $v'_i - v_i \in \Ker (T_u \pi)$ なので，
-                $\tilde{\omega} \in \Omega_\rho^k (P;\, V)$ が\hyperref[def:tensorial-form]{水平}であることおよび $\tilde{\omega}_u$ の多重線型性から
+                $\psi \in \Omega_\rho^k (P;\, V)$ が\hyperref[def:tensorial-form]{水平}であることおよび $\psi_u$ の多重線型性から
                 \begin{align}
-                    \tilde{\omega}_u (v'_1,\, \dots,\, v'_k) 
-                    &= \tilde{\omega}_u  \bigl(v_1 + (v'_1 - v_1),\, \dots,\, v_k + (v'_k - v_k)\bigr) \\
-                    &= \tilde{\omega}_u  (v_1,\, \dots,\, v_k) + (\text{少なくとも1つの}\, i\, \text{について引数が}\; v'_i - v_i) \\
-                    &= \tilde{\omega}_u (v_1,\, \dots,\, v_k)
+                    \psi_u (v'_1,\, \dots,\, v'_k) 
+                    &= \psi_u  \bigl(v_1 + (v'_1 - v_1),\, \dots,\, v_k + (v'_k - v_k)\bigr) \\
+                    &= \psi_u  (v_1,\, \dots,\, v_k) + (\text{少なくとも1つの}\, i\, \text{について引数が}\; v'_i - v_i) \\
+                    &= \psi_u (v_1,\, \dots,\, v_k)
                 \end{align}
-                が言える．i.e. $\tilde{\omega}_u$ は $v_i$ の取り方によらない．
+                が言える．i.e. $\psi_u$ は $v_i$ の取り方によらない．
                 
                 　次に，他の $u' \in \pi^{-1}(\{x\})$ をとる．このときある $h \in G$ が存在して $u' \btl h = u$ となる．
                 \footnote{
                     $x \in U_\alpha \subset M$ に対する $P$ の局所自明化 $\varphi_\alpha$ について $g' \coloneqq \mathrm{proj}_2 \circ \varphi_\alpha (u'),\; g \coloneqq \mathrm{proj}_2 \circ \varphi_\alpha (u)$ とおけば，$h \coloneqq g'{}^{-1}g \in G$ に対して $u' \btl h = u$ となる．
                 }
-                $T_{u \btl h} \pi \circ T_{u} (R_{h})(v_i) = T_{u} \pi (v_i) = w_i$ かつ $\tilde{\omega}$ が $v_i$ の取り方によらないこと，および $\tilde{\omega}$ の\hyperref[def:tensorial-form]{右同変性}を使うと
+                $T_{u \btl h} \pi \circ T_{u} (R_{h})(v_i) = T_{u} \pi (v_i) = w_i$ かつ $\psi$ が $v_i$ の取り方によらないこと，および $\psi$ の\hyperref[def:tensorial-form]{右同変性}を使うと
                 \begin{align}
-                    \tilde{\omega}_{u'} (v_1,\, \dots,\, v_k)
-                    &= \tilde{\omega}_{u \btl h} \bigl(T_{u}(R_h)(v_1),\, \dots,\, T_{u}(R_h)(v_k)\bigr) \\
-                    &= \bigl((R_h)^* \tilde{\omega}\bigr)_u (v_1,\, \dots,\, v_k) \\
-                    &= \rho(h^{-1})\bigl(\tilde{\omega}_u (v_1,\, \dots,\, v_k)\bigr)
+                    \psi_{u'} (v_1,\, \dots,\, v_k)
+                    &= \psi_{u \btl h} \bigl(T_{u}(R_h)(v_1),\, \dots,\, T_{u}(R_h)(v_k)\bigr) \\
+                    &= \bigl((R_h)^* \psi\bigr)_u (v_1,\, \dots,\, v_k) \\
+                    &= \rho(h^{-1})\bigl(\psi_u (v_1,\, \dots,\, v_k)\bigr)
                 \end{align}
                 だとわかるので，\hyperref[prop:Borelconst]{$\times_\rho$ の定義}から
                 \begin{align}
-                    u' \times_\rho \tilde{\omega}_{u'} (v_1,\, \dots,\, v_k)
-                    &= u ' \times_\rho \rho(h^{-1})\bigl(\tilde{\omega}_u (v_1,\, \dots,\, v_k)\bigr) \\
-                    &= (u ' \btl h) \times_\rho \rho(h) \circ \rho(h^{-1})\bigl(\tilde{\omega}_u (v_1,\, \dots,\, v_k)\bigr) \\
-                    &= u \times_\rho \tilde{\omega}_u (v_1,\, \dots,\, v_k)
+                    u' \times_\rho \psi_{u'} (v_1,\, \dots,\, v_k)
+                    &= u ' \times_\rho \rho(h^{-1})\bigl(\psi_u (v_1,\, \dots,\, v_k)\bigr) \\
+                    &= (u ' \btl h) \times_\rho \rho(h) \circ \rho(h^{-1})\bigl(\psi_u (v_1,\, \dots,\, v_k)\bigr) \\
+                    &= u \times_\rho \psi_u (v_1,\, \dots,\, v_k)
                 \end{align}
-                が言える．i.e. $\omega_x$ は $u \in \pi^{-1}(\{x\})$ の取り方にもよらない．
+                が言える．i.e. $\psi^\flat|_x$ は $u \in \pi^{-1}(\{x\})$ の取り方にもよらない．
             \end{description}
-            \hyperref[lem:assoc-basic]{$f_u$ の定義}および $\omega_x$ のwell-definednessから，
+            \hyperref[lem:assoc-basic]{$f_u$ の定義}および $\phi_x$ のwell-definednessから，
             \begin{align}
-                &f_u \bigl(\tilde{\omega}_u(v_1,\, \dots,\, v_k)\bigr) = \omega_{\pi(u)}(w_1,\, \dots,\, w_k) = (\pi^* \omega)_u (v_1,\, \dots,\, v_k) \\
-                \IFF &\tilde{\omega}_u = f_u^{-1} \circ (\pi^* \omega)_u
+                &f_u \bigl(\psi_u(v_1,\, \dots,\, v_k)\bigr) = \psi^\flat|_{\pi(u)}(w_1,\, \dots,\, w_k) = \pi^* (\psi^\flat)|_u (v_1,\, \dots,\, v_k) \\
+                \IFF &\psi_u = f_u^{-1} \circ \pi^* (\psi^\flat)|_u = (\psi^\flat)^\sharp|_u
             \end{align}
-            i.e. $\tilde{\omega} = \omega^\sharp$ が言えた．
+            i.e. $\psi = (\psi^\flat)^\sharp$ が言えた．
         \end{description}
         \item $\forall u \in P$ および $\forall v_1,\, \dots,\, v_{k+l} \in T_u P$ に対して
         \begin{align}
@@ -2134,18 +2132,18 @@ $\forall \alpha \in \Lambda$ に対して\hyperref[def.section]{局所切断} $s
         \end{align}
         が成り立つ．ただし最後から2番目の等号では $f_u^{-1}$ の $\mathbb{K}$-線型性を使った．
         \item 
-        % $\forall \omega \in \Omega^k(M;\, P \times_\rho V)$ を1つ固定する．
+        % $\forall \phi \in \Omega^k(M;\, P \times_\rho V)$ を1つ固定する．
         % このとき
         % \eqref{eq:assoc-sec}で定義した\hyperref[def.section]{局所切断} $s_\alpha \Gamma(P|_{U_\alpha})$ に対して，
         $\forall x \in U_\alpha,\; \forall w_1,\, \dots,\, w_k \in T_x M$ に対して
         \begin{align}
-            &(\mathrm{proj}_2 \circ \psi_\alpha \circ \omega)_x (w_1,\, \dots,\, w_k) \\
-            &= f_{s_\alpha(x)}^{-1}\bigl( \omega_x (w_1,\, \dots,\, w_k)\bigr) &&\because\quad f_{s_\alpha(x)}\; \text{の\hyperref[lem:assoc-basic]{定義}}\\
-            &= f_{s_\alpha(x)}^{-1}\Bigl( \omega_x \bigl(T_x(\pi \circ s_\alpha)(w_1),\, \dots,\, T_x(\pi \circ s_\alpha)(w_k)\bigr) \Bigr) &&\because\quad \pi \circ s_\alpha = \mathrm{id}_{U_\alpha}\\
-            &= f_{s_\alpha(x)}^{-1}\Bigl( \omega_x \bigl(T_{s_\alpha(x)} \pi \circ T_x(s_\alpha)(w_1),\, \dots,\, T_{s_\alpha(x)} \pi \circ T_x(s_\alpha)(w_k)\bigr) \Bigr) \\
-            &= f_{s_\alpha(x)}^{-1} \circ (\pi^* \omega)_{s_\alpha(x)}\bigl(T_x(s_\alpha)(w_1),\, \dots,\, T_x(s_\alpha)(w_k)\bigr) \\
-            &= (\omega^\sharp)_{s_\alpha(x)} \bigl(T_x(s_\alpha)(w_1),\, \dots,\, T_x(s_\alpha)(w_k)\bigr) &&\because\quad \omega^\sharp\;\text{の\hyperref[prop:assoc-basic]{定義}}\\
-            &= \bigl(s_\alpha^* (\omega^\sharp)\bigr)_x (w_1,\, \dots,\, w_k)
+            &(\mathrm{proj}_2 \circ \psi_\alpha \circ \phi)_x (w_1,\, \dots,\, w_k) \\
+            &= f_{s_\alpha(x)}^{-1}\bigl( \phi_x (w_1,\, \dots,\, w_k)\bigr) &&\because\quad f_{s_\alpha(x)}\; \text{の\hyperref[lem:assoc-basic]{定義}}\\
+            &= f_{s_\alpha(x)}^{-1}\Bigl( \phi_x \bigl(T_x(\pi \circ s_\alpha)(w_1),\, \dots,\, T_x(\pi \circ s_\alpha)(w_k)\bigr) \Bigr) &&\because\quad \pi \circ s_\alpha = \mathrm{id}_{U_\alpha}\\
+            &= f_{s_\alpha(x)}^{-1}\Bigl( \phi_x \bigl(T_{s_\alpha(x)} \pi \circ T_x(s_\alpha)(w_1),\, \dots,\, T_{s_\alpha(x)} \pi \circ T_x(s_\alpha)(w_k)\bigr) \Bigr) \\
+            &= f_{s_\alpha(x)}^{-1} \circ (\pi^* \phi)_{s_\alpha(x)}\bigl(T_x(s_\alpha)(w_1),\, \dots,\, T_x(s_\alpha)(w_k)\bigr) \\
+            &= (\phi^\sharp)_{s_\alpha(x)} \bigl(T_x(s_\alpha)(w_1),\, \dots,\, T_x(s_\alpha)(w_k)\bigr) &&\because\quad \phi^\sharp\;\text{の\hyperref[prop:assoc-basic]{定義}}\\
+            &= \bigl(s_\alpha^* (\phi^\sharp)\bigr)_x (w_1,\, \dots,\, w_k)
         \end{align}
         が成り立つ．
     \end{enumerate}
@@ -2951,12 +2949,12 @@ $C^\infty$ 曲線のみならず，底空間上の $C^\infty$ ベクトル場も
     $\forall X \in \mathfrak{X}(M)$ および $\forall u \in P$ を1つ固定する．
     $X_{\pi(u)}$ は何らかの $C^\infty$ 曲線 $\gamma \colon [0,\, 1] \lto M$ の $t=0$ における速度ベクトルである．
     $\gamma$ の\hyperref[def:horizontal-lift-curve]{水平持ち上げ} $\tilde{\gamma}$ であって $\tilde{\gamma} (0) = u$ を充たすものをとる．
-    このとき，一般に $\forall g \in G$ に対して $\pi \circ R_g = \pi$  が成り立つことに注意すると補題\ref{lem:assoc-basic}, \ref{lem:lem:horizontal-lift-curve}から
+    このとき，一般に $\forall g \in G$ に対して $\pi \circ R_g = \pi$  が成り立つことに注意すると補題\ref{lem:assoc-basic}, \ref{lem:horizontal-lift-curve}から
     \begin{align}
         T_u \pi \bigl(\dot{\tilde{\gamma}} (0)\bigr)
         &= T_{u} (\pi \circ R_{g(0)}) \circ T_{\gamma(0)} s_\alpha \bigl( \dot{\gamma}(0) \bigr) - T_u \pi \biggl(\Adj \bigl( g(0)^{-1} \bigr) \Bigl( s_\alpha^* \omega|_{\gamma(0)}\bigl(\dot{\gamma}(0)\bigr) \Bigr) \biggr)^\#_{\tilde{\gamma}(t)} \\
-        &= T_u (\pi \circ s_\alpha) (X) \\
-        &= T_u (\mathrm{id}_{U_\alpha}) (X) \\
+        &= T_u (\pi \circ s_\alpha) (X_{\pi(u)}) \\
+        &= T_u (\mathrm{id}_{U_\alpha}) (X_{\pi(u)}) \\
         &= X
     \end{align}
     が従い，$\dot{\tilde{\gamma}}(0)$ は点 $u \in P$ において\hyperref[def:horizontal-lift-vecf]{\textbf{\textsf{(HV-1)}}, \textsf{\textbf{(HV-2)}}}を充たす．よって $\tilde{X}$ の一意性から
@@ -3433,22 +3431,15 @@ $C^\infty$ 曲線のみならず，底空間上の $C^\infty$ ベクトル場も
 \end{mytheo}
 
 \begin{proof}
-    $\gamma,\, u$ を1つ固定する．命題\ref{prop:assoc-basic}-(2) の $\sharp$ の全射性の証明から
+    $\gamma,\, u$ を1つ固定する．命題\ref{prop:assoc-basic}-(2) より
     \begin{align}
         (\nabla^E_X s)|_p
         &= (\nabla^E s)(X)|_p \\
         &= (\sharp^{-1} \circ \codd{} \circ \sharp s)_p (X_p) \\
-        &= \Bigl( \sharp^{-1}\bigl(\codd{} \circ \sharp s \bigr)\Bigr)_{\gamma(0)} \bigl( \dot{\gamma}(0) \bigr) \\
-        &= \tilde{\gamma}(0) \times_\rho \bigl(\codd{(\sharp s)}\bigr)_{\tilde{\gamma}(0)} \bigl( \dot{\tilde{\gamma}} (0) \bigr)  \\
+        &= \Bigl( \flat\bigl(\codd{(\sharp s)} \bigr)\Bigr)_{\gamma(0)} \bigl( \dot{\gamma}(0) \bigr) \\
+        &= \tilde{\gamma}(0) \times_\rho \bigl(\codd{(\sharp s)}\bigr)_{\tilde{\gamma}(0)} \bigl( \dot{\tilde{\gamma}} (0) \bigr) \qquad \because\quad \tilde{\gamma}(0) \in \pi^{-1} (\{\gamma(0)\}),\; \dot{\tilde{\gamma}}(0) \in (T_{\tilde{\gamma}(0)} \pi)^{-1} (\{\dot{\gamma} (0)\})\\
         &= \tilde{\gamma}(0) \times_\rho \left[ \dd (\sharp s)|_{\tilde{\gamma}(0)} \bigl( \dot{\tilde{\gamma}}(0) \bigr)  + \rho_* \Bigl( \cancel{\omega_{\tilde{\gamma}(0)}\bigl(\dot{\tilde{\gamma}}(0)\bigr)} \Bigr)\Bigl( \sharp s|_{\gamma(0)} \Bigr)    \right] \\
-        &= \tilde{\gamma}(0) \times_\rho T_0(\sharp s \circ \tilde{\gamma}) \left( \eval{\dv{}{t}}_{t=0} \right) 
-        % &= \tilde{\gamma}(0) \times_\rho f_{\tilde{\gamma}(0)}^{-1} \Bigl( \dd (\pi^* s)|_{\tilde{\gamma}(0)} \bigl( \dot{\tilde{\gamma}}(0) \bigr) \Bigr) \\
-        % &= \tilde{\gamma}(0) \times_\rho f_{\tilde{\gamma}(0)}^{-1} \Bigl( (\pi^*\dd{s})|_{\tilde{\gamma}(0)} \bigl( \dot{\tilde{\gamma}}(0) \bigr) \Bigr) \\
-        % &= \tilde{\gamma}(0) \times_\rho f_{\tilde{\gamma}(0)}^{-1} \left( \bigl((\pi \circ \tilde{\gamma})^*\dd{s}\bigr)|_{0} \left( \eval{\dv{}{t}}_{t=0} \right) \right) \\ 
-        % &= \tilde{\gamma}(0) \times_\rho f_{\tilde{\gamma}(0)}^{-1} \left( \bigl(\gamma^*\dd{s}\bigr)|_{0} \left( \eval{\dv{}{t}}_{t=0} \right) \right) \\ 
-        % &= \tilde{\gamma}(0) \times_\rho f_{\tilde{\gamma}(0)}^{-1} \Bigl( \dd{s}|_{\gamma(0)} \bigl( \dot{\gamma}(0) \bigr)  \Bigr) \\
-        % &= \tilde{\gamma}(0) \times_\rho f_{\tilde{\gamma}(0)}^{-1} \Bigl( \dot{(s \circ \gamma)} (0)  \Bigr) \\
-        % &= 
+        &= \tilde{\gamma}(0) \times_\rho T_0(\sharp s \circ \tilde{\gamma}) \left( \eval{\dv{}{t}}_{t=0} \right)
     \end{align}
     が成り立つ．ここで\hyperref[prop:assoc-basic]{$\sharp$ の定義}を思い出すと，$\forall t \in [0,\, 1]$ に対して
     \begin{align}
@@ -3466,46 +3457,6 @@ $C^\infty$ 曲線のみならず，底空間上の $C^\infty$ ベクトル場も
     \end{align}
     が示された．
 \end{proof}
-% ここで\hyperref[prop:assoc-basic]{$\sharp$ の定義}を思い出すと，$\sharp s \in \Omega^0_\rho (P;\, V)$ は
-% \begin{align}
-%     (\sharp s)(u) 
-%     &= f_u^{-1} \circ (\pi^* s)_u \\
-%     &= f_u^{-1} \circ s \circ \pi (u) 
-% \end{align}
-% であるが，
-% $\forall x \times_\rho v \in q^{-1}\bigl(\{\pi(u)\}\bigr)$ および $\pi(u) \in U_\alpha$ を充たす任意の $\alpha \in \Lambda$ に対して $x \times_\rho v = \Bigl( s_\alpha \bigl( \pi(x) \bigr) \btl g_\alpha(x) \Bigr) \times_\rho v = s_\alpha \bigl( \pi(u) \bigr) \times_\rho \rho\bigl(g_\alpha(x)\bigr)(v) = \Bigl( s_\alpha \bigl( \pi(u) \bigr) \btl g_\alpha(u)\Bigr)\times_\rho \rho\bigl(g_\alpha(u)^{-1} g_\alpha(x)\bigr)(v) = u \times_\rho \rho\bigl(g_\alpha(u)^{-1} g_\alpha(x)\bigr)(v)$ が成り立つので，
-% \begin{align}
-%     f^{-1}_u \circ s \circ \pi(u)
-%     &= \rho\Bigl(g_\alpha(u)^{-1} g_\alpha \bigl( s_1(\pi(u)) \bigr) \Bigr)  \Bigl( s_2(\pi(u)) \Bigr) 
-% \end{align}
-
-% ここで，いつも通り
-% \begin{itemize}
-%     \item $M$ の開被覆 $\Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$
-%     \item $P$ の局所自明化 $\Familyset[\big]{\varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto U_\alpha \times G}{\alpha \in \Lambda}$
-%     \item $P$ の\hyperref[def.section]{局所切断}の族 $\Familyset[\big]{s_\alpha \colon U_\alpha \lto \pi^{-1}(U_\alpha),\; p \lmto \varphi_\alpha^{-1}(p,\, 1_G)}{\alpha \in \Lambda}$
-%     \item $E$ の局所自明化 $\Familyset[\big]{\psi_\alpha \colon q^{-1}(U_\alpha) \lto U_\alpha \times V,\; s_\alpha(p) \times_\rho v \lmto (p,\, v)}{\alpha \in \Lambda}$
-% \end{itemize}
-% をとる．
-% このとき\hyperref[prop:assoc-basic]{$\sharp$ の定義}から $\forall u \in \pi^{-1}(U_\alpha)$ において
-% \begin{align}
-%     \sharp s(u) 
-%     &= f_u^{-1} \Bigl( s \bigl(\pi(u)\bigr) \Bigr)
-% \end{align}
-% である．
-% ここで $s(x) \eqqcolon s_1 (x) \times_\rho s_2(x)$ および $g_\alpha \coloneqq \mathrm{proj}_2 \circ \varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto G$ とおくと
-% \begin{align}
-%     s(x) 
-%     &= \Bigl[s_\alpha \Bigl( \pi \bigl(s_1(x)\bigr) \Bigr) \btl g_\alpha \bigl( s_1(x) \bigr) \Bigr] \times_\rho s_2(x) \\
-%     &= \bigl(s_\alpha (x) \btl g_\alpha \bigl( s_1(x) \bigr) \bigr) \times_\rho s_2(x) \\
-%     &= s_\alpha (x) \times_\rho \rho\Bigl(g_\alpha \bigl( s_1(x) \bigr)\Bigr)\Bigl(s_2(x)\Bigr) \\
-%     &= 
-% \end{align}
-% と書けるので，$\xi_\alpha (x) \coloneqq \rho\Bigl(g_\alpha \bigl( s_1(x) \bigr)\Bigr)\Bigl(s_2(x)\Bigr)$ とおくと
-% \begin{align}
-%     \sharp s(u) 
-%     = 
-% \end{align}
 
 定理\ref{thm:codv-assoc-HL}を使って，同伴ベクトル束上の共変微分の局所表示を定理\ref{thm:connection-assoc}-(3) よりもあからさまな形で求めよう．
 \begin{itemize}
@@ -3750,10 +3701,10 @@ $f$ への $\Omega$ の代入 $f(\Omega) \in \Omega^{2k}(P)$ を
     \begin{enumerate}
         \item ある $\Lambda \in \Omega^{2k}(M)$ が存在して $f(\Omega) = \pi^* \Lambda$ を充たす．
         \item (1) の $\Lambda$ は閉形式である．i.e. $\dd{\Lambda} = 0$
-        \item de Rhamコホモロジー類 $\Lambda + \Im \dd{} \in \irm{H}{dR}^{2k} (M)$ は $\omega$ の取り方によらない．
+        \item de Rhamコホモロジー類 $[\Lambda] \in \irm{H}{dR}^{2k} (M)$ は $\omega$ の取り方によらない．
         したがって結合代数の準同型（\textbf{Chern-Weil準同型}）
         \begin{align}
-            w \colon \mathrm{Inv}(\mathfrak{g}) \lto H^\bullet (M),\; f \lmto \Lambda + \Im \dd{}
+            w \colon \mathrm{Inv}(\mathfrak{g}) \lto \irm{H}{dR}^\bullet (M),\; f \lmto [\Lambda]
         \end{align}
         が定まる．
     \end{enumerate}
@@ -3761,9 +3712,111 @@ $f$ への $\Omega$ の代入 $f(\Omega) \in \Omega^{2k}(P)$ を
 
 \begin{proof}
     \begin{enumerate}
-        \item 
+        \item まず，補題を用意する．
+        
+        \hrulefill
+        \begin{mylem}[label=lem:basic-form]{}
+            \begin{itemize}
+                \item 主束 $G \hookrightarrow P \xrightarrow{\pi} M$
+                \item 有限次元ベクトル空間 $V$
+            \end{itemize}
+            を与える．このとき，$\forall \psi \in \Omega^k(P;\, V)$ に対して以下の2つは同値である：
+            \begin{enumerate}
+                \item ある $\phi \in \Omega^k (M;\, V)$ が存在して $\psi = \pi^* \phi$ を充たす．
+                \item $\psi$ は\hyperref[def:tensorial-form]{水平}かつ $R_g^* \psi = \psi$ を\footnote{i.e. $\psi$ は右不変である．}充たす．
+            \end{enumerate}
+        \end{mylem}
+        \begin{proof}
+            自明表現 $\rho \colon G \lto \LGL(V),\; g \lmto \unity_V$ をとる．このとき主束 $P$ の $\rho$ による\hyperref[def:associated-vect]{同伴ベクトル束} $V \hookrightarrow P \times_\rho V \xrightarrow{q} M$ は自明束 $V \hookrightarrow M \times V \xrightarrow{\mathrm{proj}_1} M$ に\hyperref[def.bundlemap]{束同型}であるから\footnote{具体的には，写像 $P \times_\rho V \lto M \times V,\; u \times_\rho v \lmto \bigl( \pi(u),\, v \bigr)$ が束同型写像を与える．}，$\Omega^k (M;\, P \times_\rho V) = \Omega^k (M;\, V)$ である．
+            特に，$\forall u \in P$ に対して補題\ref{lem:assoc-basic}で構成したベクトル空間の同型写像 $f_u \colon V \lmto q^{-1} (\{u\}),\; v \lmto u \times_\rho v$ は恒等写像になるので，
+            命題\ref{prop:assoc-basic}で構成した同型写像は
+            \begin{align}
+                \sharp \colon \Omega^k (M;\, P \times_\rho V) = \Omega^k (M;\, V) \lto \Omega^k_\rho (P;\, V),\; \phi \lmto  \pi^* \phi
+            \end{align}
+            になる．さらに，\hyperref[def:tensorial-form]{tensorial form of type $\rho$ の定義}から，$\forall \psi \in \Omega^k_\rho (P;\, V)$ は水平でかつ $\forall g \in G$ に対して $R_g^* \psi = \rho(g^{-1})(\phi) = \phi$ を充たす．
+        \end{proof}
+        \hrulefill
+
+        補題\ref{lem:basic-form}より，$f(\Omega) \in \Omega^{2k}(P)$ が水平かつ右不変であることを示せば良い． 
+        Lie代数 $\mathfrak{g}$ の基底 $T^a$ を1つ固定し， $\Omega = \Omega_a T^a$ と展開する．
+        \begin{description}
+            \item[\textbf{水平}]　
+            
+            $\Omega \in \Omega^2_{\Adj} (P;\, \mathfrak{g})$ なので $\Omega_a \in \Omega^2 (P)$ もまた水平である．
+
+            \item[\textbf{右不変}]　
+            
+            $\Omega \in \Omega^2_{\Adj} (P;\, \mathfrak{g})$ なので，$\forall g \in G$ に対して
+            \begin{align}
+                &R_g^* \Omega = \Adj (g^{-1}) (\Omega)\\
+                \IFF &R_g^* (\Omega_a T^a) = (R_g^* \Omega_a) T^a = \bigl[\Adj(g^{-1}) (\Omega)\bigr]_a T^a \\
+                \IMP &R_g^* \Omega_a =\bigl[\Adj(g^{-1}) (\Omega)\bigr]_a \quad (1 \le \forall a \le \dim G)
+            \end{align}
+            が言える．よって $f$ の\hyperref[def:invariant]{$\Adj (G)$-不変性}から
+            \begin{align}
+                R_g^* \bigl( f(\Omega) \bigr) 
+                &= f^{a_1\dots a_{k}} R_g^* \Omega_{a_1} \wedge \cdots \wedge R_g^* \Omega_{a_k} \\
+                &= f^{a_1\dots a_{k}} \bigl[\Adj(g^{-1}) (\Omega)\bigr]_{a_1} \wedge \cdots \wedge \bigl[\Adj(g^{-1}) (\Omega)\bigr]_{a_k} \\
+                &= f \bigl( \Adj(g^{-1})(\Omega) \bigr) \\
+                &= f(\Omega)
+            \end{align}
+            が示された．
+        \end{description}
+
+        \item $\pi_* \colon T_u P \lto T_u M$ は全射なので $\pi^* \colon \Omega^{\bullet}(M) \lto \Omega^\bullet (P)$ は単射．よって
+        \begin{align}
+            \pi^*(\dd{\Lambda}) = 0 \IFF \dd{\bigl( f(\Omega) \bigr) } = 0
+        \end{align}
+        を示せば十分である．
+        ところで\hyperref[def:codv-pbun]{主束上の共変微分の定義}および (1) から，
+        \begin{align}
+            \codd{\bigl(f(\Omega)\bigr)}
+            &= \dd{\bigl( f(\Omega) \bigr) } \circ \mathrm{H} \\
+            &= \dd{(\pi^* \Lambda) } \circ \mathrm{H} \\
+            &= \pi^*\dd{\Lambda} \circ \mathrm{H} \\
+            &= \dd{\Lambda} \circ \pi_* \circ \mathrm{H} \\
+            &= \dd{\Lambda} \circ \pi_* \\
+            &= \pi^*\dd{\Lambda} \\
+            &= \dd{(\pi^*\Lambda)} \\
+            &= \dd{\bigl( f(\Omega) \bigr) }
+        \end{align}
+        が言える．一方で
+        \begin{align}
+            \codd{\bigl( f(\Omega) \bigr)}
+            &= f^{a_1\dots a_k} \codd{(\Omega_{a_1} \wedge \cdots \wedge \Omega_{a_k})} \\
+            &= f^{a_1\dots a_k} \sum_{j=1}^k \Omega_{a_1} \wedge \cdots \wedge \codd{\Omega_{a_j}} \wedge \cdots \wedge \Omega_{a_k} \\
+            &= 0 \qquad\because\quad \text{\hyperref[thm:curvature]{Bianchiの第2恒等式}}
+        \end{align}
+        である．
+
+        \item $P$ 上の2つの\hyperref[def:connection]{接続形式} $\omega_0,\, \omega_1 \in \Omega^1(P;\, \mathfrak{g})$ を与える．
+        このとき $\forall t \in [0,\, 1]$ に対して，$C^\infty$ 写像 $\mathrm{proj}_1 \colon P \times [0,\, 1] \lto P$ を使って $\tilde{\omega} \in  \Omega^1(P\times I;\, \mathfrak{g})$ を
+        \begin{align}
+            \tilde{\omega}_{(u,\, t)} \coloneqq (1-t)\, (\mathrm{proj}_1^* \omega_0)_{(u,\, t)} + t\, (\mathrm{proj}_1^* \omega_1)_{(u,\, t)}
+        \end{align}
+        は主束 $G \hookrightarrow P \times [0,\, 1] \xrightarrow{\pi \times \mathrm{id}} M \times [0,\, 1]$ の接続形式である．さらに，$i_t \coloneqq P \lto P \times [0,\, 1],\; u \lmto (u,\, t)$ について
+        $i_0^* \tilde{\omega} = \omega_0,\; i_1^* \tilde{\omega} = \omega_1$ が成り立つ．
+        $\tilde{\omega}$ の曲率 $\tilde{\Omega} \in \Omega^2(P\times [0,\, 1];\, \mathfrak{g})$ を
+        \begin{align}
+            \tilde{\Omega} \coloneqq \dd{\tilde{\omega}} + \frac{1}{2} \comm{\tilde{\omega}}{\tilde{\omega}}
+        \end{align}
+        により定めると $i_0^* \tilde{\Omega} = \Omega_1,\;  i_1^* \tilde{\Omega} = \Omega_1$ が成り立つ．
+        
+        ところで，\hyperref[def:invariant]{$\Adj(G)$-不変 $k$ 次多項式} $f$ について
+        \begin{align}
+            i_0^* f(\tilde{\Omega}) = f(\Omega_0),\quad i_1^* f(\tilde{\Omega}) = f(\Omega_1)
+        \end{align}
+        が成り立つ．$i_0,\, i_1$ は互いにホモトピックなので，de Rhamコホモロジーのホモトピー不変性から
+        \begin{align}
+            [f(\Omega_0)] = [i_0^* f(\tilde{\Omega})] = [i_1^* f(\tilde{\Omega})] = [f(\Omega_1)]
+        \end{align}
+        が分かった．さらに，de Rhamコホモロジーは反変関手なので
+        \begin{align}
+            \pi^* [\Lambda_0] = [\pi^* \Lambda_0] = [f(\Omega_0)] = [f(\Omega_1)] = [\pi^* \Lambda_1] = \pi^* [\Lambda_1]
+        \end{align}
+        がわかる．$\pi^*$ の単射性から $[\Lambda_0] = [\Lambda_1]$ が言えた．
     \end{enumerate}
-    
+
 \end{proof}
 
 \begin{mydef}[label=def:characteristic-class-polynomial]{特性類}
