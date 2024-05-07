@@ -1651,7 +1651,7 @@ $M$ を底空間とする任意の\hyperref[def:vect]{ベクトル束} $E \xrigh
 さて，Lie群に関する準備が終わったのでいよいよ\hyperref[def.PFD]{主束}の接続を定義する．この小節の内容は~\cite[第6章]{Imai2013diff}, \cite[\S 28]{Tu2017differential}が詳しい．
 
 
-\begin{mydef}[label=def:connection,breakable]{主束の接続}
+\begin{mydef}[label=def:connection,breakable]{主束の接続（Ehresmann接続）}
     $G \hookrightarrow P \xrightarrow{\pi} M$ を\hyperref[def.PFD]{主束}とする．$\forall g \in G$ に対して，命題\ref{prop.PFD_right}の右作用によって\hyperref[def:fundamental-vecf]{右作用移動}を $R_g \colon P \lto P,\; u \lmto u \btl g$ と定義する．
     \begin{itemize}
         \item 分布 $\bigl\{\, H_u \subset T_u P \bigm| u \in P \,\bigr\}$ が $P$ 上の\textbf{接続} (connection) であるとは，以下の2条件が成り立つことを言う：
@@ -2449,6 +2449,9 @@ $\forall X \in T_u G_{\pi(u)} \subset T_u P$ （i.e. 点 $u \in \bm{P}$ にお�
 
 \subsection{局所接続形式とゲージ場}
 
+これまでの議論で主束，およびその同伴ベクトル束の接続を大域的な表式を得た．以降の小節では，物理の文脈で登場する接続の局所表示（それは\textbf{ゲージ場}と呼ばれる）および曲率とその局所表示（それは\textbf{場の強さ}と呼ばれる）を，主束およびその同伴ベクトル束の各々において，より直接的な形で定式化する．
+まず始めにゲージ場と局所ゲージ変換を\hyperref[def:connection]{主束上の接続}の言葉で定式化しよう．
+
 先に進む前に，Maurer-Cartan形式についての注意をしておく．
 
 \begin{mydef}[label=def:Maurer-Cartan]{Maurer-Cartan形式}
@@ -3011,7 +3014,9 @@ $C^\infty$ 曲線のみならず，底空間上の $C^\infty$ ベクトル場も
     でなくてはいけない．
 \end{proof}
 
-\subsection{曲率形式}
+\subsection{主束上の曲率形式}
+
+この小節では主束上の曲率と主束上の共変微分を大域的な形で定義する．
 
 \begin{mydef}[label=def:curvature]{曲率 $2$ 形式}
     主束 $G \hookrightarrow P \xrightarrow{\pi} M$ およびその\hyperref[def:connection]{接続形式} $\omega \in \Omega^1(P;\, \mathfrak{g})$ を与える．
@@ -3318,6 +3323,8 @@ $C^\infty$ 曲線のみならず，底空間上の $C^\infty$ ベクトル場も
 
 \subsection{曲率形式の局所表示と場の強さ}
 
+この小説では，前小節で定義した主束上の曲率形式を局所表示し，それが物理側で\textbf{場の強さ}と呼ばれるものと同一視できることを確認する．
+
 \hyperref[def.PFD]{主束} $G \hookrightarrow P \xrightarrow{\pi} M$ と，その開被覆 $\Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$，局所自明化 $\Familyset[\big]{\varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto U_\alpha \times G}{\alpha \in \Lambda}$，変換関数 $\Familyset[\big]{t_{\alpha\beta} \colon U_\alpha \cap U_\beta \lto G}{\alpha,\, \beta \in \Lambda}$ を与える．
 \hyperref[def.section]{局所切断}の族 $\Familyset[\big]{s_\alpha \colon U_\alpha \lto \pi^{-1}(U_\alpha)}{\alpha \in \Lambda}$ を\eqref{eq:assoc-sec}で定義する． 
 
@@ -3397,15 +3404,17 @@ $C^\infty$ 曲線のみならず，底空間上の $C^\infty$ ベクトル場も
     が言える．
 \end{proof}
 
-\subsection{同伴ベクトル束上の共変微分の局所表示}
+\subsection{同伴ベクトル束上の接続とその局所表示}
 
+この小節では\hyperref[thm:connection-assoc]{同伴ベクトル束上の共変微分}をゲージ場の言葉を使って局所表示し，物理において馴染み深い共変微分と同一視できることを顕に確認する．
+この小節では常に
 \begin{itemize}
     \item \hyperref[def.PFD]{主束} $G \hookrightarrow P \xrightarrow{\pi} M$
     \item \hyperref[def:connection]{接続形式} $\omega \in \Omega^1(P;\, \mathfrak{g})$
     \item 有限次元 $\mathbb{K}$-ベクトル空間 $V$ とLie群 $G$ の $\dim V$ 次元表現 $\rho \colon G \lto \LGL (V)$ 
     \item \hyperref[def:associated-vect]{同伴ベクトル束} $V \hookrightarrow P \times_\rho V \xrightarrow{q} M$
 \end{itemize}
-を与える．$E \coloneqq P \times_\rho V$ とおく．定理\ref{thm:connection-assoc}-(2) より，
+が与えられているものとする．$E \coloneqq P \times_\rho V$ とおく．定理\ref{thm:connection-assoc}-(2) より，
 \begin{align}
     \nabla^E \coloneqq \sharp^{-1} \circ \codd{} \circ \sharp \colon \Gamma(E) \lto \Omega^1(M;\, E)
 \end{align}
@@ -3459,92 +3468,317 @@ $C^\infty$ 曲線のみならず，底空間上の $C^\infty$ ベクトル場も
 \end{proof}
 
 定理\ref{thm:codv-assoc-HL}を使って，同伴ベクトル束上の共変微分の局所表示を定理\ref{thm:connection-assoc}-(3) よりもあからさまな形で求めよう．
-\begin{itemize}
-    \item $M$ の開被覆 $\Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$
-    \item $P$ の局所自明化 $\Familyset[\big]{\varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto U_\alpha \times G}{\alpha \in \Lambda}$
-    \item $P$ の変換関数 $\Familyset[\big]{t_{\alpha\beta} \colon U_\alpha \cap U_\beta \lto G}{\alpha \in \Lambda}$
-\end{itemize}
-を与える．その上で，いつも通りに
-\begin{itemize}
-    \item $P$ の\hyperref[def.section]{局所切断}の族 $\Familyset[\big]{s_\alpha \colon U_\alpha \lto \pi^{-1}(U_\alpha),\; p \lmto \varphi_\alpha^{-1}(p,\, 1_G)}{\alpha \in \Lambda}$
-    \item \underline{$E$ の}局所自明化 $\Familyset[\big]{\psi_\alpha \colon q^{-1}(U_\alpha) \lto U_\alpha \times V,\; s_\alpha(p) \times_\rho v \lmto (p,\, v)}{\alpha \in \Lambda}$
-\end{itemize}
-をとる．さらに $V$ の基底を $e_i \WHERE i = 1,\, \dots,\, \dim V$ とおき，$E = P \times_\rho V$ 上の局所切断の族を
-\begin{align}
-    \Familyset[\big]{e_\alpha{}_i \colon U_\alpha \lto q^{-1}(U_\alpha),\; x \lmto s_\alpha (x) \times_\rho e_i}{\alpha \in \Lambda}
-\end{align}
-で定義する．また，$C^\infty$ 曲線 $\gamma \colon [0,\, 1] \lto M$ の像は $U_\alpha$ に含まれているとし\footnote{$\gamma([0,\, 1]) \subset M$ はコンパクト集合なので，有限個の点で区切ればこの要請を充たすことができる．}，$\gamma$ の\hyperref[def:horizontal-lift-curve]{水平持ち上げ}を
-\begin{align}
-    \tilde{\gamma}(t) \eqqcolon s_\alpha \bigl( \gamma(t) \bigr) \btl g_\alpha(t)
-\end{align}
-と書く．ただし補題\ref{lem:horizontal-lift-curve}と同様に新しい $C^\infty$ 曲線 $g_\alpha \colon U_\alpha \lto G$ を $g_\alpha \coloneqq \mathrm{proj}_2 \circ \varphi_\alpha \circ \tilde{\gamma}$ により定義した．
 
-まず，局所切断 $e_\alpha{}_i$ の共変微分を求める．
-\begin{align}
-    e_\alpha{}_i \bigl( \gamma(t) \bigr) 
-    &= s_\alpha \bigl( \gamma(t) \bigr) \times_\rho e_i \\
-    &= \Bigl(s_\alpha \bigl( \gamma(t) \bigr) \btl g_\alpha(t)\Bigr) \times_\rho \rho \bigl( g_\alpha(t)^{-1} \bigr) \bigl( e_i \bigr) \\
-    &= \tilde{\gamma}(t) \times_\rho \rho \bigl( g_\alpha(t)^{-1} \bigr) \bigl( e_i \bigr)
-\end{align}
-であるから，
-定理\ref{thm:codv-assoc-HL}より
-\begin{align}
-    (\nabla_X^E e_\alpha{}_i)|_p 
-    &= \tilde{\gamma}(0) \times_\rho \eval{\dv{}{t}}_{t=0} \rho \bigl( g_\alpha(t)^{-1} \bigr) \bigl( e_i \bigr)
-\end{align}
-ここで $L^{(v)} \colon G \lto V,\; g \lto \rho(g)(v)$ を使って $\rho \bigl( g_\alpha(t)^{-1} \bigr) \bigl( e_i \bigr) = L^{(e_i)} \circ {}^{-1} \circ g_\alpha(t)$ と書けるので，
-\begin{align}
-    &\eval{\dv{}{t}}_{t=0} \rho \bigl( g_\alpha(t)^{-1} \bigr) \bigl( e_i \bigr)\\
-    &=  T_0(L^{(e_i)} \circ {}^{-1} \circ g_\alpha) \left( \eval{\dv{}{t}}_{t=0} \right) \\
-    &=  T_{g_\alpha(0)^{-1}} (L^{(e_i)}) \circ T_{g_\alpha(0)} ({}^{-1}) \bigl( \dot{g_\alpha}(0) \bigr) \\
-    &=  -T_{g_\alpha(0)} (L^{(e_i)} \circ \mathcal{L}_{g_\alpha(0)^{-1}} \circ \mathcal{R}_{g_\alpha(0)^{-1}}) \bigl( \dot{g_\alpha}(0) \bigr) \\
-    &=  -\eval{\dv{}{t}}_{t=0} \rho \bigl( g_\alpha(0)^{-1} g_\alpha(t) g_\alpha(0)^{-1} \bigr) \bigl( e_i \bigr) \\
-    &=  -\rho \bigl( g_\alpha(0)^{-1} \bigr) \circ \left(\eval{\dv{}{t}}_{t=0} \rho\bigl(g_\alpha(t)\bigr) \right) \circ \rho\bigl( g_\alpha(0)^{-1} \bigr) \bigl( e_i \bigr)  \\
-    &=  -\rho \bigl( g_\alpha(0)^{-1} \bigr) \circ \Bigl(T_{g_\alpha(0)} \rho \bigl(\dot{g_\alpha}(0)\bigr) \Bigr) \circ \rho\bigl( g_\alpha(0)^{-1} \bigr) \bigl( e_i \bigr)  \\
-    &=  \rho \bigl( g_\alpha(0)^{-1} \bigr) \circ \Bigl(T_{g_\alpha(0)} \rho \circ T_{1_G} \mathcal{R}_{g(0)} \bigl( A_\alpha|_{\gamma(0)}(X) \bigr) \Bigr) \circ \rho\bigl( g_\alpha(0)^{-1} \bigr) \bigl( e_i \bigr)  &&\because \quad \text{補題\ref{lem:horizontal-lift-curve}}\\
-    &=  \rho \bigl( g_\alpha(0)^{-1} \bigr) \circ \rho_* \bigl( A_\alpha|_{\gamma(0)}(X_p) \bigr) \bigl( e_i \bigr)  &&\because \quad \text{補題\ref{lem:horizontal-lift-curve}}
-\end{align}
-である\footnote{
-\begin{align}
-    0 
-    &= T_g (\mu \circ (\mathrm{id}_G \times {}^{-1}) \circ \Delta)(X) \\
-    &= T_g (\mu \circ \mathrm{inj}_1^{g^{-1}})(X) + T_g (\mu \circ \mathrm{inj}_2^{g} \circ {}^{-1})(X) \\
-    &= T_g (\mathcal{R}_{g^{-1}})(X) + T_{g^{-1}} (\mathcal{L}_g) \circ T_g ({}^{-1}) (X)
-\end{align}
-より
-\begin{align}
-    T_g ({}^{-1}) = -T_g (\mathcal{L}_{g^{-1}} \circ \mathcal{R}_{g^{-1}})
-\end{align}
-}から，
-\begin{align}
-    (\nabla_X^E e_\alpha{}_i)|_p  
-    &= \bigl( \tilde{\gamma}(0) \btl g_\alpha(0)^{-1} \bigr) \times_\rho \rho_* \bigl( A_\alpha|_{\gamma(0)}(X) \bigr) \bigl( e_i \bigr) \\
-    &= s_\alpha \bigl( \gamma(0) \bigr) \times_\rho \rho_* \bigl( A_\alpha|_{p}(X) \bigr) \bigl( e_i \bigr)
-\end{align}
-が分かった．特にチャート $(U_\alpha (x^\mu))$ において $A_\alpha = A_\alpha{}_a{}_\mu \dd{x^\mu} T^a,\; X = X^\mu (p)\, \eval{\pdv{}{x^\mu}}_p$ と展開すると
-\begin{align}
-    (\nabla_X^E e_\alpha{}_i)|_p  
-    &= s_\alpha \bigl( \gamma(0) \bigr) \times_\rho X^\nu(p) A_\alpha{}_a{}_\mu (p) \dd{x^\mu}|_p \left( \eval{\pdv{}{x^\mu}}_p \right)   \rho_* (T^a)(e_i) \\
-    &= s_\alpha \bigl( \gamma(0) \bigr) \times_\rho X^\nu(p) A_\alpha{}_a{}_\mu (p) \delta^\mu_\nu  \rho_* (T^a)(e_i) \\
-    &= s_\alpha \bigl( \gamma(0) \bigr) \times_\rho X^\mu(p) A_\alpha{}_a{}_\mu (p) \bigl[\, \rho_* (T^a) \,\bigr]^j{}_i\, e_j \\
-    &=  X^\mu(p) A_\alpha{}_a{}_\mu (p) \bigl[\, \rho_* (T^a) \,\bigr]^j{}_i\,  e_\alpha{}_j|_p
-\end{align}
-と成分表示が求まった．特に $X$ として座標ベクトル場 $\pdv{}{x^\mu}$ をとると
-\begin{align}
-    \nabla^E_{\pdv{}{x^\mu}} e_\alpha{}_i = A_\alpha{}_a{}_\mu \bigl[\, \rho_* (T^a) \,\bigr]^j{}_i\,  e_\alpha{}_j|_p
-\end{align}
-となる．
+\begin{mytheo}[label=thm:codv-assoc-local,breakable]{同伴ベクトル束上の共変微分の局所表示}
+    主束 $G \hookrightarrow P \xrightarrow{\pi} M$ について
+    \begin{itemize}
+        \item $M$ の開被覆 $\Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$
+        \item $P$ の局所自明化 $\Familyset[\big]{\varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto U_\alpha \times G}{\alpha \in \Lambda}$
+        % \item $P$ の変換関数 $\Familyset[\big]{t_{\alpha\beta} \colon U_\alpha \cap U_\beta \lto G}{\alpha \in \Lambda}$
+        \item $P$ の\hyperref[def.section]{局所切断}の族 $\Familyset[\big]{s_\alpha \colon U_\alpha \lto \pi^{-1}(U_\alpha),\; p \lmto \varphi_\alpha^{-1}(p,\, 1_G)}{\alpha \in \Lambda}$
+        \item Lie代数 $\mathfrak{g}$ の基底 $T^a \WHERE a = 1,\, \dots,\, \dim G$
+    \end{itemize}
+    を与え，同伴ベクトル束 $V \hookrightarrow E \coloneqq P \times_\rho V \xrightarrow{q} M$ について
+    \begin{itemize}
+        \item \underline{$E$ の}局所自明化 $\Familyset[\big]{\psi_\alpha \colon q^{-1}(U_\alpha) \lto U_\alpha \times V,\; s_\alpha(p) \times_\rho v \lmto (p,\, v)}{\alpha \in \Lambda}$
+        \item $V$ の基底 $e_i \WHERE i = 1,\, \dots,\, \dim V$
+        \item $E$ の局所切断の族 $\Familyset[\big]{e_\alpha{}_i \colon U_\alpha \lto q^{-1}(U_\alpha),\; x \lmto s_\alpha (x) \times_\rho e_i}{\alpha \in \Lambda}$
+    \end{itemize}
+    を与える．このとき $M$ のチャート $\bigl(U_\alpha,\, (x^\mu)\bigr)$ において\hyperref[thm:local-connection]{ゲージ場} $A_\alpha \coloneqq s_\alpha^* \omega \in \Omega^{1}(U_\alpha;\, \mathfrak{g})$ を
+    \begin{align}
+        A_\alpha \eqqcolon A_{\alpha}{}_a T^a = A_{\alpha}{}_a{}_\mu \dd{x^\mu}\, T^a
+    \end{align}
+    と展開すると以下が成り立つ：
+    \begin{enumerate}
+        \item $\forall X = X^\mu \pdv{}{x^\mu} \in \mathfrak{X}(M)$\footnote{厳密には $X \in \mathfrak{X}(U_\alpha)$ であるが，これを1の分割を使って拡張したと思えば良い．} に対して\footnote{$ \bigl[\, \rho_*(T^a) \,\bigr]^j{}_i$ というのは，線形変換 $\rho_*(T^a) \in \mathfrak{gl}(V)$ の，$V$ の基底 $e_i$ による表現行列の $(j,\, i)$ 成分という意味である．}，
+        \begin{align}
+            \nabla^E_X e_{\alpha}{}_i = X^\mu A_\alpha{}_a{}_\mu\, \bigl[\, \rho_*(T^a) \,\bigr]^j{}_i\, e_{\alpha}{}_j
+        \end{align}
+        \item $\forall X = X^\mu \pdv{}{x^\mu} \in \mathfrak{X}(M)$ および $\forall s \in \Gamma(E)$ に対して
+        \begin{align}
+            \nabla^E_X s = X^\mu \left( \pdv{\xi_\alpha{}^i}{x^\mu} + A_\alpha{}_a{}_\mu \bigl[ \,\rho_*(T^a) \,\bigr]^i{}_j\, \xi_\alpha{}^j  \right) \, e_{\alpha}{}_i
+        \end{align}
+        ただし，$\forall x \in U_\alpha$ に対して $s(x) \eqqcolon s_\alpha(x) \times_\rho \xi_\alpha (x) = s_\alpha(x) \times_\rho \xi_\alpha(x)^i e_i = \xi_\alpha(x)^i e_{\alpha}{}_i(x)$ と展開した．
+    \end{enumerate}
+\end{mytheo}
 
-次に，任意の切断 $s \in \Gamma(E)$ の場合を考える．$U_\alpha$ 上で $s(p) = s_\alpha(x) \times_\rho \xi_\alpha(x) = s_\alpha(x) \times_\rho \xi_\alpha(p)^i e_i = \xi_\alpha(p)^i e_\alpha{}_i$ と展開できるので，
-\hyperref[def:connection-vect]{ベクトル束上の共変微分の定義}より
+% \begin{itemize}
+%     \item $M$ の開被覆 $\Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$
+%     \item $P$ の局所自明化 $\Familyset[\big]{\varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto U_\alpha \times G}{\alpha \in \Lambda}$
+%     \item $P$ の変換関数 $\Familyset[\big]{t_{\alpha\beta} \colon U_\alpha \cap U_\beta \lto G}{\alpha \in \Lambda}$
+% \end{itemize}
+% を与える．その上で，いつも通りに
+% \begin{itemize}
+%     \item $P$ の\hyperref[def.section]{局所切断}の族 $\Familyset[\big]{s_\alpha \colon U_\alpha \lto \pi^{-1}(U_\alpha),\; p \lmto \varphi_\alpha^{-1}(p,\, 1_G)}{\alpha \in \Lambda}$
+%     \item \underline{$E$ の}局所自明化 $\Familyset[\big]{\psi_\alpha \colon q^{-1}(U_\alpha) \lto U_\alpha \times V,\; s_\alpha(p) \times_\rho v \lmto (p,\, v)}{\alpha \in \Lambda}$
+% \end{itemize}
+% をとる．さらに $V$ の基底を $e_i \WHERE i = 1,\, \dots,\, \dim V$ とおき，$E = P \times_\rho V$ 上の局所切断の族を
+% \begin{align}
+%     \Familyset[\big]{e_\alpha{}_i \colon U_\alpha \lto q^{-1}(U_\alpha),\; x \lmto s_\alpha (x) \times_\rho e_i}{\alpha \in \Lambda}
+% \end{align}
+% で定義する．また，
+\begin{proof}
+    $\forall p \in U_\alpha$ を1つ固定する．
+    \begin{enumerate}
+        \item 
+        $C^\infty$ 曲線 $\gamma \colon [0,\, 1] \lto M$ であって，$\gamma(0) = p,\; \dot{\gamma}(0) = X_p$ を充たすものをとる．
+        $\gamma$ の像は $U_\alpha$ に含まれているとし\footnote{$\gamma([0,\, 1]) \subset M$ はコンパクト集合なので，有限個の点で区切ればこの要請を充たすことができる．}，$\gamma$ の\hyperref[def:horizontal-lift-curve]{水平持ち上げ}を
+        \begin{align}
+            \tilde{\gamma}(t) \eqqcolon s_\alpha \bigl( \gamma(t) \bigr) \btl g_\alpha(t)
+        \end{align}
+        と書く．ただし補題\ref{lem:horizontal-lift-curve}と同様に新しい $C^\infty$ 曲線 $g_\alpha \colon U_\alpha \lto G$ を $g_\alpha \coloneqq \mathrm{proj}_2 \circ \varphi_\alpha \circ \tilde{\gamma}$ により定義した．
+    
+        局所切断 $e_\alpha{}_i$ の共変微分を求める．
+        \begin{align}
+            e_\alpha{}_i \bigl( \gamma(t) \bigr) 
+            &= s_\alpha \bigl( \gamma(t) \bigr) \times_\rho e_i \\
+            &= \Bigl(s_\alpha \bigl( \gamma(t) \bigr) \btl g_\alpha(t)\Bigr) \times_\rho \rho \bigl( g_\alpha(t)^{-1} \bigr) \bigl( e_i \bigr) \\
+            &= \tilde{\gamma}(t) \times_\rho \rho \bigl( g_\alpha(t)^{-1} \bigr) \bigl( e_i \bigr)
+        \end{align}
+        であるから，
+        定理\ref{thm:codv-assoc-HL}より
+        \begin{align}
+            (\nabla_X^E e_\alpha{}_i)|_p 
+            &= \tilde{\gamma}(0) \times_\rho \eval{\dv{}{t}}_{t=0} \rho \bigl( g_\alpha(t)^{-1} \bigr) \bigl( e_i \bigr)
+        \end{align}
+        ここで $L^{(v)} \colon G \lto V,\; g \lto \rho(g)(v)$ を使って $\rho \bigl( g_\alpha(t)^{-1} \bigr) \bigl( e_i \bigr) = L^{(e_i)} \circ {}^{-1} \circ g_\alpha(t)$ と書けるので，
+        \begin{align}
+            &\eval{\dv{}{t}}_{t=0} \rho \bigl( g_\alpha(t)^{-1} \bigr) \bigl( e_i \bigr)\\
+            &=  T_0(L^{(e_i)} \circ {}^{-1} \circ g_\alpha) \left( \eval{\dv{}{t}}_{t=0} \right) \\
+            &=  T_{g_\alpha(0)^{-1}} (L^{(e_i)}) \circ T_{g_\alpha(0)} ({}^{-1}) \bigl( \dot{g_\alpha}(0) \bigr) \\
+            &=  -T_{g_\alpha(0)} (L^{(e_i)} \circ \mathcal{L}_{g_\alpha(0)^{-1}} \circ \mathcal{R}_{g_\alpha(0)^{-1}}) \bigl( \dot{g_\alpha}(0) \bigr) \\
+            &=  -\eval{\dv{}{t}}_{t=0} \rho \bigl( g_\alpha(0)^{-1} g_\alpha(t) g_\alpha(0)^{-1} \bigr) \bigl( e_i \bigr) \\
+            &=  -\rho \bigl( g_\alpha(0)^{-1} \bigr) \circ \left(\eval{\dv{}{t}}_{t=0} \rho\bigl(g_\alpha(t)\bigr) \right) \circ \rho\bigl( g_\alpha(0)^{-1} \bigr) \bigl( e_i \bigr)  \\
+            &=  -\rho \bigl( g_\alpha(0)^{-1} \bigr) \circ \Bigl(T_{g_\alpha(0)} \rho \bigl(\dot{g_\alpha}(0)\bigr) \Bigr) \circ \rho\bigl( g_\alpha(0)^{-1} \bigr) \bigl( e_i \bigr)  \\
+            &=  \rho \bigl( g_\alpha(0)^{-1} \bigr) \circ \Bigl(T_{g_\alpha(0)} \rho \circ T_{1_G} \mathcal{R}_{g(0)} \bigl( A_\alpha|_{\gamma(0)}(X) \bigr) \Bigr) \circ \rho\bigl( g_\alpha(0)^{-1} \bigr) \bigl( e_i \bigr)  &&\because \quad \text{補題\ref{lem:horizontal-lift-curve}}\\
+            &=  \rho \bigl( g_\alpha(0)^{-1} \bigr) \circ \rho_* \bigl( A_\alpha|_{\gamma(0)}(X_p) \bigr) \bigl( e_i \bigr)  &&\because \quad \text{補題\ref{lem:horizontal-lift-curve}}
+        \end{align}
+        である\footnote{
+            \begin{align}
+                0 
+                &= T_g (\mu \circ (\mathrm{id}_G \times {}^{-1}) \circ \Delta)(X) \\
+                &= T_g (\mu \circ \mathrm{inj}_1^{g^{-1}})(X) + T_g (\mu \circ \mathrm{inj}_2^{g} \circ {}^{-1})(X) \\
+                &= T_g (\mathcal{R}_{g^{-1}})(X) + T_{g^{-1}} (\mathcal{L}_g) \circ T_g ({}^{-1}) (X)
+            \end{align}
+            より
+            \begin{align}
+                T_g ({}^{-1}) = -T_g (\mathcal{L}_{g^{-1}} \circ \mathcal{R}_{g^{-1}})
+            \end{align}
+        }から，
+        \begin{align}
+            (\nabla_X^E e_\alpha{}_i)|_p  
+            &= \bigl( \tilde{\gamma}(0) \btl g_\alpha(0)^{-1} \bigr) \times_\rho \rho_* \bigl( A_\alpha|_{\gamma(0)}(X) \bigr) \bigl( e_i \bigr) \\
+            &= s_\alpha \bigl( \gamma(0) \bigr) \times_\rho \rho_* \bigl( A_\alpha|_{p}(X) \bigr) \bigl( e_i \bigr)
+        \end{align}
+        が分かった．特にチャート $(U_\alpha (x^\mu))$ において $A_\alpha = A_\alpha{}_a{}_\mu \dd{x^\mu} T^a,\; X = X^\mu (p)\, \eval{\pdv{}{x^\mu}}_p$ と展開すると
+        \begin{align}
+            (\nabla_X^E e_\alpha{}_i)|_p  
+            &= s_\alpha \bigl( \gamma(0) \bigr) \times_\rho X^\nu(p) A_\alpha{}_a{}_\mu (p) \dd{x^\mu}|_p \left( \eval{\pdv{}{x^\mu}}_p \right)   \rho_* (T^a)(e_i) \\
+            &= s_\alpha \bigl( \gamma(0) \bigr) \times_\rho X^\nu(p) A_\alpha{}_a{}_\mu (p) \delta^\mu_\nu  \rho_* (T^a)(e_i) \\
+            &= s_\alpha \bigl( \gamma(0) \bigr) \times_\rho X^\mu(p) A_\alpha{}_a{}_\mu (p) \bigl[\, \rho_* (T^a) \,\bigr]^j{}_i\, e_j \\
+            &=  X^\mu(p) A_\alpha{}_a{}_\mu (p) \bigl[\, \rho_* (T^a) \,\bigr]^j{}_i\,  e_\alpha{}_j|_p
+        \end{align}
+        と成分表示が求まった．
+        
+        \item 
+        一般の切断 $s \in \Gamma(E)$ の共変微分を求める．
+        $U_\alpha$ 上で $s(x) = s_\alpha(x) \times_\rho \xi_\alpha(x) = s_\alpha(x) \times_\rho \xi_\alpha(x)^i e_i = \xi_\alpha(x)^i e_\alpha{}_i(x)$ と展開できるので，
+        \hyperref[def:connection-vect]{ベクトル束上の共変微分の定義}より
+        \begin{align}
+            \nabla^E_X s
+            &= \nabla^E s(X) \\
+            &= \dd{\xi_\alpha{}^i}(X) \otimes e_\alpha{}_i + \xi_\alpha{}^i \nabla^E e_\alpha{}_i(X) \\
+            &= X^\nu \pdv{\xi_\alpha{}^{i}}{x^\mu} \dd{x^\mu} \left( \pdv{}{x^\nu} \right)\, e_\alpha{}_i  + \xi_\alpha{}^i X^\mu A_\alpha{}_a{}_\mu \bigl[\, \rho_* (T^a) \,\bigr]^j{}_i\,  e_\alpha{}_j \\
+            &= X^\mu \left( \pdv{\xi_\alpha{}^{i}}{x^\mu} + A_\alpha{}_a{}_\mu \bigl[\, \rho_* (T^a) \,\bigr]^i{}_j \xi_\alpha{}^j \right) e_\alpha{}_i
+        \end{align}
+        と計算できる．
+    \end{enumerate}
+
+\end{proof}
+                
+定理\ref{thm:codv-assoc-local}-(2) において，特に $X$ として座標ベクトル場 $\pdv{}{x^\mu}$ をとると
 \begin{align}
-    \nabla^E_X s
-    &= \nabla^E s(X) \\
-    &= \dd{\xi_\alpha{}^i}(X) \otimes e_\alpha{}_i + \xi_\alpha{}^i \nabla^E e_\alpha{}_i(X) \\
-    &= X^\nu \pdv{\xi_\alpha{}^{i}}{x^\mu} \dd{x^\mu} \left( \pdv{}{x^\nu} \right)\, e_\alpha{}_i  + \xi_\alpha{}^i X^\mu A_\alpha{}_a{}_\mu \bigl[\, \rho_* (T^a) \,\bigr]^j{}_i\,  e_\alpha{}_j \\
-    &= X^\mu \left( \pdv{\xi_\alpha{}^{i}}{x^\mu} + A_\alpha{}_a{}_\mu \bigl[\, \rho_* (T^a) \,\bigr]^i{}_j \xi_\alpha{}^j \right) e_\alpha{}_i
+    \nabla^E_{\pdv{}{x^\mu}} e_\alpha{}_i = A_\alpha{}_a{}_\mu \bigl[\, \rho_* (T^a) \,\bigr]^j{}_i\,  e_\alpha{}_j
 \end{align}
-と計算できる．
+となり，ゲージ場の成分 $A_\alpha{}_a{}_{\textcolor{blue}{\mu}} \bigl[\, \rho_* (T^a) \,\bigr]^{\textcolor{red}{j}}{}_{\textcolor{red}{i}}$ がRiemann幾何学におけるChristoffel記号と同等の働きをすることが分かる．
+
+\subsection{同伴ベクトル束上の曲率とその局所表示}
+
+この小節ではまず一般のベクトル束上の曲率を大域的な形で定義し，\hyperref[thm:connection-assoc]{同伴ベクトル束上の接続}との関係を議論する．
+そして同伴ベクトル束上の曲率の局所表示が，主束上の曲率の局所表示と同一のものであることを確認する．
+
+\begin{mydef}[label=def:curvature-vect]{ベクトル束上の曲率}
+    \begin{itemize}
+        \item ベクトル束 $V \hookrightarrow E \xrightarrow{\pi} M$
+        \item \hyperref[def:connection-vect]{ベクトル束 $E$ 上の接続} $\nabla^E \colon \Gamma(E) \lto \Omega^1(M;\, E)$
+    \end{itemize}
+    を与える．ベクトル束 $E$ 上の\textbf{曲率} (curvature) とは，
+    \begin{align}
+        R^\nabla \coloneqq \dd^{\nabla^E} \circ \nabla^E \colon \Gamma(E) \lto \Omega^2(M;\, E)
+    \end{align}
+    のこと．
+\end{mydef}
+
+\begin{myprop}[label=prop:curvature-linear]{曲率の $C^\infty(M)$線形性}
+    $\forall f \in C^\infty(M),\; \forall s \in \Gamma(E)$ に対して
+    \begin{align}
+        R^{\nabla^E} (fs) = f\, R^{\nabla^E}(s)
+    \end{align}
+    が成り立つ．
+\end{myprop}
+
+\begin{proof}
+    \hyperref[def:connection-vect]{ベクトル束上の接続}の定義から
+    \begin{align}
+        R^{\nabla^E} (fs)
+        &= \dd^{\nabla^E} \bigl( \dd{f} \otimes s + f\, \nabla^E s \bigr) \\
+        &= \cancel{\dd[2]{f}} \otimes s - \dd{f} \wedge \nabla^E s + \dd^{\nabla^E} \bigl( f\, \nabla^E s \bigr) \\
+        &= \cancel{-\dd{f} \wedge \nabla^E s + \dd{f} \wedge \nabla^E s} + f\, \dd^{\nabla^E} (\nabla^E s) \\
+        &= f\, R^{\nabla^E} (s)
+    \end{align}
+    が分かる
+    \footnote{
+        $E$ の局所フレーム $e_i \in \Gamma(E)$ を使うと $\nabla^E s = (\nabla^E s)^i \otimes e_i \WHERE  (\nabla^E s)^i \in \Omega^1(M)$ と書けるので，ベクトル束上の接続の定義から
+        \begin{align}
+            \dd^{\nabla^E} \bigl( f\, \nabla^E s \bigr)
+            &= \dd{\bigl(f\, (\nabla^E s)^i\bigr)} \otimes e_i - f\, (\nabla^E s)^i \wedge \nabla^E e_i \\
+            &= \dd{f} \wedge \nabla^E s + f\, \dd{(\nabla^E s)^i} \otimes e_i  - f\, (\nabla^E s)^i \wedge \nabla^E e_i \\
+            &= \dd{f} \wedge \nabla^E s + f\, \dd^{\nabla^E} (\nabla^E s)
+        \end{align}
+        だとわかる．
+    }．
+\end{proof}
+
+この結果から，
+\begin{align}
+    R^{\nabla^E} \colon \Gamma(E) \lto \Gamma(E),\; s \lmto \bigl(p \lmto R^{\nabla^E}(s)(p)\bigr)
+\end{align}
+と見做すとこれが $C^\infty(M)$-線形写像になっている．このようなとき，End束 $\End(E) \coloneqq \coprod_{p \in M} \End (E_p)$ の $C^\infty$ 切断
+$\underline{R^{\nabla^E}} \in \Gamma \bigl( \extp^2 T^* M \otimes  \End(E) \bigr)$ 
+であって，
+\begin{align}
+    R^{\nabla^E} (s) (p) = \underline{R^{\nabla^E}}(p) \bigl( s(p) \bigr) 
+\end{align}
+を充たすものが存在することが分かる
+\footnote{
+    $\forall p \in M$ を1つ固定し，$s \in \Gamma(E)$ であって $s(p) = 0$ を充たすものをとる．$p$ の開近傍（特に，局所自明性を充たすもの） $p \in U \subset M$ とその上の局所フレーム $(e_i)$ をとる．このとき $U$ 上では $s = s^i e_i$ と展開できる．
+    ところで，多様体のパラコンパクト性から $p \in \overline{V} \subset U$ を充たす $p$ の開近傍 $V \subset M$ が存在するので，
+    $M$ の開被覆 $\{U,\, M \setminus \overline{V}\}$ に従属する1の分割 $\{\psi_U,\, \psi_{M \setminus \overline{V}}\}$ をとることができる．特に$C^\infty$ 関数 $\psi_U \colon M \lto [0,\, 1]$ は 
+    \begin{align}
+        \psi_U(x) = 
+        \begin{cases}
+            1, &x \in \overline{V} \\ 
+            0, &x \in M \setminus U
+        \end{cases}
+    \end{align}
+    を充たす．よって $\tilde{e}_i \coloneqq \psi_U\, e_i \in \Gamma(E),\; \tilde{s}^i \coloneqq \psi_U\, s^i \in C^\infty(M)$ である．したがって
+    \begin{align}
+        s = s + \psi_U^2 (s-s) = (1-\psi_U^2) s + \tilde{s}^i \tilde{e}_i
+    \end{align}
+    が分かった．したがって $R^{\nabla^E}$ の $C^\infty$-線形性から
+    \begin{align}
+        R^{\nabla^E} (s)(p) = \bigl(1-\psi_U^2(p)\bigr)\, R^{\nabla^E}(s)(p) + \tilde{s}^i(p)\, R^{\nabla^E}(\tilde{e}_i)(p) = 0
+    \end{align}
+    が言えた．このことから，$\underline{R^{\nabla^E}} \in \Gamma \bigl( \End (E) \bigr)$ を，$\forall p \in M,\; \forall v \in E_p$ について
+    \begin{align}
+        \underline{R^{\nabla^E}}(p)(v) \coloneqq R^{\nabla^E} (s)(p) \WHERE s \in \Gamma(E) \ST s(p) = v
+    \end{align}
+    と定義するとwell-defiendである．
+}．
+そのため，この $\underline{R^{\nabla^E}}$ と同一視して $R^{\nabla^E} \in \Omega^2 \bigl( \End(E) \bigr)$ であると言う．
+
+\begin{mytheo}[label=thm:curvature-assoc]{同伴ベクトル束上の曲率の表示}
+    % \begin{enumerate}
+    %     \item 
+    %     \begin{align}
+    %         R^{\nabla^E} = \sharp^{-1} \circ \rho_*(\Omega) \circ \sharp
+    %     \end{align}
+    %     \item 
+    % \end{enumerate}
+    \begin{align}
+        R^{\nabla^E} = \sharp^{-1} \circ \rho_*(\Omega) \circ \sharp
+    \end{align}
+\end{mytheo}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 
+        \begin{align}
+            R^{\nabla^E}
+            &= \sharp^{-1} \circ D^2 \circ \sharp \\
+            &= \sharp^{-1} \circ \bigl( \dd + \rho_*(\omega) \wedge \bigr)\circ \bigl( \dd + \rho_*(\omega)\bigr) \circ \sharp \\
+            &= \sharp^{-1} \circ \bigl( \cancel{\dd^2} + \rho_*(\omega) \wedge \dd + \dd{\bigl( \rho_*(\omega) \bigr)} + \rho_*(\omega) \wedge \rho_*(\omega) \bigr) \circ \sharp
+        \end{align}
+        ここで
+        \begin{align}
+            \dd{\bigl( \rho_*(\omega)(\sharp s) \bigr) }
+            &= \dd{\bigl( \rho_*(\omega_a T^a)(\sharp s) \bigr) } \\
+            &= \dd{\bigl(\omega_a \,\rho_*(T^a)(\sharp s) \bigr) } \\
+            &= \dd{\omega_a}\, \rho_*(T^a)(\sharp s) - \omega_a\wedge \rho_*(T^a)\dd{(\sharp s)} \\
+            &= \rho_*(\dd{\omega})(\sharp s) - \rho_*(\omega) \wedge \dd{(\sharp s)}
+        \end{align}
+        なので，
+        \begin{align}
+            R^{\nabla^E} = \sharp \circ \bigl( \rho_*(\dd{\omega}) + \rho_*(\omega) \wedge \rho_*(\omega)\bigr) \circ \sharp
+        \end{align}
+        さらに
+        \begin{align}
+            \rho_*(\omega) \wedge \rho_*(\omega)(\sharp s)
+            &= \omega_a \wedge \omega_b \rho_*(T^a) \bigl( \rho_*(T^b)(\sharp s) \bigr)  \\
+            &= \frac{1}{2} \omega_a \wedge \omega_b \Bigl(\rho_*(T^a) \circ \rho_*(T^b) - \rho_*(T^b) \circ \rho_*(T^a) \Bigr)(\sharp s) \\
+            &= \frac{1}{2} \omega_a \wedge \omega_b \comm{\rho_*(T^a)}{\rho_*(T^b)}(\sharp s) \\
+            &= \frac{1}{2} \omega_a \wedge \omega_b \rho_*(\comm{T^a}{T^b})(\sharp s) \\
+            &= \frac{1}{2} \rho_*(\comm{\omega}{\omega})(\sharp s)
+        \end{align}
+        であるから
+        \begin{align}
+            R^{\nabla^E} = \sharp^{-1} \circ \rho_*(\Omega)  \circ \sharp
+        \end{align}
+        が分かった．
+
+        % \item 
+        % \begin{align}
+        %     R^{\nabla^E} (X,\, Y) (s)|_p
+        %     &= u \times_\rho \rho_*\bigl(\Omega_u(\tilde{X}_u,\,\tilde{Y}_u)\bigr)\bigl(\sharp s\bigr) \\
+        %     &= u \times_\rho \rho_*\bigl(\dd{\omega}(\tilde{X},\,\tilde{Y})|_u\bigr)\bigl(\sharp s(u)\bigr) \\
+        %     &= u \times_\rho \rho_*\bigl(\tilde{X}\omega(\tilde{Y})|_u + \tilde{Y} \omega(\tilde{X})|_u - \omega (\comm{\tilde{X}}{\tilde{Y}})|_u\bigr)\bigl((\sharp s)(u)\bigr) \\
+        %     &= - u\times_\rho \rho_* \bigl( \omega (\comm{\tilde{X}}{\tilde{Y}})|_u \bigr)\bigl( (\sharp s)(u) \bigr) 
+        % \end{align}
+        % 一方で，
+    \end{enumerate}
+\end{proof}
+
+\begin{mytheo}[label=thm:curvature-assoc-local]{同伴ベクトル束上の曲率の局所表示}
+    定理\ref{thm:codv-assoc-local}と同様の記号を使って以下が成り立つ：
+    \begin{enumerate}
+        \item \begin{align}
+            R^{\nabla^E} e_{\alpha}{}_i = F_\alpha{}_a \bigl[\, \rho_*(T^a) \,\bigr]^j{}_i \otimes  e_\alpha{}_j
+        \end{align}
+        \item $\forall s = \xi_\alpha{}^i e_{\alpha}{}_i$ に対して
+        \begin{align}
+            R^{\nabla^E} s = F_\alpha{}_a \bigl[\, \rho_*(T^a) \,\bigr]^j{}_i \xi_\alpha{}^i\, \otimes  e_\alpha{}_j
+        \end{align}
+        
+    \end{enumerate}
+    
+\end{mytheo}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 定理\ref{thm:codv-assoc-local}および\hyperref[def:connection-vect]{ベクトル束上の共変外微分の定義}より,
+        \begin{align}
+            R^{\nabla^E} e_{\alpha}{}_i 
+            &= \dd^{\nabla^E} \bigl( \bigl[\, \rho_*(A_\alpha) \,\bigr]^j{}_i \otimes  e_\alpha{}_j \bigr) \\
+            &= \bigl[\, \dd{\bigl( \rho_*(A_\alpha) \bigr) } \,\bigr]^j{}_i - \bigl[\, \rho_*(A_\alpha) \,\bigr]^j{}_i \wedge \nabla^E e_\alpha{}_j \\
+            &= \bigl[\, \rho_*(\dd{A_\alpha}) \,\bigr]^j{}_i \otimes e_\alpha{}_j - \bigl[\, \rho_*(A_\alpha) \,\bigr]^j{}_i \wedge \bigl[\, \rho_*(A_\alpha) \,\bigr]^k{}_j e_{\alpha}{}_k \\
+            &= \bigl[\, \rho_*(\dd{A_\alpha}) \,\bigr]^j{}_i \otimes e_\alpha{}_j - A_\alpha{}_a \wedge A_\alpha{}_b \bigl[\, \rho_*(T^b) \,\bigr]^k{}_j \bigl[\, \rho_*(T^a) \,\bigr]^j{}_i e_{\alpha}{}_k \\
+            &= \bigl[\, \rho_*(\dd{A_\alpha}) \,\bigr]^j{}_i \otimes e_\alpha{}_j + A_\alpha{}_a \wedge A_\alpha{}_b \bigl[\, \rho_*(T^a) \circ \rho_*(T^b) \,\bigr]^k{}_i e_{\alpha}{}_k \\
+            &= F_\alpha{}_a\bigl[\, \rho_*(T^a) \bigr]^j{}_i \otimes e_{\alpha}{}_j
+        \end{align}
+        \item 命題\ref{prop:curvature-linear}より $R^{\nabla^E}$ は $C^\infty(M)$-線形なので明らか．
+    \end{enumerate}
+    
+\end{proof}
 
 \subsection{ホロノミー}
 
@@ -3733,7 +3967,7 @@ $f$ への $\Omega$ の代入 $f(\Omega) \in \Omega^{2k}(P)$ を
             \begin{align}
                 \sharp \colon \Omega^k (M;\, P \times_\rho V) = \Omega^k (M;\, V) \lto \Omega^k_\rho (P;\, V),\; \phi \lmto  \pi^* \phi
             \end{align}
-            になる．さらに，\hyperref[def:tensorial-form]{tensorial form of type $\rho$ の定義}から，$\forall \psi \in \Omega^k_\rho (P;\, V)$ は水平でかつ $\forall g \in G$ に対して $R_g^* \psi = \rho(g^{-1})(\phi) = \phi$ を充たす．
+            になる．さらに，\hyperref[def:tensorial-form]{tensorial form of type $\rho$ の定義}から，$\forall \psi \in \Omega^k_\rho (P;\, V)$ は水平でかつ $\forall g \in G$ に対して $R_g^* \psi = \rho(g^{-1})(\psi) = \psi$ を充たす．
         \end{proof}
         \hrulefill
 
@@ -3829,10 +4063,119 @@ $f$ への $\Omega$ の代入 $f(\Omega) \in \Omega^{2k}(P)$ を
     を与える．このとき定理\ref{thm:Chern-Weil}の $\Lambda + \Im \dd{} \in \irm{H}{dR}^{2k} (M)$ のことを，$f$ による $P$ の\textbf{特性類} (characteristic class) と呼ぶ．
 \end{mydef}
 
+特性類はその定義から局所表示によらないが，それを顕に確認することができる．
+$\Familyset[\big]{s_\alpha \colon U_\alpha \lto \pi^{-1}(U_\alpha)}{\alpha \in \Lambda}$ を $P$ の勝手な局所切断とする．
+wedge積と引き戻しは可換であることに注意すると，定理\ref{thm:Chern-Weil}-(1)から
+\begin{align}
+    f(F_\alpha) = f(s_\alpha^* \Omega) = s_\alpha^* f(\Omega) = s_\alpha^*\pi^* \Lambda = (\pi \circ s_\alpha)^* \Lambda = (\mathrm{id}_{U_\alpha})^* \Lambda \in \Omega^{2k}(U_\alpha)
+\end{align}
+だと分かる．一方，定理\ref{thm:curvature-local}および $f$ の\hyperref[def:invariant]{$\Adj(G)$-不変性}から，他の勝手な $\beta \in \Lambda$ に対して左辺は
+\begin{align}
+    f(F_\alpha) = f\bigl(\Adj(t_{\alpha\beta})(F_\beta)\bigr) = f(F_\beta)
+\end{align}
+を充たす．このことから，もし場の強さ $\Familyset[\big]{F_\alpha}{\alpha \in \Lambda}$ から大域的な特性類 $\Lambda \in \Omega^{2k}(M)$ を復元したければ，ただ単に
+\begin{align}
+    \Lambda_x \coloneqq f(F_\alpha)|_x \WHERE x \in U_\alpha
+\end{align}
+とすれば良いことが分かる．この事実は，例えば特性類を積分する際に非常に有用である．
+
+\subsection{主束とベクトル束}
+
+定理\ref{thm:Chern-Weil}は主束に関して示したが，ベクトル束についても全く同じ議論ができる．
+勝手なベクトル束
+\begin{align}
+    V \hookrightarrow E \xrightarrow{\pi} M
+\end{align}
+を与えると，それに同伴する主束は\hyperref[def:framebundle]{フレーム束}
+\begin{align}
+    \LGL(V) \hookrightarrow \mathrm{Fr}(E) \xrightarrow{\varpi} M
+\end{align}
+である．逆に，フレーム束に\hyperref[prop:Borelconst]{同伴するベクトル束}
+\begin{align}
+    V \hookrightarrow \mathrm{Fr}(E) \times_{\mathrm{id}} V \xrightarrow{\pi} M
+\end{align}
+は元のベクトル束と束同型である．
+\hyperref[def:connection]{主束 $\mathrm{Fr}(E)$ 上の接続形式} $\omega \in \Omega^1\bigl(\mathfrak{Fr}(E);\, \mathfrak{\Lgl}(V)\bigr)$ が\hyperref[def:connection-vect]{ベクトル束 $E$ 上の接続} $\nabla^E \colon \Gamma(E) \lto \Omega^1(M;\, E)$ を与えることは定理\ref{thm:connection-assoc}で示した．
+実は逆が言えることも，これまでの議論と類似の議論からわかる．
+
+今，\hyperref[def:connection-vect]{ベクトル束 $E$ 上の接続} $\nabla^E \colon \Gamma(E) \lto \Omega^1(M;\, E)$ が与えられたとする．
+このとき，開集合 $U \subset M$ 上の $E$ の局所フレーム $e \coloneqq (e_1,\, \dots,\, e_{\dim V})$ に関する\textbf{接続行列} $\omega_e \colon \mathfrak{X}(U) \lto \mathfrak{gl}(V)$ を
+\begin{align}
+    \nabla^E_{X} e_i \eqqcolon [\omega_e (X)]^j{}_i e_j
+\end{align}
+で定義する．そして $C^\infty$ 曲線 $\gamma \colon [0,\, 1] \lto M$ に沿った\textbf{平行切断} $s \in \Gamma(E)$ を
+\begin{align}
+    \nabla^E_{\dot{\gamma}(t)} s|_{\gamma(t)} = 0 \quad \forall t \in [0,\, 1]
+\end{align}
+で定義する．$\gamma([0,\, 1]) \subset U$ とすると $s = s^i e_i$ と展開できるので，これは
+\begin{align}
+    0 &= \nabla^E_{\dot{\gamma}(t)} s \\
+    &= \nabla^E (s^ie_i)|_{\gamma(t)} \bigl( \dot{\gamma}(t) \bigr) \\
+    &= \dd{s^i}|_{\gamma(t)}\bigl( \dot{\gamma}(t) \bigr) \otimes e_i|_{\gamma(t)} + s^i \bigl( \gamma(t) \bigr) [\omega_e (\dot{\gamma}(t))]^j{}_i e_j|_{\gamma(t)} \\
+    &= \left( \dv{(s^i \circ \gamma)}{t} + s^j\bigl( \gamma(t) \bigr) [\omega_e (\dot{\gamma}(t))]^i{}_j \right) \otimes e_i|_{\gamma(t)} \\
+    \IFF &\dv{(s^i \circ \gamma)}{t} + s^j\bigl( \gamma(t) \bigr) [\omega_e (\dot{\gamma}(t))]^i{}_j = 0
+\end{align}
+を意味し，常微分方程式の解の存在と一意性から $s$ は一意に決まる．
+$\gamma$ の $\mathrm{Fr}(E)$ への\textbf{水平持ち上げ} $\tilde{\gamma} \colon [0,\, 1] \lto \mathrm{Fr}(E)$ を，$\tilde{\gamma}(t) \eqqcolon \Bigl( \gamma(t),\, \bigl(\eta_1 \circ \gamma(t),\, \dots,\, \eta_{\dim V} \circ \gamma(t)\bigr) \Bigr) \in \mathrm{Fr}(E)_{\gamma(t)} $ で定義した $\eta_i \in \Gamma(E)$ 
+が平行切断になっているものと定義する．そして $e \in \varpi^{-1}(\{x\})$ における\textbf{水平な接ベクトル} $v \in T_{e} (\mathrm{Fr}(E))$ を，ある $C^\infty$ 曲線 $\gamma \colon [0,\, 1] \lto M$ であって $\gamma(0) = x,\; \tilde{\gamma}(0) = e,\;  \dot{\tilde{\gamma}}(0) = v$ を充たすものが存在することと定義するのである．
+
+さて，ここで\underline{$E$ の}開被覆 $\Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$，局所自明化 $\Familyset[\big]{\varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto U_\alpha \times V}{\alpha \in \Lambda}$ を与える．
+そして\underline{$\mathrm{Fr}(E)$ の}局所切断 $s_\alpha \colon U_\alpha \lto \varpi^{-1}(U_\alpha)$ を 
+\begin{align}
+    s_\alpha(x) \coloneqq \bigl( x,\, \bigl( \varphi_\alpha^{-1}(x,\, e_1),\, \dots,\, \varphi_\alpha^{-1}(x,\, e_{\dim V}) \bigr)  \bigr) \eqqcolon \bigl( x,\, \bigl( s_\alpha{}_1(x),\, \dots,\, s_\alpha{}_{\dim V}(x)\bigr)  \bigr)
+\end{align}
+で定義しよう．\exref{def:framebundle}で議論した通り，このとき $\gamma([0,\, 1]) \subset U_\alpha$ だとすると，ある $C^\infty$ 曲線 $g_\alpha \colon [0,\, 1] \lto \LGL(V)$ を使って
+\begin{align}
+    \tilde{\gamma}(t) \eqqcolon s_\alpha \bigl( \gamma(t) \bigr) \btl g_\alpha(t)
+\end{align}
+と書けるので，水平持ち上げの初期条件が $\tilde{\gamma}(0) = s_\alpha( \gamma(0))$ だとすると補題\ref{lem:horizontal-lift-curve}から
+\begin{align}
+    \dot{\tilde{\gamma}}(0) 
+    &= T_{s_\alpha(\gamma(0))} (R_{g_\alpha(0)}) \circ T_{\gamma(0)} s_\alpha \bigl( \dot{\gamma}(0) \bigr)  + \bigl( \theta_{g_\alpha(0)}(\dot{g_\alpha}(0)) \bigr)^\#|_{\tilde{\gamma}(0)} \\
+    &= T_{\gamma(0)} s_\alpha \bigl( \dot{\gamma}(0) \bigr)  + \bigl( \dot{g_\alpha}(0) \bigr)^\#|_{\tilde{\gamma}(0)}
+\end{align}
+がわかる．一方で水平切断の条件から
+\begin{align}
+    0
+    &=\nabla^E_{\dot{\gamma}(t)} \tilde{\gamma}_i(t) \\
+    &= \nabla^E_{\dot{\gamma}(t)}(s_j[g_\alpha(t)]^{j}{}_i) \\
+    &= [\dot{g_\alpha}(t)]^j{}_i s_j(\gamma(t)) + [g_\alpha(t)]^{j}{}_i \nabla^E_{\dot{\gamma}(t)} s_j|_{\gamma(t)}
+\end{align}
+であるから，$t=0$ を代入して
+\begin{align}
+    [\dot{g_\alpha}(0)]^j{}_i s_j(\gamma(0)) = -\nabla^E_{\dot{\gamma}(t)} s_j|_{\gamma(0)} = -[\omega_{s_\alpha}(\dot{\gamma}(0))]^j{}_i s_j(\gamma(0))
+\end{align}
+i.e. $\dot{g_\alpha}(0) = -\omega_{s_\alpha}(\dot{\gamma}(0))$ と求まる．よって
+\begin{align}
+    \label{eq:horizontal-vect}
+    \dot{\tilde{\gamma}}(0)  = T_{\gamma(0)} s_\alpha \bigl( \dot{\gamma}(0) \bigr)  - \bigl( \omega_{s_\alpha}(\dot{\gamma}(0)) \bigr)^\#|_{\tilde{\gamma}(0)}
+\end{align}
+である．このため，水平な接ベクトル全体の集合を $H_e$ と書くと 
+\begin{align}
+    T_e \varpi \colon H_e \lto T_x M,\; \dot{\tilde{\gamma}}(0) \lmto \dot{\gamma}(0)
+\end{align}
+がベクトル空間の同型写像であることが分かる．よって短完全列
+\begin{align}
+    0 \lto \Ker T_e \varpi \lto T_e P \xrightarrow{T_e \varpi} T_x M \lto 0
+\end{align}
+は分裂し，
+\begin{align}
+    T_e P = H_e \oplus \Ker T_e \varpi
+\end{align}
+が成り立つ．さらに $\forall g \in \LGL(V)$ に対して，$\tilde{\gamma}(t) \btl g$ は明らかに水平持ち上げだから，
+\begin{align}
+    \eval{\dv{}{t}}_{t=0}\tilde{\gamma}(t) \btl g = T_{e} R_g \bigl(\tilde{\gamma}(0) \bigr) \in H_{e \btl g}
+\end{align}
+であり，$H_{e \btl g} = T_{e} R_g(H_e)$ が分かる．以上の議論からベクトル束の接続 $\nabla^E$ が主束 $\mathrm{Fr}(E)$ の接続 $\{H_e\}{e \in \mathrm{Fr}(E)}$ を与えることが分かった．
+よって定理\ref{thm:connection-basic}から対応する接続形式 $\omega \in \Omega^1 \bigl( \mathrm{Fr}(E);\, \mathfrak{g} \bigr)$ が存在し，\eqref{eq:horizontal-vect}より $\nabla^E$ の接続行列を $s_\alpha^* \omega(X) = \omega_{s_\alpha}(X)$ の形で再現する．
+
+
+
+
 \subsection{特性類のホモトピー論的扱い}
 
-\subsection{いくつかの例}
-
 \subsection{Chern-Simons形式}
+
+
 
 \end{document}
