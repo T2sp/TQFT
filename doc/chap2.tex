@@ -3899,7 +3899,7 @@ $V$ を有限次元 $\mathbb{K}$-ベクトル空間，$V^*$ をその双対空�
 
 \begin{mydef}[label=def:invariant]{不変多項式}
     Lie群 $G$ のLie代数 $\mathfrak{g}$ を与える．
-    \hyperref[def:polynomial]{多項式} $f \colon \mathfrak{g} \lto \mathbb{R}$ が $\bm{\mathrm{Ad}(G)}$\textbf{-不変}であるとは，$\forall g \in G,\; \forall X \in \mathfrak{g}$ に対して
+    \hyperref[def:polynomial]{多項式} $f \colon \mathfrak{g} \lto \mathbb{K}$ が $\bm{\mathrm{Ad}(G)}$\textbf{-不変}であるとは，$\forall g \in G,\; \forall X \in \mathfrak{g}$ に対して
     \begin{align}
         f \bigl( \Adj(g)(X) \bigr) = f(X) 
     \end{align}
@@ -4060,16 +4060,16 @@ $f$ への $\Omega$ の代入 $f(\Omega) \in \Omega^{2k}(P)$ を
         \item \hyperref[def:curvature]{曲率形式} $\Omega \in \Omega^2(P;\, \mathfrak{g})$
         \item \hyperref[def:invariant]{$k$ 次不変多項式} $f \colon \mathfrak{g} \lto \mathbb{R}$
     \end{itemize}
-    を与える．このとき定理\ref{thm:Chern-Weil}の $\Lambda + \Im \dd{} \in \irm{H}{dR}^{2k} (M)$ のことを，$f$ による $P$ の\textbf{特性類} (characteristic class) と呼ぶ．
+    を与える．このとき定理\ref{thm:Chern-Weil}の $[\Lambda] \in \irm{H}{dR}^{2k} (M)$ のことを，$f$ による $P$ の\textbf{特性類} (characteristic class) と呼ぶ．
 \end{mydef}
 
 特性類はその定義から局所表示によらないが，それを顕に確認することができる．
-$\Familyset[\big]{s_\alpha \colon U_\alpha \lto \pi^{-1}(U_\alpha)}{\alpha \in \Lambda}$ を $P$ の勝手な局所切断とする．
+$\Familyset[\big]{s_\alpha \colon U_\alpha \lto \pi^{-1}(U_\alpha)}{\alpha \in A}$ を $P$ の勝手な局所切断とする．
 wedge積と引き戻しは可換であることに注意すると，定理\ref{thm:Chern-Weil}-(1)から
 \begin{align}
-    f(F_\alpha) = f(s_\alpha^* \Omega) = s_\alpha^* f(\Omega) = s_\alpha^*\pi^* \Lambda = (\pi \circ s_\alpha)^* \Lambda = (\mathrm{id}_{U_\alpha})^* \Lambda \in \Omega^{2k}(U_\alpha)
+    f(F_\alpha) = f(s_\alpha^* \Omega) = s_\alpha^* f(\Omega) = s_\alpha^*\pi^* \Lambda = (\pi \circ s_\alpha)^* \Lambda = \Lambda|_{U_\alpha} \in \Omega^{2k}(U_\alpha)
 \end{align}
-だと分かる．一方，定理\ref{thm:curvature-local}および $f$ の\hyperref[def:invariant]{$\Adj(G)$-不変性}から，他の勝手な $\beta \in \Lambda$ に対して左辺は
+だと分かる．一方，定理\ref{thm:curvature-local}および $f$ の\hyperref[def:invariant]{$\Adj(G)$-不変性}から，他の $U_\alpha \cap U_\beta \neq \emptyset$ を充たす $\beta \in A$ に対して左辺は
 \begin{align}
     f(F_\alpha) = f\bigl(\Adj(t_{\alpha\beta})(F_\beta)\bigr) = f(F_\beta)
 \end{align}
@@ -4096,7 +4096,7 @@ wedge積と引き戻しは可換であることに注意すると，定理\ref{t
 \end{align}
 は元のベクトル束と束同型である．
 \hyperref[def:connection]{主束 $\mathrm{Fr}(E)$ 上の接続形式} $\omega \in \Omega^1\bigl(\mathfrak{Fr}(E);\, \mathfrak{\Lgl}(V)\bigr)$ が\hyperref[def:connection-vect]{ベクトル束 $E$ 上の接続} $\nabla^E \colon \Gamma(E) \lto \Omega^1(M;\, E)$ を与えることは定理\ref{thm:connection-assoc}で示した．
-実は逆が言えることも，これまでの議論と類似の議論からわかる．
+実は逆が言えることも，これまでとほぼ同じ議論からわかる．
 
 今，\hyperref[def:connection-vect]{ベクトル束 $E$ 上の接続} $\nabla^E \colon \Gamma(E) \lto \Omega^1(M;\, E)$ が与えられたとする．
 このとき，開集合 $U \subset M$ 上の $E$ の局所フレーム $e \coloneqq (e_1,\, \dots,\, e_{\dim V})$ に関する\textbf{接続行列} $\omega_e \colon \mathfrak{X}(U) \lto \mathfrak{gl}(V)$ を
@@ -4150,7 +4150,7 @@ i.e. $\dot{g_\alpha}(0) = -\omega_{s_\alpha}(\dot{\gamma}(0))$ と求まる．�
     \label{eq:horizontal-vect}
     \dot{\tilde{\gamma}}(0)  = T_{\gamma(0)} s_\alpha \bigl( \dot{\gamma}(0) \bigr)  - \bigl( \omega_{s_\alpha}(\dot{\gamma}(0)) \bigr)^\#|_{\tilde{\gamma}(0)}
 \end{align}
-である．このため，水平な接ベクトル全体の集合を $H_e$ と書くと 
+である．このため，$e \in \varpi^{-1}(\{x\})$ における水平な接ベクトル全体の集合を $H_e$ と書くと 
 \begin{align}
     T_e \varpi \colon H_e \lto T_x M,\; \dot{\tilde{\gamma}}(0) \lmto \dot{\gamma}(0)
 \end{align}
@@ -4162,14 +4162,210 @@ i.e. $\dot{g_\alpha}(0) = -\omega_{s_\alpha}(\dot{\gamma}(0))$ と求まる．�
 \begin{align}
     T_e P = H_e \oplus \Ker T_e \varpi
 \end{align}
-が成り立つ．さらに $\forall g \in \LGL(V)$ に対して，$\tilde{\gamma}(t) \btl g$ は明らかに水平持ち上げだから，
+が成り立つ．さらに $\forall g \in \LGL(V)$ に対して，$\tilde{\gamma}(t) \btl g$ は明らかに $\gamma(t)$ の水平持ち上げだから，
 \begin{align}
-    \eval{\dv{}{t}}_{t=0}\tilde{\gamma}(t) \btl g = T_{e} R_g \bigl(\tilde{\gamma}(0) \bigr) \in H_{e \btl g}
+    \eval{\dv{}{t}}_{t=0}\tilde{\gamma}(t) \btl g = T_{e} R_g \bigl(\dot{\tilde{\gamma}}(0) \bigr) \in H_{e \btl g}
 \end{align}
-であり，$H_{e \btl g} = T_{e} R_g(H_e)$ が分かる．以上の議論からベクトル束の接続 $\nabla^E$ が主束 $\mathrm{Fr}(E)$ の接続 $\{H_e\}{e \in \mathrm{Fr}(E)}$ を与えることが分かった．
+であり，$H_{e \btl g} = T_{e} R_g(H_e)$ が分かる．以上の議論からベクトル束の接続 $\nabla^E$ が主束 $\mathrm{Fr}(E)$ の接続 $\{H_e\}_{e \in \mathrm{Fr}(E)}$ を与えることが分かった．
 よって定理\ref{thm:connection-basic}から対応する接続形式 $\omega \in \Omega^1 \bigl( \mathrm{Fr}(E);\, \mathfrak{g} \bigr)$ が存在し，\eqref{eq:horizontal-vect}より $\nabla^E$ の接続行列を $s_\alpha^* \omega(X) = \omega_{s_\alpha}(X)$ の形で再現する．
 
+以上の議論により，特性類はベクトル束 $E$ の接続 $\nabla^E \colon \Gamma(E) \lto \Omega^1(M;\, E)$ とそのフレーム束 $\mathrm{Fr}(E)$ の局所切断 $s_\alpha \colon U_\alpha \lto \varpi^{-1} \bigl( U_\alpha \bigr)$ が与えられたときに，
+$U_\alpha$ 上の\textbf{曲率行列} $\Omega_{s_\alpha} \colon \mathfrak{X}(U_\alpha) \times \mathfrak{X}(U_\alpha) \lto \Lgl(V)$ を
+\begin{align}
+    R^{\nabla^E}(X,\, Y)s_\alpha{}_i \eqqcolon \elem{\Omega_{s_\alpha}(X,\, Y)}{j}{i}\, s_\alpha{}_j
+    % \bigl[\, \Omega(X,\, Y) \,\bigr]^j{}_i e_j
+\end{align}
+と定義した上で $\Omega_{s_\alpha} \in \Omega^2\bigl(U_\alpha;\, \Lgl(V)\bigr)$ と見做せば，
+\begin{align}
+    \Lambda \coloneqq f \bigl( \Omega_{s_\alpha} \bigr) \in \Omega^{2k}(M)
+\end{align}
+として\hyperref[def:characteristic-class-polynomial]{特性類}が得られるのである．このことを踏まえて，特性類 $\Lambda$ のことをしばしば $\chi(E)$ とか $\chi(R^{\nabla^E})$ などと書く．後にホモトピー論的扱いをする際に，特性類をベクトル束に対応づけることが本質的であることがわかる．
 
+\subsection{色々な不変多項式}
+
+定理\ref{thm:Chern-Weil}による主束，もしくはベクトル束上の\hyperref[def:characteristic-class-polynomial]{特性類}の構成は，結局のところ与えられた構造群 $G$ に関して\hyperref[def:invariant]{$\Adj(G)$-不変な多項式}を見つける問題に帰着される．
+
+今，$\mathbb{K}$ を任意の体としよう．そして集合
+\begin{align}
+    \mathrm{Fun}(\mathbb{K}^n,\, \mathbb{K}) \coloneqq \bigl\{\, f \colon \mathbb{K}^n \lto \mathbb{K}  \,\bigr\} 
+\end{align}
+の上に $+,\, \cdot,\, \btr$ を
+\begin{align}
+    (f + g)(x_1,\, \dots,\, x_n) &\coloneqq f(x_1,\, \dots,\, x_n) + g(x_1,\, \dots,\, x_n) \\
+    (f \cdot g)(x_1,\, \dots,\, x_n) &\coloneqq f(x_1,\, \dots,\, x_n) g(x_1,\, \dots,\, x_n) \\
+    (a \btr f)(x_1,\, \dots,\, x_n) &\coloneqq a f(x_1,\, \dots,\, x_n)
+\end{align}
+と定義することで組 $\bigl( \mathrm{Fun}(\mathbb{K}^n,\, \mathbb{K}),\, +,\, \cdot\, , \, \btr  \bigr)$ を $\mathbb{K}$-結合代数と見做す．このとき，代入写像
+\begin{align}
+    \varepsilon \colon \mathbb{K}[t_1,\, \dots,\, t_n] \lto \mathrm{Fun}(\mathbb{K}^n,\, \mathbb{K}),\; P(t_1,\, \dots,\, t_n) \lmto \bigl( (x_1,\, \dots,\, x_n) \lmto P(x_1,\, \dots,\, x_n)\bigr) 
+\end{align}
+は $\mathbb{K}$-結合代数の準同型である．
+
+\begin{mylem}[label=lem:polynomial-eval-injective]{多項式の評価写像}
+    $\mathbb{K}$ が無限体ならば $\varepsilon$ は単射になる．
+\end{mylem}
+
+\begin{proof}
+    $\Ker \varepsilon = 0$ を示す．$\Ker \varepsilon \supset 0$ は自明．$\forall P \in \Ker \varepsilon$ をとると $P = 0$ であることを $n$ に関する数学的帰納法により示す．$n=1$ のとき，$P$ は高々 $\deg P < \infty$ 個の根を持つが，$P \in \Ker \varepsilon$ より $\forall x \in \mathbb{K},\; P(x) = 0$ なので $\deg P > 0$ だと矛盾．よって $P = 0$ である．
+
+    次に，$n-1$ まで主張が示されているとする．このとき不定元 $t_n$ について項を整理することで，$P \in \Ker \varepsilon \subset \mathbb{K}[t_1,\, \dots,\, t_n]$ を $\mathbb{K}[t_1,\, \dots,\, t_{n-1}][t_n]$ の元と見做すことができる：
+    \begin{align}
+        P(t_1,\, \dots,\, t_n) \eqqcolon \sum_{k=0}^{\deg P} \underbrace{P_k(t_1,\, \dots,\, t_{n-1})}_{\in \mathbb{K}[t_1,\, \dots,\, t_{n-1}]}\, (t_n)^k
+    \end{align}
+    $P \in \Ker \varepsilon$ なので，$n=1$ の場合の議論から $\forall (x_1,\, \dots,\, x_{n-1}) \in \mathbb{K}^{n-1}$ について1変数多項式 $\sum_{k=0}^{\deg P} P_k(x_1,\, \dots,\, x_{n-1})\, (t_n)^k=0$，i.e. $\varepsilon\bigl(P_k(t_1,\, \dots,\, t_{n-1})\bigr) = 0$ である．よって帰納法の仮定から $P_k(t_1,\, \dots,\, t_{n-1}) = 0$，i.e. $P = 0$ が言えた．
+\end{proof}
+
+\begin{mylem}[label=lem:Z-extension]{係数体の拡大}
+    $\mathbb{K}$ を標数 $0$ の体とする．
+    
+    このとき $P(t_1,\, \dots,\, t_{n}) \in \mathbb{Z}[t_1,\, \dots,\, t_{n}] \subset \mathbb{K}[t_1,\, \dots,\, t_{n}]$ について\footnote{$\mathbb{K}$ の標数が $0$ であることから単射になる体の準同型 $\mathbb{Z} \lto \mathbb{K},\; k \lmto k \cdot 1$ が誘導する $\mathbb{Z}$-代数の単射準同型 $\mathbb{Z}[t_1,\, \dots,\, t_n] \lto \mathbb{K}[t_1,\, \dots,\, t_n]$ によって $P(t_1,\, \dots,\, t_n) \in \mathbb{K}[t_1,\, \dots,\, t_n]$ と見做した．}
+    \begin{align}
+        \varepsilon \bigl( P(t_1,\, \dots,\, t_{n}) \bigr) = 0
+    \end{align}
+    ならば，任意の可換環\footnote{乗法単位元 $1$ を持つ} $R$ についても写像
+    \begin{align}
+         R^n \lto R,\; (x_1,\, \dots,\, x_n) \lmto P(x_1,\, \dots,\, x_n)
+    \end{align}
+    はゼロ写像である．
+\end{mylem}
+
+\begin{proof}
+    $\mathbb{K}$ は無限体だから，補題\ref{lem:polynomial-eval-injective}より $\mathbb{Z}$-係数多項式として $P(t_1,\, \dots,\, t_{n}) = 0$ である．
+    ここで単射な環準同型 $\mathbb{Z} \lto R,\; k \lmto k \cdot 1$ が誘導する単射 $\mathbb{Z}[t_1,\, \dots,\, t_{n}] \lto R[t_1,\, \dots,\, t_{n}]$ によって $0$ は $0$ に移るので，示された．
+\end{proof}
+
+以降では $\mathbb{K}$ を標数 $0$ の体とする．
+$G = \LGL(n,\, \mathbb{K})$ の場合に $\Adj(G)$-不変多項式を探そう．
+$\Lgl(n,\, \mathbb{K}) = \Mat{n}{\mathbb{K}}$ だから，\hyperref[def:polynomial]{$\Lgl (n,\, \mathbb{K})$ 上の多項式}とは $\mathbb{K}$-結合代数 $\mathbb{K}[t^i{}_j] \cong \mathbb{K}[t_1,\, \dots,\, t_{n^2}]$ の元のことである．
+\exref{ex:gl-adj}より，$\LGL(n,\, \mathbb{K})$ の随伴表現は
+\begin{align}
+    \Adj \colon G \lto \Lgl(n\, \mathbb{K}),\; g \lmto (X \lmto gXg^{-1})
+\end{align}
+と書ける．
+
+\begin{mylem}[label=lem:invariant-gl]{}
+    \begin{itemize}
+        \item \hyperref[def:invariant]{$\Adj(\LGL (n,\, \mathbb{K}))$-不変多項式}  $P \in \mathbb{K}[t^i{}_j]$
+        \item 単位的 $\mathbb{K}$-結合代数 $R$
+    \end{itemize}
+    を与える．このとき $\forall g \in \LGL (n,\, \mathbb{K}),\; \forall X \in \Mat{n,\, R}$ に対して
+    \begin{align}
+        P \bigl( g Xg^{-1} \bigr) = P(X)
+    \end{align}
+\end{mylem}
+
+\begin{proof}
+    $\forall g \in \LGL (n,\, \mathbb{K})$ について，不変多項式の定義および補題\ref{lem:polynomial-eval-injective}から
+    \begin{align}
+        P_g (t^i{}_j) \coloneqq P(\elem{gtg^{-1}}{i}{j}) - P(t^i{}_j) \in \mathbb{K}[t^i{}_j]
+    \end{align}
+    はゼロ多項式である．よって単射 $\mathbb{K} \lto R,\; x \lmto x \cdot 1$ が誘導する埋め込み $\mathbb{K}[t^i{}_j] \hookrightarrow \mathbb{R}[t^i{}_j]$ によって $P_g (t^i{}_j) \in \mathbb{R}[t^i{}_j]$ と見做すと $P_g (t^i{}_j) = 0$ であり，補題\ref{lem:polynomial-eval-injective}から
+    \begin{align}
+        P_g (X) = P(gXg^{-1}) - P(X) = 0 \IFF P(gXg^{-1}) = P(X)
+    \end{align}
+    が従う．
+\end{proof}
+
+ここで，
+\begin{align}
+    c(t^i{}_j,\, \lambda) \coloneqq \det(\lambda \unity_n + \bigl[ \,t^i{}_j\, \bigr] ) \in \mathbb{Z}[t^i{}_j,\, \lambda]
+\end{align}
+を考える．$\lambda$ について項を整理することで $r$ 個の $c_k (t^i{}_j) \in \mathbb{Z}[t^i{}_j]$
+\begin{align}
+    c(t^i{}_j,\, \lambda) 
+    &\eqqcolon \lambda^n + c_1(t^i{}_j) \lambda^{n-1} + \cdots \\
+    &= \sum_{k=0}^n c_k(t^i{}_j) \lambda^{n-k}
+\end{align}
+を得る．補題\ref{lem:Z-extension}により $c(t^i{}_j,\, \lambda) \in \mathbb{K}[t^i{}_j,\, \lambda],\;  c_k (t^i{}_j) \in \mathbb{K}[t^i{}_j]$ と見做してもこの等式は成り立つ．
+
+\begin{myprop}[label=prop:det-coeff-invariant]{$c_k(t^i{}_j)$ は不変多項式}
+    $\mathbb{K}$ を標数 $0$ の体とする．このとき $c_k (t^i{}_j) \in \mathbb{K}[t^i{}_j]$ は\hyperref[label]{$\Adj(\LGL(n,\, \mathbb{K}))$-不変多項式}である．
+\end{myprop}
+
+\begin{proof}
+    $R = \mathbb{K}[t^i{}_j,\, \lambda]$ の場合に命題\ref{prop:lem-invariant-gl}を使うと，$\forall g \in \LGL(n,\, \mathbb{K})$ および $\forall X \in  \coloneqq \Mat{n,\, \mathbb{K}[t^i{}_j,\, \lambda]}$ に対して
+    \begin{align}
+        \det \bigl( g X g^{-1}\bigr) = \det(X)
+    \end{align}
+    がわかる．$X = \bigl[ \, \lambda \delta^i_j + t^i{}_j \bigr]$ の場合を考えれば
+    \begin{align}
+        c(t^i{}_j,\, \lambda) = \det(X) = \det(gXg^{-1}) = c(\elem{gtg^{-1}}{i}{j},\, \lambda)
+    \end{align}
+    がわかり，示された．
+\end{proof}
+
+
+\begin{myexample}[label=def:Chern-class]{複素の場合}
+    $\mathbb{K} = \mathbb{C}$ の場合を考える．$\mathbb{C}$ は無限体だから，補題\ref{lem:polynomial-eval-injective}より $\mathbb{C}$-係数多項式と多項式函数を同一視できる．
+
+    　$\Lgl(n,\, \mathbb{C})$ の部分集合
+    \begin{align}
+        \uirm{\Lgl(n,\, \mathbb{C})}{d} \coloneqq \bigl\{\, X \in \Lgl(n,\, \mathbb{C}) \bigm| \text{対角化可能} \,\bigr\} 
+    \end{align}
+    を考える．$X \in \Lgl(n,\ \mathbb{C}) \setminus \uirm{\Lgl(n,\, \mathbb{C})}{d} \IFF X$ の特性方程式 $f_X(\lambda) \coloneqq \det(\lambda \unity_n - X)$ とその微分 $f_X'(\lambda)$ が共通の根を持つ $\IFF$ $f_X,\, f_X' \in \mathbb{C}[\lambda]$ のSylvester行列式 (\textbf{resultant}とも言う) $\mathrm{res}(f_X,\, f'_X) = 0$
+    であるが，写像 $\varphi \colon \Lgl(n,\, \mathbb{C}) \lto \mathbb{C},\, X \lmto \mathrm{res}(f_X,\, f'_X)$ は行列の成分に関する多項式函数なので $C^\infty$ 関数であり，$\Lgl(n,\ \mathbb{C}) \setminus \uirm{\Lgl(n,\, \mathbb{C})}{d} = \varphi^{-1}(\{0\})$ は余次元 $1$ の部分多様体である．従って $\uirm{\Lgl(n,\, \mathbb{C})}{d}$ は $\Lgl(n,\, \mathbb{C})$ 上稠密である．
+
+    　ここで，$\mathbb{C}$-結合代数の準同型
+    \begin{align}
+        \rho \colon \mathrm{Inv} \bigl( \Lgl(n,\, \mathbb{C}) \bigr) &\lto \mathbb{C}[t_1,\,\dots,\, t_n] \\
+        P(t^i{}_j) &\lmto \left( (\lambda_1,\,\dots,\, \lambda_n) \lmto P|_{\uirm{\Lgl(n,\, \mathbb{C})}{d}} \left(\mqty[\dmat{\lambda_1,\ddots,\lambda_n}] \right)\, \right)
+    \end{align}
+    を考える．$P$ が不変多項式であることから，対称群 $\mathfrak{S}_n$ の $\mathbb{C}^n$ への作用
+    \begin{align}
+        \sigma \btr (\lambda_1,\,\dots,\, \lambda_n) \coloneqq (\lambda_{\sigma(1)},\, \dots,\, \lambda_{\sigma(n)})
+    \end{align}
+    について $\Im \rho$ は不変である．よって $\rho$ の値域を $n$ 変数の対称多項式の空間 $\mathbb{C}[t_1,\,\dots,\, t_n]^{\mathrm{Sym}}$ に制限することができる．
+
+    ここで $\forall P \in \Ker \rho$ をとる．このとき $\forall X \in \uirm{\Lgl(n,\, \mathbb{C})}{d}$ について $P(X) = 0$ であるが，$\uirm{\Lgl(n,\, \mathbb{C})}{d}$ が稠密なので，多項式函数 $P(X)$ の連続性から $\forall X \in \Lgl(n,\, \mathbb{C})$ に対して $P(X) = 0$ が言える．i.e. $\rho$ は単射である．
+    一方，$\forall \lambda \in \mathbb{C}$ に関して，$k$ 次の基本対称式 $\sigma_k \in \mathbb{Z}[t_1,\, \dots,\, t_n] \subset \mathbb{C} [t_1,\, \dots,\, t_n]$ を使って
+    \begin{align}
+        \rho \bigl( c(t^i{}_j,\, \lambda) \bigr) (\lambda_1,\, \dots,\, \lambda_n)
+        &= \det \left( \lambda \unity_n + \mqty[\dmat{\lambda_1,\ddots,\lambda_n}] \right) \\
+        &= \prod_{i=1}^n (\lambda + \lambda_i) \\
+        &= \sum_{k=0}^n \sigma_k(\lambda_1,\, \dots,\, \lambda_n) \lambda^{n-k}
+    \end{align}
+    と書けるので 
+    \begin{align}
+        \rho \bigl( c_k(t^i{}_j) \bigr) = \sigma_k
+    \end{align}
+    であり，$\mathbb{C}[t_1,\,\dots,\, t_n]^{\mathrm{Sym}}$ は $\sigma_1,\, \dots,\, \sigma_n$ によって生成されるので，$\rho$ が全射であることが分かった．つまり $\rho$ は $\mathbb{C}$-結合代数の同型写像であり，
+    \begin{align}
+        \mathrm{Inv} \bigl( \Lgl(n,\, \mathbb{C}) \bigr) = \mathbb{C} \bigl[ c_1(t^i{}_j),\, \dots,\, c_n(t^i{}_j) \bigr] 
+    \end{align}
+    が分かった．全く同様の議論により
+    \begin{align}
+        \mathrm{Inv} \bigl( \Lu(n,\, \mathbb{C}) \bigr) = \mathbb{C} \bigl[ c_1(t^i{}_j),\, \dots,\, c_n(t^i{}_j) \bigr] 
+    \end{align}
+    もわかる．
+\end{myexample}
+
+\begin{mydef}[label=def:Chern-class]{Chern類}
+    \begin{itemize}
+        \item 階数 $n$ の複素ベクトル束 $V \hookrightarrow E \xrightarrow{\pi} M$
+        \item $E$ の\hyperref[def:connection-vect]{接続} $\nabla^E \colon \Gamma(E) \lto \Omega^1(M;\, E)$
+    \end{itemize}
+    を与える．
+    \begin{enumerate}
+        \item \textbf{全Chern形式}とは，
+        \begin{align}
+            \bm{c (R^{\nabla^E})} \coloneqq \det \left( \mathrm{id}_E + \frac{\iunit}{2\pi} R^{\nabla^E} \right) \in \Omega^{\bullet}(M) \otimes_{\mathbb{R}} \mathbb{C}
+        \end{align}
+        のこと．\textbf{第$\bm{k}$-Chern形式} ($k$-th Chern form) とは，
+        \begin{align}
+            \bm{c_k (R^{\nabla^E})} \coloneqq c_k \left( \frac{\iunit}{2\pi} R^{\nabla^E} \right) \in \Omega^{2k}(M) \otimes_{\mathbb{R}} \mathbb{C}
+        \end{align}
+        のこと．
+        \item \textbf{全Chern類} (total Chern class) とは，
+        \begin{align}
+            \bm{c(E)} \coloneqq \bigl[ c (R^{\nabla^E}) \bigr] \in \irm{H}{dR}^{\bullet} (M;\, \mathbb{C})
+        \end{align}
+        のこと．\textbf{第$\bm{k}$-Chern類} ($k$-th Chern class) とは，
+        \begin{align}
+            \bm{c_k (E)} \coloneqq \bigl[ c_k(R^{\nabla^E}) \bigr] \in \irm{H}{dR}^{2k} (M;\, \mathbb{C})
+        \end{align}
+        のこと．
+    \end{enumerate}
+\end{mydef}
 
 
 \subsection{特性類のホモトピー論的扱い}

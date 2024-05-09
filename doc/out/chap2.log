@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  8 MAY 2024 03:08
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  8 MAY 2024 22:19
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/t2space/Desktop/Seminors/TQFT/doc/chap2.tex
@@ -1232,7 +1232,11 @@ warning  (map file): entry for 'ascgrp' already exists, duplicates ignored
 Package: lltjp-array 2019-07-18 Patch to array for LuaTeX-ja
 )
 Package translations Info: No language package found. I am going to use `english' as default language. on input line 3.
- (./out/chap2.aux)
+ (./out/chap2.aux
+
+LaTeX Warning: Label `def:Chern-class' multiply defined.
+
+)
 \openout1 = chap2.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
@@ -1712,7 +1716,18 @@ Overfull \hbox (7.95374pt too wide) detected at line 3236
 [][]
  []
 
-[61] [62] [63] [64] [65] [66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80] (./out/chap2.aux)
+[61] [62] [63] [64] [65] [66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80] [81] [82]
+
+LaTeX Warning: Hyper reference `label' on page 83 undefined on input line 4282.
+
+
+LaTeX Warning: Reference `prop:lem-invariant-gl' on page 83 undefined on input line 4286.
+
+\matrixtoks=\toks74
+\matrixtoks=\toks75
+\matrixtoks=\toks76
+\matrixtoks=\toks77
+[83] [84] [85] (./out/chap2.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -1721,24 +1736,27 @@ L3 programming layer <2024-02-20>
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `chap2.out' has not changed.
 (rerunfilecheck)             Checksum: 93F541BA30E4BB841BCF30C0904BE6B9;1005.
 )
 
 Here is how much of LuaTeX's memory you used:
- 54339 strings out of 476447
+ 54380 strings out of 476447
  305782,2373549 words of node,token memory allocated
- 81804 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 53 glue, 4 kern, 2 sub_mlist, 1 glyph, 36989 attribute, 62 glue_spec, 3375 attribute_list, 2 write, 14 user_defined, 12 pdf_action nodes
-   avail lists: 1:62,2:43195,3:1576,4:1483,5:713,6:61,7:6464,8:100,9:3509,10:29,11:32
- 74686 multiletter control sequences out of 65536+600000
+ 83748 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 53 glue, 4 kern, 2 sub_mlist, 1 glyph, 37880 attribute, 62 glue_spec, 3456 attribute_list, 2 write, 14 user_defined, 12 pdf_action nodes
+   avail lists: 1:62,2:49257,3:1576,4:1483,5:716,6:61,7:6464,8:100,9:3509,10:29,11:32
+ 74711 multiletter control sequences out of 65536+600000
  134 fonts using 83956599 bytes
- 145i,20n,144p,1914b,1543s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 145i,28n,144p,1914b,1543s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmmono8-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman8-bold.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman9-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib5.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/doublestroke/dsrom8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/euler/eufb10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on chap2.pdf (80 pages, 1114855 bytes).
+Output written on chap2.pdf (85 pages, 1149313 bytes).
 
-PDF statistics: 1682 PDF objects out of 1728 (max. 8388607)
- 1319 compressed objects within 14 object streams
- 371 named destinations out of 1000 (max. 131072)
+PDF statistics: 1734 PDF objects out of 2073 (max. 8388607)
+ 1366 compressed objects within 14 object streams
+ 387 named destinations out of 1000 (max. 131072)
  64 words of extra memory for PDF output out of 10000 (max. 100000000)
 

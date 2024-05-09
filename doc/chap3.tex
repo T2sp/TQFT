@@ -485,16 +485,18 @@ $\mathcal{M}$ に計量 $g_{\mu\nu}$ が与えられたとき，\textbf{音楽�
 \end{align}
 と定義する．
 
-$\mathcal{M}$ の $p$ 次元部分多様体\footnote{コンパクトかつ向き付け可能だとしておけば問題が起こりにくい．} $\mathcal{N} \subset \mathcal{M}$ 上で $p$-形式 $\omega \in \Omega^p(\mathcal{M})$ を積分する場合，包含写像 $\iota \colon \mathcal{N} \hookrightarrow \mathcal{M}$ による引き戻し $\iota^* \colon \Omega^p(\mathcal{M}) \lto \Omega^p(\mathcal{N})$ を用いて
+
+
+$\mathcal{M}$ の $p$ 次元部分多様体\footnote{コンパクトな埋め込まれた $C^\infty$ 多様体と仮定する．} $\mathcal{N}^{(p)} \subset \mathcal{M}$ 上で $p$-形式 $\omega \in \Omega^p(\mathcal{M})$ を積分する場合，包含写像 $\iota \colon \mathcal{N}^{(p)} \hookrightarrow \mathcal{M}$ による引き戻し $\iota^* \colon \Omega^p(\mathcal{M}) \lto \Omega^p(\mathcal{N}^{(p)})$ を用いて
 \begin{align}
-    \int_{\mathcal{N}} \omega \coloneqq \int_\mathcal{N} \iota^*\omega
+    \int_{\mathcal{N}} \omega \coloneqq \int_{\mathcal{N}^{(p)}} \iota^*\omega
 \end{align}
 と定義する．このとき，Poincar\'{e}双対を考えることで
 \begin{align}
-    \int_{\mathcal{N}} \omega = \int_{\mathcal{M}} \omega \wedge \delta(\mathcal{N})
+    \int_{\mathcal{N}} \omega = \int_{\mathcal{M}} \omega \wedge \delta(\mathcal{N}^{(p)})
 \end{align}
-を充たす $\delta(\mathcal{N}) \in \Omega^{D+1-p}(\mathcal{M})$ （\textbf{デルタ関数 $p$-形式}と呼ぶ）の存在がわかる\footnote{厳密な扱いは~\cite[p.270]{Nicolaescu2022lecture}を参照．ここでは雑に扱う．}．
-さて，$\mathcal{N} = \partial \mathcal{M}^{(p+1)}$ の場合を考える．
+を充たす $\delta(\mathcal{N}^{(p)}) \in \Omega^{D+1-p}(\mathcal{M})$ （\textbf{デルタ関数 $p$-形式}と呼ぶ）の存在がわかる\footnote{厳密な扱いは~\cite[p.270]{Nicolaescu2022lecture}を参照．ここでは雑に扱う．}．
+さて，$\mathcal{N}^{(p)} = \partial \mathcal{M}^{(p+1)}$ の場合を考える．
 $\forall \omega \in \Omega^p (\mathcal{M})$ に対してStokesの定理から
 \begin{align}
     \int_{\mathcal{M}} \omega \wedge \delta(\partial \mathcal{M}^{(p+1)}) 
@@ -753,7 +755,11 @@ $D+1$ 次元部分多様体 $\mathcal{M}^{(D+1)} \subset \mathbb{M}$ であっ�
 
 \exref{ex:3-1}は，荷電物体が $0$ 次元に分布していた．これを $p$ 次元部分多様体上に分布した物体に置き換えることで $p$-form symmetry の概念が得られる~\cite[p.10]{GaiottoKapustinSeibergWillett2015}：
 
-\begin{mydef}[label=def:p-form-sym]{$p$-form symmetry}
+\begin{marker}
+    以下で部分多様体といったときは，技術的な理由からコンパクトな埋め込まれた $C^\infty$ 多様体を指すものとする．
+\end{marker}
+
+\begin{mydef}[label=def:p-form-sym,breakable]{$p$-form symmetry}
     $D+1$ 次元の場の量子論が群 $G$ による\textbf{$\bm{p}$-form symmetry}を持つとは，
     時空 $\mathcal{M}$ の任意の $D-p$ 次元部分多様体 $\mathcal{M}^{(D-p)} \subset \mathcal{M}$ および $\forall g \in G$ に対して
     \textbf{対称性演算子(トポロジカル演算子)}（topological operator) $U_g (\mathcal{M}^{(D-p)})$ が存在して以下を充たすことを言う：
@@ -857,20 +863,21 @@ $D+1$ 次元部分多様体 $\mathcal{M}^{(D+1)} \subset \mathbb{M}$ であっ�
 \subsection{対称性の自発的破れ}
 
 まずは通常の対称性（$0$-form symmetry）の場合を考える．
-系がLie群 $G$ で特徴付けられる $0$-form symmetry を持つ場合を考えよう．このとき，無限小な対称性変換はLie代数 $\mathfrak{g}$ の基底 $T_A \in \mathfrak{g}$ を用いて\footnote{苦肉の策だが，Lie代数の添字を $A,\, B,\, C,\, \dots$ とする．} 
-$\mathcal{T}_{\iunit\varepsilon^A T_A \varphi}$ と書けるので
-\footnote{場がベクトル束の切断として定式化されている場合，これは厳密には $G$ の（ファイバーに作用する）表現の微分表現を考えていることになる．今の場合，物理の慣習に従って $G$ は線型Lie群で，かつファイバーへの作用は基本表現だと思っているのでさほど問題にはならない．}
+系がLie群 $G$ で特徴付けられる $0$-form symmetry を持つ場合を考えよう．ただし群は場へ表現 $\rho \colon G \lto \LGL(N,\, \mathbb{K})$ として作用しているとする．
+このとき，無限小な対称性変換はLie代数 $\mathfrak{g}$ の基底 $T^A \in \mathfrak{g}$ および微分表現 $\rho_* \colon \mathfrak{g} \lto \Lgl (N,\, \mathbb{K})$ を用いて\footnote{苦肉の策だが，Lie代数の添字を $A,\, B,\, C,\, \dots$ とする．} 
+$\mathcal{T}_{\iunit\varepsilon_A \rho_*(T^A)(\varphi)}$ と書けるので
+% \footnote{場がベクトル束の切断として定式化されている場合，これは厳密には $G$ の（ファイバーに作用する）表現の微分表現を考えていることになる．今の場合，物理の慣習に従って $G$ は線型Lie群で，かつファイバーへの作用は基本表現だと思っているのでさほど問題にはならない．}
 ，Noetherの定理より on shell な保存則\eqref{eq:conservation-Noether-df}を充たす $\dim G$ 個のNoetherカレント\eqref{eq:Noether-current} $j_A\quad (A = 1,\, \dots,\, \dim G)$ が存在し，
-それに付随して $\dim G$ 個の保存電荷 $Q_A(\mfd{D}) = \int_{\mfd{D}} \star j_A$ が存在して対称性変換の無限小生成子\eqref{eq:generator-Q}となるのだった．
+それに付随して $\dim G$ 個の保存電荷 $Q_A(\mfdcal{M}{D}) = \int_{\mfdcal{M}{D}} \star j_A$ が存在して対称性変換の無限小生成子\eqref{eq:generator-Q}となるのだった．
 
 さて，Noetherの定理によって特徴付けられる対称性は必ずしも系の基底状態 $\ket{0}$ の対称性にならない．i.e. \underline{形式的には}
 \begin{enumerate}
     \item $1 \le \forall A \le \dim G,\; \hat{Q}_A \ket{0} = 0$
     \item $1 \le \exists A \le \dim G,\; \hat{Q}_A \ket{0} \neq 0$
 \end{enumerate}
-の2つの場合\footnote{もしくは，$U_g(\mfd{D}) \ket{0} = \ket{0}$ としても良い．}があり得る．(1) の場合，系は対称性を実現している，または系は\textbf{Wigner相} (Wigner phase) にあると言い，(2) の場合，系の対称性が\textbf{自発的に破れた}，または系は\textbf{Nambu-Goldstone相} (Nambu-Goldstone phase) にあると言う\cite[p.1]{Kugo1989qft2}．
+の2つの場合\footnote{もしくは，$U_g(\mfdcal{M}{D}) \ket{0} = \ket{0}$ としても良い．}があり得る．(1) の場合，系は対称性を実現している，または系は\textbf{Wigner相} (Wigner phase) にあると言い，(2) の場合，系の対称性が\textbf{自発的に破れた}，または系は\textbf{Nambu-Goldstone相} (Nambu-Goldstone phase) にあると言う\cite[p.1]{Kugo1989qft2}．
 $0$-form symmetry の言葉に翻訳すると，\textbf{対称性の自発的破れ} (spontaneous symmetry breaking; SSB) とは，$0$-form symmetry を特徴付けるLie群 $G$ がその部分群 $H \subset G$ に縮小していることを指す\footnote{考えている場が構造群 $G$ を持つ\hyperref[def.fiber-1]{ファイバー束}として定式化されている場合，SSBは数学的には\textbf{構造群の収縮} (reduction of structure group) として定式化できる．}．
-SSBを特徴付けるには，上述のように素朴には $\hat{Q}_A \ket{0} \neq 0$ を充たす $1 \le A \le \dim G$ が存在するかどうかを確認すれば良いように見えるが，$\mel{0}{\hat{Q}_A \hat{Q}_A}{0} \propto \int_{\mfd{D}} \star 1$ なので\footnote{\textbf{Fabri–Picassoの定理}~\cite{FabriPicasso1966qft}}熱力学極限において $\hat{Q}_A\ket{0}$ は定義できない．
+SSBを特徴付けるには，上述のように素朴には $\hat{Q}_A \ket{0} \neq 0$ を充たす $1 \le A \le \dim G$ が存在するかどうかを確認すれば良いように見えるが，$\mel{0}{\hat{Q}_A \hat{Q}_A}{0} \propto \vol(\mfdcal{M}{D})$ なので\footnote{\textbf{Fabri–Picassoの定理}~\cite{FabriPicasso1966qft}}熱力学極限において $\hat{Q}_A\ket{0}$ は定義できない．
 そこで，代わりにある局所演算子（i.e. compactly supportedな演算子）$\hat{\mathcal{O}}(x)$ が存在して
 \begin{align}
     \label{def:0form-order-param}
@@ -913,31 +920,31 @@ SSBを特徴付けるには，上述のように素朴には $\hat{Q}_A \ket{0} 
     と定義する．
     QFTの一般論から，場の演算子の真空期待値 $\varphi_0 \coloneqq \mel{0}{\hat{\varphi}(x)}{0}$ に対して $\varphi_0 = \mathrm{argmin}\;  V(\varphi)$ であることが知られている．
 
-    簡単のため $G$ が線型Lie群で，系の対称性変換が $\mathcal{T}_{\iunit \varepsilon^A T_A \varphi}\; (A = 1,\, \dots,\, \dim G)$ と書ける場合を考える．
+    簡単のため $G$ が線型Lie群で，系の対称性変換が $\mathcal{T}_{\iunit \varepsilon_A \rho_*(T^A)(\varphi)}\; (A = 1,\, \dots,\, \dim G)$ と書ける場合を考える．
     \eqref{eq:generator-Q}を思い出すと，このとき
     \begin{align}
-        \comm{\iunit \hat{Q^A}}{\hat{\varphi}(x)} = \iunit T_A \hat{\varphi}(x)
+        \comm{\iunit \hat{Q^A}}{\hat{\varphi}(x)} = \iunit \rho_*(T^A)\bigl(\hat{\varphi}(x)\bigr)
     \end{align}
     が成り立つ．    
     $\Gamma[\varphi],\, V[\varphi]$ もこの変換の下で不変なので
     \begin{align}
-        &V(\varphi + \iunit \varepsilon^A T_A \varphi) = V(\varphi) \\
-        \IMP &\pdv{V(\varphi)}{\varphi_a} T_A{}_{ab} \varphi_b = 0 \\
-        \IMP &\pdv[2]{V(\varphi)}{\varphi_a}{\varphi_b} T_A{}_{bc} \varphi_c + \pdv{V(\varphi)}{\varphi_b} T_A{}_{ba} = 0 \label{eq:NG-rel-1}
+        &V(\varphi + \iunit \varepsilon^A \rho_*(T^A) \varphi) = V(\varphi) \\
+        \IMP &\pdv{V(\varphi)}{\varphi_a} \uelem{\rho_*(T^A)}{a}{b} \varphi_b = 0 \\
+        \IMP &\pdv[2]{V(\varphi)}{\varphi_a}{\varphi_b} \uelem{\rho_*(T^A)}{b}{c} \varphi_c + \pdv{V(\varphi)}{\varphi_b} \uelem{\rho_*(T^A)}{a}{b} \varphi_b = 0 \quad (1 \le \forall a \le N) \label{eq:NG-rel-1}
     \end{align}
     ここで条件 (2) から
     \begin{align}
-        \mel{0}{\comm{\iunit \hat{Q_A}}{\hat{\varphi}(x)}}{0} = \iunit T_A \mel{0}{\hat{\varphi}(x)}{0}
+        \mel{0}{\comm{\iunit \hat{Q_A}}{\hat{\varphi}(x)}}{0} = \iunit \rho_*(T^A)(\, \mel{0}{\hat{\varphi}(x)}{0} \,)
         \begin{cases}
-            =0, &T_A \in \mathfrak{h},  \\
-            \neq 0, &T_A \notin \mathfrak{h}
+            =0, &T^A \in \mathfrak{h},  \\
+            \neq 0, &T^A \notin \mathfrak{h}
         \end{cases}
     \end{align}
     が成り立つので，
     $v \coloneqq \mel{0}{\hat{\varphi}(x)}{0}$ とおくと，\eqref{eq:NG-rel-1}より破れた対称性に対応する任意の $1 \le A \le \dim G$ に対して
     \begin{align}
         \label{eq:NG-rel-2}
-        v \neq 0 \AND \eval{\pdv[2]{V(\varphi)}{\varphi_a}{\varphi_b}}_{\varphi = v} T_A v = 0
+        v \neq 0 \AND \eval{\pdv[2]{V(\varphi)}{\varphi_a}{\varphi_b}}_{\varphi = v} \uelem{\rho_*(T^A)(v)}{b}{} = 0 \quad (1 \le \forall a \le N)
     \end{align}
     が成り立たねばならない．
     ところで，真空期待値が $0$ になる場を $\tilde{\varphi}(x) \coloneqq \varphi(x) - v$ で定義すると
@@ -945,9 +952,100 @@ SSBを特徴付けるには，上述のように素朴には $\hat{Q}_A \ket{0} 
         V(\varphi) = V(v) + \frac{1}{2} \eval{\pdv[2]{V(\varphi)}{\varphi_a}{\varphi_b}}_{\varphi = v} \tilde{\varphi}_a \tilde{\varphi}_b + \order{\tilde{\varphi}^3}
     \end{align}
     となるから，行列 $\left[\eval{\pdv[2]{V(\varphi)}{\varphi_a}{\varphi_b}}_{\varphi = v}\right]_{1 \le a,\, b \le \dim G}$ を対角化した固有値が粒子の質量の2乗を与える．
-    従って\eqref{eq:NG-rel-2}から，$T_A \notin \mathfrak{h}$ ならば $T_A v$ がこの行列の固有値 $0$ に対応する固有ベクトル，i.e. ゼロ質量のNG粒子であることが分かった．
+    従って\eqref{eq:NG-rel-2}から，$T^A \notin \mathfrak{h}$ ならば $\rho_*(T^A)(v)$ がこの行列の固有値 $0$ に対応する固有ベクトル，i.e. ゼロ質量のNG粒子であることが分かった．
     % 厳密な証明は少しややこしいので，Lie群 $G$ に関する $0$-form symmetry を持った実スカラー場 $\phi_a$ の系を考える．
 \end{proof}
+
+
+NGモードの存在がわかったので，次にNG粒子を記述する有効ラグランジアンの構成法を考える．
+% $\mathfrak{h} \hookrightarrow \mathfrak{g}$ の基底を $S^A$，$\mathfrak{g} \setminus \mathfrak{h}$ に属する $\mathfrak{g}$ の基底を $X^A$ と書いて区別する．
+破れた対称性はLie群 $G/H$ で特徴付けられるはずである．
+標準的射影 $p \colon G \lto G/H$ について $T_{1_G} p \colon \mathfrak{g} \lto \mathrm{Lie}(G/H)$  は全射であるが，$X \in \mathfrak{h} \IFF T_{1_G}p (X) = T_{0}(p \circ \exp_G) \left( \eval{\dv{}{t}}_{t=0} \right)=0$ なので $\mathfrak{h} \subset \Ker T_{1_G} p$ がわかり，次元を考えることで $\Ker T_{1_G} p = \mathfrak{h}$ が言える．よって準同型定理から $\mathfrak{g}/\mathfrak{h} \cong \mathrm{Lie}(G/H)$ である．
+このとき $\mathfrak{g}/\mathfrak{h}$ の基底を $X^A + \mathfrak{h}\WHERE A=1,\, \dots,\, \dim G - \dim H$ と書くと，$X^A \in \mathfrak{g} \setminus \mathfrak{h}$ が $\mathfrak{g}$ において線型独立であるように選べるから，$T^A$ のうち $\mathfrak{h}$ に属さないものとすることができる．
+命題\ref{prop:exp}より可換図式
+\begin{center}
+    \begin{tikzcd}[row sep=large, column sep=large]
+        &\mathfrak{g} \ar[r,"T_{1_G} p"]\ar[d,"\exp_G"] &\mathrm{Lie}(G/H) \cong \mathfrak{g}/\mathfrak{h} \ar[d,"\exp_{G/H}"] \\
+        &G \ar[r,"p"] &G/H
+    \end{tikzcd}
+\end{center}
+が成り立つから，$[g] \in G/H$ の代表元として
+\begin{align}
+    \exp_G\bigl(\iunit \pi_A(x)X^A\bigr) \in G
+\end{align}
+を選ぶことができる．この $\dim G - \dim H$ 成分場 $\pi \colon M \lto \mathbb{R}^{\dim G - \dim H}$ のことを\textbf{NGボゾン場}と呼ぶ．
+このとき，大域的な $\forall g \in G$ の作用に応じた場 $\pi$ の変換 $\pi \lmto \pi'$ は
+\begin{align}
+    [\exp_G\bigl(\iunit \pi_A(x)X^A\bigr)] \lmto [g \exp_G\bigl(\iunit \pi_A(x)X^A\bigr)] \eqqcolon [\exp_G \bigl( \iunit \pi'_A(x) X^A \bigr) ]
+\end{align}
+となるから，顕にはある $h(g,\, \pi) \in H$ を使って
+\begin{align}
+    \label{eq:NGB-transform}
+    \exp_G \bigl( \iunit \pi'_A(x) X^A \bigr) = g \exp_G\bigl(\iunit \pi_A(x)X^A\bigr) h(g,\, \pi)
+\end{align}
+と書くことができる．$g \in H$ のときは任意の $\pi$ について
+\begin{align}
+    [\exp_G \bigl( \iunit \pi'_A(x) X^A \bigr) ] = [g \exp_G\bigl(\iunit \pi_A(x)X^A\bigr)] = [\exp_G\bigl(\iunit \pi_A(x)X^A\bigr)]
+\end{align}
+でなくてはいけないから $h(g,\, \pi) = g^{-1}$ であり，\eqref{eq:NGB-transform}を $0 \in \mathfrak{h}$ において微分することで $\pi(x)$ が
+\begin{align}
+    \pi'(x)
+    &= \Adj(g)\bigl(\pi(x)\bigr)
+\end{align}
+なる線形変換を受けることがわかる．一方で $g \in G \setminus H$ のときは変換則\eqref{eq:NGB-transform}は $\pi(x)$ について非線形である．
+
+NGボゾン場の項を含むラグランジアンは，$G$-不変でなくてはいけない．そのためには\hyperref[def:Maurer-Cartan]{Maurer-Cartan形式} $\theta \in \Omega^1(G;\, g)$ を使う．これを $C^\infty$ 写像 $\xi \coloneqq \exp_G \bigl( \iunit \pi(\mhyphen) \bigr) \colon \mathcal{M} \lto G$ で引き戻すことで左不変な $\xi^* \theta \in \Omega^1(\mathcal{M};\, \mathfrak{g})$ を得る．
+$\mathfrak{h}$ 成分と $\mathfrak{g} \setminus \mathfrak{h}$ 成分に分離して
+\begin{align}
+    \xi^* \theta = \underbrace{\xi^* \theta_{\parallel}}_{\in\mathfrak{h}} + \underbrace{\xi^* \theta_{\perp}}_{\in \mathfrak{g} \setminus \mathfrak{h}}
+\end{align}
+と書く．行列Lie群の場合に成分表示を求めると
+\begin{align}
+    \xi^*\theta|_x (\partial_\mu) = \theta_{\xi(x)} \left( T_x \xi (\partial_\mu) \right) = \xi(x)^{-1} \partial_\mu \xi(x)
+\end{align}
+である．変換則\eqref{eq:NGB-transform}から，$\forall g \in G$ に関する大域的な変換について
+\begin{align}
+    \xi(x)^{-1} \partial_\mu \xi(x) \lmto h^{-1}(g,\, \pi) \xi(x)^{-1} \partial_\mu \xi(x) h(g,\, \pi) +  \underbrace{h^{-1}(g,\, \pi) \partial_\mu h(g,\, \pi)}_{\in \mathfrak{h}}
+\end{align}
+となる．i.e. $\Tr(\xi^* \theta_{\perp}) \in \Omega^1(M)$ がNGボゾン場の変換\eqref{eq:NGB-transform}について整合的である．よって微分の次数が $2$ 次のLagrangianが
+\begin{align}
+    \irm{\mathcal{L}}{NGB} \coloneqq - \frac{1}{2}\Tr(\xi^* \theta_{\perp}\wedge \star \xi^* \theta_{\perp}) 
+\end{align}
+で与えられる\footnote{このウェッジ積は普通のものではなく，$\omega = \omega_A T^A,\, \eta = \eta_A T^A$ と展開して $\omega \wedge \eta \coloneqq \frac{1}{2} \omega_A \wedge \eta_B \comm{T^A}{T^B} \in \Omega^{p+q}(M;\, \mathfrak{g})$ と定義した．}．低エネルギーの時は $\pi$ の最低次までとる．
+\begin{align}
+    \xi(x)^{-1} \partial_\mu \xi(x) = \frac{1-e^{-\iunit \ad(\pi)}}{\iunit \ad(\pi)} (\partial_\mu \pi) = \partial_\mu \pi - \frac{\iunit}{2!} \comm{\pi}{\partial_\mu \pi} + \order{\pi^2 \partial_\mu \pi}
+\end{align}
+なので
+\begin{align}
+    \irm{\mathcal{L}}{NGB} = -\frac{1}{2} \partial_\mu \pi_A  \partial^\mu \pi_B \Tr \bigl(X^AX^B \bigr) 
+\end{align}
+である．$g^{AB} \coloneqq \Tr \bigl(X^AX^B \bigr)$ は $\mathfrak{g}$ の規格化条件にもよるが，多様体 $G/H$ の計量テンソルになっている．
+
+次に物質場との結合を記述する方法を考える．物質場 $\psi$ の値域は破れていない対称性 $H$ の既約表現 $\rho_H \colon H \lto \LGL(\mathcal{H})$ の表現空間 $\mathcal{H}$ だと考えて良い．$\forall g \in G$ による変換則は\eqref{eq:NGB-transform}の $h(g,\, \pi) \in H$ を使って
+\begin{align}
+    \label{eq:NGB-matter}
+    \psi(x) \lmto \rho_0 \bigl( h(g,\, \pi)^{-1} \bigr) \bigl( \psi(x) \bigr) 
+\end{align}
+と定義すると，前述の議論から $g = h \in H$ のときは $\psi \lmto \rho_0(h)(\psi)$ と変換するので整合的である．$G$ の既約表現 $\rho \colon G \lto \LGL(\irm{\mathcal{H}}{ext})$ であって，$H$ の表現と見做して既約表現の直和に分解した際に $\rho_0$ を直和因子の1つに持つようなものを与えたとき，標準的包含 $\mathcal{H} \hookrightarrow \irm{\mathcal{H}}{ext}$ によって $\psi$ を送った先を $\widehat{\psi}$ とおくと，新しい場
+\begin{align}
+    \chi(x) \coloneqq  \rho \bigl( \xi(\pi) \bigr) \bigl( \widehat{\psi}(x) \bigr) 
+\end{align}
+は，$\forall g \in G$ による大域的変換の下で
+\begin{align}
+    \chi(x)
+    \lmto 
+    &\rho \bigl( g\xi(\pi) h(g,\, \pi) \bigr) \bigl( \widehat{\rho_0(h(g,\, \pi)^{-1})(\psi)}(x) \bigr) \\
+    &=\rho (g) \circ \rho\bigl(\xi(\pi)\bigr) \circ \rho \bigl(h(g,\, \pi) \bigr) \circ \rho\bigl(h(g,\, \pi)\bigr)^{-1}\bigl(\widehat{\psi}(x) \bigr) \\
+    &=\rho(g) \bigl( \chi(x) \bigr) 
+\end{align}
+の変換を受ける．$\psi$ をそのまま扱うよりも $\chi \colon \mathcal{M} \lto \irm{\mathcal{H}}{ext}$ について $G$-不変なLagrangianを書き下す方が簡単であり，$\chi$ はNGBと物質場の相互作用も記述してくれる．
+
+最後に，これまで大域的対称性だと思っていた群 $G$ を局所的対称性にすることでゲージ場を導入する（\textbf{ゲージ化}）．そのためにはMaurer-Cartan形式の $\partial_\mu$ を共変微分に置き換えれば良く，NGBとゲージ場との結合はそれで決まる．
+
+
+
+
+
 
 
 一方，定理\ref{thm:NG-relativistic}のLorentz共変性の条件 (1) を外すと話はややこしくなる．
@@ -1008,7 +1106,7 @@ $0$ 次対称性の場合と同様に，$p$ 次対称性の自発的破れを議
 \end{align}
 であるが，これは $\mathcal{M}^{(D-p)},\, \mathcal{C}^{(p)}$ が共に閉多様体だと微妙なところがある．
 
-~\cite[p.5-6]{Lake2018SSB}に倣って，系が並進対称性を持つ場合にギャップレスな励起が存在することをざっと確認しよう．演算子形式で議論するので，時間一定面 $\mathcal{M}^(D) \subset \mathcal{M}$ を1つ固定し，
+~\cite[p.5-6]{Lake2018SSB}に倣って，系が並進対称性を持つ場合にギャップレスな励起が存在することをざっと確認しよう．演算子形式で議論するので，時間一定面 $\mathcal{M}^{(D)} \subset \mathcal{M}$ を1つ固定し，
 微妙なことが起こらないように $\mathcal{M}^{(D-p)} \subset \mathcal{M}^{(D)}$ が境界を持つとする．
 保存則 $\dd \star j = 0$ を充たすカレント $\star j$ および\underline{$\mathcal{M}^{(D)}$ に関する}デルタ関数形式 $\delta^D(\mathcal{M}^{(D-p)})$ を使って $Q(\mathcal{M}^{(D-p)}) = \int_{\mathcal{M}^{(D)}} \star j \wedge \delta^D(\mathcal{M}^{(D-p)})$ と書ける．
 並進対称性から $\mel{0}{\star \hat{j} \wedge \delta^D(\mathcal{M}^{(D-p)})(x)}{n} = e^{\iunit p_n \cdot x} \mel{0}{\star \hat{j} \wedge \delta^D(\mathcal{M}^{(D-p)})(0)}{n}$ が成り立つので
@@ -1036,7 +1134,7 @@ $0$ 次対称性の場合と同様に，$p$ 次対称性の自発的破れを議
 \end{mytheo}
 
 \begin{proof}
-    ~\cite[text]{Lake2018SSB}
+    ~\cite[p.23]{Lake2018SSB}
 \end{proof}
 
 \end{document}
