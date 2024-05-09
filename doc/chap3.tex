@@ -462,7 +462,7 @@ $Z(M) \in V(\partial M) = Z(\Sigma_1)^* \otimes Z(\Sigma_2) \cong \Hom{\mathbb{K
 \end{align}
 を指すことにしよう．
 
-\section{一般化対称性}
+\section{連続な高次対称性}
 
 エニオンのフュージョン則を議論する前に少し寄り道をして，\cite{hidaka2022g-sym}, \cite{GaiottoKapustinSeibergWillett2015}に倣って\textbf{一般化対称性} (generalized symmetry)\footnote{\textbf{高次対称性} (higher form symmetry) と呼ばれることもある．} の話をする．
 この節では自然単位系を使う．
@@ -960,7 +960,9 @@ SSBを特徴付けるには，上述のように素朴には $\hat{Q}_A \ket{0} 
 NGモードの存在がわかったので，次にNG粒子を記述する有効ラグランジアンの構成法を考える．
 % $\mathfrak{h} \hookrightarrow \mathfrak{g}$ の基底を $S^A$，$\mathfrak{g} \setminus \mathfrak{h}$ に属する $\mathfrak{g}$ の基底を $X^A$ と書いて区別する．
 破れた対称性はLie群 $G/H$ で特徴付けられるはずである．
-標準的射影 $p \colon G \lto G/H$ について $T_{1_G} p \colon \mathfrak{g} \lto \mathrm{Lie}(G/H)$  は全射であるが，$X \in \mathfrak{h} \IFF T_{1_G}p (X) = T_{0}(p \circ \exp_G) \left( \eval{\dv{}{t}}_{t=0} \right)=0$ なので $\mathfrak{h} \subset \Ker T_{1_G} p$ がわかり，次元を考えることで $\Ker T_{1_G} p = \mathfrak{h}$ が言える．よって準同型定理から $\mathfrak{g}/\mathfrak{h} \cong \mathrm{Lie}(G/H)$ である．
+まず，$\mathrm{Lie}(G/H) \cong \mathfrak{g}/\mathfrak{h}$ に注意する
+\footnote{標準的射影 $p \colon G \lto G/H$ について $T_{1_G} p \colon \mathfrak{g} \lto \mathrm{Lie}(G/H)$  は全射であるが，$X \in \mathfrak{h} \IFF T_{1_G}p (X) = T_{0}(p \circ \exp_G) \left( \eval{\dv{}{t}}_{t=0} \right)=0$ なので $\mathfrak{h} \subset \Ker T_{1_G} p$ がわかり，次元を考えることで $\Ker T_{1_G} p = \mathfrak{h}$ が言える．よって準同型定理から $\mathfrak{g}/\mathfrak{h} \cong \mathrm{Lie}(G/H)$ である．}
+．
 このとき $\mathfrak{g}/\mathfrak{h}$ の基底を $X^A + \mathfrak{h}\WHERE A=1,\, \dots,\, \dim G - \dim H$ と書くと，$X^A \in \mathfrak{g} \setminus \mathfrak{h}$ が $\mathfrak{g}$ において線型独立であるように選べるから，$T^A$ のうち $\mathfrak{h}$ に属さないものとすることができる．
 命題\ref{prop:exp}より可換図式
 \begin{center}
@@ -973,7 +975,7 @@ NGモードの存在がわかったので，次にNG粒子を記述する有効�
 \begin{align}
     \exp_G\bigl(\iunit \pi_A(x)X^A\bigr) \in G
 \end{align}
-を選ぶことができる．この $\dim G - \dim H$ 成分場 $\pi \colon M \lto \mathbb{R}^{\dim G - \dim H}$ のことを\textbf{NGボゾン場}と呼ぶ．
+を選ぶことができる．この $\dim G - \dim H$ 成分場 $\pi \colon M \lto \mathrm{Lie} (G/H)$ のことを\textbf{NGボゾン場}と呼ぶ．
 このとき，大域的な $\forall g \in G$ の作用に応じた場 $\pi$ の変換 $\pi \lmto \pi'$ は
 \begin{align}
     [\exp_G\bigl(\iunit \pi_A(x)X^A\bigr)] \lmto [g \exp_G\bigl(\iunit \pi_A(x)X^A\bigr)] \eqqcolon [\exp_G \bigl( \iunit \pi'_A(x) X^A \bigr) ]
@@ -1013,7 +1015,10 @@ $\mathfrak{h}$ 成分と $\mathfrak{g} \setminus \mathfrak{h}$ 成分に分離�
 \end{align}
 で与えられる\footnote{このウェッジ積は普通のものではなく，$\omega = \omega_A T^A,\, \eta = \eta_A T^A$ と展開して $\omega \wedge \eta \coloneqq \frac{1}{2} \omega_A \wedge \eta_B \comm{T^A}{T^B} \in \Omega^{p+q}(M;\, \mathfrak{g})$ と定義した．}．低エネルギーの時は $\pi$ の最低次までとる．
 \begin{align}
-    \xi(x)^{-1} \partial_\mu \xi(x) = \frac{1-e^{-\iunit \ad(\pi)}}{\iunit \ad(\pi)} (\partial_\mu \pi) = \partial_\mu \pi - \frac{\iunit}{2!} \comm{\pi}{\partial_\mu \pi} + \order{\pi^2 \partial_\mu \pi}
+    \xi(x)^{-1} \partial_\mu \xi(x) 
+    &= \frac{1-e^{-\iunit \ad(\pi(x))}}{\iunit \ad(\pi(x))} \bigl(\partial_\mu \pi(x)\bigr) \\
+    &= \sum_{n=0}^\infty \frac{(-\iunit)^{n}}{(n+1)!} \ad\bigl(\pi(x)\bigr)^{n} \bigl(\partial_\mu \pi(x)\bigr) \\
+    &= \partial_\mu \pi(x) - \frac{\iunit}{2!} \comm{\pi(x)}{\partial_\mu \pi(x)} + \order{\pi^2 \partial_\mu \pi}
 \end{align}
 なので
 \begin{align}
@@ -1039,7 +1044,8 @@ $\mathfrak{h}$ 成分と $\mathfrak{g} \setminus \mathfrak{h}$ 成分に分離�
     &=\rho(g) \bigl( \chi(x) \bigr) 
 \end{align}
 の変換を受ける．$\psi$ をそのまま扱うよりも $\chi \colon \mathcal{M} \lto \irm{\mathcal{H}}{ext}$ について $G$-不変なLagrangianを書き下す方が簡単であり，$\chi$ はNGBと物質場の相互作用も記述してくれる．
-最後に，これまで大域的対称性だと思っていた群 $G$ を局所的対称性にすることでゲージ場を導入する（\textbf{ゲージ化}）．そのためにはMaurer-Cartan形式の $\partial_\mu$ を共変微分に置き換えれば良く，NGBとゲージ場との結合はそれで決まる．
+最後に，これまで大域的対称性だと思っていた群 $G$ の作用を局所的対称性にするために背景ゲージ場を導入する（\textbf{ゲージ化}）．そのためにはMaurer-Cartan形式の $\partial_\mu$ を共変微分に置き換えれば良く，NGBと背景ゲージ場との結合はそれで決まる．
+
 
 
 
@@ -1082,22 +1088,36 @@ $\mathfrak{h}$ 成分と $\mathfrak{g} \setminus \mathfrak{h}$ 成分に分離�
 
 \subsection{高次対称性の自発的破れ}
 
-$0$ 次対称性の場合と同様に，$p$ 次対称性の自発的破れを議論することができる．この場合，秩序変数はある適当な関数（系によって異なる） $A(\mathcal{C}^{(p)})$ を使って
+この小節と次の小節では\underline{時空 $\mathcal{M}$ は境界を持たないと仮定する}\footnote{境界がある場合の取り扱いは~\cite{Lake2018SSB}に書いてある．}．
+$0$ 次対称性の場合と同様に，$p$ 次対称性の自発的破れを議論することができる．$p$-form symmetryの場合，トロポジカル演算子は $p+1$-form背景ゲージ場と等価であった．$0$-formの場合からの類推で，NGボゾン場は背景 $p+1$-formゲージ場のゲージ変換によってシフトするはずだが，$p+1$-formゲージ場 $B_{p+1}$ のゲージ変換は $p$-form $\Lambda_p$ により $B_{p+1} \lmto B_{p+1} + \dd{\Lambda_p}$ の形をしているので，NGボゾン場は $p$-formである．
+
+$p$-form symmetryの秩序変数は荷電物体の真空期待値であり，一般に $\mfdcal{C}{p} \subset \mathcal{M}$ に依存する何らかの関数 $F(\mfdcal{C}{p})$ を使って
+% はある適当な関数（系によって異なる） $A(\mathcal{C}^{(p)})$ を使って
 \begin{align}
     \label{def:pform-order-param}
-    \lim_{\mathcal{C}^{(p)} \to \infty} \expval{U_g (\mathcal{M}^{(D-p)}) A(\mathcal{C}^{(p)}) V(\mathcal{C}^{(p)})} = \lim_{\mathcal{C}^{(p)} \to \infty} \expval{A(\mathcal{C}^{(p)}) R_g \bigl( V(\mathcal{C}^{(p)})\bigr)} \neq 0
+    % \lim_{\mathcal{C}^{(p)} \to \infty} \expval{U_g (\mathcal{M}^{(D-p)}) A(\mathcal{C}^{(p)}) V(\mathcal{C}^{(p)})} = \lim_{\mathcal{C}^{(p)} \to \infty} \expval{A(\mathcal{C}^{(p)}) R_g \bigl( V(\mathcal{C}^{(p)})\bigr)} \neq 0
+    \expval{V(\mfdcal{C}{p})} \sim e^{-F(\mfdcal{C}{p})}
 \end{align}
-とすれば良い．ここに，$\mathcal{C}^{(p)} \to \infty$ は $\mathcal{C}^{(p)} \subset \mathcal{M}$ の「面積」$\mathrm{Area}(\mathcal{C}^{(p)}) \coloneqq \min \bigl\{\, \mathrm{vol}(\mathcal{M}^{(p+1)}) \bigm| \partial \mathcal{M}^{(p+1)} = \mathcal{C}^{(p)} \,\bigr\}$ を大きくとる極限を意味する．
-この極限における荷電物体の真空期待値の典型的な振る舞いは
+の振る舞いをする．SSBを特徴づける典型的な振る舞いは
 \begin{align}
-    \expval{V(\mathcal{C}^{(p)})} \sim 
+    \lim_{\vol (\mfdcal{C}{p}) \lto \infty} \Re \left[ \frac{F(\mfdcal{C}{p})}{\vol (\mfdcal{C}{p})} \right] 
     \begin{cases}
-        e^{- \sigma\, \mathrm{Area}(\mathcal{C}^{(p)})} , & \text{unbroken} \\
-        e^{- \mu\, \mathrm{len}(\mathcal{C}^{(p)})} , & \text{broken}
+        < \infty, &\text{SSB} \\
+        = \infty, &\text{unbroken}
     \end{cases}
 \end{align}
-というもので，このとき $\lim_{\mathcal{C}^{(p)} \to \infty} f(\mathcal{C}^{(p)}) = \sigma\, \mathrm{Area}(\mathcal{C}^{(p)})$ なる関数 $f(\mathcal{C}^{(p)})$ を使って $A(\mathcal{C}^{(p)}) \coloneqq e^{+ f(\mathcal{C}^{(p)})}$ と定めることで\eqref{def:SSB-p-form}が得られる．
-\eqref{def:pform-order-param}は，\textbf{非対角長距離秩序} (Off Diagonal Long Range Order; ODLRO) の一般化だと見做せる\footnote{というのは，通常のODLROは $\lim_{\abs{x-y} \to \infty} \expval{\hat{\varphi}(x) \hat{\varphi}(y)} \neq 0$ となるものだが，これを点 $x,\, y \in \mathcal{M}$ を結ぶ線分 $\mathcal{C}^{(1)} \subset \mathcal{M}$ を使って $\lim_{\partial \mathcal{C}^{(1)} \to \infty} \expval{\hat{\varphi}(\partial \mathcal{C}^{(1)})} \neq 0$ と書ける．}
+というものである．SSBが起こったと言うのは，荷電演算子を
+\begin{align}
+    \widehat{V}(\mfdcal{C}{p}) \coloneqq e^{- c \int_{\mfdcal{C}{p}} \star_{\mfdcal{C}{p}} 1} V(\mfdcal{C}{p})
+\end{align}
+とくりこむことで
+\begin{align}
+    \lim_{\vol (\mfdcal{C}{p}) \lto \infty} \expval{V(\mfdcal{C}{p})} \neq 0
+\end{align}
+を充たすようにできると言う意味がある．
+
+
+% \eqref{def:pform-order-param}は，\textbf{非対角長距離秩序} (Off Diagonal Long Range Order; ODLRO) の一般化だと見做せる\footnote{というのは，通常のODLROは $\lim_{\abs{x-y} \to \infty} \expval{\hat{\varphi}(x) \hat{\varphi}(y)} \neq 0$ となるものだが，これを点 $x,\, y \in \mathcal{M}$ を結ぶ線分 $\mathcal{C}^{(1)} \subset \mathcal{M}$ を使って $\lim_{\partial \mathcal{C}^{(1)} \to \infty} \expval{\hat{\varphi}(\partial \mathcal{C}^{(1)})} \neq 0$ と書ける．}
 
 演算子形式ではどうなるのだろうか？\eqref{def:0form-order-param}の素朴な一般化は
 \begin{align}
@@ -1123,6 +1143,14 @@ $0$ 次対称性の場合と同様に，$p$ 次対称性の自発的破れを議
 となる．次元を数えることでいつでも $\mathcal{C}^{(p)} \cap \partial\mathcal{M}^{(D-p)} = \emptyset$ にできることがわかるので結局右辺は $0$ だとわかる．
 よってもし $\expval{\comm{\iunit \hat{Q}(\mathcal{M}^{(D-p)})}{V(\mathcal{C}^{(p)})}} \neq 0$ ならば $\bm{p} = 0$ のときに $E_n = 0$ となるような $n$ が存在する．
 
+\begin{myexample}[label=ex:4dYM-1formSSB]{$3+1$ 次元のYang-Mills理論}
+    
+\end{myexample}
+
+\begin{myexample}[label=ex:U1-1formSSB]{$\LU(1)$ ゲージ理論}
+    
+\end{myexample}
+
 \subsection{高次対称性のColeman-Mermin-Wagnerの定理}
 
 通常のColeman-Mermin-Wagnerの定理は，連続的 $0$ 次対称性が $1+1$ 次元以下では自発的に破れないことを主張する．
@@ -1133,7 +1161,32 @@ $0$ 次対称性の場合と同様に，$p$ 次対称性の自発的破れを議
 \end{mytheo}
 
 \begin{proof}
-    ~\cite[p.23]{Lake2018SSB}
+    より詳細な扱いは~\cite[p.23]{Lake2018SSB}を参照．ここではとても雑に示す．
+
+    $D+1$ 次元Euclid時空 $\mathcal{M}$ の自由かつmasslessな $p$-form場（これは $p$-form NGボゾン場のつもりである） $B_p \in \Omega^p(\mathcal{M})$ の理論
+    \begin{align}
+        S = \frac{1}{2} \int_{\mathcal{M}} \dd{B_p} \wedge \star \dd{B_p}
+    \end{align}
+    を考える．$B_p$ の2点関数の長距離における振る舞いを見る．そのためには参照点を1つ固定し，その点を原点に持つ $D+1$ 次元極座標 $(r,\, \theta^1,\, \dots,\, \theta^D)$ を $r$ が十分大きいところでとる．
+    このときのGreen関数の $r$ 依存性を見ればよい：
+    \begin{align}
+        \dd{\star \dd{G_p (r,\, \theta^\mu)}} = 0
+    \end{align}
+    外微分したときに $\partial_r \dd{r} \wedge$ が生き残るのは $\dd{\theta^{\mu_1}} \wedge \cdots \wedge \dd{\theta^{\mu_p}}$ の項のみである．また，自然基底の規格化のために $r \dd{\theta^{\mu}}$ を考えないといけないので，結局 $p$-formの
+    \begin{align}
+        \uirm{G_p}{ang}{}_{\mu_1,\, \dots,\, \mu_p} r^p \dd{\theta^{\mu_1}} \wedge \cdots \wedge \dd{\theta^{\mu_p}}
+    \end{align}
+    の部分を見ないと意味がない．よって
+    \begin{align}
+        \frac{1}{r^{D+1-p}} \partial_r \left( r^{D+1-(p+1)} \frac{1}{r^{p}} \partial_r \bigl( r^p\, G(r) \bigr) \right) = 0
+    \end{align}
+    と言うことであり，$G(r) \sim r^{-(d-p-1)}$ である．このことから，$d-p-1 > 0$ でないと2点関数が $r \to \infty$ で発散することになり，$p$-form NGボゾン場がill-definedである．i.e. $p \ge D-1$-form symmetryは自発的に破れない．
+
 \end{proof}
+
+\subsection{アノマリー}
+
+
+% ゲージ変換 $B_p \lmto B_p + \dd{\lambda_{p-1}}$ 
 
 \end{document}

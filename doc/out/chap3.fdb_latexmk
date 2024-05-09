@@ -1,6 +1,6 @@
 # Fdb version 4
-["lualatex"] 1715262069 "/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/chap3.tex" "out/chap3.pdf" "chap3" 1715262084 0
-  "/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/chap3.tex" 1715262052 78285 7ba7c178847ee30c40705747549f30f8 ""
+["lualatex"] 1715271830 "/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/chap3.tex" "out/chap3.pdf" "chap3" 1715271845 0
+  "/Users/takamatoshinori/Desktop/Seminors/TQFT/doc/chap3.tex" 1715271813 81184 2a451f3083e84357253ed7763fdf7957 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/haranoajigothic-medium.luc" 1680092069 1875369 563a49d56453118cc2bc098475a23186 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/haranoajimincho-regular.luc" 1680092052 1961878 305e540f3545673854903467c3d18712 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmmono8-regular.luc" 1688109666 81440 437a625e82075788cf1866975f3b9db1 ""
@@ -126,6 +126,7 @@
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1248133631 32587 1788b0c1c5b39540c96f5e42ccd6dae8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb" 1248133631 30457 bc0868ebece724ed7c3d37e3d9bff7bd ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb" 1248133631 30273 87a352d78b6810ae5cfdc68d2fb827b2 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb" 1248133631 39386 0bb525d495ceab21fe797301a586e0d7 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb" 1336858727 21098 d4aee7c0aac232caac5688b586b9363c ""
@@ -579,9 +580,9 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1680072210 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/luahbtex/lualatex.fmt" 1680072074 11876436 fe019cd16c56b2a02a7f439a19527237 ""
   "TQFT_main.tex" 1715261526 8166 525d4f35a47958053219c82199444398 ""
-  "chap3.tex" 1715262052 78285 7ba7c178847ee30c40705747549f30f8 ""
-  "out/chap3.aux" 1715262082 8089 53abb4252e00593541138f2fd91e7548 "lualatex"
-  "out/chap3.out" 1715262082 401 cffeb7e6b460aad561d68be964d36cc2 "lualatex"
+  "chap3.tex" 1715271813 81184 2a451f3083e84357253ed7763fdf7957 ""
+  "out/chap3.aux" 1715271844 8396 61d94ab209857fe65d484e11db5c34b8 "lualatex"
+  "out/chap3.out" 1715271844 417 2358f0a5b05df43c4299d44d39fa7afe "lualatex"
   (generated)
   "out/chap3.aux"
   "out/chap3.log"
