@@ -1,5 +1,5 @@
 # Fdb version 4
-["lualatex"] 1715328889.90731 "/Users/t2space/Desktop/Seminors/TQFT/doc/chap3.tex" "out/chap3.pdf" "chap3" 1715328895.47227 0
+["lualatex"] 1715369262.77819 "/Users/t2space/Desktop/Seminors/TQFT/doc/chap3.tex" "out/chap3.pdf" "chap3" 1715369268.0309 0
   "/Users/t2space/.texlive2024/texmf-var/luatexja/extra_haranoajigothic-medium.luc" 1713940386.96661 321567 b621f22d8756ce34ffefd38a77b4acf3 ""
   "/Users/t2space/.texlive2024/texmf-var/luatexja/extra_haranoajimincho-regular.luc" 1713940383.7797 322628 d20f0ffa861b722e5c5287dd9970780e ""
   "/Users/t2space/.texlive2024/texmf-var/luatexja/extra_lmmono8-regular.luc" 1713940390.33787 16824 23892767334ecabb2c4ff28d41e2558d ""
@@ -23,7 +23,7 @@
   "/Users/t2space/.texlive2024/texmf-var/luatexja/ltj-cid-auto-adobe-japan1.luc" 1713940372.80962 1643739 68dd47a24c6a550cb20f9f8d401527b7 ""
   "/Users/t2space/.texlive2024/texmf-var/luatexja/ltj-jisx0208.luc" 1713940383.94329 93919 1f6dc76354e6e3b148c06f9f9254f22e ""
   "/Users/t2space/.texlive2024/texmf-var/luatexja/ltj-kinsoku_default.luc" 1713940373.05825 17654 e3e3c85f63c77f4caa824d338e2428e0 ""
-  "/Users/t2space/Desktop/Seminors/TQFT/doc/chap3.tex" 1715328889.60733 90489 4fbf1e787e9af7c50e967eccb329b332 ""
+  "/Users/t2space/Desktop/Seminors/TQFT/doc/chap3.tex" 1715369256.97982 97354 82d7788e4e4c44c3e86d6324e7763e01 ""
   "/Users/t2space/texmf/tex/latex/myalgebra/myalgebra.sty" 1715238398.88424 4233 e497361eef7f3b56c5eaabd3822f4fad ""
   "/Users/t2space/texmf/tex/latex/mygeometry/mygeometry.sty" 1714634775.98137 1715 58fd59255249907f3221e78973397150 ""
   "/Users/t2space/texmf/tex/latex/mylogics/mylogics.sty" 1713939869.11478 1666 33c2f2cffbcd861013bb5112ac0c4e02 ""
@@ -40,6 +40,7 @@
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman8-bold.otf" 1710106625 112404 bd8026cc46bc23039d2282e4eb9db13a ""
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf" 1710106625 111948 cee9e390fd6d23cfb4d6871ba2a9ee5b ""
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf" 1710106625 107448 a9e5b7aaaf5f74194deee407f2fd1552 ""
+  "/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmsans10-regular.otf" 1710106625 95128 317da301f5d16ce70da8e5df556bc592 ""
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf" 1710106625 94828 113f623892fb158753639cc67f23e192 ""
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1710106625 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1710106625 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -586,10 +587,10 @@
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-var/luatex-cache/generic/fonts/otl/lmsans17-regular.luc" 1713940387.02511 127882 b8d7a71c3bd08503ed8c25d415893190 ""
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz" 1713940381.29139 392169 761aebf286ec9a259a4f39b89786274f ""
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-var/web2c/luahbtex/lualatex.fmt" 1710106625 12261507 7025fdccb966c68d8c3038e530158b7a ""
-  "TQFT_main.tex" 1715238128.23951 8166 525d4f35a47958053219c82199444398 ""
-  "chap3.tex" 1715328889.60733 90489 4fbf1e787e9af7c50e967eccb329b332 ""
-  "out/chap3.aux" 1715328894.956 8692 166fac1cbb5a7de5ab09369c17d2ef95 "lualatex"
-  "out/chap3.out" 1715328894.95722 543 13623ebc752aeb2e81802cddf9e1b7b5 "lualatex"
+  "TQFT_main.tex" 1715367302.41367 8350 0dbf9ca2972aaa8ffad2ecabc3a88db0 ""
+  "chap3.tex" 1715369256.97982 97354 82d7788e4e4c44c3e86d6324e7763e01 ""
+  "out/chap3.aux" 1715369267.52692 9289 f5269560390789aa275fbc147c3d8ea0 "lualatex"
+  "out/chap3.out" 1715369267.52814 543 13623ebc752aeb2e81802cddf9e1b7b5 "lualatex"
   (generated)
   "out/chap3.aux"
   "out/chap3.log"

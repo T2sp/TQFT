@@ -54,31 +54,34 @@
 \contentsline {subsection}{\numberline {3.2.1}Atiyahの公理系}{105}{subsection.3.2.1}%
 \contentsline {section}{\numberline {3.3}連続な高次対称性}{107}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}通常の対称性}{108}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}高次対称性}{113}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.2}連続的高次対称性}{113}{subsection.3.3.2}%
 \contentsline {subsection}{\numberline {3.3.3}対称性の自発的破れ}{116}{subsection.3.3.3}%
 \contentsline {subsection}{\numberline {3.3.4}高次対称性の自発的破れ}{121}{subsection.3.3.4}%
 \contentsline {subsection}{\numberline {3.3.5}高次対称性のColeman-Mermin-Wagnerの定理}{122}{subsection.3.3.5}%
-\contentsline {subsection}{\numberline {3.3.6}アノマリー}{123}{subsection.3.3.6}%
-\contentsline {chapter}{\numberline {付録A}結び目理論入門}{124}{appendix.A}%
-\contentsline {chapter}{\numberline {付録B}ベクトル場の話}{125}{appendix.B}%
-\contentsline {section}{\numberline {B.1}接束}{127}{section.B.1}%
-\contentsline {section}{\numberline {B.2}ベクトル場の定義}{129}{section.B.2}%
-\contentsline {subsection}{\numberline {B.2.1}$C^\infty $ 関数の微分としてのベクトル場}{131}{subsection.B.2.1}%
-\contentsline {subsection}{\numberline {B.2.2}ベクトル場と $C^\infty $ 写像}{133}{subsection.B.2.2}%
-\contentsline {subsection}{\numberline {B.2.3}Lieブラケット}{135}{subsection.B.2.3}%
-\contentsline {section}{\numberline {B.3}積分曲線とフロー}{136}{section.B.3}%
-\contentsline {subsection}{\numberline {B.3.1}積分曲線}{136}{subsection.B.3.1}%
-\contentsline {subsection}{\numberline {B.3.2}フロー}{140}{subsection.B.3.2}%
-\contentsline {subsection}{\numberline {B.3.3}完備なベクトル場}{146}{subsection.B.3.3}%
-\contentsline {section}{\numberline {B.4}Lie微分}{147}{section.B.4}%
-\contentsline {section}{\numberline {B.5}$C^\infty $ ベクトル束}{150}{section.B.5}%
-\contentsline {chapter}{\numberline {付録C}QFTミニマム}{153}{appendix.C}%
-\contentsline {section}{\numberline {C.1}経路積分}{153}{section.C.1}%
-\contentsline {chapter}{\numberline {付録D}$C^\infty $ 多様体の話}{155}{appendix.D}%
-\contentsline {section}{\numberline {D.1}沈めこみ・はめ込み・埋め込み}{155}{section.D.1}%
-\contentsline {subsection}{\numberline {D.1.1}局所微分同相写像}{160}{subsection.D.1.1}%
-\contentsline {subsection}{\numberline {D.1.2}ランク定理}{162}{subsection.D.1.2}%
-\contentsline {subsection}{\numberline {D.1.3}$C^\infty $ 埋め込み}{168}{subsection.D.1.3}%
-\contentsline {section}{\numberline {D.2}部分多様体}{169}{section.D.2}%
-\contentsline {section}{\numberline {D.3}Sardの定理}{169}{section.D.3}%
-\contentsline {chapter}{参考文献}{170}{appendix*.7}%
+\contentsline {subsection}{\numberline {3.3.6}$0$ 次対称性のアノマリー}{123}{subsection.3.3.6}%
+\contentsline {subsection}{\numberline {3.3.7}高次対称性のアノマリー}{125}{subsection.3.3.7}%
+\contentsline {section}{\numberline {3.4}離散的な高次対称性}{127}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}離散的ゲージ理論}{127}{subsection.3.4.1}%
+\contentsline {chapter}{\numberline {付録A}結び目理論入門}{128}{appendix.A}%
+\contentsline {chapter}{\numberline {付録B}ベクトル場の話}{129}{appendix.B}%
+\contentsline {section}{\numberline {B.1}接束}{131}{section.B.1}%
+\contentsline {section}{\numberline {B.2}ベクトル場の定義}{133}{section.B.2}%
+\contentsline {subsection}{\numberline {B.2.1}$C^\infty $ 関数の微分としてのベクトル場}{135}{subsection.B.2.1}%
+\contentsline {subsection}{\numberline {B.2.2}ベクトル場と $C^\infty $ 写像}{137}{subsection.B.2.2}%
+\contentsline {subsection}{\numberline {B.2.3}Lieブラケット}{139}{subsection.B.2.3}%
+\contentsline {section}{\numberline {B.3}積分曲線とフロー}{140}{section.B.3}%
+\contentsline {subsection}{\numberline {B.3.1}積分曲線}{140}{subsection.B.3.1}%
+\contentsline {subsection}{\numberline {B.3.2}フロー}{144}{subsection.B.3.2}%
+\contentsline {subsection}{\numberline {B.3.3}完備なベクトル場}{150}{subsection.B.3.3}%
+\contentsline {section}{\numberline {B.4}Lie微分}{151}{section.B.4}%
+\contentsline {section}{\numberline {B.5}$C^\infty $ ベクトル束}{154}{section.B.5}%
+\contentsline {chapter}{\numberline {付録C}QFTミニマム}{157}{appendix.C}%
+\contentsline {section}{\numberline {C.1}経路積分}{157}{section.C.1}%
+\contentsline {chapter}{\numberline {付録D}$C^\infty $ 多様体の話}{159}{appendix.D}%
+\contentsline {section}{\numberline {D.1}沈めこみ・はめ込み・埋め込み}{159}{section.D.1}%
+\contentsline {subsection}{\numberline {D.1.1}局所微分同相写像}{164}{subsection.D.1.1}%
+\contentsline {subsection}{\numberline {D.1.2}ランク定理}{166}{subsection.D.1.2}%
+\contentsline {subsection}{\numberline {D.1.3}$C^\infty $ 埋め込み}{172}{subsection.D.1.3}%
+\contentsline {section}{\numberline {D.2}部分多様体}{173}{section.D.2}%
+\contentsline {section}{\numberline {D.3}Sardの定理}{173}{section.D.3}%
+\contentsline {chapter}{参考文献}{174}{appendix*.7}%

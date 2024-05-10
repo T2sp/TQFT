@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex out/TQFT_main"] 1715321509.46837 "out/TQFT_main.aux" "out/TQFT_main.bbl" "out/TQFT_main" 1715321522.30514 0
-  "./TQFTrefs.bib" 1715321470.54339 16524 4c5051036422baeb936e890c1a2f2146 ""
+["bibtex out/TQFT_main"] 1715367255.88735 "out/TQFT_main.aux" "out/TQFT_main.bbl" "out/TQFT_main" 1715367315.98766 0
+  "./TQFTrefs.bib" 1715366079.38307 16899 25e9389931a424317a193b94f51b38ba ""
   "./myh-physrev.bst" 1713872347.35097 17141 2e35e7d2990544349d72280dee109834 ""
-  "out/TQFT_main.aux" 1715321521.52063 42011 5ac7ae962dcd1bf604b6fbad1ee1dfd8 "lualatex"
+  "out/TQFT_main.aux" 1715367315.03952 43250 6ff0c111b54ede04d9ed8b9e32f16ebc "lualatex"
   (generated)
   "out/TQFT_main.bbl"
   "out/TQFT_main.blg"
   (rewritten before read)
-["lualatex"] 1715321509.53939 "/Users/t2space/Desktop/Seminors/TQFT/doc/TQFT_main.tex" "out/TQFT_main.pdf" "TQFT_main" 1715321522.30536 0
+["lualatex"] 1715367302.71384 "/Users/t2space/Desktop/Seminors/TQFT/doc/TQFT_main.tex" "out/TQFT_main.pdf" "TQFT_main" 1715367315.98792 0
   "/Users/t2space/.texlive2024/texmf-var/luatexja/extra_haranoajigothic-medium.luc" 1713940386.96661 321567 b621f22d8756ce34ffefd38a77b4acf3 ""
   "/Users/t2space/.texlive2024/texmf-var/luatexja/extra_haranoajimincho-regular.luc" 1713940383.7797 322628 d20f0ffa861b722e5c5287dd9970780e ""
   "/Users/t2space/.texlive2024/texmf-var/luatexja/extra_lmmono10-regular.luc" 1713954288.41413 16824 23892767334ecabb2c4ff28d41e2558d ""
@@ -34,7 +34,7 @@
   "/Users/t2space/.texlive2024/texmf-var/luatexja/ltj-cid-auto-adobe-japan1.luc" 1713940372.80962 1643739 68dd47a24c6a550cb20f9f8d401527b7 ""
   "/Users/t2space/.texlive2024/texmf-var/luatexja/ltj-jisx0208.luc" 1713940383.94329 93919 1f6dc76354e6e3b148c06f9f9254f22e ""
   "/Users/t2space/.texlive2024/texmf-var/luatexja/ltj-kinsoku_default.luc" 1713940373.05825 17654 e3e3c85f63c77f4caa824d338e2428e0 ""
-  "/Users/t2space/Desktop/Seminors/TQFT/doc/TQFT_main.tex" 1715238128.23951 8166 525d4f35a47958053219c82199444398 ""
+  "/Users/t2space/Desktop/Seminors/TQFT/doc/TQFT_main.tex" 1715367302.41367 8350 0dbf9ca2972aaa8ffad2ecabc3a88db0 ""
   "/Users/t2space/texmf/tex/latex/myalgebra/myalgebra.sty" 1715238398.88424 4233 e497361eef7f3b56c5eaabd3822f4fad ""
   "/Users/t2space/texmf/tex/latex/mygeometry/mygeometry.sty" 1714634775.98137 1715 58fd59255249907f3221e78973397150 ""
   "/Users/t2space/texmf/tex/latex/mylogics/mylogics.sty" 1713939869.11478 1666 33c2f2cffbcd861013bb5112ac0c4e02 ""
@@ -637,19 +637,19 @@
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-var/luatex-cache/generic/fonts/otl/lmsans8-regular.luc" 1713954287.66515 127616 885d6858d691a43238c062d755ff6553 ""
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz" 1713940381.29139 392169 761aebf286ec9a259a4f39b89786274f ""
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-var/web2c/luahbtex/lualatex.fmt" 1710106625 12261507 7025fdccb966c68d8c3038e530158b7a ""
-  "TQFT_main.tex" 1715238128.23951 8166 525d4f35a47958053219c82199444398 ""
+  "TQFT_main.tex" 1715367302.41367 8350 0dbf9ca2972aaa8ffad2ecabc3a88db0 ""
   "appendixA.tex" 1713872347.34951 1490 3791366ead13f430ffe8ae3ba63813d7 ""
   "appendixB.tex" 1714634775.86209 99592 3e1008765300aa204b7170b7aba27fd8 ""
   "appendixC.tex" 1713872347.34978 7468 39eee1728734c9dab81a279db144547f ""
   "appendixD.tex" 1713872347.34995 49063 e84f72282bd5e2ea4bf87ccb0ea9f063 ""
   "chap1.tex" 1713872347.35008 32036 28cfa099702a469a6767c20d28c77084 ""
-  "chap2.tex" 1715174347.03249 314770 eb54de9143505fb817af4e015f6aa5bb ""
-  "chap3.tex" 1715303704.81128 83732 369caeaac33dbdeb0750886336814fdb ""
+  "chap2.tex" 1715327869.25015 314778 bc5b7f5bc480de4b78acc20244628ac7 ""
+  "chap3.tex" 1715367270.37216 96083 785a98fb800fbea6bb0772b282b4a645 ""
   "figs/braidg_generator.png" 1713872347.35086 28870 82bd8c0c3f8819a343ed42fbe50ef37c ""
-  "out/TQFT_main.aux" 1715321521.52063 42011 5ac7ae962dcd1bf604b6fbad1ee1dfd8 "lualatex"
-  "out/TQFT_main.bbl" 1715321509.53165 3233 12ccc0c38946d7bcee4917a498ed6cc8 "bibtex out/TQFT_main"
-  "out/TQFT_main.out" 1715321521.52456 11084 00e4810dc061591191ecdc463fe16505 "lualatex"
-  "out/TQFT_main.toc" 1715321521.52485 7867 6925bd64ce2db67a691fdd040d5069b6 "lualatex"
+  "out/TQFT_main.aux" 1715367315.03952 43250 6ff0c111b54ede04d9ed8b9e32f16ebc "lualatex"
+  "out/TQFT_main.bbl" 1715367255.9559 3566 8c123b9f07bc713ba307720b2d9af223 "bibtex out/TQFT_main"
+  "out/TQFT_main.out" 1715367315.04381 11564 091d410fff5445634d7c8d7b475e153f "lualatex"
+  "out/TQFT_main.toc" 1715367315.04423 8185 7169136153334b461202cee7b39e5c3d "lualatex"
   (generated)
   "out/TQFT_main.aux"
   "out/TQFT_main.log"

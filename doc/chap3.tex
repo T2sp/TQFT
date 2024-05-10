@@ -971,14 +971,15 @@ NGモードの存在がわかったので，次にNG粒子を記述する有効�
         &G \ar[r,"p"] &G/H
     \end{tikzcd}
 \end{center}
-が成り立つから，$[g] \in G/H$ の代表元として
+が成り立つから，左剰余類 $gH \in G/H$ の代表元として
 \begin{align}
+    \label{eq:coordinate-coset1}
     \exp_G\bigl(\iunit \pi_A(x)X^A\bigr) \in G
 \end{align}
-を選ぶことができる．この $\dim G - \dim H$ 成分場 $\pi \colon M \lto \mathrm{Lie} (G/H)$ のことを\textbf{NGボゾン場}と呼ぶ．
+を選ぶことができる\footnote{厳密には $\exp_G$ が全射とは限らないので，これは多様体 $G/H$ の単位元 $H$ 近傍のチャート $\bigl(U,\, (\pi_A)\bigr)$ だと考えるべきである．}．この $\dim G - \dim H$ 成分場 $\pi \colon M \lto \mathrm{Lie} (G/H)$ のことを\textbf{NGボゾン場}と呼ぶ．
 このとき，大域的な $\forall g \in G$ の作用に応じた場 $\pi$ の変換 $\pi \lmto \pi'$ は
 \begin{align}
-    [\exp_G\bigl(\iunit \pi_A(x)X^A\bigr)] \lmto [g \exp_G\bigl(\iunit \pi_A(x)X^A\bigr)] \eqqcolon [\exp_G \bigl( \iunit \pi'_A(x) X^A \bigr) ]
+    \exp_G\bigl(\iunit \pi_A(x)X^A\bigr)\, H \lmto g \exp_G\bigl(\iunit \pi_A(x)X^A\bigr)\, H \eqqcolon \exp_G \bigl( \iunit \pi'_A(x) X^A \bigr)\, H
 \end{align}
 となるから，顕にはある $h(g,\, \pi) \in H$ を使って
 \begin{align}
@@ -987,7 +988,7 @@ NGモードの存在がわかったので，次にNG粒子を記述する有効�
 \end{align}
 と書くことができる．$g \in H$ のときは任意の $\pi$ について
 \begin{align}
-    [\exp_G \bigl( \iunit \pi'_A(x) X^A \bigr) ] = [g \exp_G\bigl(\iunit \pi_A(x)X^A\bigr)] = [\exp_G\bigl(\iunit \pi_A(x)X^A\bigr)]
+    \exp_G \bigl( \iunit \pi'_A(x) X^A \bigr)\, H = \exp_G\bigl(\iunit \pi_A(x)X^A\bigr)\, H
 \end{align}
 でなくてはいけないから $h(g,\, \pi) = g^{-1}$ であり，\eqref{eq:NGB-transform}を $0 \in \mathfrak{h}$ において微分することで $\pi(x)$ が
 \begin{align}
@@ -1007,7 +1008,7 @@ $\mathfrak{h}$ 成分と $\mathfrak{g} \setminus \mathfrak{h}$ 成分に分離�
 \end{align}
 である．変換則\eqref{eq:NGB-transform}から，$\forall g \in G$ に関する大域的な変換について
 \begin{align}
-    \xi(x)^{-1} \partial_\mu \xi(x) \lmto h^{-1}(g,\, \pi) \xi(x)^{-1} \partial_\mu \xi(x) h(g,\, \pi) +  \underbrace{h^{-1}(g,\, \pi) \partial_\mu h(g,\, \pi)}_{\in \mathfrak{h}}
+    \xi(x)^{-1} \partial_\mu \xi(x) \lmto h^{-1}(g,\, \pi) \xi(x)^{-1} \partial_\mu \xi(x) h(g,\, \pi) +  \underbrace{h(g,\, \pi)^{-1} \partial_\mu h(g,\, \pi)}_{\in \mathfrak{h}}
 \end{align}
 となる．i.e. $\Tr(\xi^* \theta_{\perp}) \in \Omega^1(M)$ がNGボゾン場の変換\eqref{eq:NGB-transform}について整合的である．よって微分の次数が $2$ 次のLagrangianが
 \begin{align}
@@ -1025,6 +1026,12 @@ $\mathfrak{h}$ 成分と $\mathfrak{g} \setminus \mathfrak{h}$ 成分に分離�
     \irm{\mathcal{L}}{NGB} = -\frac{1}{2} \partial_\mu \pi_A  \partial^\mu \pi_B \Tr \bigl(X^AX^B \bigr) 
 \end{align}
 である．$g^{AB} \coloneqq \Tr \bigl(X^AX^B \bigr)$ は $\mathfrak{g}$ の規格化条件にもよるが，多様体 $G/H$ の計量テンソルになっている．
+% と言うのも，これまでは $G/H$ のチャートとして\eqref{eq:coordinate-coset1}による $\bigl( U_H,\, (\pi_A) \bigr) $ を選んでいたが，別のチャート $\bigl( V,\, (\varphi_A) \bigr)$ を使っても良い．
+% すると
+% \begin{align}
+%     \irm{\mathcal{L}}{NGB} = -\frac{1}{2} \Tr \bigl( X^C X^D\bigr) \pdv{\pi_C}{\varphi_A} \pdv{\pi_D}{\varphi_B}  \partial_\mu \varphi_A  \partial^\mu \varphi_B
+% \end{align}
+ 
 
 次に物質場との結合を記述する方法を考える．物質場 $\psi$ の値域は破れていない対称性 $H$ の既約表現 $\rho_H \colon H \lto \LGL(\mathcal{H})$ の表現空間 $\mathcal{H}$ だと考えて良い．$\forall g \in G$ による変換則は\eqref{eq:NGB-transform}の $h(g,\, \pi) \in H$ を使って
 \begin{align}
@@ -1045,15 +1052,26 @@ $\mathfrak{h}$ 成分と $\mathfrak{g} \setminus \mathfrak{h}$ 成分に分離�
 \end{align}
 の変換を受ける．$\psi$ をそのまま扱うよりも $\chi \colon \mathcal{M} \lto \irm{\mathcal{H}}{ext}$ について $G$-不変なLagrangianを書き下す方が簡単であり，$\chi$ はNGBと物質場の相互作用も記述してくれる．
 最後に，これまで大域的対称性だと思っていた群 $G$ の作用を局所的対称性にするために背景ゲージ場を導入する（\textbf{ゲージ化}）．そのためにはMaurer-Cartan形式の $\partial_\mu$ を共変微分に置き換えれば良く，NGBと背景ゲージ場との結合はそれで決まる．
+あからさまには
+\begin{align}
+    \xi(x)^{-1} \bigl(\partial_\mu + A_\mu(x)\bigr) \xi(x)
+\end{align}
+にすると言うことである．$A_\mu{}_A T^A$ と展開すると
+\begin{align}
+    \xi(x)^{-1} A_\mu(x) \xi(x)
+    &= A_\mu{}_A(x) \Adj \bigl( \exp_G(-\iunit \pi(x)) \bigr) \bigl( T^A \bigr) \\
+    &= A_\mu{}_A(x) \exp_{\LGL(\mathfrak{g})} \bigl( - \iunit \pi_B(x) \ad(T^B)  \bigr) \bigl( T^A \bigr) \\
+    &= A_\mu{}_A(x) \sum_{n=0}^\infty \frac{(-\iunit)^n}{n!} \pi_{B_1}(x) \cdots \pi_{B_n}(x) \ad(T^{B_1}) \circ \cdots \ad(T^{B_n})(T^A) \\
+    &= A_\mu(x) + \order{\pi}
+\end{align}
+となるので，$\pi$ の最低次ではMaurer-Cartan形式の成分
+\begin{align}
+    \partial_\mu \pi + A_\mu
+\end{align}
+と書かれる．よってゲージ変換 $A \lmto A + \dd{\lambda_0}$ はNGボゾンに $\pi + \lambda_0$ のシフトを引き起こす．
 
 
-
-
-
-
-
-
-定理\ref{thm:NG-relativistic}のLorentz共変性の条件 (1) を外すと話はややこしくなる．
+余談だが，定理\ref{thm:NG-relativistic}のLorentz共変性の条件 (1) を外すと話はややこしくなる．
 まず，波数の小さいところにおいて分散関係が奇数冪であるようなNGモードを\textbf{Type-I}，偶数冪で書けるようなNGモードを\textbf{Type-II}と呼ぶ~\cite{nielsen1976HowCount}．
 そして 
 \begin{itemize}
@@ -1110,12 +1128,11 @@ $p$-form symmetryの秩序変数は荷電物体の真空期待値であり，一
 \begin{align}
     \widehat{V}(\mfdcal{C}{p}) \coloneqq e^{- c \int_{\mfdcal{C}{p}} \star_{\mfdcal{C}{p}} 1} V(\mfdcal{C}{p})
 \end{align}
-とくりこむことで
+と正則化することで
 \begin{align}
     \lim_{\vol (\mfdcal{C}{p}) \lto \infty} \expval{V(\mfdcal{C}{p})} \neq 0
 \end{align}
-を充たすようにできると言う意味がある．
-
+を充たすようにできると言う意味である．
 
 % \eqref{def:pform-order-param}は，\textbf{非対角長距離秩序} (Off Diagonal Long Range Order; ODLRO) の一般化だと見做せる\footnote{というのは，通常のODLROは $\lim_{\abs{x-y} \to \infty} \expval{\hat{\varphi}(x) \hat{\varphi}(y)} \neq 0$ となるものだが，これを点 $x,\, y \in \mathcal{M}$ を結ぶ線分 $\mathcal{C}^{(1)} \subset \mathcal{M}$ を使って $\lim_{\partial \mathcal{C}^{(1)} \to \infty} \expval{\hat{\varphi}(\partial \mathcal{C}^{(1)})} \neq 0$ と書ける．}
 
@@ -1123,7 +1140,7 @@ $p$-form symmetryの秩序変数は荷電物体の真空期待値であり，一
 \begin{align}
     \expval{\comm{\iunit \hat{Q}(\mathcal{M}^{(D-p)})}{V(\mathcal{C}^{(p)})}}
 \end{align}
-であるが，これは $\mathcal{M}^{(D-p)},\, \mathcal{C}^{(p)}$ が共に閉多様体だと微妙なところがある．
+であるが，これは $\mathcal{M}^{(D-p)},\, \mathcal{C}^{(p)}$ が共に閉多様体だと微妙なところがある~\cite{Lake2018SSB}．
 
 ~\cite[p.5-6]{Lake2018SSB}に倣って，系が並進対称性を持つ場合にギャップレスな励起が存在することをざっと確認しよう．演算子形式で議論するので，時間一定面 $\mathcal{M}^{(D)} \subset \mathcal{M}$ を1つ固定し，
 微妙なことが起こらないように $\mathcal{M}^{(D-p)} \subset \mathcal{M}^{(D)}$ が境界を持つとする．
@@ -1188,38 +1205,113 @@ $p$-form symmetryの秩序変数は荷電物体の真空期待値であり，一
 
 
 % ゲージ変換 $B_p \lmto B_p + \dd{\lambda_{p-1}}$ 
-\textbf{アノマリー}\footnote{訳語だと\textbf{対称性の量子的破れ}と呼ぶこともある~\cite{Fujikawa2001path}．}とは，繰り込み不変量であって，UVとIRの対称性を整合させるものである．この解釈は\textbf{ABJアノマリー} (Adler Bell Jackiw anomaly) と言うよりかは\textbf{'t Hooftアノマリー}の一般化だと考えるべきである．
+\textbf{アノマリー}\footnote{訳語だと\textbf{対称性の量子的破れ}と呼ぶこともある~\cite{Fujikawa2001path}．}には，大別して３種類ある~\cite{Kawahira2024anomaly}：
+\begin{description}
+    \item[\textbf{ゲージアノマリー}]　
+
+    元の理論 $S[\psi]$ に\textbf{ゲージ化} $\partial_\mu \lmto \partial_\mu + A_\mu$ の操作を施して得られた理論 $\irm{S}{gauged}[\psi,\, A]$ の分配関数
+    \begin{align}
+        \irm{Z}{gauged} = \int [\dd{A}] \int [\dd{\psi}]\, e^{-\irm{S}{gauged}[\psi,\, A] - \irm{S}{kin} [A]} \eqqcolon \int [\dd{A}]\, Z[A]\, e^{-\irm{S}{kin}[A]}
+    \end{align}
+    について，ある $g \colon \mfdcal{M}{D+1} \lto G$ が存在してゲージ変換 $A \lmto A^g \coloneqq g^{-1} A g + g^{-1} \dd{g}$ の下で $Z[A] \neq Z[A^g]$ となること．このとき理論は矛盾している．と言うのも，汎函数積分 $\int [\dd{A}]$ がill-definedになるからである．
+
+    \item[\textbf{'t Hooft アノマリー}]　
+    
+    元の理論 $S[\psi]$ に\textbf{ゲージ化} $\partial_\mu \lmto \partial_\mu + A_\mu$ の操作を施して得られた理論 $\irm{S}{gauged}[\psi,\, A]$ について
+    \begin{align}
+        Z[A] \coloneqq \int [\dd{\psi}]\, e^{-\irm{S}{gauged}[\psi,\, A]}
+    \end{align}
+    と定義したとき，ある $g \in G$ が存在してゲージ変換 $A \lmto A^g \coloneqq \Adj(g^{-1})(A) + g^* \theta$ の下で $Z[A] \neq Z[A^g]$ となること．$A$ は単なる外場なので，理論が矛盾したわけではない．
+
+    \item[\textbf{ABJアノマリー} (Adler Bell Jackiw anomaly)]　
+    
+
+\end{description}
+
+% とは，繰り込み不変量であって，UVとIRの対称性を整合させるものである．この解釈は\textbf{ABJアノマリー} (Adler Bell Jackiw anomaly) と言うよりかは\textbf{'t Hooftアノマリー}の一般化だと考えるべきである．
 % 歴史的には摂動的アノマリーが最初に見つかったが，非摂動的アノマリーを定義するには
 
-現代的には，考えている時空 $\mfdcal{M}{D+1}$ を境界に持つ $\mfdcal{N}{D+2} \WHERE \partial \mfdcal{N}{D+2} = \mfdcal{M}{D+1}$ 上のTQFT\footnote{特に，\textbf{可逆な場の理論} (invertible field theory; IFT) になっているようなもの．}を使ってアノマリーを記述することで，RG不変性を示す．
-まずLie群 $G$ で特徴づけられる $0$-form symmetryの場合を考えよう．on shellな保存カレントを $1$-form背景ゲージ場 $A_1$ に結合させる\footnote{固定されたゲージ場を運動項を持たないダイナミカルなゲージ場だと思ってカレントを線形に結合させると言うこと．}ことができる．このとき，ゲージ場はダイナミカルでない\footnote{経路積分で $A_1$ についての和を取らないと言うこと．}ので，分配関数は
+% 考えている \underline{$D+1$ 次元}時空 $\mfdcal{M}{D+1}$ を境界に持つ $\mfdcal{N}{D+2} \WHERE \partial \mfdcal{N}{D+2} = \mfdcal{M}{D+1}$ 上の\hyperref[def:TQFT]{TQFT}\footnote{特に，\textbf{可逆な場の理論} (invertible field theory; IFT) になっているようなもの．}を使ってアノマリーを記述できるとする：
+
+Lie群 $G$ で特徴づけられる $0$-form symmetryの場合を考える．on shellな保存カレントを 't Hooftアノマリーの意味で $1$-form背景ゲージ場 $A_1$ に結合させることができる．
+このとき，ゲージ場はダイナミカルでないので，分配関数は
 \begin{align}
-    Z[A_1] = \int [\dd{\Psi}]\, e^{-S[\psi,\, A_1]}
+    Z[A_1] = \int [\dd{\psi}]\, e^{-S[\psi,\, A_1]}
 \end{align}
-の形になっている．この $0$-form symmetryは，ゲージ変換 $A_1 \lmto A_1 + \dd{\lambda_0}$ の下で分配関数が不変にならないとき，アノマリーを持つと言う：
+の形になっている．この $0$-form symmetryが\textbf{アノマリー}を持つとは，ゲージ変換 $A_1 \lmto A_1 + \dd{\lambda_0}$ の下で分配関数が不変にならないことである，と定義しよう．記号的には
 \begin{align}
-    Z[A_1, + \dd{\lambda_0}] = e^{\iunit \int_{\mfdcal{M}{D+1}} \mathcal{A}[A_1,\, \lambda_0]} Z[A_1]
+    Z[A_1 + \dd{\lambda_0}] = e^{\iunit \int_{\mfdcal{M}{D+1}} \mathcal{A}[A_1,\, \lambda_0]} Z[A_1]
     % \WHERE  \mathcal{A}[A_1,\, 0]  = 0
 \end{align}
-この位相 $\mathcal{A}[A_1,\, \lambda_0]$ は $D+2$ 次元時空のTQFTの境界の寄与だと理解できる：
+と言うことである．ここで，この位相 $\mathcal{A}[A_1,\, \lambda_0]$ は $D+2$ 次元時空のTQFTの境界からの寄与だと考えてみよう\footnote{この仮説は，フェルミオン系においては数学的に証明されている~\cite{DaiFreed_1994}}：
 \begin{align}
     e^{\iunit \int_{\mfdcal{M}{D+1}} \mathcal{A}[A_1,\, \lambda_0]} = e^{\iunit \int_{\partial\mfdcal{N}{D+2}} \mathcal{A}[A_1,\, \lambda_0]} = e^{\iunit \int_{\mfdcal{N}{D+2}} \dd{\mathcal{A}[A_1,\, \lambda_0]}} 
 \end{align}
-この $\dd{\mathcal{A}[A_1,\, \lambda_0]}$ を $\widehat{\mathcal{A}}[A_1 + \dd{\lambda_0}] \in \Omega^{D+2}(\mfdcal{N}{D+2})$ と見做すのである．従って，元の理論の分配関数を
+つまり，$\dd{\mathcal{A}[A_1,\, \lambda_0]}$ を $\widehat{\mathcal{A}}[A_1 + \dd{\lambda_0}] \in \Omega^{D+2}(\mfdcal{N}{D+2})$ と見做すのである．すると，元の理論の分配関数を
 \begin{align}
-    \widehat{Z}[A_1] \coloneqq Z[A_1] e^{\iunit \int_{\mfdcal{N}{D+2}} \widehat{\mathcal{A}}[A_1]}
+    \widehat{Z}[A_1] \coloneqq Z[A_1] e^{-\iunit \int_{\mfdcal{N}{D+2}} \widehat{\mathcal{A}}[A_1]}
 \end{align}
-と正則化すれば，アノマリーを相殺できる．位相 $e^{\iunit \int_{\mfdcal{N}{D+2}} \widehat{\mathcal{A}}[A_1]}$ は\textbf{SPT}と呼ばれる．$\widehat{\mathcal{A}}[A_1]$ がTQFTなので，繰り込み群の影響を受けないのである．
+と正則化すれば，直上で定義した意味でのアノマリーを相殺できるのである．
+% 位相 $e^{\iunit \int_{\mfdcal{N}{D+2}} \widehat{\mathcal{A}}[A_1]}$ は\textbf{SPT}と呼ばれる．$\widehat{\mathcal{A}}[A_1]$ がTQFTなので，
+\begin{myexample}[label=ex:chiral-anomaly]{カイラルアノマリー}
+    カイラルアノマリーをFujikawa法で計算した結果は
+    \begin{align}
+        \mathcal{A}[A_1,\, \lambda_0] = \kappa \lambda_0 \frac{F_2 \wedge F_2}{8\pi^2}
+    \end{align}
+    であるが，
+    \begin{align}
+        \widehat{\mathcal{A}}[A_1] = \kappa A_1 \wedge \frac{F_2 \wedge F_2}{8\pi^2}
+    \end{align}
+    とすれば
+    \begin{align}
+        \widehat{Z}[A_1+\dd{\lambda_0}]
+        &= Z[A_1] e^{\iunit \kappa \int_{\mfdcal{M}{D+1}} \lambda_0 \frac{F_2 \wedge F_2}{8\pi^2}} e^{- \iunit \kappa \int_{\mfdcal{N}{D+2}} (A_1 + \dd{\lambda_0}) \wedge \frac{F_2 \wedge F_2}{8\pi^2}} \\
+        &= \widehat{Z}[A_1] e^{\kappa \int_{\mfdcal{M}{D+1}} \lambda_0 \frac{F_2 \wedge F_2}{8\pi^2}-\iunit \kappa \int_{\partial \mfdcal{N}{D+2} = \mfdcal{M}{D+1}} \lambda_0 \frac{F_2 \wedge F_2}{8\pi^2}} \\
+        &= \widehat{Z}[A_1]
+    \end{align}
+    となり，アノマリーが相殺されている．
+\end{myexample}
 
-例えば，カイラルアノマリーをFujikawa法で計算した結果は，
+しかるに，全てのゲージ変換について分配関数の不変性を調べるのは一般には難しい．そこで，アノマリーの定義を数学的により扱いやすい形に書き直そう~\cite[p.41]{Kawahira2024anomaly}．まず，アノマリー流入の仮説から出発する：
+\begin{myhypo}[label=hypo:anomaly-inflow]{anomaly inflow}
+    $d = D+1$ 次元時空 $\mfdcal{M}{d}$ の上の任意のゲージ場の理論 $Z[A;\, \mfdcal{M}{d}]$ を与える．
+    このとき，ある $\mfdcal{N}{d+1}$ の上の\hyperref[def:TQFT]{TQFT} $\uirm{S}{top}[A;\, \mfdcal{N}{d+1}]$ が存在して，
+    任意の $d+1$ 次元時空 $\mfdcal{N}{d+1}$ であって $\partial \mfdcal{N}{d+1} = \mfdcal{M}{d}$ を充たすものについて
+    \begin{align}
+        \widehat{Z}[A;\, \mfdcal{M}{d},\, \mfdcal{N}{d+1}] \coloneqq Z_{\mfdcal{M}{d}}[A] e^{-\iunit \uirm{S}{top}[A;\, \mfdcal{N}{d+1}]}
+    \end{align}
+    で定義される理論がゲージ不変であるようにできる．
+\end{myhypo}
+
+ここから，$d$ 次元のゲージ場の理論の分配関数をむしろ初めから $\widehat{Z}[A;\, \mfdcal{M}{d},\, \mfdcal{N}{d+1}]$ として定義する．
+
+\begin{mydef}[label=def:anomaly-formal]{アノマリー}
+    理論 $\widehat{Z}[A;\, \mfdcal{M}{d},\, \mfdcal{N}{d+1}]$ が\textbf{アノマリー}を持つとは，
+    ある2つの異なる $d+1$ 次元時空 $\mfdcal{N}{d+1}_1,\, \mfdcal{N}{d+1}_2$ であって $\partial \mfdcal{N}{d+1}_1 = \partial \mfdcal{N}{d+1}_2 = \mfdcal{M}{d}$ を充たすものが存在して
+    \begin{align}
+        J [A;\, \mfdcal{N}{d+1}_1,\, \mfdcal{N}{d+1}_2] \coloneqq \frac{\widehat{Z}[A;\, \mfdcal{M}{d},\, \mfdcal{N}{d+1}_2]}{\widehat{Z}[A;\, \mfdcal{M}{d},\, \mfdcal{N}{d+1}_1]} \neq 1
+    \end{align}
+    が成り立つことを言う．
+\end{mydef}
+
+\begin{mydef}[label=def:IFT]{IFT}
+    \hyperref[def:TQFT]{TQFT} $\mathcal{Z} \colon \COB_{d+1} \lto \HILB$ が\textbf{IFT} (invertible field theory) であるとは，$\forall \mfd{\Sigma}{d} \in \Obj{\COB_{d+1}}$ について
+    \begin{align}
+        \dim_{\mathbb{C}} \mathcal{Z}(\mfd{\Sigma}{d}) = 1
+    \end{align}
+    が成り立つことを言う．
+\end{mydef}
+
+仮説\ref{hypo:anomaly-inflow}において，$\uirm{S}{top}[A;\, \mfdcal{N}{d+1}]$ はTQFTであった．特に\hyperref[def:IFT]{IFT}であることを仮定すると，\hyperref[def:anomaly-formal]{アノマリー}は
 \begin{align}
-    \widehat{\mathcal{A}}[A_1,\, \lambda_0] = \kappa \lambda_0 \frac{F_2 \wedge F_2}{8\pi^2}
+    J [A;\, \mfdcal{N}{d+1}_1,\, \mfdcal{N}{d+1}_2] 
+    &= \frac{\widehat{Z}[A;\, \mfdcal{M}{d},\, \mfdcal{N}{d+1}_2]}{\widehat{Z}[A;\, \mfdcal{M}{d},\, \mfdcal{N}{d+1}_1]} \\
+    &= (e^{\iunit \uirm{S}{top}[A;\, \mfdcal{N}{d+1}_1]})^\dagger e^{\iunit \uirm{S}{top}[A;\, \mfdcal{N}{d+1}_2]} \\
+    &= \braket{\mathcal{Z}(\mfdcal{N}{d+1}_1)}{\mathcal{Z}(\mfdcal{N}{d+1}_2)} \\
+    &= \mathcal{Z} \bigl( (-\mfdcal{N}{d+1}_1) \cup_{\partial \mfdcal{N}{d+1}} \mfdcal{N}{d+1}_2 \bigr) 
 \end{align}
-とすると
-\begin{align}
-    \mathcal{A}[A_1] = \kappa A_1 \wedge \frac{F_2 \wedge F_2}{8\pi^2}
-\end{align}
-になるので再現されている．
+となる．i.e. $\mfdcal{M}{d}$ のアノマリーはあるIFT $\mathcal{Z} \colon \COB_{d+1} \lto \HILB$ の分配関数である．この事実を\textbf{バルク-エッジ対応}と言う．
+
 
 \subsection{高次対称性のアノマリー}
 
