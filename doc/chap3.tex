@@ -751,7 +751,7 @@ $D+1$ 次元部分多様体 $\mathcal{M}^{(D+1)} \subset \mathbb{M}$ であっ�
 と言うことである．
 % むしろこれを対称性演算子 $U_g(\mathcal{M}^{(D)})$ の定義としよう．
 
-\subsection{高次対称性}
+\subsection{連続的高次対称性}
 
 \exref{ex:3-1}は，荷電物体が $0$ 次元に分布していた．これを $p$ 次元部分多様体上に分布した物体に置き換えることで $p$-form symmetry の概念が得られる~\cite[p.10]{GaiottoKapustinSeibergWillett2015}：
 
@@ -1184,11 +1184,12 @@ $p$-form symmetryの秩序変数は荷電物体の真空期待値であり，一
 
 \end{proof}
 
-\subsection{アノマリー}
+\subsection{$0$ 次対称性のアノマリー}
 
 
 % ゲージ変換 $B_p \lmto B_p + \dd{\lambda_{p-1}}$ 
 \textbf{アノマリー}\footnote{訳語だと\textbf{対称性の量子的破れ}と呼ぶこともある~\cite{Fujikawa2001path}．}とは，繰り込み不変量であって，UVとIRの対称性を整合させるものである．この解釈は\textbf{ABJアノマリー} (Adler Bell Jackiw anomaly) と言うよりかは\textbf{'t Hooftアノマリー}の一般化だと考えるべきである．
+% 歴史的には摂動的アノマリーが最初に見つかったが，非摂動的アノマリーを定義するには
 
 現代的には，考えている時空 $\mfdcal{M}{D+1}$ を境界に持つ $\mfdcal{N}{D+2} \WHERE \partial \mfdcal{N}{D+2} = \mfdcal{M}{D+1}$ 上のTQFT\footnote{特に，\textbf{可逆な場の理論} (invertible field theory; IFT) になっているようなもの．}を使ってアノマリーを記述することで，RG不変性を示す．
 まずLie群 $G$ で特徴づけられる $0$-form symmetryの場合を考えよう．on shellな保存カレントを $1$-form背景ゲージ場 $A_1$ に結合させる\footnote{固定されたゲージ場を運動項を持たないダイナミカルなゲージ場だと思ってカレントを線形に結合させると言うこと．}ことができる．このとき，ゲージ場はダイナミカルでない\footnote{経路積分で $A_1$ についての和を取らないと言うこと．}ので，分配関数は
@@ -1197,19 +1198,105 @@ $p$-form symmetryの秩序変数は荷電物体の真空期待値であり，一
 \end{align}
 の形になっている．この $0$-form symmetryは，ゲージ変換 $A_1 \lmto A_1 + \dd{\lambda_0}$ の下で分配関数が不変にならないとき，アノマリーを持つと言う：
 \begin{align}
-    Z[A_1, + \dd{\lambda_0}] = e^{\iunit \int_{\mfdcal{M}{D+1}} \mathcal{A}[A_1,\, \lambda_0]} Z[A_1] \WHERE  \mathcal{A}[A_1,\, 0]  = 0
+    Z[A_1, + \dd{\lambda_0}] = e^{\iunit \int_{\mfdcal{M}{D+1}} \mathcal{A}[A_1,\, \lambda_0]} Z[A_1]
+    % \WHERE  \mathcal{A}[A_1,\, 0]  = 0
 \end{align}
 この位相 $\mathcal{A}[A_1,\, \lambda_0]$ は $D+2$ 次元時空のTQFTの境界の寄与だと理解できる：
 \begin{align}
     e^{\iunit \int_{\mfdcal{M}{D+1}} \mathcal{A}[A_1,\, \lambda_0]} = e^{\iunit \int_{\partial\mfdcal{N}{D+2}} \mathcal{A}[A_1,\, \lambda_0]} = e^{\iunit \int_{\mfdcal{N}{D+2}} \dd{\mathcal{A}[A_1,\, \lambda_0]}} 
 \end{align}
-この $\dd{\mathcal{A}[A_1,\, \lambda_0]}$ を $\widehat{A}[A_1 + \dd{\lambda_0}] \in \Omega^{D+2}(\mfdcal{N}{D+2})$ と見做すのである．従って，元の理論の分配関数を
+この $\dd{\mathcal{A}[A_1,\, \lambda_0]}$ を $\widehat{\mathcal{A}}[A_1 + \dd{\lambda_0}] \in \Omega^{D+2}(\mfdcal{N}{D+2})$ と見做すのである．従って，元の理論の分配関数を
 \begin{align}
-    \widehat{Z}[A_1] \coloneqq Z[A_1] e^{\iunit \int_{\mfdcal{N}{D+2}} \widehat{A}[A_1]}
+    \widehat{Z}[A_1] \coloneqq Z[A_1] e^{\iunit \int_{\mfdcal{N}{D+2}} \widehat{\mathcal{A}}[A_1]}
 \end{align}
-と再定義すれば，アノマラスな位相を消去できる．位相 $e^{\iunit \int_{\mfdcal{N}{D+2}} \widehat{A}[A_1]}$ は\textbf{SPT}と呼ばれる．
+と正則化すれば，アノマリーを相殺できる．位相 $e^{\iunit \int_{\mfdcal{N}{D+2}} \widehat{\mathcal{A}}[A_1]}$ は\textbf{SPT}と呼ばれる．$\widehat{\mathcal{A}}[A_1]$ がTQFTなので，繰り込み群の影響を受けないのである．
 
+例えば，カイラルアノマリーをFujikawa法で計算した結果は，
+\begin{align}
+    \widehat{\mathcal{A}}[A_1,\, \lambda_0] = \kappa \lambda_0 \frac{F_2 \wedge F_2}{8\pi^2}
+\end{align}
+とすると
+\begin{align}
+    \mathcal{A}[A_1] = \kappa A_1 \wedge \frac{F_2 \wedge F_2}{8\pi^2}
+\end{align}
+になるので再現されている．
 
+\subsection{高次対称性のアノマリー}
+
+高次対称性に関しても全く同様にアノマリーを判定できる．つまり，$p$-form カレントを背景ゲージ場と結合させてゲージ変換を施した際の分配関数の変化が
+\begin{align}
+    Z[A_{p_i} + \dd{\Lambda_{p_i-1}}] = Z[A_{p_i}]] e^{\iunit \int_{\mfdcal{M}{D+1}} \mathcal{A}[A_{p_i},\, \Lambda_{p_i-1}]}
+\end{align}
+となり，$\mathcal{A}[A_{p_i},\, \Lambda_{p_i-1}] \neq 0$ ならば理論はアノマリーを持つと言う．特に $\mathcal{A}[A_{p_i},\, \Lambda_{p_i-1} = 0\, \forall i] = 0$ ならば\textbf{'t Hooftアノマリー}，そうでないならば\textbf{ABJ型のアノマリー}を持つと言う．
+
+\begin{myexample}[label=ex:anomaly-p-formQED]{$p$-form $\LU(1)$ ゲージ理論のアノマリー}
+    作用が
+    \begin{align}
+        S[A_p] = \frac{1}{2g^2} \int_{\mfdcal{M}{D+1}} F_{p+1} \wedge \star F_{p+1}
+    \end{align}
+    で書かれる $p$-form $\LU(1)$ ゲージ場 $A_p$ の理論を考えよう\footnote{この理論は $\bm{p}$\textbf{-form electrodynamics}と呼ばれる．} $\LU(1)$-ゲージ変換は $A_p \lmto A_p + \dd{\Lambda_{p-1}}$ と書け，運動方程式とBianchi恒等式はそれぞれ
+    \begin{align}
+        \dd{\star F_{p+1}} &= 0, \\
+        \dd{F_{p+1}} &= 0
+    \end{align}
+    となり，これらに対応して2つの保存カレント
+    \begin{align}
+        \star \uirm{J}{(e)} &\coloneqq \frac{1}{g^2} \star F_{p+1} \\
+        \star \uirm{J}{(m)} &\coloneqq \frac{1}{2\pi}F_{p+1}
+    \end{align}
+    がある．対応するトポロジカル演算子の期待値は
+    \begin{align}
+        \expval{\uirm{U}{(e)}_{e^{\iunit \alpha}}(\mfdcal{M}{D-p})} 
+        &= \int [\dd{A_p}]\, e^{\frac{\iunit}{2g^2} \int_{\mfdcal{M}{D+1}} F_{p+1} \wedge \star F_{p+1}} e^{\iunit \alpha \int_{\mfdcal{M}{D-p}} \star \uirm{J}{(e)}} \\
+        &= \int [\dd{A_p}]\, e^{\frac{\iunit}{2g^2} \int_{\mfdcal{M}{D+1}} F_{p+1} \wedge \star F_{p+1} + \frac{\iunit}{g^2} \alpha \int_{\mfdcal{M}{D+1}} \star \uirm{J}{(e)} \wedge \delta(\mfdcal{M}{D-p})} \\
+        &=
+    \end{align}
+    
+    背景ゲージ場 $\uirm{B}{(e)}_{p+1},\; \uirm{B}{(m)}_{D-p}$ と結合させよう：
+    \begin{align}
+        S[A_p,\, \uirm{B}{(e)}_{p+1},\, \uirm{B}{(m)}_{D-p}] = \int_{\mfdcal{M}{D+1}}\frac{1}{2g^2} (F_{p+1} - \uirm{B}{(e)}_{p+1}) \wedge \star (F_{p+1} - \uirm{B}{(e)}_{p+1}) + \frac{\iunit}{2\pi}  \int_{\mfdcal{M}{D+1}} F_{p+1} \wedge \uirm{B}{(m)}_{D-p}
+    \end{align}
+    ここで背景ゲージ場のゲージ変換 $\delta \uirm{B}{(e)}_{p+1} = \uirm{\Lambda}{(e)}_{p+1} \in \mathrm{B}^{p+1}(\mfdcal{M}{D+1};\, \mathbb{Z})$ を施す\footnote{$\mathrm{B}^\bullet(\mfdcal{M}{D+1}) \coloneqq \Im \bigl( \dd{} \colon \Omega^{\bullet - 1}(\mfdcal{M}{D+1}) \lto \Omega^{\bullet}(\mfdcal{M}{D+1}) \bigr) $ はバウンダリー．}：
+    \begin{align}
+        &S[A_p,\, \uirm{B}{(e)}_{p+1} + \uirm{\Lambda}{(e)}_{p+1} ,\, \uirm{B}{(m)}_{D-p}] \\
+        % &= \frac{1}{2g^2} \int_{\mfdcal{M}{D+1}} (F_{p+1} - \uirm{B}{(e)}_{p+1} - \uirm{\Lambda}{(e)}_{p+1}) \wedge \star (F_{p+1} - \uirm{B}{(e)}_{p+1} - \uirm{\Lambda}{(e)}_{p+1}) + \frac{\iunit}{2\pi}  \int_{\mfdcal{M}{D+1}} F_{p+1} \wedge \uirm{B}{(m)}_{D-p} \\
+        &= S[A_p,\, \uirm{B}{(e)}_{p+1},\, \uirm{B}{(m)}_{D-p}] + \frac{\iunit}{2\pi}  \int_{\mfdcal{M}{D+1}} \uirm{\Lambda}{(e)}_{p+1} \wedge \uirm{B}{(m)}_{D-p}
+    \end{align}
+    この 't Hooft アノマリーは，アノマリー流入
+    \begin{align}
+        \widehat{A}[\uirm{B}{(e)}_{p+1},\, \uirm{B}{(m)}_{D-p}] \coloneqq \frac{\iunit}{2\pi} \uirm{B}{(e)}_{p+1} \wedge \dd{\uirm{B}{(m)}_{D-p}}
+    \end{align}
+    により相殺される．と言うのも，
+    \begin{align}
+        \int_{\mfdcal{N}{D+2}} \widehat{A}[\uirm{B}{(e)}_{p+1} + \uirm{\Lambda}{(e)}_{p+1},\, \uirm{B}{(m)}_{D-p}] 
+        &= \int_{\mfdcal{N}{D+2}} \widehat{A}[\uirm{B}{(e)}_{p+1},\, \uirm{B}{(m)}_{D-p}] + \frac{\iunit}{2\pi} \int_{\mfdcal{N}{D+2}} \uirm{\Lambda}{(e)}_{p+1} \wedge \dd{\uirm{B}{(m)}_{D-p}} \\
+        &= \int_{\mfdcal{N}{D+2}} \widehat{A}[\uirm{B}{(e)}_{p+1},\, \uirm{B}{(m)}_{D-p}] + (-1)^{p+1}\frac{\iunit}{2\pi} \int_{\partial\mfdcal{N}{D+2} = \mfdcal{M}{D+1}} \uirm{\Lambda}{(e)}_{p+1} \wedge \uirm{B}{(m)}_{D-p} \\
+    \end{align}
+    となるので，分配関数を
+    \begin{align}
+        \widehat{Z}[\uirm{B}{(e)}_{p+1},\, \uirm{B}{(m)}_{D-p}] \coloneqq Z[\uirm{B}{(e)}_{p+1},\, \uirm{B}{(m)}_{D-p}] e^{(-1)^p \int_{\mfdcal{N}{D+2}}  \widehat{A}[\uirm{B}{(e)}_{p+1},\, \uirm{B}{(m)}_{D-p}]}
+    \end{align}
+    と正則化すれば良い．
+\end{myexample}
+
+\section{離散的な高次対称性}
+
+離散群で特徴づけられる対称性は，Lie群の場合と異なり，必ずしも保存カレントが存在しない．そのようなときであっても\hyperref[def:p-form-sym]{トロポジカル演算子}および背景ゲージ場を定義することができる．
+
+\subsection{離散的ゲージ理論}
+
+構造群 $G$ が離散群の場合のゲージ理論を，具体例によって雑に導入する．\hyperref[def.PFD]{主束}による構成を拡張して一般論を展開することもできる．
+
+\begin{myexample}[label=def:Zn-gauge-theory]{$\mathbb{Z}_N$ ゲージ理論}
+    $\mathbb{Z}_N$ は $\LU(1)$ の離散部分群なので，$\LU(1)$ ゲージ理論の枠組みをそのまま使うことができる．
+
+    主 $\LU(1)$ 束 $P$ の\hyperref[def:connection]{接続形式} $\omega \in \Omega^{1}(P;\, \mathfrak{g})$ が\textbf{$\bm{\mathbb{Z}_N}$ 接続}であるとは，その\hyperref[def:holonomy]{ホロノミー群}が $\forall u \in P$ において $\mathrm{Hol}_u(P,\, \omega) \subset \mathbb{Z}_N$ になっていることを言う．
+    補題\ref{lem:horizontal-lift-curve}より，これは\hyperref[thm:local-connection]{ゲージ場} $A \in \Omega(U;\, \mathfrak{g})$ により局所的に
+    \begin{align}
+        \forall u \in P,\; \forall \gamma \in \Omega_{\pi(u)},\;  \exp \left( \iunit \int_{\gamma} A\right) \in \mathbb{Z}_N
+    \end{align}
+    とかける．
+\end{myexample}
 
 
 
