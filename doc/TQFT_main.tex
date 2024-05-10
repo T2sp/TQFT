@@ -164,6 +164,10 @@ title=定義~\thetcbcounter: #2,#1}
 colback=LightSkyBlue!5!white,colframe=Cyan!75!black,fonttitle=\bfseries,
 title=仮説~\thetcbcounter: #2,#1}
 
+\newtcolorbox[auto counter,number within=chapter]{myconj}[2][breakable]{%
+colback=LightSkyBlue!5!white,colframe=Crimson!75!black,fonttitle=\bfseries,
+title=予想~\thetcbcounter: #2,#1}
+
 \newtcolorbox[use counter from=mytheo]{mycol}[2][breakable]{%
 fonttitle=\bfseries,enhanced,
 attach boxed title to top left=

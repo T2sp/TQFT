@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  11 MAY 2024 03:55
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  11 MAY 2024 04:41
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/t2space/Desktop/Seminors/TQFT/doc/TQFT_main.tex
@@ -1217,7 +1217,8 @@ File: lstmisc.sty 2024/02/21 1.10 (Carsten Heinz)
 \c@tcb@cnt@mylem=\count396
 \c@tcb@cnt@mydef=\count397
 \c@tcb@cnt@myhypo=\count398
-\c@tcb@cnt@myexample=\count399
+\c@tcb@cnt@myconj=\count399
+\c@tcb@cnt@myexample=\count400
  (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/latex/subfiles/subfiles.sty
 Package: subfiles 2020/11/14 v2.2 Multi-file projects (package)
  (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/latex/import/import.sty
@@ -1229,57 +1230,51 @@ warning  (map file): entry for 'ascgrp' already exists, duplicates ignored
 ) (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/luatex/luatexja/patches/lltjp-array.sty
 Package: lltjp-array 2019-07-18 Patch to array for LuaTeX-ja
 )
-Package translations Info: No language package found. I am going to use `english' as default language. on input line 277.
- (./out/TQFT_main.aux
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 281.
 
-LaTeX Warning: Label `ex:1-3nonabelian' multiply defined.
+No file TQFT_main.aux.
 
-
-LaTeX Warning: Label `def:Chern-class' multiply defined.
-
-)
 \openout1 = TQFT_main.aux
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 277.
-LaTeX Font Info:    ... okay on input line 277.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 277.
-LaTeX Font Info:    ... okay on input line 277.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 277.
-LaTeX Font Info:    ... okay on input line 277.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 277.
-LaTeX Font Info:    ... okay on input line 277.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 277.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 277.
- (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/latex/base/ts1cmr.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 281.
+LaTeX Font Info:    ... okay on input line 281.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 281.
+LaTeX Font Info:    ... okay on input line 281.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 281.
+LaTeX Font Info:    ... okay on input line 281.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 281.
+LaTeX Font Info:    ... okay on input line 281.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 281.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 281.
+(/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 277.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 277.
-LaTeX Font Info:    ... okay on input line 277.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 277.
-LaTeX Font Info:    ... okay on input line 277.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 277.
-LaTeX Font Info:    ... okay on input line 277.
-LaTeX Font Info:    Checking defaults for JY3/mc/m/n on input line 277.
-LaTeX Font Info:    ... okay on input line 277.
-LaTeX Font Info:    Checking defaults for JT3/mc/m/n on input line 277.
-LaTeX Font Info:    ... okay on input line 277.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 277.
-LaTeX Font Info:    ... okay on input line 277.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 277.
-LaTeX Font Info:    ... okay on input line 277.
+LaTeX Font Info:    ... okay on input line 281.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 281.
+LaTeX Font Info:    ... okay on input line 281.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 281.
+LaTeX Font Info:    ... okay on input line 281.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 281.
+LaTeX Font Info:    ... okay on input line 281.
+LaTeX Font Info:    Checking defaults for JY3/mc/m/n on input line 281.
+LaTeX Font Info:    ... okay on input line 281.
+LaTeX Font Info:    Checking defaults for JT3/mc/m/n on input line 281.
+LaTeX Font Info:    ... okay on input line 281.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 281.
+LaTeX Font Info:    ... okay on input line 281.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 281.
+LaTeX Font Info:    ... okay on input line 281.
  (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count400
+\scratchcounter=\count401
 \scratchdimen=\dimen365
 \scratchbox=\box132
-\nofMPsegments=\count401
-\nofMParguments=\count402
+\nofMPsegments=\count402
+\nofMParguments=\count403
 \everyMPshowfont=\toks72
-\MPscratchCnt=\count403
+\MPscratchCnt=\count404
 \MPscratchDim=\dimen366
-\MPnumerator=\count404
-\makeMPintoPDFobject=\count405
+\MPnumerator=\count405
+\makeMPintoPDFobject=\count406
 \everyMPtoPDFconversion=\toks73
 ) (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1287,8 +1282,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 277.
- (./out/TQFT_main.out) (./out/TQFT_main.out)
+Package hyperref Info: Link coloring ON on input line 281.
 \@outlinefile=\write7
 
 \openout7 = TQFT_main.out
@@ -1307,85 +1301,77 @@ Package siunitx Warning: Detected the "physics" package:
 (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 277.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 281.
 
-Package chemgreek Info: Activating mapping `default' on line 277.
+Package chemgreek Info: Activating mapping `default' on line 281.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 
-Package tikz-feynman Warning: Consider loading TikZ-Feynman with \usepackage[compat=1.1.0]{tikz-feynman} so that you can be warned if TikZ-Feynman changes. on input line 277.
+Package tikz-feynman Warning: Consider loading TikZ-Feynman with \usepackage[compat=1.1.0]{tikz-feynman} so that you can be warned if TikZ-Feynman changes. on input line 281.
 
 Package pgfplots notification 'compat/show suggested version=true': you might benefit from \pgfplotsset{compat=1.18} (current compat level: 1.15).
 
-\c@lstlisting=\count406
+\c@lstlisting=\count407
 (load cache: extra_lmroman17-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 15.97903pt on input line 283.
+(Font)              scaled to size 15.97903pt on input line 287.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 15.97903pt on input line 283.
+(Font)              scaled to size 15.97903pt on input line 287.
 (load cache: extra_lmroman12-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 283.
+(Font)              scaled to size 11.09656pt on input line 287.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 283.
+(Font)              scaled to size 11.09656pt on input line 287.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 5.54828pt on input line 283.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 283.
+(Font)              scaled to size 5.54828pt on input line 287.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 287.
 (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 283.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 287.
  (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 283.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 287.
  (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 283.
+(Font)              scaled to size 11.09656pt on input line 287.
 (load cache: extra_haranoajigothic-medium.luc)
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 7.3977pt on input line 283.
+(Font)              scaled to size 7.3977pt on input line 287.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 5.54828pt on input line 283.
+(Font)              scaled to size 5.54828pt on input line 287.
  [1
 
 ]
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 285.
+(Font)              scaled to size 9.24713pt on input line 289.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 285.
+(Font)              scaled to size 9.24713pt on input line 289.
 (load cache: extra_lmsans10-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 285.
+(Font)              scaled to size 23.00687pt on input line 289.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 285.
+(Font)              scaled to size 23.00687pt on input line 289.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 285.
+(Font)              scaled to size 23.00687pt on input line 289.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 285.
-(load cache: extra_lmsans17-regular.luc) (./out/TQFT_main.toc
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 6.47299pt on input line 2.
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 2.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 6.47299pt on input line 2.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 2.
-
-warning  (pdf backend): ignoring duplicate destination with the name 'page.1'
-[1
-
-] [2])
+(Font)              scaled to size 23.00687pt on input line 289.
+(load cache: extra_lmsans17-regular.luc)
+No file TQFT_main.toc.
 \tf@toc=\write8
 
 \openout8 = TQFT_main.toc
- (./chap1.tex [3]
+(./chap1.tex
+warning  (pdf backend): ignoring duplicate destination with the name 'page.1'
+[1
+
+]
 第1章
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
 (Font)              scaled to size 19.17854pt on input line 7.
@@ -1395,6 +1381,26 @@ LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
 (Font)              scaled to size 19.17854pt on input line 7.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 19.17854pt on input line 7.
+(load cache: extra_lmroman10-bold.luc)
+LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <10> not available
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 9.
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 9.24713pt on input line 9.
+LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <10> not available
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 9.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 9.24713pt on input line 9.
+
+LaTeX Warning: Citation `Simon2021' on page 2 undefined on input line 9.
+
+LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
+(Font)              scaled to size 6.47299pt on input line 10.
+LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
+(Font)              scaled to size 4.62357pt on input line 10.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 6.47299pt on input line 10.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 4.62357pt on input line 10.
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
 (Font)              scaled to size 13.31586pt on input line 13.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
@@ -1408,24 +1414,43 @@ LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <14.4> not available
 (Font)              Font shape `JY3/gt/m/n' tried instead on input line 13.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 13.31586pt on input line 13.
-(load cache: extra_lmroman10-bold.luc)
-LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <10> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 18.
-LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 18.
-LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <10> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 18.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 18.
 (load cache: extra_lmroman7-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
 (Font)              scaled to size 6.47299pt on input line 23.
 (load cache: extra_lmroman6-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
 (Font)              scaled to size 5.54828pt on input line 23.
-[4
 
-] [5]
+LaTeX Warning: Reference `eq:1-def-propagator' on page 2 undefined on input line 36.
+
+[2
+
+]
+
+LaTeX Warning: Reference `eq:1-pathintegral' on page 3 undefined on input line 47.
+
+(load cache: extra_lmroman8-bold.luc)
+LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <8> not available
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 64.
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 7.3977pt on input line 64.
+LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <8> not available
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 64.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 7.3977pt on input line 64.
+
+LaTeX Warning: Reference `eq:1-path1' on page 3 undefined on input line 64.
+
+
+LaTeX Warning: Citation `Nakahara2018topo1' on page 3 undefined on input line 64.
+
+
+LaTeX Warning: Reference `eq:1-path1' on page 3 undefined on input line 73.
+
+[3]
+
+LaTeX Warning: Reference `eq:1-pathintegral' on page 4 undefined on input line 82.
+
 LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <12> not available
 (Font)              Font shape `JT3/gt/m/n' tried instead on input line 89.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
@@ -1452,15 +1477,6 @@ LaTeX Font Info:    Font shape `JY3/mc/b/it' in size <10> not available
 (Font)              Font shape `JY3/gt/m/n' tried instead on input line 93.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 9.24713pt on input line 93.
-(load cache: extra_lmroman8-bold.luc)
-LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <8> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 101.
-LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 7.3977pt on input line 101.
-LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <8> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 101.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 7.3977pt on input line 101.
 (load cache: extra_lmmono8-regular.luc)
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
 (Font)              scaled to size 7.3977pt on input line 101.
@@ -1484,7 +1500,7 @@ LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
 (load cache: extra_lmroman5-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
 (Font)              scaled to size 4.62357pt on input line 110.
- [6]
+[4]
 LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <24.88> not available
 (Font)              Font shape `JT3/gt/m/n' tried instead on input line 112.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
@@ -1496,19 +1512,28 @@ LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 LaTeX Font Info:    Trying to load font information for U+dsrom on input line 154.
  (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-) [7]
+) [5]
 Overfull \hbox (38.93439pt too wide) detected at line 192
 [][]
  []
+
+
+LaTeX Warning: Reference `eq:1-propagator' on page 6 undefined on input line 194.
+
+
+LaTeX Warning: Reference `lem:1-1groupoid' on page 6 undefined on input line 199.
 
 
 Overfull \hbox (45.83073pt too wide) detected at line 211
 [][]
  []
 
-[8]
+[6]
+
+LaTeX Warning: Reference `eq:1-propagator-f' on page 7 undefined on input line 213.
+
 LaTeX Font Info:    Trying to load font information for U+euf on input line 222.
- (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/latex/amsfonts/ueuf.fd
+(/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
 
@@ -1519,13 +1544,24 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 230.
 
-[9]
-<./figs/braidg_generator.png, id=589, 493.845pt x 163.61125pt>
+[7]
+
+LaTeX Warning: Reference `def:braidg' on page 8 undefined on input line 243.
+
+
+LaTeX Warning: Citation `Fadell1961braid' on page 8 undefined on input line 243.
+
+<./figs/braidg_generator.png, id=127, 493.845pt x 163.61125pt>
 File: ./figs/braidg_generator.png Graphic file (type png)
 <use ./figs/braidg_generator.png>
 Package luatex.def Info: ./figs/braidg_generator.png  used on input line 247.
 (luatex.def)             Requested size: 370.38283pt x 122.70813pt.
 
+LaTeX Warning: Citation `Simon2021' on page 8 undefined on input line 248.
+
+
+LaTeX Warning: Citation `Simon2021' on page 8 undefined on input line 248.
+
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 257.
@@ -1534,9 +1570,35 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 257.
 
-[10<./figs/braidg_generator.png>] [11]) (./chap2.tex [12]
+
+LaTeX Warning: Reference `prop:not4D-knot' on page 8 undefined on input line 265.
+
+[8<./figs/braidg_generator.png>]
+
+LaTeX Warning: Reference `eq:1-composition' on page 9 undefined on input line 274.
+
+
+LaTeX Warning: Reference `def:braidg' on page 9 undefined on input line 288.
+
+
+LaTeX Warning: Reference `def:braidg' on page 9 undefined on input line 304.
+
+
+LaTeX Warning: Reference `ex:1-1abelian' on page 9 undefined on input line 304.
+
+[9]
+
+LaTeX Warning: Citation `HalvorsonMuger2006' on page 10 undefined on input line 331.
+
+) (./chap2.tex [10]
 第2章
-[13
+
+LaTeX Warning: Citation `Simon2021' on page 11 undefined on input line 15.
+
+
+LaTeX Warning: Citation `Aharonov1984' on page 11 undefined on input line 40.
+
+[11
 
 ](load cache: extra_lmsans10-bold.luc)
 LaTeX Font Info:    Font shape `JT3/gt/b/n' in size <10> not available
@@ -1547,11 +1609,83 @@ LaTeX Font Info:    Font shape `JY3/gt/b/n' in size <10> not available
 (Font)              Font shape `JY3/gt/m/n' tried instead on input line 67.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 9.24713pt on input line 67.
- [14] [15] [16] [17] [18] [19] [20] [21]
 
-LaTeX Warning: Hyper reference `def:tangentbundle' on page 22 undefined on input line 490.
 
-[22] [23](load cache: extra_lmroman9-regular.luc)
+LaTeX Warning: Reference `eq:2-T-comm' on page 12 undefined on input line 77.
+
+[12]
+
+LaTeX Warning: Reference `eq:lagrangian-SC' on page 13 undefined on input line 106.
+
+[13] [14]
+
+LaTeX Warning: Reference `eq:2-T-comm' on page 15 undefined on input line 184.
+
+[15]
+
+LaTeX Warning: Reference `eq:gauge-transform' on page 16 undefined on input line 237.
+
+
+LaTeX Warning: Reference `eq:gauge-transform' on page 16 undefined on input line 244.
+
+[16]
+
+LaTeX Warning: Reference `eq:gauge-transform' on page 17 undefined on input line 264.
+
+
+LaTeX Warning: Reference `eq:CS-gauge' on page 17 undefined on input line 270.
+
+[17]
+
+LaTeX Warning: Reference `eq:2-gauge1' on page 18 undefined on input line 330.
+
+
+LaTeX Warning: Reference `eq:2-inner1' on page 18 undefined on input line 346.
+
+
+LaTeX Warning: Reference `eq:2-inner1' on page 18 undefined on input line 351.
+
+[18]
+
+LaTeX Warning: Hyper reference `def:Lie-action' on page 19 undefined on input line 404.
+
+
+LaTeX Warning: Hyper reference `def:Lie-action' on page 19 undefined on input line 409.
+
+
+LaTeX Warning: Reference `fig.fiber1' on page 19 undefined on input line 416.
+
+[19]
+
+LaTeX Warning: Hyper reference `def.fiber-1' on page 20 undefined on input line 462.
+
+
+LaTeX Warning: Hyper reference `def.fiber-1' on page 20 undefined on input line 479.
+
+
+LaTeX Warning: Hyper reference `def:tangentbundle' on page 20 undefined on input line 490.
+
+[20]
+
+LaTeX Warning: Reference `fig.bundlemap' on page 21 undefined on input line 515.
+
+[21]
+
+LaTeX Warning: Hyper reference `def.fiber-1' on page 22 undefined on input line 568.
+
+
+LaTeX Warning: Reference `def.fiber-1' on page 22 undefined on input line 568.
+
+
+LaTeX Warning: Reference `subfig.fiber-l' on page 22 undefined on input line 568.
+
+
+LaTeX Warning: Hyper reference `def.bundlemap' on page 22 undefined on input line 569.
+
+
+LaTeX Warning: Reference `subfig.fiber-lm' on page 22 undefined on input line 569.
+
+(load cache: extra_lmroman9-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
 (Font)              scaled to size 8.32242pt on input line 579.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
@@ -1563,67 +1697,1850 @@ Overfull \hbox (31.83612pt too wide) in paragraph at lines 600--601
  [][] 
  []
 
+
+LaTeX Warning: Reference `fig.fiber2' on page 22 undefined on input line 612.
+
+
+LaTeX Warning: Hyper reference `def:Lie-action' on page 22 undefined on input line 617.
+
+
+LaTeX Warning: Reference `eq.cocycle' on page 22 undefined on input line 619.
+
+
+LaTeX Warning: Hyper reference `def:Lie-action' on page 22 undefined on input line 626.
+
+
+LaTeX Warning: Reference `eq.cocycle' on page 22 undefined on input line 628.
+
+[22]
+
+LaTeX Warning: Reference `eq.cocycle' on page 23 undefined on input line 634.
+
+
+LaTeX Warning: Hyper reference `def.reltopo' on page 23 undefined on input line 644.
+
+
+LaTeX Warning: Hyper reference `def.prodtopo' on page 23 undefined on input line 644.
+
+
+LaTeX Warning: Hyper reference `def.disjoint_topo' on page 23 undefined on input line 644.
+
+
+LaTeX Warning: Reference `eq.cocycle' on page 23 undefined on input line 648.
+
+
+LaTeX Warning: Reference `eq.cocycle' on page 23 undefined on input line 666.
+
+[23]
+
+LaTeX Warning: Hyper reference `fig.bundle_homo' on page 24 undefined on input line 691.
+
+
+LaTeX Warning: Hyper reference `def.fiber-1' on page 24 undefined on input line 692.
+
+
+LaTeX Warning: Hyper reference `def.fiber-1' on page 24 undefined on input line 696.
+
+
+LaTeX Warning: Hyper reference `def:Lie-action' on page 24 undefined on input line 697.
+
+
+LaTeX Warning: Hyper reference `def.PFD' on page 24 undefined on input line 703.
+
+
+LaTeX Warning: Hyper reference `def:Lie-action' on page 24 undefined on input line 704.
+
+
+LaTeX Warning: Hyper reference `def.fiber-1' on page 24 undefined on input line 709.
+
+
+LaTeX Warning: Hyper reference `def.fiber-1' on page 24 undefined on input line 710.
+
 [24]
 
-LaTeX Warning: Hyper reference `def.reltopo' on page 25 undefined on input line 644.
+LaTeX Warning: Reference `def:ractionP' on page 25 undefined on input line 729.
 
 
-LaTeX Warning: Hyper reference `def.prodtopo' on page 25 undefined on input line 644.
+LaTeX Warning: Reference `def:ractionP' on page 25 undefined on input line 749.
 
 
-LaTeX Warning: Hyper reference `def.disjoint_topo' on page 25 undefined on input line 644.
+LaTeX Warning: Hyper reference `def:Lie-action' on page 25 undefined on input line 754.
 
-[25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38]
 
-LaTeX Warning: Hyper reference `def:vecf-complete' on page 39 undefined on input line 1437.
+LaTeX Warning: Hyper reference `def.PFD' on page 25 undefined on input line 758.
+
+
+LaTeX Warning: Hyper reference `def.fiber-1' on page 25 undefined on input line 765.
+
+
+LaTeX Warning: Reference `prop.cocycle' on page 25 undefined on input line 765.
+
+
+LaTeX Warning: Hyper reference `def.PFD' on page 25 undefined on input line 765.
+
+
+LaTeX Warning: Hyper reference `def:vect' on page 25 undefined on input line 769.
+
+
+LaTeX Warning: Hyper reference `def.section' on page 25 undefined on input line 788.
+
+
+LaTeX Warning: Hyper reference `def:vect' on page 25 undefined on input line 793.
+
+
+LaTeX Warning: Hyper reference `def:vect' on page 25 undefined on input line 822.
+
+[25] [26]
+
+LaTeX Warning: Hyper reference `def.PFD' on page 27 undefined on input line 837.
+
+
+LaTeX Warning: Hyper reference `def:Lie-action' on page 27 undefined on input line 837.
+
+
+LaTeX Warning: Reference `def:ractionP' on page 27 undefined on input line 838.
+
+
+LaTeX Warning: Hyper reference `def.fiber-1' on page 27 undefined on input line 851.
+
+
+LaTeX Warning: Reference `def:ractionP' on page 27 undefined on input line 855.
+
+
+LaTeX Warning: Hyper reference `def.section' on page 27 undefined on input line 858.
+
+[27]
+
+LaTeX Warning: Reference `def:ractionP' on page 28 undefined on input line 876.
+
+
+LaTeX Warning: Reference `eq:loctriv-Borel' on page 28 undefined on input line 876.
+
+
+LaTeX Warning: Reference `eq:loctriv-Borel' on page 28 undefined on input line 882.
+
+
+LaTeX Warning: Hyper reference `def.fiber-1' on page 28 undefined on input line 909.
+
+
+LaTeX Warning: Hyper reference `def:Lie-action' on page 28 undefined on input line 910.
+
+
+LaTeX Warning: Reference `prop:Borelconst' on page 28 undefined on input line 911.
+
+
+LaTeX Warning: Hyper reference `def:vect' on page 28 undefined on input line 911.
+
+
+LaTeX Warning: Hyper reference `def.PFD' on page 28 undefined on input line 915.
+
+[28]
+
+LaTeX Warning: Hyper reference `def:associated-vect' on page 29 undefined on input line 923.
+
+
+LaTeX Warning: Hyper reference `def.section' on page 29 undefined on input line 927.
+
+
+LaTeX Warning: Hyper reference `def.fiber-1' on page 29 undefined on input line 927.
+
+
+LaTeX Warning: Reference `eq:2-inner1' on page 29 undefined on input line 931.
+
+
+LaTeX Warning: Reference `prop.cocycle' on page 29 undefined on input line 943.
+
+
+LaTeX Warning: Citation `Lee2012smooth' on page 29 undefined on input line 979.
+
+
+LaTeX Warning: Citation `Imai2013diff' on page 29 undefined on input line 979.
+
+
+LaTeX Warning: Reference `prop:diffeo-Frelated' on page 29 undefined on input line 981.
+
+
+LaTeX Warning: Hyper reference `prop:diffeo-Frelated' on page 29 undefined on input line 981.
+
+
+LaTeX Warning: Hyper reference `def:F-related' on page 29 undefined on input line 993.
+
+[29]
+
+LaTeX Warning: Reference `prop:Lie-bracket-natural' on page 30 undefined on input line 996.
+
+
+LaTeX Warning: Hyper reference `def:Lie-bracket' on page 30 undefined on input line 1002.
+
+
+LaTeX Warning: Hyper reference `def:F-related' on page 30 undefined on input line 1019.
+
+
+LaTeX Warning: Hyper reference `def:vecf' on page 30 undefined on input line 1022.
+
+
+LaTeX Warning: Reference `prop:LieAlg' on page 30 undefined on input line 1050.
+
+
+LaTeX Warning: Reference `eq:vL' on page 30 undefined on input line 1050.
+
+[30]
+
+LaTeX Warning: Hyper reference `def:F-related' on page 31 undefined on input line 1104.
+
+[31]
+
+LaTeX Warning: Reference `col:pushforward' on page 32 undefined on input line 1127.
+
+
+LaTeX Warning: Reference `prop:Lie-bracket-natural' on page 32 undefined on input line 1128.
+
+
+LaTeX Warning: Hyper reference `def:one-parameter-subgroup' on page 32 undefined on input line 1148.
+
+
+LaTeX Warning: Hyper reference `def:local-flow' on page 32 undefined on input line 1148.
+
+
+LaTeX Warning: Hyper reference `def:left-invariant' on page 32 undefined on input line 1148.
+
+[32]
+
+LaTeX Warning: Reference `prop:LieAlg' on page 33 undefined on input line 1156.
+
+
+LaTeX Warning: Reference `thm:induced-LieAlg-hom' on page 33 undefined on input line 1167.
+
+
+LaTeX Warning: Reference `thm:left-invariant-complete' on page 33 undefined on input line 1173.
+
+
+LaTeX Warning: Hyper reference `def:complete-vecf' on page 33 undefined on input line 1173.
+
+
+LaTeX Warning: Hyper reference `def:global-flow' on page 33 undefined on input line 1174.
+
+
+LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 33 undefined on input line 1174.
+
+
+LaTeX Warning: Hyper reference `def:left-invariant' on page 33 undefined on input line 1176.
+
+
+LaTeX Warning: Hyper reference `def:F-related' on page 33 undefined on input line 1176.
+
+
+LaTeX Warning: Reference `prop:natural-integral-curve' on page 33 undefined on input line 1176.
+
+
+LaTeX Warning: Reference `lem:affine-integral-curve' on page 33 undefined on input line 1178.
+
+
+LaTeX Warning: Reference `thm:fundamental-flow' on page 33 undefined on input line 1178.
+
+
+LaTeX Warning: Hyper reference `prop:one-parameter-basic' on page 33 undefined on input line 1193.
+
+
+LaTeX Warning: Hyper reference `prop:one-parameter-basic' on page 33 undefined on input line 1204.
+
+
+LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 33 undefined on input line 1225.
+
+[33]
+
+LaTeX Warning: Citation `Lee2012smooth' on page 34 undefined on input line 1238.
+
+
+LaTeX Warning: Hyper reference `prop:one-parameter-basic' on page 34 undefined on input line 1239.
+
+
+LaTeX Warning: Reference `prop:one-parameter-basic' on page 34 undefined on input line 1239.
+
+
+LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 34 undefined on input line 1239.
+
+
+LaTeX Warning: Reference `lem:affine-integral-curve' on page 34 undefined on input line 1241.
+
+[34]
+
+LaTeX Warning: Hyper reference `def:left-invariant' on page 35 undefined on input line 1268.
+
+
+LaTeX Warning: Hyper reference `def:F-related' on page 35 undefined on input line 1268.
+
+
+LaTeX Warning: Reference `prop:natural-integral-curve' on page 35 undefined on input line 1269.
+
+
+LaTeX Warning: Hyper reference `thm:inverse-function-b' on page 35 undefined on input line 1285.
+
+
+LaTeX Warning: Citation `Lee2012smooth' on page 35 undefined on input line 1378.
+
+
+LaTeX Warning: Hyper reference `def:exp' on page 35 undefined on input line 1381.
+
+
+LaTeX Warning: Reference `prop:exp' on page 35 undefined on input line 1382.
+
+
+LaTeX Warning: Reference `prop:infinitesimal-generator-local' on page 35 undefined on input line 1383.
+
+
+LaTeX Warning: Reference `prop:exp' on page 35 undefined on input line 1396.
+
+
+LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 35 undefined on input line 1396.
+
+
+LaTeX Warning: Hyper reference `def:Liedv' on page 35 undefined on input line 1405.
+
+[35] [36]
+
+LaTeX Warning: Hyper reference `def:Lie-adj' on page 37 undefined on input line 1418.
+
+
+LaTeX Warning: Reference `ex:gl' on page 37 undefined on input line 1429.
+
+
+LaTeX Warning: Reference `thm:fundamental-flow' on page 37 undefined on input line 1437.
+
+
+LaTeX Warning: Hyper reference `def:vecf-complete' on page 37 undefined on input line 1437.
+
+
+LaTeX Warning: Hyper reference `def:Lie-action' on page 37 undefined on input line 1443.
+
+[37]
+
+LaTeX Warning: Reference `prop:exp' on page 38 undefined on input line 1463.
+
+
+LaTeX Warning: Hyper reference `def:flow-global' on page 38 undefined on input line 1467.
+
+
+LaTeX Warning: Reference `prop:exp' on page 38 undefined on input line 1478.
+
+
+LaTeX Warning: Hyper reference `def:thm:fundamental-flow' on page 38 undefined on input line 1480.
+
+[38]
+
+LaTeX Warning: Reference `eq:fundamental-vecf' on page 39 undefined on input line 1500.
+
+
+LaTeX Warning: Hyper reference `thm:connection-basic' on page 39 undefined on input line 1500.
+
+
+LaTeX Warning: Hyper reference `def:fundamental-vecf' on page 39 undefined on input line 1505.
+
+
+LaTeX Warning: Hyper reference `def:F-related' on page 39 undefined on input line 1505.
+
+
+LaTeX Warning: Hyper reference `def:left-invariant' on page 39 undefined on input line 1514.
+
+
+LaTeX Warning: Hyper reference `def:fundamental-vecf' on page 39 undefined on input line 1528.
+
+
+LaTeX Warning: Reference `lem:fundamental-vecf' on page 39 undefined on input line 1547.
+
+
+LaTeX Warning: Hyper reference `prop:Lie-bracket-natural' on page 39 undefined on input line 1547.
 
 [39]
 
-LaTeX Warning: Hyper reference `def:flow-global' on page 40 undefined on input line 1467.
+LaTeX Warning: Citation `Lee2012smooth' on page 40 undefined on input line 1554.
 
 
-LaTeX Warning: Hyper reference `def:thm:fundamental-flow' on page 40 undefined on input line 1480.
+LaTeX Warning: Hyper reference `def:fundamental-vecf' on page 40 undefined on input line 1560.
 
-[40] [41] [42] [43] [44] [45] [46] [47]
+
+LaTeX Warning: Hyper reference `def:fundamental-vecf' on page 40 undefined on input line 1590.
+
+[40]
+
+LaTeX Warning: Reference `eq:fundamental-vecf' on page 41 undefined on input line 1602.
+
+
+LaTeX Warning: Reference `prop:fundamental-vecf-basic' on page 41 undefined on input line 1602.
+
+
+LaTeX Warning: Hyper reference `def:vect' on page 41 undefined on input line 1621.
+
+
+LaTeX Warning: Hyper reference `def.section' on page 41 undefined on input line 1625.
+
+
+LaTeX Warning: Hyper reference `def:vect' on page 41 undefined on input line 1636.
+
+[41]
+
+LaTeX Warning: Hyper reference `def.PFD' on page 42 undefined on input line 1651.
+
+
+LaTeX Warning: Citation `Imai2013diff' on page 42 undefined on input line 1651.
+
+
+LaTeX Warning: Citation `Tu2017differential' on page 42 undefined on input line 1651.
+
+
+LaTeX Warning: Hyper reference `def.PFD' on page 42 undefined on input line 1655.
+
+
+LaTeX Warning: Reference `prop.PFD_right' on page 42 undefined on input line 1655.
+
+
+LaTeX Warning: Hyper reference `def:fundamental-vecf' on page 42 undefined on input line 1655.
+
+
+LaTeX Warning: Hyper reference `eq:E-valued' on page 42 undefined on input line 1670.
+
+
+LaTeX Warning: Hyper reference `def:Lie-adj' on page 42 undefined on input line 1680.
+
+
+LaTeX Warning: Citation `Lee2012smooth' on page 42 undefined on input line 1691.
+
+[42]
+
+LaTeX Warning: Hyper reference `def:fundamental-vecf' on page 43 undefined on input line 1714.
+
+
+LaTeX Warning: Hyper reference `def.PFD' on page 43 undefined on input line 1716.
+
+
+LaTeX Warning: Reference `prop.PFD_right' on page 43 undefined on input line 1717.
+
+
+LaTeX Warning: Hyper reference `def:fundamental-vecf' on page 43 undefined on input line 1717.
+
+
+LaTeX Warning: Reference `eq:fundamental-vecf' on page 43 undefined on input line 1730.
+
+
+LaTeX Warning: Reference `col:fundamental-vecf-basic' on page 43 undefined on input line 1745.
+
+
+LaTeX Warning: Reference `prop.PFD_right' on page 43 undefined on input line 1745.
+
+
+LaTeX Warning: Hyper reference `def:Lie-action' on page 43 undefined on input line 1745.
+
+
+LaTeX Warning: Reference `eq:dim' on page 43 undefined on input line 1750.
+
+
+LaTeX Warning: Reference `eq:fundamental-vecf' on page 43 undefined on input line 1752.
+
+[43]
+
+LaTeX Warning: Hyper reference `def:connection' on page 44 undefined on input line 1761.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 44 undefined on input line 1762.
+
+
+LaTeX Warning: Hyper reference `def.PFD' on page 44 undefined on input line 1765.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 44 undefined on input line 1767.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 44 undefined on input line 1771.
+
+
+LaTeX Warning: Reference `prop.PFD_right' on page 44 undefined on input line 1779.
+
+
+LaTeX Warning: Hyper reference `def:fundamental-vecf' on page 44 undefined on input line 1779.
+
+
+LaTeX Warning: Reference `lem:connection' on page 44 undefined on input line 1790.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 44 undefined on input line 1798.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 44 undefined on input line 1811.
+
+
+LaTeX Warning: Reference `lem:connection' on page 44 undefined on input line 1813.
+
+[44]
+
+LaTeX Warning: Hyper reference `def:connection' on page 45 undefined on input line 1822.
+
+
+LaTeX Warning: Reference `lem:connection' on page 45 undefined on input line 1829.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 45 undefined on input line 1833.
+
+
+LaTeX Warning: Reference `lem:connection' on page 45 undefined on input line 1837.
+
+
+LaTeX Warning: Reference `eq:fundamental-vecf' on page 45 undefined on input line 1837.
+
+
+LaTeX Warning: Reference `lem:connection' on page 45 undefined on input line 1853.
+
+
+LaTeX Warning: Reference `eq:fundamental-vecf' on page 45 undefined on input line 1859.
+
+(load cache: extra_lmroman7-bold.luc)(load cache: extra_lmroman5-bold.luc)
+
+LaTeX Warning: Reference `eq:fundamental-vecf' on page 45 undefined on input line 1859.
+
+[45]
+
+LaTeX Warning: Reference `def:Lie-adj' on page 46 undefined on input line 1869.
+
+
+LaTeX Warning: Hyper reference `def:Lie-adj' on page 46 undefined on input line 1879.
+
+
+LaTeX Warning: Reference `eq:fundamental-vecf' on page 46 undefined on input line 1879.
+
+
+LaTeX Warning: Reference `eq:CF-1' on page 46 undefined on input line 1879.
+
+
+LaTeX Warning: Reference `eq:CF-1' on page 46 undefined on input line 1879.
+
+
+LaTeX Warning: Hyper reference `def:Lie-adj' on page 46 undefined on input line 1879.
+
+
+LaTeX Warning: Reference `eq:fundamental-vecf' on page 46 undefined on input line 1879.
+
+
+LaTeX Warning: Reference `eq:CF-1' on page 46 undefined on input line 1879.
+
+
+LaTeX Warning: Reference `eq:CF-1' on page 46 undefined on input line 1879.
+
+
 Overfull \hbox (15.09593pt too wide) detected at line 1879
 [][]
  []
 
-[48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59] [60] [61] [62] [63] [64] [65] [66] [67] [68]
 
-LaTeX Warning: Hyper reference `def:F-rel' on page 69 undefined on input line 2988.
+LaTeX Warning: Hyper reference `def:connection' on page 46 undefined on input line 1880.
 
-[69] [70] [71] [72]
+
+LaTeX Warning: Hyper reference `def.PFD' on page 46 undefined on input line 1903.
+
+
+LaTeX Warning: Reference `prop.PFD_right' on page 46 undefined on input line 1907.
+
+
+LaTeX Warning: Hyper reference `def:fundamental-vecf' on page 46 undefined on input line 1907.
+
+
+LaTeX Warning: Hyper reference `eq:E-valued' on page 46 undefined on input line 1908.
+
+[46]
+
+LaTeX Warning: Reference `lem:fundamental-vecf' on page 47 undefined on input line 1932.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 47 undefined on input line 1935.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 47 undefined on input line 1935.
+
+
+LaTeX Warning: Hyper reference `def.PFD' on page 47 undefined on input line 1942.
+
+
+LaTeX Warning: Hyper reference `def:associated-vect' on page 47 undefined on input line 1945.
+
+
+LaTeX Warning: Hyper reference `prop:Borelconst' on page 47 undefined on input line 1958.
+
+
+LaTeX Warning: Hyper reference `prop.PFD_right' on page 47 undefined on input line 1958.
+
+
+LaTeX Warning: Reference `prop:Borelconst' on page 47 undefined on input line 1968.
+
+
+LaTeX Warning: Hyper reference `def.section' on page 47 undefined on input line 1969.
+
+[47]
+
+LaTeX Warning: Hyper reference `def:associated-vect' on page 48 undefined on input line 1975.
+
+
+LaTeX Warning: Hyper reference `def.PFD' on page 48 undefined on input line 1984.
+
+
+LaTeX Warning: Hyper reference `def:associated-vect' on page 48 undefined on input line 1987.
+
+
+LaTeX Warning: Reference `eq:assoc-loctriv' on page 48 undefined on input line 2026.
+
+
+LaTeX Warning: Reference `eq:assoc-sec' on page 48 undefined on input line 2026.
+
+
+LaTeX Warning: Hyper reference `def.section' on page 48 undefined on input line 2026.
+
+[48]
+
+LaTeX Warning: Hyper reference `def:tensorial-form' on page 49 undefined on input line 2034.
+
+
+LaTeX Warning: Reference `lem:connection' on page 49 undefined on input line 2044.
+
+
+LaTeX Warning: Reference `lem:connection' on page 49 undefined on input line 2044.
+
+
+LaTeX Warning: Hyper reference `def:tensorial-form' on page 49 undefined on input line 2050.
+
+
+LaTeX Warning: Hyper reference `lem:assoc-basic' on page 49 undefined on input line 2063.
+
+
+LaTeX Warning: Hyper reference `prop:Borelconst' on page 49 undefined on input line 2063.
+
+
+LaTeX Warning: Hyper reference `lem:assoc-basic' on page 49 undefined on input line 2063.
+
+
+LaTeX Warning: Hyper reference `lem:assoc-basic' on page 49 undefined on input line 2063.
+
+
+LaTeX Warning: Hyper reference `prop:Borelconst' on page 49 undefined on input line 2063.
+
+
+LaTeX Warning: Hyper reference `lem:assoc-basic' on page 49 undefined on input line 2063.
+
+
+LaTeX Warning: Reference `def:flat' on page 49 undefined on input line 2082.
+
+
+LaTeX Warning: Hyper reference `def:tensorial-form' on page 49 undefined on input line 2088.
+
+[49]
+
+LaTeX Warning: Hyper reference `def:tensorial-form' on page 50 undefined on input line 2101.
+
+
+LaTeX Warning: Hyper reference `prop:Borelconst' on page 50 undefined on input line 2108.
+
+
+LaTeX Warning: Hyper reference `lem:assoc-basic' on page 50 undefined on input line 2117.
+
+
+LaTeX Warning: Hyper reference `lem:assoc-basic' on page 50 undefined on input line 2147.
+
+
+LaTeX Warning: Hyper reference `prop:assoc-basic' on page 50 undefined on input line 2147.
+
+
+LaTeX Warning: Hyper reference `lem:assoc-basic' on page 50 undefined on input line 2147.
+
+
+LaTeX Warning: Hyper reference `prop:assoc-basic' on page 50 undefined on input line 2147.
+
+[50]
+
+LaTeX Warning: Hyper reference `def:vect' on page 51 undefined on input line 2155.
+
+
+LaTeX Warning: Reference `def:associated-vect' on page 51 undefined on input line 2184.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 51 undefined on input line 2184.
+
+
+LaTeX Warning: Hyper reference `def:connection-vect' on page 51 undefined on input line 2184.
+
+
+LaTeX Warning: Citation `Imai2013diff' on page 51 undefined on input line 2185.
+
+
+LaTeX Warning: Hyper reference `def.PFD' on page 51 undefined on input line 2189.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 51 undefined on input line 2190.
+
+
+LaTeX Warning: Hyper reference `def:associated-vect' on page 51 undefined on input line 2192.
+
+
+LaTeX Warning: Hyper reference `def:diff-rep' on page 51 undefined on input line 2194.
+
+
+LaTeX Warning: Reference `prop:assoc-basic' on page 51 undefined on input line 2200.
+
+
+LaTeX Warning: Hyper reference `def:connection-vect' on page 51 undefined on input line 2204.
+
+
+LaTeX Warning: Reference `eq:assoc-loctriv' on page 51 undefined on input line 2205.
+
+
+LaTeX Warning: Hyper reference `def:connection-vect' on page 51 undefined on input line 2210.
+
+[51]
+
+LaTeX Warning: Hyper reference `def:tensorial-form' on page 52 undefined on input line 2238.
+
+
+LaTeX Warning: Hyper reference `def:fundamental-vecf' on page 52 undefined on input line 2240.
+
+
+LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 52 undefined on input line 2240.
+
+
+LaTeX Warning: Hyper reference `def:Liedv' on page 52 undefined on input line 2241.
+
+
+LaTeX Warning: Hyper reference `def:tensorial-form' on page 52 undefined on input line 2249.
+
+
+LaTeX Warning: Hyper reference `def:tensorial-form' on page 52 undefined on input line 2249.
+
+[52]
+
+LaTeX Warning: Hyper reference `def:tensorial-form' on page 53 undefined on input line 2259.
+
+
+LaTeX Warning: Reference `def:diff-rep' on page 53 undefined on input line 2286.
+
+
+LaTeX Warning: Reference `prop:exp' on page 53 undefined on input line 2286.
+
+
+LaTeX Warning: Hyper reference `def:connection-vect' on page 53 undefined on input line 2307.
+
+
+LaTeX Warning: Reference `prop:assoc-basic' on page 53 undefined on input line 2337.
+
+
+LaTeX Warning: Reference `prop:assoc-basic' on page 53 undefined on input line 2337.
+
+
+LaTeX Warning: Reference `prop:assoc-basic' on page 53 undefined on input line 2337.
+
+
+LaTeX Warning: Reference `prop:assoc-basic' on page 53 undefined on input line 2337.
+
+
+LaTeX Warning: Reference `prop:assoc-basic' on page 53 undefined on input line 2337.
+
+
+LaTeX Warning: Reference `prop:assoc-basic' on page 53 undefined on input line 2337.
+
+[53]
+
+LaTeX Warning: Reference `prop:assoc-basic' on page 54 undefined on input line 2339.
+
+
+LaTeX Warning: Reference `prop:assoc-basic' on page 54 undefined on input line 2351.
+
+
+LaTeX Warning: Reference `prop:assoc-basic' on page 54 undefined on input line 2373.
+
+
+LaTeX Warning: Reference `prop:assoc-basic' on page 54 undefined on input line 2373.
+
+
+LaTeX Warning: Reference `prop:assoc-basic' on page 54 undefined on input line 2373.
+
+
+LaTeX Warning: Reference `prop:assoc-basic' on page 54 undefined on input line 2373.
+
+
+LaTeX Warning: Hyper reference `def:connection-vect' on page 54 undefined on input line 2374.
+
+[54]
+
+LaTeX Warning: Reference `thm:connection-assoc' on page 55 undefined on input line 2383.
+
+
+LaTeX Warning: Hyper reference `def.PFD' on page 55 undefined on input line 2386.
+
+
+LaTeX Warning: Hyper reference `def.section' on page 55 undefined on input line 2396.
+
+
+LaTeX Warning: Reference `eq:assoc-loctriv' on page 55 undefined on input line 2396.
+
+
+LaTeX Warning: Hyper reference `def:associated-vect' on page 55 undefined on input line 2397.
+
+
+LaTeX Warning: Reference `eq:assoc-loctriv' on page 55 undefined on input line 2406.
+
+
+LaTeX Warning: Reference `prop:Borelconst' on page 55 undefined on input line 2406.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 55 undefined on input line 2409.
+
+
+LaTeX Warning: Reference `thm:connection-assoc' on page 55 undefined on input line 2409.
+
+
+LaTeX Warning: Hyper reference `def:connection-vect' on page 55 undefined on input line 2409.
+
+
+LaTeX Warning: Reference `eq:field-locsym' on page 55 undefined on input line 2411.
+
+
+LaTeX Warning: Hyper reference `def:vecf' on page 55 undefined on input line 2412.
+
+
+LaTeX Warning: Hyper reference `def:connection-vect' on page 55 undefined on input line 2412.
+
+
+LaTeX Warning: Reference `eq:field-locsym' on page 55 undefined on input line 2412.
+
+
+LaTeX Warning: Reference `thm:connection-assoc' on page 55 undefined on input line 2417.
+
+[55]
+
+LaTeX Warning: Reference `eq:def-codv-transform' on page 56 undefined on input line 2436.
+
+
+LaTeX Warning: Reference `eq:def-gauge-transform' on page 56 undefined on input line 2448.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 56 undefined on input line 2453.
+
+
+LaTeX Warning: Reference `ex:gl' on page 56 undefined on input line 2466.
+
+
+LaTeX Warning: Reference `ex:gl-adj' on page 56 undefined on input line 2466.
+
+[56]
+
+LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 57 undefined on input line 2487.
+
+[57]
+
+LaTeX Warning: Reference `lem:tangent-product' on page 58 undefined on input line 2552.
+
+[58]
+
+LaTeX Warning: Hyper reference `def.PFD' on page 59 undefined on input line 2565.
+
+
+LaTeX Warning: Hyper reference `def.section' on page 59 undefined on input line 2566.
+
+
+LaTeX Warning: Reference `eq:assoc-sec' on page 59 undefined on input line 2566.
+
+
+LaTeX Warning: Hyper reference `def:Maurer-Cartan' on page 59 undefined on input line 2567.
+
+
+LaTeX Warning: Citation `Nakahara2018topo2' on page 59 undefined on input line 2570.
+
+
+LaTeX Warning: Hyper reference `def.fiber-1' on page 59 undefined on input line 2580.
+
+
+LaTeX Warning: Hyper reference `prop.PFD_right' on page 59 undefined on input line 2580.
+
+
+LaTeX Warning: Reference `lem:diff-product' on page 59 undefined on input line 2585.
+
+
+LaTeX Warning: Reference `eq:fundamental-vecf' on page 59 undefined on input line 2597.
+
+
+LaTeX Warning: Citation `Nakahara2018topo2' on page 59 undefined on input line 2609.
+
+
+LaTeX Warning: Hyper reference `def.PFD' on page 59 undefined on input line 2612.
+
+
+LaTeX Warning: Hyper reference `def.section' on page 59 undefined on input line 2613.
+
+
+LaTeX Warning: Reference `eq:assoc-sec' on page 59 undefined on input line 2613.
+
+
+LaTeX Warning: Hyper reference `def:Maurer-Cartan' on page 59 undefined on input line 2614.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 59 undefined on input line 2621.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 59 undefined on input line 2622.
+
+[59]
+
+LaTeX Warning: Hyper reference `prop.PFD_right' on page 60 undefined on input line 2633.
+
+
+LaTeX Warning: Reference `eq:compatible' on page 60 undefined on input line 2640.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 60 undefined on input line 2664.
+
+[60]
+
+LaTeX Warning: Reference `lem:connection' on page 61 undefined on input line 2669.
+
+
+LaTeX Warning: Hyper reference `prop.PFD_right' on page 61 undefined on input line 2670.
+
+
+LaTeX Warning: Reference `eq:fundamental-vecf' on page 61 undefined on input line 2677.
+
+
+LaTeX Warning: Reference `eq:fundamental-vecf' on page 61 undefined on input line 2677.
+
+
+LaTeX Warning: Reference `lem:diff-product' on page 61 undefined on input line 2709.
+
+
+LaTeX Warning: Hyper reference `def:Maurer-Cartan' on page 61 undefined on input line 2716.
+
+[61]
+
+LaTeX Warning: Reference `def:patched-connection' on page 62 undefined on input line 2725.
+
+
+LaTeX Warning: Reference `eq:compatible' on page 62 undefined on input line 2725.
+
+
+LaTeX Warning: Hyper reference `eq.cocycle' on page 62 undefined on input line 2740.
+
+
+LaTeX Warning: Reference `lem:diff-product' on page 62 undefined on input line 2740.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 62 undefined on input line 2753.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 62 undefined on input line 2755.
+
+
+LaTeX Warning: Reference `lem:differential-of-local-section' on page 62 undefined on input line 2755.
+
+[62]
+
+LaTeX Warning: Hyper reference `def:connection' on page 63 undefined on input line 2779.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 63 undefined on input line 2799.
+
+
+LaTeX Warning: Hyper reference `def:horizontal-lift-curve' on page 63 undefined on input line 2803.
+
+
+LaTeX Warning: Reference `thm:local-connection' on page 63 undefined on input line 2822.
+
+
+LaTeX Warning: Reference `eq:assoc-sec' on page 63 undefined on input line 2826.
+
+
+LaTeX Warning: Hyper reference `def.section' on page 63 undefined on input line 2826.
+
+[63]
+
+LaTeX Warning: Hyper reference `prop.PFD_right' on page 64 undefined on input line 2834.
+
+
+LaTeX Warning: Reference `eq:horizontal-lift-curve-1' on page 64 undefined on input line 2845.
+
+
+LaTeX Warning: Reference `lem:diff-product' on page 64 undefined on input line 2845.
+
+
+LaTeX Warning: Reference `lem:differential-of-local-section' on page 64 undefined on input line 2856.
+
+
+LaTeX Warning: Hyper reference `def:Maurer-Cartan' on page 64 undefined on input line 2856.
+
+
+LaTeX Warning: Reference `eq:horizontal-lift-curve-4' on page 64 undefined on input line 2875.
+
+
+LaTeX Warning: Reference `eq:horizontal-lift-curve-3' on page 64 undefined on input line 2875.
+
+[64]
+
+LaTeX Warning: Hyper reference `def:Lie-adj' on page 65 undefined on input line 2879.
+
+
+LaTeX Warning: Reference `eq:horizontal-lift-curve-2' on page 65 undefined on input line 2879.
+
+
+LaTeX Warning: Hyper reference `def:horizontal-lift-curve' on page 65 undefined on input line 2895.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 65 undefined on input line 2923.
+
+[65]
+
+LaTeX Warning: Reference `thm:connection-basic' on page 66 undefined on input line 2933.
+
+
+LaTeX Warning: Hyper reference `def:horizontal-lift-vecf' on page 66 undefined on input line 2941.
+
+
+LaTeX Warning: Hyper reference `def:horizontal-lift-vecf' on page 66 undefined on input line 2941.
+
+
+LaTeX Warning: Reference `prop:smoothvecf-2' on page 66 undefined on input line 2945.
+
+
+LaTeX Warning: Hyper reference `def:horizontal-lift-curve' on page 66 undefined on input line 2954.
+
+
+LaTeX Warning: Reference `lem:assoc-basic' on page 66 undefined on input line 2955.
+
+
+LaTeX Warning: Reference `lem:horizontal-lift-curve' on page 66 undefined on input line 2955.
+
+
+LaTeX Warning: Hyper reference `def:horizontal-lift-vecf' on page 66 undefined on input line 2963.
+
+[66]
+
+LaTeX Warning: Hyper reference `def:fundamental-vecf' on page 67 undefined on input line 2980.
+
+
+LaTeX Warning: Hyper reference `def:F-rel' on page 67 undefined on input line 2988.
+
+
+LaTeX Warning: Hyper reference `def:horizontal-lift-vecf' on page 67 undefined on input line 3009.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 67 undefined on input line 3022.
+
+[67]
+
+LaTeX Warning: Hyper reference `def:connection' on page 68 undefined on input line 3039.
+
+
+LaTeX Warning: Hyper reference `def:horizontal-lift-vecf' on page 68 undefined on input line 3043.
+
+
+LaTeX Warning: Reference `lem:connection' on page 68 undefined on input line 3050.
+
+
+LaTeX Warning: Reference `eq:fundamental-vecf' on page 68 undefined on input line 3050.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 68 undefined on input line 3056.
+
+
+LaTeX Warning: Hyper reference `def:curvature' on page 68 undefined on input line 3057.
+
+
+LaTeX Warning: Reference `thm:curvature' on page 68 undefined on input line 3078.
+
+
+LaTeX Warning: Hyper reference `def:curvature' on page 68 undefined on input line 3078.
+
+
+LaTeX Warning: Citation `Nakahara2018topo2' on page 68 undefined on input line 3078.
+
+
+LaTeX Warning: Reference `def:curvature' on page 68 undefined on input line 3079.
+
+[68]
+
+LaTeX Warning: Reference `lem:extend-horizontal' on page 69 undefined on input line 3099.
+
+
+LaTeX Warning: Hyper reference `def:fundamental-vecf' on page 69 undefined on input line 3099.
+
+
+LaTeX Warning: Hyper reference `def:horizontal-lift-vecf' on page 69 undefined on input line 3099.
+
+
+LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 69 undefined on input line 3107.
+
+
+LaTeX Warning: Hyper reference `def:fundamental-vecf' on page 69 undefined on input line 3111.
+
+
+LaTeX Warning: Hyper reference `def:Liedv' on page 69 undefined on input line 3112.
+
+
+LaTeX Warning: Hyper reference `thm:Liedv' on page 69 undefined on input line 3112.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 69 undefined on input line 3117.
+
+
+LaTeX Warning: Reference `lem:extend-horizontal' on page 69 undefined on input line 3127.
+
+[69]
+
+LaTeX Warning: Reference `thm:curvature' on page 70 undefined on input line 3168.
+
+
+LaTeX Warning: Hyper reference `def:tensorial-form' on page 70 undefined on input line 3168.
+
+
+LaTeX Warning: Reference `thm:curvature' on page 70 undefined on input line 3169.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 70 undefined on input line 3173.
+
+
+LaTeX Warning: Hyper reference `def:connection-vect' on page 70 undefined on input line 3184.
+
+
+LaTeX Warning: Reference `thm:connection-assoc' on page 70 undefined on input line 3184.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 70 undefined on input line 3188.
+
+[70]
+
+LaTeX Warning: Reference `thm:connection-assoc' on page 71 undefined on input line 3199.
+
+
+LaTeX Warning: Reference `lem:extend-horizontal' on page 71 undefined on input line 3210.
+
+
+LaTeX Warning: Hyper reference `def:horizontal-lift-vecf' on page 71 undefined on input line 3211.
+
+
+LaTeX Warning: Hyper reference `def:fundamental-vecf' on page 71 undefined on input line 3211.
+
+
+LaTeX Warning: Reference `prop:infinitesimal-generator-R' on page 71 undefined on input line 3222.
+
+
+LaTeX Warning: Reference `eq:codv-pbun' on page 71 undefined on input line 3224.
+
+
+LaTeX Warning: Reference `eq:codv-pbun' on page 71 undefined on input line 3229.
+
+
 Overfull \hbox (7.95374pt too wide) detected at line 3236
 [][]
  []
 
-[73] [74] [75] [76] [77] [78] [79] [80] [81] [82] [83] [84] [85] [86] [87] [88] [89] [90] [91] [92] [93] [94]
 
-LaTeX Warning: Hyper reference `label' on page 95 undefined on input line 4282.
+LaTeX Warning: Reference `eq:codv-pbun' on page 71 undefined on input line 3247.
+
+[71]
+
+LaTeX Warning: Reference `eq:codv-pbun' on page 72 undefined on input line 3251.
 
 
-LaTeX Warning: Reference `prop:lem-invariant-gl' on page 95 undefined on input line 4286.
+LaTeX Warning: Reference `eq:codv-pbun' on page 72 undefined on input line 3253.
+
+
+LaTeX Warning: Reference `eq:extdv-global' on page 72 undefined on input line 3253.
+
+
+LaTeX Warning: Reference `prop:horizontal-lift-vecf' on page 72 undefined on input line 3257.
+
+
+LaTeX Warning: Reference `eq:fundamental-vecf' on page 72 undefined on input line 3270.
+
+
+LaTeX Warning: Hyper reference `prop:horizontal-lift-vecf' on page 72 undefined on input line 3285.
+
+
+LaTeX Warning: Hyper reference `def:tensorial-form' on page 72 undefined on input line 3285.
+
+
+LaTeX Warning: Hyper reference `prop:horizontal-lift-vecf' on page 72 undefined on input line 3285.
+
+
+LaTeX Warning: Hyper reference `def:tensorial-form' on page 72 undefined on input line 3285.
+
+
+LaTeX Warning: Reference `lem:diff-product' on page 72 undefined on input line 3296.
+
+
+LaTeX Warning: Reference `prop:exp' on page 72 undefined on input line 3296.
+
+
+LaTeX Warning: Reference `lem:diff-product' on page 72 undefined on input line 3296.
+
+
+LaTeX Warning: Reference `prop:exp' on page 72 undefined on input line 3296.
+
+[72]
+
+LaTeX Warning: Reference `prop:codv-pbun' on page 73 undefined on input line 3309.
+
+
+LaTeX Warning: Hyper reference `thm:curvature' on page 73 undefined on input line 3317.
+
+
+LaTeX Warning: Hyper reference `def:codv-pbun' on page 73 undefined on input line 3317.
+
+
+LaTeX Warning: Hyper reference `def.PFD' on page 73 undefined on input line 3328.
+
+
+LaTeX Warning: Hyper reference `def.section' on page 73 undefined on input line 3329.
+
+
+LaTeX Warning: Reference `eq:assoc-sec' on page 73 undefined on input line 3329.
+
+
+LaTeX Warning: Reference `thm:local-connection' on page 73 undefined on input line 3331.
+
+
+LaTeX Warning: Hyper reference `def:curvature' on page 73 undefined on input line 3331.
+
+[73]
+
+LaTeX Warning: Hyper reference `def.PFD' on page 74 undefined on input line 3360.
+
+
+LaTeX Warning: Hyper reference `def.section' on page 74 undefined on input line 3361.
+
+
+LaTeX Warning: Reference `eq:assoc-sec' on page 74 undefined on input line 3361.
+
+
+LaTeX Warning: Reference `thm:curvature' on page 74 undefined on input line 3382.
+
+
+LaTeX Warning: Reference `lem:differential-of-local-section' on page 74 undefined on input line 3389.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 74 undefined on input line 3389.
+
+[74]
+
+LaTeX Warning: Hyper reference `thm:connection-assoc' on page 75 undefined on input line 3409.
+
+
+LaTeX Warning: Hyper reference `def.PFD' on page 75 undefined on input line 3412.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 75 undefined on input line 3413.
+
+
+LaTeX Warning: Hyper reference `def:associated-vect' on page 75 undefined on input line 3415.
+
+
+LaTeX Warning: Reference `thm:connection-assoc' on page 75 undefined on input line 3417.
+
+
+LaTeX Warning: Hyper reference `def:connection-vect' on page 75 undefined on input line 3421.
+
+
+LaTeX Warning: Hyper reference `def:horizontal-lift-curve' on page 75 undefined on input line 3421.
+
+
+LaTeX Warning: Hyper reference `def:horizontal-lift-curve' on page 75 undefined on input line 3428.
+
+[75]
+
+LaTeX Warning: Reference `prop:assoc-basic' on page 76 undefined on input line 3443.
+
+
+LaTeX Warning: Hyper reference `prop:assoc-basic' on page 76 undefined on input line 3453.
+
+
+LaTeX Warning: Hyper reference `lem:assoc-basic' on page 76 undefined on input line 3459.
+
+
+LaTeX Warning: Reference `thm:codv-assoc-HL' on page 76 undefined on input line 3470.
+
+
+LaTeX Warning: Reference `thm:connection-assoc' on page 76 undefined on input line 3470.
+
+
+LaTeX Warning: Hyper reference `def.section' on page 76 undefined on input line 3478.
+
+
+LaTeX Warning: Hyper reference `thm:local-connection' on page 76 undefined on input line 3487.
+
+[76]
+
+LaTeX Warning: Hyper reference `def:horizontal-lift-curve' on page 77 undefined on input line 3525.
+
+
+LaTeX Warning: Reference `lem:horizontal-lift-curve' on page 77 undefined on input line 3529.
+
+[77]
+
+LaTeX Warning: Reference `thm:codv-assoc-HL' on page 78 undefined on input line 3539.
+
+
+LaTeX Warning: Reference `lem:horizontal-lift-curve' on page 78 undefined on input line 3555.
+
+
+LaTeX Warning: Reference `lem:horizontal-lift-curve' on page 78 undefined on input line 3555.
+
+
+LaTeX Warning: Reference `lem:horizontal-lift-curve' on page 78 undefined on input line 3555.
+
+
+LaTeX Warning: Reference `lem:horizontal-lift-curve' on page 78 undefined on input line 3555.
+
+[78]
+
+LaTeX Warning: Hyper reference `def:connection-vect' on page 79 undefined on input line 3586.
+
+
+LaTeX Warning: Reference `thm:codv-assoc-local' on page 79 undefined on input line 3599.
+
+
+LaTeX Warning: Hyper reference `thm:connection-assoc' on page 79 undefined on input line 3607.
+
+
+LaTeX Warning: Hyper reference `def:connection-vect' on page 79 undefined on input line 3613.
+
+[79]
+
+LaTeX Warning: Hyper reference `def:connection-vect' on page 80 undefined on input line 3631.
+
+[80]
+
+LaTeX Warning: Reference `thm:codv-assoc-local' on page 81 undefined on input line 3752.
+
+[81]
+
+LaTeX Warning: Reference `thm:codv-assoc-local' on page 82 undefined on input line 3768.
+
+
+LaTeX Warning: Hyper reference `def:connection-vect' on page 82 undefined on input line 3768.
+
+
+LaTeX Warning: Reference `prop:curvature-linear' on page 82 undefined on input line 3778.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 82 undefined on input line 3793.
+
+[82]
+
+LaTeX Warning: Reference `prop:horizontal-lift-init' on page 83 undefined on input line 3817.
+
+
+LaTeX Warning: Hyper reference `def:horizontal-lift-curve' on page 83 undefined on input line 3817.
+
+
+LaTeX Warning: Reference `prop:horizontal-lift-init' on page 83 undefined on input line 3821.
+
+
+LaTeX Warning: Hyper reference `def:horizontal-lift-curve' on page 83 undefined on input line 3821.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 83 undefined on input line 3830.
+
+
+LaTeX Warning: Reference `prop:holonomy' on page 83 undefined on input line 3831.
+
+[83] [84]
+
+LaTeX Warning: Hyper reference `def:polynomial' on page 85 undefined on input line 3902.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 85 undefined on input line 3916.
+
+
+LaTeX Warning: Hyper reference `def:curvature' on page 85 undefined on input line 3917.
+
+
+LaTeX Warning: Hyper reference `def:polynomial' on page 85 undefined on input line 3920.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 85 undefined on input line 3930.
+
+
+LaTeX Warning: Hyper reference `def:curvature' on page 85 undefined on input line 3931.
+
+
+LaTeX Warning: Hyper reference `def:invariant' on page 85 undefined on input line 3932.
+
+[85]
+
+LaTeX Warning: Hyper reference `def:tensorial-form' on page 86 undefined on input line 3960.
+
+
+LaTeX Warning: Hyper reference `def:associated-vect' on page 86 undefined on input line 3964.
+
+
+LaTeX Warning: Hyper reference `def.bundlemap' on page 86 undefined on input line 3964.
+
+
+LaTeX Warning: Reference `lem:assoc-basic' on page 86 undefined on input line 3965.
+
+
+LaTeX Warning: Reference `prop:assoc-basic' on page 86 undefined on input line 3966.
+
+
+LaTeX Warning: Hyper reference `def:tensorial-form' on page 86 undefined on input line 3970.
+
+
+LaTeX Warning: Reference `lem:basic-form' on page 86 undefined on input line 3974.
+
+[86]
+
+LaTeX Warning: Hyper reference `def:invariant' on page 87 undefined on input line 3989.
+
+
+LaTeX Warning: Hyper reference `def:codv-pbun' on page 87 undefined on input line 4005.
+
+
+LaTeX Warning: Hyper reference `thm:curvature' on page 87 undefined on input line 4023.
+
+
+LaTeX Warning: Hyper reference `thm:curvature' on page 87 undefined on input line 4023.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 87 undefined on input line 4026.
+
+[87]
+
+LaTeX Warning: Hyper reference `def:invariant' on page 88 undefined on input line 4039.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 88 undefined on input line 4059.
+
+
+LaTeX Warning: Hyper reference `def:curvature' on page 88 undefined on input line 4060.
+
+
+LaTeX Warning: Hyper reference `def:invariant' on page 88 undefined on input line 4061.
+
+
+LaTeX Warning: Reference `thm:Chern-Weil' on page 88 undefined on input line 4063.
+
+
+LaTeX Warning: Reference `thm:Chern-Weil' on page 88 undefined on input line 4068.
+
+
+LaTeX Warning: Reference `thm:curvature-local' on page 88 undefined on input line 4072.
+
+
+LaTeX Warning: Hyper reference `def:invariant' on page 88 undefined on input line 4072.
+
+[88]
+
+LaTeX Warning: Reference `thm:Chern-Weil' on page 89 undefined on input line 4084.
+
+
+LaTeX Warning: Hyper reference `def:framebundle' on page 89 undefined on input line 4089.
+
+
+LaTeX Warning: Hyper reference `prop:Borelconst' on page 89 undefined on input line 4093.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 89 undefined on input line 4098.
+
+
+LaTeX Warning: Hyper reference `def:connection-vect' on page 89 undefined on input line 4098.
+
+
+LaTeX Warning: Reference `thm:connection-assoc' on page 89 undefined on input line 4098.
+
+
+LaTeX Warning: Hyper reference `def:connection-vect' on page 89 undefined on input line 4101.
+
+
+LaTeX Warning: Reference `def:framebundle' on page 89 undefined on input line 4127.
+
+
+LaTeX Warning: Reference `lem:horizontal-lift-curve' on page 89 undefined on input line 4131.
+
+[89]
+
+LaTeX Warning: Reference `thm:connection-basic' on page 90 undefined on input line 4170.
+
+
+LaTeX Warning: Reference `eq:horizontal-vect' on page 90 undefined on input line 4170.
+
+
+LaTeX Warning: Hyper reference `def:characteristic-class-polynomial' on page 90 undefined on input line 4182.
+
+[90]
+
+LaTeX Warning: Reference `thm:Chern-Weil' on page 91 undefined on input line 4186.
+
+
+LaTeX Warning: Hyper reference `def:characteristic-class-polynomial' on page 91 undefined on input line 4186.
+
+
+LaTeX Warning: Hyper reference `def:invariant' on page 91 undefined on input line 4186.
+
+[91]
+
+LaTeX Warning: Reference `lem:polynomial-eval-injective' on page 92 undefined on input line 4233.
+
+
+LaTeX Warning: Hyper reference `def:polynomial' on page 92 undefined on input line 4239.
+
+
+LaTeX Warning: Reference `ex:gl-adj' on page 92 undefined on input line 4240.
+
+
+LaTeX Warning: Hyper reference `def:invariant' on page 92 undefined on input line 4248.
+
+
+LaTeX Warning: Reference `lem:polynomial-eval-injective' on page 92 undefined on input line 4258.
+
+
+LaTeX Warning: Reference `lem:polynomial-eval-injective' on page 92 undefined on input line 4262.
+
+[92]
+
+LaTeX Warning: Reference `lem:Z-extension' on page 93 undefined on input line 4279.
+
+
+LaTeX Warning: Hyper reference `label' on page 93 undefined on input line 4282.
+
+
+LaTeX Warning: Reference `prop:lem-invariant-gl' on page 93 undefined on input line 4286.
+
+
+LaTeX Warning: Reference `lem:polynomial-eval-injective' on page 93 undefined on input line 4299.
 
 \matrixtoks=\toks74
 \matrixtoks=\toks75
 \matrixtoks=\toks76
 \matrixtoks=\toks77
-[95] [96]) (./chap3.tex [97]
+[93]
+
+LaTeX Warning: Hyper reference `def:connection-vect' on page 94 undefined on input line 4345.
+
+[94]) (./chap3.tex [95]
 第3章
+
+LaTeX Warning: Citation `Simon2021' on page 96 undefined on input line 9.
+
+
+LaTeX Warning: Citation `Baez2011physics' on page 96 undefined on input line 9.
+
+
+LaTeX Warning: Hyper reference `def:compact' on page 96 undefined on input line 14.
+
+
+LaTeX Warning: Hyper reference `def:braided-monoidal' on page 96 undefined on input line 14.
+
 
 Overfull \hbox (2.8728pt too wide) in paragraph at lines 55--56
  [] 
  []
 
-[98
+[96
 
-] [99] [100] [101] [102] [103] [104] [105]
+]
+
+LaTeX Warning: Reference `def:monoidal-category' on page 97 undefined on input line 62.
+
+
+LaTeX Warning: Hyper reference `def:monoidal-category' on page 97 undefined on input line 63.
+
+
+LaTeX Warning: Citation `Kochman1996bordism' on page 97 undefined on input line 69.
+
+
+LaTeX Warning: Hyper reference `def:monoidal-category' on page 97 undefined on input line 80.
+
+
+LaTeX Warning: Hyper reference `def:monoidal-category' on page 97 undefined on input line 94.
+
+[97]
+
+LaTeX Warning: Hyper reference `def:monoidal-category' on page 98 undefined on input line 102.
+
+
+LaTeX Warning: Hyper reference `def:braided-monoidal' on page 98 undefined on input line 132.
+
+
+LaTeX Warning: Hyper reference `def:braided-monoidal' on page 98 undefined on input line 134.
+
+[98]
+
+LaTeX Warning: Hyper reference `def:monoidal-category' on page 99 undefined on input line 165.
+
+
+LaTeX Warning: Hyper reference `def:braided-monoidal' on page 99 undefined on input line 184.
+
+
+LaTeX Warning: Hyper reference `def:monoidal-category' on page 99 undefined on input line 187.
+
+[99]
+
+LaTeX Warning: Hyper reference `def:dual' on page 100 undefined on input line 224.
+
+
+LaTeX Warning: Hyper reference `def:monoidal-category' on page 100 undefined on input line 227.
+
+
+LaTeX Warning: Hyper reference `def:dual' on page 100 undefined on input line 227.
+
+
+LaTeX Warning: Hyper reference `def:dual' on page 100 undefined on input line 231.
+
+
+LaTeX Warning: Hyper reference `def:dual' on page 100 undefined on input line 232.
+
+
+LaTeX Warning: Hyper reference `def:closed-monoidal' on page 100 undefined on input line 234.
+
+
+LaTeX Warning: Hyper reference `def:closed-monoidal' on page 100 undefined on input line 234.
+
+[100]
+
+LaTeX Warning: Hyper reference `def:dual' on page 101 undefined on input line 240.
+
+
+LaTeX Warning: Hyper reference `def:dual' on page 101 undefined on input line 242.
+
+
+LaTeX Warning: Hyper reference `def:dual' on page 101 undefined on input line 247.
+
+
+LaTeX Warning: Hyper reference `def:closed-monoidal' on page 101 undefined on input line 253.
+
+
+LaTeX Warning: Hyper reference `def:closed-monoidal' on page 101 undefined on input line 253.
+
+
+LaTeX Warning: Hyper reference `def:closed-monoidal' on page 101 undefined on input line 257.
+
+[101]
+
+LaTeX Warning: Hyper reference `def:monoidal-category' on page 102 undefined on input line 292.
+
+
+LaTeX Warning: Hyper reference `def:monoidal-category' on page 102 undefined on input line 294.
+
+[102]
+
+LaTeX Warning: Citation `Atiyah1988tqft' on page 103 undefined on input line 353.
+
+
+LaTeX Warning: Citation `Atiyah1988tqft' on page 103 undefined on input line 356.
+
+
+LaTeX Warning: Citation `Atiyah1988tqft' on page 103 undefined on input line 390.
+
+[103]
+
+LaTeX Warning: Reference `ex:Cob-closed' on page 104 undefined on input line 402.
+
+
 Overfull \hbox (2.2334pt too wide) detected at line 421
 [][]
  []
 
-[106] [107] [108] [109] [110] [111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122]
+
+LaTeX Warning: Hyper reference `def:monoidal-category' on page 104 undefined on input line 427.
+
+
+LaTeX Warning: Hyper reference `def:monidal-functor' on page 104 undefined on input line 444.
+
+[104]
+
+LaTeX Warning: Hyper reference `Cob-string' on page 105 undefined on input line 452.
+
+
+LaTeX Warning: Hyper reference `def:braided-monoidal' on page 105 undefined on input line 452.
+
+
+LaTeX Warning: Hyper reference `def:monidal-functor' on page 105 undefined on input line 452.
+
+
+LaTeX Warning: Citation `Atiyah1988tqft' on page 105 undefined on input line 452.
+
+
+LaTeX Warning: Hyper reference `ax:Atiyah-TQFT' on page 105 undefined on input line 459.
+
+
+LaTeX Warning: Hyper reference `def:monidal-functor' on page 105 undefined on input line 459.
+
+
+LaTeX Warning: Citation `hidaka2022g-sym' on page 105 undefined on input line 467.
+
+
+LaTeX Warning: Citation `GaiottoKapustinSeibergWillett2015' on page 105 undefined on input line 467.
+
+[105]
+
+LaTeX Warning: Citation `Nicolaescu2022lecture' on page 106 undefined on input line 498.
+
+
+LaTeX Warning: Hyper reference `def:vect' on page 106 undefined on input line 527.
+
+
+LaTeX Warning: Hyper reference `def.section' on page 106 undefined on input line 527.
+
+[106]
+
+LaTeX Warning: Reference `eq:var-action' on page 107 undefined on input line 557.
+
+
+LaTeX Warning: Reference `eq:LeastAction' on page 107 undefined on input line 570.
+
+
+LaTeX Warning: Reference `eq:def-classical-sym' on page 107 undefined on input line 576.
+
+
+LaTeX Warning: Reference `eq:generator-Q' on page 107 undefined on input line 577.
+
+[107]
+
+LaTeX Warning: Reference `eq:EL' on page 108 undefined on input line 597.
+
+
+LaTeX Warning: Reference `eq:Noether-current' on page 108 undefined on input line 597.
+
+
+LaTeX Warning: Reference `eq:conservation-Noether' on page 108 undefined on input line 602.
+
+
+LaTeX Warning: Reference `eq:conservation-Noether' on page 108 undefined on input line 609.
+
+[108]
+
+LaTeX Warning: Reference `eq:EL' on page 109 undefined on input line 641.
+
+
+LaTeX Warning: Reference `eq:Noether-current' on page 109 undefined on input line 652.
+
+
+LaTeX Warning: Reference `eq:generator-Q' on page 109 undefined on input line 661.
+
+
+LaTeX Warning: Citation `GaiottoKapustinSeibergWillett2015' on page 109 undefined on input line 671.
+
+
+LaTeX Warning: Reference `eq:generator-Q' on page 109 undefined on input line 683.
+
+[109]
+
+LaTeX Warning: Reference `eq:conservation-Noether' on page 110 undefined on input line 694.
+
+
+LaTeX Warning: Reference `eq:transform-3-1' on page 110 undefined on input line 709.
+
+
+LaTeX Warning: Reference `eq:Noether-current-ex3-1' on page 110 undefined on input line 732.
+
+[110]
+
+LaTeX Warning: Reference `ex:3-1' on page 111 undefined on input line 756.
+
+
+LaTeX Warning: Citation `GaiottoKapustinSeibergWillett2015' on page 111 undefined on input line 756.
+
+
+LaTeX Warning: Reference `eq:0-form-topo-ops' on page 111 undefined on input line 773.
+
+[111]
+
+LaTeX Warning: Hyper reference `thm:local-connection' on page 112 undefined on input line 782.
+
+
+LaTeX Warning: Hyper reference `eq:def-Link' on page 112 undefined on input line 810.
+
+[112] [113]
+
+LaTeX Warning: Reference `eq:conservation-Noether-df' on page 114 undefined on input line 870.
+
+
+LaTeX Warning: Reference `eq:Noether-current' on page 114 undefined on input line 870.
+
+
+LaTeX Warning: Reference `eq:generator-Q' on page 114 undefined on input line 871.
+
+
+LaTeX Warning: Citation `Kugo1989qft2' on page 114 undefined on input line 878.
+
+
+LaTeX Warning: Hyper reference `def.fiber-1' on page 114 undefined on input line 879.
+
+
+LaTeX Warning: Citation `FabriPicasso1966qft' on page 114 undefined on input line 880.
+
+
+LaTeX Warning: Reference `def:0form-order-param' on page 114 undefined on input line 886.
+
+[114]
+
+LaTeX Warning: Reference `thm:NG-relativistic' on page 115 undefined on input line 899.
+
+
+LaTeX Warning: Citation `Kugo1989qft2' on page 115 undefined on input line 899.
+
+
+LaTeX Warning: Reference `eq:generator-Q' on page 115 undefined on input line 924.
+
+[115]
+
+LaTeX Warning: Reference `eq:NG-rel-1' on page 116 undefined on input line 944.
+
+
+LaTeX Warning: Reference `eq:NG-rel-2' on page 116 undefined on input line 955.
+
+
+LaTeX Warning: Reference `prop:exp' on page 116 undefined on input line 967.
+
+[116]
+
+LaTeX Warning: Reference `eq:NGB-transform' on page 117 undefined on input line 993.
+
+
+LaTeX Warning: Reference `eq:NGB-transform' on page 117 undefined on input line 998.
+
+
+LaTeX Warning: Hyper reference `def:Maurer-Cartan' on page 117 undefined on input line 1000.
+
+
+LaTeX Warning: Reference `eq:NGB-transform' on page 117 undefined on input line 1009.
+
+
+LaTeX Warning: Reference `eq:NGB-transform' on page 117 undefined on input line 1013.
+
+
+LaTeX Warning: Reference `eq:NGB-transform' on page 117 undefined on input line 1036.
+
+[117]
+
+LaTeX Warning: Reference `thm:NG-relativistic' on page 118 undefined on input line 1074.
+
+
+LaTeX Warning: Citation `nielsen1976HowCount' on page 118 undefined on input line 1075.
+
+
+LaTeX Warning: Citation `nielsen1976HowCount' on page 118 undefined on input line 1082.
+
+[118]
+
+LaTeX Warning: Citation `watanabe2012UnifiedDescription' on page 119 undefined on input line 1094.
+
+
+LaTeX Warning: Citation `Lake2018SSB' on page 119 undefined on input line 1109.
+
+
+LaTeX Warning: Reference `def:0form-order-param' on page 119 undefined on input line 1139.
+
+
+LaTeX Warning: Citation `Lake2018SSB' on page 119 undefined on input line 1143.
+
+[119]
+
+LaTeX Warning: Citation `Lake2018SSB' on page 120 undefined on input line 1145.
+
+
+LaTeX Warning: Citation `Lake2018SSB' on page 120 undefined on input line 1181.
+
+[120]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1204.
@@ -1632,42 +3549,158 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1204.
 
-[123] [124]
-Overfull \hbox (28.96529pt too wide) detected at line 1347
+
+LaTeX Warning: Citation `Fujikawa2001path' on page 121 undefined on input line 1208.
+
+
+LaTeX Warning: Citation `Kawahira2024anomaly' on page 121 undefined on input line 1208.
+
+[121]
+
+LaTeX Warning: Citation `DaiFreed_1994' on page 122 undefined on input line 1246.
+
+
+LaTeX Warning: Citation `Kawahira2024anomaly' on page 122 undefined on input line 1275.
+
+
+LaTeX Warning: Hyper reference `def:TQFT' on page 122 undefined on input line 1278.
+
+[122]
+
+LaTeX Warning: Hyper reference `def:TQFT' on page 123 undefined on input line 1298.
+
+
+LaTeX Warning: Reference `hypo:anomaly-inflow' on page 123 undefined on input line 1305.
+
+
+LaTeX Warning: Hyper reference `def:IFT' on page 123 undefined on input line 1305.
+
+
+LaTeX Warning: Hyper reference `def:anomaly-formal' on page 123 undefined on input line 1305.
+
+
+LaTeX Warning: Citation `FreedHopkins_2021' on page 123 undefined on input line 1314.
+
+
+./chap3.tex:1316: LaTeX Error: Environment my undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1316 \begin{my}
+               
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./chap3.tex:1318: LaTeX Error: \begin{document} ended by \end{my}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1318 \end{my}
+             
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[123]
+Overfull \hbox (28.96529pt too wide) detected at line 1371
 [][]
  []
 
-[125] [126]) (./appendixA.tex [127]
+[124]
+
+LaTeX Warning: Hyper reference `def:p-form-sym' on page 125 undefined on input line 1381.
+
+
+LaTeX Warning: Hyper reference `def.PFD' on page 125 undefined on input line 1385.
+
+
+LaTeX Warning: Hyper reference `def:connection' on page 125 undefined on input line 1390.
+
+
+LaTeX Warning: Hyper reference `def:holonomy' on page 125 undefined on input line 1390.
+
+
+LaTeX Warning: Reference `lem:horizontal-lift-curve' on page 125 undefined on input line 1391.
+
+
+LaTeX Warning: Hyper reference `thm:local-connection' on page 125 undefined on input line 1391.
+
+) (./appendixA.tex [125]
 付録A
-) (./appendixB.tex [128
+) (./appendixB.tex [126
 
 ]
 付録B
 
-LaTeX Warning: Hyper reference `diffmani' on page 129 undefined on input line 33.
+LaTeX Warning: Citation `Lee2012smooth' on page 127 undefined on input line 11.
 
 
-LaTeX Warning: Hyper reference `thm.metrictopo' on page 129 undefined on input line 41.
+LaTeX Warning: Hyper reference `diffmani' on page 127 undefined on input line 33.
 
-[129
+
+LaTeX Warning: Hyper reference `thm.metrictopo' on page 127 undefined on input line 41.
+
+[127
 
 ]
 
-LaTeX Warning: Reference `lem:sets' on page 130 undefined on input line 65.
+LaTeX Warning: Reference `lem:sets' on page 128 undefined on input line 65.
 
 
-LaTeX Warning: Hyper reference `def:second-countable' on page 130 undefined on input line 88.
+LaTeX Warning: Hyper reference `def:second-countable' on page 128 undefined on input line 88.
 
-[130]
 
-LaTeX Warning: Hyper reference `diffmani' on page 131 undefined on input line 137.
+LaTeX Warning: Reference `lem:cinfty-chart' on page 128 undefined on input line 111.
 
-[131]
+[128]
+
+LaTeX Warning: Hyper reference `diffmani' on page 129 undefined on input line 137.
+
+
+LaTeX Warning: Reference `lem:cinfty-chart' on page 129 undefined on input line 141.
+
+[129]
+
+LaTeX Warning: Reference `lem:cinfty-chart' on page 130 undefined on input line 180.
+
+
 Overfull \hbox (41.84575pt too wide) detected at line 190
 [][]
  []
 
-[132] [133] [134]
+[130]
+
+LaTeX Warning: Reference `lem:cinfty-chart-b' on page 131 undefined on input line 229.
+
+
+LaTeX Warning: Reference `prop:tangentbundle' on page 131 undefined on input line 237.
+
+
+LaTeX Warning: Reference `prop:tangentbundle' on page 131 undefined on input line 238.
+
+
+LaTeX Warning: Reference `prop:tangentbundle' on page 131 undefined on input line 240.
+
+[131]
+
+LaTeX Warning: Reference `prop:tangentbundle' on page 132 undefined on input line 267.
+
+
+LaTeX Warning: Reference `prop:smoothvecf' on page 132 undefined on input line 276.
+
+
+LaTeX Warning: Reference `prop:smoothvecf' on page 132 undefined on input line 297.
+
+[132]
+
+LaTeX Warning: Hyper reference `def:vecf' on page 133 undefined on input line 310.
+
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 322.
@@ -1684,7 +3717,25 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 322.
 
-[135]
+
+LaTeX Warning: Hyper reference `def:vecf' on page 133 undefined on input line 324.
+
+
+LaTeX Warning: Hyper reference `def:vecf' on page 133 undefined on input line 342.
+
+[133]
+
+LaTeX Warning: Citation `Lee2012smooth' on page 134 undefined on input line 350.
+
+
+LaTeX Warning: Reference `prop:smoothvecf-2' on page 134 undefined on input line 353.
+
+
+LaTeX Warning: Hyper reference `def:vecf' on page 134 undefined on input line 379.
+
+
+LaTeX Warning: Reference `prop:smoothvecf-2' on page 134 undefined on input line 386.
+
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 389.
@@ -1701,13 +3752,297 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 389.
 
-[136] [137] [138] [139] [140] [141]
+[134]
 
-LaTeX Warning: Reference `prop:existence-integral-curve' on page 142 undefined on input line 675.
+LaTeX Warning: Hyper reference `def:vecf' on page 135 undefined on input line 424.
 
-[142] [143] [144] [145] [146] [147] [148]
+
+LaTeX Warning: Hyper reference `def:vecf' on page 135 undefined on input line 424.
+
+
+LaTeX Warning: Hyper reference `def:coord-vecf' on page 135 undefined on input line 435.
+
+
+LaTeX Warning: Hyper reference `def:vecf' on page 135 undefined on input line 443.
+
+
+LaTeX Warning: Hyper reference `def:F-related' on page 135 undefined on input line 443.
+
+[135]
+
+LaTeX Warning: Hyper reference `def:F-related' on page 136 undefined on input line 459.
+
+
+LaTeX Warning: Reference `prop:diffeo-Frelated' on page 136 undefined on input line 498.
+
+[136]
+
+LaTeX Warning: Reference `prop:vecf-derivation' on page 137 undefined on input line 520.
+
+
+LaTeX Warning: Reference `eq:Liebracket' on page 137 undefined on input line 523.
+
+
+LaTeX Warning: Hyper reference `prop:vecf-derivation' on page 137 undefined on input line 523.
+
+
+LaTeX Warning: Reference `prop:vecf-module' on page 137 undefined on input line 531.
+
+
+LaTeX Warning: Hyper reference `def:Lie-bracket' on page 137 undefined on input line 532.
+
+
+LaTeX Warning: Hyper reference `def:Lie-bracket' on page 137 undefined on input line 535.
+
+
+LaTeX Warning: Hyper reference `def:F-related' on page 137 undefined on input line 556.
+
+[137]
+
+LaTeX Warning: Reference `prop:F-related' on page 138 undefined on input line 568.
+
+
+LaTeX Warning: Reference `prop:F-related' on page 138 undefined on input line 579.
+
+
+LaTeX Warning: Hyper reference `prop:diffeo-Frelated' on page 138 undefined on input line 580.
+
+
+LaTeX Warning: Reference `prop:diffeo-Frelated' on page 138 undefined on input line 582.
+
+
+LaTeX Warning: Hyper reference `def:vecf' on page 138 undefined on input line 597.
+
+[138]
+
+LaTeX Warning: Hyper reference `def:vecf' on page 139 undefined on input line 638.
+
+
+LaTeX Warning: Hyper reference `def:integral-curve' on page 139 undefined on input line 640.
+
+
+LaTeX Warning: Hyper reference `def:F-related' on page 139 undefined on input line 651.
+
+
+LaTeX Warning: Hyper reference `def:integral-curve' on page 139 undefined on input line 652.
+
+[139]
+
+LaTeX Warning: Reference `prop:existence-integral-curve' on page 140 undefined on input line 675.
+
+
+LaTeX Warning: Hyper reference `def:vecf' on page 140 undefined on input line 693.
+
+
+LaTeX Warning: Hyper reference `def:integral-curve' on page 140 undefined on input line 695.
+
+[140] [141]
+
+LaTeX Warning: Hyper reference `def:Lie-action' on page 142 undefined on input line 764.
+
+
+LaTeX Warning: Hyper reference `def:integral-curve' on page 142 undefined on input line 785.
+
+
+LaTeX Warning: Reference `prop:smoothvecf-2' on page 142 undefined on input line 789.
+
+[142]
+
+LaTeX Warning: Hyper reference `def:integral-curve' on page 143 undefined on input line 799.
+
+
+LaTeX Warning: Hyper reference `def:global-flow' on page 143 undefined on input line 826.
+
+
+LaTeX Warning: Hyper reference `prop:infinitesimal-generator' on page 143 undefined on input line 838.
+
+
+LaTeX Warning: Reference `ex:integral-curve1' on page 143 undefined on input line 842.
+
+
+LaTeX Warning: Hyper reference `def:integral-curve' on page 143 undefined on input line 842.
+
+[143]
+
+LaTeX Warning: Reference `prop:infinitesimal-generator' on page 144 undefined on input line 846.
+
+
+LaTeX Warning: Hyper reference `def:global-flow' on page 144 undefined on input line 846.
+
+
+LaTeX Warning: Hyper reference `def:integral-curve' on page 144 undefined on input line 846.
+
+
+LaTeX Warning: Reference `def:coord-vecf' on page 144 undefined on input line 851.
+
+
+LaTeX Warning: Reference `prop:infinitesimal-generator-local' on page 144 undefined on input line 868.
+
+
+LaTeX Warning: Hyper reference `def:integral-curve' on page 144 undefined on input line 884.
+
+
+LaTeX Warning: Reference `thm:fundamental-flow' on page 144 undefined on input line 896.
+
+[144]
+
+LaTeX Warning: Hyper reference `def:local-flow' on page 145 undefined on input line 912.
+
+
+LaTeX Warning: Hyper reference `def:integral-curve' on page 145 undefined on input line 914.
+
+
+LaTeX Warning: Reference `prop:infinitesimal-generator' on page 145 undefined on input line 918.
+
+
+LaTeX Warning: Hyper reference `def:local-flow' on page 145 undefined on input line 921.
+
+
+LaTeX Warning: Hyper reference `def:local-flow' on page 145 undefined on input line 923.
+
+
+LaTeX Warning: Reference `prop:infinitesimal-generator' on page 145 undefined on input line 924.
+
+
+LaTeX Warning: Hyper reference `def:local-flow' on page 145 undefined on input line 927.
+
+
+LaTeX Warning: Reference `prop:infinitesimal-generator-local' on page 145 undefined on input line 927.
+
+
+LaTeX Warning: Citation `Lee2012smooth' on page 145 undefined on input line 927.
+
+
+LaTeX Warning: Hyper reference `def:local-flow' on page 145 undefined on input line 931.
+
+
+LaTeX Warning: Hyper reference `def:local-flow' on page 145 undefined on input line 934.
+
+
+LaTeX Warning: Hyper reference `def:local-flow' on page 145 undefined on input line 939.
+
+[145]
+
+LaTeX Warning: Reference `prop:existence-integral' on page 146 undefined on input line 951.
+
+
+LaTeX Warning: Hyper reference `def:integral-curve' on page 146 undefined on input line 962.
+
+
+LaTeX Warning: Hyper reference `def:local-flow' on page 146 undefined on input line 976.
+
+[146]
+
+LaTeX Warning: Hyper reference `def:local-flow' on page 147 undefined on input line 983.
+
+
+LaTeX Warning: Reference `lem:affine-integral-curve' on page 147 undefined on input line 991.
+
+
+LaTeX Warning: Reference `lem:affine-integral-curve' on page 147 undefined on input line 1011.
+
 Missing character: There is no å (U+00E5) in font cmmi10!
-[149] [150] [151] [152] [153]
+[147]
+
+LaTeX Warning: Reference `thm:fundamental-flow' on page 148 undefined on input line 1071.
+
+
+LaTeX Warning: Citation `Lee2012smooth' on page 148 undefined on input line 1075.
+
+
+LaTeX Warning: Hyper reference `def:vecf' on page 148 undefined on input line 1082.
+
+
+LaTeX Warning: Hyper reference `def:global-flow' on page 148 undefined on input line 1082.
+
+
+LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 148 undefined on input line 1082.
+
+
+LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 148 undefined on input line 1087.
+
+[148]
+
+LaTeX Warning: Hyper reference `def:local-flow' on page 149 undefined on input line 1105.
+
+
+LaTeX Warning: Reference `lem:affine-integral-curve' on page 149 undefined on input line 1106.
+
+
+LaTeX Warning: Hyper reference `def:vecf' on page 149 undefined on input line 1110.
+
+
+LaTeX Warning: Hyper reference `def:complete-vecf' on page 149 undefined on input line 1110.
+
+
+LaTeX Warning: Citation `Lee2012smooth' on page 149 undefined on input line 1114.
+
+
+LaTeX Warning: Hyper reference `def:left-invariant' on page 149 undefined on input line 1128.
+
+
+LaTeX Warning: Hyper reference `def:F-related' on page 149 undefined on input line 1128.
+
+
+LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 149 undefined on input line 1130.
+
+
+LaTeX Warning: Reference `prop:natural-integral-curve' on page 149 undefined on input line 1133.
+
+
+LaTeX Warning: Reference `thm:fundamental-flow' on page 149 undefined on input line 1133.
+
+
+LaTeX Warning: Reference `lem:uniformtime' on page 149 undefined on input line 1133.
+
+
+LaTeX Warning: Hyper reference `def:vecf' on page 149 undefined on input line 1138.
+
+
+LaTeX Warning: Hyper reference `def:integral-curve' on page 149 undefined on input line 1143.
+
+
+LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 149 undefined on input line 1155.
+
+[149]
+
+LaTeX Warning: Hyper reference `def:local-flow' on page 150 undefined on input line 1166.
+
+
+LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 150 undefined on input line 1166.
+
+
+LaTeX Warning: Reference `prop:smoothvecf' on page 150 undefined on input line 1181.
+
+
+LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 150 undefined on input line 1189.
+
+
+LaTeX Warning: Hyper reference `def:Liedv' on page 150 undefined on input line 1193.
+
+
+LaTeX Warning: Reference `eq:direction' on page 150 undefined on input line 1202.
+
+[150]
+
+LaTeX Warning: Hyper reference `thm:fundamental-flow' on page 151 undefined on input line 1215.
+
+
+LaTeX Warning: Hyper reference `prop:infinitesimal-generator-local' on page 151 undefined on input line 1222.
+
+
+LaTeX Warning: Reference `thm:fundamental-flow' on page 151 undefined on input line 1233.
+
+
+LaTeX Warning: Hyper reference `prop:diffeo-Frelated' on page 151 undefined on input line 1233.
+
+[151]
+
+LaTeX Warning: Reference `eq:Liedv-f' on page 152 undefined on input line 1237.
+
+
+LaTeX Warning: Reference `col:pushforward' on page 152 undefined on input line 1237.
+
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1251.
@@ -1725,18 +4060,54 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1251.
 
 
-LaTeX Warning: Hyper reference `def:fiber-1' on page 154 undefined on input line 1280.
+LaTeX Warning: Hyper reference `def:vect' on page 152 undefined on input line 1253.
 
-[154] [155]) (./appendixC.tex [156]
+
+LaTeX Warning: Citation `Lee2012smooth' on page 152 undefined on input line 1253.
+
+
+LaTeX Warning: Hyper reference `lem:cinfty-chart' on page 152 undefined on input line 1279.
+
+
+LaTeX Warning: Hyper reference `def:fiber-1' on page 152 undefined on input line 1280.
+
+
+LaTeX Warning: Hyper reference `def:vect' on page 152 undefined on input line 1280.
+
+[152]
+
+LaTeX Warning: Reference `lem:cinfty-chart' on page 153 undefined on input line 1299.
+
+[153]
+
+LaTeX Warning: Reference `lem:cinfty-chart-b' on page 154 undefined on input line 1342.
+
+) (./appendixC.tex [154]
 付録C
-[157
+
+LaTeX Warning: Citation `Kugo1989qft1' on page 155 undefined on input line 9.
+
+[155
 
 ]
+
+LaTeX Warning: Reference `eq:Green' on page 156 undefined on input line 61.
+
+
+LaTeX Warning: Reference `def:Green' on page 156 undefined on input line 68.
+
+
 Overfull \hbox (14.90411pt too wide) detected at line 77
 [][]
  []
 
-) (./appendixD.tex [158]
+
+LaTeX Warning: Reference `def:Green' on page 156 undefined on input line 78.
+
+
+LaTeX Warning: Reference `eq:Green' on page 156 undefined on input line 86.
+
+) (./appendixD.tex [156]
 付録D
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
@@ -1756,9 +4127,167 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 15.97903pt on input line 6.
-(load cache: extra_lmsans8-regular.luc) [159
 
-] [160] [161] [162] [163] [164] [165] [166] [167] [168] [169] [170] [171]
+LaTeX Warning: Citation `Lee2012smooth' on page 157 undefined on input line 8.
+
+(load cache: extra_lmsans8-regular.luc) [157
+
+] [158]
+
+LaTeX Warning: Reference `ineq:thm-inv-1' on page 159 undefined on input line 138.
+
+
+LaTeX Warning: Reference `ineq:thm-inv-1' on page 159 undefined on input line 143.
+
+
+LaTeX Warning: Reference `lem:contraction' on page 159 undefined on input line 147.
+
+[159]
+
+LaTeX Warning: Reference `ineq:thm-inv-2' on page 160 undefined on input line 152.
+
+
+LaTeX Warning: Reference `ineq:thm-inv-1' on page 160 undefined on input line 170.
+
+
+LaTeX Warning: Reference `ineq:thm-inv-1' on page 160 undefined on input line 170.
+
+[160]
+
+LaTeX Warning: Hyper reference `thm:inverse-function-Rn' on page 161 undefined on input line 215.
+
+[161]
+
+LaTeX Warning: Hyper reference `thm:inverse-function-Rn' on page 162 undefined on input line 284.
+
+[162]
+
+LaTeX Warning: Reference `thm:inverse-function' on page 163 undefined on input line 293.
+
+
+LaTeX Warning: Reference `thm:inverse-function' on page 163 undefined on input line 329.
+
+
+LaTeX Warning: Reference `lem:singular-b' on page 163 undefined on input line 331.
+
+
+LaTeX Warning: Reference `thm:inverse-function' on page 163 undefined on input line 332.
+
+[163]
+
+LaTeX Warning: Hyper reference `def:rank-smooth' on page 164 undefined on input line 351.
+
+
+LaTeX Warning: Hyper reference `def:loc-diffeo' on page 164 undefined on input line 367.
+
+
+LaTeX Warning: Hyper reference `def:submersion-smooth' on page 164 undefined on input line 367.
+
+
+LaTeX Warning: Hyper reference `def:submersion-smooth' on page 164 undefined on input line 367.
+
+
+LaTeX Warning: Hyper reference `def:submersion-smooth' on page 164 undefined on input line 368.
+
+
+LaTeX Warning: Hyper reference `def:submersion-smooth' on page 164 undefined on input line 368.
+
+
+LaTeX Warning: Hyper reference `def:loc-diffeo' on page 164 undefined on input line 368.
+
+
+LaTeX Warning: Hyper reference `def:loc-diffeo' on page 164 undefined on input line 380.
+
+[164]
+
+LaTeX Warning: Hyper reference `thm:inverse-function-b' on page 165 undefined on input line 385.
+
+
+LaTeX Warning: Hyper reference `thm:inverse-function-b' on page 165 undefined on input line 390.
+
+
+LaTeX Warning: Hyper reference `def:rank-smooth' on page 165 undefined on input line 397.
+
+
+LaTeX Warning: Hyper reference `def:submersion-smooth' on page 165 undefined on input line 413.
+
+
+LaTeX Warning: Reference `eq:coord-rep-canonical' on page 165 undefined on input line 413.
+
+
+LaTeX Warning: Hyper reference `def:submersion-smooth' on page 165 undefined on input line 418.
+
+
+LaTeX Warning: Reference `eq:coord-rep-canonical' on page 165 undefined on input line 418.
+
+[165]
+
+LaTeX Warning: Hyper reference `def:rank-smooth' on page 166 undefined on input line 450.
+
+
+LaTeX Warning: Hyper reference `thm:inverse-function-Rn' on page 166 undefined on input line 454.
+
+
+LaTeX Warning: Reference `eq:hypothesis-rank-theorem' on page 166 undefined on input line 476.
+
+
+LaTeX Warning: Hyper reference `thm:inverse-function-Rn' on page 166 undefined on input line 476.
+
+[166]
+
+LaTeX Warning: Reference `eq:thm-rank-1' on page 167 undefined on input line 532.
+
+[167]
+
+LaTeX Warning: Reference `eq:thm-rank-1' on page 168 undefined on input line 541.
+
+
+LaTeX Warning: Reference `eq:thm-rank-ans' on page 168 undefined on input line 560.
+
+
+LaTeX Warning: Hyper reference `def:rank-smooth' on page 168 undefined on input line 571.
+
+
+LaTeX Warning: Reference `thm:rank' on page 168 undefined on input line 580.
+
+
+LaTeX Warning: Reference `eq:coord-rep-canonical' on page 168 undefined on input line 580.
+
+
+LaTeX Warning: Hyper reference `def:rank-smooth' on page 168 undefined on input line 584.
+
+
+LaTeX Warning: Hyper reference `def:rank-smooth' on page 168 undefined on input line 591.
+
+
+LaTeX Warning: Hyper reference `def:submersion-smooth' on page 168 undefined on input line 596.
+
+
+LaTeX Warning: Hyper reference `def:submersion-smooth' on page 168 undefined on input line 597.
+
+[168]
+
+LaTeX Warning: Hyper reference `thm:rank' on page 169 undefined on input line 605.
+
+
+LaTeX Warning: Reference `eq:coord-rep-canonical' on page 169 undefined on input line 611.
+
+
+LaTeX Warning: Hyper reference `thm:rank' on page 169 undefined on input line 617.
+
+
+LaTeX Warning: Reference `eq:coord-rep-canonical' on page 169 undefined on input line 623.
+
+
+LaTeX Warning: Reference `prop:SI-basics' on page 169 undefined on input line 626.
+
+
+LaTeX Warning: Hyper reference `def:loc-diffeo' on page 169 undefined on input line 626.
+
+
+LaTeX Warning: Hyper reference `def:submersion-smooth' on page 169 undefined on input line 636.
+
+[169]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 656.
@@ -1775,7 +4304,13 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 656.
 
-[172]) (./out/TQFT_main.bbl [173](load cache: extra_lmmono10-regular.luc)
+
+LaTeX Warning: Hyper reference `def:submersion-smooth' on page 170 undefined on input line 659.
+
+
+LaTeX Warning: Hyper reference `def:submersion-smooth' on page 170 undefined on input line 660.
+
+[170]) (./out/TQFT_main.bbl [171](load cache: extra_lmmono10-regular.luc)
 LaTeX Font Info:    Font shape `JT3/gt/m/it' in size <10> not available
 (Font)              Font shape `JT3/gt/m/n' tried instead on input line 10.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
@@ -1784,12 +4319,12 @@ LaTeX Font Info:    Font shape `JY3/gt/m/it' in size <10> not available
 (Font)              Font shape `JY3/gt/m/n' tried instead on input line 10.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 9.24713pt on input line 10.
- [174
+ [172
 
 
 Missing character: There is no  (U+0080) in font [lmroman10-regular]:+tlig;!
 Missing character: There is no  (U+0093) in font [lmroman10-regular]:+tlig;!
-]) [175] (./out/TQFT_main.aux)
+]) [173] (./out/TQFT_main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -1799,26 +4334,32 @@ L3 programming layer <2024-02-20>
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package rerunfilecheck Info: File `TQFT_main.out' has not changed.
-(rerunfilecheck)             Checksum: 091D410FFF5445634D7C8D7B475E153F;11564.
+
+Package rerunfilecheck Warning: File `TQFT_main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `TQFT_main.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  091D410FFF5445634D7C8D7B475E153F;11564.
 )
 
 Here is how much of LuaTeX's memory you used:
- 55992 strings out of 476447
- 382242,2373549 words of node,token memory allocated
- 117967 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 120 glue, 4 kern, 30 sub_mlist, 1 glyph, 53278 attribute, 62 glue_spec, 4855 attribute_list, 2 write, 14 user_defined, 24 pdf_action nodes
-   avail lists: 1:36,2:53980,3:1634,4:1483,5:825,6:101,7:6412,8:124,9:3529,10:37,11:161
- 75813 multiletter control sequences out of 65536+600000
- 205 fonts using 96005775 bytes
- 125i,28n,128p,1894b,1725s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman9-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmmono8-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman8-bold.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman10-bolditalic.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmsans10-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib5.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/doublestroke/dsrom8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/euler/eufb10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on TQFT_main.pdf (176 pages, 1835842 bytes).
+ 55844 strings out of 476447
+ 382243,2373549 words of node,token memory allocated
+ 117469 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 120 glue, 4 kern, 30 sub_mlist, 1 glyph, 53102 attribute, 62 glue_spec, 4839 attribute_list, 2 write, 14 user_defined, 5 pdf_action nodes
+   avail lists: 1:35,2:53341,3:1619,4:1466,5:820,6:57,7:6386,8:124,9:3480,10:37,11:161
+ 75746 multiletter control sequences out of 65536+600000
+ 207 fonts using 96269855 bytes
+ 125i,28n,128p,1894b,1741s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmsans10-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman9-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmmono8-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman10-bolditalic.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman8-bold.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib5.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/doublestroke/dsrom8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/euler/eufb10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
+Output written on TQFT_main.pdf (174 pages, 1779304 bytes).
 
-PDF statistics: 3452 PDF objects out of 3580 (max. 8388607)
- 2949 compressed objects within 30 object streams
- 846 named destinations out of 1000 (max. 131072)
- 712 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 1971 PDF objects out of 2073 (max. 8388607)
+ 1673 compressed objects within 17 object streams
+ 785 named destinations out of 1000 (max. 131072)
+ 16 words of extra memory for PDF output out of 10000 (max. 100000000)
 
