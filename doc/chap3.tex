@@ -1188,5 +1188,29 @@ $p$-form symmetryの秩序変数は荷電物体の真空期待値であり，一
 
 
 % ゲージ変換 $B_p \lmto B_p + \dd{\lambda_{p-1}}$ 
+\textbf{アノマリー}\footnote{訳語だと\textbf{対称性の量子的破れ}と呼ぶこともある~\cite{Fujikawa2001path}．}とは，繰り込み不変量であって，UVとIRの対称性を整合させるものである．この解釈は\textbf{ABJアノマリー} (Adler Bell Jackiw anomaly) と言うよりかは\textbf{'t Hooftアノマリー}の一般化だと考えるべきである．
+
+現代的には，考えている時空 $\mfdcal{M}{D+1}$ を境界に持つ $\mfdcal{N}{D+2} \WHERE \partial \mfdcal{N}{D+2} = \mfdcal{M}{D+1}$ 上のTQFT\footnote{特に，\textbf{可逆な場の理論} (invertible field theory; IFT) になっているようなもの．}を使ってアノマリーを記述することで，RG不変性を示す．
+まずLie群 $G$ で特徴づけられる $0$-form symmetryの場合を考えよう．on shellな保存カレントを $1$-form背景ゲージ場 $A_1$ に結合させる\footnote{固定されたゲージ場を運動項を持たないダイナミカルなゲージ場だと思ってカレントを線形に結合させると言うこと．}ことができる．このとき，ゲージ場はダイナミカルでない\footnote{経路積分で $A_1$ についての和を取らないと言うこと．}ので，分配関数は
+\begin{align}
+    Z[A_1] = \int [\dd{\Psi}]\, e^{-S[\psi,\, A_1]}
+\end{align}
+の形になっている．この $0$-form symmetryは，ゲージ変換 $A_1 \lmto A_1 + \dd{\lambda_0}$ の下で分配関数が不変にならないとき，アノマリーを持つと言う：
+\begin{align}
+    Z[A_1, + \dd{\lambda_0}] = e^{\iunit \int_{\mfdcal{M}{D+1}} \mathcal{A}[A_1,\, \lambda_0]} Z[A_1] \WHERE  \mathcal{A}[A_1,\, 0]  = 0
+\end{align}
+この位相 $\mathcal{A}[A_1,\, \lambda_0]$ は $D+2$ 次元時空のTQFTの境界の寄与だと理解できる：
+\begin{align}
+    e^{\iunit \int_{\mfdcal{M}{D+1}} \mathcal{A}[A_1,\, \lambda_0]} = e^{\iunit \int_{\partial\mfdcal{N}{D+2}} \mathcal{A}[A_1,\, \lambda_0]} = e^{\iunit \int_{\mfdcal{N}{D+2}} \dd{\mathcal{A}[A_1,\, \lambda_0]}} 
+\end{align}
+この $\dd{\mathcal{A}[A_1,\, \lambda_0]}$ を $\widehat{A}[A_1 + \dd{\lambda_0}] \in \Omega^{D+2}(\mfdcal{N}{D+2})$ と見做すのである．従って，元の理論の分配関数を
+\begin{align}
+    \widehat{Z}[A_1] \coloneqq Z[A_1] e^{\iunit \int_{\mfdcal{N}{D+2}} \widehat{A}[A_1]}
+\end{align}
+と再定義すれば，アノマラスな位相を消去できる．位相 $e^{\iunit \int_{\mfdcal{N}{D+2}} \widehat{A}[A_1]}$ は\textbf{SPT}と呼ばれる．
+
+
+
+
 
 \end{document}
