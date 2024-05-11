@@ -58,7 +58,7 @@
 \contentsline {subsection}{\numberline {3.3.3}対称性の自発的破れ}{116}{subsection.3.3.3}%
 \contentsline {subsection}{\numberline {3.3.4}高次対称性の自発的破れ}{121}{subsection.3.3.4}%
 \contentsline {subsection}{\numberline {3.3.5}高次対称性のColeman-Mermin-Wagnerの定理}{122}{subsection.3.3.5}%
-\contentsline {subsection}{\numberline {3.3.6}$0$ 次対称性のアノマリー}{123}{subsection.3.3.6}%
+\contentsline {subsection}{\numberline {3.3.6}対称性のアノマリー}{123}{subsection.3.3.6}%
 \contentsline {subsection}{\numberline {3.3.7}高次対称性のアノマリー}{127}{subsection.3.3.7}%
 \contentsline {section}{\numberline {3.4}離散的な高次対称性}{128}{section.3.4}%
 \contentsline {subsection}{\numberline {3.4.1}離散的ゲージ理論}{129}{subsection.3.4.1}%
