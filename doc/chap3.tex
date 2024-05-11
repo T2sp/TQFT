@@ -1209,11 +1209,11 @@ $p$-form symmetryの秩序変数は荷電物体の真空期待値であり，一
 \begin{description}
     \item[\textbf{ゲージアノマリー}]　
 
-    元の理論 $S[\psi]$ に\textbf{ゲージ化} $\partial_\mu \lmto \partial_\mu + A_\mu$ の操作を施して得られた理論 $\irm{S}{gauged}[\psi,\, A]$ の分配関数
+    元の理論 $S[\psi]$ に\textbf{ゲージ化} $\partial_\mu \lmto \partial_\mu + a_\mu$ の操作を施して得られた理論 $\irm{S}{gauged}[\psi,\, a]$ の\footnote{ゲージ場がダイナミカルなときは $a,\, b,\, \dots$ で，単に外場であるときは $A,\, B,\, \dots$ で書くことにする．}分配関数
     \begin{align}
-        \irm{Z}{gauged} = \int [\dd{A}] \int [\dd{\psi}]\, e^{-\irm{S}{gauged}[\psi,\, A] - \irm{S}{kin} [A]} \eqqcolon \int [\dd{A}]\, Z[A]\, e^{-\irm{S}{kin}[A]}
+        \irm{Z}{gauged} = \int [\dd{a}] \int [\dd{\psi}]\, e^{-\irm{S}{gauged}[\psi,\, a] - \irm{S}{kin} [a]} \eqqcolon \int [\dd{a}]\, Z[A]\, e^{-\irm{S}{kin}[a]}
     \end{align}
-    について，ある $g \colon \mfdcal{M}{D+1} \lto G$ が存在してゲージ変換 $A \lmto A^g \coloneqq g^{-1} A g + g^{-1} \dd{g}$ の下で $Z[A] \neq Z[A^g]$ となること．このとき理論は矛盾している．と言うのも，汎函数積分 $\int [\dd{A}]$ がill-definedになるからである．
+    について，ある $g \colon \mfdcal{M}{D+1} \lto G$ が存在してゲージ変換 $a \lmto a^g \coloneqq g^{-1} a g + g^{-1} \dd{g}$ の下で $Z[a] \neq Z[a^g]$ となること．このとき理論は矛盾している．と言うのも，汎函数積分 $\int [\dd{A}]$ がill-definedになるからである．
 
     \item[\textbf{'t Hooft アノマリー}]　
     
@@ -1221,11 +1221,62 @@ $p$-form symmetryの秩序変数は荷電物体の真空期待値であり，一
     \begin{align}
         Z[A] \coloneqq \int [\dd{\psi}]\, e^{-\irm{S}{gauged}[\psi,\, A]}
     \end{align}
-    と定義したとき，ある $g \in G$ が存在してゲージ変換 $A \lmto A^g \coloneqq \Adj(g^{-1})(A) + g^* \theta$ の下で $Z[A] \neq Z[A^g]$ となること．$A$ は単なる外場なので，理論が矛盾したわけではない．
+    と定義したとき，ある $g \in G$ が存在してゲージ変換 $A \lmto A^g \coloneqq g^{-1} Ag + g^{-1} \dd{g}$ の下で $Z[A] \neq Z[A^g]$ となること．$A$ は単なる外場なので，理論が矛盾したわけではない．
+    また，$Z[0] = Z$ となる．
+
+    　今，$\irm{Z}{UV}[A]$ が繰り込み群変換の下で $\irm{Z}{IR}[A]$ に流れるとする．
+    このとき，のちに見るようにアノマリーは $1$ つ次元が上のTQFTで記述されるが，TQFTは繰り込み群変換の下で不変なので，両者のアノマリーは一致していなくてはいけない．
+    つまり，理論 $\irm{Z}{UV}$ が繰り込み群変換で $\irm{Z}{IR}$ へ流れるための必要条件は，両者で 't Hooftアノマリーが一致することなのである．
 
     \item[\textbf{ABJアノマリー} (Adler Bell Jackiw anomaly)]　
     
-
+    ゲージ群 $G$ についてゲージアノマリーを持たない理論
+    \begin{align}
+        Z = \int [\dd{a}] \int [\dd{\psi}]\, e^{-S[\psi,\, a]} \eqqcolon \int [\dd{a}]\, Z[a]
+    \end{align}
+    が別のLie群 $H$ についても大域的対称性を持っているとき，外場 $A$ を導入して $H$ 対称性をゲージ化して
+    \begin{align}
+        Z[a,\, A] = \int [\dd{\psi}]\, e^{-S[\psi,\, a,\, A]}
+    \end{align}
+    を得るが，この新しく加えた $A$ についてゲージ変換 $A \lmto A^h$ を施したときに $Z[a,\, A^h] \neq Z[a,\, A]$ となることである．
+    摂動論的には，$2n$ 次元の理論が持つ摂動アノマリーであって，対応する $n+1$ 角形のFeynmanダイアグラムの外線のうち1本が外場で，残りの $n$ 本がダイナミカルなゲージ場であるようなものである．
+    
+    　ABJアノマリーはNoetherカレントの非保存と等価である．
+    \begin{align}
+        S[\psi,\, a] \coloneqq \int_{\mfdcal{M}{D+1}} \dd[D+1]{x} \bar{\psi} \gamma^\mu (\partial_\mu + a_\mu) \psi
+    \end{align}
+    を考える．これが $G$ によるゲージ変換以外に，$H$ による\underline{大域的}対称性 $S[\psi,\, a] = S[\psi^h,\, a]$ を持っているとする．
+    このとき $h \colon \mfdcal{M}{D+1} \lto H$ による変換 $\rho\bigl(h\bigr)\bigl(\psi\bigr)$ を摂動的に扱い $h \sim 1 + \epsilon$ と思うと，
+    \begin{align}
+        S[\psi^h,\, a] = S[\psi,\, a] - \int_{\mfdcal{M}{D+1}} \dd[D+1]{x} \epsilon\, \partial_\mu (\overline{\psi} \gamma^\mu \psi)
+    \end{align}
+    になる．ここで，経路積分において測度が $[\dd{\bar{\psi}}^h \dd{\psi}^h] = J [\dd{\bar{\psi}} \dd{\psi}]$ と変換するならば
+    \begin{align}
+        Z[a] = \int [\dd{\bar{\psi}^h} \dd{\psi^h}] e^{-S[\psi^h,\, a]} = J e^{-S[\psi,\, a]} e^{\int \dd[D+1]{x} \partial_\mu j^\mu} \int [\dd{\bar{\psi}} \dd{\psi}]\, e^{-S[\psi,\, a]} e^{\int \dd[D+1]{x} \partial_\mu j^\mu}
+    \end{align}
+    であり，$J = e^{\iunit \int \dd[D+1]{x} \epsilon \bm{A}}$ と書くと
+    \begin{align}
+        \partial_\mu j^\mu = \iunit \bm{A}
+    \end{align}
+    が導かれるのだった（Fujikawaの方法）．
+    一方，大域的対称性 $H$ をゲージ化して
+    \begin{align}
+        S[\psi,\, a,\, A] \coloneqq \int_{\mfdcal{M}{D+1}} \dd[D+1]{x} \bar{\psi} \gamma^\mu (\partial_\mu + a_\mu + A_\mu) \psi 
+    \end{align}
+    にする．ゲージ不変性から $S[\psi^h,\, a,\, A^h] = S[\psi,\, a,\, A]$ なので，
+    \begin{align}
+        S[\psi^h,\, a,\, A] = S[\psi^h,\, a,\, A^h] - \int_{\mfdcal{M}{D+1}} \dd[D+1]{x} \epsilon\, \partial_\mu (\overline{\psi} \gamma^\mu \psi)
+    \end{align}
+    である．ABJアノマリーは
+    \begin{align}
+        &Z[a,\, A^h] = e^{\iunit \int \dd[D+1] \epsilon \bm{B}} Z[a,\, A] \\
+        \IFF &\int [\dd{\bar{\psi}}^h \dd{\psi}^h] e^{-S[\psi^h,\, a,\, A^h]} = e^{\iunit \int \dd[D+1] \epsilon \bm{B}} \int [\dd{\bar{\psi}} \dd{\psi}] e^{-S[\psi,\, a,\, A]}
+    \end{align}
+    を意味するから，
+    \begin{align}
+        \partial_\mu j^\mu = -\iunit \bm{B}
+    \end{align}
+    となる．
 \end{description}
 
 % とは，繰り込み不変量であって，UVとIRの対称性を整合させるものである．この解釈は\textbf{ABJアノマリー} (Adler Bell Jackiw anomaly) と言うよりかは\textbf{'t Hooftアノマリー}の一般化だと考えるべきである．
