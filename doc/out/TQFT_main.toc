@@ -1,87 +1,87 @@
-\contentsline {chapter}{\numberline {第1章}粒子の統計性}{2}{chapter.1}%
-\contentsline {section}{\numberline {1.1}1粒子の経路積分}{2}{section.1.1}%
-\contentsline {section}{\numberline {1.2}2つの同種粒子}{4}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}粒子の配位}{4}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}配位空間上の経路}{5}{subsection.1.2.2}%
-\contentsline {subsection}{\numberline {1.2.3}経路積分による量子化}{6}{subsection.1.2.3}%
-\contentsline {section}{\numberline {1.3}同種粒子多体系}{7}{section.1.3}%
-\contentsline {subsection}{\numberline {1.3.1}$D = 2$ の場合：組み紐群}{8}{subsection.1.3.1}%
-\contentsline {subsection}{\numberline {1.3.2}$D = 3$ の場合：対称群}{8}{subsection.1.3.2}%
-\contentsline {subsection}{\numberline {1.3.3}経路積分の構成}{9}{subsection.1.3.3}%
-\contentsline {subsection}{\numberline {1.3.4}1次元表現（可換な例）}{9}{subsection.1.3.4}%
-\contentsline {subsection}{\numberline {1.3.5}より高次元の表現（非可換な場合）}{9}{subsection.1.3.5}%
-\contentsline {chapter}{\numberline {第2章}Chern-Simons理論の導入}{11}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Charge-Flux composite}{11}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Aharonov-Bohm効果}{11}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Charge-Flux compositeとしてのエニオン}{12}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}トーラス上のエニオンの真空}{12}{subsection.2.1.3}%
-\contentsline {section}{\numberline {2.2}可換Chern-Simons理論の経験的導入}{13}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}ゲージ不変性}{13}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}運動方程式}{14}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}プロパゲーター}{14}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}真空中の可換Chern-Simons理論}{15}{subsection.2.2.4}%
-\contentsline {subsection}{\numberline {2.2.5}正準量子化}{15}{subsection.2.2.5}%
-\contentsline {section}{\numberline {2.3}非可換Chern-Simons理論の経験的導入}{15}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}ゲージ不変性}{16}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Chern-Simons作用}{17}{subsection.2.3.2}%
-\contentsline {section}{\numberline {2.4}古典的ゲージ理論の数学}{17}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}主束と内部対称性の定式化}{18}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Lie群の指数写像と基本ベクトル場}{29}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.4.3}主束の接続}{41}{subsection.2.4.3}%
-\contentsline {subsection}{\numberline {2.4.4}同伴ベクトル束上の共変微分}{46}{subsection.2.4.4}%
-\contentsline {subsection}{\numberline {2.4.5}局所接続形式とゲージ場}{56}{subsection.2.4.5}%
-\contentsline {subsection}{\numberline {2.4.6}水平持ち上げ}{63}{subsection.2.4.6}%
-\contentsline {subsection}{\numberline {2.4.7}主束上の曲率形式}{67}{subsection.2.4.7}%
-\contentsline {subsection}{\numberline {2.4.8}曲率形式の局所表示と場の強さ}{73}{subsection.2.4.8}%
-\contentsline {subsection}{\numberline {2.4.9}同伴ベクトル束上の接続とその局所表示}{75}{subsection.2.4.9}%
-\contentsline {subsection}{\numberline {2.4.10}同伴ベクトル束上の曲率とその局所表示}{79}{subsection.2.4.10}%
-\contentsline {subsection}{\numberline {2.4.11}ホロノミー}{82}{subsection.2.4.11}%
-\contentsline {subsection}{\numberline {2.4.12}ゲージ理論}{84}{subsection.2.4.12}%
-\contentsline {section}{\numberline {2.5}特性類とChern-Simons形式}{84}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}Lie代数上の不変多項式}{84}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}Chern-Weil理論}{85}{subsection.2.5.2}%
-\contentsline {subsection}{\numberline {2.5.3}主束とベクトル束}{89}{subsection.2.5.3}%
-\contentsline {subsection}{\numberline {2.5.4}色々な不変多項式}{91}{subsection.2.5.4}%
-\contentsline {subsection}{\numberline {2.5.5}特性類のホモトピー論的扱い}{95}{subsection.2.5.5}%
-\contentsline {subsection}{\numberline {2.5.6}Chern-Simons形式}{95}{subsection.2.5.6}%
-\contentsline {chapter}{\numberline {第3章}位相的場の理論}{96}{chapter.3}%
-\contentsline {section}{\numberline {3.1}モノイダル圏}{96}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}モノイダル圏の定義}{96}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}組紐付きモノイダル圏}{98}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}閉圏・コンパクト圏・ダガー圏}{99}{subsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.1.4}モノイダル関手}{102}{subsection.3.1.4}%
-\contentsline {section}{\numberline {3.2}TQFTの定義}{103}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Atiyahの公理系}{103}{subsection.3.2.1}%
-\contentsline {section}{\numberline {3.3}連続な高次対称性}{105}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}通常の対称性}{106}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}連続的高次対称性}{111}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}対称性の自発的破れ}{114}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}高次対称性の自発的破れ}{119}{subsection.3.3.4}%
-\contentsline {subsection}{\numberline {3.3.5}高次対称性のColeman-Mermin-Wagnerの定理}{120}{subsection.3.3.5}%
-\contentsline {subsection}{\numberline {3.3.6}$0$ 次対称性のアノマリー}{121}{subsection.3.3.6}%
-\contentsline {subsection}{\numberline {3.3.7}高次対称性のアノマリー}{124}{subsection.3.3.7}%
-\contentsline {section}{\numberline {3.4}離散的な高次対称性}{125}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}離散的ゲージ理論}{125}{subsection.3.4.1}%
-\contentsline {chapter}{\numberline {付録A}結び目理論入門}{126}{appendix.A}%
-\contentsline {chapter}{\numberline {付録B}ベクトル場の話}{127}{appendix.B}%
-\contentsline {section}{\numberline {B.1}接束}{129}{section.B.1}%
-\contentsline {section}{\numberline {B.2}ベクトル場の定義}{131}{section.B.2}%
-\contentsline {subsection}{\numberline {B.2.1}$C^\infty $ 関数の微分としてのベクトル場}{133}{subsection.B.2.1}%
-\contentsline {subsection}{\numberline {B.2.2}ベクトル場と $C^\infty $ 写像}{135}{subsection.B.2.2}%
-\contentsline {subsection}{\numberline {B.2.3}Lieブラケット}{137}{subsection.B.2.3}%
-\contentsline {section}{\numberline {B.3}積分曲線とフロー}{138}{section.B.3}%
-\contentsline {subsection}{\numberline {B.3.1}積分曲線}{138}{subsection.B.3.1}%
-\contentsline {subsection}{\numberline {B.3.2}フロー}{142}{subsection.B.3.2}%
-\contentsline {subsection}{\numberline {B.3.3}完備なベクトル場}{148}{subsection.B.3.3}%
-\contentsline {section}{\numberline {B.4}Lie微分}{149}{section.B.4}%
-\contentsline {section}{\numberline {B.5}$C^\infty $ ベクトル束}{152}{section.B.5}%
-\contentsline {chapter}{\numberline {付録C}QFTミニマム}{155}{appendix.C}%
-\contentsline {section}{\numberline {C.1}経路積分}{155}{section.C.1}%
-\contentsline {chapter}{\numberline {付録D}$C^\infty $ 多様体の話}{157}{appendix.D}%
-\contentsline {section}{\numberline {D.1}沈めこみ・はめ込み・埋め込み}{157}{section.D.1}%
-\contentsline {subsection}{\numberline {D.1.1}局所微分同相写像}{162}{subsection.D.1.1}%
-\contentsline {subsection}{\numberline {D.1.2}ランク定理}{164}{subsection.D.1.2}%
-\contentsline {subsection}{\numberline {D.1.3}$C^\infty $ 埋め込み}{170}{subsection.D.1.3}%
-\contentsline {section}{\numberline {D.2}部分多様体}{171}{section.D.2}%
-\contentsline {section}{\numberline {D.3}Sardの定理}{171}{section.D.3}%
-\contentsline {chapter}{参考文献}{172}{appendix*.7}%
+\contentsline {chapter}{\numberline {第1章}粒子の統計性}{4}{chapter.1}%
+\contentsline {section}{\numberline {1.1}1粒子の経路積分}{4}{section.1.1}%
+\contentsline {section}{\numberline {1.2}2つの同種粒子}{6}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}粒子の配位}{6}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}配位空間上の経路}{7}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}経路積分による量子化}{8}{subsection.1.2.3}%
+\contentsline {section}{\numberline {1.3}同種粒子多体系}{9}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}$D = 2$ の場合：組み紐群}{10}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}$D = 3$ の場合：対称群}{10}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}経路積分の構成}{11}{subsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.3.4}1次元表現（可換な例）}{11}{subsection.1.3.4}%
+\contentsline {subsection}{\numberline {1.3.5}より高次元の表現（非可換な場合）}{11}{subsection.1.3.5}%
+\contentsline {chapter}{\numberline {第2章}Chern-Simons理論の導入}{13}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Charge-Flux composite}{13}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Aharonov-Bohm効果}{13}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Charge-Flux compositeとしてのエニオン}{14}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}トーラス上のエニオンの真空}{14}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}可換Chern-Simons理論の経験的導入}{15}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}ゲージ不変性}{15}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}運動方程式}{16}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}プロパゲーター}{16}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}真空中の可換Chern-Simons理論}{17}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}正準量子化}{17}{subsection.2.2.5}%
+\contentsline {section}{\numberline {2.3}非可換Chern-Simons理論の経験的導入}{17}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}ゲージ不変性}{18}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Chern-Simons作用}{19}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}古典的ゲージ理論の数学}{19}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}主束と内部対称性の定式化}{20}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Lie群の指数写像と基本ベクトル場}{31}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}主束の接続}{43}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.4}同伴ベクトル束上の共変微分}{48}{subsection.2.4.4}%
+\contentsline {subsection}{\numberline {2.4.5}局所接続形式とゲージ場}{58}{subsection.2.4.5}%
+\contentsline {subsection}{\numberline {2.4.6}水平持ち上げ}{65}{subsection.2.4.6}%
+\contentsline {subsection}{\numberline {2.4.7}主束上の曲率形式}{69}{subsection.2.4.7}%
+\contentsline {subsection}{\numberline {2.4.8}曲率形式の局所表示と場の強さ}{75}{subsection.2.4.8}%
+\contentsline {subsection}{\numberline {2.4.9}同伴ベクトル束上の接続とその局所表示}{77}{subsection.2.4.9}%
+\contentsline {subsection}{\numberline {2.4.10}同伴ベクトル束上の曲率とその局所表示}{81}{subsection.2.4.10}%
+\contentsline {subsection}{\numberline {2.4.11}ホロノミー}{84}{subsection.2.4.11}%
+\contentsline {subsection}{\numberline {2.4.12}ゲージ理論}{86}{subsection.2.4.12}%
+\contentsline {section}{\numberline {2.5}特性類とChern-Simons形式}{86}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Lie代数上の不変多項式}{86}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Chern-Weil理論}{87}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}主束とベクトル束}{91}{subsection.2.5.3}%
+\contentsline {subsection}{\numberline {2.5.4}色々な不変多項式}{93}{subsection.2.5.4}%
+\contentsline {subsection}{\numberline {2.5.5}特性類のホモトピー論的扱い}{97}{subsection.2.5.5}%
+\contentsline {subsection}{\numberline {2.5.6}Chern-Simons形式}{97}{subsection.2.5.6}%
+\contentsline {chapter}{\numberline {第3章}位相的場の理論}{98}{chapter.3}%
+\contentsline {section}{\numberline {3.1}モノイダル圏}{98}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}モノイダル圏の定義}{98}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}組紐付きモノイダル圏}{100}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}閉圏・コンパクト圏・ダガー圏}{101}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}モノイダル関手}{104}{subsection.3.1.4}%
+\contentsline {section}{\numberline {3.2}TQFTの定義}{105}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Atiyahの公理系}{105}{subsection.3.2.1}%
+\contentsline {section}{\numberline {3.3}連続な高次対称性}{107}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}通常の対称性}{108}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}連続的高次対称性}{113}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}対称性の自発的破れ}{116}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}高次対称性の自発的破れ}{121}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}高次対称性のColeman-Mermin-Wagnerの定理}{122}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.6}$0$ 次対称性のアノマリー}{123}{subsection.3.3.6}%
+\contentsline {subsection}{\numberline {3.3.7}高次対称性のアノマリー}{127}{subsection.3.3.7}%
+\contentsline {section}{\numberline {3.4}離散的な高次対称性}{128}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}離散的ゲージ理論}{129}{subsection.3.4.1}%
+\contentsline {chapter}{\numberline {付録A}結び目理論入門}{130}{appendix.A}%
+\contentsline {chapter}{\numberline {付録B}ベクトル場の話}{131}{appendix.B}%
+\contentsline {section}{\numberline {B.1}接束}{133}{section.B.1}%
+\contentsline {section}{\numberline {B.2}ベクトル場の定義}{135}{section.B.2}%
+\contentsline {subsection}{\numberline {B.2.1}$C^\infty $ 関数の微分としてのベクトル場}{137}{subsection.B.2.1}%
+\contentsline {subsection}{\numberline {B.2.2}ベクトル場と $C^\infty $ 写像}{139}{subsection.B.2.2}%
+\contentsline {subsection}{\numberline {B.2.3}Lieブラケット}{141}{subsection.B.2.3}%
+\contentsline {section}{\numberline {B.3}積分曲線とフロー}{142}{section.B.3}%
+\contentsline {subsection}{\numberline {B.3.1}積分曲線}{142}{subsection.B.3.1}%
+\contentsline {subsection}{\numberline {B.3.2}フロー}{146}{subsection.B.3.2}%
+\contentsline {subsection}{\numberline {B.3.3}完備なベクトル場}{152}{subsection.B.3.3}%
+\contentsline {section}{\numberline {B.4}Lie微分}{153}{section.B.4}%
+\contentsline {section}{\numberline {B.5}$C^\infty $ ベクトル束}{156}{section.B.5}%
+\contentsline {chapter}{\numberline {付録C}QFTミニマム}{159}{appendix.C}%
+\contentsline {section}{\numberline {C.1}経路積分}{159}{section.C.1}%
+\contentsline {chapter}{\numberline {付録D}$C^\infty $ 多様体の話}{161}{appendix.D}%
+\contentsline {section}{\numberline {D.1}沈めこみ・はめ込み・埋め込み}{161}{section.D.1}%
+\contentsline {subsection}{\numberline {D.1.1}局所微分同相写像}{166}{subsection.D.1.1}%
+\contentsline {subsection}{\numberline {D.1.2}ランク定理}{168}{subsection.D.1.2}%
+\contentsline {subsection}{\numberline {D.1.3}$C^\infty $ 埋め込み}{174}{subsection.D.1.3}%
+\contentsline {section}{\numberline {D.2}部分多様体}{175}{section.D.2}%
+\contentsline {section}{\numberline {D.3}Sardの定理}{175}{section.D.3}%
+\contentsline {chapter}{参考文献}{176}{appendix*.7}%
