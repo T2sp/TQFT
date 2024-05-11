@@ -65,7 +65,7 @@ L.~I. Nicolaescu,
 
 \bibitem{Kugo1989qft2}
 九後汰一郎,
-\newblock {\em ゲージ場の量子論 II} (, 1989).
+\newblock {\em ゲージ場の量子論 \rm{II}} (, 1989).
 
 \bibitem{FabriPicasso1966qft}
 E.~Fabri and L.~E. Picasso,
@@ -89,7 +89,7 @@ E.~{Lake},
 
 \bibitem{Kawahira2024anomaly}
 川平将志,
-\newblock (2024),
+\newblock アノマリーの数学的基礎から現象論的応用まで, 2024,
 \newblock Available at \url{https://www2.yukawa.kyoto-u.ac.jp/~soken.editorial/author.html?author=%E5%B7%9D%E5%B9%B3%20%E5%B0%86%E5%BF%97}.
 
 \bibitem{DaiFreed_1994}
@@ -102,6 +102,6 @@ D.~S. Freed and M.~J. Hopkins,
 
 \bibitem{Kugo1989qft1}
 九後汰一郎,
-\newblock {\em ゲージ場の量子論 I} (, 1989).
+\newblock {\em ゲージ場の量子論 \rm{I}} (, 1989).
 
 \end{thebibliography}
