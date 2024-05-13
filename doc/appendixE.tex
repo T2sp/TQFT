@@ -74,11 +74,16 @@
         \end{align}
         の非ゼロな行列成分は $1$ または $\lambda_i$ の基本対称式または $\mu_j$ の基本対称式である．i.e. $A$ は $\lambda_i,\, \mu_j$ の多項式である．
         
-        $1\le \forall i \le \deg f,\; 1 \le \forall j \le \deg g$ を1つ固定する．$\lambda_i = \mu_j \eqqcolon \lambda$ ならば，
+        　$1\le \forall i \le \deg f,\; 1 \le \forall j \le \deg g$ を固定する．$\lambda_i = \mu_j \eqqcolon \lambda$ ならば，
         \begin{align}
             \bm{x} \coloneqq \mqty[1 \\ \lambda \\ \vdots \\ \lambda^{\deg f + \deg g}]
         \end{align}
-        とおくと 
+        とおくと $A^{\mathsf{T}} \bm{x} = 0$ かつ $\bm{x} \neq 0$，i.e. $\Ker \varphi(f,\, g) \neq \{0\}$ であることが分かった．従って $\lambda_i,\, \mu_j$ の多項式として $\lambda_i = \mu_j$ ならば $\res (f,\, g) = \det \varphi(f,\, g) = 0$ となるから，因数定理より
+        \begin{align}
+            \res (f,\, g) = (f_{\deg f})^{\deg g} (g_{\deg g})^{\deg f} \prod_{\substack{1 \le i \le \deg f \\ 1 \le j \le \deg g}} (\lambda_i - \mu_j)
+        \end{align}
+        が示された．
+        
     \end{enumerate}
     
 \end{proof}

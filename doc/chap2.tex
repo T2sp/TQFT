@@ -4181,7 +4181,7 @@ $U_\alpha$ 上の\textbf{曲率行列} $\Omega_{s_\alpha} \colon \mathfrak{X}(U_
 \end{align}
 として\hyperref[def:characteristic-class-polynomial]{特性類}が得られるのである．このことを踏まえて，特性類 $\Lambda$ のことをしばしば $\chi(E)$ とか $\chi(R^{\nabla^E})$ などと書く．後にホモトピー論的扱いをする際に，特性類をベクトル束に対応づけることが本質的であることがわかる．
 
-\subsection{色々な不変多項式}
+\subsection{不変多項式の代数構造}
 
 定理\ref{thm:Chern-Weil}による主束，もしくはベクトル束上の\hyperref[def:characteristic-class-polynomial]{特性類}の構成は，結局のところ与えられた構造群 $G$ に関して\hyperref[def:invariant]{$\Adj(G)$-不変な多項式}を見つける問題に帰着される．
 
@@ -4295,40 +4295,54 @@ $\Lgl(n,\, \mathbb{K}) = \Mat{n}{\mathbb{K}}$ だから，\hyperref[def:polynomi
 \end{proof}
 
 
-\begin{myexample}[label=def:Chern-class]{複素の場合}
+\begin{myexample}[label=case:complex]{複素の場合}
     $\mathbb{K} = \mathbb{C}$ の場合を考える．$\mathbb{C}$ は無限体だから，補題\ref{lem:polynomial-eval-injective}より $\mathbb{C}$-係数多項式と多項式函数を同一視できる．
 
     　$\Lgl(n,\, \mathbb{C})$ の部分集合
     \begin{align}
-        \uirm{\Lgl(n,\, \mathbb{C})}{d} \coloneqq \bigl\{\, X \in \Lgl(n,\, \mathbb{C}) \bigm| \text{対角化可能} \,\bigr\} 
+        \uirm{\Lgl(n,\, \mathbb{C})}{diag} \coloneqq \bigl\{\, X \in \Lgl(n,\, \mathbb{C}) \bigm| \text{対角化可能} \,\bigr\} 
     \end{align}
-    を考える．$X \in \Lgl(n,\ \mathbb{C}) \setminus \uirm{\Lgl(n,\, \mathbb{C})}{d} \IFF X$ の特性方程式 $f_X(\lambda) \coloneqq \det(\lambda \unity_n - X)$ とその微分 $f_X'(\lambda)$ が共通の根を持つ $\IFF$ $f_X,\, f_X' \in \mathbb{C}[\lambda]$ のSylvester行列式 (\textbf{resultant}とも言う) $\mathrm{res}(f_X,\, f'_X) = 0$
-    であるが，写像 $\varphi \colon \Lgl(n,\, \mathbb{C}) \lto \mathbb{C},\, X \lmto \mathrm{res}(f_X,\, f'_X)$ は行列の成分に関する多項式函数なので $C^\infty$ 関数であり，$\Lgl(n,\ \mathbb{C}) \setminus \uirm{\Lgl(n,\, \mathbb{C})}{d} = \varphi^{-1}(\{0\})$ は余次元 $1$ の部分多様体である．従って $\uirm{\Lgl(n,\, \mathbb{C})}{d}$ は $\Lgl(n,\, \mathbb{C})$ 上稠密である．
+    を考える．
+    \begin{align}
+        &X \in \Lgl(n,\ \mathbb{C}) \setminus \uirm{\Lgl(n,\, \mathbb{C})}{diag} \\
+        \IFF &f_X(\lambda) \coloneqq \det(\lambda \unity_n - X)\, \text{とその微分}\, f_X'(\lambda)\, \text{が共通の根を持つ} \\
+        \IFF &f_X,\, f_X' \in \mathbb{C}[\lambda]\, \text{の\hyperref[prop:resultant]{終結式}}\, \mathrm{res}(f_X,\, f'_X) = 0
+    \end{align}
+    であるが，写像 $\varphi \colon \Lgl(n,\, \mathbb{C}) \lto \mathbb{C},\, X \lmto \mathrm{res}(f_X,\, f'_X)$ は行列の成分に関する多項式函数なので $C^\infty$ 関数であり，
+    $\Lgl(n,\ \mathbb{C}) \setminus \uirm{\Lgl(n,\, \mathbb{C})}{diag} = \varphi^{-1}(\{0\})$ が余次元 $1$ の部分多様体だと分かった．
+    従って $\uirm{\Lgl(n,\, \mathbb{C})}{diag}$ は $\Lgl(n,\, \mathbb{C})$ 上稠密である．
 
-    　ここで，$\mathbb{C}$-結合代数の準同型
-    \begin{align}
-        \rho \colon \mathrm{Inv} \bigl( \Lgl(n,\, \mathbb{C}) \bigr) &\lto \mathbb{C}[t_1,\,\dots,\, t_n] \\
-        P(t^i{}_j) &\lmto \left( (\lambda_1,\,\dots,\, \lambda_n) \lmto P|_{\uirm{\Lgl(n,\, \mathbb{C})}{d}} \left(\mqty[\dmat{\lambda_1,\ddots,\lambda_n}] \right)\, \right)
-    \end{align}
-    を考える．$P$ が不変多項式であることから，対称群 $\mathfrak{S}_n$ の $\mathbb{C}^n$ への作用
-    \begin{align}
-        \sigma \btr (\lambda_1,\,\dots,\, \lambda_n) \coloneqq (\lambda_{\sigma(1)},\, \dots,\, \lambda_{\sigma(n)})
-    \end{align}
-    について $\Im \rho$ は不変である．よって $\rho$ の値域を $n$ 変数の対称多項式の空間 $\mathbb{C}[t_1,\,\dots,\, t_n]^{\mathrm{Sym}}$ に制限することができる．
-
-    ここで $\forall P \in \Ker \rho$ をとる．このとき $\forall X \in \uirm{\Lgl(n,\, \mathbb{C})}{d}$ について $P(X) = 0$ であるが，$\uirm{\Lgl(n,\, \mathbb{C})}{d}$ が稠密なので，多項式函数 $P(X)$ の連続性から $\forall X \in \Lgl(n,\, \mathbb{C})$ に対して $P(X) = 0$ が言える．i.e. $\rho$ は単射である．
-    一方，$\forall \lambda \in \mathbb{C}$ に関して，$k$ 次の基本対称式 $\sigma_k \in \mathbb{Z}[t_1,\, \dots,\, t_n] \subset \mathbb{C} [t_1,\, \dots,\, t_n]$ を使って
-    \begin{align}
-        \rho \bigl( c(t^i{}_j,\, \lambda) \bigr) (\lambda_1,\, \dots,\, \lambda_n)
-        &= \det \left( \lambda \unity_n + \mqty[\dmat{\lambda_1,\ddots,\lambda_n}] \right) \\
-        &= \prod_{i=1}^n (\lambda + \lambda_i) \\
-        &= \sum_{k=0}^n \sigma_k(\lambda_1,\, \dots,\, \lambda_n) \lambda^{n-k}
-    \end{align}
-    と書けるので 
-    \begin{align}
-        \rho \bigl( c_k(t^i{}_j) \bigr) = \sigma_k
-    \end{align}
-    であり，$\mathbb{C}[t_1,\,\dots,\, t_n]^{\mathrm{Sym}}$ は $\sigma_1,\, \dots,\, \sigma_n$ によって生成されるので，$\rho$ が全射であることが分かった．つまり $\rho$ は $\mathbb{C}$-結合代数の同型写像であり，
+    \begin{myprop}[label=prop:inv-complex]{}
+        $n$ 変数の対称多項式の空間を $\mathbb{C}[t_1,\,\dots,\, t_n]^{\mathrm{Sym}}$ と書く．
+        このとき，写像
+        \begin{align}
+            \rho \colon \mathrm{Inv} \bigl( \Lgl(n,\, \mathbb{C}) \bigr) &\lto \mathbb{C}[t_1,\,\dots,\, t_n]^{\mathrm{Sym}} \\
+            P(t^i{}_j) &\lmto \left( (\lambda_1,\,\dots,\, \lambda_n) \lmto P|_{\uirm{\Lgl(n,\, \mathbb{C})}{diag}} \left(\mqty[\dmat{\lambda_1,\ddots,\lambda_n}] \right)\, \right)
+        \end{align}
+        は $\mathbb{C}$-結合代数の同型写像である．
+    \end{myprop}
+    
+    \begin{proof}
+        $P$ が不変多項式であることから，対称群 $\mathfrak{S}_n$ の $\mathbb{C}^n$ への作用
+        \begin{align}
+            \sigma \btr (\lambda_1,\,\dots,\, \lambda_n) \coloneqq (\lambda_{\sigma(1)},\, \dots,\, \lambda_{\sigma(n)})
+        \end{align}
+        について $\Im \rho$ は不変である．よって $\rho$ の値域を $n$ 変数の対称多項式の空間 $\mathbb{C}[t_1,\,\dots,\, t_n]^{\mathrm{Sym}}$ に制限することができる．
+        $\forall P \in \Ker \rho$ をとる．このとき $\forall X \in \uirm{\Lgl(n,\, \mathbb{C})}{diag}$ について $P(X) = 0$ であるが，$\uirm{\Lgl(n,\, \mathbb{C})}{diag}$ が稠密なので，多項式函数 $P(X)$ の連続性から $\forall X \in \Lgl(n,\, \mathbb{C})$ に対して $P(X) = 0$ が言える．i.e. $\rho$ は単射である．
+        一方，$\forall \lambda \in \mathbb{C}$ に関して，$k$ 次の基本対称式 $\sigma_k \in \mathbb{Z}[t_1,\, \dots,\, t_n] \subset \mathbb{C} [t_1,\, \dots,\, t_n]$ を使って
+        \begin{align}
+            \rho \bigl( c(t^i{}_j,\, \lambda) \bigr) (\lambda_1,\, \dots,\, \lambda_n)
+            &= \det \left( \lambda \unity_n + \mqty[\dmat{\lambda_1,\ddots,\lambda_n}] \right) \\
+            &= \prod_{i=1}^n (\lambda + \lambda_i) \\
+            &= \sum_{k=0}^n \sigma_k(\lambda_1,\, \dots,\, \lambda_n) \lambda^{n-k}
+        \end{align}
+        と書けるので 
+        \begin{align}
+            \rho \bigl( c_k(t^i{}_j) \bigr) = \sigma_k
+        \end{align}
+        であり，$\mathbb{C}[t_1,\,\dots,\, t_n]^{\mathrm{Sym}}$ は $\sigma_1,\, \dots,\, \sigma_n$ によって生成されるので，$\rho$ が全射であることが分かった．
+    \end{proof}
+    結局，
     \begin{align}
         \mathrm{Inv} \bigl( \Lgl(n,\, \mathbb{C}) \bigr) = \mathbb{C} \bigl[ c_1(t^i{}_j),\, \dots,\, c_n(t^i{}_j) \bigr] 
     \end{align}
@@ -4339,7 +4353,104 @@ $\Lgl(n,\, \mathbb{K}) = \Mat{n}{\mathbb{K}}$ だから，\hyperref[def:polynomi
     もわかる．
 \end{myexample}
 
-\begin{mydef}[label=def:Chern-class]{Chern類}
+\begin{myexample}[label=case:real]{実の場合}
+    $\mathbb{K} = \mathbb{R}$ の場合を考える．$\mathbb{R}$ は無限体だから，補題\ref{lem:polynomial-eval-injective}より $\mathbb{R}$-係数多項式と多項式函数を同一視できる．
+
+    \begin{mylem}[label=lem:RtoC]{}
+        \hyperref[def:polynomial]{$k$ 次多項式} $f \colon \Lgl(n,\, \mathbb{R}) \lto \mathbb{R}$ は
+        \hyperref[def:invariant]{$\Adj\bigl(\LGL(n,\, \mathbb{R})\bigr)$-不変}ならば
+        $\Adj\bigl(\LGL(n,\, \mathbb{C})\bigr)$-不変である．
+    \end{mylem}
+    
+    \begin{proof}
+        $\forall A \in \LGL(n,\, \mathbb{C})$ を1つ固定する．Cramerの公式より，$A$ の余因子行列を $\tilde{A}$ と書くと $A^{-1} = \tilde{A}/\det A$ が成り立つ．
+        $f$ は$k$次多項式なので
+        \begin{align}
+            f(AXA^{-1}) = f(AX \tilde{A}) / (\det A)^k \IFF f(AX \tilde{A}) = (\det A)^k f(AXA^{-1})
+        \end{align}
+        が分かった．ここで，多項式
+        \begin{align}
+            q(A,\, X) \coloneqq f(AX\tilde{A}) - (\det A)^k f(X)
+        \end{align}
+        を考える．仮定より $\LGL(n,\, \mathbb{R}) \times \mathbb{R}^{n^2}$ 上で $q(A,\, X) = 0$ であるが，多項式函数 $q \colon \mathbb{R}^{n^2} \times \mathbb{R}^{n^2} \lto \mathbb{R}$ は連続関数であり，
+        $\mathbb{R}^{n^2} \setminus \LGL(n,\, \mathbb{R}) = \det(\{0\})$ は $\mathbb{R}^{n^2}$ の余次元1の部分多様体だから稠密なので，$\mathbb{R}^{n^2} \times \mathbb{R}^{n^2}$ 上で $q(A,\, X) = 0$ が言える．
+        $q(A,\, X)$ は $\mathbb{C}^{n^2} \times \mathbb{C}^{n^2}$ 上の多項式函数と見做すと正則関数なので，一致の定理から $\mathbb{C}^{n^2} \times \mathbb{C}^{n^2}$ 上でも $q(A,\, X) = 0$ が言える．
+    \end{proof}
+    
+    
+    \begin{myprop}[label=prop:inv-real]{}
+        $n$ 変数の対称多項式の空間を $\mathbb{R}[t_1,\,\dots,\, t_n]^{\mathrm{Sym}}$ と書く．
+        このとき，写像
+        \begin{align}
+            \rho_{\mathbb{R}} \colon \mathrm{Inv} \bigl( \Lgl(n,\, \mathbb{R}) \bigr) &\lto \mathbb{R}[t_1,\,\dots,\, t_n]^{\mathrm{Sym}} \\
+            P(t^i{}_j) &\lmto \left( (\lambda_1,\,\dots,\, \lambda_n) \lmto P|_{\uirm{\Lgl(n,\, \mathbb{R})}{diag}} \left(\mqty[\dmat{\lambda_1,\ddots,\lambda_n}] \right)\, \right)
+        \end{align}
+        は $\mathbb{R}$-結合代数の同型写像である．
+    \end{myprop}
+
+    \begin{proof}
+        補題\ref{lem:RtoC}より，可換図式
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &\mathrm{Inv}\bigl( \Lgl(n,\, \mathbb{C}) \bigr)  \ar[r, "\rho"] &\mathbb{C}[t_1,\, \dots,\, t_n]^{\mathrm{Sym}} \\
+                &\mathrm{Inv}\bigl( \Lgl(n,\, \mathbb{R}) \bigr)  \ar[u,hookrightarrow]\ar[r, "\rho_{\mathbb{R}}"'] &\mathbb{R}[t_1,\, \dots,\, t_n]^{\mathrm{Sym}} \ar[u, hookrightarrow]
+            \end{tikzcd}
+        \end{center}
+        が成り立つ．よって $\rho_{\mathbb{R}}$ は単射．全射性は命題\ref{prop:inv-complex}と全く同様の議論から従う．
+    \end{proof}
+    結局，
+    \begin{align}
+        \mathrm{Inv} \bigl( \Lgl(n,\, \mathbb{R}) \bigr) = \mathbb{R} \bigl[ c_1(t^i{}_j),\, \dots,\, c_n(t^i{}_j) \bigr] 
+    \end{align}
+    が分かった．
+\end{myexample}
+
+\begin{myexample}[label=case:orthogonal]{直交群の場合}
+    次に，$\mathbb{K} = \mathbb{R},\; G = \LO(n)$ の場合を考える．
+    
+    \begin{mylem}[label=lem:odd-vanish]{}
+        $\forall X \in Lo(n)$ に対して
+        \begin{align}
+            c_{2k+1}(X) = 0
+        \end{align}
+    \end{mylem}
+    
+    \begin{proof}
+        $X \in \Lo(n)$ だから $X = - X^{\mathsf{T}}$ が成り立つ．よって
+        \begin{align}
+            c(X,\, \lambda)
+            &=  \sum_{k=0}^n (-1)^k c_k(X) \lambda^{n-k} \\
+            &= \det(\lambda \unity_n + X) \\
+            &= \det(\lambda \unity_n + X^{\mathsf{T}}) \\
+            &= \det(\lambda \unity_n - X) \\
+            &= \sum_{k=0}^n (-1)^k c_k(X) \lambda^{n-k}
+        \end{align}
+        であり，示された．
+    \end{proof}
+    
+    以下では $p_k \coloneqq c_{2k}$ とおく．
+
+    \begin{myprop}[label=prop:inv-ortho]{}
+        \begin{align}
+            \mathrm{Inv} \bigl( \Lo(n) \bigr) \cong \mathbb{R}[p_1,\, \dots,\, p_{\floorf{n}}]
+        \end{align}
+    \end{myprop}
+    
+    \begin{proof}
+        自然な埋め込み $\rho \colon \mathbb{R}[p_1,\, \dots,\, p_{\floorf{n}}] \hookrightarrow \mathrm{Inv} \bigl( \Lo(n) \bigr)$ が全単射であることを示す．
+
+    \end{proof}
+    
+\end{myexample}
+
+
+以下しばらくの間，命題\ref{prop:inv-complex}, \ref{prop:inv-real}を使って色々な特性類を定義していく．
+
+\subsubsection{Chern類}
+
+Chern類の構成は，命題\ref{prop:inv-complex}による．
+
+\begin{mydef}[label=def:Chern-class,breakable]{Chern類}
     \begin{itemize}
         \item 階数 $n$ の複素ベクトル束 $V \hookrightarrow E \xrightarrow{\pi} M$
         \item $E$ の\hyperref[def:connection-vect]{接続} $\nabla^E \colon \Gamma(E) \lto \Omega^1(M;\, E)$
@@ -4367,10 +4478,14 @@ $\Lgl(n,\, \mathbb{K}) = \Mat{n}{\mathbb{K}}$ だから，\hyperref[def:polynomi
     \end{enumerate}
 \end{mydef}
 
+\subsubsection{Pontrjagin類}
+
+% 命題\ref{prop:inv-real}を使うが，
+
+\subsubsection{Euler類}
 
 \subsection{特性類のホモトピー論的扱い}
 
-\subsection{Chern-Simons形式}
 
 
 
