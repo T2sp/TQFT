@@ -1,0 +1,97 @@
+\documentclass[TQFT_main]{subfiles}
+
+\begin{document}
+
+% \setcounter{}{}
+\chapter{代数の小技集}
+
+\subsection{ベクトル空間の小技}
+
+次数が $n$ 以下の1変数 $\mathbb{K}$-係数多項式環を $\mathbb{K}[t]^{\le n}$ と書く．
+
+\begin{mydef}[label=def:resultant]{終結式}
+    $\mathbb{K}$ を体とし，$\mathbb{K}$-係数多項式 $f,\, g \in \mathbb{K}[t]$ を与える．
+
+    \begin{itemize}
+        \item $f,\, g$ の\textbf{Sylvester行列} (Sylvester matrix) とは，$\mathbb{K}$-線形写像
+        \begin{align}
+            \varphi(f,\, g) \colon \mathbb{K}[t]^{\le \deg g} \times \mathbb{K}[t]^{\le \deg f} \lto \mathbb{K}[t]^{\deg f + \deg g},\; (P,\, Q) \lmto fP + gQ
+        \end{align}
+        の，
+        基底 $1,\, t,\, \dots,\, t^{\deg f + \deg g}$
+        に関する表現行列のこと．
+        \item $f,\, g$ の\textbf{終結式} (resultant) とは，Sylvester行列 $\varphi(f,\, g)$ の行列式
+        \begin{align}
+            \bm{\mathrm{res}(f,\, g)} \coloneqq \det \varphi(f,\, g)
+        \end{align}
+        のこと．
+    \end{itemize}
+\end{mydef}
+
+\begin{myprop}[label=prop:resultant,breakable]{終結式の基本性質}
+    $\mathbb{K}$ を体とし，$\mathbb{K}$-係数多項式 $f = \sum_{k=0}^{\deg f} f_k t^k,\, g = \sum_{k=0}^{\deg g} g_k t^k \in \mathbb{K}[t]$ を与える．このとき以下が成り立つ：
+    \begin{enumerate}
+        \item \begin{align}
+            \res (f,\, g) = \mqty|
+                f_0     &           &           &g_0        & & &  \\
+                f_1     &\ddots     &           &g_1        &\ddots & &  \\
+                \vdots  &\ddots     &f_0        &\vdots     &\ddots &\ddots &  \\ 
+                \vdots  &           &f_1        &g_{\deg g} &       &\ddots &g_0 \\
+                f_{\deg f}&         &\vdots     &           &\ddots &       &g_1 \\
+                            &\ddots &\vdots     &           &       &\ddots &\vdots \\
+                            &       &f_{\deg f} &           &       &       &g_{\deg g}
+            |
+        \end{align}
+        \item $\mathbb{K}$ が代数閉体ならば，$f,\, g$ の根を重複込みでそれぞれ $\lambda_i,\, \mu_j$ と書くと
+        \begin{align}
+            \res (f,\, g) = (f_{\deg f})^{\deg g} (g_{\deg g})^{\deg f} \prod_{\substack{1 \le i \le \deg f \\ 1 \le j \le \deg g}} (\lambda_i - \mu_j)
+        \end{align}
+        が成り立つ．
+    \end{enumerate}
+\end{myprop}
+
+\begin{proof}
+    \begin{enumerate}
+        \item $P = \sum_{k=0}^{\deg g} P_k t^k,\; Q = \sum_{k=0}^{\deg f} Q_k t^{k}$ とすると，$f,\, g$ の\hyperref[def:resultant]{Sylvester行列}は
+        \begin{align}
+            \varphi(f,\, g)(P,\, Q)
+            &= \sum_{k = 0}^{\deg f}\sum_{l = 0}^{\deg g} f_k P_{l} t^{k+l} + \sum_{l = 0}^{\deg f}\sum_{k = 0}^{\deg g} g_k Q_{l} t^{k + l}
+        \end{align}
+        であるから，$P_l = \delta_l^i,\; Q_l = \delta_l^{j} \WHERE 1 \le i \le \deg g,\; 1 \le j \le \deg f$ のときを考えると
+        \begin{align}
+            \varphi(f,\, g)(t^i,\, 0) 
+            &= \sum_{k=0}^{\deg f} f_k t^{k+i} \\
+            % = \sum_{k=0}^{\deg f} \elem{\res (f,\, g)}{k+i}{i} t^{k+i}, \\
+            \varphi(f,\, g)(0,\, t^{j})
+            &= \sum_{k=0}^{\deg g} g_k t^{k + j}
+            % = \sum_{k=0}^{\deg g - i} \elem{\res (f,\, g)}{k + \deg f}{\deg f + i} t^{k + \deg f}
+        \end{align}
+        となり，$(t^i,\, 0) = t^i,\; (0,\, t^j) = t^{\deg g + j}$ と見做して $ \mathbb{K}[t]^{\le \deg g} \times \mathbb{K}[t]^{\le \deg f}$ の基底を $\mathbb{K}[t]^{\deg f + \deg g}$ の基底と同一視することで $\elem{\res (f,\, g)}{k+i}{i} = f_k,\; \elem{\res (f,\, g)}{k + j}{\deg g + j} = g_k$ が分かった．
+
+        \item 解と係数の関係より，
+        \begin{align}
+            A \coloneqq \frac{1}{(f_{\deg f})^{\deg g} (g_{\deg g})^{\deg f}} \varphi(f,\, g)
+        \end{align}
+        の非ゼロな行列成分は $1$ または $\lambda_i$ の基本対称式または $\mu_j$ の基本対称式である．i.e. $A$ は $\lambda_i,\, \mu_j$ の多項式である．
+        
+        $1\le \forall i \le \deg f,\; 1 \le \forall j \le \deg g$ を1つ固定する．$\lambda_i = \mu_j \eqqcolon \lambda$ ならば，
+        \begin{align}
+            \bm{x} \coloneqq \mqty[1 \\ \lambda \\ \vdots \\ \lambda^{\deg f + \deg g}]
+        \end{align}
+        とおくと 
+    \end{enumerate}
+    
+\end{proof}
+
+
+\subsection{環の小技}
+
+
+% 補題\ref{lem:smooth-vect-chart}により，素材となる $C^\infty$ ベクトル束から新しい $C^\infty$ ベクトル束を作ることができる．
+
+% \begin{myprop}[label=prop:vect-dual]
+    
+% \end{myprop}
+
+
+\end{document}
