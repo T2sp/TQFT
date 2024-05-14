@@ -4268,18 +4268,18 @@ $\Lgl(n,\, \mathbb{K}) = \Mat{n}{\mathbb{K}}$ だから，\hyperref[def:polynomi
 
 ここで，
 \begin{align}
-    c(t^i{}_j,\, \lambda) \coloneqq \det(\lambda \unity_n + \bigl[ \,t^i{}_j\, \bigr] ) \in \mathbb{Z}[t^i{}_j,\, \lambda]
+    f(t^i{}_j,\, \lambda) \coloneqq \det(\lambda \unity_n + \bigl[ \,t^i{}_j\, \bigr] ) \in \mathbb{Z}[t^i{}_j,\, \lambda]
 \end{align}
-を考える．$\lambda$ について項を整理することで $r$ 個の $c_k (t^i{}_j) \in \mathbb{Z}[t^i{}_j]$
+を考える．$\lambda$ について項を整理することで $r$ 個の $f_k (t^i{}_j) \in \mathbb{Z}[t^i{}_j]$
 \begin{align}
-    c(t^i{}_j,\, \lambda) 
-    &\eqqcolon \lambda^n + c_1(t^i{}_j) \lambda^{n-1} + \cdots \\
-    &= \sum_{k=0}^n c_k(t^i{}_j) \lambda^{n-k}
+    f(t^i{}_j,\, \lambda) 
+    &\eqqcolon \lambda^n + f_1(t^i{}_j) \lambda^{n-1} + \cdots \\
+    &= \sum_{k=0}^n f_k(t^i{}_j) \lambda^{n-k}
 \end{align}
-を得る．補題\ref{lem:Z-extension}により $c(t^i{}_j,\, \lambda) \in \mathbb{K}[t^i{}_j,\, \lambda],\;  c_k (t^i{}_j) \in \mathbb{K}[t^i{}_j]$ と見做してもこの等式は成り立つ．
+を得る．補題\ref{lem:Z-extension}により $f(t^i{}_j,\, \lambda) \in \mathbb{K}[t^i{}_j,\, \lambda],\;  f_k (t^i{}_j) \in \mathbb{K}[t^i{}_j]$ と見做してもこの等式は成り立つ．
 
-\begin{myprop}[label=prop:det-coeff-invariant]{$c_k(t^i{}_j)$ は不変多項式}
-    $\mathbb{K}$ を標数 $0$ の体とする．このとき $c_k (t^i{}_j) \in \mathbb{K}[t^i{}_j]$ は\hyperref[label]{$\Adj(\LGL(n,\, \mathbb{K}))$-不変多項式}である．
+\begin{myprop}[label=prop:det-coeff-invariant]{$f_k(t^i{}_j)$ は不変多項式}
+    $\mathbb{K}$ を標数 $0$ の体とする．このとき $f_k (t^i{}_j) \in \mathbb{K}[t^i{}_j]$ は\hyperref[label]{$\Adj(\LGL(n,\, \mathbb{K}))$-不変多項式}である．
 \end{myprop}
 
 \begin{proof}
@@ -4289,7 +4289,7 @@ $\Lgl(n,\, \mathbb{K}) = \Mat{n}{\mathbb{K}}$ だから，\hyperref[def:polynomi
     \end{align}
     がわかる．$X = \bigl[ \, \lambda \delta^i_j + t^i{}_j \bigr]$ の場合を考えれば
     \begin{align}
-        c(t^i{}_j,\, \lambda) = \det(X) = \det(gXg^{-1}) = c(\elem{gtg^{-1}}{i}{j},\, \lambda)
+        f(t^i{}_j,\, \lambda) = \det(X) = \det(gXg^{-1}) = c(\elem{gtg^{-1}}{i}{j},\, \lambda)
     \end{align}
     がわかり，示された．
 \end{proof}
@@ -4331,24 +4331,24 @@ $\Lgl(n,\, \mathbb{K}) = \Mat{n}{\mathbb{K}}$ だから，\hyperref[def:polynomi
         $\forall P \in \Ker \rho$ をとる．このとき $\forall X \in \uirm{\Lgl(n,\, \mathbb{C})}{diag}$ について $P(X) = 0$ であるが，$\uirm{\Lgl(n,\, \mathbb{C})}{diag}$ が稠密なので，多項式函数 $P(X)$ の連続性から $\forall X \in \Lgl(n,\, \mathbb{C})$ に対して $P(X) = 0$ が言える．i.e. $\rho$ は単射である．
         一方，$\forall \lambda \in \mathbb{C}$ に関して，$k$ 次の基本対称式 $\sigma_k \in \mathbb{Z}[t_1,\, \dots,\, t_n] \subset \mathbb{C} [t_1,\, \dots,\, t_n]$ を使って
         \begin{align}
-            \rho \bigl( c(t^i{}_j,\, \lambda) \bigr) (\lambda_1,\, \dots,\, \lambda_n)
+            \rho \bigl( f(t^i{}_j,\, \lambda) \bigr) (\lambda_1,\, \dots,\, \lambda_n)
             &= \det \left( \lambda \unity_n + \mqty[\dmat{\lambda_1,\ddots,\lambda_n}] \right) \\
             &= \prod_{i=1}^n (\lambda + \lambda_i) \\
             &= \sum_{k=0}^n \sigma_k(\lambda_1,\, \dots,\, \lambda_n) \lambda^{n-k}
         \end{align}
         と書けるので 
         \begin{align}
-            \rho \bigl( c_k(t^i{}_j) \bigr) = \sigma_k
+            \rho \bigl( f_k(t^i{}_j) \bigr) = \sigma_k
         \end{align}
         であり，$\mathbb{C}[t_1,\,\dots,\, t_n]^{\mathrm{Sym}}$ は $\sigma_1,\, \dots,\, \sigma_n$ によって生成されるので，$\rho$ が全射であることが分かった．
     \end{proof}
     結局，
     \begin{align}
-        \mathrm{Inv} \bigl( \Lgl(n,\, \mathbb{C}) \bigr) = \mathbb{C} \bigl[ c_1(t^i{}_j),\, \dots,\, c_n(t^i{}_j) \bigr] 
+        \mathrm{Inv} \bigl( \Lgl(n,\, \mathbb{C}) \bigr) = \mathbb{C} \bigl[ f_1(t^i{}_j),\, \dots,\, f_n(t^i{}_j) \bigr] 
     \end{align}
     が分かった．全く同様の議論により
     \begin{align}
-        \mathrm{Inv} \bigl( \Lu(n,\, \mathbb{C}) \bigr) = \mathbb{C} \bigl[ c_1(t^i{}_j),\, \dots,\, c_n(t^i{}_j) \bigr] 
+        \mathrm{Inv} \bigl( \Lu(n,\, \mathbb{C}) \bigr) = \mathbb{C} \bigl[ f_1(t^i{}_j),\, \dots,\, f_n(t^i{}_j) \bigr] 
     \end{align}
     もわかる．
 \end{myexample}
@@ -4372,8 +4372,9 @@ $\Lgl(n,\, \mathbb{K}) = \Mat{n}{\mathbb{K}}$ だから，\hyperref[def:polynomi
         \begin{align}
             q(A,\, X) \coloneqq f(AX\tilde{A}) - (\det A)^k f(X)
         \end{align}
-        を考える．仮定より $\LGL(n,\, \mathbb{R}) \times \mathbb{R}^{n^2}$ 上で $q(A,\, X) = 0$ であるが，多項式函数 $q \colon \mathbb{R}^{n^2} \times \mathbb{R}^{n^2} \lto \mathbb{R}$ は連続関数であり，
-        $\mathbb{R}^{n^2} \setminus \LGL(n,\, \mathbb{R}) = \det(\{0\})$ は $\mathbb{R}^{n^2}$ の余次元1の部分多様体だから稠密なので，$\mathbb{R}^{n^2} \times \mathbb{R}^{n^2}$ 上で $q(A,\, X) = 0$ が言える．
+        を考える．仮定より $\LGL(n,\, \mathbb{R}) \times \mathbb{R}^{n^2}$ 上で $q(A,\, X) = 0$ であるが，
+        多項式函数 $q \colon \mathbb{R}^{n^2} \times \mathbb{R}^{n^2} \lto \mathbb{R}$ は連続関数である．
+        さらに $\mathbb{R}^{n^2} \setminus \LGL(n,\, \mathbb{R}) = \det(\{0\})$ は $\mathbb{R}^{n^2}$ の余次元1の部分多様体だから $\LGL(n,\, \mathbb{R})$ は $\mathbb{R}^{n^2}$ 上稠密であり，$\mathbb{R}^{n^2} \times \mathbb{R}^{n^2}$ 上で $q(A,\, X) = 0$ が言える．
         $q(A,\, X)$ は $\mathbb{C}^{n^2} \times \mathbb{C}^{n^2}$ 上の多項式函数と見做すと正則関数なので，一致の定理から $\mathbb{C}^{n^2} \times \mathbb{C}^{n^2}$ 上でも $q(A,\, X) = 0$ が言える．
     \end{proof}
     
@@ -4400,7 +4401,7 @@ $\Lgl(n,\, \mathbb{K}) = \Mat{n}{\mathbb{K}}$ だから，\hyperref[def:polynomi
     \end{proof}
     結局，
     \begin{align}
-        \mathrm{Inv} \bigl( \Lgl(n,\, \mathbb{R}) \bigr) = \mathbb{R} \bigl[ c_1(t^i{}_j),\, \dots,\, c_n(t^i{}_j) \bigr] 
+        \mathrm{Inv} \bigl( \Lgl(n,\, \mathbb{R}) \bigr) = \mathbb{R} \bigl[ f_1(t^i{}_j),\, \dots,\, f_n(t^i{}_j) \bigr] 
     \end{align}
     が分かった．
 \end{myexample}
@@ -4411,24 +4412,24 @@ $\Lgl(n,\, \mathbb{K}) = \Mat{n}{\mathbb{K}}$ だから，\hyperref[def:polynomi
     \begin{mylem}[label=lem:odd-vanish]{}
         $\forall X \in \Lo(n)$ に対して
         \begin{align}
-            c_{2k+1}(X) = 0
+            f_{2k+1}(X) = 0
         \end{align}
     \end{mylem}
     
     \begin{proof}
         $X \in \Lo(n)$ だから $X = - X^{\mathsf{T}}$ が成り立つ．よって
         \begin{align}
-            c(X,\, \lambda)
-            &=  \sum_{k=0}^n (-1)^k c_k(X) \lambda^{n-k} \\
+            f(X,\, \lambda)
+            &=  \sum_{k=0}^n (-1)^k f_k(X) \lambda^{n-k} \\
             &= \det(\lambda \unity_n + X) \\
             &= \det(\lambda \unity_n + X^{\mathsf{T}}) \\
             &= \det(\lambda \unity_n - X) \\
-            &= \sum_{k=0}^n (-1)^k c_k(X) \lambda^{n-k}
+            &= \sum_{k=0}^n (-1)^k f_k(X) \lambda^{n-k}
         \end{align}
         であり，示された．
     \end{proof}
     
-    以下では $p_k \coloneqq c_{2k}$ とおく．
+    以下では $p_k \coloneqq f_{2k}$ とおく．
 
     \begin{myprop}[label=prop:inv-ortho]{}
         \begin{align}
@@ -4463,7 +4464,7 @@ Chern類の構成は，命題\ref{prop:inv-complex}による．
         \end{align}
         のこと．\textbf{第$\bm{k}$-Chern形式} ($k$-th Chern form) とは，
         \begin{align}
-            \bm{c_k (R^{\nabla^E})} \coloneqq c_k \left( \frac{\iunit}{2\pi} R^{\nabla^E} \right) \in \Omega^{2k}(M) \otimes_{\mathbb{R}} \mathbb{C}
+            \bm{c_k (R^{\nabla^E})} \coloneqq f_k \left( \frac{\iunit}{2\pi} R^{\nabla^E} \right) \in \Omega^{2k}(M) \otimes_{\mathbb{R}} \mathbb{C}
         \end{align}
         のこと．
         \item \textbf{全Chern類} (total Chern class) とは，
