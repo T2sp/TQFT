@@ -1,5 +1,5 @@
 # Fdb version 4
-["lualatex"] 1715660915.85267 "/Users/t2space/Desktop/Seminors/TQFT/doc/chap2.tex" "out/chap2.pdf" "chap2" 1715660924.20336 0
+["lualatex"] 1715692310.86665 "/Users/t2space/Desktop/Seminors/TQFT/doc/chap2.tex" "out/chap2.pdf" "chap2" 1715692318.94638 0
   "/Users/t2space/.texlive2024/texmf-var/luatexja/extra_haranoajigothic-medium.luc" 1713940386.96661 321567 b621f22d8756ce34ffefd38a77b4acf3 ""
   "/Users/t2space/.texlive2024/texmf-var/luatexja/extra_haranoajimincho-regular.luc" 1713940383.7797 322628 d20f0ffa861b722e5c5287dd9970780e ""
   "/Users/t2space/.texlive2024/texmf-var/luatexja/extra_lmmono8-regular.luc" 1713940390.33787 16824 23892767334ecabb2c4ff28d41e2558d ""
@@ -24,7 +24,7 @@
   "/Users/t2space/.texlive2024/texmf-var/luatexja/ltj-cid-auto-adobe-japan1.luc" 1713940372.80962 1643739 68dd47a24c6a550cb20f9f8d401527b7 ""
   "/Users/t2space/.texlive2024/texmf-var/luatexja/ltj-jisx0208.luc" 1713940383.94329 93919 1f6dc76354e6e3b148c06f9f9254f22e ""
   "/Users/t2space/.texlive2024/texmf-var/luatexja/ltj-kinsoku_default.luc" 1713940373.05825 17654 e3e3c85f63c77f4caa824d338e2428e0 ""
-  "/Users/t2space/Desktop/Seminors/TQFT/doc/chap2.tex" 1715660915.5586 320246 8bfe5cc378635be8e6cf6f4f19942f30 ""
+  "/Users/t2space/Desktop/Seminors/TQFT/doc/chap2.tex" 1715692310.57103 320258 f796a69711245645c5cbe79090989718 ""
   "/Users/t2space/texmf/tex/latex/myalgebra/myalgebra.sty" 1715577402.02573 4265 67fa9894ae88186732496aba5bfebc05 ""
   "/Users/t2space/texmf/tex/latex/mygeometry/mygeometry.sty" 1714634775.98137 1715 58fd59255249907f3221e78973397150 ""
   "/Users/t2space/texmf/tex/latex/mylogics/mylogics.sty" 1713939869.11478 1666 33c2f2cffbcd861013bb5112ac0c4e02 ""
@@ -619,9 +619,9 @@
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz" 1713940381.29139 392169 761aebf286ec9a259a4f39b89786274f ""
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-var/web2c/luahbtex/lualatex.fmt" 1710106625 12261507 7025fdccb966c68d8c3038e530158b7a ""
   "TQFT_main.tex" 1715578342.86419 8557 a67d952f94ed81b73bcd39c721a42640 ""
-  "chap2.tex" 1715660915.5586 320246 8bfe5cc378635be8e6cf6f4f19942f30 ""
-  "out/chap2.aux" 1715660923.54605 19977 86eaa6e7559c70b7d8379a355ffa7e64 "lualatex"
-  "out/chap2.out" 1715660923.54792 1005 93f541ba30e4bb841bcf30c0904be6b9 "lualatex"
+  "chap2.tex" 1715692310.57103 320258 f796a69711245645c5cbe79090989718 ""
+  "out/chap2.aux" 1715692318.30682 19977 86eaa6e7559c70b7d8379a355ffa7e64 "lualatex"
+  "out/chap2.out" 1715692318.30887 1005 93f541ba30e4bb841bcf30c0904be6b9 "lualatex"
   (generated)
   "out/chap2.aux"
   "out/chap2.log"
