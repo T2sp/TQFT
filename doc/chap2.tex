@@ -4409,7 +4409,7 @@ $\Lgl(n,\, \mathbb{K}) = \Mat{n}{\mathbb{K}}$ だから，\hyperref[def:polynomi
     次に，$\mathbb{K} = \mathbb{R},\; G = \LO(n)$ の場合を考える．
     
     \begin{mylem}[label=lem:odd-vanish]{}
-        $\forall X \in Lo(n)$ に対して
+        $\forall X \in \Lo(n)$ に対して
         \begin{align}
             c_{2k+1}(X) = 0
         \end{align}
@@ -4432,12 +4432,12 @@ $\Lgl(n,\, \mathbb{K}) = \Mat{n}{\mathbb{K}}$ だから，\hyperref[def:polynomi
 
     \begin{myprop}[label=prop:inv-ortho]{}
         \begin{align}
-            \mathrm{Inv} \bigl( \Lo(n) \bigr) \cong \mathbb{R}[p_1(t^i{}_j),\, \dots,\, p_{\floorf{n/2}}(t^i{}_j)]
+            \mathrm{Inv} \bigl( \Lo(n) \bigr) \cong \mathbb{R} \bigl[p_1(t^i{}_j),\, \dots,\, p_{\floorf{n/2}}(t^i{}_j)\bigr]
         \end{align}
     \end{myprop}
     
     \begin{proof}
-        自然な埋め込み $\rho \colon \mathbb{R}[p_1,\, \dots,\, p_{\floorf{n}}] \hookrightarrow \mathrm{Inv} \bigl( \Lo(n) \bigr)$ が全単射であることを示す．
+        自然な埋め込み $\rho \colon \mathbb{R}\bigl[p_1(t^i{}_j),\, \dots,\, p_{\floorf{n/2}}(t^i{}_j)\bigr] \hookrightarrow \mathrm{Inv} \bigl( \Lo(n) \bigr)$ が全単射であることを示す．
 
     \end{proof}
     
