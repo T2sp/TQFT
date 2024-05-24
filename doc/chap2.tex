@@ -4487,6 +4487,114 @@ Chern類の構成は，命題\ref{prop:inv-complex}による．
 
 \subsection{特性類のホモトピー論的扱い}
 
+\section{Dijkgraaf-Witten理論}
+
+離散的ゲージ理論を~\cite{DijkgraafWitten1989}に従って議論する．
+$G$ をLie群とする．
+
+\begin{mydef}[label=def:pullback-bundle]{ファイバー束の引き戻し}
+    \begin{itemize}
+        \item 構造群 $G$ を持つ\hyperref[def.fiber-1]{ファイバー束} $F \hookrightarrow E \xrightarrow{\pi} B$
+        \item 連続写像 $f \colon B_1 \lto B$
+    \end{itemize}
+    を与える．このとき
+    \begin{align}
+        f^* (E) \coloneqq \bigl\{\, (b_1,\, u) \in B_1 \times E \bigm| f(b_1) = \pi(u) \,\bigr\} 
+    \end{align}
+    と定めることで得られるファイバー束 $F \hookrightarrow f^*(E) \xrightarrow{\mathrm{proj}_1} B_1$ のことを\textbf{引き戻し束} (pullback bundle) と呼ぶ．
+\end{mydef}
+ファイバー束 $F \hookrightarrow E \xrightarrow{\pi} B$ が
+\begin{itemize}
+    \item $B$ の開被覆 $\Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$
+    \item 局所自明化 $\Familyset[\big]{\varphi_\alpha \colon \pi^{-1}(U_\alpha) \xrightarrow{\approx} U_\alpha \times F}{\alpha \in \Lambda}$
+    \item 変換関数 $\Familyset[\big]{t_{\alpha \beta} \colon U_\alpha \cap U_\beta \lto G}{\alpha \in \Lambda}$
+\end{itemize}
+を持つとき，引き戻し束 $F \hookrightarrow f^*(E) \xrightarrow{\mathrm{proj_1}} B_1$ の構造は
+\begin{itemize}
+    \item $B_1$ の開被覆 $\Familyset[\big]{f^{-1}(U_\alpha)}{\alpha \in \Lambda}$
+    \item 局所自明化 $\Familyset[\big]{\tilde{\psi}_\alpha \colon f^{-1}(U_\alpha) \times \pi^{-1}(U_\alpha) \xrightarrow{\approx} f^{-1}(U_\alpha) \times F,\; (b_1,\, u) \lmto \bigl(b_1,\, \mathrm{proj}_2 \circ \varphi_\alpha (u)\bigr)}{\alpha \in \Lambda}$
+    \item 変換関数 $\Familyset[\big]{\tilde{t}_{\alpha \beta} \colon f^{-1}(U_\alpha) \cap f^{-1}(U_\beta) \lto G,\; x \lmto t_{\alpha\beta}\bigl(f(x)\bigr)}{\alpha \in \Lambda}$
+\end{itemize}
+によって定まる．
+
+圏 $\mathrm{hoMfd}$ を，
+\begin{itemize}
+    \item 多様体を対象とする
+    \item 2つの多様体 $X,\, Y$ の間のホモトピー集合 $\comm{X}{Y}$ をHom集合とする
+\end{itemize}
+ものとして定義する．
+\begin{itemize}
+    \item $\forall X \in \Obj (\mathrm{hoMfd})$ に対して集合
+    \begin{align}
+        k_G(X) &\coloneqq \bigl\{\, X\; \text{上の\hyperref[def.PFD]{主束}の\hyperref[def.bundlemap]{束同型}類} \,\bigr\}
+    \end{align}
+    を，
+    \item $\forall X,\, Y \in \Obj (\mathrm{hoMfd})$ の $\forall [f] \in \Hom{\mathrm{hoMfd}} (X,\, Y)$ に対して写像
+    \begin{align}
+        k_G \bigl( [f] \bigr) \colon k_G (Y) \lto k_G(X),\; [\xi] \lmto [f^* (\xi)]
+    \end{align}
+    を
+\end{itemize}
+対応づける対応
+\begin{align}
+    k_G \colon \bm{\mathrm{hoMfd}} \lto \SETS
+\end{align}
+は反変関手である~\cite[p.53, 10.1 Theorem]{Husemoller1994}．
+
+\begin{mydef}[label=def:universal-bundle]{普遍束}
+    主束 $G \hookrightarrow P \xrightarrow{\pi} B$ が $G$ の\textbf{普遍束} (universal bundle) であるとは，$\forall X \in \Obj (\mathrm{hoMfd})$ について定まる写像
+    \begin{align}
+        \phi_P (X) \colon \comm{X}{B} \lto k_G(X),\; [f] \lmto [f^* P]
+    \end{align}
+    が全単射になること．
+    \tcblower
+    普遍束 $G \hookrightarrow P \xrightarrow{\pi} B$ において，$B$ のことを $G$ の\textbf{分類空間} (classifying space) と呼ぶ．
+\end{mydef}
+$G$ の普遍束の全空間を $\bm{EG}$，分類空間を $\bm{BG}$ と書く慣習がある．
+
+\begin{myprop}[label=prop:universal-basic]{普遍束の特徴付け}
+    主束 $G \hookrightarrow EG \xrightarrow{\pi_G} BG$ が $G$ の\hyperref[def:universal-bundle]{普遍束}であることは，以下の2つが満たされることと同値である：
+    \begin{enumerate}
+        \item $\forall \textcolor{red}{X} \in \Obj (\mathrm{hoMfd})$ および $X$ を底空間にもつ任意の主束 $G \hookrightarrow \textcolor{red}{P} \xrightarrow{\pi} \textcolor{red}{X}$ に対して，ある連続写像 $f \colon \textcolor{red}{X} \lto BG$ が存在して
+        $\textcolor{red}{P}$ と\hyperref[def:pullback-bundle]{引き戻し束} $f^*(EG)$ が束同型になる．
+        \item $\forall \textcolor{red}{X} \in \Obj (\mathrm{hoMfd})$ および任意の連続写像 $f,\, g \colon \textcolor{red}{X} \lto BG$ に対して，
+        $f^*(EG)$ と $g^*(EG)$ が束同型ならば $f,\, g$ はホモトピックである．
+    \end{enumerate}
+\end{myprop}
+
+\begin{proof}
+    (1) は写像 $\phi_{EG}(\textcolor{red}{X})$ の全射性，(2) は写像 $\phi_{EG}(\textcolor{red}{X})$ の単射性を意味する．
+\end{proof}
+
+定義したは良いが，与えられた $G$ に対してその普遍束が存在しなければ意味がないので，具体的に $EG$ を構成しよう．
+
+集合
+\begin{align}
+    \irm{EG}{M} \coloneqq \bigl\{\, (t_0 g_0,\, t_1 g_1,\, \dots ) \bigm| t_i \in [0,\, 1],\; g_i \in G,\; \substack{\text{高々有限個の}\; i\; \text{のみ}\; t_i \neq 0 \\ \text{かつ}\; \sum_{i \ge 0} t_i = 1}\,\bigr\} 
+\end{align}
+を考える．$\expval{x,\, t} \coloneqq (t_0 g_0,\, t_1 g_1,\, \dots )$ と書き，$\irm{EG}{M}$ 上の等号を
+\begin{align}
+    \expval{x,\, t} = \expval{x',\, t'} \DEF \forall i \ge 0,\; t_i = t'_i \AND \forall i \ge 0,\; t_i = t'_i > 0 \IMP x_i = x'_i
+\end{align}
+と定義する．$\irm{EG}{M}$ への $G$ の右作用を
+\begin{align}
+    \btl \colon \irm{EG}{M} \times G \lto \irm{EG}{M},\; \bigl( (t_0 g_0,\, t_1 g_1,\, \dots ),\, g \bigr) \lmto (t_0 g_0g,\, t_1 g_1g,\, \dots )
+\end{align}
+で定義する．$\irm{EG}{M}$ には，$\forall i \ge 0$ について定まる写像
+\begin{align}
+    t_i &\colon \irm{EG}{M} \lto [0,\, 1],\; (t_0 g_0,\, t_1 g_1,\, \dots ) \lmto t_i, \\
+    x_i &\colon t_i^{-1} \bigl( (0,\, 1] \bigr) \lto G,\; (t_0 g_0,\, t_1 g_1,\, \dots ) \lmto x_i
+\end{align}
+が連続になるような最小の位相を入れる．右作用 $\btl$ による $\irm{EG}{M}$ の商位相空間を $\irm{BG}{M} \coloneqq \irm{EG}{M}/G$ とおく．
+
+\begin{mytheo}[label=thm:Milnor-const]{Milnor構成}
+    任意のLie群 $G$ について $G \hookrightarrow \irm{EG}{M} \lto \irm{BG}{M}$ は主束であり，\hyperref[def:universal-bundle]{普遍束}でもある．
+\end{mytheo}
+
+\begin{proof}
+    主束であることは~\cite[p.55, 11.2 Theorem]{Husemoller1994}，普遍束であることは~\cite[p.57, 12.2 Theorem]{Husemoller1994}, ~\cite[p.58, 12.4 Theorem]{Husemoller1994}を参照．
+\end{proof}
+
 
 
 
