@@ -1429,14 +1429,391 @@ Lie群 $G$ で特徴づけられる $0$-form symmetryの場合を考える．on 
     と正則化すれば良い．
 \end{myexample}
 
-\section{離散的な高次対称性}
+% \section{離散的な高次対称性}
 
-離散群で特徴づけられる対称性は，Lie群の場合と異なり，必ずしも保存カレントが存在しない．そのようなときであっても\hyperref[def:p-form-sym]{トロポジカル演算子}および背景ゲージ場を定義することができる．
+% 離散群で特徴づけられる対称性は，Lie群の場合と異なり，必ずしも保存カレントが存在しない．そのようなときであっても\hyperref[def:p-form-sym]{トロポジカル演算子}および背景ゲージ場を定義することができる．
 
-\subsection{高次のゲージ理論}
 
-先に進む前に，2章で扱ったゲージ理論を拡張して\textbf{higher gauge theory}を導入する．
+\section{Dijkgraaf-Witten理論}
 
+$(2+1)$-次元の離散的ゲージ理論として知られるDijkgraaf-Witten理論~\cite{DijkgraafWitten1989}を導入する．
+
+\subsection{普遍束}
+
+$G$ をLie群とする．
+
+\begin{mydef}[label=def:pullback-bundle]{ファイバー束の引き戻し}
+    \begin{itemize}
+        \item 構造群 $G$ を持つ\hyperref[def.fiber-1]{ファイバー束} $F \hookrightarrow E \xrightarrow{\pi} B$
+        \item 連続写像 $f \colon B_1 \lto B$
+    \end{itemize}
+    を与える．このとき
+    \begin{align}
+        f^* (E) \coloneqq \bigl\{\, (b_1,\, u) \in B_1 \times E \bigm| f(b_1) = \pi(u) \,\bigr\} 
+    \end{align}
+    と定めることで得られるファイバー束 $F \hookrightarrow f^*(E) \xrightarrow{\mathrm{proj}_1} B_1$ のことを\textbf{引き戻し束} (pullback bundle) と呼ぶ．
+\end{mydef}
+ファイバー束 $F \hookrightarrow E \xrightarrow{\pi} B$ が
+\begin{itemize}
+    \item $B$ の開被覆 $\Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$
+    \item 局所自明化 $\Familyset[\big]{\varphi_\alpha \colon \pi^{-1}(U_\alpha) \xrightarrow{\approx} U_\alpha \times F}{\alpha \in \Lambda}$
+    \item 変換関数 $\Familyset[\big]{t_{\alpha \beta} \colon U_\alpha \cap U_\beta \lto G}{\alpha \in \Lambda}$
+\end{itemize}
+を持つとき，引き戻し束 $F \hookrightarrow f^*(E) \xrightarrow{\mathrm{proj_1}} B_1$ の構造は
+\begin{itemize}
+    \item $B_1$ の開被覆 $\Familyset[\big]{f^{-1}(U_\alpha)}{\alpha \in \Lambda}$
+    \item 局所自明化 $\Familyset[\big]{\tilde{\psi}_\alpha \colon f^{-1}(U_\alpha) \times \pi^{-1}(U_\alpha) \xrightarrow{\approx} f^{-1}(U_\alpha) \times F,\; (b_1,\, u) \lmto \bigl(b_1,\, \mathrm{proj}_2 \circ \varphi_\alpha (u)\bigr)}{\alpha \in \Lambda}$
+    \item 変換関数 $\Familyset[\big]{\tilde{t}_{\alpha \beta} \colon f^{-1}(U_\alpha) \cap f^{-1}(U_\beta) \lto G,\; x \lmto t_{\alpha\beta}\bigl(f(x)\bigr)}{\alpha \in \Lambda}$
+\end{itemize}
+によって定まる．
+
+圏 $\bm{\mathrm{hoMfd}}$ を，
+\begin{itemize}
+    \item 多様体を対象とする
+    \item 2つの多様体 $X,\, Y$ の間のホモトピー集合 $\comm{X}{Y}$ をHom集合とする
+\end{itemize}
+ものとして定義する．
+\begin{itemize}
+    \item $\forall X \in \Obj{\bm{\mathrm{hoMfd}}}$ に対して集合
+    \begin{align}
+        k_G(X) &\coloneqq \bigl\{\, X\; \text{上の\hyperref[def.PFD]{主束}の\hyperref[def.bundlemap]{束同型}類} \,\bigr\}
+    \end{align}
+    を，
+    \item $\forall X,\, Y \in \Obj{\bm{\mathrm{hoMfd}}}$ の $\forall [f] \in \Hom{\bm{\mathrm{hoMfd}}} (X,\, Y)$ に対して写像
+    \begin{align}
+        k_G \bigl( [f] \bigr) \colon k_G (Y) \lto k_G(X),\; [\xi] \lmto [f^* (\xi)]
+    \end{align}
+    を
+\end{itemize}
+対応づける対応
+\begin{align}
+    k_G \colon \bm{\mathrm{hoMfd}} \lto \SETS
+\end{align}
+は反変関手である~\cite[p.53, 10.1 Theorem]{Husemoller1994}．
+
+\begin{mydef}[label=def:universal-bundle]{普遍束}
+    主束 $G \hookrightarrow P \xrightarrow{\pi} B$ が $G$ の\textbf{普遍束} (universal bundle) であるとは，$\forall X \in \Obj{\bm{\mathrm{hoMfd}}}$ について定まる写像
+    \begin{align}
+        \phi_P (X) \colon \comm{X}{B} \lto k_G(X),\; [f] \lmto [f^* P]
+    \end{align}
+    が全単射になること．
+    \tcblower
+    普遍束 $G \hookrightarrow P \xrightarrow{\pi} B$ において，$B$ のことを $G$ の\textbf{分類空間} (classifying space) と呼ぶ．
+\end{mydef}
+$G$ の普遍束の全空間を $\bm{EG}$，分類空間を $\bm{BG}$ と書く慣習がある．
+
+\begin{myprop}[label=prop:universal-basic]{普遍束の特徴付け}
+    主束 $G \hookrightarrow EG \xrightarrow{\pi_G} BG$ が $G$ の\hyperref[def:universal-bundle]{普遍束}であることは，以下の2つが満たされることと同値である：
+    \begin{enumerate}
+        \item $\forall \textcolor{red}{X} \in \Obj{\bm{\mathrm{hoMfd}}}$ および $X$ を底空間にもつ任意の主束 $G \hookrightarrow \textcolor{red}{P} \xrightarrow{\pi} \textcolor{red}{X}$ に対して，ある連続写像 $f \colon \textcolor{red}{X} \lto BG$ が存在して
+        $\textcolor{red}{P}$ と\hyperref[def:pullback-bundle]{引き戻し束} $f^*(EG)$ が束同型になる．
+        \item $\forall \textcolor{red}{X} \in \Obj{\bm{\mathrm{hoMfd}}}$ および任意の連続写像 $f,\, g \colon \textcolor{red}{X} \lto BG$ に対して，
+        $f^*(EG)$ と $g^*(EG)$ が束同型ならば $f,\, g$ はホモトピックである．
+    \end{enumerate}
+\end{myprop}
+
+\begin{proof}
+    (1) は写像 $\phi_{EG}(\textcolor{red}{X})$ の全射性，(2) は写像 $\phi_{EG}(\textcolor{red}{X})$ の単射性を意味する．
+\end{proof}
+
+定義したは良いが，与えられた $G$ に対してその普遍束が存在しなければ意味がないので，具体的に $EG$ を構成しよう．
+
+集合
+\begin{align}
+    \irm{EG}{M} \coloneqq \bigl\{\, (t_0 g_0,\, t_1 g_1,\, \dots ) \bigm| t_i \in [0,\, 1],\; g_i \in G,\; \substack{\text{高々有限個の}\; i\; \text{のみ}\; t_i \neq 0 \\ \text{かつ}\; \sum_{i \ge 0} t_i = 1}\,\bigr\} 
+\end{align}
+を考える．$\expval{x,\, t} \coloneqq (t_0 g_0,\, t_1 g_1,\, \dots )$ と書き，$\irm{EG}{M}$ 上の等号を
+\begin{align}
+    \expval{x,\, t} = \expval{x',\, t'} \DEF \forall i \ge 0,\; t_i = t'_i \AND \forall i \ge 0,\; t_i = t'_i > 0 \IMP x_i = x'_i
+\end{align}
+と定義する．$\irm{EG}{M}$ への $G$ の右作用を
+\begin{align}
+    \btl \colon \irm{EG}{M} \times G \lto \irm{EG}{M},\; \bigl( (t_0 g_0,\, t_1 g_1,\, \dots ),\, g \bigr) \lmto (t_0 g_0g,\, t_1 g_1g,\, \dots )
+\end{align}
+で定義する．$\irm{EG}{M}$ には，$\forall i \ge 0$ について定まる写像
+\begin{align}
+    t_i &\colon \irm{EG}{M} \lto [0,\, 1],\; (t_0 g_0,\, t_1 g_1,\, \dots ) \lmto t_i, \\
+    x_i &\colon t_i^{-1} \bigl( (0,\, 1] \bigr) \lto G,\; (t_0 g_0,\, t_1 g_1,\, \dots ) \lmto x_i
+\end{align}
+が連続になるような最小の位相を入れる．右作用 $\btl$ による $\irm{EG}{M}$ の商位相空間を $\irm{BG}{M} \coloneqq \irm{EG}{M}/G$ とおく．
+
+\begin{mytheo}[label=thm:Milnor-const]{Milnor構成}
+    任意のLie群 $G$ について $G \hookrightarrow \irm{EG}{M} \lto \irm{BG}{M}$ は主束であり，\hyperref[def:universal-bundle]{普遍束}でもある．
+\end{mytheo}
+
+\begin{proof}
+    主束であることは~\cite[p.55, 11.2 Theorem]{Husemoller1994}，普遍束であることは~\cite[p.57, 12.2 Theorem]{Husemoller1994}, ~\cite[p.58, 12.4 Theorem]{Husemoller1994}を参照．
+\end{proof}
+
+\begin{myprop}[label=prop:classifying-space-Kpi1]{}
+    $BG = K(G,\, 1)$
+\end{myprop}
+
+\begin{proof}
+    
+\end{proof}
+
+
+\subsection{群コホモロジー}
+
+先に進む前に，特異ホモロジー・コホモロジーについて復習する．
+$R$ を単項イデアル整域，$M$ を $R$-加群とする．
+\begin{itemize}
+    \item 
+    $R$-係数特異ホモロジーとは，関手
+    \begin{align}
+        H_k (\mhyphen ;\, R)\colon \TOP \xrightarrow{S_{\bullet}(\mhyphen ;\, \mathbb{Z})} \CHAIN \xrightarrow{H_k} \MOD{R}
+    \end{align}
+    のこと．
+    \item 
+    $M$-係数特異ホモロジーとは，関手
+    \begin{align}
+        H_k (\mhyphen ;\, M)\colon \TOP \xrightarrow{S_{\bullet}(\mhyphen ;\, \mathbb{Z})} \CHAIN \xrightarrow{\otimes_R M} \CHAIN \xrightarrow{H_k} \MOD{R}
+    \end{align}
+    のこと．
+    \item 
+    任意の位相空間 $X$ に対して，$H_\bullet (X;\, R)$ と $H_\bullet (X;\, M)$ は普遍係数定理
+    \begin{align}
+        \label{eq:univ-coeff}
+        0 \lto H_k(X;\, R) \otimes_R M \lto H_k(X;\, M) \lto \Tor_1^R \bigl( H_{k-1}(X;\, R),\, M \bigr) \lto 0 \quad (\text{exact})
+    \end{align}
+    によって互いに関係する．
+\end{itemize}
+特に，特異ホモロジーの場合は構成から $\forall k \in \mathbb{Z}$ に対して $S_k(X;\, R)$ が自由加群なのでこの短完全列は分裂し
+\begin{align}
+    H_k (X;\, M) \cong \bigl( H_k(X;\, R) \otimes_R M \bigr) \oplus \Tor_1^R \bigl( H_{k-1}(X;\, R),\, M \bigr)
+\end{align}
+が言える．
+
+\begin{itemize}
+    \item 
+    $R$-係数特異コホモロジーとは，関手
+    \begin{align}
+        H^k (\mhyphen ;\, R)\colon \TOP \xrightarrow{S_{\bullet}(\mhyphen ;\, \mathbb{Z})} \CHAIN \xrightarrow{\Hom{R} (\mhyphen;\, R)} \CHAIN{}^{\mathrm{op}} \xrightarrow{H^k} \MOD{R}
+    \end{align}
+    のこと．
+    \item 
+    $M$-係数特異コホモロジーとは，関手
+    \begin{align}
+        H^k (\mhyphen ;\, M)\colon \TOP \xrightarrow{S_{\bullet}(\mhyphen ;\, \mathbb{Z})} \CHAIN \xrightarrow{\Hom{R} (\mhyphen;\, R)} \CHAIN \xrightarrow{\otimes_R M} \CHAIN{}^{\mathrm{op}} \xrightarrow{H^k} \MOD{R}
+    \end{align}
+    のこと．
+    \item 
+    任意の位相空間 $X$ に対して，$H^\bullet (X;\, R)$ と $H^\bullet (X;\, M)$ は普遍係数定理
+    \begin{align}
+        \label{eq:univ-coeff-co}
+        0 \lto \Ext^1_R \bigl(H_{k-1}(X;\, R),\, M\bigr) \lto H^k(X;\, M) \lto \Hom{R} \bigl( H_{k}(X;\, R),\, M \bigr) \lto 0 \quad (\text{exact})
+    \end{align}
+    によって互いに関係する．
+\end{itemize}
+特に，特異コホモロジーの場合は構成から $\forall k \in \mathbb{Z}$ に対して $\Hom{R} \bigl(S_k(X;\, R);\, R\bigr)$ が自由加群なのでこの短完全列は分裂し
+\begin{align}
+    H^k (X;\, M) \cong \Hom{R} \bigl( H_k(X;\, R),\, M\bigr) \oplus \Ext^1_R \bigl( H_{k-1}(X;\, R),\, M \bigr)
+\end{align}
+が言える．
+
+\begin{myaxiom}[label=ax:G-mod]{$G$ 加群}
+    可換群 $(M,\, +)$ と，群 $G$ の $M$ への左作用
+    \begin{align}
+        \btr \colon G \times M \lto M
+    \end{align}
+    の組み $(M,\, +,\, \btr)$ であって，$\forall g,\, h \in G,\; \forall x,\, y \in M$ に対して以下の条件を充たすものを\textbf{左 $\bm{G}$ 加群}と呼ぶ：
+    \begin{description}
+        \item[\textbf{(G-mod1)}] $g \btr (x+y) = g\btr x + g\btr y$
+        \item[\textbf{(G-mod2)}] $(gh) \btr x = g \btr (h \btr x)$
+        \item[\textbf{(G-mod3)}] $1_G \btr x = x$ 
+    \end{description}
+    \tcblower
+    \textbf{右 $\bm{G}$ 加群}も同様に定義する．
+\end{myaxiom}
+
+$\mathbb{Z}$ 係数の $G$ の\textbf{群環}とは，可換群 $\mathbb{Z}^{\oplus G}$ に積
+\begin{align}
+    (a_g)_g \cdot (b_g)_g \coloneqq \left( \sum_{hk = g} a_h b_k \right)_g
+\end{align}
+を定義してできる環 $(\mathbb{Z}^{\oplus G},\, +,\, \cdot\; )$ のこと．記号として $\bm{\mathbb{Z}[G]}$ と書く．\hyperref[ax:G-mod]{左 $G$ 加群}と左 $\mathbb{Z}[G]$ 加群は同一視できる．
+\begin{align}
+    \epsilon \colon \mathbb{Z}[G] \lto \mathbb{Z},\; (a_g)_g \lmto \sum_{g \in G} a_g
+\end{align}
+を\textbf{augmentation}と呼ぶ．
+
+\begin{mydef}[label=def:group-cohomology]{群コホモロジー（代数的）}
+    左 $G$ 加群 $M$ を与える．$\mathbb{Z}$ を自明な作用により左 $G$ 加群と見做す．
+    \begin{itemize}
+        \item \textbf{群 $\bm{G}$ の $\bm{M}$-係数ホモロジー}とは，
+        \begin{align}
+            \Grp{k}{G;\, M} \coloneqq \Tor^{\mathbb{Z}[G]}_k (\mathbb{Z},\, M)
+        \end{align}
+        のこと．
+        \item \textbf{群 $\bm{G}$ の $\bm{M}$-係数コホモロジー}とは，
+        \begin{align}
+            \coGrp{k}{G;\, M} \coloneqq \Ext_{\mathbb{Z}[G]}^k (\mathbb{Z},\, M)
+        \end{align}
+        のこと．
+    \end{itemize}
+\end{mydef}
+右導来関手の一般論から，任意の\hyperref[ax:G-mod]{$G$ 加群}の短完全列 $0 \lto M_1 \lto M_2 \lto M_3 \lto 0\quad (\text{exact})$ に対応する長完全列
+\begin{align}
+    \label{eq:LES-coGrp}
+    \cdots 
+    &\lto \coGrp{k}{G,\, M_1} \lto \coGrp{k}{G,\, M_2} \lto \coGrp{k}{G,\, M_3} \\
+    &\lto \coGrp{k+1}{G,\, M_1} \lto \coGrp{k+1}{G,\, M_2} \lto \coGrp{k+1}{G,\, M_3} \\
+    &\lto \cdots
+\end{align}
+が成り立つ．
+
+\begin{mytheo}[label=thm:group-cohomology-top]{群コホモロジー（位相空間論的）}
+    任意の群 $G$ および\hyperref[ax:G-mod]{$G$ 加群} $M$ に対して
+    \begin{align}
+        H^\bullet (BG;\, M) \cong \coGrp{\bullet}{G;\, M}
+    \end{align}
+    が成り立つ．
+\end{mytheo}
+
+\begin{proof}
+    
+\end{proof}
+
+いくつかの実用上有用な命題を紹介する：
+\begin{myprop}[label=prop:group-cohomology]{色々な群コホモロジー}
+    \begin{enumerate}
+        \item 任意の有限群に対して
+        \begin{align}
+            \coGrp{k > 0}{G;\, \mathbb{R}} = 0
+        \end{align}
+        \item 任意のコンパクトLie群に対して
+        \begin{align}
+            \coGrp{2k+1}{G;\, \mathbb{R}} = 0
+        \end{align}
+        \item 任意のLie群に対して
+        \begin{align}
+            \coGrp{2k}{G;\, \mathbb{R}} \cong \mathrm{Inv}(\mathfrak{g})
+        \end{align}
+    \end{enumerate}
+\end{myprop}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+\end{proof}
+命題\ref{prop:group-cohomology}-(1) と群コホモロジーの長完全列\eqref{eq:LES-coGrp}により，
+短完全列 $0 \lto \mathbb{Z} \lto \mathbb{R} \lto \mathbb{R}/\mathbb{Z} \cong \LU (1) \lto 0$ から同型
+\begin{align}
+    \coGrp{k}{G;\, \mathbb{Z}} \cong \coGrp{k-1}{G;\, \LU(1)}
+\end{align}
+がわかる．
+
+\subsection{トポロジカルなゲージ理論：Lie群の場合}
+
+時空が $2+1$ 次元の閉多様体 $\mfdcal{M}{3}$ であるとする．
+Lie群 $G$ がコンパクトかつ単連結ならば，$\mfdcal{M}{3}$ 上の任意の主束は自明束と同型になり，Chern-Simons形式を大域的に定義することができる．しかし，$G$ が一般のコンパクトLie群である場合にはそう上手くいかない．
+これを解決する方法としては，$\mfdcal{M}{3}$ を境界に持つ4次元多様体 $\mfdcal{N}{4}$ を持ってきて，
+\begin{align}
+    S[A] \coloneqq \int_{\mfdcal{N}{4}} \Omega(F) = \frac{k}{8\pi^2} \int_{\mfdcal{N}{4}} \Tr \bigl[ F \wedge F \bigr] 
+\end{align}
+と定義することが考えられる．この $S[A]$ はChern指標の積分なので整数値を取り，トポロジカルなゲージ場の理論になっている．4次元多様体への拡張は一意ではないので作用は $\mod 1$ の不定性を持つが，分配関数はwell-definedになる．
+しかし，この構成が可能であるためには任意の $\mfdcal{M}{3}$ 上の主束 $G \hookrightarrow P \xrightarrow{\pi} \mfdcal{M}{3}$ に対して，$\mfdcal{N}{4}$ 上の主束 $G \hookrightarrow P' \xrightarrow{\pi'} \mfdcal{N}{4}$ であって，$\partial \mfdcal{N}{4} = \mfdcal{M}{3}$ への制限 $P|_{\partial \mfdcal{N}{4}} = P$ を充たすようなものが存在しなくてはいけない．
+この拡張の障害となるのが，\hyperref[prop:universal-basic]{分類写像} $\gamma \colon \mfdcal{M}{3} \lto BG$ の誘導準同型による $\mfdcal{M}{3}$ の基本類 $[\mfdcal{M}{3}] \in H_3(\mfdcal{M}{3};\, \mathbb{Z})$ の像 $\gamma_* [\mfdcal{M}{3}] \in H_3(BG;\, \mathbb{Z})$ である．もし $\gamma_* [\mfdcal{M}{3}] = 0$ なら拡張が可能だが，そうでないときは不可能ということになる．
+しかしながら，命題\ref{prop:group-cohomology}-(2) と普遍係数定理\eqref{eq:univ-coeff}により$H_3 (BG;\, \mathbb{Z}) \cong \Grp{3}{G;\, \mathbb{Z}} \cong \Tor^{\mathbb{Z}}_1 \bigl( H_2(X;\, \mathbb{Z}),\, \mathbb{Z} \bigr)$ であるから，ある $n \in \mathbb{Z}_{> 0}$ が存在して
+\begin{align}
+    n \cdot \gamma_* [\mfdcal{M}{3}] = 0
+\end{align}
+を充たす．よって素朴には
+\begin{align}
+    S[A] \coloneqq \frac{1}{n} \int_{\mfdcal{N}{4}} \Omega(F)
+\end{align}
+と修正すれば良いように思えるが，このままだと分配関数に $e^{2\iunit \pi m/n}$ の不定性が残り理論がwell-definedでない．
+この不定性を排除するためには，$\Omega(F) \in \dR{4}{\mfdcal{M}{3}} \cong \dR{4}{BG} \cong H^4(BG;\, \mathbb{R})$ だが $\Omega(F)$ は特性類なので，自然な単射 $H^4(BG,\, \mathbb{Z}) \hookrightarrow H^4(BG;\, \mathbb{R})$ を使って $\Omega(F) \cong \rho ([\omega])$ と書けるような $[\omega] \in H^4(BG,\, \mathbb{Z})$ が存在することを使い
+\begin{align}
+    S[A] \coloneqq \frac{1}{n} \left(\int_{\mfdcal{N}{4}} \Omega(F) - \expval{\gamma^* \omega,\, \mfdcal{N}{4}} \right)
+\end{align}
+とすれば良い．というのも，de Rhamの定理からそもそも
+\begin{align}
+    \int_{\mfdcal{N}{4}} \Omega(F) = \expval{\gamma^* \omega,\, \mfdcal{N}{4}}
+\end{align}
+であり，$[\omega]$ の別の代表元 $\eta$ をとってきたとすると，その差分は $\epsilon \in C^3(BG;\, \mathbb{Z})$ を使って
+\begin{align}
+    \frac{1}{n} \expval{\gamma^* \delta^4 \epsilon,\, \mfdcal{N}{4}} = \frac{1}{n} \expval{\epsilon,\, \gamma_* \partial \mfdcal{N}{4}} = \expval{\epsilon,\, \gamma_* [\mfdcal{M}{3}]} \in \mathbb{Z}
+\end{align}
+になるのである．
+
+もしくは，\textbf{Cheegar Simons differential character}~\cite{Simons_2007} $\alpha \in \widehat{H^3} \bigl(BG,\, \LU(1)\bigr)$ を使って
+\begin{align}
+    S[A] = \expval{\gamma^* \alpha_A,\, [\mfdcal{M}{3}]}
+\end{align}
+と書くこともできる．
+
+\subsection{トポロジカルなゲージ理論：有限群の場合}
+
+ゲージ群 $G$ が有限群の場合，主束 $G \hookrightarrow P \xrightarrow{\pi} \mfdcal{M}{3}$ の接続は平坦\footnote{i.e. 曲率が大域的に $0$}である．このことは，$\pi_1(\mfdcal{M}{3})$ の非自明な元に対応する\hyperref[def:holonomy]{ホロノミー}のみが非自明な値をとることを意味する．
+このとき，命題\ref{prop:classifying-space-Kpi1}から，\hyperref[prop:universal-basic]{分類写像} $\gamma \colon \mfdcal{M}{3} \lto BG$ は群準同型 $\gamma_* \colon \pi_1(\mfdcal{M}{3}) \lto \pi_1(BG) \cong G$ と1対1対応するので，分配関数は
+\begin{align}
+    \label{eq:DW-partition-func}
+    Z(\mfdcal{M}{3}) \eqqcolon \frac{1}{\# G} \sum_{\gamma \in \Hom{\TOP} \bigl( \pi_1(\mfdcal{M}{3}),\, G \bigr) } e^{2\pi \iunit S[\gamma]} \WHERE S[\gamma] \coloneqq \expval{\gamma^* \alpha,\, [\mfdcal{M}{3}]}
+\end{align}
+と定義される．ただし今の場合 $\Omega(F) = 0$ なので，単に $\alpha \in H^3(BG;\, \LU (1))$ とすれば良い．
+
+このままだと実用上不便なので，計算しやすい形に書きかえよう．$H^k(BG;\, \LU (1)) \cong \coGrp{k}{G;\, \LU(1)}$ であるから，結局\hyperref[def:group-cohomology]{群コホモロジー}を具体的に計算することになる．
+
+$M$ を\hyperref[ax:G-mod]{$G$ 加群}とする．\hyperref[]{Milnor構成}を思い出すと，群コホモロジーのコチェイン $C^k (G;\, M)$ を
+\begin{align}
+    \irm{C}{Grp}^k (G;\, M) \coloneqq \bigl\{\, \omega \colon G^{n+1} \lto M\bigm| \forall g \in G,\; \forall g_0,\, \dots,\, g_n \in G,\; \omega(g_0,\, \dots,\, g_n) = \omega(gg_0,\, \dots,\, gg_n) \,\bigr\} 
+\end{align}
+で定義し，余境界写像 $\delta^{k+1} \colon \coGrp{k}{G;\, M} \lto \coGrp{k+1}{G;\, M}$ を特異コホモロジーからのアナロジーで
+\begin{align}
+    (\delta^{k+1} \omega)(g_0,\, \dots,\, g_{n+1})
+    &\coloneqq \prod_{j=0}^{n+1} \omega(g_0,\, \dots,\, \widehat{g_j},\, \dots ,\, g_{n+1})^{(-1)^j}
+\end{align}
+と定義してみる\footnote{群 $G$ の演算は乗法的な表記を採用した．}．
+すると $\delta^2 = 0$ が確認できるので系列
+\begin{align}
+    \cdots \xrightarrow{\delta^k} \irm{C}{Grp}^k (G;\, M) \xrightarrow{\delta^{k+1}} \irm{C}{Grp}^{k+1} (G;\, M) \xrightarrow{\delta^{k+2}} \cdots
+\end{align}
+はコチェイン複体を成す．この複体のコホモロジー類をとることで $\coGrp{k}{G;\, M}$ が得られる\footnote{\hyperref[def:group-cohomology]{群コホモロジーの定義}からこの表式を得ることもできるが，$\mathbb{Z}$ の $\mathbb{Z}[G]$ 加群としての射影的分解を構成するのが少し手間である．}
+コチェインを別の表示で書くこともできる：
+\begin{align}
+    \alpha(g_1,\, \dots,\, g_n) \coloneqq \omega(1,\, g_1,\, g_1g_2,\, \dots,\, g_1 \cdots g_n)
+\end{align}
+このとき，余境界写像は
+\begin{align}
+    (\delta^{n+1} \alpha)(g_1,\, \dots,\, g_{n+1})
+    &= \alpha(g_2,\, \dots,\, g_{n+1}) \prod_{j=1}^n \alpha(g_1,\, \dots,\, g_{j-1},\, g_j g_{j+1},\, g_{j+2},\, \dots,\, g_{n+1})^{(-1)^j} \alpha(g_1,\, \dots,\, g_n)^{(-1)^{n+1}}
+\end{align}
+と作用する．
+
+群コホモロジーの表式を使って分配関数を計算するには，まず $\mfdcal{M}{3}$ の三角形分割 $\abs{\mathcal{T}} \lto \mfdcal{M}{3}$ をとる．さらに $\mfdcal{M}{3}$ は連結\footnote{このとき多様体なので弧状連結になる}だとしよう．
+すると，$BG$ の基点 $\mathrm{pt} \in BG$ を１つ固定することで，\hyperref[prop:universal-basic]{分類写像} $\gamma \colon M \lto BG$ をホモトピックに変形して，任意の0単体 $\sigma_0 \in \mathcal{T}$ を$\gamma[\sigma_0] = \mathrm{pt}$ に写すようにできる．
+すると，任意の1単体 $\sigma_1 \in \mathcal{T}$ は $\gamma(\sigma_1) \in \pi_1(BG,\, \mathrm{pt})$ と見做すことができるが，命題\ref{prop:classifying-space-Kpi1}より $\pi_1(BG,\, \mathrm{pt}) \cong G$ であるから，結局分類写像 $\gamma$ によって $\forall \sigma_1 \in \mathcal{T}$ と何かしらの $g_{\sigma_1} \in G$ が対応付く．この $g_{\sigma_1}$ は格子ゲージ理論におけるリンク変数（i.e. ゲージ場）と見做すと分かりやすい．
+しかるに，$G$ が有限群であることから主束の接続は平坦でなくてはいけない．そのため，もし $\sigma^{(1)}_1,\, \sigma^{(2)}_1,\, \sigma^{(3)}_1 \in \mathcal{T}$ がある2単体 $\sigma_2$ について $\partial(\sigma_2) = \sigma^{(1)}_1 \cup \sigma^{(2)}_1 \cup \sigma^{(3)}_1$ をみたすならば
+\begin{align}
+    \label{eq:cocycle-discrete}
+    g_{\sigma_1^{(1)}} g_{\sigma_1^{(2)}} g_{\sigma_1^{(3)}} = \gamma(\sigma^{(1)}_1 \cup \sigma^{(2)}_1 \cup \sigma^{(3)}_1) = 1
+\end{align}
+にならなくてはいけない．
+このとき任意の3単体 $\sigma_3 \in \mathcal{T}$ に対して $\alpha \in \coGrp{3}{BG,\, \LU(1)}$ は $W(\sigma_3) \in \LU(1)$ を対応づけることができる．つまり，任意の3単体 $\sigma^{(i)}_3$ を四面体と見做したとき，その6つある辺のうち3つが $\gamma$ によって $g_i,\, h_i,\, k_i \in G$ と同定されていれば\eqref{eq:cocycle-discrete}から残りの3辺も決定できるということであり，$W(\sigma_3^{(i)}) \coloneqq \alpha (g_i,\, h_i,\, k_i) \in \LU(1)$ として定まる．
+$\abs{\mathcal{T}} = \bigcup_{\sigma_3 \in \mathcal{T}} \sigma_3$ であり，３単体 $\sigma_3^{(i)}$ の向きを特徴付ける $\epsilon_i \in \{\pm 1\}$ を使って
+\begin{align}
+    [M] = \sum_i \epsilon_i \gamma(\sigma_3^{(i)})
+\end{align}
+と書くことができる．よって，作用は
+\begin{align}
+    \label{eq:DW-action}
+    e^{2\pi \iunit S[\gamma]} = \prod_i W(\sigma_3^{(i)})^{\epsilon_i} = \prod_{i} \alpha (g_{i},\, h_i,\, k_i)^{\epsilon_i}
+\end{align}
+と書かれる．
+
+\begin{myexample}[label=ex:DW-Riemannian]{Riemann面の次元}
+    種数 $g$ のRiemann面 $\Sigma_g$ に対して，TQFT\eqref{eq:DW-partition-func}によって定まるHilbert空間 $Z(\Sigma_g)$ の実態は不明だが，その次元を計算することができる．というのも，
+    \begin{align}
+        Z(\Sigma_g \times S^1) = \Tr \bigl(Z(\mathrm{id}_{\Sigma_g})\bigr) = \Tr \bigl( \mathrm{id}_{Z(\Sigma_g)} \bigr) = \dim Z(\Sigma_g)
+    \end{align}
+    であるが，最左辺は $\Sigma_g \times S^1$ の具体的な三角形分割をとることで\eqref{eq:DW-action}を使って計算できるのである．
+\end{myexample}
+
+\section{$BF$-理論}
+
+Dijkgraaf-Witten理論以外の離散的かつトポロジカルなゲージ場の理論として，\textbf{$BF$-理論}が知られている．
 
 % 構造群 $G$ が離散群の場合のゲージ理論を，具体例によって雑に導入する．\hyperref[def.PFD]{主束}による構成を拡張して一般論を展開することもできる．
 
