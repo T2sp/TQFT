@@ -1444,15 +1444,26 @@ $G$ をLie群とする．
 
 \begin{mydef}[label=def:pullback-bundle]{ファイバー束の引き戻し}
     \begin{itemize}
-        \item 構造群 $G$ を持つ\hyperref[def.fiber-1]{ファイバー束} $F \hookrightarrow E \xrightarrow{\pi} B$
-        \item 連続写像 $f \colon B_1 \lto B$
+        \item 構造群 $G$ を持つ\hyperref[def.fiber-1]{ファイバー束} $F \hookrightarrow \textcolor{blue}{E} \xrightarrow{\textcolor{blue}{\pi}} \textcolor{blue}{B}$
+        \item 連続写像 $\textcolor{blue}{f} \colon \textcolor{blue}{B_1} \lto \textcolor{blue}{B}$
     \end{itemize}
     を与える．このとき
     \begin{align}
-        f^* (E) \coloneqq \bigl\{\, (b_1,\, u) \in B_1 \times E \bigm| f(b_1) = \pi(u) \,\bigr\} 
+        \textcolor{red}{f^* (E)} \coloneqq \bigl\{\, (b_1,\, u) \in \textcolor{blue}{B_1} \times \textcolor{blue}{E} \bigm| \textcolor{blue}{f}(b_1) = \textcolor{blue}{\pi}(u) \,\bigr\} 
     \end{align}
-    と定めることで得られるファイバー束 $F \hookrightarrow f^*(E) \xrightarrow{\mathrm{proj}_1} B_1$ のことを\textbf{引き戻し束} (pullback bundle) と呼ぶ．
+    と定めることで得られるファイバー束 $F \hookrightarrow \textcolor{red}{f^* (E)} \xrightarrow{\mathrm{proj}_1} \textcolor{blue}{B_1}$ のことを\textbf{引き戻し束} (pullback bundle) と呼ぶ（図式\ref{cmtd:pullback-bundle}）．
 \end{mydef}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzcd}[row sep=large, column sep=large]
+        &\textcolor{red}{f^* (E)} \ar[r, "\mathrm{proj}_2"]\ar[d, "\mathrm{proj}_1"'] &\textcolor{blue}{E} \ar[d, "\textcolor{blue}{\pi}"] \\
+        &\textcolor{blue}{B_1} \ar[r, "\textcolor{blue}{f}"'] &\textcolor{blue}{B}
+    \end{tikzcd}
+    \caption{引き戻し束}
+    \label{cmtd:pullback-bundle}
+\end{figure}%
+
 ファイバー束 $F \hookrightarrow E \xrightarrow{\pi} B$ が
 \begin{itemize}
     \item $B$ の開被覆 $\Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$
@@ -1462,7 +1473,7 @@ $G$ をLie群とする．
 を持つとき，引き戻し束 $F \hookrightarrow f^*(E) \xrightarrow{\mathrm{proj_1}} B_1$ の構造は
 \begin{itemize}
     \item $B_1$ の開被覆 $\Familyset[\big]{f^{-1}(U_\alpha)}{\alpha \in \Lambda}$
-    \item 局所自明化 $\Familyset[\big]{\tilde{\psi}_\alpha \colon f^{-1}(U_\alpha) \times \pi^{-1}(U_\alpha) \xrightarrow{\approx} f^{-1}(U_\alpha) \times F,\; (b_1,\, u) \lmto \bigl(b_1,\, \mathrm{proj}_2 \circ \varphi_\alpha (u)\bigr)}{\alpha \in \Lambda}$
+    \item 局所自明化 $\Familyset[\big]{\tilde{\varphi}_\alpha \colon f^{-1}(U_\alpha) \times \pi^{-1}(U_\alpha) \xrightarrow{\approx} f^{-1}(U_\alpha) \times F,\; (b_1,\, u) \lmto \bigl(b_1,\, \mathrm{proj}_2 \circ \varphi_\alpha (u)\bigr)}{\alpha \in \Lambda}$
     \item 変換関数 $\Familyset[\big]{\tilde{t}_{\alpha \beta} \colon f^{-1}(U_\alpha) \cap f^{-1}(U_\beta) \lto G,\; x \lmto t_{\alpha\beta}\bigl(f(x)\bigr)}{\alpha \in \Lambda}$
 \end{itemize}
 によって定まる．
@@ -1522,11 +1533,11 @@ $G$ の普遍束の全空間を $\bm{EG}$，分類空間を $\bm{BG}$ と書く�
 \begin{align}
     \irm{EG}{M} \coloneqq \bigl\{\, (t_0 g_0,\, t_1 g_1,\, \dots ) \bigm| t_i \in [0,\, 1],\; g_i \in G,\; \substack{\text{高々有限個の}\; i\; \text{のみ}\; t_i \neq 0 \\ \text{かつ}\; \sum_{i \ge 0} t_i = 1}\,\bigr\} 
 \end{align}
-を考える．$\expval{x,\, t} \coloneqq (t_0 g_0,\, t_1 g_1,\, \dots )$ と書き，$\irm{EG}{M}$ 上の等号を
+を考える．$\expval{g,\, t} \coloneqq (t_0 g_0,\, t_1 g_1,\, \dots )$ と書き，$\irm{EG}{M}$ 上の等号を
 \begin{align}
-    \expval{x,\, t} = \expval{x',\, t'} \DEF \forall i \ge 0,\; t_i = t'_i \AND \forall i \ge 0,\; t_i = t'_i > 0 \IMP x_i = x'_i
+    \expval{g,\, t} = \expval{g',\, t'} \DEF \forall i \ge 0,\; t_i = t'_i \AND \forall i \ge 0,\; t_i = t'_i > 0 \IMP g_i = g'_i
 \end{align}
-と定義する．$\irm{EG}{M}$ への $G$ の右作用を
+と定義する．$\irm{EG}{M}$ への $G$ の\hyperref[def:Lie-action]{自由な}右作用を
 \begin{align}
     \btl \colon \irm{EG}{M} \times G \lto \irm{EG}{M},\; \bigl( (t_0 g_0,\, t_1 g_1,\, \dots ),\, g \bigr) \lmto (t_0 g_0g,\, t_1 g_1g,\, \dots )
 \end{align}
@@ -1538,11 +1549,82 @@ $G$ の普遍束の全空間を $\bm{EG}$，分類空間を $\bm{BG}$ と書く�
 が連続になるような最小の位相を入れる．右作用 $\btl$ による $\irm{EG}{M}$ の商位相空間を $\irm{BG}{M} \coloneqq \irm{EG}{M}/G$ とおく．
 
 \begin{mytheo}[label=thm:Milnor-const]{Milnor構成}
-    任意のLie群 $G$ について $G \hookrightarrow \irm{EG}{M} \lto \irm{BG}{M}$ は主束であり，\hyperref[def:universal-bundle]{普遍束}でもある．
+    任意のLie群 $G$ について $G \hookrightarrow \irm{EG}{M} \xrightarrow{p} \irm{BG}{M}$ は\footnote{$p \colon \irm{EG}{M} \lto \irm{BG}{M}$ は商写像．}主束であり，\hyperref[def:universal-bundle]{普遍束}でもある．
 \end{mytheo}
 
 \begin{proof}
-    主束であることは~\cite[p.55, 11.2 Theorem]{Husemoller1994}，普遍束であることは~\cite[p.57, 12.2 Theorem]{Husemoller1994}, ~\cite[p.58, 12.4 Theorem]{Husemoller1994}を参照．
+    % 主束であることは~\cite[p.55, 11.2 Theorem]{Husemoller1994}，普遍束であることは~\cite[p.57, 12.2 Theorem]{Husemoller1994}, ~\cite[p.58, 12.4 Theorem]{Husemoller1994}を参照．
+    \begin{description}
+        \item[\textbf{主束であること}]　
+        
+        　$\forall i \ge 0$ に対して $U_i \coloneqq p \bigl( t_i^{-1} \bigl((0,\, 1] \bigr)  \bigr)$ とおくと，開集合族 $\Familyset[\big]{U_i}{i \ge 0}$ は $\irm{BG}{M}$ の開被覆になる
+        \footnote{$U_i$ が $\irm{BG}{M}$ の開集合であることは $\irm{EG}{M}$ の位相の定義から明らか．$\forall \expval{g,\, t} \in \irm{EG}{M}$ に対して，$\irm{EG}{M}$ の定義から $\sum_{i \ge 0} t_i = 1$ なので $\exists i \ge 0,\; t_i \neq 0$ であり，$p (\expval{g,\, t}) \in U_i$ も言える．}．
+        さらに，$\forall \expval{g,\, t} \in \irm{EG}{M},\; \forall h \in G$ に対して $t_i (\expval{g,\, t} \btl h) = t_i (\expval{g,\, t})$ が成り立つので $p^{-1}(U_i) = t_i^{-1}\bigl( (0,\, 1] \bigr)$ が言える
+        \footnote{
+        \begin{align}
+            \expval{g,\, t} \in p^{-1}(U_i)
+            &\IFF p(\expval{g,\, t}) \in U_i = p\bigl(t_i^{-1} \bigl( (0,\, 1] \bigr)\bigr) \\
+            &\IFF \exists h \in G,\; \exists \expval{g',\, t'} \in t_i^{-1} \bigl( (0,\, 1]\bigr),\; \expval{g,\, t} = \expval{g',\, t'} \btl h \\
+            &\IMP t_i (\expval{g,\, t}) = t_i (\expval{g',\, t'} \btl h) = t_i (\expval{g',\, t'}) \in (0,\, 1] \\
+            &\IFF \expval{g,\, t} \in t_i^{-1}\bigl( (0,\, 1] \bigr) 
+        \end{align}
+        逆の包含は明らか．
+        }．
+
+        　次に，$\forall i \ge 0$ を1つ固定し，$U_i$ 上の局所自明化を構成する．連続写像
+        \begin{align}
+            \sigma_i \colon p^{-1}(U_i) \lto p^{-1}(U_i),\; \expval{g,\, t} \lmto \expval{g,\, t} \btl \bigl(g_i (\expval{g,\, t})^{-1}\bigr)
+        \end{align}
+        を考える．$\forall h \in G$ に対して
+        \begin{align}
+            \sigma_i \bigl( \expval{g,\, t} \btl h \bigr)  
+            &= \expval{g,\, t} \btl \bigl(h\, g_i (\expval{g,\, t} \btl h)^{-1}\bigr) \\
+            &= \expval{g,\, t} \btl \bigl(hh^{-1} g_i (\expval{g,\, t})^{-1}\bigr) \\
+            &= \expval{g,\, t} \btl \bigl( g_i (\expval{g,\, t})^{-1}\bigr) \\
+            &= \sigma_i \bigl( \expval{g,\, t} \bigr) 
+        \end{align}
+        が成り立つから，
+        \begin{align}
+            s_i \colon U_i \lto p^{-1}(U_i),\; p(\expval{g,\, t}) \lmto \sigma_i (\expval{g,\, t})
+        \end{align}
+        はwell-definedな連続写像である．さらに $\forall p(\expval{g,\, t}) \in U_i$ に対して $p \circ s_i \bigl( p(\expval{g,\, t}) \bigr) = p \circ \sigma_i(\expval{g,\, t}) = p(\expval{g,\, t})$ が成り立つので $s_i$ は局所切断である．
+        ここで
+        \begin{align}
+            \varphi_i \colon p^{-1} (U_i) \lto U_i \times G,\; s_i (x) \btl g \lmto (x,\, g)
+        \end{align}
+        と定義すると，$\varphi_i$ はwell-definedな同相写像になっている
+        \footnote{
+            $\forall \expval{g,\, t} \in p^{-1}(U_i)$ を与える．このとき $s_i \bigl( p(\expval{g,\, t}) \bigr) = \expval{g,\, t} \btl \bigl( g_i(\expval{g,\, t})^{-1} \bigr)$ なので $\expval{g,\, t} = s_i \bigl( p(\expval{g,\, t}) \bigr) \btl g_i(\expval{g,\, t})$  であり，$G$ の右作用 $\btl$ は自由なのでこのような分解は一意である．よって $\varphi_i (\expval{g,\, t}) = \bigl( p(\expval{g,\, t}),\, g_i (\expval{g,\, t}) \bigr)$ であり，$\varphi_i$ がwell-definedな全単射だとわかった．  
+            同相写像であることは，連続写像の合成として書けているので明らか．
+        }
+        ので $U_i$ 上の局所自明化である．
+        別の $j \ge 0$ をとると，$\forall p(\expval{g,\, t}) \in p^{-1} (U_i \cap U_j),\; \forall h \in G$ に対して
+        \begin{align}
+            \varphi_i \circ \varphi_j^{-1}\bigl(p(\expval{g,\, t}),\, h\bigr) 
+            &= \varphi_i \bigl( \sigma_j(\expval{g,\, t}) \btl h \bigr) \\
+            &= \varphi_i \Bigl( \sigma_i(\expval{g,\, t}) \btl \bigl(g_i(\expval{g,\, t}) g_j(\expval{g,\, t})^{-1} h\bigr)  \Bigr) \\
+            &= \bigl( p(\expval{g,\, t}),\, g_i(\expval{g,\, t}) g_j(\expval{g,\, t})^{-1} h \bigr) 
+        \end{align}
+        が成り立つので，変換関数は
+        \begin{align}
+            t_{ij} \colon U_i \cap U_j \lto G,\; p(\expval{g,\, t}) \lmto  g_i(\expval{g,\, t}) g_j(\expval{g,\, t})^{-1}
+        \end{align}
+        だと分かった
+        \footnote{
+            $g_i(\expval{g,\, t} \btl h) = g_i(\expval{g,\, t})h$ なので，$t_{ij}$ はwell-definedである．
+        }．
+        
+        　最後に $\irm{EG}{M}$ が第2可算なHausdorff空間であることを示さないといけないが，技術的なのでここでは省略する．詳細は~\cite[p.55, 11.2 Theorem]{Husemoller1994}を参照．
+
+        \item[\textbf{普遍束であること}]　
+        
+        命題\ref{prop:universal-basic}の条件 (1), (2) を充していることを示す．
+        \begin{enumerate}
+            \item 
+        \end{enumerate}
+        
+    \end{description}
+    
 \end{proof}
 
 \begin{myprop}[label=prop:classifying-space-Kpi1]{}
