@@ -1478,6 +1478,30 @@ $G$ をLie群とする．
 \end{itemize}
 によって定まる．
 
+\begin{myprop}[label=prop:pullback-isom]{引き戻し束の同型}
+    \begin{itemize}
+        \item 2つのファイバー束 $F \hookrightarrow E \xrightarrow{\pi} B,\; F \hookrightarrow E_1 \xrightarrow{\pi} B_1$
+        \item \hyperref[def.bundlemap]{束写像} $(f \colon B_1 \lto B,\, \tilde{f} \colon E_1 \xrightarrow{\pi_1} E)$
+    \end{itemize}
+    を与える．このとき以下の図式を可換にする $\textcolor{red}{w} \colon E_1 \lto f^*(E)$ が一意的に存在し，$E_1$ と\hyperref[def:pullback-bundle]{引き戻し束} $f^*(E)$ が\hyperref[def.bundlemap]{束同型}になる．
+    \begin{center}
+        \begin{tikzcd}[row sep=large, column sep=large]
+            &f^*(E) \ar[dddr, DarkGreen, "\mathrm{proj}_1"']\ar[rr, DarkGreen, "\mathrm{proj}_2"] & &E \ar[dd, "\pi"] \\
+            &   &E_1 \ar[ul, red, dashed, "\exists ! w"]\ar[dd, DarkGreen, "\pi_1"]\ar[ur, DarkGreen, "\tilde{f}"'] & \\
+            &   &   &B \\
+            &   &B_1 \ar[ur, "f"'] &
+        \end{tikzcd}
+    \end{center}
+\end{myprop}
+
+\begin{proof}
+    \begin{align}
+        w \colon E_1 \lto f^*(E),\; u \lmto \bigl( \pi_1(u),\, \tilde{f}(u) \bigr)
+    \end{align}
+    と定義すると図式の緑色の部分が全て可換になり，束同型を与える．一意性は $w$ の定義から明らか．
+\end{proof}
+
+
 圏 $\bm{\mathrm{hoMfd}}$ を，
 \begin{itemize}
     \item 多様体を対象とする
@@ -1515,16 +1539,16 @@ $G$ の普遍束の全空間を $\bm{EG}$，分類空間を $\bm{BG}$ と書く�
 
 \begin{myprop}[label=prop:universal-basic]{普遍束の特徴付け}
     主束 $G \hookrightarrow EG \xrightarrow{\pi_G} BG$ が $G$ の\hyperref[def:universal-bundle]{普遍束}であることは，以下の2つが満たされることと同値である：
-    \begin{enumerate}
-        \item $\forall \textcolor{red}{X} \in \Obj{\bm{\mathrm{hoMfd}}}$ および $X$ を底空間にもつ任意の主束 $G \hookrightarrow \textcolor{red}{P} \xrightarrow{\pi} \textcolor{red}{X}$ に対して，ある連続写像 $f \colon \textcolor{red}{X} \lto BG$ が存在して
+    \begin{description}
+        \item[\textbf{(univ-1)}]  $\forall \textcolor{red}{X} \in \Obj{\bm{\mathrm{hoMfd}}}$ および $X$ を底空間にもつ任意の主束 $G \hookrightarrow \textcolor{red}{P} \xrightarrow{\pi} \textcolor{red}{X}$ に対して，ある連続写像 $f \colon \textcolor{red}{X} \lto BG$ が存在して
         $\textcolor{red}{P}$ と\hyperref[def:pullback-bundle]{引き戻し束} $f^*(EG)$ が束同型になる．
-        \item $\forall \textcolor{red}{X} \in \Obj{\bm{\mathrm{hoMfd}}}$ および任意の連続写像 $f,\, g \colon \textcolor{red}{X} \lto BG$ に対して，
+        \item[\textbf{(univ-2)}]  $\forall \textcolor{red}{X} \in \Obj{\bm{\mathrm{hoMfd}}}$ および任意の連続写像 $f,\, g \colon \textcolor{red}{X} \lto BG$ に対して，
         $f^*(EG)$ と $g^*(EG)$ が束同型ならば $f,\, g$ はホモトピックである．
-    \end{enumerate}
+    \end{description}
 \end{myprop}
 
 \begin{proof}
-    (1) は写像 $\phi_{EG}(\textcolor{red}{X})$ の全射性，(2) は写像 $\phi_{EG}(\textcolor{red}{X})$ の単射性を意味する．
+    \textsf{\textbf{(univ-1)}} は写像 $\phi_{EG}(\textcolor{red}{X})$ の全射性，\textsf{\textbf{univ-2}} は写像 $\phi_{EG}(\textcolor{red}{X})$ の単射性を意味する．
 \end{proof}
 
 定義したは良いが，与えられた $G$ に対してその普遍束が存在しなければ意味がないので，具体的に $EG$ を構成しよう．
@@ -1618,10 +1642,68 @@ $G$ の普遍束の全空間を $\bm{EG}$，分類空間を $\bm{BG}$ と書く�
 
         \item[\textbf{普遍束であること}]　
         
-        命題\ref{prop:universal-basic}の条件 (1), (2) を充していることを示す．
-        \begin{enumerate}
-            \item 
-        \end{enumerate}
+        主束 $G \hookrightarrow \irm{EG}{M} \xrightarrow{p} \irm{BG}{M}$ が命題\ref{prop:universal-basic}の条件 \textsf{\textbf{(univ-1)}}, \textsf{\textbf{(univ-2)}} を充していることを示す．
+        \begin{description}
+            \item[\textbf{(univ-1)}]  勝手な多様体 $X$ を1つ固定する．
+            \begin{itemize}
+                \item $X$ を底空間に持つ任意の主束 $G \hookrightarrow P \xrightarrow{\pi} M$
+                \item $P$ の開被覆 $\mathcal{U} \coloneqq \Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$ と局所自明化 $\Familyset[\big]{\varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto U_\alpha \times G}{\alpha \in \Lambda}$
+                \item $\mathcal{U}$ に従属する1の分割 $\Familyset[\big]{v_\alpha \colon X \lto [0,\, 1]}{\alpha \in \Lambda}$
+            \end{itemize}
+            を与える．1の分割の定義から，$\forall x \in X$ に対して，$\mathcal{U}$ の添字集合 $\Lambda$ の部分集合
+            \begin{align}
+                S(x) \coloneqq \bigl\{\, i \in \Lambda \bigm| \supp v_i \cap \{x\} \neq \emptyset\,\bigr\} 
+            \end{align}
+            は有限集合である．また，$\Lambda$ の任意の\underline{有限}部分集合 $I \subset \Lambda$ に対して $X$ の部分集合
+            \begin{align}
+                W(I) \coloneqq \bigl\{\, x \in X \bigm| \forall i \in I,\; \forall \alpha \in \Lambda \setminus I,\; v_i (x) > v_\alpha (x) \,\bigr\} 
+            \end{align}
+            および連続関数
+            \begin{align}
+                u_I \colon X \lto [0,\, 1],\; x \lmto \max \left\{ 0,\, \min_{i \in I,\, \alpha \in \Lambda \setminus I}\bigl\{ v_i(x) - v_\alpha(x) \bigr\}  \right\}
+            \end{align}
+            を考える．$W(I) = u_I \bigl( (0,\,1] \bigr)$ なので $W(I)$ は $X$ の開集合である．
+            このとき，互いに異なる $\Lambda$ の任意の有限部分集合 $I,\, J \underset{\text{finite}}{\subset} \Lambda$ に対して，$\# I = \# J$ ならば $W(I) \cap W(J) = \emptyset$ になる\footnote{$i \in I \setminus J,\; j \in J \setminus I$ をとる．このとき $\forall x \in W(I)$ に対して $v_i(x) > v_j(x)$ が成り立ち，かつ $\forall y \in W(J)$ に対して $v_j(y) > v_i(y)$ が成り立つので，$W(I) \cap W(J) = \emptyset$ でないといけない．}．
+            よって，$\forall m \in \mathbb{Z}_{\ge 0}$ に対して
+            \begin{align}
+                W_m &\coloneqq \bigcup_{\substack{I \underset{\text{finite}}{\subset} \Lambda, \\ \# I = m}} W(I),\\
+                u_m &\colon X \lto [0,\, 1],\; x \lmto \frac{\displaystyle\sum_{\substack{I \underset{\text{finite}}{\subset} \Lambda, \\ \# I = m}} u_I(x)}{\displaystyle\sum_{n \ge 0} \sum_{\substack{I \underset{\text{finite}}{\subset} \Lambda, \\ \# I = n}} u_I(x)}
+            \end{align}
+            と定義すると，$u_m$ は連続関数なので $W_m = u_m^{-1} \bigl( (0,\, 1] \bigr)$ は $X$ の開集合であり，
+            \begin{itemize}
+                \item $X$ の開被覆 $\mathcal{W} \coloneqq \Familyset[\big]{W_m}{m \ge 0}$
+                \item $\mathcal{W}$ に従属する1の分割 $\Familyset[\big]{u_m \colon X \lto [0,\, 1]}{m \ge 0}$
+            \end{itemize}
+            が得られた．特に $W_m$ は $W(I)$ の非交和であり，$P|_{W(I)}$ は定義から自明束と同型なので\footnote{$W(I) \subset \bigcap_{i \in I} v_i^{-1}\bigl( (0,\, 1] \bigr) \subset \bigcap_{i \in I} U_i$ なので．} $P|_{W_m}$ は自明束と同型である．この束同型写像を $h_m \colon \pi^{-1}(W_m)\xrightarrow{\approx} W_m \times G$ とおく．
+
+            　今，連続写像
+            \begin{align}
+                \tilde{f} \colon P \lto \irm{EG}{M},\; u \lmto \Bigl( \bigl(u_0 \circ \pi(u)\bigr)\, \bigl( \mathrm{proj}_2 \circ h_0(u) \bigr),\, \dots,\, \bigl(u_m \circ \pi(u)\bigr)\, \bigl( \mathrm{proj}_2 \circ h_m(u) \bigr),\, \dots  \Bigr) 
+            \end{align}
+            を考える．$u \notin \pi^{-1}(W_m)$ のときは1の分割の定義から $u_m \circ \pi (u) = 0$ となるのでこの写像はwell-definedであり，$\forall g \in G$ に対して\footnote{$u \btl g$ は命題\ref{prop.PFD_right}で与えた $G$ の $P$ への右作用である．}
+            \begin{align}
+                \tilde{f}(u \btl g)
+                &= \Bigl( \bigl(u_0 \circ \pi(u \btl g)\bigr)\, \bigl( \mathrm{proj}_2 \circ h_0(u \btl g) \bigr),\, \dots,\, \bigl(u_m \circ \pi(u)\bigr)\, \bigl( \mathrm{proj}_2 \circ h_m(u \btl g) \bigr),\, \dots  \Bigr) \\
+                &= \Bigl( \bigl(u_0 \circ \pi(u)\bigr)\, \bigl( \mathrm{proj}_2 \circ h_0(u) \bigr)g,\, \dots,\, \bigl(u_m \circ \pi(u)\bigr)\, \bigl( \mathrm{proj}_2 \circ h_m(u) \bigr)g,\, \dots  \Bigr) \\
+                &= \tilde{f}(u) \btl g
+            \end{align}
+            が成り立つ．このとき連続写像
+            \begin{align}
+                f \colon X \lto \irm{BG}{M},\; \pi(u) \lmto p \bigl( \tilde{f}(u) \bigr) 
+            \end{align}
+            はwell-definedであり，図式
+            \begin{center}
+                \begin{tikzcd}[row sep=large, column sep=large]
+                    &P \ar[r, "\tilde{f}"]\ar[d, "\pi"'] &\irm{EG}{M} \ar[d, "p"] \\
+                    &X \ar[r, "f"'] &\irm{BG}{M}
+                \end{tikzcd}
+            \end{center}
+            を可換にする．i.e. 組 $(f,\, \tilde{f})$ は\hyperref[def.bundlemap]{束写像}である．よって命題\ref{prop:pullback-isom}より $P$ と $f^*(\irm{EG}{M})$ が束同型だと分かった．
+            
+            \item[\textbf{(univ-2)}]　
+            
+            
+        \end{description}
         
     \end{description}
     
