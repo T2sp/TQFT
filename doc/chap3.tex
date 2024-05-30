@@ -1551,6 +1551,23 @@ $G$ の普遍束の全空間を $\bm{EG}$，分類空間を $\bm{BG}$ と書く�
     \textsf{\textbf{(univ-1)}} は写像 $\phi_{EG}(\textcolor{red}{X})$ の全射性，\textsf{\textbf{univ-2}} は写像 $\phi_{EG}(\textcolor{red}{X})$ の単射性を意味する．
 \end{proof}
 
+\begin{myprop}[label=prop:universal-contractible]{普遍束の全空間の特徴付け}
+    主束 $G \hookrightarrow P \xrightarrow{\pi} B$ が\hyperref[def:universal-bundle]{普遍束}であるための必要十分条件は，$\forall n \ge 0$ に対して $\pi_n(EG) = 0$ を充たすことである．
+\end{myprop}
+
+\begin{proof}
+    ~\cite[p.102, 19.4]{Steenrod1951}
+\end{proof}
+
+\begin{myprop}[label=prop:classifying-space-Kpi1]{}
+    $G$ が離散群ならば $BG = K(G,\, 1)$
+\end{myprop}
+
+\begin{proof}
+    命題\ref{prop:universal-contractible}より，ホモトピー長完全列から $\pi_n(BG) \cong \pi_{n-1}(G)$ が言える．離散群の場合は $\pi_0(G) = G$ かつ $\pi_{n>0}(G) = 0$ なので示された．
+\end{proof}
+
+
 定義したは良いが，与えられた $G$ に対してその普遍束が存在しなければ意味がないので，具体的に $EG$ を構成しよう．
 
 集合
@@ -1702,18 +1719,10 @@ $G$ の普遍束の全空間を $\bm{EG}$，分類空間を $\bm{BG}$ と書く�
             
             \item[\textbf{(univ-2)}]　
             
-            
+
         \end{description}
         
     \end{description}
-    
-\end{proof}
-
-\begin{myprop}[label=prop:classifying-space-Kpi1]{}
-    $BG = K(G,\, 1)$
-\end{myprop}
-
-\begin{proof}
     
 \end{proof}
 
