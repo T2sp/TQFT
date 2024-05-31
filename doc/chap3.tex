@@ -1870,16 +1870,123 @@ $\mathbb{Z}$ 係数の $G$ の\textbf{群環}とは，可換群 $\mathbb{Z}^{\op
         \item 
     \end{enumerate}
 \end{proof}
-命題\ref{prop:group-cohomology}-(1) と群コホモロジーの長完全列\eqref{eq:LES-coGrp}により，
+
+\underline{群 $G$ が有限群}のとき，命題\ref{prop:group-cohomology}-(1) と群コホモロジーの長完全列\eqref{eq:LES-coGrp}により
 短完全列 $0 \lto \mathbb{Z} \lto \mathbb{R} \lto \mathbb{R}/\mathbb{Z} \cong \LU (1) \lto 0$ から同型
 \begin{align}
+    \label{eq:finiteG-groupcohomology}
     \coGrp{k}{G;\, \mathbb{Z}} \cong \coGrp{k-1}{G;\, \LU(1)}
 \end{align}
 がわかる．
 
+\subsection{関手としての接続}
+
+$d=D+1$ 次元時空 $\mfdcal{M}{d}$ を考える．
+圏 $\PATH{\mfdcal{M}{d}}$ を\footnote{これはgroupoidを成し，\textbf{path groupoid}と呼ばれる（\url{https://ncatlab.org/nlab/show/path+groupoid}）．}，
+\begin{itemize}
+    \item $\mfdcal{M}{d}$ の点を対象とする．
+    \item $\Hom{\PATH{\mfdcal{M}{d}}}(x,\, y) \coloneqq \bigl\{\, \sigma \colon [0,\, 1] \lto \mfdcal{M}{d} \bigm| \sigma(0) = x,\, \sigma(1) = y \,\bigr\}$ 
+\end{itemize}
+によって定義する．
+
+\begin{myprop}[label=prop:connection-functor]{関手としての接続}
+    \begin{itemize}
+        \item $\mfdcal{M}{d}$ 上の主束 $G \hookrightarrow P \xrightarrow{\pi} \mfdcal{M}{d}$
+        \item $P$ の\hyperref[def:associated-vect]{同伴ベクトル束} $V \hookrightarrow E \xrightarrow{q} \mfdcal{M}{d}$
+    \end{itemize}
+    を与える．
+    このとき，任意の $P$ の\hyperref[def:connection]{接続形式} $\omega \in \Omega^1(P;\, \mathfrak{g})$ に対して
+    \begin{enumerate}
+        \item $\forall x \in \Obj{\PATH{\mfdcal{M}{d}}}$ に対して $\Gamma_\omega(x) \coloneqq q^{-1}(\{x\})$
+        \item $\forall x,\, y \in \Obj{\PATH{\mfdcal{M}{d}}},\; \forall \sigma \in \Hom{\PATH{\mfdcal{M}{d}}} (x,\, y)$ に対して\footnote{$\Phi_u(\sigma) \in G$ はループ $\sigma$ の\hyperref[prop:holonomy]{ホロノミー}．} $\Gamma_\omega(\sigma) \coloneqq \bigl( u \eqqcolon \tilde{\sigma}(0) \lmto \tilde{\sigma}(1) \bigr)$
+    \end{enumerate}
+    と定義される対応
+    \begin{align}
+        \Gamma_\omega \colon \PATH{\mfdcal{M}{d}} \lto \VECT
+    \end{align}
+    は関手である．
+
+    \tcblower
+    
+    逆に，関手
+    \begin{align}
+        \Gamma \colon \PATH{\mfdcal{M}{d}} \lto \VECT
+    \end{align}
+    であって以下の条件を充たすものは $P$ の接続形式 $\omega \in \Omega^1(P;\, \mathfrak{g})$ を与える：
+    \begin{enumerate}
+        \item 任意の単調増加関数 $f \colon [0,\, 1] \lto [0,\, 1]$ および $\forall \sigma \in \Hom{\PATH{\mfdcal{M}{d}}} (x,\, y)$ に対して
+        \begin{align}
+            \Gamma(\sigma) = \Gamma (\sigma \circ f)
+        \end{align}
+        \item 任意の単調減少関数 $f \colon [0,\, 1] \lto [0,\, 1]$ および $\forall \sigma \in \Hom{\PATH{\mfdcal{M}{d}}} (x,\, y)$ に対して
+        \begin{align}
+            \Gamma(\sigma) = \Gamma (\sigma \circ f)
+        \end{align}
+        \item $\Gamma$ は $\sigma$ について適切な $C^\infty$ 性を充たす．
+    \end{enumerate}
+\end{myprop}
+
+\begin{proof}
+    前半は命題\ref{prop:holonomy}より明らか．後半は~\cite{Baez2004holonomy}, ~\cite{barrett1991holonomy}を参照
+\end{proof}
+
+大域的切断 $s \colon \mfdcal{M}{d} \lto P$ を許容する主束 $P$ およびその接続 $\omega \in \Omega^1(P;\, \mathfrak{g})$ を与え，
+2点 $x,\, y \in \mfdcal{M}{d}$ を繋ぐ曲線 $\sigma \in \Hom{\PATH{\mfdcal{M}{d}}}(x,\, y)$ であって，その\hyperref[def:horizontal-lift-curve]{水平持ち上げ} $\tilde{\sigma}$ が $\tilde{\sigma} (0) = s(x)$ を充たすものをとる．するとこのとき
+$\tilde{\sigma}(1) = s(y) \btl g_\sigma$ を充たす $g_\sigma \in G$ が一意に定まる．さらに2点 $y,\, z \in \mfdcal{M}{d}$ を繋ぐ曲線 $\sigma' \in \Hom{\PATH{\mfdcal{M}{d}}}(y,\, z)$ であって，その水平持ち上げ $\tilde{\sigma'}$ が $\tilde{\sigma'}(0) = s(y)$ を充たすものをとると，
+水平持ち上げの一意性から $\tilde{(\sigma' * \sigma)} (1) = s(z) \btl g_\sigma g_{\sigma'}$ が成り立つ．従って，$P$ が自明束ならば命題\ref{prop:connection-functor}の関手 $\Gamma_\omega \colon \PATH{\mfdcal{M}{d}} \lto \VECT$ は関手
+\begin{align}
+    \Gamma_\omega \colon \PATH{\mfdcal{M}{d}} \lto \bm{G}
+\end{align}
+と見做せる．ただし $\bm{G}$ は
+\begin{itemize}
+    \item $G$ のみを対象に持つ
+    \item $G$ の元を射に持つ
+\end{itemize}
+ことで構成される圏である．
+% \footnote{$\Obj{\bm{G}} = \{G\},\; \Hom{\bm{G}}(G,\, G) = G$ であり，射の合成が群演算で，恒等射が $1_G \in \Hom{\bm{G}}(G,\, G) = G$ と言うこと．}．
+自明束 $P$ におけるゲージ変換とは，大域的切断の取り替えに伴う変換関数によって特徴付けられる．変換関数は，大域的切断 $s_1,\, s_2 \colon M \lto P$ に対して $s_1(x) = s_2(x) \btl g_{12}(x)$ と定義することで定まる $g_{12} \colon M \lto G$ のことであり，$\sigma \in \Hom{\PATH{\mfdcal{M}{d}}}(x,\, y)$ に対して
+\begin{align}
+    \label{eq:gauge-transform-trivial}
+    \Gamma_\omega (\sigma) \lmto \Gamma'_\omega (\sigma) = g_{12}(y)^{-1} \Gamma_\omega(\sigma) g_{12}(x)
+\end{align}
+なる変換を引き起こす\footnote{$\tilde{\sigma}(0) = s_1(x)$ とする．このとき $\tilde{\sigma} \btl g_{12}(x)$ は $s_2(x) = s_1(x) \btl g_{12} (x)$ を始点とする $\sigma$ の水平持ち上げであるから，$s_2(y) \btl \Gamma'_\omega(\sigma) = \tilde{\sigma}(1) \btl g_{12}(x) = s_1(y) \btl \Gamma_\omega(\sigma) \btl g_{12}(x) = s_2(y) \btl \bigl( g_{12}(y)^{-1} \Gamma_\omega(\sigma)g_{12}(x) \bigr)$}．
+i.e. 変換関数 $g_{12} \colon M \lto P$ は，自然変換
+\begin{center}
+    \begin{tikzcd}
+        \PATH{\mfdcal{M}{d}} \arrow[r, bend left=50, ""{name=U, below}, "\Gamma_\omega"]
+        \arrow[r, bend right=50, ""{name=D}, "\Gamma'_\omega"']
+        &\bm{G}
+        \arrow[Rightarrow, from=U, to=D, "g_{12}"]
+    \end{tikzcd}
+\end{center}
+である．
+
+\begin{mydef}[label=def:flat-connection-homotopy]{平坦接続}
+    $\mfdcal{M}{d}$ 上の主束 $G \hookrightarrow P \xrightarrow{\pi} \mfdcal{M}{d}$ を与える．
+    このとき $P$ の\hyperref[prop:connection-functor]{関手としての接続}
+    \begin{align}
+        \Gamma \colon \PATH{\mfdcal{M}{d}} \lto \VECT
+    \end{align}
+    が\textbf{平坦接続} (flat connection) であるとは，
+    互いにホモトピックな任意の $\sigma,\, \sigma' \in \Hom{\PATH{\mfdcal{M}{d}}}$ に対して
+    \begin{align}
+        \Gamma(\sigma) = \Gamma(\sigma')
+    \end{align}
+    が成り立つことを言う．
+\end{mydef}
+
+これまでの議論から，\underline{連結な} $\mfdcal{M}{d}$ 上の\hyperref[def:flat-connection-homotopy]{平坦接続}のモジュライ空間は
+\begin{align}
+    \label{eq:modulispace-of-flatconnection}
+    \Hom{\GRP} \bigl( \pi_1(\mfdcal{M}{d}),\, G \bigr)/G
+\end{align}
+であることが分かった．ただし $G$ 作用 $g \lmto g^{-1} (\mhyphen) g$ によって商をとり，ゲージ変換\eqref{eq:gauge-transform-trivial}の冗長性を排除した．
+
+\subsection{単体的}
+
 \subsection{トポロジカルなゲージ理論：Lie群の場合}
 
-時空が $2+1$ 次元の閉多様体 $\mfdcal{M}{3}$ であるとする．
+時空が $2+1$ 次元の\underline{連結な}閉多様体 $\mfdcal{M}{3}$ であるとする．
 Lie群 $G$ がコンパクトかつ単連結ならば，$\mfdcal{M}{3}$ 上の任意の主束は自明束と同型になり，Chern-Simons形式を大域的に定義することができる．しかし，$G$ が一般のコンパクトLie群である場合にはそう上手くいかない．
 これを解決する方法としては，$\mfdcal{M}{3}$ を境界に持つ4次元多様体 $\mfdcal{N}{4}$ を持ってきて，
 \begin{align}
@@ -1919,13 +2026,41 @@ Lie群 $G$ がコンパクトかつ単連結ならば，$\mfdcal{M}{3}$ 上の�
 
 \subsection{トポロジカルなゲージ理論：有限群の場合}
 
-ゲージ群 $G$ が有限群の場合，主束 $G \hookrightarrow P \xrightarrow{\pi} \mfdcal{M}{3}$ の接続は平坦\footnote{i.e. 曲率が大域的に $0$}である．このことは，$\pi_1(\mfdcal{M}{3})$ の非自明な元に対応する\hyperref[def:holonomy]{ホロノミー}のみが非自明な値をとることを意味する．
-このとき，命題\ref{prop:classifying-space-Kpi1}から，\hyperref[prop:universal-basic]{分類写像} $\gamma \colon \mfdcal{M}{3} \lto BG$ は群準同型 $\gamma_* \colon \pi_1(\mfdcal{M}{3}) \lto \pi_1(BG) \cong G$ と1対1対応するので，分配関数は
+ここからは $d$ 次元の\underline{連結な}時空 $\mfdcal{M}{d}$ を考える．
+ゲージ群 $G$ が有限群\footnote{離散位相を入れて位相群と見做す．}の場合，主束 $G \hookrightarrow P \xrightarrow{\pi} \mfdcal{M}{d}$ の接続は
+一意に決まる
+% \hyperref[def:flat-connection-homotopy]{平坦}である
+\footnote{
+    % 局所自明性を充たす $\mfdcal{M}{d}$ のgood cover $\Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$ をとると，$G$ は離散位相を持つので変換関数 $g_{\alpha\beta} \colon U_\alpha \cap U_\beta \lto G$ は定数写像となり，貼り合わせは容易である．
+    % よって一つの $U_\alpha$ の上で考えることにしよう．このとき，勝手な $g \in G$ に対して全空間 $U_\alpha \times G$ の上の分布
+    直観的には，ファイバー方向の接空間，i.e. \hyperref[def:connection]{垂直部分空間}が $0$ 次元になると考える．
+}．
+さらにこの主束は被覆空間になるので，$\forall \sigma \in \Hom{\PATH{\mfdcal{M}{d}}}(x,\, x)$ は $x$ のファイバー内の点 $u \in \pi^{-1}(\{x\})$ について一意的に $\tilde{\sigma} \in \Hom{\PATH{\mfdcal{M}{d}}}(u,\, \tilde{\sigma}(1))$ へ持ち上がり，$\tilde{\sigma}(1) \eqqcolon \tilde{\gamma}(0) \btl \gamma_P(\sigma)$ 
+を定める．$\mfdcal{M}{d}$ のホモトピーもまた $P$ 上に持ち上がり，結果として群準同型 $\gamma_P \colon \pi_1(\mfdcal{M}{d}) \lto G$ が定まる．
+始点 $u \in \pi^{-1}(\{x\})$ を $u \btl h$ に取り替えることは $\gamma_P(\sigma) \lmto h^{-1} \gamma_P(\sigma) h$ の変換を引き起こす．ここから
 \begin{align}
-    \label{eq:DW-partition-func}
-    Z(\mfdcal{M}{3}) \eqqcolon \frac{1}{\# G} \sum_{\gamma \in \Hom{\TOP} \bigl( \pi_1(\mfdcal{M}{3}),\, G \bigr) } e^{2\pi \iunit S[\gamma]} \WHERE S[\gamma] \coloneqq \expval{\gamma^* \alpha,\, [\mfdcal{M}{3}]}
+    \comm{\mfdcal{M}{d}}{BG} \overset{1:1}{\longleftrightarrow} \Hom{\GRP}\bigl( \pi_1(\mfdcal{M}{d}),\, G \bigr) / G
 \end{align}
-と定義される．ただし今の場合 $\Omega(F) = 0$ なので，単に $\alpha \in H^3(BG;\, \LU (1))$ とすれば良い．
+を示すことができる~\cite[p.4]{Freed_1993}．\eqref{eq:modulispace-of-flatconnection}と比較すると，結局
+\begin{align}
+    \{\mfdcal{M}{d}\;\text{上の主束の同型類}\}\overset{1:1}{\longleftrightarrow} \{\mfdcal{M}{d}\; \text{上の\hyperref[def:flat-connection-homotopy]{平坦接続}全体の集合}\}
+\end{align}
+であることが分かった．
+% ところで，\hyperref[prop:universal-basic]{普遍束の定義}から，$\mfdcal{M}{d}$ 上の主束の同型類全体の集合 $k_G (\mfdcal{M}{d})$ とホモトピー集合 $\comm{\mfdcal{M}{d}}{BG}$ は一対一対応するのだった．
+% 命題\ref{prop:classifying-space-Kpi1}およびEilenberg Mac-Lane空間の性質から $\comm{\mfdcal{M}{d}}{BG} = \comm{\mfdcal{M}{d}}{K(G,\, 1)}$ は $H^1(\mfdcal{M}{d};\, G)$ と一対一対応する．
+% 平坦\footnote{i.e. 曲率が大域的に $0$}である．このことは，$\pi_1(\mfdcal{M}{3})$ の非自明な元に対応する\hyperref[def:holonomy]{ホロノミー}のみが非自明な値をとることを意味する．
+% このとき，命題\ref{prop:classifying-space-Kpi1}から，\hyperref[prop:universal-basic]{分類写像} $\gamma \colon \mfdcal{M}{3} \lto BG$ は群準同型 $\gamma_* \colon \pi_1(\mfdcal{M}{3}) \lto G$ と1対1対応するので，分配関数は
+
+\begin{mydef}[label=def:Dijkgraaf-Witten]{Dijkgraaf-Witten理論}
+    \textbf{Dijkgraaf-Witten理論}を
+    % では有限群 $G$ をゲージ群に持つトポロジカルなゲージ理論の分配関数を
+    \begin{align}
+        \label{eq:DW-partition-func}
+        Z(\mfdcal{M}{d}) \eqqcolon \frac{1}{\# G} \sum_{\gamma \in \comm{\mfdcal{M}{d}}{BG}} e^{2\pi \iunit S[\gamma]} \WHERE S[\gamma] \coloneqq \expval{\gamma^* \alpha,\, [\mfdcal{M}{d}]}
+    \end{align}
+    と定義する．ここに $\alpha \in H^d(BG;\, \mathbb{R}/\mathbb{Z})$ である．
+\end{mydef}
+
 
 このままだと実用上不便なので，計算しやすい形に書きかえよう．$H^k(BG;\, \LU (1)) \cong \coGrp{k}{G;\, \LU(1)}$ であるから，結局\hyperref[def:group-cohomology]{群コホモロジー}を具体的に計算することになる．
 
@@ -1964,7 +2099,7 @@ $M$ を\hyperref[ax:G-mod]{$G$ 加群}とする．\hyperref[]{Milnor構成}を�
     g_{\sigma_1^{(1)}} g_{\sigma_1^{(2)}} g_{\sigma_1^{(3)}} = \gamma(\sigma^{(1)}_1 \cup \sigma^{(2)}_1 \cup \sigma^{(3)}_1) = 1
 \end{align}
 にならなくてはいけない．
-このとき任意の3単体 $\sigma_3 \in \mathcal{T}$ に対して $\alpha \in \coGrp{3}{BG,\, \LU(1)}$ は $W(\sigma_3) \in \LU(1)$ を対応づけることができる．つまり，任意の3単体 $\sigma^{(i)}_3$ を四面体と見做したとき，その6つある辺のうち3つが $\gamma$ によって $g_i,\, h_i,\, k_i \in G$ と同定されていれば\eqref{eq:cocycle-discrete}から残りの3辺も決定できるということであり，$W(\sigma_3^{(i)}) \coloneqq \alpha (g_i,\, h_i,\, k_i) \in \LU(1)$ として定まる．
+このとき任意の3単体 $\sigma_3 \in \mathcal{T}$ に対して $\alpha \in \coGrp{3}{G,\, \LU(1)}$ は $W(\sigma_3) \in \LU(1)$ を対応づけることができる．つまり，任意の3単体 $\sigma^{(i)}_3$ を四面体と見做したとき，その6つある辺のうち3つが $\gamma$ によって $g_i,\, h_i,\, k_i \in G$ と同定されていれば\eqref{eq:cocycle-discrete}から残りの3辺も決定できるということであり，$W(\sigma_3^{(i)}) \coloneqq \alpha (g_i,\, h_i,\, k_i) \in \LU(1)$ として定まる．
 $\abs{\mathcal{T}} = \bigcup_{\sigma_3 \in \mathcal{T}} \sigma_3$ であり，３単体 $\sigma_3^{(i)}$ の向きを特徴付ける $\epsilon_i \in \{\pm 1\}$ を使って
 \begin{align}
     [M] = \sum_i \epsilon_i \gamma(\sigma_3^{(i)})
@@ -1986,7 +2121,7 @@ $\abs{\mathcal{T}} = \bigcup_{\sigma_3 \in \mathcal{T}} \sigma_3$ であり，�
 
 \section{$BF$-理論}
 
-Dijkgraaf-Witten理論以外の離散的かつトポロジカルなゲージ場の理論として，\textbf{$BF$-理論}が知られている．
+% Dijkgraaf-Witten理論以外の離散的かつトポロジカルなゲージ場の理論として，\textbf{$BF$-理論}が知られている．
 
 % 構造群 $G$ が離散群の場合のゲージ理論を，具体例によって雑に導入する．\hyperref[def.PFD]{主束}による構成を拡張して一般論を展開することもできる．
 
