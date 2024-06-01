@@ -1982,20 +1982,26 @@ i.e. 変換関数 $g_{12} \colon M \lto P$ は，自然変換
 \end{align}
 であることが分かった．ただし $G$ 作用 $g \lmto g^{-1} (\mhyphen) g$ によって商をとり，ゲージ変換\eqref{eq:gauge-transform-trivial}の冗長性を排除した．
 
-\subsection{単体的}
+% \subsection{単体的}
 
 \subsection{トポロジカルなゲージ理論：Lie群の場合}
 
 時空が $2+1$ 次元の\underline{連結な}閉多様体 $\mfdcal{M}{3}$ であるとする．
-Lie群 $G$ がコンパクトかつ単連結ならば，$\mfdcal{M}{3}$ 上の任意の主束は自明束と同型になり，Chern-Simons形式を大域的に定義することができる．しかし，$G$ が一般のコンパクトLie群である場合にはそう上手くいかない．
+Lie群 $G$ がコンパクトかつ単連結ならば，$\mfdcal{M}{3}$ 上の任意の主束は自明束と同型になり，Chern-Simons作用
+\begin{align}
+    S[A] \coloneqq \frac{k}{8\pi^2} \int_{\mfdcal{M}{3}} \Tr \left( A\wedge A + \frac{2}{3} A \wedge A \wedge A \right) 
+\end{align}
+はwell-definedである．
+しかし，$G$ が一般のコンパクトLie群である場合にはそう上手くいかない．
+
 これを解決する方法としては，$\mfdcal{M}{3}$ を境界に持つ4次元多様体 $\mfdcal{N}{4}$ を持ってきて，
 \begin{align}
     S[A] \coloneqq \int_{\mfdcal{N}{4}} \Omega(F) = \frac{k}{8\pi^2} \int_{\mfdcal{N}{4}} \Tr \bigl[ F \wedge F \bigr] 
 \end{align}
-と定義することが考えられる．この $S[A]$ はChern指標の積分なので整数値を取り，トポロジカルなゲージ場の理論になっている．4次元多様体への拡張は一意ではないので作用は $\mod 1$ の不定性を持つが，分配関数はwell-definedになる．
-しかし，この構成が可能であるためには任意の $\mfdcal{M}{3}$ 上の主束 $G \hookrightarrow P \xrightarrow{\pi} \mfdcal{M}{3}$ に対して，$\mfdcal{N}{4}$ 上の主束 $G \hookrightarrow P' \xrightarrow{\pi'} \mfdcal{N}{4}$ であって，$\partial \mfdcal{N}{4} = \mfdcal{M}{3}$ への制限 $P|_{\partial \mfdcal{N}{4}} = P$ を充たすようなものが存在しなくてはいけない．
-この拡張の障害となるのが，\hyperref[prop:universal-basic]{分類写像} $\gamma \colon \mfdcal{M}{3} \lto BG$ の誘導準同型による $\mfdcal{M}{3}$ の基本類 $[\mfdcal{M}{3}] \in H_3(\mfdcal{M}{3};\, \mathbb{Z})$ の像 $\gamma_* [\mfdcal{M}{3}] \in H_3(BG;\, \mathbb{Z})$ である．もし $\gamma_* [\mfdcal{M}{3}] = 0$ なら拡張が可能だが，そうでないときは不可能ということになる．
-しかしながら，命題\ref{prop:group-cohomology}-(2) と普遍係数定理\eqref{eq:univ-coeff}により$H_3 (BG;\, \mathbb{Z}) \cong \Grp{3}{G;\, \mathbb{Z}} \cong \Tor^{\mathbb{Z}}_1 \bigl( H_2(X;\, \mathbb{Z}),\, \mathbb{Z} \bigr)$ であるから，ある $n \in \mathbb{Z}_{> 0}$ が存在して
+と定義することが考えられる．この $S[A]$ はChern指標\footnote{\hyperref[thm:Chern-Weil]{Chern-Weilの定理}からこれは大域的にwell-deifnedである．}の積分なので整数値を取り，トポロジカルなゲージ場の理論になっている．4次元多様体への拡張は一意ではないので作用は $\mod 1$ の不定性を持つが，分配関数はwell-definedになる．
+しかし，この構成が可能であるためには任意の $\mfdcal{M}{3}$ 上の主束 $G \hookrightarrow P \xrightarrow{\pi} \mfdcal{M}{3}$ に対して，$\mfdcal{N}{4}$ 上の主束 $G \hookrightarrow P' \xrightarrow{\pi'} \mfdcal{N}{4}$ であって，$\partial \mfdcal{N}{4} = \mfdcal{M}{3}$ への制限 $P'|_{\partial \mfdcal{N}{4}} = P$ を充たすようなものが存在しなくてはいけない．
+この拡張の障害となるのが，\hyperref[prop:universal-basic]{分類写像} $\gamma \colon \mfdcal{M}{3} \lto BG$ の誘導準同型による $\mfdcal{M}{3}$ の基本類 $[\mfdcal{M}{3}] \in H_3(\mfdcal{M}{3};\, \mathbb{Z})$ の像 $\gamma_* [\mfdcal{M}{3}] \in H_3(BG;\, \mathbb{Z})$ である\footnote{厳密にはボルディズム群を考えなくてはいけない．}．もし $\gamma_* [\mfdcal{M}{3}] = 0$ なら拡張が可能だが，そうでないときは不可能ということになる．
+しかしながら，命題\ref{prop:group-cohomology}-(2) よりコンパクトLie群の奇数次のホモロジーは捻れ元 (torsion element) のみから成るので，ある $n \in \mathbb{Z}_{> 0}$ が存在して
 \begin{align}
     n \cdot \gamma_* [\mfdcal{M}{3}] = 0
 \end{align}
@@ -2043,7 +2049,7 @@ Lie群 $G$ がコンパクトかつ単連結ならば，$\mfdcal{M}{3}$ 上の�
 \end{align}
 を示すことができる~\cite[p.4]{Freed_1993}．\eqref{eq:modulispace-of-flatconnection}と比較すると，結局
 \begin{align}
-    \{\mfdcal{M}{d}\;\text{上の主束の同型類}\}\overset{1:1}{\longleftrightarrow} \{\mfdcal{M}{d}\; \text{上の\hyperref[def:flat-connection-homotopy]{平坦接続}全体の集合}\}
+    \bigl\{\,\mfdcal{M}{d}\;\text{上の主束の同型類}\,\bigr\}\overset{1:1}{\longleftrightarrow} \bigl\{\,\mfdcal{M}{d}\; \text{上の\hyperref[def:flat-connection-homotopy]{平坦接続}全体の集合}\,\bigr\}
 \end{align}
 であることが分かった．
 % ところで，\hyperref[prop:universal-basic]{普遍束の定義}から，$\mfdcal{M}{d}$ 上の主束の同型類全体の集合 $k_G (\mfdcal{M}{d})$ とホモトピー集合 $\comm{\mfdcal{M}{d}}{BG}$ は一対一対応するのだった．
@@ -2078,7 +2084,7 @@ $M$ を\hyperref[ax:G-mod]{$G$ 加群}とする．\hyperref[]{Milnor構成}を�
 \begin{align}
     \cdots \xrightarrow{\delta^k} \irm{C}{Grp}^k (G;\, M) \xrightarrow{\delta^{k+1}} \irm{C}{Grp}^{k+1} (G;\, M) \xrightarrow{\delta^{k+2}} \cdots
 \end{align}
-はコチェイン複体を成す．この複体のコホモロジー類をとることで $\coGrp{k}{G;\, M}$ が得られる\footnote{\hyperref[def:group-cohomology]{群コホモロジーの定義}からこの表式を得ることもできるが，$\mathbb{Z}$ の $\mathbb{Z}[G]$ 加群としての射影的分解を構成するのが少し手間である．}
+はコチェイン複体を成す．この複体のコホモロジー類をとることで $\coGrp{k}{G;\, M}$ が得られる\footnote{\hyperref[def:group-cohomology]{群コホモロジーの定義}からこの表式を得ることもできるが，$\mathbb{Z}$ の $\mathbb{Z}[G]$ 加群としての射影的分解を構成するのが少し手間である．}．
 コチェインを別の表示で書くこともできる：
 \begin{align}
     \alpha(g_1,\, \dots,\, g_n) \coloneqq \omega(1,\, g_1,\, g_1g_2,\, \dots,\, g_1 \cdots g_n)
@@ -2090,8 +2096,65 @@ $M$ を\hyperref[ax:G-mod]{$G$ 加群}とする．\hyperref[]{Milnor構成}を�
 \end{align}
 と作用する．
 
-群コホモロジーの表式を使って分配関数を計算するには，まず $\mfdcal{M}{3}$ の三角形分割 $\abs{\mathcal{T}} \lto \mfdcal{M}{3}$ をとる．さらに $\mfdcal{M}{3}$ は連結\footnote{このとき多様体なので弧状連結になる}だとしよう．
-すると，$BG$ の基点 $\mathrm{pt} \in BG$ を１つ固定することで，\hyperref[prop:universal-basic]{分類写像} $\gamma \colon M \lto BG$ をホモトピックに変形して，任意の0単体 $\sigma_0 \in \mathcal{T}$ を$\gamma[\sigma_0] = \mathrm{pt}$ に写すようにできる．
+群コホモロジーの表式を使って分配関数を計算するには，まず $\mfdcal{M}{d}$ の三角形分割 $\abs{\mathcal{T}} \lto \mfdcal{M}{d}$ をとる．
+\begin{mydef}[label=def:simplex-cat,breakable]{単体圏}
+    \begin{itemize}
+        \item $\forall n \in \mathbb{N} \cup \{0\}$ に対して，全順序付集合 $\bm{[n]} \coloneqq \{0,\, 1,\, \dots,\, n\}$ のことを $\bm{n}$\textbf{-単体} ($n$-simplex) と呼ぶ．
+        \item \textbf{単体圏} (simplex category) $\Delta$ とは，
+        \begin{itemize}
+            \item $\forall n \in \mathbb{N} \cup \{0\}$ に対して，$n$-単体 $[n]$ を対象とする．
+            \item 順序を保つ写像を射とする
+        \end{itemize}
+        圏のこと．
+    \end{itemize}
+    
+    \tcblower
+
+    特に $\Hom{\Delta} ([n-1],\, [n])$ の元のうち
+    \begin{align}
+        d_i \colon [n-1] \hookrightarrow [n],\; x \lmto 
+        \begin{cases}
+            x, &x < i \\
+            x+1 &x \ge i
+        \end{cases}
+        \WHERE i = 0,\, \dots,\, n
+    \end{align}
+    のことを\textbf{面写像} (face map) と呼び，
+    $\Hom{\Delta}([n+1],\, [n])$ の元のうち
+    \begin{align}
+        s_i \colon [n+1] \twoheadrightarrow [n],\; x \lmto 
+        \begin{cases}
+            x, &x \le i \\
+            x-1 &x > i
+        \end{cases}
+        \WHERE i=0,\, \dots,\, n
+    \end{align}
+    のことを\textbf{縮退写像} (degeneracy map) と呼ぶ．
+\end{mydef}
+
+\begin{mydef}[label=def:simplicial-sets,breakable]{単体的集合}
+    \textbf{単体的集合} (simplicial set)  とは，関手
+    \begin{align}
+        K \colon \OP{\Delta} \lto \SETS
+    \end{align}
+    のこと．
+
+    \tcblower
+
+    $K_n \coloneqq K([n])$ とおき，
+    $\partial_i \coloneqq K(d_i) \colon K_{n} \twoheadrightarrow K_{n-1}$ のことを\textbf{面写像}，$\sigma_i \coloneqq K(s_i) \colon K_n \hookrightarrow K_{n+1}$ のことを\textbf{縮退写像}と呼ぶ．これらは以下の\textbf{単体的恒等式} (simplicial identities) を充たす：
+    \begin{align}
+        \partial_i \circ \partial_i &= \partial_{j-1} \circ \partial_i&& (i<j), \\
+        \partial_i \circ \sigma_j &= \sigma_{j-1} \circ \partial_i && (i<j), \\
+        \partial_i \circ \sigma_i &= \mathrm{id} &&(0\le i \le n), \\
+        \partial_{i+1} \circ \sigma_i &= \mathrm{id} &&(0\le i \le n), \\
+        \partial_i \circ \sigma_j &= \sigma_j \circ \partial_{i-1} &&(i > j+1), \\
+        \sigma_i \circ \sigma_j &= \sigma_{j+1} \circ \sigma_i &&(i \le j)
+    \end{align}
+\end{mydef}
+
+簡単のため $d=3$ とする．
+$\mfdcal{M}{3}$ は連結だとしていたので，$BG$ の基点 $\mathrm{pt} \in BG$ を１つ固定することで，\hyperref[prop:universal-basic]{分類写像} $\gamma \colon M \lto BG$ をホモトピックに変形して，任意の0単体 $\sigma_0 \in \mathcal{T}$ を$\gamma[\sigma_0] = \mathrm{pt}$ に写すようにできる．
 すると，任意の1単体 $\sigma_1 \in \mathcal{T}$ は $\gamma(\sigma_1) \in \pi_1(BG,\, \mathrm{pt})$ と見做すことができるが，命題\ref{prop:classifying-space-Kpi1}より $\pi_1(BG,\, \mathrm{pt}) \cong G$ であるから，結局分類写像 $\gamma$ によって $\forall \sigma_1 \in \mathcal{T}$ と何かしらの $g_{\sigma_1} \in G$ が対応付く．この $g_{\sigma_1}$ は格子ゲージ理論におけるリンク変数（i.e. ゲージ場）と見做すと分かりやすい．
 しかるに，$G$ が有限群であることから主束の接続は平坦でなくてはいけない．そのため，もし $\sigma^{(1)}_1,\, \sigma^{(2)}_1,\, \sigma^{(3)}_1 \in \mathcal{T}$ がある2単体 $\sigma_2$ について $\partial(\sigma_2) = \sigma^{(1)}_1 \cup \sigma^{(2)}_1 \cup \sigma^{(3)}_1$ をみたすならば
 \begin{align}
