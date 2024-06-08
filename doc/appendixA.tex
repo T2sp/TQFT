@@ -27,8 +27,7 @@
 
 \chapter{コホモロジー}
 
-\section{層係数コホモロジー}
-
+$R$ を環とする．
 \begin{mydef}[label=def:good-cover]{良い被覆}
     位相空間 $X$ の開被覆 $\Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$ が\textbf{良い被覆} (good cover) であるとは，
     $\forall n \in \mathbb{N},\; \forall \alpha_1,\, \dots,\, \alpha_n \in \Lambda$ に対して
@@ -39,13 +38,287 @@
 \end{mydef}
 以下では $\bm{U_{\alpha_1 \dots \alpha_n}} \coloneqq U_{\alpha_1} \cap \cdots \cap U_{\alpha_n}$ と略記する．
 
+\section{層係数コホモロジー}
+
+位相空間 $X$ を1つ固定する．$X$ 上の\textbf{開集合の圏} $\bm{\mathbb{O}_X}$ を，
+\begin{itemize}
+    \item $X$ の開集合を対象とする
+    \item $X$ の任意の開集合 $U,\, V \subset X$ に対して
+    \begin{align}
+        \Hom{\mathbb{O}_X} (U,\, V)
+        \coloneqq \begin{cases}
+            \{\, \text{包含写像}\; U \hookrightarrow V \,\}, &U \subset V \\
+            \emptyset, &U \not\subset V
+        \end{cases}
+    \end{align}
+\end{itemize}
+と定義する．
+
 \begin{mydef}[label=def:presheaf]{前層}
-    $X$ を位相空間とする．$X$ の\textbf{前層} (presheaf) とは，
-    
+    位相空間 $X$ 上の，\underline{小圏} $\Cat{S}$ に値をとる\textbf{前層} (presheaf) とは，関手
+    \begin{align}
+        P \colon \OP{\OPEN{X}} \lto \Cat{S}
+    \end{align}
+    のこと\footnote{最も一般的には，関手 $P \colon \OP{\Cat{C}} \lto \Cat{S}$ のことを圏 $\Cat{C}$ 上の $\Cat{S}$ に値をとる前層と呼ぶ~\url{https://ncatlab.org/nlab/show/presheaf}}．
 \end{mydef}
+
+位相空間 $X$ 上の，圏 $\Cat{S}$ に値をとる\textbf{前層の圏} $\bm{\PSH{X}{\Cat{S}}}$ とは，
+\begin{itemize}
+    \item \hyperref[def:presheaf]{$\Cat{S}$ に値をとる前層}を対象とする．
+    \item $\Cat{S}$ に値をとる前層 $P,\, Q \colon \OP{\OPEN{X}} \lto \Cat{S}$ に対して，自然変換
+    \begin{align}
+        F \colon P \Longrightarrow Q
+    \end{align}
+    を射とする
+\end{itemize}
+圏のこと．
+
+\begin{myexample}[label=ex:constant-presheaf]{定数前層}
+    圏 $\Cat{S}$ の対象 $A$ に対して定まる\hyperref[def:presheaf]{前層}
+    \begin{align}
+        A_X \colon \OP{\OPEN{X}} &\lto \Cat{S}, \\
+        U &\lmto A, \\
+        (U \hookrightarrow V) &\lmto \mathrm{id}_{A}
+    \end{align}
+    のことを\textbf{定数前層} (constant presheaf) と呼ぶ．
+\end{myexample}
+
+\begin{myexample}[label=ex:presheaf-diff]{微分形式のなす前層}
+    $X$ を $C^\infty$ 多様体とする．このとき
+    \begin{align}
+        C^\infty_X \colon \OP{\OPEN{X}} &\lto \MOD{\mathbb{R}}, \\
+        U &\lmto C^\infty (U), \\
+        (\iota \circ U \hookrightarrow V) &\lmto \bigl( f \lmto f \circ \iota \bigr) 
+    \end{align}
+    なる対応は\hyperref[def:presheaf]{前層}である．同様に，$\forall q \in \mathbb{Z}_{\ge 0}$ に対して
+    \begin{align}
+        \Omega^q_X \colon \OP{\OPEN{X}} &\lto \MOD{\mathbb{R}}, \\
+        U &\lmto \Omega^q (U), \\
+        (\iota \colon U \hookrightarrow V) &\lmto \bigl( \omega \lmto \iota^* \omega \bigr) 
+    \end{align}
+    なる対応は\hyperref[def:presheaf]{前層}である．
+\end{myexample}
+% 位相空間 $X$ 上の\hyperref[def:presheaf]{前層}から別の位相空間 $Y$ 上の前層を構成する方法を導入する：
+
+% \begin{mydef}[label=def:direct-inverse]{順像・逆像}
+%     連続写像 $f \colon X \lto Y$ および $\colim$ が常に存在する圏 $\Cat{S}$ を与える．
+%     \begin{itemize}
+%         \item \hyperref[def:presheaf]{前層} $P \in \Obj{\PSH{X}{\Cat{S}}}$ に対して，
+%         \begin{itemize}
+%             \item 任意の $Y$ の開集合 $U \subset Y$ に対して，$\Cat{S}$ の対象 $f_p (P)(U) \coloneqq P\bigl(f^{-1}(U)\bigr)$ を対応づける
+%             \item $(U \hookrightarrow V) \in \Hom{\OPEN{Y}}(U,\, V)$ に対して，$\Cat{S}$ の射 $P \bigl( f^{-1}(U) \hookrightarrow f^{-1}(V) \bigr) \in \Hom{\Cat{S}} \bigl( f_p(P)(U),\, f_p(P)(V) \bigr)$  を対応付ける
+%         \end{itemize}
+%         \hyperref[def:presheaf]{前層}
+%         \begin{align}
+%             f_p(P) \colon \OP{\OPEN{Y}} \lto \Cat{S}
+%         \end{align}
+%         のことを $P$ の\textbf{順像} (direct image) と呼ぶ．
+%         \item 
+%     \end{itemize}
+    
+% \end{mydef}
+
+\begin{mydef}[label=def:sheaf]{層}
+    \hyperref[def:presheaf]{前層} $P \in \Obj{\PSH{X}{\Cat{S}}}$ が\textbf{層} (sheaf) であるとは，
+    \begin{itemize}
+        \item $X$ の任意の開集合 $U \subset X$ および $U$ の開被覆 $\Familyset[\big]{U_\alpha}{\alpha\in \Lambda}$ 
+        \item 任意の族 $\Familyset[\big]{x_\alpha \in P(U_\alpha)}{\alpha \in \Lambda}$ であって，$\forall \alpha,\, \beta \in \Lambda$ に対して
+        \begin{align}
+            P(U_\alpha \cap U_\beta \hookrightarrow U_\alpha)(x_\alpha) = P(U_\alpha \cap U_\beta \hookrightarrow U_\beta)(x_\beta)
+        \end{align}
+        を充たすもの
+    \end{itemize}
+    に対して，$x \in P(U)$ が\underline{一意的に}存在して
+    \begin{align}
+        \forall \alpha \in \Lambda,\; P(U_\alpha \hookrightarrow U)(x) = x_\alpha
+    \end{align}
+    を充たすこと．
+\end{mydef}
+
+位相空間 $X$ 上の，圏 $\Cat{S}$ に値をとる\textbf{層の圏} $\bm{\SH{X}{\Cat{S}}}$ とは，
+\begin{itemize}
+    \item \hyperref[def:sheaf]{$\Cat{S}$ に値をとる層}を対象とする．
+    \item $\Cat{S}$ に値をとる層 $P,\, Q \colon \OP{\OPEN{X}} \lto \Cat{S}$ に対して，自然変換
+    \begin{align}
+        F \colon P \Longrightarrow Q
+    \end{align}
+    を射とする
+\end{itemize}
+圏のこと．$\Cat{S}$ がアーベル圏のとき，圏 $\SH{X}{\Cat{S}}$ もまたアーベル圏である~\cite[p.298, 命題4.30]{Shiho2016}．
+
+$X$ を位相空間とする．
+加法的関手
+\begin{align}
+    \label{eq:additive-sheaf}
+    A \colon \SH{X}{\MOD{R}} \lto \MOD{R}
+\end{align}
+を，
+\begin{itemize}
+    \item 任意の\hyperref[def:sheaf]{層} $P \in \Obj{\SH{X}{\MOD{R}}}$ に対して $R$-加群 $P(X) \in \Obj{\MOD{R}}$ を対応付ける
+    \item 層 $P,\, Q \in \Obj{\SH{X}{\MOD{R}}}$ の間の任意の自然変換 $F \colon P \Longrightarrow Q$ に対して，$R$-加群の準同型 $F_X \colon P(X) \lto Q(X)$ を対応付ける
+\end{itemize}
+関手として定義する．
+
+\begin{mydef}[label=def:sheaf-cohomology]{層係数コホモロジー}
+    加法的関手\eqref{eq:additive-sheaf}の右導来関手を $\Dpmember[\big]{H^n(X,\, \mhyphen)}{n \in \mathbb{Z}_{\ge 0}}$ と書く．
+    \hyperref[def:sheaf]{層} $P \in \Obj{\SH{X}{\MOD{R}}}$ を係数とする位相空間 $X$ の\textbf{層係数コホモロジー} (sheaf cohomology) とは，
+    \begin{align}
+        H^n(X,\, P)
+    \end{align}
+    のこと．
+\end{mydef}
+
+\section{\v{C}echコホモロジー}
+
+位相空間 $X$ および\hyperref[def:presheaf]{前層} $P \in \Obj{\PSH{X}{\MOD{R}}}$ を与える．
+
+$X$ の開被覆 $\mathcal{U} \coloneqq \Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$ をとる．
+$\forall n \in \mathbb{Z}_{\ge 0}$ に対して
+\begin{align}
+    \label{def:Cech-complex}
+    \check{C}^n (\mathcal{U},\, P) \coloneqq \prod_{(\alpha_0,\, \dots,\, \alpha_n) \in \Lambda^{n+1}} P(U_{\alpha_0 \dots  \alpha_n})
+\end{align}
+と定義し，
+\begin{align}
+    \label{def:Cech-cobaundarymap}
+    \delta^{n+1} \colon \check{C}^{n}(\mathcal{U},\, P) &\lto \check{C}^{n+1}(\mathcal{U},\, P),\\
+    \Dpmember[\big]{x_{\alpha_0 \dots \alpha_n}}{(\alpha_0,\, \dots,\, \alpha_n)} 
+    &\lmto \left(\sum_{j=0}^{n+1} (-1)^j P(U_{\alpha_0 \dots \alpha_{n+1}} \hookrightarrow U_{\alpha_0 \dots \hat{\alpha_j} \dots \alpha_{n+1}})(x_{\alpha_0 \dots \hat{\alpha_j} \dots \alpha_{n+1}})\right)_{(\alpha_0,\, \dots,\, \alpha_{n+1})}
+\end{align}
+と定義すると $\delta^{n+1} \circ \delta^n = 0$ であるから，$\MOD{R}$ の図式
+\begin{align}
+    \cdots \xrightarrow{\delta^{n-1}} \check{C}^{n-1} (\mathcal{U},\, P) \xrightarrow{\delta^n} \check{C}^n (\mathcal{U},\, P) \xrightarrow{\delta^{n+1}} \check{C}^{n+1}(\mathcal{U},\, P) \xrightarrow{\delta^{n+2}} \cdots
+\end{align}
+はコチェイン複体である．この複体を\textbf{\v{C}ech複体}と呼ぶ．
+
+\begin{mydef}[label=def:cech-cohomology]{\v{C}echコホモロジー}
+    \v{C}ech複体 $\bigl( \check{C}^\bullet (\mathcal{U},\, P),\; \delta^\bullet \bigr)$ のコホモロジーのことを
+    $X$ の開被覆 $\mathcal{U}$ に関する $P$ 係数\textbf{\v{C}echコホモロジー}と呼び，
+    $\bm{\Cech{\bullet}{\mathcal{U},\, P}}$ と書く．
+\end{mydef}
+
+
+
+\begin{myexample}[label=ex:Cech-deRham]{\v{C}ech-de Rham複体}
+    $X$ を $C^\infty$ 多様体とし，$X$ の開被覆 $\mathcal{U}$ をとる．
+    \exref{ex:presheaf-diff}において導入した前層 $\Omega^q_X \colon \OP{\OPEN{X}} \lto \MOD{\mathbb{R}}$ について，複体
+    $\bigl( \check{C}^\bullet(\mathcal{U},\, \Omega^q_X),\; \delta^\bullet \bigr)$ のことを\textbf{\v{C}ech-de Rham複体}と呼ぶ．$\delta \colon \check{C}^{n}(\mathcal{U},\, \Omega^l_X)$ の定義\eqref{def:Cech-cobaundarymap}に \underline{$(-1)^{l}$ をつける}ことで，これは二重複体の構造\footnote{$(-1)^l$ の因子は $\dd{\delta} + \delta \dd = 0$ を成り立たせるために必要である．}を持つ：
+    \begin{center}
+        \begin{tikzcd}[row sep=large, column sep=large]
+            &\check{C}^0(\mathcal{U},\, \Omega^0_X) \ar[r, "\dd"]\ar[d, "\delta"] &\check{C}^0(\mathcal{U},\, \Omega^1_X) \ar[r, "\dd"]\ar[d, "\delta"] &\cdots \ar[r, "\dd"] &\check{C}^0(\mathcal{U},\, \Omega^{\dim X}_X) \ar[r] \ar[d, "\delta"] &0 \\
+            &\check{C}^1(\mathcal{U},\, \Omega^0_X) \ar[r, "\dd"]\ar[d, "\delta"] &\check{C}^1(\mathcal{U},\, \Omega^1_X) \ar[r, "\dd"]\ar[d, "\delta"] &\cdots \ar[r, "\dd"] &\check{C}^1(\mathcal{U},\, \Omega^{\dim X}_X) \ar[r] \ar[d, "\delta"] &0 \\
+            &\check{C}^2(\mathcal{U},\, \Omega^0_X) \ar[r, "\dd"]\ar[d, "\delta"] &\check{C}^2(\mathcal{U},\, \Omega^1_X) \ar[r, "\dd"]\ar[d, "\delta"] &\cdots \ar[r, "\dd"] &\check{C}^2(\mathcal{U},\, \Omega^{\dim X}_X) \ar[r] \ar[d, "\delta"] &0 \\
+            & \vdots &\vdots & &\vdots &
+        \end{tikzcd}
+    \end{center}
+    
+\end{myexample}
+
+\begin{myprop}[label=prop:Cech-good-cover]{良い被覆に関する\v{C}echコホモロジー}
+    \hyperref[ex:constant-presheaf]{定数前層} $\mathbb{R}_X \colon \OPEN{X} \lto \MOD{\mathbb{R}}$ について，
+    もし $\mathcal{U}$ が\hyperref[def:good-cover]{良い被覆}ならば
+    \begin{align}
+        \dR{\bullet}{X;\, \mathbb{R}} \cong \Cech{\bullet}{\mathcal{U};\, \mathbb{R}_X}
+    \end{align}
+    が成り立つ．
+\end{myprop}
+
+\begin{proof}
+    
+\end{proof}
+
 
 \section{Deligne-Beilinsonコホモロジー}
 
+一般論には立ち入らず，\cite[p.21, Appendix A]{Bauer2005DB}を参考に，本文中で必要になる最小限だけDeligne-Beilinsonコホモロジーを導入する．
 
+$C^\infty$ 多様体 $X$ とその開被覆 $\mathcal{U}$ を一つ固定する．
+まず，\hyperref[ex:Cech-deRham]{\v{C}ech-de Rham複体}のde Rham複体成分を次数 $-1$ に拡張する：
+\begin{align}
+    \label{def:Cech-complex-1}
+    \check{C}^{n} (\mathcal{U},\, \Omega^{-1}_X) \coloneqq \check{C}^n (\mathcal{U},\, \mathbb{Z}_X)
+\end{align}
+ただし $\mathbb{Z}_X$ は圏 $\MOD{\mathbb{R}}$ の\hyperref[ex:constant-presheaf]{定数前層}である．そして
+\begin{align}
+    \dd_{-1} \colon \check{C}^{n} (\mathcal{U},\, \Omega^{-1}_X) &\lto \check{C}^{n} (\mathcal{U},\, \Omega^{0}_X), \\
+    \Dpmember[\big]{c_{\alpha_0 \dots \alpha_n}}{(\alpha_0,\, \dots ,\, \alpha_n)} &\lmto \Dpmember[\big]{(x \lmto c_{\alpha_0 \dots \alpha_n})}{(\alpha_0,\, \dots ,\, \alpha_n)}
+\end{align}
+と定義することで，二重複体
+\begin{center}
+    \begin{tikzcd}[row sep=large, column sep=large]
+        &\check{C}^0(\mathcal{U},\, \Omega^{-1}_X) \ar[r, "\dd_{-1}"]\ar[d, "\delta"] &\check{C}^0(\mathcal{U},\, \Omega^0_X) \ar[r, "\dd"]\ar[d, "\delta"] &\check{C}^0(\mathcal{U},\, \Omega^1_X) \ar[r, "\dd"]\ar[d, "\delta"] &\cdots \ar[r, "\dd"] &\check{C}^0(\mathcal{U},\, \Omega^{\dim X}_X) \ar[r] \ar[d, "\delta"] &0 \\
+        &\check{C}^1(\mathcal{U},\, \Omega^{-1}_X) \ar[r, "\dd_{-1}"]\ar[d, "\delta"] &\check{C}^1(\mathcal{U},\, \Omega^0_X) \ar[r, "\dd"]\ar[d, "\delta"] &\check{C}^1(\mathcal{U},\, \Omega^1_X) \ar[r, "\dd"]\ar[d, "\delta"] &\cdots \ar[r, "\dd"] &\check{C}^1(\mathcal{U},\, \Omega^{\dim X}_X) \ar[r] \ar[d, "\delta"] &0 \\
+        &\check{C}^2(\mathcal{U},\, \Omega^{-1}_X) \ar[r, "\dd_{-1}"]\ar[d, "\delta"] &\check{C}^2(\mathcal{U},\, \Omega^0_X) \ar[r, "\dd"]\ar[d, "\delta"] &\check{C}^2(\mathcal{U},\, \Omega^1_X) \ar[r, "\dd"]\ar[d, "\delta"] &\cdots \ar[r, "\dd"] &\check{C}^2(\mathcal{U},\, \Omega^{\dim X}_X) \ar[r] \ar[d, "\delta"] &0 \\
+        &\vdots & \vdots &\vdots & &\vdots &
+    \end{tikzcd}
+\end{center}
+を得る．ここから，ある $0 \le p \le \dim X + 1$ に対して
+\begin{align}
+    \irm{C}{D}{}_{p}^q 
+    &\coloneqq 
+    \begin{cases}
+        \bigoplus_{n+m = q-1} \check{C}^{n}(\mathcal{U},\, \Omega^{m}_X), &0 \le q \le p \\
+        \bigoplus_{\substack{n+m = p-1,\\ m \le p-1}} \check{C}^{n}(\mathcal{U},\, \Omega^{m}_X), &0 \le q > p
+    \end{cases}
+\end{align}
+と定義し $D \coloneqq \dd + (-1)^{\deg}\delta$ とおくと，図式
+\begin{align}
+    \cdots \xrightarrow{D} \irm{C}{D}{}_{p}^q  \xrightarrow{D} \irm{C}{D}{}_{p}^{q+1} \xrightarrow{D} \cdots
+\end{align}
+はコチェイン複体になる．
+
+\begin{mydef}[label=def:Deligne-Beilinson]{Deligne-Beilinsonコホモロジー}
+    $0 \le p \le \dim X + 1$ を与える．
+    
+    上述の複体 $\bigl( \irm{C}{D}{}_{p}^\bullet,\; \mathcal{U},\; D \bigr)$ を開被覆 $\mathcal{U}$ に関する\textbf{Deligne-Beilinson複体}，
+    そのコホモロジーを\textbf{Deligne-Beilinsonコホモロジー}と呼ぶ．
+    記号として $\bm{\DB{\bullet}{\irm{C}{D}{}_p,\, \mathcal{U}}}$ と書く．
+\end{mydef}
+
+標準的射影 $\pi^q \colon \irm{C}{D}{}_{p}^q \lto \check{C}^q(\mathcal{U},\, \Omega_X^{-1})$ はチェイン写像
+\begin{center}
+    \begin{tikzcd}[row sep=large, column sep=large]
+        &\cdots \ar[r, "D"]\ar[d,"\pi"] &\irm{C}{D}{}_{p}^q \ar[r, "D"]\ar[d,"\pi"] &\irm{C}{D}{}_{p}^{q+1} \ar[r, "D"]\ar[d, "\pi"] &\cdots \\
+        &\cdots \ar[r, "\delta"] &\irm{C}{D}{}_{p}^q \ar[r, "\delta"] &\irm{C}{D}{}_{p}^{q+1} \ar[r, "\delta"] &\cdots
+    \end{tikzcd}
+\end{center}
+となるので，誘導準同型
+\begin{align}
+    \DB{q}{\irm{C}{D}{}_p,\, \mathcal{U}} \lto \Cech{q}{\mathcal{U},\, \mathbb{Z}_X}
+\end{align}
+がある．
+
+\begin{myprop}[label=prop:Deligne-Beilinson]{Deligne-Beilinsonコホモロジーと\v{C}echコホモロジー}
+    $0 \le p \le \dim X + 1$ を与える．
+    \begin{enumerate}
+        \item $q < p$ ならば
+        \begin{align}
+            \DB{q}{\irm{C}{D}{}_p,\, \mathcal{U}} \cong \Cech{q-1}{\mathcal{U},\, \mathbb{R}/\mathbb{Z}}
+        \end{align}
+        \item $q > p$ ならば
+        \begin{align}
+            \DB{q}{\irm{C}{D}{}_p,\, \mathcal{U}} \cong \Cech{q-1}{\mathcal{U},\, \mathbb{Z}}
+        \end{align}
+        \item $q=p$ ならば，$\mathbb{Z}$ 加群の完全列
+        \begin{align}
+            0 \lto \Bigl\{ \substack{\text{closed global}\, (p-1)\text{-forms} \\ \text{with integral periods}} \Bigr\} \lto \Omega^{p-1}(X;\, \mathbb{R}) \lto \DB{p}{\irm{C}{D}{}_p,\, \mathcal{U}} \lto \Cech{p}{\mathcal{U},\, \mathbb{Z}} \quad (\text{exact})
+        \end{align}
+        が成り立つ．
+    \end{enumerate}
+\end{myprop}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+\end{proof}
+
+\begin{myprop}[label=prop:DB-good-cover]{良い被覆に関するDeligne-Beilinsonコホモロジー}
+    $\DB{\bullet}{\irm{C}{D}{}_p,\, \mathcal{U}}$ は\hyperref[def:good-cover]{良い被覆} $\mathcal{U}$ の取り方によらない．
+\end{myprop}
+
+\begin{proof}
+    
+\end{proof}
 
 \end{document}

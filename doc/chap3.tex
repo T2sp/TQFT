@@ -1436,7 +1436,7 @@ Lie群 $G$ で特徴づけられる $0$-form symmetryの場合を考える．on 
 
 \section{Dijkgraaf-Witten理論}
 
-$(2+1)$-次元の離散的ゲージ理論として知られるDijkgraaf-Witten理論~\cite{DijkgraafWitten1989}を導入する．
+離散的ゲージ理論\footnote{ゲージ場は $1$ 形式である．}として知られるDijkgraaf-Witten理論~\cite{DijkgraafWitten1989}を導入する．
 
 \subsection{普遍束}
 
@@ -2182,22 +2182,86 @@ $\abs{\mathcal{T}} = \bigcup_{\sigma_3 \in \mathcal{T}} \sigma_3$ であり，�
     であるが，最左辺は $\Sigma_g \times S^1$ の具体的な三角形分割をとることで\eqref{eq:DW-action}を使って計算できるのである．
 \end{myexample}
 
-\section{$BF$-理論}
+\section{離散的高次ゲージ理論}
 
-% Dijkgraaf-Witten理論以外の離散的かつトポロジカルなゲージ場の理論として，\textbf{$BF$-理論}が知られている．
+\hyperref[def:Dijkgraaf-Witten]{Dijkgraaf-Witten理論}は離散的ゲージ理論だが，そこで登場したゲージ場は依然として1形式のものだった．
+これをhigher gauge theoryに拡張するために，新たなゲージ場の表式を導入する．
 
-% 構造群 $G$ が離散群の場合のゲージ理論を，具体例によって雑に導入する．\hyperref[def.PFD]{主束}による構成を拡張して一般論を展開することもできる．
+\subsection{Deligne-Beilinsonコサイクルとしての $\LU (1)$ ゲージ場}
 
-% \begin{myexample}[label=def:Zn-gauge-theory]{$\mathbb{Z}_N$ ゲージ理論}
-%     $\mathbb{Z}_N$ は $\LU(1)$ の離散部分群なので，$\LU(1)$ ゲージ理論の枠組みをそのまま使うことができる．
+$d = D+1$ 次元時空 $\mfdcal{M}{d}$ を考える．$\mfdcal{M}{d}$ の\hyperref[def:good-cover]{良い被覆} $\mathcal{U} \coloneqq \Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$ を1つ固定する．
 
-%     主 $\LU(1)$ 束 $P$ の\hyperref[def:connection]{接続形式} $\omega \in \Omega^{1}(P;\, \mathfrak{g})$ が\textbf{$\bm{\mathbb{Z}_N}$ 接続}であるとは，その\hyperref[def:holonomy]{ホロノミー群}が $\forall u \in P$ において $\mathrm{Hol}_u(P,\, \omega) \subset \mathbb{Z}_N$ になっていることを言う．
-%     補題\ref{lem:horizontal-lift-curve}より，これは\hyperref[thm:local-connection]{ゲージ場} $A \in \Omega(U;\, \mathfrak{g})$ により局所的に
-%     \begin{align}
-%         \forall u \in P,\; \forall \gamma \in \Omega_{\pi(u)},\;  \exp \left( \iunit \int_{\gamma} A\right) \in \mathbb{Z}_N
-%     \end{align}
-%     とかける．
-% \end{myexample}
+$\mfdcal{M}{d}$ 上の $\LU(1)$ 束 $\LU(1) \hookrightarrow P \xrightarrow{\pi} \mfdcal{M}{d}$ を考える．
+命題\ref{prop.cocycle}より，$P$ の同型類は変換関数の族 $\Familyset[\big]{g_{\alpha\beta} \colon U_{\alpha\beta} \lto \LU(1)}{\alpha,\, \beta \in \Lambda}$ であって，コサイクル条件
+\begin{align}
+    \forall x \in U_{\alpha_0\alpha_1\alpha_2},\; g_{\alpha_0\alpha_1}(x) g_{\alpha_1\alpha_2}(x) g_{\alpha_2\alpha_0}(x) = 1
+\end{align}
+を充たすものによって特徴づけられるのだった．ここで $g_{\alpha\beta}(x) \eqqcolon e^{2\iunit \pi \Lambda_{\alpha\beta}(x)}$ によって $\Familyset[\big]{\Lambda_{\alpha\beta} \colon U_{\alpha\beta} \lto \mathbb{R}}{\alpha,\, \beta \in \Lambda}$ を定義すると，コサイクル条件は
+\begin{align}
+    \forall x \in U_{\alpha_0\alpha_1\alpha_2},\; \Lambda_{\alpha_0\alpha_1}(x) + \Lambda_{\alpha_1\alpha_2}(x) + \Lambda_{\alpha_2\alpha_0}(x) \eqqcolon n_{\alpha_0\alpha_1\alpha_2}(x) \in \mathbb{Z}
+\end{align}
+と同値である．今，$\Familyset[\big]{\Lambda_{\alpha_0\alpha_1}}{(\alpha_0,\, \alpha_1) \in \Lambda^2} \in \Cech{1}{\mathcal{U};\, \Omega_{\mathcal{M}{d}}^0}$ と見做そう．
+
+$\mathcal{U}$ が\hyperref[def:good-cover]{良い被覆}であることと $n_{\alpha_0\alpha_1\alpha_2} \colon U_{\alpha_0\alpha_1\alpha_2} \lto \mathbb{Z}$ が連続であることから\footnote{$\mathbb{Z}$ には離散位相を入れる．}$\forall (\alpha_0,\, \alpha_1,\, \alpha_2) \in \Lambda^3$ に対して $n_{\alpha_0\alpha_1\alpha_2}(x)$ は定数関数であり，故に $\Familyset[\big]{n_{\alpha_0\alpha_1\alpha_2}}{(\alpha_0,\, \alpha_1,\, \alpha_2)} \in \Cech{2}{\mathcal{U};\, \mathbb{Z}_{\mfdcal{M}{d}}}$ が分かった．
+特に
+\begin{align}
+    \forall x \in U_{\alpha_0\alpha_1\alpha_2\alpha_3},\; n_{\alpha_0\alpha_1\alpha_2} - n_{\alpha_0\alpha_1\alpha_3} + n_{\alpha_0\alpha_2\alpha_3} - n_{\alpha_1\alpha_2\alpha_3} = 0
+\end{align}
+が成り立つが，左辺は\hyperref[def:Cech-cobaundarymap]{\v{C}ech複体}の余境界写像 $\delta^3 \colon \Cech{2}{\mathcal{U};\, \mathbb{Z}_{\mfdcal{M}{d}}} \lto  \Cech{3}{\mathcal{U};\, \mathbb{Z}_{\mfdcal{M}{d}}}$ を使って $\delta^3 \bigl(\Familyset[\big]{n_{\alpha_0\alpha_1\alpha_2}}{(\alpha_0,\, \alpha_1,\, \alpha_2)}\bigr)$ と等しいので
+\begin{align}
+    \Familyset[\big]{n_{\alpha_0\alpha_1\alpha_2}}{(\alpha_0,\, \alpha_1,\, \alpha_2)} \in \Ker \delta^3
+\end{align}
+i.e. \textbf{\v{C}ech $2$-コサイクル}の元であることが分かった．
+
+
+ところで命題\ref{thm:local-connection}より，ゲージ場とは主束 $P$ の\hyperref[def:connection]{接続形式}を $\mathcal{U}$ に付随する局所切断によって引き戻して得られる族 $\Familyset[\big]{A_\alpha \in \Omega^1(U_\alpha;\, \Lu(1))}{\alpha \in \Lambda}$ のことであるが，$\Lu(1) \cong \mathbb{R}$ なので $A_\alpha \in \Omega^1(U_\alpha)$ と見做すことができる．
+よって $\Familyset[\big]{A_\alpha}{\alpha \in \Lambda} \in \Cech{0}{\mathcal{U},\, \Omega^1_{\mfdcal{M}{d}}}$ と見做すことができる．
+そしてこのとき $\forall \alpha_0,\, \alpha_1 \in \Lambda$ に対して
+\begin{align}
+    \forall x \in U_{\alpha_0\alpha_1},\; A_{\alpha_1}(x) - A_{\alpha_0}(x) = g_{\alpha_0\alpha_1}^{-1}(x) \dd{g_{\alpha_0\alpha_1}(x)} = 2 \iunit \pi \dd{\Lambda_{\alpha_0\alpha_1}(x)}
+\end{align}
+が言える．以上を図式にまとめると
+\begin{center}
+    \begin{tikzcd}[row sep=large, column sep=large]
+        & & &\{A_{\alpha_0}\} \ar[d, "-\delta"] \\
+        & &\{\Lambda_{\alpha_0\alpha_1}\} \ar[d,"\delta"] \ar[r,"\dd"]&\* \\
+        &\{n_{\alpha_0\alpha_1\alpha_2}\} \ar[r, "\dd"]\ar[d,"\delta"] &\* & \\
+        &0 & &
+    \end{tikzcd}
+\end{center}
+が成り立っている．i.e.
+\begin{align}
+    \bigl( \{n_{\alpha_0\alpha_1\alpha_2}\},\, \{\Lambda_{\alpha_0\alpha_1}\},\, \{A_{\alpha_0}\} \bigr) \in \check{C}^{2}(\mathcal{U},\, \Omega^{-1}_X) \oplus \check{C}^{1}(\mathcal{U},\, \Omega^{0}_X) \oplus \check{C}^{0}(\mathcal{U},\, \Omega^{1}_X)
+\end{align}
+であり，\hyperref[def:Deligne-Beilinson]{Deligne-Beilinsonコチェイン}の元であることが分かった．
+特に $\irm{C}{D}{}_2^1$ の元だと見做すとこれはコサイクルである．
+
+3つ組 $(\mathcal{U},\, P,\, \{A_\alpha\})$ が与えられたとき，対応するDeligne-Beilinsonコサイクルは
+\begin{align}
+    \bigl( \dd{q^{(0,0)}},\, \delta q^{(0,0)} + \dd_{-1}m^{1,-1},\, \delta m^{1,-1} \bigr) \WHERE (m^{(1,-1)},\, q^{(0,0)}) \in \check{C}^{1}(\mathcal{U},\, \mathbb{Z}_{\mfdcal{M}{d}}) \oplus \check{C}^{0}(\mathcal{U},\, \Omega^0_{\mfdcal{M}{d}})
+\end{align}
+の不定性を持つが，この不定性は局所切断の取り替えに伴うゲージ変換に相当し，コバウンダリとして書けている．
+よって
+\begin{align}
+    (\mathcal{U},\, P,\, \{A_\alpha\}) \overset{1:1}{\longleftrightarrow} \DB{2}{\irm{C}{D}{}_2,\, \mathcal{U}}
+\end{align}
+なる一対一対応があることが分かった．
+
+\hyperref[def:field-strength]{ゲージ場の強さ}は局所的に $F_{\alpha} \coloneqq \dd{A_\alpha}$ と定義されたが，今の場合
+\begin{align}
+    F_{\alpha_0} - F_{\alpha_1} = \dd{(A_{\alpha_0} - A_{\alpha_1})} = -2\iunit \pi \dd[2]{\Lambda_{\alpha_0\alpha_1}} = 0
+\end{align}
+となるので大域的に定義されていることが分かった．
+
+
+higher gauge fieldに関しても同様である．$p$-formのゲージ場であれば\footnote{現時点では対応する主束が未定義だが...}
+\begin{align}
+    (\mathcal{U},\, P^{(p)},\, \{A^{(p)}_\alpha\}) \overset{1:1}{\longleftrightarrow} \DB{p+1}{\irm{C}{D}{}_{p+1},\, \mathcal{U}}
+\end{align}
+の一対一対応がある．
+
+\subsection{$BF$-理論}
+
 
 
 
