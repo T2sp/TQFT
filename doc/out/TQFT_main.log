@@ -1,8 +1,8 @@
 This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  9 JUN 2024 08:39
  restricted system commands enabled.
  file:line:error style messages enabled.
-**/Users/t2space/Desktop/Seminors/TQFT/doc/appendixA.tex
-(/Users/t2space/Desktop/Seminors/TQFT/doc/appendixA.tex
+**/Users/t2space/Desktop/Seminors/TQFT/doc/TQFT_main.tex
+(/Users/t2space/Desktop/Seminors/TQFT/doc/TQFT_main.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 Lua module: luaotfload 2024-02-14 3.28 Lua based OpenType font support
@@ -35,12 +35,7 @@ Inserting `luaotfload.aux.fixup_fontdata' in `luaotfload.patch_font_unsafe'.
 Inserting `luaotfload.aux.set_capheight' in `luaotfload.patch_font'.
 Inserting `luaotfload.aux.set_xheight' in `luaotfload.patch_font'.
 Inserting `luaotfload.rewrite_fontname' in `luaotfload.patch_font'.
-Inserting `tracingstacklevels' in `input_level_string'. (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/latex/subfiles/subfiles.cls
-Document Class: subfiles 2020/11/14 v2.2 Multi-file projects (class)
-Preamble taken from file `TQFT_main'
-(/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/latex/import/import.sty
-Package: import 2020/04/01  v 6.2
-) (./TQFT_main.tex (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/luatex/luatexja/ltjsreport.cls
+Inserting `tracingstacklevels' in `input_level_string'. (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/luatex/luatexja/ltjsreport.cls
 Document Class: ltjsreport 2022/09/12 ltjsclasses 
 (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/luatex/luatexja/luatexja.sty
 Package: luatexja 2024-02-19 Japanese Typesetting with Lua(La)TeX
@@ -1226,45 +1221,51 @@ File: lstmisc.sty 2024/02/21 1.10 (Carsten Heinz)
 \c@tcb@cnt@myexample=\count400
  (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/latex/subfiles/subfiles.sty
 Package: subfiles 2020/11/14 v2.2 Multi-file projects (package)
-))) (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/luatex/luatexja/patches/lltjp-tascmac.sty
+ (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/latex/import/import.sty
+Package: import 2020/04/01  v 6.2
+)) (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/luatex/luatexja/patches/lltjp-tascmac.sty
 Package: lltjp-tascmac 2022-08-24 Patch to (t)ascmac for LuaTeX-ja
 {/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}
 warning  (map file): entry for 'ascgrp' already exists, duplicates ignored
 ) (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/luatex/luatexja/patches/lltjp-array.sty
 Package: lltjp-array 2019-07-18 Patch to array for LuaTeX-ja
 )
-Package translations Info: No language package found. I am going to use `english' as default language. on input line 3.
- (./out/appendixA.aux)
-\openout1 = appendixA.aux
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 286.
+ (./out/TQFT_main.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 3.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 3.
+LaTeX Warning: Label `ex:1-3nonabelian' multiply defined.
+
+)
+\openout1 = TQFT_main.aux
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 286.
+LaTeX Font Info:    ... okay on input line 286.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 286.
+LaTeX Font Info:    ... okay on input line 286.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 286.
+LaTeX Font Info:    ... okay on input line 286.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 286.
+LaTeX Font Info:    ... okay on input line 286.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 286.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 286.
  (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for JY3/mc/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for JT3/mc/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    ... okay on input line 286.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 286.
+LaTeX Font Info:    ... okay on input line 286.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 286.
+LaTeX Font Info:    ... okay on input line 286.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 286.
+LaTeX Font Info:    ... okay on input line 286.
+LaTeX Font Info:    Checking defaults for JY3/mc/m/n on input line 286.
+LaTeX Font Info:    ... okay on input line 286.
+LaTeX Font Info:    Checking defaults for JT3/mc/m/n on input line 286.
+LaTeX Font Info:    ... okay on input line 286.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 286.
+LaTeX Font Info:    ... okay on input line 286.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 286.
+LaTeX Font Info:    ... okay on input line 286.
  (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count401
@@ -1284,11 +1285,11 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 3.
- (./out/appendixA.out) (./out/appendixA.out)
+Package hyperref Info: Link coloring ON on input line 286.
+ (./out/TQFT_main.out) (./out/TQFT_main.out)
 \@outlinefile=\write7
 
-\openout7 = appendixA.out
+\openout7 = TQFT_main.out
 
 
 Package siunitx Warning: Detected the "physics" package:
@@ -1304,150 +1305,530 @@ Package siunitx Warning: Detected the "physics" package:
 (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 3.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 286.
 
-Package chemgreek Info: Activating mapping `default' on line 3.
+Package chemgreek Info: Activating mapping `default' on line 286.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 
-Package tikz-feynman Warning: Consider loading TikZ-Feynman with \usepackage[compat=1.1.0]{tikz-feynman} so that you can be warned if TikZ-Feynman changes. on input line 3.
+Package tikz-feynman Warning: Consider loading TikZ-Feynman with \usepackage[compat=1.1.0]{tikz-feynman} so that you can be warned if TikZ-Feynman changes. on input line 286.
 
 Package pgfplots notification 'compat/show suggested version=true': you might benefit from \pgfplotsset{compat=1.18} (current compat level: 1.15).
 
 \c@lstlisting=\count407
-第1章
 (load cache: extra_lmroman17-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 19.17854pt on input line 28.
+(Font)              scaled to size 15.97903pt on input line 292.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 19.17854pt on input line 28.
-LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 19.17854pt on input line 28.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 19.17854pt on input line 28.
-(load cache: extra_haranoajigothic-medium.luc)(load cache: extra_lmsans17-regular.luc)
-LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 28.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 28.
+(Font)              scaled to size 15.97903pt on input line 292.
+(load cache: extra_lmroman12-regular.luc)
+LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
+(Font)              scaled to size 11.09656pt on input line 292.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 6.47299pt on input line 30.
+(Font)              scaled to size 11.09656pt on input line 292.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 30.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 30.
+(Font)              scaled to size 5.54828pt on input line 292.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 292.
 (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 30.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 292.
  (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 30.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 292.
  (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 30.
+(Font)              scaled to size 11.09656pt on input line 292.
+(load cache: extra_haranoajigothic-medium.luc)
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 6.47299pt on input line 30.
+(Font)              scaled to size 7.3977pt on input line 292.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 30.
-(load cache: extra_lmroman10-bold.luc)
-LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <10> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 31.
-LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 31.
-LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <10> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 31.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 31.
-(load cache: extra_lmroman7-regular.luc)
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 6.47299pt on input line 36.
-(load cache: extra_lmroman5-regular.luc)
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 36.
-(load cache: extra_lmroman12-regular.luc)
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 41.
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 41.
-(load cache: extra_lmroman12-bold.luc)
-LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <14.4> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 41.
-LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 41.
-LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <14.4> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 41.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 41.
-(load cache: extra_lmroman7-italic.luc)
-LaTeX Font Info:    Font shape `JT3/mc/m/it' in size <7> not available
-(Font)              Font shape `JT3/mc/m/n' tried instead on input line 62.
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 6.47299pt on input line 62.
-LaTeX Font Info:    Font shape `JY3/mc/m/it' in size <7> not available
-(Font)              Font shape `JY3/mc/m/n' tried instead on input line 62.
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 6.47299pt on input line 62.
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 5.54828pt on input line 62.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 7.3977pt on input line 62.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 5.54828pt on input line 62.
-(load cache: extra_lmroman6-regular.luc)
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 5.54828pt on input line 62.
-LaTeX Font Info:    Font shape `JT3/mc/m/it' in size <6> not available
-(Font)              Font shape `JT3/mc/m/n' tried instead on input line 62.
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 5.54828pt on input line 62.
-LaTeX Font Info:    Font shape `JY3/mc/m/it' in size <6> not available
-(Font)              Font shape `JY3/mc/m/n' tried instead on input line 62.
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 5.54828pt on input line 62.
-(load cache: extra_lmmono8-regular.luc)
-LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 7.3977pt on input line 62.
+(Font)              scaled to size 5.54828pt on input line 292.
  [1
 
-
-] [2]
-
-LaTeX Warning: Citation `Shiho2016' on page 3 undefined on input line 147.
-
-[3] [4](load cache: extra_lmroman10-italic.luc)
-LaTeX Font Info:    Font shape `JT3/mc/m/it' in size <10> not available
-(Font)              Font shape `JT3/mc/m/n' tried instead on input line 227.
+]
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 9.24713pt on input line 294.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 9.24713pt on input line 294.
+(load cache: extra_lmsans10-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 227.
-LaTeX Font Info:    Font shape `JY3/mc/m/it' in size <10> not available
-(Font)              Font shape `JY3/mc/m/n' tried instead on input line 227.
+(Font)              scaled to size 23.00687pt on input line 294.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 227.
+(Font)              scaled to size 23.00687pt on input line 294.
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 23.00687pt on input line 294.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 23.00687pt on input line 294.
+(load cache: extra_lmsans17-regular.luc) (./out/TQFT_main.toc
+LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
+(Font)              scaled to size 6.47299pt on input line 2.
+LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
+(Font)              scaled to size 4.62357pt on input line 2.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 6.47299pt on input line 2.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 4.62357pt on input line 2.
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.1'
+[1
+
+] [2])
+\tf@toc=\write8
+
+\openout8 = TQFT_main.toc
+ (./chap1.tex [3]
+第1章
+LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
+(Font)              scaled to size 19.17854pt on input line 7.
+LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
+(Font)              scaled to size 19.17854pt on input line 7.
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 19.17854pt on input line 7.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 19.17854pt on input line 7.
+LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
+(Font)              scaled to size 13.31586pt on input line 13.
+LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
+(Font)              scaled to size 13.31586pt on input line 13.
+(load cache: extra_lmroman12-bold.luc)
+LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <14.4> not available
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 13.
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 13.31586pt on input line 13.
+LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <14.4> not available
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 13.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 13.31586pt on input line 13.
+(load cache: extra_lmroman10-bold.luc)
+LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <10> not available
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 18.
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 9.24713pt on input line 18.
+LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <10> not available
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 18.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 9.24713pt on input line 18.
+(load cache: extra_lmroman7-regular.luc)
+LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
+(Font)              scaled to size 6.47299pt on input line 23.
+(load cache: extra_lmroman6-regular.luc)
+LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
+(Font)              scaled to size 5.54828pt on input line 23.
+[4
+
+] [5]
+LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <12> not available
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 89.
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 11.09656pt on input line 89.
+LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <12> not available
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 89.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 11.09656pt on input line 89.
+(load cache: extra_lmroman10-italic.luc)
+LaTeX Font Info:    Font shape `JT3/mc/m/it' in size <10> not available
+(Font)              Font shape `JT3/mc/m/n' tried instead on input line 93.
+LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
+(Font)              scaled to size 9.24713pt on input line 93.
+LaTeX Font Info:    Font shape `JY3/mc/m/it' in size <10> not available
+(Font)              Font shape `JY3/mc/m/n' tried instead on input line 93.
+LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
+(Font)              scaled to size 9.24713pt on input line 93.
 (load cache: extra_lmroman10-bolditalic.luc)
 LaTeX Font Info:    Font shape `JT3/mc/b/it' in size <10> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 227.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 93.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 227.
+(Font)              scaled to size 9.24713pt on input line 93.
 LaTeX Font Info:    Font shape `JY3/mc/b/it' in size <10> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 227.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 93.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 227.
+(Font)              scaled to size 9.24713pt on input line 93.
+(load cache: extra_lmroman8-bold.luc)
+LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <8> not available
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 101.
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 7.3977pt on input line 101.
+LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <8> not available
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 101.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 7.3977pt on input line 101.
+(load cache: extra_lmmono8-regular.luc)
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 7.3977pt on input line 101.
+(load cache: extra_lmroman7-italic.luc)
+LaTeX Font Info:    Font shape `JT3/mc/m/it' in size <7> not available
+(Font)              Font shape `JT3/mc/m/n' tried instead on input line 104.
+LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
+(Font)              scaled to size 6.47299pt on input line 104.
+LaTeX Font Info:    Font shape `JY3/mc/m/it' in size <7> not available
+(Font)              Font shape `JY3/mc/m/n' tried instead on input line 104.
+LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
+(Font)              scaled to size 6.47299pt on input line 104.
+LaTeX Font Info:    Font shape `JT3/mc/m/it' in size <6> not available
+(Font)              Font shape `JT3/mc/m/n' tried instead on input line 104.
+LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
+(Font)              scaled to size 5.54828pt on input line 104.
+LaTeX Font Info:    Font shape `JY3/mc/m/it' in size <6> not available
+(Font)              Font shape `JY3/mc/m/n' tried instead on input line 104.
+LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
+(Font)              scaled to size 5.54828pt on input line 104.
+(load cache: extra_lmroman5-regular.luc)
+LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
+(Font)              scaled to size 4.62357pt on input line 110.
+ [6]
+LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <24.88> not available
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 112.
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 23.00687pt on input line 112.
+LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <24.88> not available
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 112.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 23.00687pt on input line 112.
+LaTeX Font Info:    Trying to load font information for U+dsrom on input line 154.
+ (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/latex/doublestroke/Udsrom.fd
+File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
+) [7]
+Overfull \hbox (38.93439pt too wide) detected at line 192
+[][]
+ []
 
 
-LaTeX Warning: Citation `Bauer2005DB' on page 5 undefined on input line 233.
+Overfull \hbox (45.83073pt too wide) detected at line 211
+[][]
+ []
+
+[8]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 222.
+ (/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+)
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 230.
 
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 230.
+
+[9]
+<./figs/braidg_generator.png, id=649, 493.845pt x 163.61125pt>
+File: ./figs/braidg_generator.png Graphic file (type png)
+<use ./figs/braidg_generator.png>
+Package luatex.def Info: ./figs/braidg_generator.png  used on input line 247.
+(luatex.def)             Requested size: 370.38283pt x 122.70813pt.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 257.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 257.
+
+[10<./figs/braidg_generator.png>] [11]) (./chap2.tex [12]
+第2章
+[13
+
+](load cache: extra_lmsans10-bold.luc)
+LaTeX Font Info:    Font shape `JT3/gt/b/n' in size <10> not available
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 67.
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 9.24713pt on input line 67.
+LaTeX Font Info:    Font shape `JY3/gt/b/n' in size <10> not available
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 67.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 9.24713pt on input line 67.
+ [14] [15] [16] [17] [18] [19] [20] [21]
+
+LaTeX Warning: Hyper reference `def:tangentbundle' on page 22 undefined on input line 490.
+
+[22] [23](load cache: extra_lmroman9-regular.luc)
+LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
+(Font)              scaled to size 8.32242pt on input line 579.
+LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
+(Font)              scaled to size 8.32242pt on input line 579.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 8.32242pt on input line 579.
+
+Overfull \hbox (31.83612pt too wide) in paragraph at lines 600--601
+ [][] 
+ []
+
+[24]
+
+LaTeX Warning: Hyper reference `def.reltopo' on page 25 undefined on input line 644.
+
+
+LaTeX Warning: Hyper reference `def.prodtopo' on page 25 undefined on input line 644.
+
+
+LaTeX Warning: Hyper reference `def.disjoint_topo' on page 25 undefined on input line 644.
+
+[25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38]
+
+LaTeX Warning: Hyper reference `def:vecf-complete' on page 39 undefined on input line 1437.
+
+[39]
+
+LaTeX Warning: Hyper reference `def:flow-global' on page 40 undefined on input line 1467.
+
+
+LaTeX Warning: Hyper reference `def:thm:fundamental-flow' on page 40 undefined on input line 1480.
+
+[40] [41] [42] [43] [44] [45] [46] [47]
+Overfull \hbox (15.09593pt too wide) detected at line 1879
+[][]
+ []
+
+[48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59] [60] [61] [62] [63] [64] [65] [66] [67] [68]
+
+LaTeX Warning: Hyper reference `def:F-rel' on page 69 undefined on input line 2988.
+
+[69] [70] [71] [72]
+Overfull \hbox (7.95374pt too wide) detected at line 3236
+[][]
+ []
+
+[73] [74] [75] [76] [77] [78] [79] [80] [81] [82] [83] [84] [85] [86] [87] [88] [89] [90] [91] [92] [93] [94]
+
+LaTeX Warning: Hyper reference `label' on page 95 undefined on input line 4282.
+
+\matrixtoks=\toks74
+\matrixtoks=\toks75
+\matrixtoks=\toks76
+\matrixtoks=\toks77
+[95]
+\matrixtoks=\toks78
+\matrixtoks=\toks79
+ [96] [97] [98]) (./chap3.tex [99]
+第3章
+
+Overfull \hbox (2.8728pt too wide) in paragraph at lines 55--56
+ [] 
+ []
+
+[100
+
+] [101] [102] [103] [104] [105] [106] [107]
+Overfull \hbox (2.2334pt too wide) detected at line 421
+[][]
+ []
+
+[108] [109] [110] [111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122] [123] [124] [125] [126] [127] [128]
+Overfull \hbox (28.96529pt too wide) detected at line 1424
+[][]
+ []
+
+[129] [130] [131] [132] [133] [134] [135] [136] [137] [138] [139] [140] [141] [142]
+
+LaTeX Warning: Hyper reference `' on page 143 undefined on input line 2073.
+
+
+Overfull \hbox (28.23439pt too wide) detected at line 2096
+[][]
+ []
+
+[143] [144]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 2190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathrm' on input line 2190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 2190.
+
+[145] [146]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 2263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 2263.
+
+) (./appendixA.tex [147]
+付録A
+[148
+
+] [149] [150] [151]
 Overfull \hbox (42.28pt too wide) in paragraph at lines 253--254
  [] 
  []
 
-[5] [6] (./out/appendixA.aux)
+[152]) (./appendixB.tex [153]
+付録B
+
+LaTeX Warning: Hyper reference `diffmani' on page 154 undefined on input line 33.
+
+
+LaTeX Warning: Hyper reference `thm.metrictopo' on page 154 undefined on input line 41.
+
+[154
+
+]
+
+LaTeX Warning: Reference `lem:sets' on page 155 undefined on input line 65.
+
+
+LaTeX Warning: Hyper reference `def:second-countable' on page 155 undefined on input line 88.
+
+[155]
+
+LaTeX Warning: Hyper reference `diffmani' on page 156 undefined on input line 137.
+
+[156]
+Overfull \hbox (41.84575pt too wide) detected at line 190
+[][]
+ []
+
+[157] [158] [159]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 322.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 322.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\infty' on input line 322.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 322.
+
+[160]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 389.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 389.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\infty' on input line 389.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 389.
+
+[161] [162] [163] [164] [165] [166]
+
+LaTeX Warning: Reference `prop:existence-integral-curve' on page 167 undefined on input line 675.
+
+[167] [168] [169] [170] [171] [172] [173]
+Missing character: There is no å (U+00E5) in font cmmi10!
+[174] [175] [176] [177] [178]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1251.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 1251.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\infty' on input line 1251.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1251.
+
+
+LaTeX Warning: Hyper reference `def:fiber-1' on page 179 undefined on input line 1280.
+
+[179] [180]) (./appendixC.tex [181]
+付録C
+[182
+
+]
+Overfull \hbox (14.90411pt too wide) detected at line 77
+[][]
+ []
+
+) (./appendixD.tex [183]
+付録D
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 6.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 6.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\infty' on input line 6.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 6.
+
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 15.97903pt on input line 6.
+(load cache: extra_lmsans8-regular.luc) [184
+
+] [185] [186] [187] [188] [189] [190] [191] [192] [193] [194] [195] [196]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 656.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 656.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\infty' on input line 656.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 656.
+
+[197]) (./appendixE.tex [198]
+付録E
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 8.
+
+[199
+
+] [200]) (./out/TQFT_main.bbl [201](load cache: extra_lmmono10-regular.luc)
+LaTeX Font Info:    Font shape `JT3/gt/m/it' in size <10> not available
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 10.
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 9.24713pt on input line 10.
+LaTeX Font Info:    Font shape `JY3/gt/m/it' in size <10> not available
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 10.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 9.24713pt on input line 10.
+ [202
+
+]) [203
+Missing character: There is no  (U+0080) in font [lmroman10-regular]:+tlig;!
+Missing character: There is no  (U+0093) in font [lmroman10-regular]:+tlig;!
+Missing character: There is no  (U+0080) in font [lmroman10-regular]:+tlig;!
+Missing character: There is no  (U+0093) in font [lmroman10-regular]:+tlig;!
+Missing character: There is no  (U+0080) in font [lmroman10-regular]:+tlig;!
+Missing character: There is no  (U+0093) in font [lmroman10-regular]:+tlig;!
+Missing character: There is no  (U+0080) in font [lmroman10-regular]:+tlig;!
+Missing character: There is no  (U+0093) in font [lmroman10-regular]:+tlig;!
+] (./out/TQFT_main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -1456,24 +1837,27 @@ L3 programming layer <2024-02-20>
 
 LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: File `appendixA.out' has not changed.
-(rerunfilecheck)             Checksum: 626A8994C6769171CB8ADD6D21B22580;529.
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package rerunfilecheck Info: File `TQFT_main.out' has not changed.
+(rerunfilecheck)             Checksum: 0C6EF9D886EDC87EFF2E110C1B4F5014;13358.
 )
 
 Here is how much of LuaTeX's memory you used:
- 53819 strings out of 476447
- 244624,1977958 words of node,token memory allocated
- 2247 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 2 glue, 4 kern, 1 glyph, 722 attribute, 62 glue_spec, 78 attribute_list, 2 write, 14 user_defined, 1 pdf_action nodes
-   avail lists: 1:64,2:58023,3:1846,4:1363,5:481,6:51,7:5922,8:91,9:2504,10:6,11:22
- 74516 multiletter control sequences out of 65536+600000
- 97 fonts using 62640919 bytes
- 145i,19n,144p,1918b,1432s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmmono8-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib5.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on appendixA.pdf (6 pages, 312722 bytes).
+ 57113 strings out of 476447
+ 382257,2373549 words of node,token memory allocated
+ 128694 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 140 glue, 4 kern, 31 sub_mlist, 1 glyph, 58120 attribute, 62 glue_spec, 5296 attribute_list, 2 write, 14 user_defined, 27 pdf_action nodes
+   avail lists: 1:29,2:53929,3:1840,4:1483,5:856,6:102,7:6392,8:124,9:3529,10:37,11:156
+ 76792 multiletter control sequences out of 65536+600000
+ 215 fonts using 96626703 bytes
+ 125i,30n,128p,1894b,1821s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman5-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman9-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmmono8-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman8-bold.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman10-bolditalic.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmsans10-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib5.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/doublestroke/dsrom8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/euler/eufb10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
+Output written on TQFT_main.pdf (204 pages, 2044495 bytes).
 
-PDF statistics: 268 PDF objects out of 1000 (max. 8388607)
- 204 compressed objects within 3 object streams
- 31 named destinations out of 1000 (max. 131072)
- 48 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 3928 PDF objects out of 4296 (max. 8388607)
+ 3359 compressed objects within 34 object streams
+ 983 named destinations out of 1000 (max. 131072)
+ 808 words of extra memory for PDF output out of 10000 (max. 100000000)
 
