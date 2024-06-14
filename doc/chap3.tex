@@ -2254,14 +2254,41 @@ i.e. \textbf{\v{C}ech $2$-コサイクル}の元であることが分かった�
 となるので大域的に定義されていることが分かった．
 
 
-higher gauge fieldに関しても同様である．$p$-formのゲージ場であれば\footnote{現時点では対応する主束が未定義だが...}
+higher gauge fieldに関しても同様である．$p$-formのゲージ場であれば
 \begin{align}
+    \label{predef:pform-gauge-field}
     (\mathcal{U},\, P^{(p)},\, \{A^{(p)}_\alpha\}) \overset{1:1}{\longleftrightarrow} \DB{p+1}{\irm{C}{D}{}_{p+1},\, \mathcal{U}}
 \end{align}
-の一対一対応がある．
+の一対一対応がある．逆に，応急処置としてしばらくの間\eqref{predef:pform-gauge-field}を $p$-formゲージ場の定義として採用することにしよう．
 
 \subsection{$BF$-理論}
 
+$d = D+1$ 次元時空 $\mfdcal{M}{d}$ を考える．
+
+\begin{mydef}[label=def:BF]{$BF$-理論（$\LU(1)$ ゲージ場の理論として）}
+    $(p+1)$-form $\LU (1)$ ゲージ場 $\hg{A}{p+1}$ および $(d-p-2)$-form $\LU (1)$ ゲージ場 $\hg{B}{d-p-2}$ を与える．
+
+    このとき，\textbf{$\bm{BF}$-理論}を
+    \begin{align}
+        \irm{Z}{BF}[\hg{A}{p+1},\, \hg{B}{d-p-2}] &\coloneqq e^{-\irm{S}{BF}[\hg{A}{p+1},\, \hg{B}{d-p-2}]} \\
+        \WHERE \irm{S}{BF}[\hg{A}{p+1},\, \hg{B}{d-p-2}] &\coloneqq \frac{\iunit n}{2\pi} \int_{\mfdcal{M}{d}} \hg{B}{d-p-2} \wedge \dd{\hg{A}{p+1}}
+    \end{align}
+    と定義する\footnote{$\int_{\mfdcal{M}{d}}$ はDeligne-Beilinsonコチェインの積分と解釈すべきであるが，形式的にde Rhamコチェインの積分として扱っても問題は生じにくい．}．ただし $n \in \mathbb{Z}$ とする．
+\end{mydef}
+
+$\mfdcal{M}{d}$ の\hyperref[def:good-cover]{良い被覆} $\mathcal{U} = \Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$ を1つ固定する．
+ゲージ変換はDeligne-Beilinsonコサイクル
+\begin{align}
+    (\{n_{\alpha_0 \dots \alpha_{p+2}}\},\, \{\Lambda^{(1)}_{\alpha_0 \dots \alpha_{p+1}}\},\, \dots ,\, \{\Lambda^{(p)}_{\alpha_0\alpha_1}\},\, \{\hg{A}{p+1}_{\alpha_0}\}) &\in \check{C}^{p+2}(\mathcal{U};\, \mathbb{Z}) \oplus \bigoplus_{k=0}^{p+1} \check{C}^{p-k+1}(\mathcal{U};\, \Omega^k) \\
+    (\{m_{\alpha_0 \dots \alpha_{d-p}}\},\, \{\lambda^{(1)}_{\alpha_0 \dots \alpha_{d-p-1}}\},\, \dots ,\, \{\lambda^{(d-p-3)}_{\alpha_0\alpha_1}\},\, \{\hg{B}{d-p-2}_{\alpha_0}\}) &\in \check{C}^{d-p-1}(\mathcal{U};\, \mathbb{Z}) \oplus \bigoplus_{k=0}^{d-p-2} \check{C}^{d-p-k-2}(\mathcal{U};\, \Omega^k)
+\end{align}
+によって定義される．特に場の強さは $\forall \alpha_0,\, \alpha_1 \in \Lambda$ に対して
+\begin{align}
+    \dd{\hg{A}{p+1}_{\alpha_1}} - \dd{\hg{A}{p+1}_{\alpha_0}} &= \dd{\bigl(\delta \hg{A}{p+1}\bigr)_{\alpha_0\alpha_1}} = \dd{\bigl(\dd{\Lambda^{(p)}_{\alpha_0\alpha_1}}\bigr)} = 0
+\end{align}
+を充たすので大域的にwell-definedである．
+
+以下では，\hyperref[def:BF]{$BF$-理論}から発見法的に「ゲージ群」\footnote{主 $(p+1)$-束の観点からすると，$(p+1)$-formゲージ場に対応する「ゲージ群」は $\bm{(p+1)}$\textbf{-群}になるべきである．}が $\mathbb{Z}_n$ であるような $(p+1)$-formゲージ理論を得るトリックを説明する．この方法は一見すると $\mathbb{Z}_n$ 主 $(p+1)$-束の構成を回避できているように見える．
 
 
 
