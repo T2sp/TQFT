@@ -2266,12 +2266,12 @@ higher gauge fieldに関しても同様である．$p$-formのゲージ場であ
 $d = D+1$ 次元時空 $\mfdcal{M}{d}$ を考える．
 
 \begin{mydef}[label=def:BF]{$BF$-理論（$\LU(1)$ ゲージ場の理論として）}
-    $(p+1)$-form $\LU (1)$ ゲージ場 $\hg{A}{p+1}$ および $(d-p-2)$-form $\LU (1)$ ゲージ場 $\hg{B}{d-p-2}$ を与える．
+    $p$-form $\LU (1)$ ゲージ場 $\hg{A}{p}$ および $(d-p-1)$-form $\LU (1)$ ゲージ場 $\hg{B}{d-p-1}$ を与える．
 
     このとき，\textbf{$\bm{BF}$-理論}を
     \begin{align}
-        \irm{Z}{BF}[\hg{A}{p+1},\, \hg{B}{d-p-2}] &\coloneqq e^{-\irm{S}{BF}[\hg{A}{p+1},\, \hg{B}{d-p-2}]} \\
-        \WHERE \irm{S}{BF}[\hg{A}{p+1},\, \hg{B}{d-p-2}] &\coloneqq \frac{\iunit n}{2\pi} \int_{\mfdcal{M}{d}} \hg{B}{d-p-2} \wedge \dd{\hg{A}{p+1}}
+        \irm{Z}{BF}[\hg{A}{p},\, \hg{B}{d-p-1}] &\coloneqq e^{-\irm{S}{BF}[\hg{a}{p},\, \hg{B}{d-p-1}]} \\
+        \WHERE \irm{S}{BF}[\hg{A}{p},\, \hg{B}{d-p-1}] &\coloneqq \frac{\iunit n}{2\pi} \int_{\mfdcal{M}{d}} \hg{B}{d-p-1} \wedge \dd{\hg{A}{p}}
     \end{align}
     と定義する\footnote{$\int_{\mfdcal{M}{d}}$ はDeligne-Beilinsonコチェインの積分と解釈すべきであるが，形式的にde Rhamコチェインの積分として扱っても問題は生じにくい．}．ただし $n \in \mathbb{Z}$ とする．
 \end{mydef}
@@ -2279,16 +2279,146 @@ $d = D+1$ 次元時空 $\mfdcal{M}{d}$ を考える．
 $\mfdcal{M}{d}$ の\hyperref[def:good-cover]{良い被覆} $\mathcal{U} = \Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$ を1つ固定する．
 ゲージ変換はDeligne-Beilinsonコサイクル
 \begin{align}
-    (\{n_{\alpha_0 \dots \alpha_{p+2}}\},\, \{\Lambda^{(1)}_{\alpha_0 \dots \alpha_{p+1}}\},\, \dots ,\, \{\Lambda^{(p)}_{\alpha_0\alpha_1}\},\, \{\hg{A}{p+1}_{\alpha_0}\}) &\in \check{C}^{p+2}(\mathcal{U};\, \mathbb{Z}) \oplus \bigoplus_{k=0}^{p+1} \check{C}^{p-k+1}(\mathcal{U};\, \Omega^k) \\
-    (\{m_{\alpha_0 \dots \alpha_{d-p}}\},\, \{\lambda^{(1)}_{\alpha_0 \dots \alpha_{d-p-1}}\},\, \dots ,\, \{\lambda^{(d-p-3)}_{\alpha_0\alpha_1}\},\, \{\hg{B}{d-p-2}_{\alpha_0}\}) &\in \check{C}^{d-p-1}(\mathcal{U};\, \mathbb{Z}) \oplus \bigoplus_{k=0}^{d-p-2} \check{C}^{d-p-k-2}(\mathcal{U};\, \Omega^k)
+    (\{n_{\alpha_0 \dots \alpha_{p+2}}\},\, \{\Lambda^{(1)}_{\alpha_0 \dots \alpha_{p+1}}\},\, \dots ,\, \{\Lambda^{(p-1)}_{\alpha_0\alpha_1}\},\, \{\hg{A}{p}_{\alpha_0}\}) &\in \check{C}^{p+1}(\mathcal{U};\, \mathbb{Z}) \oplus \bigoplus_{k=0}^{p} \check{C}^{p-k}(\mathcal{U};\, \Omega^k) \\
+    (\{m_{\alpha_0 \dots \alpha_{d-p}}\},\, \{\lambda^{(1)}_{\alpha_0 \dots \alpha_{d-p-1}}\},\, \dots ,\, \{\lambda^{(d-p-2)}_{\alpha_0\alpha_1}\},\, \{\hg{B}{d-p-1}_{\alpha_0}\}) &\in \check{C}^{d-p-1}(\mathcal{U};\, \mathbb{Z}) \oplus \bigoplus_{k=0}^{d-p-1} \check{C}^{d-p-k-1}(\mathcal{U};\, \Omega^k)
 \end{align}
 によって定義される．特に場の強さは $\forall \alpha_0,\, \alpha_1 \in \Lambda$ に対して
 \begin{align}
-    \dd{\hg{A}{p+1}_{\alpha_1}} - \dd{\hg{A}{p+1}_{\alpha_0}} &= \dd{\bigl(\delta \hg{A}{p+1}\bigr)_{\alpha_0\alpha_1}} = \dd{\bigl(\dd{\Lambda^{(p)}_{\alpha_0\alpha_1}}\bigr)} = 0
+    \dd{\hg{A}{p}_{\alpha_1}} - \dd{\hg{A}{p}_{\alpha_0}} &= \dd{\bigl(\delta \hg{A}{p}\bigr)_{\alpha_0\alpha_1}} = \dd{\bigl(\dd{\Lambda^{(p-1)}_{\alpha_0\alpha_1}}\bigr)} = 0, \\
+    \dd{\hg{B}{d-p-1}_{\alpha_1}} - \dd{\hg{B}{d-p-1}_{\alpha_0}} &= \dd{\bigl(\delta \hg{B}{d-p-1}\bigr)_{\alpha_0\alpha_1}} = \dd{\bigl(\dd{\lambda^{(d-p-2)}_{\alpha_0\alpha_1}}\bigr)} = 0
 \end{align}
 を充たすので大域的にwell-definedである．
 
-以下では，\hyperref[def:BF]{$BF$-理論}から発見法的に「ゲージ群」\footnote{主 $(p+1)$-束の観点からすると，$(p+1)$-formゲージ場に対応する「ゲージ群」は $\bm{(p+1)}$\textbf{-群}になるべきである．}が $\mathbb{Z}_n$ であるような $(p+1)$-formゲージ理論を得るトリックを説明する．この方法は一見すると $\mathbb{Z}_n$ 主 $(p+1)$-束の構成を回避できているように見える．
+\hyperref[def:BF]{$BF$-理論}から発見法的に「ゲージ群」\footnote{主 $p$-束の観点からすると，$p$-formゲージ場に対応する「ゲージ群」は $\bm{p}$\textbf{-群}になるべきである．}が $\mathbb{Z}_n$ であるような $p$-formゲージ理論を得るトリックを説明する~\cite[p.6]{BanksSeiberg2011symmetry}, ~\cite[p.9]{KapustinSeiberg2014}．
+% この方法は一見すると $\mathbb{Z}_n$ 主 $p$-束の構成を回避できているように見える．
+具体的には，2つのゲージ場をダイナミカルにするだけで良い：
+\begin{align}
+    \irm{Z}{BF} 
+    &\coloneqq \int [\dd{\hg{a}{p}}] \int [\dd{\hg{b}{d-p-1}}]\, \irm{Z}{BF}[\hg{a}{p},\, \hg{b}{d-p-1}] \\
+    &= \int [\dd{\hg{a}{p}}] \int [\dd{\hg{b}{d-p-1}}]\, e^{\frac{\iunit n}{2\pi} \int_{\mfdcal{M}{d}} \hg{b}{d-p-1} \wedge \dd{\hg{a}{p}}} \\
+    &= \eval{\int [\dd{\hg{a}{p}}]}_{\dd{\hg{a}{p}} = 0}
+\end{align}
+ただし，最右辺の拘束条件 $\dd{\hg{a}{p}} = 0$ はEuler-Lagrange方程式によるものである．この拘束条件により，$\hg{a}{p}$ についての和が\hyperref[def:flat-connection-homotopy]{平坦接続}についてのものに制限されたということである．
+また，任意の閉部分多様体 $\mfd{\Sigma}{p+1},\, \mfd{\Sigma}{d-p-2} \subset \mfdcal{M}{d}$ に対するホロノミー
+\begin{align}
+    W (\mfd{\Sigma}{p}) &\coloneqq e^{\iunit \int_{\mfd{\Sigma}{p+1}} \hg{a}{p}}, \\
+    W (\mfd{\Sigma}{d-p-1}) &\coloneqq e^{\iunit \int_{\mfd{\Sigma}{d-p-2}} \hg{b}{d-p-1}}
+\end{align}
+は，
+\begin{align}
+    \expval{W (\mfd{\Sigma}{p})}
+    &= \int [\dd{\hg{a}{p}}] \int [\dd{\hg{b}{d-p-1}}]\, e^{\frac{\iunit n}{2\pi} \int_{\mfdcal{M}{d}} \hg{b}{d-p-1} \wedge \hg{a}{p}} e^{\iunit \int_{\mfdcal{M}{d}} \hg{a}{p} \wedge \delta(\mfd{\Sigma}{p+1})} \\
+    &= \eval{\int [\dd{\hg{B}{d-p-1}}]}_{\dd{\hg{b}{d-p-1}} = \frac{2\pi}{n} \delta(\mfd{\Sigma}{d-p-2})},\\
+    \expval{W (\mfd{\Sigma}{d-p-1})}
+    &= \int [\dd{\hg{a}{p}}] \int [\dd{\hg{b}{d-p-1}}]\, e^{\frac{\iunit n}{2\pi} \int_{\mfdcal{M}{d}} \hg{B}{d-p-1} \wedge \hg{a}{p}} e^{\iunit \int_{\mfdcal{M}{d}} \hg{b}{d-p-1} \wedge \delta(\mfd{\Sigma}{d-p-2})} \\
+    &= \eval{\int [\dd{\hg{a}{p}}]}_{\dd{\hg{a}{p}} = \frac{2\pi}{n} \delta(\mfd{\Sigma}{p+1})} 
+\end{align}
+となることから，$\mfd{\Sigma}{d-p-1}$ の周りでは
+\begin{align}
+    \label{eq:BF-1-W1}
+    W(\mfd{\Sigma}{p}) = e^{-\frac{2\pi \iunit}{n} \Link(\mfd{\Sigma}{p},\, \mfd{\Sigma}{d-p-1})} \in \mathbb{Z}_n
+\end{align}
+$\mfd{\Sigma}{p}$ の周りでは
+\begin{align}
+    \label{eq:BF-1-W2}
+    W(\mfd{\Sigma}{p}) = e^{-\frac{2\pi \iunit}{n} \Link(\mfd{\Sigma}{p},\, \mfd{\Sigma}{d-p-1})} \in \mathbb{Z}_n
+\end{align}
+のホロノミーがあることが分かる．このことから，\hyperref[def:BF]{$BF$-理論}に登場する2つのゲージ場をダイナミカルにすることで得られる理論は，ホロノミーが $\mathbb{Z}_n$ に値をとる平坦接続のゲージ理論であること，i.e. $\mathbb{Z}_n$ ゲージ理論になっていると見做せるのである．
+
+\subsection{$BF$-理論の等価な形}
+
+前小節で導入したトリックは，いくつかの等価な形で述べることができる．
+補助場 $\tilde{a}^{(d-p-2)}$ を導入し，場の強さ $\hg{F}{p+1} \coloneqq  \dd{\hg{A}{p}}$ を独立な場と見做すことで
+\begin{align}
+    \label{eq:BF-1}
+    \irm{S}{BF} [\hg{F}{p+1},\, \hg{B}{d-p-1},\, \hg{\tilde{a}}{p}] 
+    &\coloneqq \frac{\iunit n}{2\pi} \hg{B}{d-p-1} \wedge \hg{F}{p+1} + \frac{\iunit}{2\pi} \dd{\hg{\tilde{a}}{d-p-2}} \wedge \hg{F}{p+1} \\
+    &= \frac{\iunit}{2\pi} \hg{F}{p+1} \wedge (\dd{\hg{\tilde{a}}{d-p-2}} + n \hg{B}{d-p-1})
+\end{align}
+% とする．そして場の強さ $\hg{F}{p+1} \coloneqq  \dd{\hg{A}{p}}$ を単に外場だと見做し，ゲージ場 $\hg{B}{d-p-1}$ のみをダイナミカルだと思うことで，
+とする．ここでゲージ場をダイナミカルにすることで
+\begin{align}
+    \irm{Z}{BF}
+    &= \int [\dd{\hg{f}{p+1}}] \int [\dd{\hg{b}{d-p-1}}] \int [\dd{\hg{\tilde{a}}{d-p-2}}]\, e^{-\int_{\mfdcal{M}{d}}\left(\frac{\iunit n}{2\pi} \hg{b}{d-p-1} \wedge \hg{f}{p+1} + \frac{\iunit}{2\pi} \dd{\hg{\tilde{a}}{d-p-2}} \wedge \hg{f}{p+1}\right)} \\
+    &= \eval{\int [\dd{\hg{f}{p+1}}]}_{\dd{\hg{f}{p+1}} = 0} \int [\dd{\hg{b}{d-p-1}}]\, e^{-\int_{\mfdcal{M}{d}}\frac{\iunit n}{2\pi} \hg{b}{d-p-1} \wedge \hg{f}{p+1}} \\
+    &= \eval{\int [\dd{\hg{f}{p+1}}]}_{\dd{\hg{f}{p+1}} = 0,\; \hg{f}{p+1} = 0}
+\end{align}
+となる．汎函数積分においてBianchi恒等式 $\dd{\hg{F}{p+1}} = 0$ および平坦接続の拘束条件が付いてくれるのである．
+もしくは，
+\begin{align}
+    \irm{Z}{BF}
+    &= \int [\dd{\hg{b}{d-p-1}}] \int [\dd{\hg{\tilde{a}}{d-p-2}}] \int [\dd{\hg{f}{p+1}}]\, e^{-\int_{\mfdcal{M}{d}} \frac{\iunit}{2\pi} \hg{F}{p+1} \wedge (\dd{\hg{\tilde{a}}{d-p-2}} + n \hg{b}{d-p-1})} \\
+    &= \eval{\int [\dd{\hg{b}{d-p-1}}] \int [\dd{\hg{\tilde{a}}{d-p-2}}]}_{\dd{\hg{\tilde{a}}{d-p-2}} + n \hg{b}{d-p-1} = 0} \label{eq:BF-1-eom}
+\end{align}
+と捉えても良い．$\hg{\tilde{a}}{d-p-2}$ は，$\irm{Z}{BF} [\hg{F}{p+1},\, \hg{B}{d-p-1},\, \hg{\tilde{a}}{p}]$ に対するゲージ不変性の要請から
+\begin{align}
+    \label{eq:BF-1-gauge}
+    \hg{\tilde{a}}{d-p-2} \lmto \hg{\tilde{a}}{d-p-2} + \dd{\tilde{\lambda}^{(d-p-3)}} - n \hg{\lambda}{d-p-2}
+\end{align}
+なるゲージ変換を受ける．
+
+\subsection{$BF$-理論における 't Hooft operator}
+
+'t Hooft operatorの素朴な定義は $\tilde{T}(\mfd{\Sigma}{d-p-2}) \coloneqq \exp \left( \iunit \int_{\mfd{\Sigma}{d-p-2}} \hg{\tilde{a}}{d-p-2}\right)$ とすることだが，これはゲージ変換\eqref{eq:BF-1-gauge}の下で不変でない．
+ゲージ不変にするために，$\partial \mfd{\Sigma}{d-p-1} = \mfd{\Sigma}{d-p-2}$ を充たす $(d-p-1)$-次元部分多様体 $\mfd{\Sigma}{d-p-1} \subset \mfdcal{M}{d}$ を用いて
+\begin{align}
+    \label{eq:BF-1-tHooft}
+    T (\mfd{\Sigma}{d-p-2};\, \mfd{\Sigma}{d-p-1}) \coloneqq \exp \left( \iunit \int_{\mfd{\Sigma}{d-p-2}} \hg{\tilde{a}{d-p-2}} + \iunit n \int_{\mfd{\Sigma}{d-p-1}} \hg{b}{d-p-1}\right) 
+\end{align}
+と定義する．然るに\eqref{eq:BF-1-eom}から，これの期待値を計算すると
+\begin{align}
+    &\expval{T (\mfd{\Sigma}{d-p-2};\, \mfd{\Sigma}{d-p-1})} \\
+    &= \eval{\int [\dd{\hg{b}{d-p-1}}] \int [\dd{\hg{\tilde{a}}{d-p-2}}]}_{\dd{\hg{\tilde{a}}{d-p-2}} + n \hg{b}{d-p-1} = 0} \exp \left( \iunit \int_{\mfd{\Sigma}{d-p-2}} \hg{\tilde{a}{d-p-2}} + \iunit n \int_{\mfd{\Sigma}{d-p-1}} \hg{b}{d-p-1}\right) \\
+    &= \eval{\int [\dd{\hg{b}{d-p-1}}] \int [\dd{\hg{\tilde{a}}{d-p-2}}]}_{\dd{\hg{\tilde{a}}{d-p-2}} + n \hg{b}{d-p-1} = 0} \exp \left( \iunit \int_{\mfd{\Sigma}{d-p-1}} ( \dd{\hg{\tilde{a}}{d-p-2}} + n\hg{b}{d-p-1} )\right) \\
+    &= 1
+\end{align}
+となり消えてしまう．
+
+\subsection{より厳密な定式化}
+
+\section{離散的高次対称性}
+
+離散群によって特徴付けられる対称性に対しては，保存カレントを定義することはできないが，\hyperref[def:p-form-sym]{トポロジカル演算子}と\hyperref[def:p-form-sym]{charged object}ならば定義できる．
+
+\subsection{$BF$-理論における離散的高次対称性}
+
+\hyperref[def:BF]{$BF$-理論}を考える．
+まず最初に，この理論が以下の変換の下で不変であることに注意する：
+\begin{align}
+    \hg{A}{p} &\lmto \hg{A}{p} + \frac{1}{n} \hg{\epsilon}{p}, \\
+    \hg{B}{d-p-1} &\lmto \hg{B}{d-p-1} + \frac{1}{n} \hg{\epsilon}{d-p-1}, \\
+    \hg{F}{p+1} &\lmto \hg{F}{p+1}, \\
+    \hg{\tilde{A}}{d-p-2} &\lmto \hg{\tilde{A}}{d-p-2} - \hg{\tilde{\epsilon}}{d-p-2}
+\end{align}
+ただし $\hg{\epsilon}{p},\, \hg{\epsilon}{d-p-1}$ は閉形式であり，任意の閉部分多様体 $\mfd{\Sigma}{p},\, \mfd{\Sigma}{d-p-1} \subset \mfdcal{M}{d}$ について
+\begin{align}
+    \int_{\mfd{\Sigma}{p}} \hg{\epsilon}{p},\; \int_{\mfd{\Sigma}{d-p-1}} \hg{\epsilon}{d-p-1} \in 2\pi \mathbb{Z}
+\end{align}
+を充たすとする．また，\underline{局所的に} $\hg{\epsilon}{d-p-1} \eqqcolon \dd{\tilde{\epsilon}^{(d-p-2)}}$ と定義した．
+実際，この変換によって
+\begin{align}
+    &\irm{Z}{BF} 
+    = \int [\dd{\hg{a}{p}}] \int [\dd{\hg{b}{d-p-1}}]\, e^{\frac{\iunit n}{2\pi} \int_{\mfdcal{M}{d}} \hg{b}{d-p-1} \wedge \hg{a}{p}} \\
+    \lmto 
+    & \int [\dd{\hg{a}{p}}] \int [\dd{\hg{b}{d-p-1}}]\, e^{\frac{\iunit n}{2\pi} \int_{\mfdcal{M}{d}} \hg{b}{d-p-1} \wedge \hg{a}{p}} e^{\frac{\iunit}{2\pi} \int_{\mfdcal{M}{d}} \hg{\epsilon}{d-p-1} \wedge \dd{\hg{a}{p}}} \\
+    &= \eval{\int [\dd{\hg{a}{p}}]}_{\dd{\hg{a}{p}} = 0} e^{\frac{\iunit}{2\pi} \int_{\mfdcal{M}{d}} \hg{\epsilon}{d-p-1} \wedge \hg{a}{p}} \\
+    &= \irm{Z}{BF} 
+\end{align}
+となる．トポロジカル演算子は
+\begin{align}
+    \mathcal{U}_{e^{2\pi \iunit k/n}}(\mfd{\Sigma}{p}) &\coloneqq e^{\iunit k \int_{\mfd{\Sigma}{p}} \hg{a}{p}} \\
+    U_{e^{2\pi \iunit k/n}}(\mfd{\Sigma}{d-p-1}) &\coloneqq e^{\iunit k \int_{\mfd{\Sigma}{d-p-1}} \hg{b}{d-p-1}}
+\end{align}
+の2つあり，それぞれに対応するcharged objectは
+\begin{align}
+    \mathcal{W}_n (\mfdcal{C}{d-p-1}) &\coloneqq e^{\iunit n \int_{\mfdcal{C}{d-p-1}} \hg{b}{d-p-1}} \\
+    W_n (\mfdcal{C}{p}) &\coloneqq e^{\iunit n \int_{\mfdcal{C}{p}} \hg{a}{p}}
+\end{align}
+となっている．
+
+
+
+
 
 
 
