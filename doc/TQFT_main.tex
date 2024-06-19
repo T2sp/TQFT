@@ -37,6 +37,14 @@
 \usepackage{graphicx}
 \usepackage{tikz}
 \usetikzlibrary{intersections,calc,patterns,through,positioning,arrows,backgrounds,cd,tqft,braids}
+\tikzset{%
+    symbol/.style={%
+        draw=none,
+        every to/.append style={%
+            edge node={node [sloped, allow upside down, auto=false]{$#1$}}
+        }
+    }
+}
 \usepackage{tikz-feynman}
 \usepackage{pgfplots}
 \usepgfplotslibrary{patchplots}
@@ -261,6 +269,7 @@ title=系~\thetcbcounter: #2,#1}
 
 \mathchardef\mhyphen="2D
 \newcommand{\cinfty}{$C^\infty$}
+\newcommand{\lrto}{\longleftarrow}
 \newcommand{\lto}{\longrightarrow}
 \newcommand{\lmto}{\longmapsto}
 \newcommand{\codd}[1]{\mathrm{D}#1}

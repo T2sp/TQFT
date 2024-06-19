@@ -4,99 +4,496 @@
 
 % \setcounter{}{}
 
-\chapter{QFTミニマム}
+% \chapter{QFTミニマム}
 
-この章は\cite{Kugo1989qft1}による．自然単位系を用いる．
+% この章は\cite{Kugo1989qft1}による．自然単位系を用いる．
 
-\section{経路積分}
+% \section{経路積分}
 
-時空を表す多様体を $\mathcal{M}$ と書く．$\mathcal{M}$ は時間方向と空間方向に $\mathcal{M} = \mathbb{R} \times \Sigma$ と書けるとする．
-場とはベクトル束 $V \hookrightarrow E \xrightarrow{\pi} \mathcal{M}$ の切断 $\varphi \in \Gamma(E)$ のこととする．
+% 時空を表す多様体を $\mathcal{M}$ と書く．$\mathcal{M}$ は時間方向と空間方向に $\mathcal{M} = \mathbb{R} \times \Sigma$ と書けるとする．
+% 場とはベクトル束 $V \hookrightarrow E \xrightarrow{\pi} \mathcal{M}$ の切断 $\varphi \in \Gamma(E)$ のこととする．
 
-系のラグランジアン密度 $\mathcal{L} \bigl( \varphi(x),\, \partial_\mu \varphi(x) \bigr)$ を与える．
+% 系のラグランジアン密度 $\mathcal{L} \bigl( \varphi(x),\, \partial_\mu \varphi(x) \bigr)$ を与える．
+% \begin{itemize}
+%     \item 時刻 $\irm{t}{i}$ における古典場の配位が $\irm{\Psi}{i} \in \Gamma(E|_{\{\irm{t}{i}\} \times \Sigma})$ であることに対応する量子状態\footnote{Heisenberg表示} $\ket{\irm{\Psi}{i},\, \irm{t}{i}}$
+%     \item 時刻 $\irm{t}{f}$ における古典場の配位が $\irm{\Psi}{f} \in \Gamma(E|_{\{\irm{t}{f}\} \times \Sigma})$ であることに対応する量子状態 $\ket{\irm{\Psi}{f},\, \irm{t}{f}}$
+% \end{itemize}
+% の間に
+% \begin{align}
+%     \braket{\irm{\Psi}{f},\, \irm{t}{f}}{\irm{\Psi}{i},\, \irm{t}{i}}
+%     \propto \int [\dd{\varphi}] \exp \left( \iunit \int_{[\irm{t}{i},\, \irm{t}{f}] \times \Sigma} \dd[D+1]{x} \mathcal{L} \bigl( \varphi(x),\, \partial_\mu \varphi(x) \bigr)\right) 
+% \end{align}
+% を要請するのが経路積分による場の量子化である．
+
+% $\hat{\varphi}(x)\WHERE x \in \mathcal{M}$ を場の演算子とする．与えられた時空点 $x_1,\, \dots,\, x_n \in \mathcal{M}$ および境界条件 $\irm{\Psi}{i} \in \Gamma(E|_{\{\irm{t}{i}\} \times \Sigma}),\; \irm{\Psi}{f} \in \Gamma(E|_{\{\irm{t}{f}\} \times \Sigma})$ に対して，
+% \textbf{Green関数}を
+% \begin{align}
+%     \label{def:Green}
+%     G^{(n)} (x_1,\, \dots,\, x_n;\,\irm{\Psi}{f},\, \irm{t}{f};\, \irm{\Psi}{i},\, \irm{t}{i} )
+%     &\coloneqq \frac{\mel{\irm{\Psi}{f},\, \irm{t}{f}}{\mathcal{T}\bigl\{ \hat{\varphi}(x_1) \cdots \hat{\varphi}(x_n) \bigr\}}{\irm{\Psi}{i},\, \irm{t}{i}}}{\braket{\irm{\Psi}{f},\, \irm{t}{f}}{\irm{\Psi}{i},\, \irm{t}{i}}}
+% \end{align}
+% で定義する．時刻 $t$ における完全系 $\int_{\Gamma(E|_{\{t\} \times \Sigma})} [\dd{\varphi}] \ketbra{\varphi|_{\{t\} \times \Sigma}}{\varphi|_{\{t\} \times \Sigma}} = 1$ を適当に挿入することで
+% \begin{align}
+%     \label{eq:Green}
+%     G^{(n)} (x_1,\, \dots,\, x_n;\,\irm{\Psi}{f},\, \irm{t}{f};\, \irm{\Psi}{i},\, \irm{t}{i} ) 
+%     &\propto \int [\dd{\varphi}]\; 
+%     \irm{\Psi}{f}\bigl[\varphi|_{\{\irm{t}{f}\} \times \Sigma}\bigr]^* \irm{\Psi}{i}\bigl[\varphi|_{\{\irm{t}{i}\} \times \Sigma}\bigr] 
+%     \varphi(x_1) \cdots \varphi(x_n) \\
+%     &\qquad \exp \left( \iunit \int_{[\irm{t}{i},\, \irm{t}{f}] \times \Sigma} \dd[D+1]{x} \mathcal{L} \bigl( \varphi(x),\, \partial_\mu \varphi(x) \bigr)\right)  
+% \end{align}
+% と計算できる．ただし $\irm{\Psi}{i}\bigl[\varphi|_{\{\irm{t}{i}\} \times \Sigma}\bigr] \coloneqq \braket{\varphi|_{\{\irm{t}{i}\} \times \Sigma}}{\irm{\Psi}{i},\, \irm{t}{i}},\; \irm{\Psi}{f}\bigl[\varphi|_{\{\irm{t}{f}\} \times \Sigma}\bigr] \coloneqq \braket{\varphi|_{\{\irm{t}{f}\} \times \Sigma}}{\irm{\Psi}{f},\, \irm{t}{f}}$ とおいた．煩雑なので以降では $\irm{\Psi}{i},\, \irm{\Psi}{f}$ と略記する．
+
+% 与えられた境界条件 $\irm{\Psi}{i} \in \Gamma(E|_{\{\irm{t}{i}\} \times \Sigma}),\; \irm{\Psi}{f} \in \Gamma(E|_{\{\irm{t}{f}\} \times \Sigma})$ に対して，\textbf{Green関数の生成汎函数}を
+% \begin{align}
+%     \label{def:gen-Green}
+%     \irm{Z}{fi}[J]
+%     \coloneqq \frac{\displaystyle\mel{\irm{\Psi}{f},\, \irm{t}{f}}{\mathcal{T} \exp \left( \iunit\int_{[\irm{t}{i},\, \irm{t}{f}] \times \Sigma} \dd[D+1]{x} J(x) \hat{\varphi}(x) \right)}{\irm{\Psi}{i},\, \irm{t}{i}}}{\braket{\irm{\Psi}{f},\, \irm{t}{f}}{\irm{\Psi}{i},\, \irm{t}{i}}}
+% \end{align}
+% と定める．実際，
+% \begin{align}
+%     \eval{\frac{\delta^n \irm{Z}{fi}[J]}{\delta J(x_1) \cdots \delta J(x_n)}}_{J=0} = \iunit^n G^{(n)} (x_1,\, \dots,\, x_n;\,\irm{\Psi}{f},\, \irm{t}{f};\, \irm{\Psi}{i},\, \irm{t}{i} ) 
+% \end{align}
+% が成り立つので
+% \begin{align}
+%     \irm{Z}{fi}[J]
+%     &= \sum_{n=0}^\infty \frac{\iunit^n}{n!} \int_{([\irm{t}{i},\, \irm{t}{f}] \times \Sigma)^n} \dd[D+1]{x_1} \cdots \dd[D+1]{x_n} J(x_1) \cdots J(x_n) G^{(n)} (x_1,\, \dots,\, x_n;\,\irm{\Psi}{f},\, \irm{t}{f};\, \irm{\Psi}{i},\, \irm{t}{i} ) 
+% \end{align}
+% だと分かる．\eqref{eq:Green}より
+% \begin{align}
+%     \label{eq:gen-Green}
+%     \irm{Z}{fi}[J] = \frac{\displaystyle \int [\dd{\varphi}] \irm{\Psi}{f}^* \irm{\Psi}{i} \exp \left( \iunit \int_{[\irm{t}{i},\, \irm{t}{f}] \times \Sigma} \dd[D+1]{x} \bigl(\mathcal{L}(x) + J(x) \phi(x) \bigr) \right) }{\displaystyle \int_{[\irm{t}{i},\, \irm{t}{f}] \times \Sigma} [\dd{\varphi}] \irm{\Psi}{f}^* \irm{\Psi}{i} \exp \left( \iunit \int \dd[D+1]{x} \mathcal{L}(x) \right)}
+% \end{align}
+% が成り立つ．
+
+% $\irm{t}{i} \to -\infty,\, \irm{t}{f} \to \infty$ の極限を上手くとることで，Green関数\eqref{def:Green}の境界条件への依存性を実質的に無くすことができる．
+% このような極限としてよく使われるものに，$\iunit \epsilon$ 処方がある：
+% 簡単のため実スカラー場を考え，Lagrangian密度の質量項が $-\frac{1}{2} \mu^2 \varphi^2$ であるとする．このとき $\mu^2 \to \mu^2 - \iunit \epsilon$ と置き換えると，これは系のHamiltonianを $H \to H - \iunit \epsilon \int_\Sigma \dd[3]{x} \frac{\varphi(x)^2}{2} \eqqcolon H^{(\epsilon)}$ に置き換えることに相当する．このとき $\hat{H}$ の固有値，固有状態をそれぞれ $E_n,\, \ket{n}$ とおき，$\hat{H^{(\epsilon)}}$ の固有値，固有状態をそれぞれ $E^{(\epsilon)}_n,\, \ket{n}^{(\epsilon)}$ とおくと，
+% \begin{align}
+%     \ket{\irm{\Psi}{i},\, \irm{t}{i}}
+%     &= e^{\iunit \hat{H^{(\epsilon)}} \irm{t}{i}}\ket{\irm{\Psi}{i}} \\
+%     &= \sum_n  e^{\iunit E^{(\epsilon)} \irm{t}{i}} \ket{n}^{(\epsilon)} {}^{(\epsilon)}\braket{n}{\irm{\Psi}{i}} \\
+%     &\approx e^{\epsilon \irm{t}{i}\mel{0}{\int_\Sigma \dd[3]{x} \frac{\hat{\varphi}(x)^2}{2}}{0}}\left( \ket{0}^{(\epsilon)} {}^{(\epsilon)}\braket{0}{\irm{\Psi}{i}} + \sum_{n \neq 0} e^{\epsilon \irm{t}{i}(\mel{n}{\int_\Sigma \dd[3]{x} \frac{\hat{\varphi}(x)^2}{2}}{n} - \mel{0}{\int_\Sigma \dd[3]{x} \frac{\hat{\varphi}(x)^2}{2}}{0})} e^{\iunit E_n \irm{t}{i}} \ket{n}^{(\epsilon)} {}^{(\epsilon)}\braket{n}{\irm{\Psi}{i}} \right) \\
+%     &\xrightarrow{\substack{\irm{t}{i} \to -\infty, \\ \epsilon \to +0}} \ket{0}\braket{0}{\irm{\Psi}{i}}
+% \end{align}
+% 同様に $\bra{\irm{\Psi}{f},\, \irm{t}{f}} \xrightarrow{\substack{\irm{t}{f} \to +\infty, \\ \epsilon \to +0}} \braket{\irm{\Psi}{f}}{0}\bra{0}$ もわかり，結局\eqref{def:Green}は
+% \begin{align}
+%     \label{def:Green-vac}
+%     \lim_{\substack{\irm{t}{i} \to -\infty, \\ \irm{t}{f} \to +\infty}} 
+%     G^{(n)} (x_1,\, \dots,\, x_n;\,\irm{\Psi}{f},\, \irm{t}{f};\, \irm{\Psi}{i},\, \irm{t}{i} )
+%     &= \mel{0}{\mathcal{T}\bigl\{ \hat{\varphi}(x_1) \cdots \hat{\varphi}(x_n) \bigr\}}{0}
+%     \eqqcolon G^{(n)} (x_1,\, \dots,\, x_n)
+% \end{align}
+% となる．このとき\eqref{eq:Green}を
+% \begin{align}
+%     \label{eq:Green-vac}
+%     G^{(n)} (x_1,\, \dots,\, x_n)
+%     &\propto \int [\dd{\varphi}]\; 
+%     \varphi(x_1) \cdots \varphi(x_n) \exp \left( \iunit \int_{\mathcal{M}} \dd[D+1]{x} \mathcal{L}(x)\right)  
+% \end{align}
+% と書く．
+
+\chapter{$\infty$-圏}
+
+この付録では，~\cite{Land2021infinity}, ~\cite{alfonsi2023higher}に従って $\infty$-圏\footnote{~\cite{lurie2008higher}}，および主 $\infty$-束を導入する．
+
+\section{圏論の復習}
+
+\subsection{圏と関手}
+
+\begin{mydef}[label=def:category, breakable]{圏}
+	\textbf{圏} (category) $\Cat{C}$ とは，以下の4種類のデータからなる：
+	\begin{itemize}
+		\item \textbf{対象} (object) と呼ばれる要素の集まり\footnote{$\Obj{\Cat{C}}$ は，集合論では扱えないほど大きなものになっても良い．}
+		\begin{align}
+			\bm{\Obj{\Cat{C}}}
+		\end{align}
+		
+		\item $\forall A,\, B \in \Obj{\Cat{C}}$ に対して，$A$ から $B$ への\textbf{射} (morphism) と呼ばれる要素の\underline{集合}
+		\begin{align}
+			\bm{\Hom{\Cat{C}}(A,\, B)}
+		\end{align}
+		
+		\item $\forall A \in \Obj{\Cat{C}}$ に対して，$A$ 上の\textbf{恒等射} (identity morphism) と呼ばれる射
+		\begin{align}
+			\bm{\mathrm{Id}_A} \in \Hom{\Cat{C}}(A,\, A)
+		\end{align}
+		
+		\item $\forall A,\, B,\, C \in \Obj{\Cat{C}}$ と $\forall f \in \Hom{\Cat{C}}(A,\, B),\, \forall g \in \Hom{\Cat{C}}(B,\, C)$ に対して，$f$ と $g$ の\textbf{合成} (composite) と呼ばれる射 $\bm{g \circ f} \in \Hom{\Cat{C}}(A,\, C)$ を対応させる集合の写像
+		\begin{align}
+			\bm{\circ} \colon \Hom{\Cat{C}}(A,\, B) \times \Hom{\Cat{C}}(B,\, C) \lto \Hom{\Cat{C}}(A,\, C),\; (f,\, g) \lmto g\circ f
+		\end{align}
+	\end{itemize}
+	これらの構成要素は，次の2条件を満たさねばならない：
+	\begin{enumerate}
+		\item \textbf{(unitality)}：任意の射 $f \colon A \lto B$ に対して
+		\begin{align}
+			f \circ \mathrm{Id}_A = f,\quad \mathrm{Id}_B \circ f = f
+		\end{align}
+		が成り立つ．
+		\item \textbf{(associativity)}：任意の射 $f \colon A \lto B,\; g \colon B \lto C,\; h \colon C \lto D$ に対して
+		\begin{align}
+			h \circ (g \circ f) = (h \circ g) \circ f
+		\end{align}
+		が成り立つ．
+	\end{enumerate}
+\end{mydef}
+
+\begin{mydef}[label=def:iso]{モノ・エピ・同型射}
+	\hyperref[def:category]{圏} $\Cat{C}$ を与える．
+	\begin{itemize}
+        \item 射 $f \colon A \lto B$ が\textbf{単射} (monomorphism) であるとは，$\forall X \in \Obj{\Cat{C}}$ に対して写像
+        \begin{align}
+            f_* \colon \Hom{\Cat{C}} (X,\, A) &\lto \Hom{\Cat{C}} (X,\, B), \\
+            g \lmto f \circ g
+        \end{align}
+        が集合の写像として単射であること．
+        \item 射 $f \colon A \lto B$ が\textbf{全射} (epimorphism) であるとは，$\forall  X \in \Obj{\Cat{C}}$ に対して写像
+        \begin{align}
+            f^* \colon \Hom{\Cat{C}} (B,\, X) &\lto \Hom{\Cat{C}} (A,\, X), \\
+            g \lmto g \circ f
+        \end{align}
+        が集合の写像として単射であること．
+		\item 射 $f \colon A \lto B$ が\textbf{同型射} (isomorphism) であるとは，射 $g \colon B \lto A$ が存在して
+		$ g \circ f = \mathrm{Id}_A \AND f \circ g = \mathrm{Id}_B$ を充たすこと．
+		このとき $f$ と $g$ は互いの\textbf{逆射} (inverse) であると言い，$g = \bm{f^{-1}},\; f = \bm{g}^{-1}$ と書く\footnote{逆射は存在すれば一意である．}．
+		\item $A,\, B \in \Obj{\Cat{C}}$ の間に同型射が存在するとき，対象 $A$ と $B$ は\textbf{同型} (isomorphic) であると言い，$\bm{A\cong B}$ と書く．
+	\end{itemize}
+\end{mydef}
+
+\begin{mydef}[label=def:functor]{関手}
+    \hyperref[def:category]{圏} $\Cat{C},\; \Cat{D}$ を与える．
+    圏 $\Cat{C}$ から圏 $\Cat{D}$ への\textbf{関手} $F$ とは，以下の2つの対応からなる：
+    \begin{itemize}
+        \item 圏 $\Cat{C}$ における任意の対象 $X \in \Obj{\Cat{C}}$ に対して，圏 $\Cat{D}$ における対象 $F(X) \in \Obj{\Cat{D}}$ を対応づける
+        \item 圏 $\Cat{C}$ における任意の射 $f \colon X \lto Y$ に対して，圏 $\Cat{D}$ における射 $F(f) \colon F(X) \lto F(Y)$ を対応づける
+    \end{itemize}
+    これらの対応は以下の条件を充たさねばならない：
+    \begin{description}
+        \item[\textbf{(fun-1)}]  圏 $\Cat{C}$ における任意の射 $f \colon X \lto Y,\; g \colon Y \lto Z$ に対して，
+        \begin{align}
+            F(g \circ f) \lto F(g) \circ F(f)
+        \end{align}
+        \item[\textbf{(fun-2)}]  圏 $\Cat{C}$ における任意の対象 $X \in \Obj{\Cat{C}}$ に対して，
+        \begin{align}
+            F (\Id_{X}) = \Id_{F(X)}
+        \end{align}
+    \end{description}
+    
+    \tcblower
+
+    文脈上明らかなときは，圏 $\Cat{C}$ から圏 $\Cat{D}$ への関手 $F$ のことを関手 $\bm{F \colon \Cat{C} \lto \Cat{D}}$ と略記する．
+\end{mydef}
+
+\begin{mydef}[label=def:faithful]{忠実・充満・本質的全射}
+    \hyperref[def:functor]{関手} $F \colon \Cat{C} \longrightarrow \Cat{D}$ を与える．
+    \begin{itemize}
+        \item $F$ が\textbf{忠実} (faithful) であるとは， $\forall X,\,Y \in \Obj{\Cat{C}}$ に対して写像
+        \begin{align}
+            F \colon \Hom{\mathcal{C}}(X,\, Y) \longrightarrow \Hom{\mathcal{D}} \bigl( F(X),\, F(Y) \bigr),\; f \longmapsto F(f)
+        \end{align}
+        が単射であること．
+        \item $F$ が\textbf{充満} (full) であるとは， $\forall X,\,Y \in \Obj{\Cat{C}}$ に対して写像
+        \begin{align}
+            F \colon \Hom{\mathcal{C}}(X,\, Y) \longrightarrow \Hom{\mathcal{D}} \bigl( F(X),\, F(Y) \bigr),\; f \longmapsto F(f)
+        \end{align}
+        が全射であること．
+        \item $F$ が\textbf{本質的全射} (essentially surjective) であるとは， $\forall Z \in \Obj{\Cat{D}}$ に対して $X \in \Obj{\Cat{C}}$ が存在して $F(X)$ が $Y$ と同型になること．
+    \end{itemize}
+    忠実充満関手のことを\textbf{埋め込み}と呼ぶことがある．
+\end{mydef}
+
+\begin{mydef}[label=def:nat]{自然変換}
+    2つの\hyperref[def:functor]{関手} $F,\, G \colon \Cat{C} \lto \Cat{D}$ を与える．
+    $F,\, G$ の間の\textbf{自然変換} (natural transformation) $\bm{\tau \colon F \Longrightarrow G}$ とは，以下の対応からなる：
+    \begin{itemize}
+        \item 圏 $\Cat{C}$ における任意の対象 $X \in \Obj{\Cat{C}}$ に対して，圏 $\Cat{D}$ における射 $\tau_X \colon F(X) \lto G(X)$ を対応づける
+    \end{itemize}
+    この対応は以下の条件を充たさねばならない：
+    \begin{description}
+        \item[\textbf{(nat)}]  
+        圏 $\Cat{C}$ における任意の射 $f \colon X \lto Y$ に対して，以下の図式を可換にする：
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &F(X) \ar[d, red, "\tau_X"]\ar[r, "F(f)"] &F(Y) \ar[d, red, "\tau_Y"] \\
+                &G(X) \ar[r, "G(f)"] &G(Y)
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+    
+    \tcblower 
+
+    自然変換 $\tau \colon F \Longrightarrow G$ であって，$\forall X \in \Obj{\Cat{C}}$ に対して射 $\tau_X \colon F(X) \lto G(X)$ が\hyperref[def:iso]{同型射}であるもののことを\textbf{自然同値} (natural equivalence) と呼ぶ．
+\end{mydef}
+
+自然変換 $\tau \colon F \Longrightarrow G$ を
+\begin{center}
+    \begin{tikzcd}[row sep=large, column sep=large]
+        \Cat{C} \ar[bend left=50,r, "F"{name=U, above}] \ar[bend right=50,r, "G"{name=D, below}] &\Cat{D}
+        \ar[Rightarrow, from=U, to=D, "\tau"]
+    \end{tikzcd}
+\end{center}
+と書くことがある．    
+
+\subsection{米田埋め込み}
+
+\begin{mydef}[label=def:presheaf-general]{前層}
+    圏 $\Cat{C}$ 上の圏 $\Cat{S}$ に値をとる\textbf{前層}とは，\hyperref[def:functor]{関手}
+    \begin{align}
+        P \colon \OP{\Cat{C}} \lto \Cat{S}
+    \end{align}
+    のこと．
+\end{mydef}
+
+\textbf{前層の圏} $\PSH{\Cat{C}}{\Cat{S}}$ \footnote{$\comm{\OP{\Cat{C}}}{\Cat{S}}$ や $\Cat{S}^{\OP{\Cat{C}}}$ と書くこともある．なお，\hyperref[def:presheaf]{付録A}で登場したものはこれの一例である．}とは，
 \begin{itemize}
-    \item 時刻 $\irm{t}{i}$ における古典場の配位が $\irm{\Psi}{i} \in \Gamma(E|_{\{\irm{t}{i}\} \times \Sigma})$ であることに対応する量子状態\footnote{Heisenberg表示} $\ket{\irm{\Psi}{i},\, \irm{t}{i}}$
-    \item 時刻 $\irm{t}{f}$ における古典場の配位が $\irm{\Psi}{f} \in \Gamma(E|_{\{\irm{t}{f}\} \times \Sigma})$ であることに対応する量子状態 $\ket{\irm{\Psi}{f},\, \irm{t}{f}}$
+    \item \hyperref[def:presheaf-general]{前層} $P \colon \OP{\Cat{C}} \lto \Cat{S}$ を対象とする
+    \item 前層 $P,\, Q \colon \OP{\Cat{C}} \lto \Cat{S}$ の間の\hyperref[def:nat]{自然変換} $ \tau \colon P \Longrightarrow Q$ を射とする
 \end{itemize}
-の間に
-\begin{align}
-    \braket{\irm{\Psi}{f},\, \irm{t}{f}}{\irm{\Psi}{i},\, \irm{t}{i}}
-    \propto \int [\dd{\varphi}] \exp \left( \iunit \int_{[\irm{t}{i},\, \irm{t}{f}] \times \Sigma} \dd[D+1]{x} \mathcal{L} \bigl( \varphi(x),\, \partial_\mu \varphi(x) \bigr)\right) 
-\end{align}
-を要請するのが経路積分による場の量子化である．
+として構成される圏のこと\footnote{$\PSH{\Cat{C}}{\Cat{S}}$ の恒等射は $\forall X \in \Obj{\OP{\Cat{C}}}$ に対して $\Id_X \colon X \lto X$ を対応づける自然変換である．}．
 
-$\hat{\varphi}(x)\WHERE x \in \mathcal{M}$ を場の演算子とする．与えられた時空点 $x_1,\, \dots,\, x_n \in \mathcal{M}$ および境界条件 $\irm{\Psi}{i} \in \Gamma(E|_{\{\irm{t}{i}\} \times \Sigma}),\; \irm{\Psi}{f} \in \Gamma(E|_{\{\irm{t}{f}\} \times \Sigma})$ に対して，
-\textbf{Green関数}を
-\begin{align}
-    \label{def:Green}
-    G^{(n)} (x_1,\, \dots,\, x_n;\,\irm{\Psi}{f},\, \irm{t}{f};\, \irm{\Psi}{i},\, \irm{t}{i} )
-    &\coloneqq \frac{\mel{\irm{\Psi}{f},\, \irm{t}{f}}{\mathcal{T}\bigl\{ \hat{\varphi}(x_1) \cdots \hat{\varphi}(x_n) \bigr\}}{\irm{\Psi}{i},\, \irm{t}{i}}}{\braket{\irm{\Psi}{f},\, \irm{t}{f}}{\irm{\Psi}{i},\, \irm{t}{i}}}
-\end{align}
-で定義する．時刻 $t$ における完全系 $\int_{\Gamma(E|_{\{t\} \times \Sigma})} [\dd{\varphi}] \ketbra{\varphi|_{\{t\} \times \Sigma}}{\varphi|_{\{t\} \times \Sigma}} = 1$ を適当に挿入することで
-\begin{align}
-    \label{eq:Green}
-    G^{(n)} (x_1,\, \dots,\, x_n;\,\irm{\Psi}{f},\, \irm{t}{f};\, \irm{\Psi}{i},\, \irm{t}{i} ) 
-    &\propto \int [\dd{\varphi}]\; 
-    \irm{\Psi}{f}\bigl[\varphi|_{\{\irm{t}{f}\} \times \Sigma}\bigr]^* \irm{\Psi}{i}\bigl[\varphi|_{\{\irm{t}{i}\} \times \Sigma}\bigr] 
-    \varphi(x_1) \cdots \varphi(x_n) \\
-    &\qquad \exp \left( \iunit \int_{[\irm{t}{i},\, \irm{t}{f}] \times \Sigma} \dd[D+1]{x} \mathcal{L} \bigl( \varphi(x),\, \partial_\mu \varphi(x) \bigr)\right)  
-\end{align}
-と計算できる．ただし $\irm{\Psi}{i}\bigl[\varphi|_{\{\irm{t}{i}\} \times \Sigma}\bigr] \coloneqq \braket{\varphi|_{\{\irm{t}{i}\} \times \Sigma}}{\irm{\Psi}{i},\, \irm{t}{i}},\; \irm{\Psi}{f}\bigl[\varphi|_{\{\irm{t}{f}\} \times \Sigma}\bigr] \coloneqq \braket{\varphi|_{\{\irm{t}{f}\} \times \Sigma}}{\irm{\Psi}{f},\, \irm{t}{f}}$ とおいた．煩雑なので以降では $\irm{\Psi}{i},\, \irm{\Psi}{f}$ と略記する．
+\begin{mydef}[label=def:representable]{表現可能前層・米田埋め込み}
+    圏 $\Cat{C}$ を与える．
+    \begin{itemize}
+        \item $\forall X \in \Obj{\Cat{C}}$ に対して，以下で定義する\hyperref[def:presheaf-general]{前層}
+        \begin{align}
+            \bm{\Hom{\Cat{C}}(\,\mhyphen\,,\, X)} \colon \OP{\Cat{C}} &\lto \SETS
+        \end{align}
+        のことを\textbf{表現可能前層} (representable presheaf) と呼ぶ：
+        \begin{itemize}
+            \item $\forall Y \in \Obj{\OP{\Cat{C}}}$ に対して
+            \begin{align}
+                \Hom{\Cat{C}}(\,\mhyphen\,,\, X) (Y) \coloneqq \Hom{\Cat{C}}(Y,\, X) \in \Obj{\SETS}
+            \end{align}
+            を対応づける
+            \item $\OP{\Cat{C}}$ における任意の射 $Y \lrto Z\, :g$ に対して，
+            \begin{align}
+                \Hom{\Cat{C}}(\,\mhyphen\,,\, X)(g) \coloneqq g^* \colon \Hom{\Cat{C}} (Z,\, X) &\lto \Hom{\Cat{C}} (Y,\, X),\\ 
+                h &\lmto h \circ g
+            \end{align}
+            を対応付ける
+        \end{itemize}
+        \item \textbf{米田埋め込み} (Yoneda embedding) とは，以下で定義する\hyperref[def:functor]{関手}
+        \begin{align}
+            \mathrm{Y} \colon \Cat{C} \lto \PshSETS{\Cat{C}}
+        \end{align}
+        のこと：
+        \begin{itemize}
+            \item $\forall X \in \Obj{\OP{\Cat{C}}}$ に対して表現可能前層 $\mathrm{Y} (X) \coloneqq \Hom{\Cat{C}}(\,\mhyphen\,,\, X) \in \Obj{\PshSETS{\Cat{C}}}$ を対応付ける
+            \item $\Cat{C}$ における任意の射 $f \colon X \lto Y$ に対して，以下で定義される\hyperref[def:nat]{自然変換} $\mathrm{Y}(f) \colon \Hom{\Cat{C}}(\,\mhyphen\,,\, X) \Longrightarrow \Hom{\Cat{C}}(\,\mhyphen\,,\, Y)$ を対応付ける：
+            \begin{itemize}
+                \item $\forall Z \in \Obj{\OP{\Cat{C}}}$ に対して，圏 $\SETS$ における射
+                \begin{align}
+                    \mathrm{Y}(f)_Z \coloneqq f_*\colon \Hom{\Cat{C}}(Z,\, X) &\lto \Hom{\Cat{C}}(Z,\, Y), \\
+                    g &\lmto f \circ g
+                \end{align}
+                を対応付ける．
+            \end{itemize}
+            
+        \end{itemize}
+        
+    \end{itemize}
+    
+\end{mydef}
 
-与えられた境界条件 $\irm{\Psi}{i} \in \Gamma(E|_{\{\irm{t}{i}\} \times \Sigma}),\; \irm{\Psi}{f} \in \Gamma(E|_{\{\irm{t}{f}\} \times \Sigma})$ に対して，\textbf{Green関数の生成汎函数}を
-\begin{align}
-    \label{def:gen-Green}
-    \irm{Z}{fi}[J]
-    \coloneqq \frac{\displaystyle\mel{\irm{\Psi}{f},\, \irm{t}{f}}{\mathcal{T} \exp \left( \iunit\int_{[\irm{t}{i},\, \irm{t}{f}] \times \Sigma} \dd[D+1]{x} J(x) \hat{\varphi}(x) \right)}{\irm{\Psi}{i},\, \irm{t}{i}}}{\braket{\irm{\Psi}{f},\, \irm{t}{f}}{\irm{\Psi}{i},\, \irm{t}{i}}}
-\end{align}
-と定める．実際，
-\begin{align}
-    \eval{\frac{\delta^n \irm{Z}{fi}[J]}{\delta J(x_1) \cdots \delta J(x_n)}}_{J=0} = \iunit^n G^{(n)} (x_1,\, \dots,\, x_n;\,\irm{\Psi}{f},\, \irm{t}{f};\, \irm{\Psi}{i},\, \irm{t}{i} ) 
-\end{align}
-が成り立つので
-\begin{align}
-    \irm{Z}{fi}[J]
-    &= \sum_{n=0}^\infty \frac{\iunit^n}{n!} \int_{([\irm{t}{i},\, \irm{t}{f}] \times \Sigma)^n} \dd[D+1]{x_1} \cdots \dd[D+1]{x_n} J(x_1) \cdots J(x_n) G^{(n)} (x_1,\, \dots,\, x_n;\,\irm{\Psi}{f},\, \irm{t}{f};\, \irm{\Psi}{i},\, \irm{t}{i} ) 
-\end{align}
-だと分かる．\eqref{eq:Green}より
-\begin{align}
-    \label{eq:gen-Green}
-    \irm{Z}{fi}[J] = \frac{\displaystyle \int [\dd{\varphi}] \irm{\Psi}{f}^* \irm{\Psi}{i} \exp \left( \iunit \int_{[\irm{t}{i},\, \irm{t}{f}] \times \Sigma} \dd[D+1]{x} \bigl(\mathcal{L}(x) + J(x) \phi(x) \bigr) \right) }{\displaystyle \int_{[\irm{t}{i},\, \irm{t}{f}] \times \Sigma} [\dd{\varphi}] \irm{\Psi}{f}^* \irm{\Psi}{i} \exp \left( \iunit \int \dd[D+1]{x} \mathcal{L}(x) \right)}
-\end{align}
-が成り立つ．
+\begin{mylem}[label=lem:Yoneda]{米田の補題}
+    \hyperref[def:presheaf-general]{前層} $F \colon \OP{\Cat{C}} \lto \SETS$ および圏 $\Cat{C}$ の対象 $X \in \Obj{\Cat{C}}$ を与える．
+    このとき，写像
+    \begin{align}
+        \Hom{\PshSETS{\Cat{C}}}\bigl( \Hom{\Cat{C}}(\, \mhyphen\,,\, X),\, F \bigr) &\lto F(X), \\
+        \tau &\lmto \tau_X(\Id_X)
+    \end{align}
+    は全単射である．
+\end{mylem}
 
-$\irm{t}{i} \to -\infty,\, \irm{t}{f} \to \infty$ の極限を上手くとることで，Green関数\eqref{def:Green}の境界条件への依存性を実質的に無くすことができる．
-このような極限としてよく使われるものに，$\iunit \epsilon$ 処方がある：
-簡単のため実スカラー場を考え，Lagrangian密度の質量項が $-\frac{1}{2} \mu^2 \varphi^2$ であるとする．このとき $\mu^2 \to \mu^2 - \iunit \epsilon$ と置き換えると，これは系のHamiltonianを $H \to H - \iunit \epsilon \int_\Sigma \dd[3]{x} \frac{\varphi(x)^2}{2} \eqqcolon H^{(\epsilon)}$ に置き換えることに相当する．このとき $\hat{H}$ の固有値，固有状態をそれぞれ $E_n,\, \ket{n}$ とおき，$\hat{H^{(\epsilon)}}$ の固有値，固有状態をそれぞれ $E^{(\epsilon)}_n,\, \ket{n}^{(\epsilon)}$ とおくと，
-\begin{align}
-    \ket{\irm{\Psi}{i},\, \irm{t}{i}}
-    &= e^{\iunit \hat{H^{(\epsilon)}} \irm{t}{i}}\ket{\irm{\Psi}{i}} \\
-    &= \sum_n  e^{\iunit E^{(\epsilon)} \irm{t}{i}} \ket{n}^{(\epsilon)} {}^{(\epsilon)}\braket{n}{\irm{\Psi}{i}} \\
-    &\approx e^{\epsilon \irm{t}{i}\mel{0}{\int_\Sigma \dd[3]{x} \frac{\hat{\varphi}(x)^2}{2}}{0}}\left( \ket{0}^{(\epsilon)} {}^{(\epsilon)}\braket{0}{\irm{\Psi}{i}} + \sum_{n \neq 0} e^{\epsilon \irm{t}{i}(\mel{n}{\int_\Sigma \dd[3]{x} \frac{\hat{\varphi}(x)^2}{2}}{n} - \mel{0}{\int_\Sigma \dd[3]{x} \frac{\hat{\varphi}(x)^2}{2}}{0})} e^{\iunit E_n \irm{t}{i}} \ket{n}^{(\epsilon)} {}^{(\epsilon)}\braket{n}{\irm{\Psi}{i}} \right) \\
-    &\xrightarrow{\substack{\irm{t}{i} \to -\infty, \\ \epsilon \to +0}} \ket{0}\braket{0}{\irm{\Psi}{i}}
-\end{align}
-同様に $\bra{\irm{\Psi}{f},\, \irm{t}{f}} \xrightarrow{\substack{\irm{t}{f} \to +\infty, \\ \epsilon \to +0}} \braket{\irm{\Psi}{f}}{0}\bra{0}$ もわかり，結局\eqref{def:Green}は
-\begin{align}
-    \label{def:Green-vac}
-    \lim_{\substack{\irm{t}{i} \to -\infty, \\ \irm{t}{f} \to +\infty}} 
-    G^{(n)} (x_1,\, \dots,\, x_n;\,\irm{\Psi}{f},\, \irm{t}{f};\, \irm{\Psi}{i},\, \irm{t}{i} )
-    &= \mel{0}{\mathcal{T}\bigl\{ \hat{\varphi}(x_1) \cdots \hat{\varphi}(x_n) \bigr\}}{0}
-    \eqqcolon G^{(n)} (x_1,\, \dots,\, x_n)
-\end{align}
-となる．このとき\eqref{eq:Green}を
-\begin{align}
-    \label{eq:Green-vac}
-    G^{(n)} (x_1,\, \dots,\, x_n)
-    &\propto \int [\dd{\varphi}]\; 
-    \varphi(x_1) \cdots \varphi(x_n) \exp \left( \iunit \int_{\mathcal{M}} \dd[D+1]{x} \mathcal{L}(x)\right)  
-\end{align}
-と書く．
+米田の補題の主張は少し込み入っているが，次のように考えれば良い：
 
+$\tau \in \Hom{\PshSETS{\Cat{C}}}\bigl( \Hom{\Cat{C}}(\, \mhyphen\,,\, X)\bigr)$ とは\hyperref[def:nat]{自然変換}
+\begin{center}
+    \begin{tikzcd}[row sep=large, column sep=large]
+        \mathcal{C}^{\mathrm{op}} \ar[bend left=50,r, "\mathrm{Hom}_{\mathcal{C}}(\,\mhyphen\,{,}\, X)"{name=U, above}] \ar[bend right=50,r, "F"{name=D, below}] &\SETS
+        \ar[Rightarrow, from=U, to=D, "\tau"]
+    \end{tikzcd}
+\end{center}
+のことであるから，\hyperref[def:representable]{表現可能前層}の定義より $X \in \Obj{\OP{\Cat{C}}}$ に対して圏 $\SETS$ における射（i.e. 写像）$\tau_X \colon \Hom{\Cat{C}}(X,\, X) \lto F(X)$ が定まる．\hyperref[def:category]{圏の定義}より集合 $\Hom{\Cat{C}}(X,\, X)$ には必ず恒等射という元 $\Id_X \in \Hom{\Cat{C}}(X,\, X)$ が含まれるので，それを写像 $\tau_X$ で送った先は $\tau_X(\Id_X) \in F(X)$ としてwell-definedである．
 
+\begin{proof}
+    写像
+    \begin{align}
+        \eta \colon F(X) &\lto \Hom{\PshSETS{\Cat{C}}}\bigl( \Hom{\Cat{C}}(\, \mhyphen\,,\, X),\, F \bigr), \\
+        s &\lmto \Familyset[\big]{\eta(s)_Y \colon \Hom{\Cat{C}}(Y,\, X) \lto F(Y),\; f \lmto F(f)(s) }{Y \in \Obj{\Cat{C}}}
+    \end{align}
+    を考える．$\forall s \in F(X)$ を1つ固定する．
+    このとき圏 $\OP{\Cat{C}}$ における任意の射 $Y \lrto Z \colon f$ および $\forall g \in \Hom{\Cat{C}}(Z,\, X)$ に対して
+    \begin{align}
+        \eta(s)_Y \circ \Hom{\Cat{C}} (\, \mhyphen\, , \, X)(f) (g)
+        &= \eta(s)_Y (g \circ f) \\
+        &= F(g \circ f)(s) \\
+        &= F(f) \circ F(g)(s) \\
+        &= F(f) \circ \eta(s)_Z(g)
+    \end{align}
+    が言える．i.e. $\eta(s)$ は自然変換であり，$\eta$ はwell-definedである．
+    
+    ところで，$\forall \tau \in \Hom{\PshSETS{\Cat{C}}}\bigl( \Hom{\Cat{C}}(\, \mhyphen\,,\, X),\, F \bigr)$ に対して
+    \begin{align}
+        \eta (\tau_X(\Id_X))
+        &= \Familyset[\big]{\Hom{\Cat{C}}(Y,\, X) \lto F(Y),\; f \lmto F(f)\bigl( \tau_X(\Id_X) \bigr)  }{Y \in \Obj{\Cat{C}}} \\
+        &= \Familyset[\big]{\Hom{\Cat{C}}(Y,\, X) \lto F(Y),\; f \lmto F(f)\circ \tau_X(\Id_X)  }{Y \in \Obj{\Cat{C}}} \\
+        &= \Familyset[\big]{\Hom{\Cat{C}}(Y,\, X) \lto F(Y),\; f \lmto \tau_Y \circ \Hom{\Cat{C}} (\,\mhyphen\,,\, X)(f)(\Id_X)  }{Y \in \Obj{\Cat{C}}} \\
+        &= \Familyset[\big]{\Hom{\Cat{C}}(Y,\, X) \lto F(Y),\; f \lmto \tau_Y (f \circ \Id_X)  }{Y \in \Obj{\Cat{C}}} \\
+        &= \Familyset[\big]{\Hom{\Cat{C}}(Y,\, X) \lto F(Y),\; f \lmto \tau_Y(f)  }{Y \in \Obj{\Cat{C}}} \\
+        &= \tau
+    \end{align}
+    が成り立ち，かつ
+    \begin{align}
+        \eta(s)_X (\Id_X) = F(\Id_X) (s) = \Id_{F(X)}(s) = s
+    \end{align}
+    が成り立つので，$\eta$ は題意の写像の逆写像である．
+\end{proof}
 
+\begin{myprop}[label=prop:Yoneda]{米田埋め込みは埋め込み}
+    \hyperref[def:representable]{米田埋め込み} $\mathrm{Y} \colon \Cat{C} \lto \PshSETS{\Cat{C}}$ は\hyperref[def:faithful]{埋め込み}である．
+\end{myprop}
 
+\begin{proof}
+    $\forall X,\, Y \in \Obj{\Cat{C}}$ を固定する．写像
+    \begin{align}
+        \Hom{\Cat{C}} (X,\, Y) &\lmto \Hom{\PshSETS{\Cat{C}}} \bigl( \Hom{\Cat{C}}(\, \mhyphen \, , \, X),\, \Hom{\Cat{C}}(\, \mhyphen \, , \, Y) \bigr),\\ 
+        f &\lmto \mathrm{Y}(f)
+    \end{align}
+    が全単射であることを示せば良い．\hyperref[def:representable]{米田埋め込みの定義}から，$\forall s \in \Hom{\Cat{C}} (X,\, Y)$ に対して
+    \begin{align}
+        \mathrm{Y}(s) 
+        &= \Familyset[\big]{\Hom{\Cat{C}}(Z,\, X) \lto \Hom{\Cat{C}}(Z,\, Y),\; g \lmto s \circ g}{Z \in \Obj{\Cat{C}}} \\
+        &= \Familyset[\big]{\Hom{\Cat{C}}(Z,\, X) \lto \Hom{\Cat{C}}(Z,\, Y),\; g \lmto \Hom{\Cat{C}}(\, \mhyphen\, ,\, Y)(g)(s)}{Z \in \Obj{\Cat{C}}}
+    \end{align}
+    が成り立つが，これは\hyperref[lem:Yoneda]{米田の補題}において $F = \Hom{\Cat{C}}(\, \mhyphen\,,\, Y) \in \Obj{\PshSETS{\Cat{C}}}$ としたときの逆写像であり，示された．
+\end{proof}
 
+\subsection{随伴}
 
+\begin{mydef}[label=def:adjoint]{随伴}
+    \hyperref[def:functor]{関手} $F \colon \Cat{C} \lto \Cat{D},\; G \colon \Cat{D} \lto \Cat{C}$ を与える．
+    $F$ が $G$ の\textbf{左随伴} (left adjoint) であり，かつ $G$ が $F$ の\textbf{右随伴} (right adjoint) であるとは，２つの関手
+    \begin{align}
+        \Hom{\Cat{D}} \bigl( F(\mhyphen),\, \mhyphen \bigr) \colon \OP{\Cat{C}} \times \Cat{D} &\lto \SETS, \\
+        \Hom{\Cat{C}} \bigl( \mhyphen,\, G(\mhyphen) \bigr) \colon \OP{\Cat{C}} \times \Cat{D} &\lto \SETS
+    \end{align}
+    の間に\hyperref[def:nat]{自然変換}
+    \begin{center}
+        \begin{tikzcd}[row sep=large, column sep=large]
+            \OP{\Cat{C}} \times \Cat{D} \ar[bend left=50,r, "\Hom{\Cat{D}} \bigl( F(\mhyphen){,}\, \mhyphen \bigr)"{name=U, above}] \ar[bend right=50,r, "\Hom{\Cat{C}} \bigl( \mhyphen{,}\, G(\mhyphen) \bigr)"{name=D, below}] &\SETS
+            \ar[Rightarrow, from=U, to=D]
+        \end{tikzcd}
+    \end{center}
+    が存在することを言う．
+
+    \tcblower
+
+    $F$ が $G$ の左随伴である（全く同じことだが，$G$ が $F$ の右随伴である）ことを $\bm{F \dashv G}$ と書く．図式中では
+    \begin{center}
+        \begin{tikzcd}
+            \Cat{C}\ar[r,bend left,"F",""{name=A, below}] & \Cat{D}\ar[l,bend left,"G",""{name=B,above}] 
+            \ar[from=A, to=B, symbol=\dashv]
+            \end{tikzcd}
+    \end{center}
+    のように書く．
+\end{mydef}
+
+これまでもなんとなく使ってきたが，圏 $\Cat{C}$ における $\bm{I}$ \textbf{型の図式}とは小圏から圏への関手 $D \colon I \lto \Cat{C}$ のことを言う．
+$I$ 型の図式 $D \colon I \lto \Cat{C}$ および関手 $F \colon \Cat{C} \lto \Cat{D}$ をとると，同じ型の新たな図式 $I \xrightarrow{D} \Cat{C} \xrightarrow{F} \Cat{D}$ が構成できる．
+
+さて，圏 $\Cat{C}$ 上の図式 $D \colon I \lto \Cat{C}$ が余極限を持つとする：
+\begin{center}
+    \begin{tikzcd}[row sep=large, column sep=large]
+        & &D(\forall i) \ar[dl, bend right]\ar[dr, blue, bend left] & \\
+        &\textcolor{red}{\colim_I D} \ar[rr, red, dashed, "\exists !"] & &\forall \textcolor{blue}{X}
+    \end{tikzcd}
+\end{center}
+このとき，$\Cat{D}$ 上の図式として
+\begin{center}
+    \begin{tikzcd}[row sep=large, column sep=large]
+        & &F\bigl(D(\forall i)\bigr) \ar[dl, bend right]\ar[dr, bend left] & \\
+        &\textcolor{red}{\colim_I F(D)} \ar[rr, red, dashed, "\exists ! u"] & &F(\colim_I D)
+    \end{tikzcd}
+\end{center}
+を考えることができる．特に，一意に定まる射 $\textcolor{red}{u} \colon \colim_I F(D) \lto F(\colim_I D)$ が\hyperref[def:iso]{同型}のとき，関手 $F$ は\textbf{余極限を保つ}\label{def:preserve-colim}という．
+
+同様に，圏 $\Cat{D}$ 上の図式 $D \colon I \lto \Cat{C}$ が極限を持つとする：
+\begin{center}
+    \begin{tikzcd}[row sep=large, column sep=large]
+        &\textcolor{red}{\lim_I D}\ar[dr, bend right] & &\forall \textcolor{blue}{X} \ar[ll, red, dashed, "\exists !"]\ar[dl, bend left, blue] \\
+        & &D(\forall i) &
+    \end{tikzcd}
+\end{center}
+このとき，$\Cat{D}$ 上の図式として
+\begin{center}
+    \begin{tikzcd}[row sep=large, column sep=large]
+        &\textcolor{red}{\lim_I F(D)}\ar[dr, bend right] & &F(\lim_{I} D) \ar[ll, red, dashed, "\exists ! u"]\ar[dl, bend left] \\
+        & &F\bigl(D(\forall i)\bigr) &
+    \end{tikzcd}
+\end{center}
+を考えることができる．特に，一意に定まる射 $\textcolor{red}{u} \colon F(\lim_I D) \lto \lim_I F(D)$ が\hyperref[def:iso]{同型}のとき，関手 $F$ は\textbf{極限を保つ}\label{def:preserve-lim}という．
+
+\begin{myprop}[label=prop:adj-lim]{随伴と極限・余極限}
+    \hyperref[def:functor]{関手} $F \colon \Cat{C} \lto \Cat{D},\; G \colon \Cat{D} \lto \Cat{C}$ が\hyperref[def:adjoint]{$F \dashv G$}であるとする．
+    このとき，$F$ は\hyperref[def:preserve-colim]{余極限を保ち}，$G$ は\hyperref[def:preserve-lim]{極限を保つ}．
+\end{myprop}
+
+\begin{proof}
+    余極限を持つ任意の $\Cat{C}$ の図式 $D \colon I \lto \Cat{C}$ を1つ固定する．
+    \hyperref[def:adjoint]{随伴の定義}および余極限の定義より，$\forall Y \in \Obj{\Cat{D}}$ に対して
+    \begin{align}
+        \Hom{\Cat{D}} \bigl( F(\underset{I}{\colim} D),\, Y \bigr) 
+        &\cong \Hom{\Cat{C}} \bigl( \underset{I}{\colim} D,\, G(Y) \bigr) \\
+        &\cong \lim_I \Hom{\Cat{C}} \bigl( D(i),\, G(Y) \bigr) \\
+        &\cong \lim_I \Hom{\Cat{D}} \bigl( F(D(i)),\, Y \bigr) \\
+        &\cong \Hom{\Cat{D}} \bigl( \underset{I}{\colim} F(D),\, Y \bigr) 
+    \end{align}
+    が言える．\hyperref[lem:Yoneda]{米田の補題}により
+    \begin{align}
+        F(\underset{I}{\colim} D) \cong \underset{I}{\colim} F(D)
+    \end{align}
+    が示された．
+\end{proof}
+
+\begin{mydef}[label=def:complete]{完備な圏}
+    圏が\textbf{完備}（resp. \textbf{余完備}） (complete resp. cocomplete) であるとは，任意の小圏を添字圏にもつ図式が極限を持つことを言う．完備かつ余完備な圏は\textbf{双完備} (bicomplete) であると言われる．
+\end{mydef}
+
+\subsection{Kan拡張}
+
+\begin{mydef}[label=def:slice-category]{スライス圏}
+    圏 $\Cat{D}$ およびその対象 $X \in \Obj{\Cat{D}}$ を与える．
+    \textbf{スライス圏} (slice category) $\bm{\Cat{D}_{/X}}$ とは，以下のデータからなる圏のこと：
+    \begin{itemize}
+        \item $\Cat{D}$ の対象と射の組 $(D \in \Obj{\Cat{D}},\, \alpha \colon D \lto \textcolor{red}{X})$ を対象に持つ
+        \item $(D,\, \alpha),\; (D',\, \alpha')$ の間の射は，$\Cat{D}$ における射 $\beta \colon D \lto D'$ であって $\Cat{D}$ における図式
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &D \ar[rr, "\beta"]\ar[dr, "\alpha"] & &D' \ar[dl, "\alpha'"'] \\
+                & &X &
+            \end{tikzcd}
+        \end{center}
+        を可換にするものとする
+    \end{itemize}
+    
+    \tcblower 
+
+    \textbf{双対スライス圏} (dual slice category) $\bm{\Cat{D}_{X/}}$ とは，以下のデータからなる圏のこと：
+    \begin{itemize}
+        \item $\Cat{D}$ の対象と射の組 $(D \in \Obj{\Cat{D}},\, \alpha \colon \textcolor{red}{X} \lto D)$ を対象に持つ
+        \item $(D,\, \alpha),\; (D',\, \alpha')$ の間の射は，$\Cat{D}$ における射 $\beta \colon D \lto D'$ であって $\Cat{D}$ における図式
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &D \ar[rr, "\beta"] &&D'\\
+                & &X \ar[ul, "\alpha"']\ar[ur, "\alpha'"] &
+            \end{tikzcd}
+        \end{center}
+        を可換にするものとする
+    \end{itemize}
+\end{mydef}
+
+関手\footnote{対象の対応のみ明示した．} $\Cat{D}_{/X} \lto \Cat{D},\; (D,\, \alpha) \lmto D$ のことを\textbf{標準的関手} (canonical functor) と呼ぶ．標準的関手は図式中でも記号で明記しないことが多い．
 
 
 \end{document}
