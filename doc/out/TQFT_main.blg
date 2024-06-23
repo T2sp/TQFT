@@ -1,49 +1,49 @@
 This is upBibTeX, Version 0.99d-j0.36-u1.30 (utf8.euc) (TeX Live 2024/Homebrew)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: TQFT_main.aux
-I found no \citation commands---while reading file TQFT_main.aux
-I found no \bibdata command---while reading file TQFT_main.aux
-I found no \bibstyle command---while reading file TQFT_main.aux
-You've used 0 entries,
-            0 wiz_defined-function locations,
-            84 strings with 505 characters,
-and the built_in function-call counts, 0 in all, are:
-= -- 0
-> -- 0
+The style file: myh-physrev.bst
+Database file #1: TQFTrefs.bib
+Warning--empty publisher in Kugo1989qft2
+You've used 40 entries,
+            1990 wiz_defined-function locations,
+            886 strings with 10671 characters,
+and the built_in function-call counts, 7965 in all, are:
+= -- 536
+> -- 337
 < -- 0
-+ -- 0
-- -- 0
-* -- 0
-:= -- 0
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
++ -- 106
+- -- 66
+* -- 689
+:= -- 987
+add.period$ -- 40
+call.type$ -- 40
+change.case$ -- 5
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 0
-format.name$ -- 0
-if$ -- 0
+cite$ -- 41
+duplicate$ -- 375
+empty$ -- 885
+format.name$ -- 106
+if$ -- 1887
 int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 0
-num.names$ -- 0
-pop$ -- 0
-preamble$ -- 0
+int.to.str$ -- 40
+missing$ -- 47
+newline$ -- 170
+num.names$ -- 40
+pop$ -- 226
+preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 0
+skip$ -- 356
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
+substring$ -- 469
+swap$ -- 103
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 0
+warning$ -- 1
+while$ -- 59
+width$ -- 42
+write$ -- 311
 is.kanji.str$ -- 0
-(There were 3 error messages)
+(There was 1 warning)
