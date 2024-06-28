@@ -374,6 +374,39 @@
 	
 \end{mydef}
 
+\begin{myexample}[label=def:product-coproduct]{積と和}
+    \hyperref[def:diagram]{図式}
+    \begin{align}
+        D \colon \boxdiagram{
+            \overset{1}{\bullet} \&\overset{2}{\bullet} 
+        } \lto \Cat{C}
+    \end{align}
+    の\hyperref[def:lim]{極限}を（存在すれば）\textbf{積} (product) と呼び，$\bm{D(1) \times D(2)}$ と書く．
+    同じ図式の\hyperref[def:colim]{余極限}を（存在すれば）\textbf{和}\footnote{\textbf{余積}と言うこともある．} (coproduct) と呼び，$\bm{D(1) \amalg D(2)}$ と書く．
+\end{myexample}
+
+
+\begin{myexample}[label=def:pullback-pushout]{引き戻しと押し出し}
+    \hyperref[def:diagram]{図式}
+    \begin{align}
+        D \colon \boxdiagram{
+            \& \&\overset{3}{\bullet} \ar[d, "p"] \\
+            \&\overset{1}{\bullet} \ar[r, "f"'] \&\overset{2}{\bullet} 
+        } \lto \Cat{C}
+    \end{align}
+    の\hyperref[def:lim]{極限}を（存在すれば）\textbf{引き戻し}\footnote{\textbf{ファイバー積} (fiber product) と呼ぶこともある．} (pullback) と呼び，$\bm{D(1) \times_{D(3)} D(2)}$ と書く．
+    
+    \hyperref[def:diagram]{図式}
+    \begin{align}
+        D \colon \boxdiagram{
+            \& \&\overset{3}{\bullet} \\
+            \&\overset{1}{\bullet} \&\overset{2}{\bullet} \ar[l, "f"] \ar[u, "i"']
+        } \lto \Cat{C}
+    \end{align}
+    の\hyperref[def:colim]{余極限}を（存在すれば）\textbf{押し出し}と呼び，$\bm{D(1) \amalg_{D(3)} D(2)}$ と書く．
+\end{myexample}
+
+
 \begin{mydef}[label=def:complete]{完備な圏}
     圏 $\Cat{C}$ が\textbf{完備}（resp. \textbf{余完備}） (complete resp. cocomplete) であるとは，$\Cat{C}$ における任意の\hyperref[def:diagram]{図式}が\hyperref[def:lim]{極限}（resp. \hyperref[def:colim]{余極限}）を持つことを言う．完備かつ余完備な圏は\textbf{双完備} (bicomplete) であると言われる．
 \end{mydef}
@@ -775,7 +808,7 @@ $\tau \in \Hom{\PshSETS{\Cat{C}}}\bigl( \Hom{\Cat{C}}(\, \mhyphen\,,\, X)\bigr)$
     \end{itemize}
 \end{mydef}
 
-関手\footnote{対象の対応のみ明示した．} $\Cat{D}_{/X} \lto \Cat{D},\; (D,\, \alpha) \lmto D$ のことを\textbf{標準的関手忘却} (canonical forgetful functor) と呼ぶ．標準的関手は図式中でも記号で明記しないことが多い．
+関手\footnote{対象の対応のみ明示した．} $\Cat{D}_{/X} \lto \Cat{D},\; (D,\, \alpha) \lmto D$ のことを\textbf{標準的忘却関手} (canonical forgetful functor) と呼ぶ．標準的関手は図式中でも記号で明記しないことが多い．
 
 関手 $F \colon \Cat{C} \lto \Cat{D}$ および\underline{圏 $\Cat{D}$ における}対象 $X \in \Cat{D}$ を与える．このとき\textbf{関手 $\bm{F}$ に関するスライス圏}を関手圏 $\bm{\mathrm{Fun}(\Cat{C},\, \Cat{D})}$ における\hyperref[def:lim]{引き戻し}
 \begin{center}
@@ -833,7 +866,7 @@ $\tau \in \Hom{\PshSETS{\Cat{C}}}\bigl( \Hom{\Cat{C}}(\, \mhyphen\,,\, X)\bigr)$
 \begin{mydef}[label=def:Kanext]{Kan拡張}
     $i \colon \Cat{C}_0 \hookrightarrow \Cat{C}$ を $\Cat{C}$ の小部分圏，$\Cat{D}$ を\hyperref[def:complete]{双完備}な圏とする．
     \begin{itemize}
-        \item 関手 $F \colon \Cat{C_0} \lto \Cat{D}$ の，関手 $i$ に沿った\textbf{左Kan拡張} (left Kan extention) とは，
+        \item 関手 $F \colon \Cat{C}_0 \lto \Cat{D}$ の，関手 $i$ に沿った\textbf{左Kan拡張} (left Kan extention) とは，
         \begin{align}
             i_{!} (F)(x) \coloneqq \underset{c \in (C_0)_{/x}}{\colim} F(c)
         \end{align}
@@ -842,7 +875,7 @@ $\tau \in \Hom{\PshSETS{\Cat{C}}}\bigl( \Hom{\Cat{C}}(\, \mhyphen\,,\, X)\bigr)$
             i_{!} \colon \mathrm{Fun} (\Cat{C}_0,\, \Cat{D}) \lto \mathrm{Fun} (\Cat{C},\, \Cat{D})
         \end{align}
         によって定まる関手 $i_!(F) \colon \Cat{C} \lto \Cat{D}$ のこと． 
-        \item   関手 $F \colon \Cat{C_0} \lto \Cat{D}$ の，関手 $i$ に沿った\textbf{右Kan拡張} (right Kan extention) とは，
+        \item   関手 $F \colon \Cat{C}_0 \lto \Cat{D}$ の，関手 $i$ に沿った\textbf{右Kan拡張} (right Kan extention) とは，
         \begin{align}
             i_{*} (F)(x) \coloneqq \underset{c \in (C_0)_{x/}}{\lim} F(c)
         \end{align}
@@ -899,12 +932,32 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     のことを\textbf{縮退写像} (degeneracy map) と呼ぶ．
 \end{mydef}
 
-\begin{mydef}[label=def:simplicial-sets,breakable]{単体的集合}
-    \textbf{単体的集合} (simplicial set)  とは，\hyperref[def:presheaf-general]{前層}
-    \begin{align}
-        K \colon \OP{\Delta} \lto \SETS
-    \end{align}
-    のこと．
+\begin{mydef}[label=def:SimpSet,breakable]{単体的集合}
+    \begin{itemize}
+        \item \textbf{単体的集合} (simplicial set)  とは，\hyperref[def:presheaf-general]{前層}
+        \begin{align}
+            K \colon \OP{\Delta} \lto \SETS
+        \end{align}
+        のこと．
+        特に $n$-単体 $[n] \in \Obj{\OP{\Delta}}$ の\hyperref[def:representable]{表現可能前層}を $\bm{\Delta^n} \coloneqq \Hom{\Delta} (\mhyphen,\, [n]) \in \Obj{\SimpSet}$ と書く．
+
+        \textbf{余単体的集合} (cosimplicial set) とは，関手
+        \begin{align}
+            K \colon \Delta \lto \SETS
+        \end{align}
+        のこと．
+        \item 単体的集合 $S \colon \OP{\Delta} \lto \SETS$ が単体的集合 $K \colon \OP{\Delta} \lto \SETS$ の\textbf{単体的部分集合} (simplicial subset) であるとは，以下の2条件を充たすことを言う：
+        \begin{description}
+            \item[\textbf{(sub-1)}] $\forall n \ge 0$ に対して $S([n]) \subset K([n])$
+            \item[\textbf{(sub-2)}] \hyperref[def:simplex-cat]{圏 $\Delta$} における任意の射 $\alpha \colon [n] \lto [m]$ に対して $K(\alpha) \bigl( S([m]) \bigr) \subset S([n])$
+        \end{description}
+        誤解の恐れがないときは，単体的部分集合を $\bm{S \subset K}$ と書く．
+        \item \textbf{単体的集合の圏} $\SimpSet$ とは，\hyperref[def:presheaf-general]{前層}の圏
+        \begin{align}
+            \SimpSet \coloneqq \PshSETS{\Delta}
+        \end{align}
+        のこと．
+    \end{itemize}
 
     \tcblower
 
@@ -920,26 +973,18 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     \end{align}
 \end{mydef}
 
-\begin{mydef}[label=def:SimpSet]{単体的集合の圏}
-    \textbf{単体的集合の圏} $\SimpSet$ とは，\hyperref[def:presheaf-general]{前層}の圏
-    \begin{align}
-        \SimpSet \coloneqq \PshSETS{\Delta}
-    \end{align}
-    のこと．また，$n$-単体 $[n] \in \Obj{\OP{\Delta}}$ の\hyperref[def:representable]{表現可能前層}を $\bm{\Delta^n} \coloneqq \Hom{\Delta} (\mhyphen,\, [n]) \in \Obj{\SimpSet}$ と書く．
-\end{mydef}
-
 \begin{myprop}[label=prop:SimpSet-basic]{単体的集合の圏の基本性質}
     $\mathrm{Y} \colon \Delta \lto \SimpSet$ を\hyperref[def:representable]{米田埋め込み}とする．
     \begin{enumerate}
-        \item 任意の\hyperref[def:simplicial-sets]{単体的集合} $K \colon \OP{\Delta} \lto \SETS$ に対して，\hyperref[def:nat]{自然な同型}
+        \item 任意の\hyperref[def:SimpSet]{単体的集合} $K \colon \OP{\Delta} \lto \SETS$ に対して，\hyperref[def:nat]{自然な同型}
         \begin{align}
             \Hom{\SimpSet} (\Delta^n,\, K) \cong K_n
         \end{align}
         が成り立つ．
         \item 圏 \hyperref[def:SimpSet]{$\SimpSet$} は\hyperref[def:complete]{双完備}である．
-        \item 任意の\hyperref[def:simplicial-sets]{単体的集合} $K \colon \OP{\Delta} \lto \SETS$ に対して，
+        \item 任意の\hyperref[def:SimpSet]{単体的集合} $K \colon \OP{\Delta} \lto \SETS$ に対して，
         \begin{align}
-            K \cong \colim_{[n] \in \mathrm{Y}_{/K}} \Delta^n
+            K \cong \underset{[n] \in \mathrm{Y}_{/K}}{\colim} \Delta^n
         \end{align}
         が成り立つ．
     \end{enumerate}
@@ -957,7 +1002,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
         \item 
         \item 定理\ref{thm:density-cat}より
         \begin{align}
-            K \cong \underset{[n] \in \Delta_{/K}}{\colim}\Hom{\Delta}(\mhyphen,\, [n]) = \underset{[n] \in \Delta_{/K}}{\colim} \Delta^n
+            K \cong \underset{[n] \in \mathrm{Y}_{/K}}{\colim}\Hom{\Delta}(\mhyphen,\, [n]) = \underset{[n] \in \mathrm{Y}_{/K}}{\colim} \Delta^n
         \end{align}
         
     \end{enumerate}
@@ -971,21 +1016,21 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
             \irm{\Delta}{top}^n \coloneqq \bigl\{\, (x^0,\, \dots,\, x^n) \in \mathbb{R}^{n+1}\bigm| x_i \ge 0,\; \sum_{i=0}^n x_i = 1 \,\bigr\} 
         \end{align}
         のこと．
-        \item 余\hyperref[def:simplicial-sets]{単体的集合} 
+        \item \hyperref[def:SimpSet]{余単体的集合} 
         \begin{align}
-            \irm{\Delta}{top}^n \colon \Delta \lto \TOP
+            \irm{\Delta}{top} \colon \Delta \lto \TOP
         \end{align}
         とは，
         \begin{itemize}
             \item \hyperref[def:simplex-cat]{$n$-単体} $[n] \in \Obj{\Delta}$ に対して幾何学的 $n$-単体 $\irm{\Delta}{top}^n$ を対応づける
-            \item 圏 \hyperref[def:simplex-cat]{$\Delta$} における任意の射 $\alpha \colon [n] \lto [m]$ に対して，連続写像
+            \item \hyperref[def:simplex-cat]{圏 $\Delta$} における任意の射 $\alpha \colon [n] \lto [m]$ に対して，連続写像
             \begin{align}
-                \alpha_* \colon \irm{\Delta}{top}^n \lto \irm{\Delta}{top}^m,\; (x_0,\, \dots,\, x_n) \lmto \left( \sum_{j,\; \alpha(j) = 0} x_j,\, \dots ,\, \sum_{j,\; \alpha(j) = m} x_j \right) 
+                \irm{\Delta}{top}(\alpha) \colon \irm{\Delta}{top}^n \lto \irm{\Delta}{top}^m,\; (x_0,\, \dots,\, x_n) \lmto \left( \sum_{j,\; \alpha(j) = 0} x_j,\, \dots ,\, \sum_{j,\; \alpha(j) = m} x_j \right) 
             \end{align}
             を対応付ける
         \end{itemize}
         \hyperref[def:functor]{関手}のこと．
-        \item 位相空間 $X \in \Obj{\TOP}$ の\textbf{特異単体} (singular simplicial set) とは，\hyperref[def:simplicial-sets]{単体的集合}
+        \item 位相空間 $X \in \Obj{\TOP}$ の\textbf{特異単体} (singular simplicial set) とは，\hyperref[def:SimpSet]{単体的集合}
         \begin{align}
             S(X) \colon \OP{\Delta} \lto \SETS,\; [n] \lmto \Hom{\TOP} (\irm{\Delta}{top}^n ,\, X)
         \end{align}
@@ -1000,13 +1045,13 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     $\mathrm{Y} \colon \Delta \lto \SimpSet$ を\hyperref[def:representable]{米田埋め込み}とする．
     \textbf{幾何学的実現} (geometric realization) とは，\hyperref[def:colim]{余極限}を保つ関手
     \begin{align}
-        \abs{\mhyphen} \colon \SimpSet \lto \TOP,\; K \lmto \underset{\Delta^n \in \mathrm{Y}_{/K}}{\colim} \irm{\Delta}{top}^n
+        \abs{\mhyphen} \colon \SimpSet \lto \TOP,\; K \lmto \underset{[n] \in \mathrm{Y}_{/K}}{\colim} \irm{\Delta}{top}([n])
     \end{align}
     のこと．
     \tcblower
     $\TOP$ における $\colim$ の公式を使うと
     \begin{align}
-        \abs{K} =  \left( \coprod_{[n] \in \Obj{\Delta}} (K_n \times \irm{\Delta}{top}^n)  \right) \bigg/ \Bigl\{\, \bigl(\alpha^*(x),\, t\bigr) \sim \bigl(x,\, \alpha_*(t)\bigr) \bigm| x \in K_n,\, t \in \irm{\Delta}{top}^m,\, \alpha \in \Hom{\Delta}([m],\, [n]) \,\Bigr\} 
+        \abs{K} =  \left( \coprod_{[n] \in \Obj{\Delta}} (K_n \times \irm{\Delta}{top}^n)  \right) \bigg/ \Bigl\{\, \bigl(\alpha^*(x),\, t\bigr) \sim \bigl(x,\, \irm{\Delta}{top}(\alpha)(t)\bigr) \bigm| \substack{x \in K_n,\, t \in \irm{\Delta}{top}^m, \\ \alpha \in \Hom{\Delta}([m],\, [n])} \,\Bigr\} 
     \end{align}
     となる．
 \end{mydef}
@@ -1022,7 +1067,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     \end{align}
     が成り立つことを示せば良い．実際，命題\ref{prop:lim-colim-basic}より
     \begin{align}
-        \Hom{\TOP} (\abs{K},\, X) = \Hom{\TOP} \bigl( \underset{\Delta^n \in \mathrm{Y}_{/K}}{\colim} \irm{\Delta}{top}^n,\, X \bigr) \cong \underset{\Delta^n \in \mathrm{Y}_{/K}}{\lim} \Hom{\TOP}(\irm{\Delta}{top}^n,\, X)
+        \Hom{\TOP} (\abs{K},\, X) = \Hom{\TOP} \bigl( \underset{[n] \in \mathrm{Y}_{/K}}{\colim} \irm{\Delta}{top}^n,\, X \bigr) \cong \underset{[n] \in \mathrm{Y}_{/K}}{\lim} \Hom{\TOP}(\irm{\Delta}{top}^n,\, X)
     \end{align}
     が，命題\ref{prop:SimpSet-basic}-(3) より
     \begin{align}
@@ -1033,41 +1078,46 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
 
 \begin{mydef}[label=def:horn,breakable]{境界・角・背骨・骨格}
     \begin{itemize}
-        \item $\Delta^n \in \Obj{\SimpSet}$ の\textbf{単体的境界} (simplicial boundary) $\bm{\partial \Delta^n}$ とは，\hyperref[def:simplicial-sets]{単体的集合}
+        \item $\Delta^n \in \Obj{\SimpSet}$ の\textbf{単体的境界} (simplicial boundary) $\bm{\partial \Delta^n}$ とは，$\Delta^n$ の\hyperref[def:SimpSet]{単体的部分集合}
         \begin{align}
             \partial \Delta^n \colon \OP{\Delta} \lto \SETS
         \end{align}
         であって 
         \begin{align}
-            \partial \Delta^n ([k]) &\coloneqq \Delta^n ([k]) \setminus \{\Id_{[n]}\} = \Hom{\Delta} ([k],\, [n]) \setminus \{\Id_{[n]}\}
+            \partial \Delta^n ([k]) &\coloneqq 
+            \begin{cases}
+                \Delta^n ([k]), &k \neq n \\
+                \Delta^n ([k]) \setminus \{\Id_{[n]}\}, &k=n
+            \end{cases}
         \end{align}
         を充たすもののこと．
         
-        \item 任意の部分集合 $S \subset [n]$ に対して，\textbf{$\bm{S}$-角} ($S$-horn) とは，\hyperref[def:simplicial-sets]{単体的集合}
+        \item 任意の部分集合 $S \subset [n]$ を与える．
+        \textbf{$\bm{S}$-角} ($S$-horn) とは，$\Delta^n$ の\hyperref[def:SimpSet]{単体的部分集合}
         \begin{align}
             \bm{\Lambda^n_S} \colon \OP{\Delta} \lto \SETS
         \end{align}
         であって，
         \begin{align}
-            \Lambda^n_S ([k]) &\coloneqq \bigl\{\, f \in \Hom{\Delta} ([k],\, [n]) \bigm| [n] \setminus \bigl(f([k]) \cup S \bigr) \neq \emptyset  \,\bigr\} \subset \Delta^n([k])
+            \Lambda^n_S ([k]) &\coloneqq \bigl\{\, f \in \Delta^n([k]) \bigm| [n] \setminus \bigl(f([k]) \cup S \bigr) \neq \emptyset  \,\bigr\}
         \end{align}
         を充たすもののこと．
 
         　$\Lambda^n_j \coloneqq \Lambda^n_{\{j\}}$ は $0 < j < n$ のとき\textbf{内部角} (inner horn)，$j = 0,\, n$ のとき\textbf{外部角} (outer horn) と呼ばれる．
 
-        \item \textbf{背骨} (spine) とは，\hyperref[def:simplicial-sets]{単体的集合}
+        \item \textbf{背骨} (spine) とは，$\Delta^n$ の\hyperref[def:SimpSet]{単体的部分集合}
         \begin{align}
             \bm{I^n} \colon \OP{\Delta} \lto \SETS
         \end{align}
         であって，
         \begin{align}
-            I^n ([k]) \coloneqq \bigl\{\, f \in \Hom{\Delta} ([k],\, [n]) \bigm| f([k]) = \{j\}\; \mathrm{or} f([k]) = \{j,\, j+1\} \,\bigr\} \subset \Delta^n([k])
+            I^n ([k]) \coloneqq \bigl\{\, f \in \Delta^n([k]) \bigm| f([k]) = \{j\}\; \mathrm{or} f([k]) = \{j,\, j+1\} \,\bigr\} \subset \Delta^n([k])
         \end{align}
-        
-        \item \hyperref[def:simplicial-sets]{単体的集合} $K \colon \OP{\Delta} \lto \SETS$ の\textbf{$\bm{n}$-骨格} ($n$-skelton) とは，
+        を充たすもののこと．
+        \item \hyperref[def:SimpSet]{単体的集合} $K \colon \OP{\Delta} \lto \SETS$ の\textbf{$\bm{n}$-骨格} ($n$-skelton) とは，
         濃度 $n+1$ 以下の対象からなる $\Delta$ の\hyperref[def:faithful]{充満}部分圏 $i \colon \Delta_{\le n} \hookrightarrow \Delta$ に沿った，関手 $i^*(K) \colon \OP{(\Delta_{\le n})} \lto \SETS$ の\hyperref[def:Kanext]{左Kan拡張} $i_! \bigl(i^* (K)\bigr) \colon \OP{\Delta} \lto \SETS$ のこと．
 
-        \item \hyperref[def:simplicial-sets]{単体的集合} $K \colon \OP{\Delta} \lto \SETS$ の\textbf{$\bm{n}$-余骨格} ($n$-coskelton) とは，
+        \item \hyperref[def:SimpSet]{単体的集合} $K \colon \OP{\Delta} \lto \SETS$ の\textbf{$\bm{n}$-余骨格} ($n$-coskelton) とは，
         濃度 $n+1$ 以下の対象からなる $\Delta$ の\hyperref[def:faithful]{充満}部分圏 $i \colon \Delta_{\le n} \hookrightarrow \Delta$ に沿った，関手 $i^*(K) \colon \OP{(\Delta_{\le n})} \lto \SETS$ の\hyperref[def:Kanext]{右Kan拡張} $i_* \bigl(i^* (K)\bigr) \colon \OP{\Delta} \lto \SETS$ のこと．
     \end{itemize}
     
@@ -1084,7 +1134,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
 \section{脈体・Kan複体・$(\infty,\, 1)$-圏}
 
 \begin{mydef}[label=def:nerve]{脈体}
-    圏 $\Cat{C}$ の\textbf{脈体} (nerve) とは，\hyperref[def:simplicial-sets]{単体的集合}
+    圏 $\Cat{C}$ の\textbf{脈体} (nerve) とは，\hyperref[def:SimpSet]{単体的集合}
     \begin{align}
         \mathrm{N}(\Cat{C}) \colon \OP{\Delta} \lto \SETS
     \end{align}
@@ -1096,7 +1146,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
 \end{mydef}
 
 \begin{mydef}[label=def:KanCplx]{Kan複体}
-    \textbf{Kan複体} (Kan complex) とは，\hyperref[def:simplicial-sets]{単体的集合}
+    \textbf{Kan複体} (Kan complex) とは，\hyperref[def:SimpSet]{単体的集合}
     \begin{align}
         K \colon \OP{\Delta} \lto \SETS
     \end{align}
@@ -1122,9 +1172,9 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
 
 \begin{mydef}[label=def:infinity-1]{$\infty$-圏}
     \begin{itemize}
-        \item $\bm{(\infty,\, 1)}$\textbf{-圏}とは，\hyperref[def:simplicial-sets]{単体的集合}であって\hyperref[def:KanCplx]{弱Kan複体}になっているもののことを言う．
+        \item $\bm{(\infty,\, 1)}$\textbf{-圏}とは，\hyperref[def:SimpSet]{単体的集合}であって\hyperref[def:KanCplx]{弱Kan複体}になっているもののことを言う．
         $(\infty,\, 1)$-圏の関手とは，\hyperref[def:SimpSet]{$\SimpSet$}の射のこと．
-        \item $\bm{\infty}$\textbf{-groupoid}とは，\hyperref[def:simplicial-sets]{単体的集合}であって\hyperref[def:KanCplx]{Kan複体}になっているもののこと
+        \item $\bm{\infty}$\textbf{-groupoid}とは，\hyperref[def:SimpSet]{単体的集合}であって\hyperref[def:KanCplx]{Kan複体}になっているもののこと
     \end{itemize}
     
 \end{mydef}
@@ -1133,9 +1183,107 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     以下では $(\infty,\, 1)$-圏のことを $\bm{\infty}$\textbf{-圏}と呼ぶ．
 \end{marker}
 
-\begin{mydef}[label=def:SimpSet-homotopic]{単体的ホモトピー}
+\begin{mytheo}[label=thm:KanCplx]{Kan条件と脈体}
+    任意の\hyperref[def:SimpSet]{単体的集合} $K \colon \OP{\Delta} \lto \SETS$ に対して以下は同値である：
+    \begin{enumerate}
+        \item $K$ は\hyperref[def:KanCplx]{弱Kan条件}を充たす一意解を持つ
+        \item $K$ は\hyperref[def:horn]{背骨}の包含 $I^n \hookrightarrow \Delta^n$ を一意に持ち上げる．
+        \item $K$ はある圏の\hyperref[def:nerve]{脈体}と\hyperref[def:iso]{同型}である．
+    \end{enumerate}
+\end{mytheo}
+
+\begin{proof}
+    ~\cite[p.20, Theorem 1.1.52]{Land2021infinity}を参照．
+\end{proof}
+
+\begin{myprop}[label=prop:nerve]{脈体が $\infty$-groupoidになる必要十分条件}
+    圏 $\Cat{C}$ の\hyperref[def:nerve]{脈体}が\hyperref[def:infinity-1]{$\infty$-groupoid}になる必要十分条件は，$\Cat{C}$ がgroupoidであること．
+\end{myprop}
+
+\begin{proof}
+    ~\cite[p.23, Lemma 1.1.54]{Land2021infinity}
+\end{proof}
+
+\subsection{豊穣化と単体的ホモトピー}
+
+\hyperref[def:SimpSet]{単体的集合の圏} $\SimpSet$ は\hyperref[def:monoidal-category]{モノイダル圏}の構造を持つ．実際，単体的集合 $S,\, T \colon \OP{\Delta} \lto \SETS$ に対して，新たな単体的集合
+\begin{align}
+    S \otimes T \colon \OP{\Delta} \lto \SETS,\; [n] \lmto S_n \times T_n
+\end{align}
+がテンソル積 $\otimes \colon \SimpSet \times \SimpSet \lto \SimpSet$ を定めている．
+
+\begin{mydef}[label=def:enriched,breakable]{豊穣圏}
+    \hyperref[def:monoidal-category]{モノイダル圏} $(V,\, \otimes,\, I)$ を与える．
+
+    $\bm{V}$\textbf{-豊穣圏} ($V$-enriched category) $\Cat{C}$ は，以下のデータからなる：
     \begin{itemize}
-        \item $f,\, g \in \Hom{\SimpSet} (X,\, Y)$ を繋ぐ\textbf{ホモトピー}とは，\hyperref[def:simplicial-sets]{$\SimpSet$ の射} $\eta \in \Hom{\SimpSet}(X \times \Delta^1,\, Y)$ であって，以下の $\SimpSet$ の図式を可換にするもののこと：
+        \item 集合 $\Obj{\Cat{C}}$
+        \item $\forall x, y \in \Obj{\Cat{C}}$ に対して，\textbf{Hom対象}と呼ばれる\underline{$V$ の}対象 $\Hom{\Cat{C}}(x,\, y) \in \Obj{V}$ を持つ
+        \item $\forall x, y,\, z \in \Obj{\Cat{C}}$ に対して，\textbf{合成射}と呼ばれる\underline{$V$ の}射 $\circ_{x,\, y,\, z} \colon \Hom{\Cat{C}}(x,\, y) \otimes \Hom{\Cat{C}}(y,\, z) \lto \Hom{\Cat{C}} (x,\, z)$ を持つ
+        \item $\forall x \in \Obj{\Cat{C}}$ に対して，\textbf{恒等素}と呼ばれる\underline{$V$ の}射 $j_x \colon I \lto \Hom{\Cat{C}} (x,\, x)$ を持つ
+    \end{itemize}
+    これらは以下の図式を可換にしなくてはいけない：
+    \begin{description}
+        \item[\textbf{(associativity)}]　
+        
+        $\forall x,\, y,\, z,\, w \in \Obj{\Cat{C}}$ について\footnote{$\cong$ は\hyperref[def:monoidal-category]{associator}}
+        \begin{center}
+            \begin{tikzcd}
+                &\bigl( \Hom{\Cat{C}}(x,\,  y) \otimes \Hom{\Cat{C}}(y,\,  z) \bigr) \otimes \Hom{\Cat{C}}(z,\,  w) \ar[dd, "\cong"]\ar[r,"\circ_{x,y,z} \otimes \Id_{\Hom{\Cat{C}}(z,\,  w)}"'] &\Hom{\Cat{C}} (x,\,  z) \otimes \Hom{\Cat{C}}(z,\,  w) \ar[d, "\circ_{x,z,w}"] \\
+                & &\Hom{\Cat{C}}(x,\,  w) \\
+                &\Hom{\Cat{C}}(x,\,  y) \otimes \bigl( \Hom{\Cat{C}}(y,\,  z) \otimes \Hom{\Cat{C}}(z,\,  w) \bigr) \ar[r, "\Id_{\Hom{\Cat{C}}(x,\,  y)} \otimes \circ_{y,z,w}"] &\Hom{\Cat{C}}(x,\,  y) \otimes \Hom{\Cat{C}}(y,\,  w) \ar[u,"\circ_{x,y,w}"']
+            \end{tikzcd}
+        \end{center}
+        
+        \item[\textbf{(unitality)}]　
+        
+        $\forall x,\, y \in \Obj{\Cat{C}}$ について\footnote{$\cong$ は\hyperref[def:monoidal-category]{left/right unitor}}
+        \begin{center}
+            \begin{tikzcd}
+                &\Hom{\Cat{C}}(x,\,  x) \otimes \Hom{\Cat{C}}(x,\,  y) \ar[r, "\circ_{x{,}x{,}y}"] &\Hom{\Cat{C}}(x,\,  y) &\Hom{\Cat{C}}(x,\,  y) \otimes \Hom{\Cat{C}}(y,\,  y) \ar[l, "\circ_{x{,}y{,}y}"'] \\
+                &I \otimes \Hom{\Cat{C}}(x,\,  y) \ar[u, "j_x \otimes \Id_{\Hom{\Cat{C}}(x,\,  y)}"] \ar[ur, "\cong"'] & &\Hom{\Cat{C}}(x,\,  y) \otimes I \ar[u, "\Id_{\Hom{\Cat{C}}(x,\,  y)} \otimes j_y"'] \ar[ul, "\cong"]
+            \end{tikzcd}
+        \end{center}
+        
+    \end{description}
+
+    \tcblower
+
+    2つの $V$-豊穣圏 $\Cat{C},\, \Cat{D}$ の間の $\bm{V}$\textbf{-豊穣関手} ($V$-enriched functor) $F \colon \Cat{C} \lto \Cat{D}$ は，以下のデータからなる：
+    \begin{itemize}
+        \item 写像 $f\colon \Obj{\Cat{C}} \lto \Obj{\Cat{D}},\; x \lmto f(x)$
+    \end{itemize}
+    これらは以下の図式を可換にしなくてはいけない：
+    \begin{description}
+        \item[\textbf{(enriched-1)}]　
+        
+        $\forall x,\, y,\, z \in \Obj{\Cat{C}}$ に対して
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &\Hom{\Cat{C}}(x,\,  y) \otimes \Hom{\Cat{C}}(y,\,  z) \ar[r, "\circ_{x{,}y{,}{z}}"]\ar[d, "f_{x{,}y} \otimes f_{y{,}z}"'] &\Hom{\Cat{C}}(x,\,  z) \ar[d, "f_{x{,}z}"] \\
+                &\Hom{\Cat{D}}\bigl(f(x),\,  f(y)\bigr) \otimes \Hom{\Cat{D}}\bigl(f(y),\,  f(z)\bigr) \ar[r, "\circ_{f(x){,}f(y){,}{f(z)}}"'] &\Hom{\Cat{D}}\bigl(f(x),\,  f(z)\bigr)
+            \end{tikzcd}
+        \end{center}
+        
+        \item[\textbf{(enriched-2)}]　
+        
+        $\forall x \in \Obj{\Cat{C}}$ に対して
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &I \ar[dr,"j_{f(x)}"]\ar[r, "j_x"] &\Hom{\Cat{C}}(x,\,  x) \ar[d, "f_{x{,}x}"] \\
+                & &\Hom{\Cat{D}}\bigl( f(x),\,  f(x) \bigr) 
+            \end{tikzcd}
+        \end{center}
+        
+    \end{description}
+    
+\end{mydef}
+
+与えられた\hyperref[def:monoidal-category]{モノイダル圏} $V$ に対して，\textbf{$\bm{V}$-豊穣圏のなす圏}を $\CAT_{V}$ と書く．
+
+\begin{mydef}[label=def:SimpSet-homotopic,breakable]{単体的ホモトピー}
+    \begin{itemize}
+        \item $f,\, g \in \Hom{\SimpSet} (X,\, Y)$ を繋ぐ\textbf{ホモトピー}とは，\hyperref[def:SimpSet]{$\SimpSet$ の射} $\eta \in \Hom{\SimpSet}(X \times \Delta^1,\, Y)$ であって，以下の $\SimpSet$ の図式を可換にするもののこと：
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
                 &X \cong X \times \Delta^0 \ar[r, "\Id \times \sigma_1"]\ar[dr, "f"] &X \times \Delta^1 \ar[d, "\eta"] &X \times \Delta^1 \ar[l, "\Id \times \sigma_0"] X \times \Delta^1 \cong X \ar[dl, "g"] \\
@@ -1184,104 +1332,6 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
 \end{align}
 と定義すると，\hyperref[def:colim]{和の普遍性}の図式によって $\eta \in \Hom{\SimpSet}(X \times \Delta^1,\, Y)$ が定まる．
 
-\begin{mytheo}[label=thm:KanCplx]{Kan条件と脈体}
-    任意の\hyperref[def:simplicial-sets]{単体的集合} $K \colon \OP{\Delta} \lto \SETS$ に対して以下は同値である：
-    \begin{enumerate}
-        \item $K$ は\hyperref[def:KanCplx]{弱Kan条件}を充たす一意解を持つ
-        \item $K$ は\hyperref[def:horn]{背骨}の包含 $I^n \hookrightarrow \Delta^n$ を一意に持ち上げる．
-        \item $K$ はある圏の\hyperref[def:nerve]{脈体}と\hyperref[def:iso]{同型}である．
-    \end{enumerate}
-\end{mytheo}
-
-\begin{proof}
-    ~\cite[p.20, Theorem 1.1.52]{Land2021infinity}を参照．
-\end{proof}
-
-\begin{myprop}[label=prop:nerve]{脈体が $\infty$-groupoidになる必要十分条件}
-    圏 $\Cat{C}$ の\hyperref[def:nerve]{脈体}が\hyperref[def:infinity-1]{$\infty$-groupoid}になる必要十分条件は，$\Cat{C}$ がgroupoidであること．
-\end{myprop}
-
-\begin{proof}
-    ~\cite[p.23, Lemma 1.1.54]{Land2021infinity}
-\end{proof}
-
-\subsection{豊穣化と単体的ホモトピー}
-
-\hyperref[def:simplicial-sets]{単体的集合の圏} $\SimpSet$ は\hyperref[def:monoidal-category]{モノイダル圏}の構造を持つ．実際，単体的集合 $S,\, T \colon \OP{\Delta} \lto \SETS$ に対して，新たな単体的集合
-\begin{align}
-    S \otimes T \colon \OP{\Delta} \lto \SETS,\; [n] \lmto S_n \times T_n
-\end{align}
-がテンソル積 $\otimes \colon \SimpSet \times \SimpSet \lto \SimpSet$ を定めている．
-
-\begin{mydef}[label=def:enriched,breakable]{豊穣圏}
-    \hyperref[def:monoidal-category]{モノイダル圏} $(V,\, \otimes,\, I)$ を与える．
-
-    $\bm{V}$\textbf{-豊穣圏} ($V$-enriched category) $\Cat{C}$ は，以下のデータからなる：
-    \begin{itemize}
-        \item 集合 $\Obj{\Cat{C}}$
-        \item $\forall x, y \in \Obj{\Cat{C}}$ に対して，\textbf{Hom対象}と呼ばれる\underline{$V$ の}対象 $\Hom{\Cat{C}}(x,\, y) \in \Obj{V}$ を持つ
-        \item $\forall x, y,\, z \in \Obj{\Cat{C}}$ に対して，\textbf{合成射}と呼ばれる\underline{$V$ の}射 $\circ_{x,\, y,\, z} \colon \Hom{\Cat{C}}(x,\, y) \otimes \Hom{\Cat{C}}(y,\, z) \lto \Hom{\Cat{C}} (x,\, z)$ を持つ
-        \item $\forall x \in \Obj{\Cat{C}}$ に対して，\textbf{恒等素}と呼ばれる\underline{$V$ の}射 $j_x \colon I \lto \Hom{\Cat{C}} (x,\, x)$ を持つ
-    \end{itemize}
-    これらは以下の図式を可換にしなくてはいけない：
-    \begin{description}
-        \item[\textbf{(associativity)}]　
-        
-        $\forall x,\, y,\, z,\, w \in \Obj{\Cat{C}}$ について\footnote{$\cong$ は\hyperref[def:monoidal-category]{associator}}
-        \begin{center}
-            \begin{tikzcd}
-                &\bigl( \Hom{\Cat{C}}(x,\,  y) \otimes \Hom{\Cat{C}}(y,\,  z) \bigr) \otimes \Hom{\Cat{C}}(z,\,  w) \ar[rr, "\cong"]\ar[d,"\circ_{x,y,z} \otimes \Id_{\Hom{\Cat{C}}(z,\,  w)}"'] & &\Hom{\Cat{C}}(x,\,  y) \otimes \bigl( \Hom{\Cat{C}}(y,\,  z) \otimes \Hom{\Cat{C}}(z,\,  w) \bigr) \ar[d, "\Id_{\Hom{\Cat{C}}(x,\,  y)} \otimes \circ_{y,z,w}"] \\
-                &\Hom{\Cat{C}} (x,\,  z) \otimes \Hom{\Cat{C}}(z,\,  w) \ar[r, "\circ_{x,z,w}"]  &\Hom{\Cat{C}}(x,\,  w) &\Hom{\Cat{C}}(x,\,  y) \otimes \Hom{\Cat{C}}(y,\,  w) \ar[l,"\circ_{x,y,w}"']
-            \end{tikzcd}
-        \end{center}
-        
-        \item[\textbf{(unitality)}]　
-        
-        $\forall x,\, y \in \Obj{\Cat{C}}$ について\footnote{$\cong$ は\hyperref[def:monoidal-category]{left/right unitor}}
-        \begin{center}
-            \begin{tikzcd}
-                &\Hom{\Cat{C}}(x,\,  x) \otimes \Hom{\Cat{C}}(x,\,  y) \ar[r, "\circ_{x{,}x{,}y}"] &\Hom{\Cat{C}}(x,\,  y) &\Hom{\Cat{C}}(x,\,  y) \otimes \Hom{\Cat{C}}(y,\,  y) \ar[l, "\circ_{x{,}y{,}y}"] \\
-                &I \otimes \Hom{\Cat{C}}(x,\,  y) \ar[u, "j_x \otimes \Id_{\Hom{\Cat{C}}(x,\,  y)}"] \ar[ur, "\cong"'] & &\Hom{\Cat{C}}(x,\,  y) \otimes I \ar[u, "\Id_{\Hom{\Cat{C}}(x,\,  y)} \otimes j_y"'] \ar[ul, "\cong"]
-            \end{tikzcd}
-        \end{center}
-        
-    \end{description}
-
-    \tcblower
-
-    2つの $V$-豊穣圏 $\Cat{C},\, \Cat{D}$ の間の $\bm{V}$\textbf{-豊穣関手} ($V$-enriched functor) $F \colon \Cat{C} \lto \Cat{D}$ は，以下のデータからなる：
-    \begin{itemize}
-        \item 写像 $f\colon \Obj{\Cat{C}} \lto \Obj{\Cat{D}},\; x \lmto f(x)$
-        \item $\forall x,\, y \in \Obj{\Cat{C}}$ に対して，\underline{$V$ における}射 $f_{x,\, y} \colon \Hom{Cat{C}} (x,\, y) \lto \Hom{\Cat{D}} \bigl( f(x),\, f(y) \bigr)$
-    \end{itemize}
-    これらは以下の図式を可換にしなくてはいけない：
-    \begin{description}
-        \item[\textbf{(enriched-1)}]　
-        
-        $\forall x,\, y,\, z \in \Obj{\Cat{C}}$ に対して
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-                &\Hom{\Cat{C}}(x,\,  y) \otimes \Hom{\Cat{C}}(y,\,  z) \ar[r, "\circ_{x{,}y{,}{z}}"]\ar[d, "f_{x{,}y} \otimes f_{y{,}z}"'] &\Hom{\Cat{C}}(x,\,  z) \ar[d, "f_{x{,}z}"] \\
-                &\Hom{\Cat{D}}\bigl(f(x),\,  f(y)\bigr) \otimes \Hom{\Cat{D}}\bigl(f(y),\,  f(z)\bigr) \ar[r, "\circ_{f(x){,}f(y){,}{f(z)}}"'] &\Hom{\Cat{D}}\bigl(f(x),\,  f(z)\bigr)
-            \end{tikzcd}
-        \end{center}
-        
-        \item[\textbf{(enriched-2)}]　
-        
-        $\forall x \in \Obj{\Cat{C}}$ に対して
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-                &I \ar[dr,"j_{f(x)}"]\ar[r, "j_x"] &\Hom{\Cat{C}}(x,\,  x) \ar[d, "f_{x{,}x}"] \\
-                & &\Hom{\Cat{D}}\bigl( f(x),\,  f(x) \bigr) 
-            \end{tikzcd}
-        \end{center}
-        
-    \end{description}
-    
-\end{mydef}
-
-与えられた\hyperref[def:monoidal-category]{モノイダル圏} $V$ に対して，\textbf{$\bm{V}$-豊穣圏のなす圏}を $\CAT_{V}$ と書く．
-
 
 \begin{mydef}[label=def:nerve-hc]{homotopy coherentな脈体}
     
@@ -1314,7 +1364,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     
     このとき\hyperref[def:nerve-hc]{homotopy coherentな脈体} $\irm{\mathrm{N}}{hc}$ に対して
     \begin{align}
-        \inftyPsh{\irm{\mathrm{N}}{hc}(\Cat{C})} \cong \mathrm{N} \bigl( \comm{\OP{\Cat{C}}}{\irm{\SimpSet}{Quillen}}_{\mathrm{proj}} \bigr)^{\circ}
+        \inftyPsh{\irm{\mathrm{N}}{hc}(\Cat{C})} \cong \irm{\mathrm{N}}{hc} \bigl( \comm{\OP{\Cat{C}}}{\irm{\SimpSet}{Quillen}}_{\mathrm{proj}}^\circ \bigr)
     \end{align}
     が成り立つ．
 \end{myprop}
