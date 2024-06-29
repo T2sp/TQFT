@@ -94,7 +94,7 @@
 
 \chapter{$\infty$-圏}
 
-この付録では，~\cite{Land2021infinity}, ~\cite{alfonsi2023higher}に従って $\infty$-圏\footnote{~\cite{lurie2008higher}}，および主 $\infty$-束を導入する．
+この付録では，~\cite{Land2021infinity}, ~\cite{alfonsi2023higher}, ~\cite{Kerodon}に従って $\infty$-圏\footnote{~\cite{lurie2008higher}が源流にある．~\cite{Kerodon}は創始者本人によって運営されているwebサイトのようだ．}，および主 $\infty$-束を導入する．
 
 \section{圏論の復習}
 
@@ -961,7 +961,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
 
     \tcblower
 
-    $K_n \coloneqq K([n])$ とおき，
+    $K_n \coloneqq K([n])$ とおく．$K_n$ の元のことを\textbf{$n$-単体} ($n$-simplex) と呼ぶ．
     $\partial_i \coloneqq K(d_i) \colon K_{n} \twoheadrightarrow K_{n-1}$ のことを\textbf{面写像}，$\sigma_i \coloneqq K(s_i) \colon K_n \hookrightarrow K_{n+1}$ のことを\textbf{縮退写像}と呼ぶ．これらは以下の\textbf{単体的恒等式} (simplicial identities) を充たす：
     \begin{align}
         \partial_i \circ \partial_i &= \partial_{j-1} \circ \partial_i&& (i<j), \\
@@ -972,6 +972,8 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
         \sigma_i \circ \sigma_j &= \sigma_{j+1} \circ \sigma_i &&(i \le j)
     \end{align}
 \end{mydef}
+
+逆に，任意の対象の族 $\Familyset[\big]{K_n}{n \ge 0}$ および射 $\Familyset[\big]{\partial^n_i \colon K_n \lto K_{n-1}}{0 \le i \le n,\, n \ge 0},\; \Familyset[\big]{\sigma^n_i \colon K_n \lto K_{n+1}}{0 \le i \le n,\, n \ge 0}$ の組みであって単体的恒等式を充たすものは単体的集合を一意に定める~\cite[Proposition 1.1.2.14]{Kerodon}．
 
 \begin{myprop}[label=prop:SimpSet-basic]{単体的集合の圏の基本性質}
     $\mathrm{Y} \colon \Delta \lto \SimpSet$ を\hyperref[def:representable]{米田埋め込み}とする．
@@ -1101,9 +1103,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
         \begin{align}
             \Lambda^n_S ([k]) &\coloneqq \bigl\{\, f \in \Delta^n([k]) \bigm| [n] \setminus \bigl(f([k]) \cup S \bigr) \neq \emptyset  \,\bigr\}
         \end{align}
-        を充たすもののこと．
-
-        　$\Lambda^n_j \coloneqq \Lambda^n_{\{j\}}$ は $0 < j < n$ のとき\textbf{内部角} (inner horn)，$j = 0,\, n$ のとき\textbf{外部角} (outer horn) と呼ばれる．
+        を充たすもののこと．特に $\bm{\Lambda^n_j} \coloneqq \Lambda^n_{\{j\}}$ は $0 < j < n$ のとき\textbf{内部角} (inner horn)，$j = 0,\, n$ のとき\textbf{外部角} (outer horn) と呼ばれる．
 
         \item \textbf{背骨} (spine) とは，$\Delta^n$ の\hyperref[def:SimpSet]{単体的部分集合}
         \begin{align}
@@ -1133,19 +1133,129 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
 
 \section{脈体・Kan複体・$(\infty,\, 1)$-圏}
 
+$[n] \in \Obj{\Delta}$ に対して，
+\begin{itemize}
+    \item $\forall i \in [n]$ を対象とする
+    \item Hom集合は
+    \begin{align}
+        \Hom{[n]} (i,\, j)
+        \coloneqq
+        \begin{cases}
+            \{*\}, &i \le j \\
+            \emptyset, &i > j
+        \end{cases}
+    \end{align}
+    とする
+\end{itemize}
+ことにより $[n]$ 自身が圏になる．
+
 \begin{mydef}[label=def:nerve]{脈体}
-    圏 $\Cat{C}$ の\textbf{脈体} (nerve) とは，\hyperref[def:SimpSet]{単体的集合}
-    \begin{align}
-        \mathrm{N}(\Cat{C}) \colon \OP{\Delta} \lto \SETS
-    \end{align}
-    であって
-    \begin{align}
-        \mathrm{N}(\Cat{C}) ([n]) = \mathrm{Fun} ([n],\, \Cat{C})
-    \end{align}
-    を充たすもののこと．
+    \begin{itemize}
+        \item 圏 $\Cat{C}$ の\textbf{脈体} (nerve) とは，以下で定義される\hyperref[def:SimpSet]{単体的集合}
+        \begin{align}
+            \mathrm{N}(\Cat{C}) \colon \OP{\Delta} \lto \SETS
+        \end{align}
+        のこと：
+        \begin{itemize}
+            \item $\forall [n] \in \Obj{\OP{\Delta}}$ に対して
+            \begin{align}
+                \mathrm{N}(\Cat{C}) ([n]) = \mathrm{Fun} ([n],\, \Cat{C})
+            \end{align}
+            を対応付ける
+            \item \hyperref[def:simplex-cat]{圏 $\OP{\Delta}$ }における任意の射 $[n] \xrightarrow{\alpha} [m]$ に対して\underline{写像}
+            \begin{align}
+                \ner{\Cat{C}}(\alpha) \coloneqq \alpha^* \colon \mathrm{Fun}([n],\, \Cat{C}) \lto \mathrm{Fun}([m],\, \Cat{C}),\; G_n \lmto G_n \circ \alpha
+            \end{align}
+            を対応付ける
+        \end{itemize}
+
+        \item \textbf{脈体関手} (nerve functor) とは，以下で定義される関手
+        \begin{align}
+            \mathrm{N} \colon \CAT \lto \SimpSet
+        \end{align}
+        のこと．
+        \begin{itemize}
+            \item $\forall \Cat{C} \in \Obj{\Cat{C}}$ に対して $\mathcal{N}(\Cat{C}) \in \Obj{\SimpSet}$ を対応づける．
+            \item 任意の関手 $\Cat{C} \xrightarrow{F} \Cat{D}$ に対して\hyperref[def:nat]{自然変換}
+            \begin{align}
+                \ner{F} \colon &\ner{\Cat{C}} \Longrightarrow \ner{\Cat{D}}, \\
+                \WHERE \ner{F} &\coloneqq \Familyset[\big]{\mathrm{N}(F)_{[n]} \colon \mathrm{Fun}([n],\, \Cat{C}) \lto \mathrm{Fun}([n],\, \Cat{D}),\; G_n \lmto F \circ G_n}{[n] \in \Obj{\OP{\Delta}}}
+            \end{align}
+            を対応付ける
+        \end{itemize}
+    \end{itemize}
+    
 \end{mydef}
 
-\begin{mydef}[label=def:KanCplx]{Kan複体}
+圏 $[n]$ の射の定義を思い出すと，$\mathrm{N}(\Cat{C})_n \in \Obj{\SETS}$ の要素は $\Cat{C}$ における図式
+\begin{align}
+    \label{eq:nerve-spine}
+    X_0 \xrightarrow{f_1} X_1 \xrightarrow{f_2} \cdots \xrightarrow{f_n} X_n
+\end{align}
+により同定されることがわかる．このことから，脈体のmorphism-morphism対応は図式の対応
+\begin{align}
+    (X_0 \to X_1 \to \cdots \to X_n) \lmto (X_{\alpha(0)} \to X_{\alpha(1)} \to \cdots \to X_{\alpha(m)})
+\end{align}
+と理解できる．
+
+\begin{myprop}[label=def:nerve]{脈体関手は忠実充満}
+    \hyperref[def:nerve]{脈体関手}は\hyperref[def:faithful]{忠実充満関手}である．
+\end{myprop}
+\begin{proof}
+    \begin{align}
+        \theta \colon \Hom{\CAT}(\Cat{C},\, \Cat{D}) \lto \Hom{\SimpSet} \bigl( \mathrm{N}(\Cat{C}),\, \mathrm{N}(\Cat{D}) \bigr),\; F \lmto \mathrm{N}(F)
+    \end{align}
+    が全単射であることを示せば良い．
+
+    \begin{description}
+        \item[\textbf{単射}]　
+        
+        関手 $F,\, G \colon \Cat{C} \lto \Cat{D}$ が $\ner{F} = \ner{G}$ を充たすとする．
+        \eqref{eq:nerve-spine}により $\Cat{C}$ における任意の図式
+        \begin{align}
+            X \xrightarrow{f} Y
+        \end{align}
+        を $\ner{\Cat{C}}_1$ の元と見做すことができるが，仮定より圏 $\Cat{D}$ において
+        \begin{align}
+            &\ner{F}_{[1]}(X \xrightarrow{f} Y) = \ner{G}_{[1]}(X \xrightarrow{f} Y) \\
+            \IFF & \bigl(F(X) \xrightarrow{F(f)} F(Y)\bigr) =  \bigl(G(X) \xrightarrow{G(f)} G(Y)\bigr)
+        \end{align}
+        が成り立つ．i.e. $F = G$ である．
+        \item[\textbf{全射}]　
+        
+        $\forall f \in \Hom{\SimpSet} \bigl( \mathrm{N}(\Cat{C}),\, \mathrm{N}(\Cat{D}) \bigr)$ を1つ固定する．$f$ は\hyperref[def:nat]{自然変換}だから，$\forall n \ge 0$ に対して\hyperref[def:nat]{自然変換} $f_{[n]} \colon \mathrm{N}(\Cat{C})_n \lto \mathrm{N}(\Cat{D})_n$ が定まる．
+        \eqref{eq:nerve-spine}より $\forall X,\, Y \in \Obj{\Cat{C}}$ を $\ner{\Cat{C}}_0$ の要素と見做し，圏 $\Cat{C}$ における任意の射 $X \xrightarrow{u} Y$ を $\ner{\Cat{C}}_1$ の要素と見做すことができる．すると自然変換 $f$ により
+        \begin{align}
+            f_{[0]} (X),\, f_{[0]} (Y) \in \Obj{\Cat{D}}
+        \end{align}
+        が対応付く．その上 $f$ が自然変換であることから\hyperref[def:simplex-cat]{面写像}と $f$ は交換するので
+        \begin{align}
+            \partial_0^1 \circ f_{[1]}(u) = f_{[0]} \circ \partial_0^1 (u) = f_{[0]} (X), \\
+            \partial_1^1 \circ f_{[1]}(u) = f_{[0]} \circ \partial_1^1 (u) = f_{[0]} (Y)
+        \end{align}
+        が言える．i.e. $f_{[1]}(u)$ は圏 $\Cat{D}$ における射 $f_{[0]}(X) \xrightarrow{f_{[1]}(u)} f_{[0]} (Y)$ である．
+
+        ここで，対応 $F_f \colon \Cat{C} \lto \Cat{D}$ を
+        \begin{itemize}
+            \item $\forall X \in \Obj{\Cat{C}}$ に対して $f_{[0]}(X) \in \Obj{\Cat{D}}$ を対応付ける
+            \item $X \xrightarrow{\forall u} Y$ に対して $f_{[0]}(X) \xrightarrow{f_{[1]}(u)} f_{[0]}(Y)$ を対応付ける
+        \end{itemize}
+        ものとして定義する．もし $F_f$ が関手ならば明らかに $\theta(F_f) = f$ であるから，$F_f$ が関手であることを示せば良い．実際\hyperref[def:simplex-cat]{縮退写像}により
+        \begin{align}
+            F_f(\Id_X) = \Id_{F(X)}
+        \end{align}
+        がわかる．合成則は
+        \begin{align}
+            X \xrightarrow{f} Y \xrightarrow{g} Z
+        \end{align}
+        を $\ner{\Cat{C}}_2$ の要素と見做せば確認できる．
+    \end{description}
+    
+\end{proof}
+
+
+
+\begin{mydef}[label=def:KanCplx,breakable]{Kan複体}
     \textbf{Kan複体} (Kan complex) とは，\hyperref[def:SimpSet]{単体的集合}
     \begin{align}
         K \colon \OP{\Delta} \lto \SETS
@@ -1286,7 +1396,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
         \item $f,\, g \in \Hom{\SimpSet} (X,\, Y)$ を繋ぐ\textbf{ホモトピー}とは，\hyperref[def:SimpSet]{$\SimpSet$ の射} $\eta \in \Hom{\SimpSet}(X \times \Delta^1,\, Y)$ であって，以下の $\SimpSet$ の図式を可換にするもののこと：
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
-                &X \cong X \times \Delta^0 \ar[r, "\Id \times \sigma_1"]\ar[dr, "f"] &X \times \Delta^1 \ar[d, "\eta"] &X \times \Delta^1 \ar[l, "\Id \times \sigma_0"] X \times \Delta^1 \cong X \ar[dl, "g"] \\
+                &X \cong X \times \Delta^0 \ar[r, "\Id \times \sigma_1"]\ar[dr, "f"] &X \times \Delta^1 \ar[d, "\eta"] &X \times \Delta^1 \ar[l, "\Id \times \sigma_0"] \ar[dl, "g"] \\
                 & &Y &
             \end{tikzcd}
         \end{center}
