@@ -1175,7 +1175,7 @@ $[n] \in \Obj{\Delta}$ に対して，
         \end{align}
         のこと．
         \begin{itemize}
-            \item $\forall \Cat{C} \in \Obj{\Cat{C}}$ に対して $\mathcal{N}(\Cat{C}) \in \Obj{\SimpSet}$ を対応づける．
+            \item $\forall \Cat{C} \in \Obj{\Cat{C}}$ に対して $\mathrm{N}(\Cat{C}) \in \Obj{\SimpSet}$ を対応づける．
             \item 任意の関手 $\Cat{C} \xrightarrow{F} \Cat{D}$ に対して\hyperref[def:nat]{自然変換}
             \begin{align}
                 \ner{F} \colon &\ner{\Cat{C}} \Longrightarrow \ner{\Cat{D}}, \\
@@ -1228,27 +1228,96 @@ $[n] \in \Obj{\Delta}$ に対して，
         \begin{align}
             f_{[0]} (X),\, f_{[0]} (Y) \in \Obj{\Cat{D}}
         \end{align}
-        が対応付く．その上 $f$ が自然変換であることから\hyperref[def:simplex-cat]{面写像}と $f$ は交換するので
+        が対応付く．その上 $f$ が自然変換であることから\hyperref[def:simplex-cat]{面写像} $d_i^1 \colon [0] \lto [1]$ との間に可換図式
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &\ner{\Cat{C}}_1 \ar[r, "f_{[1]}"]\ar[d, "\ner{\Cat{C}}(d_i^1)=\partial_i^1"'] &\ner{\Cat{D}}_1 \ar[d, "\ner{\Cat{D}}(d_i^1)=\partial_i^1"]\\
+                &\ner{\Cat{C}}_0 \ar[r, "f_{[0]}"'] &\ner{\Cat{D}}_0
+            \end{tikzcd}
+        \end{center}
+        が成り立つ．よって
         \begin{align}
-            \partial_0^1 \circ f_{[1]}(u) = f_{[0]} \circ \partial_0^1 (u) = f_{[0]} (X), \\
-            \partial_1^1 \circ f_{[1]}(u) = f_{[0]} \circ \partial_1^1 (u) = f_{[0]} (Y)
+            \partial_0^1 \circ f_{[1]}\bigl( X \xrightarrow{u} Y \bigr) 
+            &= f_{[0]} \circ \partial_0^1 \bigl( X \xrightarrow{u} Y \bigr)  \\
+            &= f_{[0]} (Y), \\
+            \partial_1^1 \circ f_{[1]}\bigl( X \xrightarrow{u} Y \bigr) 
+            &= f_{[0]} \circ \partial_1^1 \bigl( X \xrightarrow{u} Y \bigr) \\
+            &= f_{[0]} (X)
         \end{align}
         が言える．i.e. $f_{[1]}(u)$ は圏 $\Cat{D}$ における射 $f_{[0]}(X) \xrightarrow{f_{[1]}(u)} f_{[0]} (Y)$ である．
-
         ここで，対応 $F_f \colon \Cat{C} \lto \Cat{D}$ を
         \begin{itemize}
             \item $\forall X \in \Obj{\Cat{C}}$ に対して $f_{[0]}(X) \in \Obj{\Cat{D}}$ を対応付ける
             \item $X \xrightarrow{\forall u} Y$ に対して $f_{[0]}(X) \xrightarrow{f_{[1]}(u)} f_{[0]}(Y)$ を対応付ける
         \end{itemize}
-        ものとして定義する．もし $F_f$ が関手ならば明らかに $\theta(F_f) = f$ であるから，$F_f$ が関手であることを示せば良い．実際\hyperref[def:simplex-cat]{縮退写像}により
-        \begin{align}
-            F_f(\Id_X) = \Id_{F(X)}
-        \end{align}
-        がわかる．合成則は
-        \begin{align}
-            X \xrightarrow{f} Y \xrightarrow{g} Z
-        \end{align}
-        を $\ner{\Cat{C}}_2$ の要素と見做せば確認できる．
+        ものとして定義する．もし $F_f$ が関手ならば明らかに $\theta(F_f) = f$ であるから，$F_f$ が\hyperref[def:functor]{関手}であることを示せば良い：
+        \begin{description}
+            \item[\textbf{(fun-1)}]　
+            
+                \eqref{eq:nerve-spine}により圏 $\Cat{C}$ における図式
+                \begin{align}
+                    X \xrightarrow{u} Y \xrightarrow{v} Z
+                \end{align}
+                を $\ner{\Cat{C}}_2$ の要素と見做すことができる．$f$ は\hyperref[def:nat]{自然変換}なので，\hyperref[def:simplex-cat]{面写像} $d_i^2 \colon [2] \lto [1]$ について可換図式
+                \begin{center}
+                    \begin{tikzcd}[row sep=large, column sep=large]
+                        &\ner{\Cat{C}}_2 \ar[r, "f_{[2]}"]\ar[d, "\ner{\Cat{C}}(d_i^2)=\partial_i^2"'] &\ner{\Cat{D}}_2 \ar[d, "\ner{\Cat{D}}(d_i^2)=\partial_i^2"]\\
+                        &\ner{\Cat{C}}_1 \ar[r, "f_{[1]}"'] &\ner{\Cat{D}}_1
+                    \end{tikzcd}
+                \end{center}
+                が成り立つ．よって
+                \begin{align}
+                    \partial_0^2 \circ f_{[2]} (X \xrightarrow{u} Y \xrightarrow{v} Z)
+                    &= f_{[1]} \circ \partial_0^2  (X \xrightarrow{u} Y \xrightarrow{v} Z) \\
+                    &= f_{[1]} (Y \xrightarrow{v} Z) \\
+                    &= \bigl(F_f(Y) \xrightarrow{F_f(v)} F_f(Z)\bigr), \\
+                    \partial_2^2 \circ f_{[2]} (X \xrightarrow{u} Y \xrightarrow{v} Z)
+                    &= f_{[1]} \circ \partial_2^2  (X \xrightarrow{u} Y \xrightarrow{v} Z) \\
+                    &= f_{[1]} (X \xrightarrow{u} Y) \\
+                    &= \bigl(F_f(X) \xrightarrow{F_f(u)} F_f(Y)\bigr)
+                \end{align}
+                が分かった．i.e.
+                \begin{align}
+                    f_{[2]} (X \xrightarrow{u} Y \xrightarrow{v} Z)
+                    &=\bigl( F_f(X) \xrightarrow{F_f(u)} F_f(Y) \xrightarrow{F_f(v)} F_f(Z)\bigr)
+                \end{align}
+                である．故に
+                \begin{align}
+                    \bigl( F_f(X) \xrightarrow{F_f(v) \circ F_f(u)} F_f(Y)\bigr) 
+                    &= \partial_1^2 \circ f_{[2]} \bigl( X \xrightarrow{u} Y \xrightarrow{v} Z \bigr) \\
+                    &= f_{[1]} \circ \partial_1^2 \bigl( X \xrightarrow{u} Y \xrightarrow{v} Z \bigr) \\
+                    &= f_{[1]} \bigl( X \xrightarrow{v \circ u} Z \bigr) \\
+                    &= \bigl(F_f(X) \xrightarrow{F_f(v\circ u)} F_f(Y)\bigr)
+                \end{align}
+                i.e.
+                \begin{align}
+                    F(v\circ u) = F(v) \circ F(u)
+                \end{align}
+                が示された．
+
+            \item[\textbf{(fun-2)}]　
+            
+                $f$ が\hyperref[def:nat]{自然変換}なので\hyperref[def:simplex-cat]{縮退写像} $s_0^0 \colon [1] \lto [0]$ について可換図式
+                \begin{center}
+                    \begin{tikzcd}[row sep=large, column sep=large]
+                        &\ner{\Cat{C}}_{1} \ar[from=d, "\mathrm{N}(\Cat{C})(s_0^0)=\sigma_0^0"] \ar[r, "f_{[1]}"] &\ner{\Cat{D}}_1 \ar[from=d, "\ner{\Cat{D}}(s_0^0)=\sigma_0^0"'] \\
+                        &\ner{\Cat{C}}_{0} \ar[r, "f_{[0]}"] &\ner{\Cat{D}}_0
+                    \end{tikzcd}
+                \end{center}
+                が成り立つ．\eqref{eq:nerve-spine}を使うと，これは $\forall X \in \Obj{\Cat{C}} = \ner{\Cat{C}}_0$ に対して
+                \begin{align}
+                    f_{[1]} \circ \sigma_0^0 (X) 
+                    &= f_{[1]} (X \xrightarrow{\Id_X} X) \\
+                    &= \bigl(F_f(X) \xrightarrow{F_f(\Id_X)} F_f(X)\bigr) \\
+                    &= \sigma_0^0 \circ f_{[0]} (X) \\
+                    &= \bigl(F_f(X) \xrightarrow{\Id_{F_f(X)}} F_f(X)\bigr)
+                \end{align}
+                を意味するので
+                \begin{align}
+                    F_f(\Id_X) = \Id_{F(X)}
+                \end{align}
+                が示された．
+        \end{description}
     \end{description}
     
 \end{proof}
