@@ -2097,61 +2097,6 @@ $M$ を\hyperref[ax:G-mod]{$G$ 加群}とする．\hyperref[]{Milnor構成}を�
 と作用する．
 
 群コホモロジーの表式を使って分配関数を計算するには，まず $\mfdcal{M}{d}$ の三角形分割 $\abs{\mathcal{T}} \lto \mfdcal{M}{d}$ をとる．
-% \begin{mydef}[label=def:simplex-cat,breakable]{単体圏}
-%     \begin{itemize}
-%         \item $\forall n \in \mathbb{N} \cup \{0\}$ に対して，全順序付集合 $\bm{[n]} \coloneqq \{0,\, 1,\, \dots,\, n\}$ のことを $\bm{n}$\textbf{-単体} ($n$-simplex) と呼ぶ．
-%         \item \textbf{単体圏} (simplex category) $\Delta$ とは，
-%         \begin{itemize}
-%             \item $\forall n \in \mathbb{N} \cup \{0\}$ に対して，$n$-単体 $[n]$ を対象とする．
-%             \item 順序を保つ写像を射とする
-%         \end{itemize}
-%         圏のこと．
-%     \end{itemize}
-    
-%     \tcblower
-
-%     特に $\Hom{\Delta} ([n-1],\, [n])$ の元のうち
-%     \begin{align}
-%         d_i \colon [n-1] \hookrightarrow [n],\; x \lmto 
-%         \begin{cases}
-%             x, &x < i \\
-%             x+1 &x \ge i
-%         \end{cases}
-%         \WHERE i = 0,\, \dots,\, n
-%     \end{align}
-%     のことを\textbf{面写像} (face map) と呼び，
-%     $\Hom{\Delta}([n+1],\, [n])$ の元のうち
-%     \begin{align}
-%         s_i \colon [n+1] \twoheadrightarrow [n],\; x \lmto 
-%         \begin{cases}
-%             x, &x \le i \\
-%             x-1 &x > i
-%         \end{cases}
-%         \WHERE i=0,\, \dots,\, n
-%     \end{align}
-%     のことを\textbf{縮退写像} (degeneracy map) と呼ぶ．
-% \end{mydef}
-
-% \begin{mydef}[label=def:simplicial-sets,breakable]{単体的集合}
-%     \textbf{単体的集合} (simplicial set)  とは，関手
-%     \begin{align}
-%         K \colon \OP{\Delta} \lto \SETS
-%     \end{align}
-%     のこと．
-
-%     \tcblower
-
-%     $K_n \coloneqq K([n])$ とおき，
-%     $\partial_i \coloneqq K(d_i) \colon K_{n} \twoheadrightarrow K_{n-1}$ のことを\textbf{面写像}，$\sigma_i \coloneqq K(s_i) \colon K_n \hookrightarrow K_{n+1}$ のことを\textbf{縮退写像}と呼ぶ．これらは以下の\textbf{単体的恒等式} (simplicial identities) を充たす：
-%     \begin{align}
-%         \partial_i \circ \partial_i &= \partial_{j-1} \circ \partial_i&& (i<j), \\
-%         \partial_i \circ \sigma_j &= \sigma_{j-1} \circ \partial_i && (i<j), \\
-%         \partial_i \circ \sigma_i &= \mathrm{id} &&(0\le i \le n), \\
-%         \partial_{i+1} \circ \sigma_i &= \mathrm{id} &&(0\le i \le n), \\
-%         \partial_i \circ \sigma_j &= \sigma_j \circ \partial_{i-1} &&(i > j+1), \\
-%         \sigma_i \circ \sigma_j &= \sigma_{j+1} \circ \sigma_i &&(i \le j)
-%     \end{align}
-% \end{mydef}
 簡単のため $d=3$ とする．
 $\mfdcal{M}{3}$ は連結だとしていたので，$BG$ の基点 $\mathrm{pt} \in BG$ を１つ固定することで，\hyperref[prop:universal-basic]{分類写像} $\gamma \colon M \lto BG$ をホモトピックに変形して，任意の0単体 $\sigma_0 \in \mathcal{T}$ を$\gamma[\sigma_0] = \mathrm{pt}$ に写すようにできる．
 すると，任意の1単体 $\sigma_1 \in \mathcal{T}$ は $\gamma(\sigma_1) \in \pi_1(BG,\, \mathrm{pt})$ と見做すことができるが，命題\ref{prop:classifying-space-Kpi1}より $\pi_1(BG,\, \mathrm{pt}) \cong G$ であるから，結局分類写像 $\gamma$ によって $\forall \sigma_1 \in \mathcal{T}$ と何かしらの $g_{\sigma_1} \in G$ が対応付く．この $g_{\sigma_1}$ は格子ゲージ理論におけるリンク変数（i.e. ゲージ場）と見做すと分かりやすい．
@@ -2386,12 +2331,12 @@ $\mfd{\Sigma}{p}$ の周りでは
 まずゲージ群 $G$ が\underline{一般の位相群}である場合，時空 $\mfdcal{M}{d}$ 上の主束は\hyperref[def:universal-bundle]{普遍束}により分類された：
 \begin{align}
     \label{eq:1form-univ}
-    \mathrm{Bun}_G (\mfdcal{M}{d})/\cong \xleftrightarrow{1:1} \comm{\mfdcal{M}{d}}{BG}
+    \mathrm{Bun}_G (\mfdcal{M}{d})/\cong\; \xleftrightarrow{1:1} \comm{\mfdcal{M}{d}}{BG}
 \end{align}
 ただし $\cong$ はファイバー束の同型である．これは圏 $\bm{\mathrm{Mfd}}$ における引き戻し\footnote{正確には全ての射がup to homotopyだとした，\textbf{homotopy pullback}（\url{https://ncatlab.org/nlab/show/homotopy+pullback}）の図式である．}
 \begin{center}
     \begin{tikzcd}[row sep=large, column sep=large]
-        &P\ar[r]\ar[d] &* \\
+        &P\ar[r]\ar[d] &* \ar[d] \\
         &\mfdcal{M}{d} \ar[r, "\gamma"] &BG
     \end{tikzcd}
 \end{center}
@@ -2423,7 +2368,7 @@ $\mfd{\Sigma}{p}$ の周りでは
 が分かり，結局
 \begin{align}
     \label{eq:1form-moduli}
-    \irm{BG}{flat} \xleftrightarrow{1:1} \mathrm{Bun}_G (\mfdcal{M}{d})/\cong \xleftrightarrow{1:1} \comm{\mfdcal{M}{d}}{BG}
+    \irm{BG}{flat} \xleftrightarrow{1:1} \mathrm{Bun}_G (\mfdcal{M}{d})/\cong\; \xleftrightarrow{1:1} \comm{\mfdcal{M}{d}}{BG}
 \end{align}
 が言えた．i.e. ゲージ場の配位空間は $\comm{\mfdcal{M}{d}}{BG}$ と求まった．
 
@@ -2434,7 +2379,7 @@ $\mfd{\Sigma}{p}$ の周りでは
 まずは $G$ を一般の位相群とする．このとき\eqref{eq:1form-univ}の一般化として，ある「上手く定義された圏」（\hyperref[def:infinity-topos]{$\infty$-トポス}） $\mathrm{\bm{H}}$ の上のhomotopy pullbackの図式
 \begin{center}
     \begin{tikzcd}[row sep=large, column sep=large]
-        &P\ar[r]\ar[d] &* \\
+        &P\ar[r]\ar[d] &* \ar[d] \\
         &\mfdcal{M}{d} \ar[r, "\gamma"] &\bm{\mathrm{B}}G
     \end{tikzcd}
 \end{center}
@@ -2455,7 +2400,7 @@ $\mfd{\Sigma}{p}$ の周りでは
 \end{align}
 が成り立つのか不明であり，従って\eqref{eq:1form-moduli}の一般化
 \begin{align}
-    \irm{\bm{\mathrm{B}}G}{conn} = \irm{\bm{\mathrm{B}}G}{flat} \xleftrightarrow{1:1} \mathrm{Bun}_G (\mfdcal{M}{d})/\cong = \Hom{\mathrm{\bm{H}}} (\mfdcal{M}{d},\, \mathrm{\bm{B}}G)
+    \irm{\bm{\mathrm{B}}G}{conn} = \irm{\bm{\mathrm{B}}G}{flat} \xleftrightarrow{1:1} \mathrm{Bun}_G (\mfdcal{M}{d}) = \Hom{\mathrm{\bm{H}}} (\mfdcal{M}{d},\, \mathrm{\bm{B}}G)
 \end{align}
 が成り立っているかが不明な点にある．実際，前節で行ったトリックは $\irm{\bm{\mathrm{B}}G}{conn}$ について和をとっていることになる．
 しかし，トポロジカル演算子を挿入することを考えるとむしろ $\mathrm{Bun}_G (\mfdcal{M}{d})/\cong$ の方が配位空間だと考える方が自然かもしれない．
