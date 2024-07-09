@@ -2348,7 +2348,7 @@ $\mfd{\Sigma}{p}$ の周りでは
         &\mfdcal{M}{d} \ar[ur, "(A{,}\, g)"]\ar[r, "\gamma"] &BG
     \end{tikzcd}
 \end{center}
-のようになっている．ここに $(A,\, g) \in \mathrm{Del}^2(\mfdcal{M},\, \underline{\Omega^\bullet(\mhyphen,\, \mathfrak{g})})$ である．
+のようになっている．ここに $(A,\, g) \in \mathrm{Del}^2(\mfdcal{M}{d},\, \underline{\Omega^\bullet(\mhyphen,\, \mathfrak{g})})$ である．
 また，平坦接続に話を限った $\irm{BG}{flat}$ はより簡単な構造を持つ．これは接続を命題\ref{prop:connection-functor}により関手 $\PATH{\mfdcal{M}{d}} \lto BG$ と見做すことで，$\mfdcal{M}{d}$ が連結ならば
 \begin{align}
     \label{eq:1form-flat}
@@ -2368,7 +2368,7 @@ $\mfd{\Sigma}{p}$ の周りでは
 が分かり，結局
 \begin{align}
     \label{eq:1form-moduli}
-    \irm{BG}{flat} \xleftrightarrow{1:1} \mathrm{Bun}_G (\mfdcal{M}{d})/\cong\; \xleftrightarrow{1:1} \comm{\mfdcal{M}{d}}{BG}
+    \irm{BG}{conn} = \irm{BG}{flat} \xleftrightarrow{1:1} \mathrm{Bun}_G (\mfdcal{M}{d})/\cong\; \xleftrightarrow{1:1} \comm{\mfdcal{M}{d}}{BG}
 \end{align}
 が言えた．i.e. ゲージ場の配位空間は $\comm{\mfdcal{M}{d}}{BG}$ と求まった．
 
@@ -2400,7 +2400,7 @@ $\mfd{\Sigma}{p}$ の周りでは
 \end{align}
 が成り立つのか不明であり，従って\eqref{eq:1form-moduli}の一般化
 \begin{align}
-    \irm{\bm{\mathrm{B}}G}{conn} = \irm{\bm{\mathrm{B}}G}{flat} \xleftrightarrow{1:1} \mathrm{Bun}_G (\mfdcal{M}{d}) = \Hom{\mathrm{\bm{H}}} (\mfdcal{M}{d},\, \mathrm{\bm{B}}G)
+    \irm{\bm{\mathrm{B}}G}{conn} = \irm{\bm{\mathrm{B}}G}{flat} \textcolor{red}{\xleftrightarrow{1:1}} \mathrm{Bun}_G (\mfdcal{M}{d}) = \Hom{\mathrm{\bm{H}}} (\mfdcal{M}{d},\, \mathrm{\bm{B}}G)
 \end{align}
 が成り立っているかが不明な点にある．実際，前節で行ったトリックは $\irm{\bm{\mathrm{B}}G}{conn}$ について和をとっていることになる．
 しかし，トポロジカル演算子を挿入することを考えるとむしろ $\mathrm{Bun}_G (\mfdcal{M}{d})/\cong$ の方が配位空間だと考える方が自然かもしれない．
