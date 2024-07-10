@@ -1,0 +1,194 @@
+\begin{thebibliography}{10}
+
+\bibitem{Simon2021}
+S.~Simon,
+\newblock Topological quantum: Lecture notes and proto-book, 2021,
+\newblock Available at \url{http://www-thphys.physics.ox.ac.uk/people/SteveSimon/topological2021/TopoBook-Sep28-2021.pdf}.
+
+\bibitem{Nakahara2018topo1}
+中原幹夫 and 佐久間一浩,
+\newblock {\em \rm{}理論物理学のための幾何学とトポロジー\rm{I} 原著第\rm{2}版} (日本評論社, 2018).
+
+\bibitem{Fadell1961braid}
+E.~Fadell and J.~Van~Buskirk,
+\newblock Bull. Amer. Math. Soc {\bf 67}, 211 (1961).
+
+\bibitem{HalvorsonMuger2006}
+H.~{Halvorson} and M.~{Mueger},
+\newblock arXiv e-prints , math (2006), \href{http://arxiv.org/abs/math-ph/0602036}{[math-ph/0602036]}.
+
+\bibitem{Aharonov1984}
+Y.~Aharonov and A.~Casher,
+\newblock Phys. Rev. Lett. {\bf 53}, 319 (1984).
+
+\bibitem{Lee2012smooth}
+J.~M. Lee,
+\newblock {\em Introduction to Smooth Manifolds} (Springer, 2012).
+
+\bibitem{Imai2013diff}
+今野宏,
+\newblock {\em 微分幾何学} (東京大学出版会, 2013).
+
+\bibitem{Tu2017differential}
+L.~W. Tu,
+\newblock {\em Differential geometry: connections, curvature, and characteristic classes} (Springer, 2017).
+
+\bibitem{Nakahara2018topo2}
+中原幹夫, 久木田真吾, 佐久間一浩, and 綿村尚毅,
+\newblock {\em 理論物理学のための幾何学とトポロジー\rm{II} 原著第\rm{2}版} (日本評論社, 2021).
+
+\bibitem{Baez2011physics}
+J.~Baez and M.~Stay,
+\newblock {\em Physics, topology, logic and computation: a Rosetta Stone} (Springer, 2011).
+
+\bibitem{Kochman1996bordism}
+S.~O. Kochman,
+\newblock {\em Bordism, stable homotopy and Adams spectral sequences} (American Mathematical Soc., 1996).
+
+\bibitem{Atiyah1988tqft}
+M.~F. Atiyah,
+\newblock Publications Math\'ematiques de l'IH\'ES {\bf 68}, 175 (1988).
+
+\bibitem{hidaka2022g-sym}
+日高義将,
+\newblock 高次対称性入門, 2022,
+\newblock Available at \url{https://ribf.riken.jp/~hidaka/yh/slide/hidaka_higher_form.pdf}.
+
+\bibitem{GaiottoKapustinSeibergWillett2015}
+D.~{Gaiotto}, A.~{Kapustin}, N.~{Seiberg}, and B.~{Willett},
+\newblock Journal of High Energy Physics {\bf 2015}, 172 (2015), \href{http://arxiv.org/abs/1412.5148}{[1412.5148]}.
+
+\bibitem{Nicolaescu2022lecture}
+L.~I. Nicolaescu,
+\newblock Lectures on the geometry of manifolds, 2022,
+\newblock Available at \url{https://www3.nd.edu/~lnicolae/Lectures.pdf}.
+
+\bibitem{Kugo1989qft2}
+九後汰一郎,
+\newblock {\em ゲージ場の量子論 \rm{II}} (, 1989).
+
+\bibitem{FabriPicasso1966qft}
+E.~Fabri and L.~E. Picasso,
+\newblock Phys. Rev. Lett. {\bf 16}, 408 (1966).
+
+\bibitem{nielsen1976HowCount}
+H.~Nielsen and S.~Chadha,
+\newblock Nuclear Physics B {\bf 105}, 445 (1976).
+
+\bibitem{watanabe2012UnifiedDescription}
+H.~Watanabe and H.~Murayama,
+\newblock Physical Review Letters {\bf 108}, 251602 (2012), \href{http://arxiv.org/abs/1203.0609}{[1203.0609]}.
+
+\bibitem{Lake2018SSB}
+E.~{Lake},
+\newblock arXiv e-prints , arXiv:1802.07747 (2018), \href{http://arxiv.org/abs/1802.07747}{[1802.07747]}.
+
+\bibitem{Fujikawa2001path}
+藤川和男,
+\newblock {\em 経路積分と対称性の量子的破れ} (岩波書店, 2001).
+
+\bibitem{Kawahira2024anomaly}
+川平将志,
+\newblock アノマリーの数学的基礎から現象論的応用まで, 2024,
+\newblock Available at \url{https://www2.yukawa.kyoto-u.ac.jp/~soken.editorial/author.html?author=%E5%B7%9D%E5%B9%B3%20%E5%B0%86%E5%BF%97}.
+
+\bibitem{DaiFreed_1994}
+X.~Dai and D.~S. Freed,
+\newblock Journal of Mathematical Physics {\bf 35}, 5155^^e2^^80^^935194 (1994).
+
+\bibitem{FreedHopkins_2021}
+D.~S. Freed and M.~J. Hopkins,
+\newblock Geometry; Topology {\bf 25}, 1165^^e2^^80^^931330 (2021).
+
+\bibitem{DijkgraafWitten1989}
+R.~Dijkgraaf and E.~Witten,
+\newblock Commun. Math. Phys. {\bf 129}, 393 (1990).
+
+\bibitem{Husemoller1994}
+D.~Husem\"{o}ller,
+\newblock {\em Fibre bundles} (Springer-Verlag, 1994).
+
+\bibitem{Steenrod1951}
+N.~Steenrod,
+\newblock {\em The Topology of Fibre Bundles. (PMS-14), Volume 14} (Princeton University Press, Princeton, 1951),
+\newblock \url{https://doi.org/10.1515/9781400883875}.
+
+\bibitem{Baez2004holonomy}
+J.~C. Baez,
+\newblock connections as functors,
+\newblock Available at \url{https://math.ucr.edu/home/baez/qg-fall2004/connection.pdf}.
+
+\bibitem{barrett1991holonomy}
+J.~W. Barrett,
+\newblock International journal of theoretical physics {\bf 30}, 1171 (1991).
+
+\bibitem{Simons_2007}
+J.~Simons and D.~Sullivan,
+\newblock Journal of Topology {\bf 1}, 45^^e2^^80^^9356 (2007).
+
+\bibitem{Freed_1993}
+D.~S. Freed and F.~Quinn,
+\newblock Communications in Mathematical Physics {\bf 156}, 435^^e2^^80^^93472 (1993), \href{http://arxiv.org/abs/hep-th/9111004}{[hep-th/9111004]}.
+
+\bibitem{BanksSeiberg2011symmetry}
+T.~{Banks} and N.~{Seiberg},
+\newblock Physical Review D {\bf 83}, 084019 (2011), \href{http://arxiv.org/abs/1011.5120}{[1011.5120]}.
+
+\bibitem{KapustinSeiberg2014}
+A.~{Kapustin} and N.~{Seiberg},
+\newblock Journal of High Energy Physics {\bf 2014}, 1 (2014), \href{http://arxiv.org/abs/1401.0740}{[1401.0740]}.
+
+\bibitem{alfonsi2023higher}
+L.~Alfonsi,
+\newblock (2023), \href{http://arxiv.org/abs/2312.07308}{[2312.07308]}.
+
+\bibitem{ChenGuWen2010}
+X.~{Chen}, Z.-C. {Gu}, and X.-G. {Wen},
+\newblock Phys. Rev.~B {\bf 82}, 155138 (2010), \href{http://arxiv.org/abs/1004.3835}{[1004.3835]}.
+
+\bibitem{Xiong2019SPT}
+C.~{Zhaoxi Xiong},
+\newblock arXiv e-prints , arXiv:1906.02892 (2019), \href{http://arxiv.org/abs/1906.02892}{[1906.02892]}.
+
+\bibitem{Wen2014SPT}
+X.-G. {Wen},
+\newblock Phys. Rev.~B {\bf 89}, 035147 (2014), \href{http://arxiv.org/abs/1301.7675}{[1301.7675]}.
+
+\bibitem{ChenGuLiuWen2013}
+X.~{Chen}, Z.-C. {Gu}, Z.-X. {Liu}, and X.-G. {Wen},
+\newblock Phys. Rev.~B {\bf 87}, 155114 (2013), \href{http://arxiv.org/abs/1106.4772}{[1106.4772]}.
+
+\bibitem{Kapustin2014SPT}
+A.~{Kapustin},
+\newblock arXiv e-prints , arXiv:1403.1467 (2014), \href{http://arxiv.org/abs/1403.1467}{[1403.1467]}.
+
+\bibitem{Shiho2016}
+志甫淳,
+\newblock {\em 層とホモロジー代数} (共立出版, 2016).
+
+\bibitem{Bauer2005DB}
+M.~{Bauer}, G.~{Girardi}, R.~{Stora}, and F.~{Thuillier},
+\newblock Journal of High Energy Physics {\bf 2005}, 027 (2005), \href{http://arxiv.org/abs/hep-th/0406221}{[hep-th/0406221]}.
+
+\bibitem{Land2021infinity}
+M.~Land,
+\newblock {\em introduction to Infinity-Categories} (Springer International Publishing, 2021),
+\newblock \url{https://doi.org/10.1007/978-3-030-61524-6_1}.
+
+\bibitem{Kerodon}
+J.~Lurie,
+\newblock \url{https://kerodon.net/}.
+
+\bibitem{lurie2008higher}
+J.~Lurie,
+\newblock (2008), \href{http://arxiv.org/abs/math/0608040}{[math/0608040]}.
+
+\bibitem{nLab}
+nLab,
+\newblock \url{https://ncatlab.org/nlab/show/HomePage}.
+
+\bibitem{NSS2012}
+T.~{Nikolaus}, U.~{Schreiber}, and D.~{Stevenson},
+\newblock arXiv e-prints , arXiv:1207.0248 (2012), \href{http://arxiv.org/abs/1207.0248}{[1207.0248]}.
+
+\end{thebibliography}
