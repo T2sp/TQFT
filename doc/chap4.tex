@@ -215,7 +215,7 @@ $\Lat{\mfd{\Sigma}{D}}$ にコンパクト開位相\footnote{operator normによ
     \end{itemize}
     をとる．このとき
     \begin{align}
-        \ket{\Psi}_\omega \coloneqq \frac{1}{\abs{G}^{\abs{\Lambda}}} \sum_{\{g_{j}\}_{j \in K_1}} \prod_{\{j_0,\, \dots,\, j_{D+1}\} \in K_{D+1}} \omega (g_{j_0},\, \dots,\, g_{j_{D+1}})^{\epsilon_{\{j_0,\, \dots,\, j_{D+1}\}}} \ket{\Familyset[\big]{g_{\bm{x}}}{\bm{x} \in \Lambda}}
+        \ket{\Psi}_\omega \coloneqq \frac{1}{\abs{G}^{\abs{\Lambda}}} \sum_{\{g_{j}\}_{j \in K_0}} \prod_{\{j_0,\, \dots,\, j_{D+1}\} \in K_{D+1}} \omega (g_{j_0},\, \dots,\, g_{j_{D+1}})^{\epsilon_{\{j_0,\, \dots,\, j_{D+1}\}}} \ket{\Familyset[\big]{g_{\bm{x}}}{\bm{x} \in \Lambda}}
     \end{align}
     は\hyperref[def:SPT-traditional]{SPT相}の代表元である．ただし $\epsilon_{\{j_0,\, \dots,\, j_{D+1}\}}$ は $D+1$-単体 $\{j_0,\, \dots,\, j_{D+1}\} \in K_{D+1}$ の向きである．
 \end{myprop}
@@ -233,7 +233,7 @@ $\Lat{\mfd{\Sigma}{D}}$ にコンパクト開位相\footnote{operator normによ
     が成り立つ．ただし3つ目の等号でコサイクルの左不変性を使った．
 
     次に，$\ket{\Psi}_\omega$ が\hyperref[def:SRE]{SRE状態}であることを示す．簡単のため $\Sigma = S^D,\, \mfdcal{N}{D+1} = D^{D+1}$ の場合を考える\footnote{一般の場合でも，$C^\infty$ 多様体はCW複体の構造を持つので問題ないと思われる．}．
-    このとき $K_{1} \setminus \Lambda = \{*\}$ となるような三角形分割をとることができて，
+    このとき $K_{0} \setminus \Lambda = \{*\}$ となるような三角形分割をとることができて，
     \begin{align}
         \ket{\Psi}_\omega 
         &= \left( \sum_{\{g_{\bm{x}}\}_{\bm{x} \in \Lambda}} \prod_{\{j_0,\, \dots ,\, j_{D},\, *\} \in K_{D+1}} \omega (g_{j_0},\, \dots,\, g_{j_D},\, g_{*}) \ketbra{\Familyset[\big]{g_{\bm{x}}}{\bm{x} \in \Lambda}}{\Familyset[\big]{g_{\bm{x}}}{\bm{x} \in \Lambda}} \right) \bigotimes_{\bm{x} \in \Lambda} \left( \frac{1}{\abs{G}} \sum_{g_{\bm{x}} \in G} \ket{g_{\bm{x}}}\right) \\
@@ -270,7 +270,7 @@ $\Lat{\mfd{\Sigma}{D}}$ にコンパクト開位相\footnote{operator normによ
     &= \frac{1}{\abs{G}^{\abs{\Lambda}}} \prod_{\{j_0,\, \dots,\, j_{D+1}\} \in K_{D+1}} \omega (g_{j_0},\, h_{j_0j_1} g_{j_1},\, h_{j_0j_1}h_{j_1j_2} g_{j_2} \dots,\, h_{j_0j_1} \cdots h_{j_D j_{D+1}}g_{j_{D+1}})^{\epsilon_{\{j_0,\, \dots,\, j_{D+1}\}}} \\
     &= \frac{1}{\abs{G}^{\abs{\Lambda}}} \prod_{\{j_0,\, \dots,\, j_{D+1}\} \in K_{D+1}} \alpha (g_{j_0}^{-1}h_{j_0j_1} g_{j_1},\, g_{j_1}^{-1} h_{j_1j_2} g_{j_2},\, \dots,\,g_{j_D}^{-1} h_{j_D j_{D+1}}g_{j_{D+1}})^{\epsilon_{\{j_0,\, \dots,\, j_{D+1}\}}}
 \end{align}
-になる．ゲージ場を外場と見做すことにより\hyperref[def:DijkgraafWitten]{Dijkgraaf-Witten理論}の作用が得られる：
+になる\footnote{このゲージ化の方法は，理論のゲージ不変性を要請することによって得られる．}．ゲージ場を外場と見做すことにより\hyperref[def:DijkgraafWitten]{Dijkgraaf-Witten理論}の作用が得られる：
 \begin{align}
     &\sum_{\{g_{j}\}_{j \in K_1}} \irm{Z}{gauged}(\Familyset[\big]{g_{i}}{i \in K_0},\, \Familyset[\big]{h_{e}}{e \in K_1};\,\mfdcal{N}{D+1}) \\
     &= \prod_{\{j_0,\, \dots,\, j_{D+1}\} \in K_{D+1}} \alpha (h_{j_0j_1},\, h_{j_1j_2},\, \dots,\, h_{j_D j_{D+1}})^{\epsilon_{\{j_0,\, \dots,\, j_{D+1}\}}} \\
@@ -280,7 +280,7 @@ $\Lat{\mfd{\Sigma}{D}}$ にコンパクト開位相\footnote{operator normによ
 
 \section{Bosonic SPT相の分類：$\Omega$-スペクトラムによる方法}
 
-上述の群コホモロジーによるbosonicなSPT相の分類は低次元においては有効だが，高次元だと不十分になることが知られている~\cite{Kapustin2014SPT}．現代的には一般コホモロジー理論によって分類するのが良いとされている~\cite{Xiong2019SPT}．
+上述の群コホモロジーによるbosonicなSPT相の分類は低次元においては十分有効だが，高次元だと不十分になったり，逆に細かくなり過ぎることが知られている~\cite{Kapustin2014SPT}．現代的には一般コホモロジー理論によって分類することが多い~\cite{Xiong2019SPT}．
 その際には，そもそも\hyperref[prop:LU]{局所ユニタリ発展}は使わずにSPT相を定義する．
 
 
