@@ -2450,9 +2450,68 @@ $\mfd{\Sigma}{p}$ の周りでは
 となっている．
 
 
+% \begin{myexample}[label=ex:BF-3D]{$(2+1)$-次元における $\mathbb{Z}_n$ Dijkgraaf-Witten理論}
+%     $\mathbb{Z}_n$ \hyperref[def:Dijkgraaf-Witten]{Dijkgraaf-Witten理論}は，\hyperref[def:BF]{$BF$-理論}を記述するトリックと同様の手法により $\LU (1)$ ゲージ理論を用いて記述することができる．
+%     まず，$\coGrp{3}{\mathbb{Z}_n;\, \mathbb{R}/\mathbb{Z}} \cong \mathbb{Z}_n$ に注意する．このことから $\alpha \in \coGrp{3}{\mathbb{Z}_n;\, \mathbb{R}/\mathbb{Z}}$ を1つ指定することと $p \in \mathbb{Z}_n$ を1つ指定することは等価なので，
+%     Dijkgraaf-Witten理論の作用を
+%     \begin{align}
+%         S[\hg{a}{1},\, \hg{b}{1}] \coloneqq \frac{\iunit n}{2\pi} \hg{b}{1} \wedge \dd{\hg{a}{1}} + 
+%     \end{align}
+    
+% \end{myexample}
+
+
+\begin{myexample}[label=ex:BF-4D]{$(3+1)$-次元における $\mathbb{Z}_n$ ゲージ理論}
+    $(3+1)$-次元時空 $\mfdcal{M}{4}$ におけるトポロジカルな $\mathbb{Z}_n$ ゲージ理論
+    \begin{align}
+        S [\hg{a}{1},\, \hg{b}{2}] 
+        &\coloneqq \frac{\iunit n}{2\pi} \int_{\mfdcal{M}{4}} \hg{b}{2} \wedge \dd{\hg{a}{1}} + \frac{\iunit  pn}{4\pi} \int_{\mfdcal{M}{4}} \hg{b}{2} \wedge \hg{b}{2} \\
+        &= \frac{\iunit n}{4\pi p} \int_{\mfdcal{M}{4}} (\dd{\hg{a}{1}} + p \hg{b}{2}) \wedge (\dd{\hg{a}{1}} + p \hg{b}{2}) - \frac{\iunit n}{4\pi p} \int_{\mfdcal{M}{4}} \dd{\hg{a}{1}} \wedge \dd{\hg{a}{1}} \label{eq:discrete-theta}
+    \end{align}
+    を考える~\cite[p.21]{KapustinSeiberg2014}．$\hg{a}{1},\, \hg{b}{2}$ はダイナミカルなので，作用は$\mod 2\pi$ でゲージ不変でなくてはいけない．よって $\hg{b}{2}$ のゲージ変換 $\hg{b}{2} \lmto \hg{b}{2} + \dd{\hg{\lambda}{1}}$ は $\hg{a}{1}$ にも同時に変換を引き起こさなくてはいけない\footnote{$\hg{a}{1},\, \hg{\lambda}{1}$ が共に $\LU (1)$ ゲージ場であることから，$p \in \mathbb{Z}$ でなくてはいけない．}：
+    \begin{align}
+        \hg{a}{1} \lmto \hg{a}{1} - p \hg{\lambda}{1}
+    \end{align}
+    注意すべきなのは，$\hg{a}{1},\, \hg{\lambda}{1}$ の両者が $\LU(1)$ ゲージ場なので，その値が $\mod 2\pi$ でしか決まらないことである．
+    よってこのゲージ変換における作用の非自明な変化は
+    \begin{align}
+        - \pi \iunit pn \int_{\mfdcal{M}{4}} \frac{\dd{\lambda}}{2\pi} \wedge \frac{\dd{\lambda}}{2\pi}
+    \end{align}
+    で記述される．この項が $\mod 2\pi$ で消えるためには
+    \begin{align}
+        \frac{pn}{2} \in \mathbb{Z}
+    \end{align}
+    が必要である\footnote{この条件は $\mfdcal{M}{4}$ がスピン多様体ならば $p \in \mathbb{Z}$ と等価である．}．
+    
+    \hyperref[def:BF]{$BF$-理論}の節で行った議論と同様にこの理論を補助場 $\hg{f}{2}$ および $\LU(1)$ ゲージ場 $\hg{\widehat{a}}{1}$ を含む等価な形で述べることができる：
+    \begin{align}
+        S [\hg{f}{2},\, \hg{b}{2},\, \hg{\widehat{a}}{1}]
+        &\coloneqq \frac{\iunit n}{2\pi} \int_{\mfdcal{M}{4}} \hg{b}{2} \wedge \hg{f}{2} + \frac{\iunit  pn}{4\pi} \int_{\mfdcal{M}{4}} \hg{b}{2} \wedge \hg{b}{2} + \frac{\iunit}{2\pi} \int_{\mfdcal{M}{4}} \dd{\hg{\widehat{a}}{1}} \wedge \hg{f}{2} \\
+        &= \frac{\iunit}{2\pi} \int_{\mfdcal{M}{4}} \hg{f}{2} \wedge (\dd{\hg{\widehat{a}}{1}} + n \hg{b}{2}) + \frac{\iunit pn}{4\pi} \int_{\mfdcal{M}{4}} \hg{b}{2} \wedge \hg{b}{2}
+    \end{align}
+    ただし，$\hg{b}{2}$ のゲージ変換 $\hg{b}{2} \lmto \hg{b}{2} + \dd{\hg{\lambda}{1}}$ は $\hg{f}{2},\, \hg{\widehat{a}}{1}$ にも同時に変換を引き起こさなくてはいけない：
+    \begin{align}
+        \hg{f}{2} &\lmto \hg{f}{2} - p \dd{\hg{\lambda}{1}}, \\
+        \hg{\widehat{a}}{1} &\lmto \hg{\widehat{a}}{1} - n \hg{\lambda}{1}
+    \end{align}
+    $\hg{f}{2},\, \hg{b}{2}$ に関する汎函数積分を実行することで
+    \begin{align}
+        S [\hg{\widehat{a}}{1}] = \frac{\iunit p}{4\pi n} \dd{\hg{\widehat{a}}{1}} \wedge \dd{\hg{\widehat{a}}{1}}
+    \end{align}
+    とも等価である．
+
+    この理論の持つトポロジカル演算子を求めよう．
+\end{myexample}
+
+
+\subsection{中心対称性のゲージ化}
+
+$(3+1)$-次元の物質場を持たない $\LSU(n)$ ゲージ理論をトポロジカルな $\mathbb{Z}_n$ ゲージ理論\exref{ex:BF-4D}と結合させることにより，$\LSU(n)/\mathbb{Z}_n$ ゲージ理論が得られることを見よう．
 
 
 
+\subsection{有限部分群のゲージ化}
 
+中心対称性に関して議論する際，理論の持つ対称性 $G$ の有限な正規部分群 $A$ についてのみゲージ化すると言う操作が必要になった．ここでは有限部分群のゲージ化に関する一般論を述べる~\cite{Tachikawa2017gauging}．
 
 \end{document}
