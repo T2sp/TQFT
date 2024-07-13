@@ -2464,6 +2464,7 @@ $\mfd{\Sigma}{p}$ の周りでは
 \begin{myexample}[label=ex:BF-4D]{$(3+1)$-次元における $\mathbb{Z}_n$ ゲージ理論}
     $(3+1)$-次元時空 $\mfdcal{M}{4}$ におけるトポロジカルな $\mathbb{Z}_n$ ゲージ理論
     \begin{align}
+        \label{eq:BF-4D-1}
         S [\hg{a}{1},\, \hg{b}{2}] 
         &\coloneqq \frac{\iunit n}{2\pi} \int_{\mfdcal{M}{4}} \hg{b}{2} \wedge \dd{\hg{a}{1}} + \frac{\iunit  pn}{4\pi} \int_{\mfdcal{M}{4}} \hg{b}{2} \wedge \hg{b}{2} \\
         &= \frac{\iunit n}{4\pi p} \int_{\mfdcal{M}{4}} (\dd{\hg{a}{1}} + p \hg{b}{2}) \wedge (\dd{\hg{a}{1}} + p \hg{b}{2}) - \frac{\iunit n}{4\pi p} \int_{\mfdcal{M}{4}} \dd{\hg{a}{1}} \wedge \dd{\hg{a}{1}} \label{eq:discrete-theta}
@@ -2485,6 +2486,7 @@ $\mfd{\Sigma}{p}$ の周りでは
     
     \hyperref[def:BF]{$BF$-理論}の節で行った議論と同様にこの理論を補助場 $\hg{f}{2}$ および $\LU(1)$ ゲージ場 $\hg{\widehat{a}}{1}$ を含む等価な形で述べることができる：
     \begin{align}
+        \label{eq:BF-4D-2}
         S [\hg{f}{2},\, \hg{b}{2},\, \hg{\widehat{a}}{1}]
         &\coloneqq \frac{\iunit n}{2\pi} \int_{\mfdcal{M}{4}} \hg{b}{2} \wedge \hg{f}{2} + \frac{\iunit  pn}{4\pi} \int_{\mfdcal{M}{4}} \hg{b}{2} \wedge \hg{b}{2} + \frac{\iunit}{2\pi} \int_{\mfdcal{M}{4}} \dd{\hg{\widehat{a}}{1}} \wedge \hg{f}{2} \\
         &= \frac{\iunit}{2\pi} \int_{\mfdcal{M}{4}} \hg{f}{2} \wedge (\dd{\hg{\widehat{a}}{1}} + n \hg{b}{2}) + \frac{\iunit pn}{4\pi} \int_{\mfdcal{M}{4}} \hg{b}{2} \wedge \hg{b}{2}
@@ -2496,11 +2498,37 @@ $\mfd{\Sigma}{p}$ の周りでは
     \end{align}
     $\hg{f}{2},\, \hg{b}{2}$ に関する汎函数積分を実行することで
     \begin{align}
+        \label{eq:BF-4D-3}
         S [\hg{\widehat{a}}{1}] = \frac{\iunit p}{4\pi n} \dd{\hg{\widehat{a}}{1}} \wedge \dd{\hg{\widehat{a}}{1}}
     \end{align}
     とも等価である．
 
-    この理論の持つトポロジカル演算子を求めよう．
+    この理論の持つトポロジカル演算子を求めよう．$p = 0$ のときは $BF$-理論のものと全く同じだが，$p \neq 0$ のときは運動方程式 $\dd{\hg{a}{1}} + p \hg{b}{2} = 0$ および $\dd{\hg{\widehat{a}}{1}} + n \hg{b}{2} = 0$ により
+    \begin{align}
+        W(\mfdcal{C}{2}) \coloneqq e^{\iunit \int_{\mfdcal{C}{2}} \hg{b}{2}}
+    \end{align}
+    とおくと
+    \begin{align}
+        \expval{\bigl( W(\mfdcal{C}{2})^p \bigr) } &= 1,\label{eq:Wilson-1}\\
+        \expval{\bigl( W(\mfdcal{C}{2})^N \bigr) } &= 1 \label{eq:Wilson-2}
+    \end{align}
+    がわかる．i.e. 
+    \begin{align}
+        \expval{\bigl( W(\mfdcal{C}{2})^{\gcd (n,\, p)} \bigr) } &= 1
+    \end{align}
+    である．もう1つのWilson lineは，ゲージ不変性の要請から
+    \begin{align}
+        \tilde{\mathcal{W}}(\mfdcal{C}{1};\, \mfd{\Sigma}{2}) \coloneqq e^{\iunit \int_{\mfdcal{C}{1}} \hg{a}{1}} e^{\iunit p \int_{\mfd{\Sigma}{2}} \hg{b}{2}}
+    \end{align}
+    とせざるを得ない．これは $\mfdcal{\Sigma}{2}$ に依存しているのでgenuine line operatorでないが，\eqref{eq:Wilson-2}を使うと
+    \begin{align}
+        \tilde{\mathcal{W}}(\mfdcal{C}{1};\, \mfd{\Sigma}{2})^{N} = e^{\iunit \int_{\mfdcal{C}{1}} (N \hg{a}{1} - p \hg{\widehat{a}}{1})}
+    \end{align}
+    がわかる．ここから，
+    \begin{align}
+        \mathcal{W}(\mfdcal{C}{1}) \coloneqq \tilde{\mathcal{W}}(\mfdcal{C}{1};\, \mfd{\Sigma}{2})^{N/\gcd (n,\, p)}
+    \end{align}
+    がもう一つのline operatorであることがわかり，$\mathbb{Z}_{\gcd (n,\, p)}$-チャージが導出された．
 \end{myexample}
 
 
@@ -2508,6 +2536,65 @@ $\mfd{\Sigma}{p}$ の周りでは
 
 $(3+1)$-次元の物質場を持たない $\LSU(n)$ ゲージ理論をトポロジカルな $\mathbb{Z}_n$ ゲージ理論\exref{ex:BF-4D}と結合させることにより，$\LSU(n)/\mathbb{Z}_n$ ゲージ理論が得られることを見よう．
 
+今，$(3+1)$-次元の $\LSU(n)$ 1-formゲージ場を $a$ と書く\footnote{ダイナミカルである．}．
+ここで，天下り的だが $\LU(1)$ 1-formゲージ場 $\hg{\widehat{a}}{1}$ を用いて
+\begin{align}
+    \tilde{a} \coloneqq a + \frac{1}{n} \hg{\widehat{a}}{1} \unity_n
+\end{align}
+と書く．すると，$a$ は $\Lsu (n)$ に値をとることから
+\begin{align}
+    \Tr \tilde{a} = \cancel{\Tr a} + \hg{\widehat{a}}{1} \in \iunit \mathbb{R}
+\end{align}
+となり，$\tilde{a}$ が $\Lu (n)$ に値をとるように見える．よって $\tilde{a}$ を $\LU (n)$ ゲージ場と見做すことができる．
+
+ここで，理論に新たな $\LU (1)$ 1-formゲージ不変性 $\tilde{a} \lmto \tilde{a} - \hg{\lambda}{1} \unity_n$ を要請する．ただし $\hg{\lambda}{1}$ は $\LU(1)$ ゲージ場である．
+このゲージ変換は元々の $\LSU (n)$ ゲージ場 $a$ には\underline{作用しない}が，新たに付け足した $\LU (1)$ ゲージ場 $\hg{\widehat{a}}{1}$ に関しては
+\begin{align}
+    \label{eq:SUn-local-dof}
+    \hg{\widehat{a}}{1} \lmto \hg{\widehat{a}}{1} - n \hg{\lambda}{1}
+\end{align}
+のゲージ変換を引き起こす．変換\eqref{eq:SUn-local-dof}に関する不変性を尊重するためには $\hg{\widehat{a}}{1}$ の運動項は許されないが，トポロジカル項
+\begin{align}
+    \frac{\iunit p}{4\pi n} \int_{\mfdcal{M}{4}} \hg{\widehat{a}}{1} \wedge \hg{\widehat{a}}{1}
+\end{align}
+を付け足すことは依然として許されている．この項はまさにトポロジカルな $\mathbb{Z}_n$ ゲージ理論\eqref{eq:BF-4D-3}である．
+
+このようにして得られたゲージ理論の変換関数について考察する．$\mfdcal{M}{4}$ の良い被覆 $\Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$ を1つ固定する．
+新たな $\LU (1)$ ゲージ不変性の要請によって $\tilde{a}$ のゲージ変換は変換関数 $\Familyset[\big]{g_{\alpha\beta} \colon U_\alpha \cap U_\beta \lto \LU (n)}{\alpha,\, \beta \in \Lambda}$ によるものと，変換関数 $\Familyset[\big]{\hg{\lambda}{1}_{\alpha\beta} \colon U_\alpha \cap U_\beta \lto \Omega^1(U_\alpha \cap U_\beta,\, \Lu(1))}{\alpha,\, \beta \in \Lambda}$ によるものが混ざった
+\begin{align}
+    \tilde{a}_\beta = g_{\beta\alpha} (\tilde{a}_\alpha - \iunit \dd{g_{\beta\alpha}}) g_{\beta\alpha}^{-1} - \hg{\lambda}{1}_{\alpha\beta}
+\end{align}
+になる．注意すべきなのは，$\hg{\lambda}{1}_{\alpha\beta}$ に対するゲージ変換 $\hg{\lambda}{1}_{\alpha\beta} \lmto \hg{\lambda}{1}_{\alpha\beta} + \dd{\hg{h}{0}_{\alpha\beta}}$ が $g_{\beta\alpha}$ にも作用することである：
+\begin{align}
+    \label{eq:g-mixed}
+    g_{\beta\alpha} \lmto e^{-\iunit h_{\alpha\beta}} g_{\beta\alpha}
+\end{align}
+ここで $\hg{\lambda}{1}_{\alpha\beta}$ のDeligne-Beilinsonコチェインとしてのゲージ変換（i.e. $U_\alpha \cap U_\beta \cap U_\gamma$ における整合性条件）は，$\Familyset[\big]{f_{\alpha\beta\gamma} \colon U_\alpha \cap U_\beta \cap U_\gamma \lto \Omega^0(U_\alpha \cap U_\beta \cap U_\gamma;\, \mathbb{R} / 2\pi \mathbb{Z})}{\alpha,\, \beta,\, \gamma \in \Lambda}$ によって
+\begin{align}
+    \hg{\lambda}{1}_{\alpha\beta} + \hg{\lambda}{1}_{\beta\gamma} + \hg{\lambda}{1}_{\gamma \alpha} = \dd{f_{\alpha\beta\gamma}}
+\end{align}
+となっているので，ゲージ変換 $\hg{\lambda}{1}_{\alpha\beta} \lmto \hg{\lambda}{1}_{\alpha\beta} + \dd{\hg{h}{0}_{\alpha\beta}}$ に際しては
+\begin{align}
+    f_{\alpha\beta\gamma} \lmto f_{\alpha\beta\gamma} + h_{\alpha\beta} + h_{\beta\gamma} + h_{\gamma\alpha} \mod 2\pi
+\end{align}
+と言う変換を受ける．故に $g_{\alpha\beta}$ に要請するコサイクル条件であって\eqref{eq:g-mixed}を尊重するものは
+\begin{align}
+    \label{eq:cocycle-generalized}
+    g_{\alpha\beta} g_{\beta\gamma} g_{\gamma\alpha} = e^{-\iunit f_{\alpha\beta\gamma}} \unity_n \in \LU(1)
+\end{align}
+だと考えられる~\cite[p.28]{KapustinSeiberg2014}．一般化されたコサイクル条件\eqref{eq:cocycle-generalized}の $\det$ をとることにより
+\begin{align}
+    f_{\alpha\beta\gamma} + \frac{1}{n} \left( \log \det g_{\alpha\beta} + \log \det g_{\beta\gamma} + \log \det g_{\gamma\alpha}\right) \eqqcolon \frac{2\pi m_{\alpha\beta\gamma}}{n} \in \frac{2\pi}{n} \mathbb{Z}
+\end{align}
+がわかる．$f_{\alpha\beta\gamma}$ の充たすべきコサイクル条件は
+\begin{align}
+    f_{\alpha\beta\gamma} + f_{\beta\gamma\delta} + f_{\gamma\delta\alpha} + f_{\delta\alpha\beta} = 0 \mod 2\pi
+\end{align}
+であるから，
+\begin{align}
+    m_{\alpha\beta\gamma} + m_{\beta\gamma\delta} + m_{\gamma\delta\alpha} + m_{\delta\alpha\beta} = 0 \mod n
+\end{align}
+がわかる．i.e. $m \coloneqq \Familyset[\big]{m_{\alpha\beta\gamma}}{\alpha,\,\beta,\,\gamma \in \Lambda} \in \Cech{2}{\mfdcal{M}{d};\, \mathbb{Z}_n}$ である．
 
 
 \subsection{有限部分群のゲージ化}
