@@ -964,7 +964,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     $K_n \coloneqq K([n])$ とおく．$K_n$ の元のことを\textbf{$n$-単体} ($n$-simplex) と呼ぶ．
     $\partial_i \coloneqq K(d_i) \colon K_{n} \twoheadrightarrow K_{n-1}$ のことを\textbf{面写像}，$\sigma_i \coloneqq K(s_i) \colon K_n \hookrightarrow K_{n+1}$ のことを\textbf{縮退写像}と呼ぶ．これらは以下の\textbf{単体的恒等式} (simplicial identities) を充たす：
     \begin{align}
-        \partial_i \circ \partial_i &= \partial_{j-1} \circ \partial_i&& (i<j), \\
+        \partial_i \circ \partial_j &= \partial_{j-1} \circ \partial_i&& (i<j), \\
         \partial_i \circ \sigma_j &= \sigma_{j-1} \circ \partial_i && (i<j), \\
         \partial_i \circ \sigma_i &= \mathrm{id} &&(0\le i \le n), \\
         \partial_{i+1} \circ \sigma_i &= \mathrm{id} &&(0\le i \le n), \\
