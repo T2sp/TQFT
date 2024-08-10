@@ -1,0 +1,209 @@
+\documentclass[TQFT_main]{subfiles}
+
+\begin{document}
+
+\chapter{フュージョン圏}
+
+この章では\underline{標数 $0$ の}体 $\mathbb{K}$ のみを考える．
+
+\section{加法圏}
+
+\begin{mydef}[label=def:additive-cat]{加法圏・アーベル圏}
+    圏 $\Cat{C}$ が体 $\mathbb{K}$ 上の\textbf{加法圏} (additive category) であるとは，以下を充たすこと：
+    \begin{description}
+        \item[\textbf{(add-1)}]　
+        
+        任意のHom集合 $\Hom{\Cat{C}}(X,\, Y)$ が $\fk$-ベクトル空間の構造をもち，かつ射の合成
+        \begin{align}
+            \circ \colon \Hom{\Cat{C}}(Y,\, Z) \times \Hom{\Cat{C}}(X,\, Y) \lto \Hom{\Cat{C}}(X,\, Z)
+        \end{align}
+        が $\mathbb{K}$-双線形写像である．
+
+        \item[\textbf{(add-2)}]　
+        
+        \textbf{零対称}\footnote{始対象かつ終対象} (zero object) $\bm{0} \in \Obj{\Cat{C}}$ が存在し，$\forall X \in \Obj{\Cat{C}}$ に対して $\Hom{\Cat{C}}(\bm{0},\, X) = \Hom{\Cat{C}}(\bm{X},\, 0) = 0$ を充たす\footnote{最右辺は \textsf{\textbf{(add-1)}} の意味で零ベクトル空間．}．
+
+        \item[\textbf{(add-3)}]　
+        
+        有限の\hyperref[def:product-coproduct]{余積}が常に存在する．
+    \end{description}
+    
+    \tcblower
+
+    加法圏 $\Cat{C}$ は，以下の条件を充たすとき\textbf{アーベル圏} (abelian category) と呼ばれる：
+    \begin{description}
+        \item[\textbf{(Ab-1)}]　
+        
+        任意の射 $f \in \Hom{\Cat{C}}(X,\, Y)$ が核 $\ker f \colon \Ker f \lto X$ および余核 $\coker f \colon Y \lto \Coker f$ を持つ．
+
+        \item[\textbf{(Ab-2)}]　
+        
+        $\Ker f = \bm{0}$ ならば $f = \ker (\coker f)$，かつ $\Coker f = \bm{0}$ ならば $f = \coker (\ker f)$
+    \end{description}
+    
+\end{mydef}
+
+以下では\hyperref[def:additive-cat]{加法圏} $\Cat{C},\, \Cat{D}$ の間の関手 $F \colon \Cat{C} \lto \Cat{D}$ には，$F_{X,\, Y} \colon \Hom{\Cat{C}}(X,\, Y) \lto \Hom{\Cat{D}} \bigl( F(X),\, F(Y) \bigr),\; f \lmto F(f)$ が $\mathbb{K}$-線型写像となることを常に要請する．
+
+\begin{myexample}[label=def:Rep]{表現の圏}
+    $G$ を群とする．このとき
+    \begin{itemize}
+        \item $G$ の表現 $(\rho,\, V)$ を対象とする
+        \item $G$-同変な $\mathbb{K}$-線型写像 $(\rho,\, V) \xrightarrow{f} (\rho',\, V')$ を射とする
+    \end{itemize}
+    圏を $\REP{G}$ と書く．$\REP{G}$ は\hyperref[def:additive-cat]{アーベル圏}である．
+\end{myexample}
+
+\begin{mydef}[label=def:semisimple-cat]{単純・半単純}
+    \begin{itemize}
+        \item \hyperref[def:additive-cat]{アーベル圏} $\Cat{C}$ の対象 $X \in \Cat{C}$ が\textbf{単純} (simple) であるとは，
+        任意のモノ射 $\textcolor{blue}{i} \colon \textcolor{blue}{U} \hookrightarrow X$ が $0$ であるか同型射であることを言う．
+        \item アーベル圏 $\Cat{C}$ が\textbf{半単純} (semisimple) であるとは，$\forall X \in \Cat{C}$ が単純対象の有限余積と同型であることを言う．i.e.
+        単純対象の族 $\Familyset[\big]{V_i \in \Obj{\Cat{C}}}{i \in I}$ および有限個を除いて $0$ であるような非負整数の族 $\Familyset[\big]{N_i \in \mathbb{Z}_{\ge 0}}{i \in I}$ が存在して
+        \begin{align}
+            X \cong \bigoplus_{i \in I} N_i X_i
+        \end{align}
+        が成り立つこと．
+    \end{itemize}
+    
+\end{mydef}
+
+\section{モノイダル圏}
+
+これまでも何回か登場したが，モノイダル圏についてまとめておく：
+
+\begin{mydef}[label=redef:monoidal-category,breakable]{モノイダル圏}
+    \textbf{モノイダル圏} (monidal category) は，以下の5つのデータからなる：
+    \begin{itemize}
+        \item 圏 $\mathcal{C}$
+        \item \textbf{テンソル積} (tensor product) と呼ばれる関手 $\otimes \colon \mathcal{C} \times \mathcal{C} \lto \mathcal{C}$
+        \item \textbf{単位対象} (unit object) $I \in \Obj{\mathcal{C}}$
+        \item \textbf{associator}と呼ばれる自然同値
+        \begin{align}
+            \Familyset[\big]{a_{X,\, Y,\, Z} \colon (X \otimes Y) \otimes Z \xrightarrow{\cong} X \otimes (Y \otimes Z)}{X,\, Y,\, Z \in \Obj{\mathcal{C}}}
+        \end{align}
+        \item \textbf{left/right unitors}と呼ばれる自然同値
+        \begin{align}
+            &\Familyset[\big]{l_X \colon I \otimes X \xrightarrow{\cong} X}{X \in \Obj{\mathcal{X}}}, \\
+            &\Familyset[\big]{r_X \colon X \otimes I \xrightarrow{\cong} X}{X \in \Obj{\mathcal{X}}}
+        \end{align}
+        
+    \end{itemize}
+    これらは $\forall X,\, Y,\, Z,\, W \in \Obj{\mathcal{C}}$ について以下の2つの図式を可換にする：
+    \begin{description}
+        \item[\textbf{(triangle diagram)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &(X \otimes I) \otimes Y \ar[rr, "a_{X,\, I,\, Y}"]\ar[dr, "r_X \otimes 1_Y"'] & &X \otimes (I \otimes Y) \ar[dl, "1_X \otimes l_Y"] \\
+                & &X \otimes Y &
+            \end{tikzcd}
+        \end{center}
+        
+        \item[\textbf{(pentagon diagram)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                & &((W \otimes X) \otimes Y) \otimes Z \ar[ddl, "a_{W \otimes X,\, Y,\, Z}"']\ar[dr, "a_{W,\, X,\, Y} \otimes 1_Z"] & \\
+                & & &(W \otimes (X \otimes Y)) \otimes Z \ar[dd, "a_{W,\, X \otimes Y,\, Z}"] \\
+                &(W \otimes X) \otimes (Y \otimes Z) \ar[ddr, "a_{W,\, X,\, Y \otimes Z}"'] & & \\
+                & & &W \otimes ((X \otimes Y) \otimes Z) \ar[dl, "1_Z \otimes a_{X,\, Y,\, Z}"]\\
+                & &W \otimes (X \otimes (Y \otimes Z)) &
+            \end{tikzcd}
+        \end{center}
+        
+    \end{description}
+
+\end{mydef}
+
+
+\begin{mydef}[label=redef:braided-monoidal]{組紐付きモノイダル圏}
+    \textbf{組紐付きモノイダル圏} (braided monoidal category) とは，以下の2つからなる：
+    \begin{itemize}
+        \item \hyperref[def:monoidal-category]{モノイダル圏} $\mathcal{C}$
+        \item \textbf{組紐} (braiding) と呼ばれる自然同型
+        \begin{align}
+            \Familyset[\big]{b_{X,\, Y} \colon X \otimes Y \xrightarrow{\cong} Y \otimes X}{X,\, Y \in \Obj{\mathcal{C}}}
+        \end{align}
+    \end{itemize}
+    これらは $\forall X,\, Y,\, Z \in \Obj{\mathcal{C}}$ について以下の図式を可換にする：
+    \begin{description}
+        \item[\textbf{(hexagon diagrams)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &X \otimes (Y \otimes Z) \ar[r, "a_{X,\, Y,\, Z}^{-1}"]\ar[d, "b_{X,\, Y \otimes Z}"] &(X \otimes Y) \otimes Z \ar[r, "b_{X,\, Y} \otimes 1_Z"] &(Y \otimes X) \otimes Z \ar[d, "a_{Y,\, X,\, Z}"] \\
+                &(Y \otimes Z) \otimes X &Y \otimes (Z \otimes X) \ar[l, "a_{Y,\, Z,\, X}^{-1}"] &Y \otimes (X \otimes Z) \ar[l, "1_X \otimes b_{X,\, Z}"]
+            \end{tikzcd}
+        \end{center}
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &(X \otimes Y) \otimes Z \ar[r, "a_{X,\, Y,\, Z}"]\ar[d, "b_{X \otimes Y ,\, Z}"] &X \otimes (Y \otimes Z) \ar[r, "1_X \otimes b_{Y,\, Z}"] &X \otimes (Z \otimes Y) \ar[d, "a_{X,\, Z,\, Y}^{-1}"] \\
+                &Z \otimes (X \otimes Y) &(Z \otimes X) \otimes Y \ar[l, "a_{Z,\, X,\, Y}"] &(X \otimes Z) \otimes Y \ar[l, "b_{X,\, Z} \otimes 1_Y"]
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+    \tcblower
+    組紐付きモノイダル圏 $\mathcal{C}$ であって，$\mathcal{C}$ の組紐が $b_{X,\, Y} = b_{Y,\, X}^{-1}$ を充たすもののことを\textbf{対称モノイダル圏} (symmetric monoidal category) と呼ぶ．
+\end{mydef}
+
+
+\begin{mydef}[label=redef:dual,breakable]{双対}
+    \hyperref[def:monoidal-category]{モノイダル圏} $\mathcal{C}$ およびその任意の対象 $X,\, X^* \in \Obj{\mathcal{C}}$ を与える．
+    $X^*$ が $X$ の\textbf{右双対} (right dual) であり，かつ $X$ が $X^*$ の\textbf{左双対} (left dual) であるとは，
+    \begin{itemize}
+        \item \textbf{unit}と呼ばれる射
+        \begin{align}
+            i_X \colon I \lto X^* \otimes X
+        \end{align}
+        \item \textbf{counit}と呼ばれる射
+        \begin{align}
+            e_X \colon X \otimes X^* \lto I
+        \end{align}
+    \end{itemize}
+    が存在して以下の図式を可換にすることを言う：
+    \begin{description}
+        \item[\textbf{(zig-zag equations)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &X \otimes I \ar[dd, "r_X"']\ar[rr, "1_X \otimes i_X"] & &X \otimes (X^* \otimes X) \ar[d, "a_{X,\, X^*,\, X}^{-1}"] \\
+                & & &(X \otimes X^*) \otimes X \ar[d, "e_X \otimes 1_X"] \\
+                &X & &I \otimes X \ar[ll, "l_X"] \\
+            \end{tikzcd}
+        \end{center}
+        
+
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &I \otimes X^* \ar[dd, "l_{X^*}"']\ar[rr, "i_X \otimes 1_{X^*}"] & &(X^* \otimes X) \otimes X^* \ar[d, "a_{X^*,\, X,\, X^*}"] \\
+                & & &X^* \otimes (X \otimes X^*) \ar[d, "1_{X^*} \otimes e_X"] \\
+                &X^* & &X^* \otimes I \ar[ll, "r_{X^*}"] \\
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+\end{mydef}
+
+\begin{mydef}[label=redef:rigid]{rigidなモノイダル圏}
+    \hyperref[def:monoidal-category]{モノイダル圏} $\mathcal{C}$ が\textbf{rigid}であるとは，$\forall X \in \Obj{\mathcal{C}}$ が\hyperref[def:dual]{左・右双対}を持つことを言う．
+\end{mydef}
+
+\section{フュージョン圏}
+
+\begin{mydef}[label=def:fusion-cat]{フュージョン圏}
+    圏 $\Cat{C}$ が\textbf{フュージョン圏} (fusion category) であるとは，
+    \begin{itemize}
+        \item $\Cat{C}$ は\hyperref[def:semisimple-cat]{半単純}な $\mathbb{K}$-上の\hyperref[def:additive-cat]{アーベル圏}
+        \item $\Cat{C}$ は\hyperref[redef:rigid]{rigid}な\hyperref[redef:monoidal-category]{モノイダル圏}
+        \item $\Cat{C}$ の\hyperref[def:semisimple-cat]{単純対象}の同型類が有限個
+        \item 単位対象 $I \in \Obj{\Cat{C}}$ について，$\Hom{\Cat{C}}(I,\, I) = \mathbb{K}$
+    \end{itemize}
+    が成り立つこと．
+
+    \tcblower
+
+    フュージョン圏 $\Cat{C}$ が\textbf{組紐付きフュージョン圏} (braided fusion category) であるとは，$\Cat{C}$ が\hyperref[redef:braided-monoidal]{組紐付きモノイダル圏}でもあることを言う．
+\end{mydef}
+
+\end{document}
