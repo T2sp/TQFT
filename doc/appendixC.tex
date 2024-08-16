@@ -964,12 +964,12 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     $K_n \coloneqq K([n])$ とおく．$K_n$ の元のことを\textbf{$n$-単体} ($n$-simplex) と呼ぶ．
     $\partial_i \coloneqq K(d_i) \colon K_{n} \twoheadrightarrow K_{n-1}$ のことを\textbf{面写像}，$\sigma_i \coloneqq K(s_i) \colon K_n \hookrightarrow K_{n+1}$ のことを\textbf{縮退写像}と呼ぶ．これらは以下の\textbf{単体的恒等式} (simplicial identities) を充たす：
     \begin{align}
-        \partial_i \circ \partial_j &= \partial_{j-1} \circ \partial_i&& (i<j), \\
-        \partial_i \circ \sigma_j &= \sigma_{j-1} \circ \partial_i && (i<j), \\
-        \partial_i \circ \sigma_i &= \mathrm{id} &&(0\le i \le n), \\
-        \partial_{i+1} \circ \sigma_i &= \mathrm{id} &&(0\le i \le n), \\
-        \partial_i \circ \sigma_j &= \sigma_j \circ \partial_{i-1} &&(i > j+1), \\
-        \sigma_i \circ \sigma_j &= \sigma_{j+1} \circ \sigma_i &&(i \le j)
+        \partial^{n-1}_i \circ \partial^{n}_j &= \partial^{n-1}_{j-1} \circ \partial^{n}_i&& (i<j), \\
+        \partial^{n+1}_i \circ \sigma^{n}_j &= \sigma^{n-1}_{j-1} \circ \partial^{n}_i && (i<j), \\
+        \partial^{n+1}_i \circ \sigma^{n}_i &= \mathrm{id} &&(0\le i \le n), \\
+        \partial^{n+1}_{i+1} \circ \sigma^{n}_i &= \mathrm{id} &&(0\le i \le n), \\
+        \partial^{n+1}_i \circ \sigma^{n}_j &= \sigma^{n-1}_j \circ \partial^{n}_{i-1} &&(i > j+1), \\
+        \sigma^{n+1}_i \circ \sigma^{n}_j &= \sigma^{n+1}_{j+1} \circ \sigma^{n}_i &&(i \le j)
     \end{align}
 \end{mydef}
 
@@ -993,6 +993,11 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     
 \end{myprop}
 
+\begin{marker}
+    命題\ref{prop:SimpSet-basic}-(1) によって，\hyperref[def:SimpSet]{$n$-単体} $\sigma \in K_n$ 
+\end{marker}
+
+
 \begin{proof}
     \begin{enumerate}
         \item \hyperref[lem:Yoneda]{米田の補題}より
@@ -1010,6 +1015,9 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     \end{enumerate}
     
 \end{proof}
+
+定義\ref{def:SimpSet}を再現する具体的な構成をする．
+
 
 \begin{mydef}[label=def:simplicial-top,breakable]{幾何学的 $n$-単体}
     \begin{itemize}
