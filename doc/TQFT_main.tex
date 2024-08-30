@@ -43,10 +43,26 @@
         every to/.append style={%
             edge node={node [sloped, allow upside down, auto=false]{$#1$}}
         }
+    },
+    ->-/.style={
+        decoration={
+            markings,
+            mark=at position #1 with {\arrow{>}}
+        },
+        postaction={decorate}
+    },
+    bullet/.style={
+        circle,fill,
+        inner sep=2pt,
+        label={#1}
+    },
+    squarednode/.style={
+        rectangle, draw=black!60, minimum size=5mm
     }
 }
 \usepackage{tikz-feynman}
 \usepackage{tikz-network}
+\usepackage{tikz-3dplot}
 \usepackage{pgfplots}
 \usepgfplotslibrary{patchplots}
 \pgfplotsset{compat=1.15}

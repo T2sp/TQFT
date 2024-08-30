@@ -961,19 +961,71 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
 
     \tcblower
 
-    $K_n \coloneqq K([n])$ とおく．$K_n$ の元のことを\textbf{$n$-単体} ($n$-simplex) と呼ぶ．
-    $\partial_i \coloneqq K(d_i) \colon K_{n} \twoheadrightarrow K_{n-1}$ のことを\textbf{面写像}，$\sigma_i \coloneqq K(s_i) \colon K_n \hookrightarrow K_{n+1}$ のことを\textbf{縮退写像}と呼ぶ．これらは以下の\textbf{単体的恒等式} (simplicial identities) を充たす：
+    $K_n \coloneqq K([n])$ とおく．
+    \begin{itemize}
+        \item $K_n$ の元のことを\textbf{$n$-単体} ($n$-simplex)
+        \item $\partial_i \coloneqq K(d_i) \colon K_{n} \twoheadrightarrow K_{n-1}$ のことを\textbf{面写像} (face map)
+        \item $\sigma_i \coloneqq K(s_i) \colon K_n \hookrightarrow K_{n+1}$ のことを\textbf{縮退写像} (degeneracy map) と呼ぶ．
+    \end{itemize}
+    と呼ぶ．これらは以下の\textbf{単体的恒等式} (simplicial identities) を充たす：
     \begin{align}
-        \partial^{n-1}_i \circ \partial^{n}_j &= \partial^{n-1}_{j-1} \circ \partial^{n}_i&& (i<j), \\
-        \partial^{n+1}_i \circ \sigma^{n}_j &= \sigma^{n-1}_{j-1} \circ \partial^{n}_i && (i<j), \\
-        \partial^{n+1}_i \circ \sigma^{n}_i &= \mathrm{id} &&(0\le i \le n), \\
-        \partial^{n+1}_{i+1} \circ \sigma^{n}_i &= \mathrm{id} &&(0\le i \le n), \\
-        \partial^{n+1}_i \circ \sigma^{n}_j &= \sigma^{n-1}_j \circ \partial^{n}_{i-1} &&(i > j+1), \\
-        \sigma^{n+1}_i \circ \sigma^{n}_j &= \sigma^{n+1}_{j+1} \circ \sigma^{n}_i &&(i \le j)
+        \partial^{n-1}_i \circ \partial^{n}_j &= \partial^{n-1}_{j-1} \circ \partial^{n}_i&& (i<j), \label{eq:Simp1}\\
+        \partial^{n+1}_i \circ \sigma^{n}_j &= \sigma^{n-1}_{j-1} \circ \partial^{n}_i && (i<j), \label{eq:Simp2}\\
+        \partial^{n+1}_i \circ \sigma^{n}_j &= \sigma^{n-1}_j \circ \partial^{n}_{i-1} &&(i > j+1), \label{eq:Simp3}\\
+        \partial^{n+1}_i \circ \sigma^{n}_j &= \mathrm{id} &&(i = j,\, j+1), \label{eq:Simp4}\\
+        \sigma^{n+1}_i \circ \sigma^{n}_j &= \sigma^{n+1}_{j+1} \circ \sigma^{n}_i &&(i \le j) \label{eq:Simp5}
     \end{align}
 \end{mydef}
 
-逆に，任意の対象の族 $\Familyset[\big]{K_n}{n \ge 0}$ および射 $\Familyset[\big]{\partial^n_i \colon K_n \lto K_{n-1}}{0 \le i \le n,\, n \ge 0},\; \Familyset[\big]{\sigma^n_i \colon K_n \lto K_{n+1}}{0 \le i \le n,\, n \ge 0}$ の組みであって単体的恒等式を充たすものは単体的集合を一意に定める~\cite[Proposition 1.1.2.14]{Kerodon}．
+逆に，
+\begin{itemize}
+    \item 対象の族 $\Familyset[\big]{K_n}{n \ge 0}$
+    \item 射の族 $\Familyset[\big]{\partial^n_i \colon K_n \lto K_{n-1}}{0 \le i \le n,\, n \ge 0}$
+    \item 射の族 $\Familyset[\big]{\sigma^n_i \colon K_n \lto K_{n+1}}{0 \le i \le n,\, n \ge 0}$
+\end{itemize}
+の組であって単体的恒等式を充たすものは単体的集合を一意に定める~\cite[Proposition 1.1.2.14]{Kerodon}．
+
+\hyperref[def:SimpSet]{単体的集合} $K \colon \OP{\Delta} \lto \SETS$ を図示する方法がある．
+\begin{enumerate}
+    \item $K_0$ の元（i.e. $0$-単体）を点と見做し，$K_0 = \{ \bullet,\, \dots,\, \bullet\}$ のように書く．
+    \item $K_1$ の元（i.e. $1$-単体） $e \in K_1$ を
+    \begin{center}
+        \begin{tikzpicture}
+            \node[bullet={below left:$\partial^1_1 (e)$}] (x) {};
+            \node[bullet={below right:$\partial^1_0 (e)$}] (y) at ($(x) + (3,0)$) {};
+            \draw[->-=.5] (x) -- (y) node[midway,below] {$e$};
+        \end{tikzpicture}
+    \end{center}
+    のように有向辺として図示する．
+    \item $K_2$ の元（i.e. $2$-単体） $\sigma \in K_2$ を
+    \begin{center}
+        \begin{tikzpicture}
+            \node[bullet={below left:$\partial^1_1 \partial^2_1(\sigma) = \partial^1_1 \partial^2_2 (\sigma)$}] (x) {};
+            \node[bullet={below right:$\partial^1_0 \partial^2_1(\sigma) = \partial^1_0 \partial^2_0 (\sigma)$}] (y) at ($(x) + (2,0)$) {};
+            \node[bullet={above:$\partial^1_0 \partial^2_2(\sigma) = \partial^1_1 \partial^2_0 (\sigma)$}] (z) at ($(x) + (1, {sqrt(3)})$) {};
+            \node (s) at ($(1,0)!0.33!(z)$) {$\sigma$};
+            \draw[->-=.5] (x) -- (y) node[midway,below] {$\partial^2_1(\sigma)$};
+            \draw[->-=.5] (x) -- (z) node[midway,above left] {$\partial^2_2(\sigma)$};
+            \draw[->-=.5] (z) -- (y) node[midway,above right] {$\partial^2_0(\sigma)$};
+        \end{tikzpicture}
+    \end{center}
+    のように向きづけられた三角形として図示する．この図は単体的恒等式\eqref{eq:Simp1}を表している．
+    \item $K_3$ の元（i.e. $3$-単体）$t \in K_3$ を
+    \begin{center}
+        \begin{tikzpicture}
+            \pgfmathsetmacro{\factor}{sqrt(3)/2};
+            \pgfmathsetmacro{\factorh}{sqrt(2/3)};
+            \node[bullet={below:$x$}] (x) at (0,0,0)  {};
+            \node[bullet={below:$y$}] (y) at (2,0,0) {};
+            \node[bullet={below:$z$}] (z) at (1,2*\factor,0)  {};
+            \node[bullet={below:$w$}] (w) at (1,2/3*\factor,2*\factorh)  {};
+            % \node (s) at ($(1,0)!0.33!(z)$) {$\sigma$};
+        \end{tikzpicture}
+    \end{center}
+    
+    \item $K_n$ の元（i.e. $n$-単体）は，単体的恒等式\eqref{eq:Simp1}によって帰納的に図示する．
+\end{enumerate}
+
 
 \begin{myprop}[label=prop:SimpSet-basic]{単体的集合の圏の基本性質}
     $\mathrm{Y} \colon \Delta \lto \SimpSet$ を\hyperref[def:representable]{米田埋め込み}とする．
