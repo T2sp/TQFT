@@ -2409,7 +2409,7 @@ $\mfd{\Sigma}{p}$ の周りでは
 
 全小節の推測を真面目に扱うには，\hyperref[def:infinity-1]{$\infty$-圏}の力を借りる必要がある．
 
-\begin{mydef}[label=def:extGrp]{}
+\begin{mydef}[label=def:extGrp]{extended group}
     有限群の列 $\mathbb{G} = (G_1,\, G_2,\, \dots \,)$ であって，
     \begin{itemize}
         \item ある $d$ が存在して $\forall q \ge d$ に対して $G_q = 1$ を充たす．
@@ -2425,26 +2425,35 @@ $\sigma$ の部分 $p$-単体は $\{0,\, 1,\, \dots,\, d\}$ から互いに異�
 \end{align}
 個存在する．部分 $p$-単体全体の集合を $\expval{d:p}$ と書く．$p$ 単体の\textbf{向き}は $l_0 < \cdots < l_p$ を充たすようにとる．
 
-自明な\textbf{高次群} (higher group) の構造を持つ $\sigma$ 上の $\mathbb{G} = (G_1,\, G_2,\, \dots\, )$-ゲージ場とは，$\forall \textcolor{red}{p} \ge 1$ に対して与えられた写像
-\begin{align}
-    \label{eq:hg-p-A}
-    A^{(\textcolor{red}{p})} \colon \expval{d:\textcolor{red}{p}} \lto G_{\textcolor{red}{p}}
-\end{align}
-のことと定義する\footnote{$A^{(\textcolor{red}{p})}$ の像の元をゲージ自由度と呼ぶ．}．特に $\mathbb{G}$-ゲージ場が\textbf{平坦} (flat) であるとは，$\forall \textcolor{red}{p} \ge 1$ および $\forall \tau \in \expval{d:\textcolor{red}{p}+1}$ に対して
-\begin{align}
-    \label{eq:simphg-flat}
-    \prod_{j=0}^{\textcolor{red}{p}+1} A\bigl(\partial_j^{\textcolor{red}{p}+1}(\tau)\bigr)^{(-1)^j} = 1_{G_{\textcolor{red}{p}}}
-\end{align}
-を充たすことを言う．\eqref{eq:simphg-flat}により，独立なゲージ自由度は
+\begin{mydef}[label=def:hg-extended-lattice]{}
+    \begin{itemize}
+        \item 
+        自明な\textbf{高次群} (higher group) の構造を持つ $\sigma$ 上の $\mathbb{G} = (G_1,\, G_2,\, \dots\, )$-ゲージ場とは，$\forall \textcolor{red}{p} \ge 1$ に対して与えられた写像
+        \begin{align}
+            \label{eq:hg-p-A}
+            A^{(\textcolor{red}{p})} \colon \expval{d:\textcolor{red}{p}} \lto G_{\textcolor{red}{p}}
+        \end{align}
+        のことと\footnote{$A^{(\textcolor{red}{p})}$ の像の元をゲージ自由度と呼ぶ．}．
+        \item 
+        $\mathbb{G}$-ゲージ場 $\{\, A^{(\textcolor{red}{p})} \colon \expval{d:\textcolor{red}{p}} \lto G_{\textcolor{red}{p}}  \,\}_{\textcolor{red}{p} \ge 1}$ が\textbf{平坦} (flat) であるとは，$\forall \textcolor{red}{p} \ge 1$ および $\forall \tau \in \expval{d:\textcolor{red}{p}+1}$ に対して
+        \begin{align}
+            \label{eq:simphg-flat}
+            \prod_{j=0}^{\textcolor{red}{p}+1} A\bigl(\partial_j^{\textcolor{red}{p}+1}(\tau)\bigr)^{(-1)^j} = 1_{G_{\textcolor{red}{p}}}
+        \end{align}
+        を充たすこと．
+    \end{itemize}
+\end{mydef}
+
+しばらくの間，$\textcolor{red}{p} \ge 1$ を1つ固定する．\eqref{eq:simphg-flat}により，独立なゲージ自由度は
 \begin{align}
     \mqty(d \\ \textcolor{red}{p})
 \end{align}
-個である．よって $\{1,\, \dots,\, d\}$ から $\textcolor{red}{p}$ 個と $\{0\}$ を併せて得られる $p$-単体全体の集合を $[d:\textcolor{red}{p}]$ と書くと，写像
+個である．よって $\{1,\, \dots,\, d\}$ から $\textcolor{red}{p}$ 個と $\{0\}$ を併せて得られる $p$-単体全体の集合を $[d:\textcolor{red}{p}] \subset \expval{d:\textcolor{red}{p}}$ と書くと，写像
 \begin{align}
     \label{eq:hg-p-g}
     g^{(\textcolor{red}{p})} \colon [d:\textcolor{red}{p}] \lto G_{\textcolor{red}{p}}
 \end{align}
-は独立なゲージ自由度を表している．表示\eqref{eq:hg-p-A}, \eqref{eq:hg-p-g}の間の関係としては\cite[p.8]{SChen2024anomaly}に倣って
+は独立なゲージ自由度を表している．表示\eqref{eq:hg-p-A}と\eqref{eq:hg-p-g}の間の関係としては\cite[p.8]{SChen2024anomaly}に倣って
 \begin{align}
     \label{eq:hg-ansatz}
     \forall \{l_0,\, \dots,\, l_{\textcolor{red}{p}}\} \subset \{0,\, \dots,\, d\}, \quad
