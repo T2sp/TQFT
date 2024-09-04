@@ -2409,6 +2409,50 @@ $\mfd{\Sigma}{p}$ の周りでは
 
 全小節の推測を真面目に扱うには，\hyperref[def:infinity-1]{$\infty$-圏}の力を借りる必要がある．
 
+\begin{mydef}[label=def:extGrp]{}
+    有限群の列 $\mathbb{G} = (G_1,\, G_2,\, \dots \,)$ であって，
+    \begin{itemize}
+        \item ある $d$ が存在して $\forall q \ge d$ に対して $G_q = 1$ を充たす．
+        \item $\forall p \ge 2$ に対して $G_p$ は可換群
+    \end{itemize}
+    を充たすものを\textbf{拡張された群} (extended group) と呼ぶ~\cite{SChen2024anomaly}．
+\end{mydef}
+
+時空 $\mfdcal{M}{d}$ の三角形分割 $T \in \Obj{\SimpSet}$ をとり，勝手な\hyperref[def:SimpSet]{$d$-単体} $\sigma \in T_d$ を1つ固定する．$\sigma$ はちょうど $d+1$ 個の $0$-単体 $\{0,\, 1,\, \dots,\, d\}$ からなる．
+$\sigma$ の部分 $p$-単体は $\{0,\, 1,\, \dots,\, d\}$ から互いに異なる $p+1$ 個を選んで構成される $0$-単体 $\{l_0,\, \dots,\, l_p\} \subset \{0,\, 1,\, \dots,\, d\}$ からなる．i.e.
+\begin{align}
+    \mqty(d+1 \\  p+1)
+\end{align}
+個存在する．部分 $p$-単体全体の集合を $\expval{d:p}$ と書く．$p$ 単体の\textbf{向き}は $l_0 < \cdots < l_p$ を充たすようにとる．
+
+自明な\textbf{高次群} (higher group) の構造を持つ $\sigma$ 上の $\mathbb{G} = (G_1,\, G_2,\, \dots\, )$-ゲージ場とは，$\forall \textcolor{red}{p} \ge 1$ に対して与えられた写像
+\begin{align}
+    \label{eq:hg-p-A}
+    A^{(\textcolor{red}{p})} \colon \expval{d:\textcolor{red}{p}} \lto G_{\textcolor{red}{p}}
+\end{align}
+のことと定義する\footnote{$A^{(\textcolor{red}{p})}$ の像の元をゲージ自由度と呼ぶ．}．特に $\mathbb{G}$-ゲージ場が\textbf{平坦} (flat) であるとは，$\forall \textcolor{red}{p} \ge 1$ および $\forall \tau \in \expval{d:\textcolor{red}{p}+1}$ に対して
+\begin{align}
+    \label{eq:simphg-flat}
+    \prod_{j=0}^{\textcolor{red}{p}+1} A\bigl(\partial_j^{\textcolor{red}{p}+1}(\tau)\bigr)^{(-1)^j} = 1_{G_{\textcolor{red}{p}}}
+\end{align}
+を充たすことを言う．\eqref{eq:simphg-flat}により，独立なゲージ自由度は
+\begin{align}
+    \mqty(d \\ \textcolor{red}{p})
+\end{align}
+個である．よって $\{1,\, \dots,\, d\}$ から $\textcolor{red}{p}$ 個と $\{0\}$ を併せて得られる $p$-単体全体の集合を $[d:\textcolor{red}{p}]$ と書くと，写像
+\begin{align}
+    \label{eq:hg-p-g}
+    g^{(\textcolor{red}{p})} \colon [d:\textcolor{red}{p}] \lto G_{\textcolor{red}{p}}
+\end{align}
+は独立なゲージ自由度を表している．表示\eqref{eq:hg-p-A}, \eqref{eq:hg-p-g}の間の関係としては\cite[p.8]{SChen2024anomaly}に倣って
+\begin{align}
+    \label{eq:hg-ansatz}
+    \forall \{l_0,\, \dots,\, l_{\textcolor{red}{p}}\} \subset \{0,\, \dots,\, d\}, \quad
+    A(\abs{l_0 \dots l_{\textcolor{red}{p}}}) = \prod_{q_1 = l_0+1}^{l_1} \cdots \prod_{q_{\textcolor{red}{p}} = l_{\textcolor{red}{p} - 1} + 1}^{l_{\textcolor{red}{p}}} g(\abs{0\, q_1 \dots q_{\textcolor{red}{p}}})
+\end{align}
+を仮定する．
+
+
 \section{離散的高次対称性}
 
 離散群によって特徴付けられる対称性に対しては，保存カレントを定義することはできないが，\hyperref[def:p-form-sym]{トポロジカル演算子}と\hyperref[def:p-form-sym]{charged object}ならば定義できる．
