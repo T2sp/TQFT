@@ -912,7 +912,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
 
     特に $\Hom{\Delta} ([n-1],\, [n])$ の元のうち
     \begin{align}
-        d_i \colon [n-1] \hookrightarrow [n],\; x \lmto 
+        d^n_i \colon [n-1] \hookrightarrow [n],\; x \lmto 
         \begin{cases}
             x, &x < i \\
             x+1 &x \ge i
@@ -922,7 +922,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     のことを\textbf{面写像} (face map) と呼び，
     $\Hom{\Delta}([n+1],\, [n])$ の元のうち
     \begin{align}
-        s_i \colon [n+1] \twoheadrightarrow [n],\; x \lmto 
+        s^n_i \colon [n+1] \twoheadrightarrow [n],\; x \lmto 
         \begin{cases}
             x, &x \le i \\
             x-1 &x > i
@@ -1182,6 +1182,164 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     \end{itemize}
     
 \end{mydef}
+
+\begin{myprop}[label=prop:boundary-coeq]{コイコライザとしての境界}
+    \hyperref[def:horn]{境界} $\partial \Delta^n$ は圏\hyperref[def:SimpSet]{$\SimpSet$}における\hyperref[def:colim]{コイコライザ}である：
+    \begin{center}
+        \begin{tikzcd}[row sep=large, column sep=large]
+             &\coprod_{0 \le i < j \le n} \Delta^{n-2} \ar[r, shift left, "u"]\ar[r, shift right, "v"'] &\coprod_{0 \le k \le n} \Delta^{n-1} \ar[r, "w"] &\partial \Delta^n
+        \end{tikzcd}
+    \end{center}
+\end{myprop}
+
+\begin{proof}
+    $0 \le \forall \textcolor{red}{k} \le n$ に対して，圏 $\SimpSet$ における射（i.e. \hyperref[def:nat]{自然変換}）
+    \begin{align}
+        u_{\textcolor{red}{k}} \colon \coprod_{0 \le i < \textcolor{red}{k}} \Delta^{n-2} &\lto \Delta^{n-1} \\
+        v_{\textcolor{red}{k}} \colon \coprod_{\textcolor{red}{k} < j \le n} \Delta^{n-2} &\lto \Delta^{n-1}
+    \end{align}
+    を
+    \begin{align}
+        u_{\textcolor{red}{k}} &\coloneqq \Familyset[\bigg]{u_{\textcolor{red}{k}}{}_{[m]} \colon \coprod_{0 \le i < \textcolor{red}{k}} \Delta^{n-2}\bigl( [m] \bigr)  \lto \Delta^{n-2}\bigl([m]\bigr),\; (i,\, \alpha) \lmto d_i^{n-1} \circ \alpha}{[m] \in \Obj{\OP{\Delta}}} \\
+        v_{\textcolor{red}{k}} &\coloneqq \Familyset[\bigg]{u_{\textcolor{red}{k}}{}_{[m]} \colon \coprod_{\textcolor{red}{k} < j \le n} \Delta^{n-2}\bigl( [m] \bigr)  \lto \Delta^{n-2}\bigl([m]\bigr),\; (j,\, \alpha) \lmto d_{j-1}^{n-1} \circ \alpha}{[m] \in \Obj{\OP{\Delta}}}
+    \end{align}
+    により定義する\footnote{$\coprod_{i} \Delta^{n-2}\bigl( [m] \bigr) = \coprod_{i} \Hom{\Delta}([m],\, [n-2])$ は集合と写像の圏 $\SETS$ における余積なので，集合としては $\bigcup_{i}\bigl\{\, (i,\, \alpha) \bigm| \alpha \in \Hom{\Delta}([m],\, [n-2]) \,\bigr\}$ と1対1対応する．}．
+    そして圏 $\SimpSet$ における2つの\hyperref[def:product-coproduct]{余積}を
+    \begin{center}
+        \begin{tikzcd}[row sep=large, column sep=large]
+            &\coprod_{0 \le i < j \le n} \Delta^{n-2} = \coprod_{0 \le \textcolor{red}{k} \le n}\coprod_{0 \le i < \textcolor{red}{k}} \Delta^{n-2} \ar[r, red, dashed, "\exists! u"] &\coprod_{0 \le \textcolor{red}{k} \le n}\Delta^{n-1} \\
+            &\coprod_{0 \le i < \textcolor{red}{k}} \Delta^{n-2} \ar[u, hookrightarrow] \ar[r, "u_{\textcolor{red}{k}}"'] &\Delta^{n-1} \ar[u, hookrightarrow]
+        \end{tikzcd}
+        \begin{tikzcd}[row sep=large, column sep=large]
+            &\coprod_{0 \le i < j \le n} \Delta^{n-2} = \coprod_{0 \le \textcolor{red}{k} \le n}\coprod_{\textcolor{red}{k} < j \le n} \Delta^{n-2} \ar[r, red, dashed, "\exists! v"] &\coprod_{0 \le \textcolor{red}{k} \le n}\Delta^{n-1} \\
+            &\coprod_{\textcolor{red}{k} < j \le n} \Delta^{n-2} \ar[u, hookrightarrow] \ar[r, "v_{\textcolor{red}{k}}"'] &\Delta^{n-1} \ar[u, hookrightarrow]
+        \end{tikzcd}
+    \end{center}
+    のようにとる．さらに射
+    \begin{align}
+        w \colon \coprod_{0 \le \textcolor{red}{k} \le n} \Delta^{n-1} \lto \partial \Delta^n
+    \end{align}
+    を
+    \begin{align}
+        w \coloneqq \Familyset[\Big]{w_{[m]} \colon \coprod_{0 \le \textcolor{red}{k} \le n} \Delta^{n-1} \bigl( [m] \bigr) \lto \partial \Delta^n \bigl( [m] \bigr),\; (k,\, \beta) \lmto d^n_k \circ \beta  }{[m] \in \Obj{\OP{\Delta}}}
+    \end{align}
+    で定義する\footnote{$\forall (k,\, \beta) \in  \coprod_{0 \le \textcolor{red}{k} \le n} \Delta^{n-1} \bigl( [m] \bigr)  =  \coprod_{0 \le \textcolor{red}{k} \le n} \Hom{\Delta}\bigl( [m],\, [n-1] \bigr)$ に対して $w_{[m]}(k,\, \beta) = d^n_k \circ \beta \in \Hom{\Delta}([m],\, [n]) = \Delta^n \bigl( [m] \bigr)$ であり，$d^n_k \in \Hom{\Delta}\bigl( [n-1],\, [n] \bigr)$ は全射でないため $m=n$ のときも $w_{[m]}(k,\, \beta) \in \Delta^n \bigl( [m] \bigr) \setminus \{\Id_{[n]}\}$ が言える．よって $w$ の像は $\partial \Delta^n$ の\hyperref[def:SimpSet]{単体的部分集合}である．}．
+    すると $\forall [m] \in \Obj{\OP{\Delta}},\; \forall \bigl( (i<j),\, \alpha \bigr) \in \coprod_{0 \le i < j \le n} \Delta^{n-2}\bigl( [m] \bigr)$ に対して
+    \begin{align}
+        (w \circ u)_{[m]} \bigl( (i<j),\, \alpha \bigr)
+        &= w_{[m]} \Bigl(j,\, u_j{}_{[m]} \bigl( i,\, \alpha \bigr) \Bigr) \\
+        &= d^n_j \circ d^{n-1}_i \circ \alpha, \\
+        (w \circ v)_{[m]} \bigl( (i<j),\, \alpha \bigr) 
+        &= w_{[m]} \Bigl( i,\, v_i{}_{[m]} \bigl( j,\, \alpha \bigr)  \Bigr) \\
+        &= d^n_i \circ d^{n-1}_{j-1} \circ \alpha
+    \end{align}
+    が成り立ち，単体的恒等式\eqref{eq:Simp1}より $w \circ u = w \circ v$ が分かる．
+    よって\hyperref[def:colim]{コイコライザの普遍性}から圏 $\SimpSet$ の可換図式
+    \begin{center}
+        \begin{tikzcd}[row sep=large, column sep=large]
+            &\coprod_{0 \le i < j \le n} \Delta^{n-2} \ar[r, shift left, "u"]\ar[r, shift right, "v"'] &\coprod_{0 \le k \le n} \Delta^{n-1} \ar[dr, "w"']\ar[r, "q"] &\mathrm{Coeq}(u,\, v)\ar[d, red, dashed, "\exists! \bar{w}"] \\
+            & & &\partial \Delta^n
+        \end{tikzcd}
+    \end{center}
+    が成り立つ．後は $\bar{w} \colon \mathrm{Coeq}(u,\, v) \lto \partial \Delta^n$ が\hyperref[def:nat]{自然同値}であることを示せば良い．
+
+    \begin{description}
+        \item[\textbf{($\bar{w}$ はエピ射)}]　
+        
+        $w$ がエピ射であることを示す．そのためには $\forall [m] \in \Obj{\OP{\Delta}}$ を1つ固定し，写像 $w_{[m]} \colon \coprod_{0 \le k \le n} \Delta^{n-1} \bigl( [m] \bigr)  \lto \partial \Delta^n \bigl( [m] \bigr) $ が全射であることを示せば良い．
+        
+        　$\forall \gamma \in \partial \Delta^n\bigl([m]\bigr)$ を1つ固定する．このとき $\gamma \in \Hom{\Delta} \bigl([m],\, [n]\bigr)$ は全射でない．
+        i.e. ある $0 \le i \le n$ が存在して，圏 $\Delta$ において $\gamma$ は
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                 &{[m]} \ar[dr, red, dashed, "\exists ! \bar{\gamma}"']\ar[r, "\gamma"] &{[n]} \\
+                 & &{[n]} \setminus \{i\} \ar[u, hookrightarrow]
+            \end{tikzcd}
+        \end{center}
+        と一意的に分解する．$d_i^n \bigl([n-1]\bigr) = [n] \setminus \{i\}$ かつ $d_i^n$ は単射なので，ある $(i,\, \beta_i) \in \prod_{0 \le k \le n} \Delta^{n-1} \bigl( [m] \bigr)$ が一意的に存在して $\bar{\gamma} = d_i^n \circ \beta_i =  w_{[m]}(i,\, \beta_i)$ が成り立つ．
+
+        \item[\textbf{($\bar{w}$ はモノ射)}]　
+        
+        $\forall [m] \in \Obj{\OP{\Delta}}$ を1つ固定し，写像 $\bar{w}_{[m]} \colon \mathrm{Coeq}(u,\, v) \bigl( [m] \bigr)  \lto \partial \Delta^n \bigl( [m] \bigr) $ が全射であることを示す．
+        
+        　$\bar{w}_{[m]}(x) = \bar{w}_{[m]}(y)$ を仮定する．$q \colon \coprod_{0 \le k \le n} \Delta^{n-1} \lto \mathrm{Coeq} (u,\, v)$ はエピなので，$x = q_{[m]} (i,\, \beta_i),\, y = q_{[m]} (j,\, \beta_j)$ を充たす $(i,\, \beta_i),\, (j,\, \beta_j) \in \coprod_{0 \le k \le n} \Delta^{n-1} \bigl( [m] \bigr)$ が存在する．
+        コイコライザの普遍性の図式の可換性から $w_{[m]} (i,\, \beta_i) = \bar{w}_{[m]}(x) = \bar{w}_{[m]}(y) = w_{[m]} (j,\, \beta_j)$ が分かる．
+        
+        　$i=j$ ならば $x = y$ は自明なので，$i < j$ とする．このとき，エピ射であることの証明から $\gamma \coloneqq w_{[m]} (i,\, \beta_i) = w_{[m]} (j,\, \beta_j) \in \partial \Delta^n \bigl( [m] \bigr)$ の像は $[n] \setminus \{i < j\}$ に収まっている．i.e. $\gamma$ は
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                 &{[m]} \ar[dr, red, dashed, "\bar{\gamma}"']\ar[r, "\gamma"] &{[n]} \\
+                 & &{[n]} \setminus \{i < j\} \ar[u, hookrightarrow]
+            \end{tikzcd}
+        \end{center}
+        と分解する．$d^n_j d^{n-1}_i \bigl( [n-2] \bigr) = d^n_i d^{n-1}_{j-1} \bigl( [n-2] \bigr) = {[n]} \setminus \{i < j\}$ なので，ある $\bigl( (i < j),\, \alpha \bigr) \in \coprod_{0 \le k < l \le n} \Delta^{n-2} \bigl( [m] \bigr)$ が存在して $(i,\, \beta_i) = u_{[m]} \bigl((i < j),\, \gamma\bigr),\; (j,\, \beta_j) = v_{[m]} \bigl((i < j),\, \gamma\bigr)$ と書ける．よって
+        \begin{align}
+            x &= q_{[m]} (i,\, \beta_i) = (q \circ u)_{[m]} \bigl( (i < j),\, \gamma \bigr) = (q \circ v)_{[m]} \bigl( (i < j),\, \gamma \bigr) = q_{[m]} (j,\, \beta_j) = y
+        \end{align}
+        が言えた．
+    \end{description}
+\end{proof}
+
+\begin{mycol}[label=col:coundary-coeq]{境界の公式}
+    $\forall K \in \Obj{\SimpSet}$ に対して，写像
+    \begin{align}
+        \Hom{\SimpSet} (\partial \Delta^n,\, K) &\lto \biggl\{\, (\sigma_0,\, \dots,\, \sigma_n) \in \prod_{0 \le k \le n} K_{n-1} \biggm| 0 \le \forall i < j \le n,\;  \partial^{n-1}_i (\sigma_j) = \partial^{n-1}_{j-1} (\sigma_i) \,\biggr\}, \\
+        f &\lmto \bigl(f \circ d^n_0,\, \dots,\, f \circ d^n_n \bigr) 
+    \end{align}
+    は全単射である．
+\end{mycol}
+
+\begin{proof}
+    命題\ref{prop:boundary-coeq}より，集合
+    \begin{align}
+        &X\coloneqq\biggl\{\, \bar{f} \in \Hom{\SimpSet}\Bigl(\coprod_{0 \le k \le n} \Delta^{n-1},\, K \Bigr) \biggm| \bar{f} \circ u = \bar{f} \circ v \,\biggr\}  \\
+        &= \biggl\{\, \bar{f} \in \Hom{\SimpSet}\Bigl(\coprod_{0 \le k \le n} \Delta^{n-1},\, K \Bigr) \biggm| \substack{\forall [m] \in \Obj{\OP{\Delta}},\, \forall \bigl((i < j),\, \alpha\bigr) \in \coprod_{0 \le k < l \le n} \Delta^{n-2} \bigl( [m] \bigr),\\ \bar{f}_{[m]} \bigl( j,\, d^{n-1}_i \circ \alpha \bigr)  = \bar{f}_{[m]} \bigl( i,\, d^{n-1}_{j-1} \circ \alpha \bigr)}  \,\biggr\}
+    \end{align}
+    の任意の元 $\bar{f}$ に対してコイコライザの普遍性の可換図式
+    \begin{center}
+        \begin{tikzcd}[row sep=large, column sep=large]
+            &\coprod_{0 \le i < j \le n} \Delta^{n-2} \ar[r, shift left, "u"]\ar[r, shift right, "v"'] &\coprod_{0 \le k \le n} \Delta^{n-1} \ar[dr, "\bar{f}"']\ar[r, "q"] &\partial \Delta^n \ar[d, red, dashed, "\exists! f"] \\
+            & & &K
+        \end{tikzcd}
+    \end{center}
+    が成り立つ．i.e. 写像
+    \begin{align}
+        \Hom{\SimpSet} (\partial \Delta^n,\, K) &\lto X, \\
+        f &\lmto f \circ w = \Familyset[\bigg]{\Dpmember[\big]{(f_{[m]} \circ d^n_k)_*}{0 \le k \le n} \colon \coprod_{0 \le k \le n} \Delta^{n-1} \bigl( [m] \bigr) \lto K_m}{[m] \in \Obj{\OP{\Delta}}}
+    \end{align}
+    は全単射である．命題\ref{prop:lim-colim-basic}-(2) と\hyperref[lem:Yoneda]{米田の補題}から
+    \begin{align}
+        \Hom{\SimpSet}\Bigl(\coprod_{0 \le k \le n} \Delta^{n-1},\, K \Bigr) \cong \prod_{0 \le k \le n} \Hom{\SimpSet} \bigl( \Delta^{n-1},\, K \bigr) \cong \prod_{0 \le k \le n} K_{n-1}
+    \end{align}
+    が言えるので，示された．
+\end{proof}
+
+\begin{myprop}[label=prop:horn-coeq]{コイコライザとしての角}
+    \hyperref[def:horn]{角} $\Lambda^n_i$ は圏\hyperref[def:SimpSet]{$\SimpSet$}における\hyperref[def:colim]{コイコライザ}である：
+    \begin{center}
+        \begin{tikzcd}[row sep=large, column sep=large]
+             &\coprod_{\substack{j,\, k \in [n] \setminus \{i\} \\ j < k}} \Delta^{n-2} \ar[r, shift left, "u"]\ar[r, shift right, "v"'] &\coprod_{l \in [n] \setminus \{i\}} \Delta^{n-1} \ar[r, "w"] &\partial \Delta^n
+        \end{tikzcd}
+    \end{center}
+\end{myprop}
+
+\begin{proof}
+    命題\ref{prop:boundary-coeq}とほぼ同様である．
+\end{proof}
+
+\begin{mycol}[label=col:horn-coeq]{角の公式}
+    $\forall K \in \Obj{\SimpSet}$ に対して，写像
+    \begin{align}
+        \Hom{\SimpSet} (\Lambda^n_i,\, K) &\lto \biggl\{\, (\sigma_0,\, \dots,\,\sigma_{i-1},\, \sigma_{i+1},\, \dots,\, \sigma_n) \in \prod_{k \in [n] \setminus \{i\}} K_{n-1} \biggm| \substack{\forall j,\, k \in [n] \setminus \{i\}\; \mathrm{s.t.}\;  j < k,\\  \partial^{n-1}_j (\sigma_k) = \partial^{n-1}_{k-1} (\sigma_j)} \,\biggr\}, \\
+        f &\lmto \bigl(f \circ d^n_0,\, \dots,\, f\circ d^n_{i-1},\, f\circ d^n_{i+1},\, \dots,\, f \circ d^n_n \bigr) 
+    \end{align}
+    は全単射である．
+\end{mycol}
+
+\begin{proof}
+    
+\end{proof}
+
 
 \begin{myprop}[label=prop:horn-spine-basic]{角と背骨の幾何学的実現}
     \hyperref[def:geometric-realization]{幾何学的実現}は\hyperref[def:horn]{角，背骨}を保つ．
@@ -1521,23 +1679,42 @@ $[n] \in \Obj{\Delta}$ に対して，
 与えられた\hyperref[def:monoidal-category]{モノイダル圏} $V$ に対して，\textbf{$\bm{V}$-豊穣圏のなす圏}を $\CAT_{V}$ と書く．
 
 \begin{mydef}[label=def:SimpSet-homotopic,breakable]{単体的ホモトピー}
+    % \begin{itemize}
+    %     \item $f,\, g \in \Hom{\SimpSet} (X,\, Y)$ を繋ぐ\textbf{ホモトピー}とは，\hyperref[def:SimpSet]{$\SimpSet$ の射} $\eta \in \Hom{\SimpSet}(X \times \Delta^1,\, Y)$ であって，以下の $\SimpSet$ の図式を可換にするもののこと：
+    %     \begin{center}
+    %         \begin{tikzcd}[row sep=large, column sep=large]
+    %             &X \cong X \times \Delta^0 \ar[r, "\Id \times d^1_1{}_*"]\ar[dr, "f"'] &X \times \Delta^1 \ar[d, "\eta"] &X \times \Delta^0 \ar[l, "\Id \times d^1_0{}_*"'] \ar[dl, "g"] \\
+    %             & &Y &
+    %         \end{tikzcd}
+    %     \end{center}
+    %     $f,\, g$ を繋ぐホモトピーが存在するとき，$f,\, g$ は互いに\textbf{ホモトピック}であるという．
+    %     \item 基点付き\hyperref[def:KanCplx]{Kan複体} $(K,\, x)$ を与える．このとき $n$ 次の\textbf{単体的ホモトピー群} (simplicial homotopy group) を
+    %     \begin{align}
+    %         \bm{\pi^\Delta_n (X,\, x)} \coloneqq \Hom{\SimpSet_*} \bigl( (\Delta^n,\, \partial\Delta^n),\, (X,\, x) \bigr) / \simeq
+    %     \end{align}
+    %     と定義する．
+    % \end{itemize}
+    $X,\, Y,\, K\in \Obj{\SimpSet}$ を，$K$ が $X$ の\hyperref[def:SimpSet]{単体的部分集合}となるようにとる．包含射 $i \colon K \hookrightarrow X$ をとる．
     \begin{itemize}
-        \item $f,\, g \in \Hom{\SimpSet} (X,\, Y)$ を繋ぐ\textbf{ホモトピー}とは，\hyperref[def:SimpSet]{$\SimpSet$ の射} $\eta \in \Hom{\SimpSet}(X \times \Delta^1,\, Y)$ であって，以下の $\SimpSet$ の図式を可換にするもののこと：
+        \item 
+        $f,\, g \in \Hom{\SimpSet} (X,\, Y)$ を繋ぐ\textbf{ホモトピー}とは，\hyperref[def:SimpSet]{$\SimpSet$ の射} $\eta \in \Hom{\SimpSet}(X \times \Delta^1,\, Y)$ であって，以下の $\SimpSet$ の図式を可換にするもののこと：
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
-                &X \cong X \times \Delta^0 \ar[r, "\Id \times \sigma_1"]\ar[dr, "f"] &X \times \Delta^1 \ar[d, "\eta"] &X \times \Delta^1 \ar[l, "\Id \times \sigma_0"] \ar[dl, "g"] \\
+                &X \cong X \times \Delta^0 \ar[r, "\Id \times d^1_1{}_*"]\ar[dr, "f"'] &X \times \Delta^1 \ar[d, "\eta"] &X \times \Delta^0 \ar[l, "\Id \times d^1_0{}_*"'] \ar[dl, "g"] \\
                 & &Y &
             \end{tikzcd}
         \end{center}
         $f,\, g$ を繋ぐホモトピーが存在するとき，$f,\, g$ は互いに\textbf{ホモトピック}であるという．
-        \item 基点付き\hyperref[def:KanCplx]{Kan複体} $(K,\, x)$ を与える．このとき $n$ 次の\textbf{単体的ホモトピー群} (simplicial homotopy group) を
-        \begin{align}
-            \bm{\pi^\Delta_n (X,\, x)} \coloneqq \Hom{\SimpSet_*} \bigl( (\Delta^n,\, \partial\Delta^n),\, (X,\, x) \bigr) / \simeq
-        \end{align}
-        と定義する．
+        \item $f \circ i = g circ i \eqqcolon \alpha$ とおく．ホモトピー $\eta \in \Hom{\SimpSet} (X \times \Delta^1,\, Y)$ が $f$ と $g$ の間の\textbf{$\bm{K}$ に関する相対ホモトピー} (homotopy from $f$ to $g$ (rel $K$)) であるとは，上の可換図式に加えて
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                 &K \times \Delta^1 \ar[r, hookrightarrow, "i \times \Id"]\ar[d, "\mathrm{pr}"'] &X \times \Delta^1 \ar[d, "\eta"] \\
+                 &K \ar[r, "\alpha"'] &Y
+            \end{tikzcd}
+        \end{center}
+        が成り立つことを言う．
     \end{itemize}
     
-
     \tcblower
 
     より具体的には，$f,\, g$ を繋ぐ\textbf{単体的ホモトピー} (simplicial homotopy) とは $\SETS$ の射の族
@@ -1560,7 +1737,6 @@ $[n] \in \Obj{\Delta}$ に対して，
             h_j \circ \sigma_{i-1}, &i > j
         \end{cases}
     \end{align}
-    
 \end{mydef}
 
 一見するとホモトピーと単体的ホモトピーは別のものに見えるが，実は同じものである．\hyperref[def:SimpSet-homotopy]{単体的ホモトピー} $\Familyset[\big]{h_i \colon X_n \lto Y_{n+1}}{i = 0,\, \dots,\, n,\, n \ge 0}$ が与えられたとする．このとき $\SimpSet$ の射 $\eta \in \Hom{\SimpSet}(X \times \Delta^1,\, Y)$ を
@@ -1570,6 +1746,68 @@ $[n] \in \Obj{\Delta}$ に対して，
     \eta_j &\coloneqq \partial_j \circ h_{j} \quad (1\le j \le n)
 \end{align}
 と定義すると，\hyperref[def:colim]{和の普遍性}の図式によって $\eta \in \Hom{\SimpSet}(X \times \Delta^1,\, Y)$ が定まる．
+
+\begin{myprop}[label=prop:simphomotopy-equiv]{$\infty$-groupoidとホモトピー}
+    $X,\, Y \in \Obj{\SimpSet}$ が\hyperref[def:infinity-1]{$\infty$-groupoid}ならば，\hyperref[def:SimpSet-homotopic]{ホモトピック}は $\Hom{\SimpSet} (X,\, Y)$ の上の同値関係になる．
+    ホモトピック (rel $K \subset X$) も同値関係である．
+\end{myprop}
+
+\begin{proof}
+    ~\cite[p.26, COROLLARY 6.2]{goerss2009simplicial}
+\end{proof}
+
+$\infty$-groupoid $X$ を与え，$* \in X_0$ を1つ固定する．このとき集合としての同型
+\begin{align}
+    \Hom{\SimpSet} \bigl( (\Delta^n,\, \partial\Delta^n),\, (X,\, *) \bigr) \cong \bigl\{\, x \in X_n \bigm|  0 \le \forall i \le n,\; \partial^n_i(x) = \sigma^{n-2}_0 \circ \cdots \circ \sigma^0_0 (*) \,\bigr\} \eqqcolon Z_n (X,\, *)
+\end{align}
+がある~\cite{SChen2024anomaly}．$a,\, b \in X_n$ を繋ぐ\textbf{ホモトピー}とは，この場合 $y \in X_{n+1}$ であって
+\begin{align}
+    \partial_i^{n+1} (y) =
+    \begin{cases}
+        \sigma^{n-1}_0 \circ \cdots \circ \sigma^0_0 (*), &i < n \\
+        a, &i=n \\
+        b, &i=n+1
+    \end{cases}    
+\end{align}
+を充たすもののことである．ホモトピック $\sim$ は $Z_n(X,\, *)$ 上の同値関係になる~\cite[p.27, Lemma 3.28]{SChen2024anomaly}．
+
+$a,\, b \in Z_n (X,\, *)$ に対して，系\ref{col:horn-coeq}，命題\ref{prop:SimpSet-basic}-(1) および\hyperref[def:infinity-1]{Kan条件}によって
+\begin{center}
+    \begin{tikzcd}[row sep=large, column sep=large]
+        &\Lambda^{n+1}_n \ar[d, hookrightarrow]\ar[r, "{\bigl((\sigma_0)^n(*),\, \dots,\, (\sigma_0)^n(*),\, a,\, b\Bigr)}"] &X \\
+        &\Delta^{n+1} \ar[ur, red, dashed, "\exists a\star b"'] &
+    \end{tikzcd}
+\end{center}
+として $a \star b \in X_{n+1}$ をとってくる．
+\begin{align}
+    \bm{\pi^\Delta_n (X,\, *)} \coloneqq \Hom{\SimpSet} \bigl( (\Delta^n,\, \partial\Delta^n),\, (X,\, *) \bigr) / {\simeq} \cong Z_n (X,\, *) /{\sim}
+\end{align}
+とおく．
+
+\begin{myprop}[label=def:simpi]{単体的ホモトピー群}
+    写像
+    \begin{align}
+        \pi^\Delta_n (X,\, *) \times \pi^\Delta_n (X,\, *) \lto \pi^\Delta_n (X,\, *),\; ([a],\, [b]) \lmto [\partial^{n+1}_n (a \star b)]
+    \end{align}
+    によって $\pi^\Delta_n (X,\, *)$ は群になる．これを\textbf{単体的ホモトピー群}と呼ぶ．
+\end{myprop}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{mytheo}[label=thm:homotopygrp]{単体的ホモトピー群と幾何学的実現}
+    \begin{align}
+        \pi^\Delta_n (X,\, *) \cong \pi_n (\abs{X},\, \abs{*})
+    \end{align}
+\end{mytheo}
+
+\begin{proof}
+    ~\cite[p.64, PROPOSITION 11.1]{goerss2009simplicial}
+\end{proof}
+
+
+
 
 
 \begin{mydef}[label=def:nerve-hc]{homotopy coherentな脈体}
