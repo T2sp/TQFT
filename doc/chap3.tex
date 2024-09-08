@@ -2419,11 +2419,12 @@ $\mfd{\Sigma}{p}$ の周りでは
 \end{mydef}
 
 時空 $\mfdcal{M}{d}$ の三角形分割を与える\hyperref[def:SimpSet]{単体的集合} $T \in \Obj{\SimpSet}$ をとり，勝手な\hyperref[def:SimpSet]{$d$-単体} $\sigma \in T_d$ を1つ固定する．$\sigma$ はちょうど $d+1$ 個の $0$-単体 $\{0,\, 1,\, \dots,\, d\}$ からなる．
-$\sigma$ の部分 $p$-単体は $\{0,\, 1,\, \dots,\, d\}$ から互いに異なる $p+1$ 個を選んで構成される $0$-単体 $\{l_0,\, \dots,\, l_p\} \subset \{0,\, 1,\, \dots,\, d\}$ からなる．i.e.
+$\sigma$ の部分 $p$-単体は $\{0,\, 1,\, \dots,\, d\}$ から互いに相異なる $p+1$ 個を選んだ $\{l_0,\, \dots,\, l_p\} \subset \{0,\, 1,\, \dots,\, d\}$ からなる．i.e.
 \begin{align}
     \mqty(d+1 \\  p+1)
 \end{align}
-個存在する．部分 $p$-単体全体の集合を $\expval{d:p}$ と書く．$p$ 単体の\textbf{向き}は $l_0 < \cdots < l_p$ を充たすようにとる．
+個存在する．$d$-単体 $\sigma$ の部分 $p$-単体全体の集合を $\expval{d:p}$ と書く．
+$p$ 単体の\textbf{向き}は常に $l_0 < \cdots < l_p$ を充たすようにとる．
 
 \begin{mydef}[label=def:hg-extended-lattice]{}
     \begin{itemize}
@@ -2438,7 +2439,7 @@ $\sigma$ の部分 $p$-単体は $\{0,\, 1,\, \dots,\, d\}$ から互いに異�
         $\mathbb{G}$-ゲージ場 $\{\, A^{(\textcolor{red}{p})} \colon \expval{d:\textcolor{red}{p}} \lto G_{\textcolor{red}{p}}  \,\}_{\textcolor{red}{p} \ge 1}$ が\textbf{平坦} (flat) であるとは，$\forall \textcolor{red}{p} \ge 1$ および $\forall \tau \in \expval{d:\textcolor{red}{p}+1}$ に対して
         \begin{align}
             \label{eq:simphg-flat}
-            \prod_{j=0}^{\textcolor{red}{p}+1} A\bigl(d_j^{\textcolor{red}{p}+1}(\tau)\bigr)^{(-1)^j} = 1_{G_{\textcolor{red}{p}}}
+            \prod_{j=0}^{\textcolor{red}{p}+1} A\bigl(\partial_j^{\textcolor{red}{p}+1}(\tau)\bigr)^{(-1)^j} = 1_{G_{\textcolor{red}{p}}}
         \end{align}
         を充たすこと．
     \end{itemize}
@@ -2448,47 +2449,48 @@ $\sigma$ の部分 $p$-単体は $\{0,\, 1,\, \dots,\, d\}$ から互いに異�
 \begin{align}
     \mqty(d \\ \textcolor{red}{p})
 \end{align}
-個である．よって $\{1,\, \dots,\, d\}$ から $\textcolor{red}{p}$ 個と $\{0\}$ を併せて得られる $p$-単体全体の集合を $[d:\textcolor{red}{p}] \subset \expval{d:\textcolor{red}{p}}$ と書くと，写像
+個である．よって $\{1,\, \dots,\, d\}$ の互いに相異なる $\textcolor{red}{p}$ 点部分集合全体がなす集合を $[d:\textcolor{red}{p}] \subset \expval{d:\textcolor{red}{p}}$ と書くと，写像
 \begin{align}
     \label{eq:hg-p-g}
-    g^{(\textcolor{red}{p})} \colon [d:\textcolor{red}{p}] \lto G_{\textcolor{red}{p}}
+    g^{(\textcolor{red}{p})} \colon [d:\textcolor{red}{p}] \lto G_{\textcolor{red}{p}},\; \{q_1,\, \dots,\, q_{\textcolor{red}{p}}\} \lmto g_{q_1 \dots,\, q_{\textcolor{red}{p}}}
 \end{align}
 は独立なゲージ自由度を表している．表示\eqref{eq:hg-p-A}と\eqref{eq:hg-p-g}の間の関係としては\cite[p.8]{SChen2024anomaly}に倣って
 \begin{align}
     \label{eq:hg-ansatz}
     \forall \{l_0,\, \dots,\, l_{\textcolor{red}{p}}\} \subset \{0,\, \dots,\, d\}, \quad
-    A(\abs{l_0 \dots l_{\textcolor{red}{p}}}) = \prod_{q_1 = l_0+1}^{l_1} \cdots \prod_{q_{\textcolor{red}{p}} = l_{\textcolor{red}{p} - 1} + 1}^{l_{\textcolor{red}{p}}} g(\abs{0\, q_1 \dots q_{\textcolor{red}{p}}})
+    A\bigl(\{l_0,\, \dots,\, l_{\textcolor{red}{p}}\}\bigr) = \prod_{q_1 = l_0+1}^{l_1} \cdots \prod_{q_{\textcolor{red}{p}} = l_{\textcolor{red}{p} - 1} + 1}^{l_{\textcolor{red}{p}}} g_{q_1\dots q_{\textcolor{red}{p}}}
 \end{align}
 を仮定する．このとき\hyperref[def:SimpSet]{面写像} $d^{d}_j \in \Hom{\Delta} ([d-1],\, [d])$ による $\textcolor{red}{p}$-formゲージ場 $A^{(\textcolor{red}{p})}$ の引き戻しは $\forall \{l_0,\, \dots,\, l_{\textcolor{red}{p}}\} \subset \{0,\, \dots,\, \bm{d-1}\}$ について
 \begin{align}
-    d^{d}_j{}^* A (\abs{l_0 \dots l_{\textcolor{red}{p}}})
-    &= \prod_{q_1 = l_0+1}^{l_1} \cdots \prod_{q_{\textcolor{red}{p}} = l_{\textcolor{red}{p} - 1} + 1}^{l_{\textcolor{red}{p}}} d^d_j{}^* g(\abs{0\, q_1 \dots q_{\textcolor{red}{p}}}) \\
-    &= A \bigl( d^{d}_j (\abs{l_0 \dots l_{\textcolor{red}{p}}}) \bigr) \\
-    &= A \bigl( \abs{l_0 \dots l_{k-1} (l_{k}+1) \dots (l_{\textcolor{red}{p}}+1)}  \bigr) \qquad (l_{k-1} < j \le l_k) \\
-    &= \prod_{q_1 = l_0+1}^{l_1} \cdots \prod_{q_{k-1} = l_{k-2} + 1}^{l_{k-1}}\prod_{q_k = l_{k-1}+1}^{l_k + 1} \prod_{q_{k+1} = l_{k} + 2}^{l_{k+1} + 1} \cdots \prod_{q_{\textcolor{red}{p}} = l_{\textcolor{red}{p} - 1} + 2}^{l_{\textcolor{red}{p}}+1} g(\abs{0\, q_1 \dots q_{\textcolor{red}{p}}}) \\
+    &\prod_{q_1 = l_0+1}^{l_1} \cdots \prod_{q_{\textcolor{red}{p}} = l_{\textcolor{red}{p} - 1} + 1}^{l_{\textcolor{red}{p}}} (d^d_j{}^* g)_{q_1\dots q_{\textcolor{red}{p}}} \\
+    &\coloneqq d^{d}_j{}^* A \bigl(\{l_0,\, \dots,\, l_{\textcolor{red}{p}}\}\bigr) \\
+    &= A \Bigl( d^{d}_j \bigl(\{l_0 ,\,\dots,\, l_{\textcolor{red}{p}}\}\bigr) \Bigr) \\
+    &= A \bigl( \{l_0 ,\,\dots,\, l_{k-1},\, l_{k}+1 ,\,\dots,\, l_{\textcolor{red}{p}}+1\}  \bigr) \qquad (l_{k-1} < j \le l_k) \\
+    &= \prod_{q_1 = l_0+1}^{l_1} \cdots \prod_{q_{k-1} = l_{k-2} + 1}^{l_{k-1}}\prod_{q_k = l_{k-1}+1}^{l_k + 1} \prod_{q_{k+1} = l_{k} + 2}^{l_{k+1} + 1} \cdots \prod_{q_{\textcolor{red}{p}} = l_{\textcolor{red}{p} - 1} + 2}^{l_{\textcolor{red}{p}}+1} g_{q_1 \dots q_{\textcolor{red}{p}}} \\
     % &= \prod_{q_1 = l_0+1}^{l_1} \cdots \prod_{q_k = l_{k-1}+1}^{l_k + 1} \cdots \prod_{q_{\textcolor{red}{p}} = l_{\textcolor{red}{p} - 1} + 2}^{l_{\textcolor{red}{p}}+1} g(\abs{0\, q_1 \dots q_{\textcolor{red}{p}}})
 \end{align}
-と求まり，\hyperref[def:SimpSet]{縮退写像} $s^d_j \in \Hom{\Delta}  ([d+1],\, [d])$ による引き戻しは $\forall \{l_0,\, \dots,\, l_{\textcolor{red}{p}}\} \subset \{0,\, \dots,\, \bm{d+1}\}$ について
+と求まり，\hyperref[def:SimpSet]{縮退写像} $s^d_j \in \Hom{\Delta}  ([d+1],\, [d])$ による引き戻しは\footnote{部分単体の次数は相変わらず $\textcolor{red}{p}$ であることに注意．} $\forall \{l_0,\, \dots,\, l_{\textcolor{red}{p}}\} \subset \{0,\, \dots,\, \bm{d+1}\}$ について
 \begin{align}
-    s^d_j{}^* A (\abs{l_0 \dots l_{\textcolor{red}{p}}})
-    &= \prod_{q_1 = l_0+1}^{l_1} \cdots \prod_{q_{\textcolor{red}{p}} = l_{\textcolor{red}{p} - 1} + 1}^{l_{\textcolor{red}{p}}} s^d_j{}^* g(\abs{0\, q_1 \dots q_{\textcolor{red}{p}}}) \\
-    &= A \bigl( s^d_j (\abs{l_0 \dots l_{\textcolor{red}{p}}}) \bigr)  \\
-    &= A \bigl( \abs{l_0 \dots l_{k-1} (l_{k}-1) \dots (l_{\textcolor{red}{p}}-1)}  \bigr) \qquad (l_{k-1} \le j < l_k) \\
+    &\prod_{q_1 = l_0+1}^{l_1} \cdots \prod_{q_{\textcolor{red}{p}} = l_{\textcolor{red}{p} - 1} + 1}^{l_{\textcolor{red}{p}}} (s^d_j{}^* g)_{q_1 \dots q_{\textcolor{red}{p}}} \\
+    &\coloneqq s^d_j{}^* A \bigl(\{l_0,\, \dots,\, l_{\textcolor{red}{p}}\}\bigr) \\
+    &= A \Bigl( s^d_j \bigl(\{l_0,\, \dots,\, l_{\textcolor{red}{p}}\} \bigr)  \Bigr) \\
+    &= A \bigl( \{l_0 \dots l_{k-1},\, l_{k}-1,\, \dots,\, l_{\textcolor{red}{p}}-1\}  \bigr) \qquad (l_{k-1} \le j < l_k) \\
     &= \begin{cases}
-        \prod_{q_1 = l_0+1}^{l_1} \cdots \prod_{q_{k-1} = l_{k-2} + 1}^{l_{k-1}}\prod_{q_k = l_{k-1}+1}^{l_k - 1} \prod_{q_{k+1} = l_{k}}^{l_{k+1} - 1} \cdots \prod_{q_{\textcolor{red}{p}} = l_{\textcolor{red}{p} - 1}}^{l_{\textcolor{red}{p}}-1} g(\abs{0\, q_1 \dots q_{\textcolor{red}{p}}}),  &l_{k-1} < j < l_k \\
+        \displaystyle \prod_{q_1 = l_0+1}^{l_1} \cdots \prod_{q_{k-1} = l_{k-2} + 1}^{l_{k-1}}\prod_{q_k = l_{k-1}+1}^{l_k - 1} \prod_{q_{k+1} = l_{k}}^{l_{k+1} - 1} \cdots \prod_{q_{\textcolor{red}{p}} = l_{\textcolor{red}{p} - 1}}^{l_{\textcolor{red}{p}}-1} g_{q_1 \dots q_{\textcolor{red}{p}}},  &l_{k-1} < j < l_k \\
+        & \\
         1_{G_{\mathrm{p}}}, &l_{k-1} = j
     \end{cases}
 \end{align}
 となる．i.e.
 \begin{align}
-    d^d_j{}^* g(\abs{0\, q_1 \dots q_{\textcolor{red}{p}}})
+    (d^d_j{}^* g)_{q_1\dots q_{\textcolor{red}{p}}}
     &= \begin{cases}
-        g (\abs{0 q_1 \dots q_\bullet (q_{\bullet+1} + 1) \dots (q_{\textcolor{red}{p} +1})}), &q_\bullet < j < q_{\bullet + 1} \\
-        g (\abs{0 q_1 \dots q_\bullet (q_{\bullet+1} + 1) \dots (q_{\textcolor{red}{p} +1})}) g (\abs{0 q_1 \dots (q_\bullet + 1)(q_{\bullet+1} + 1) \dots (q_{\textcolor{red}{p} +1})}), &q_\bullet = j
+        g_{q_1 \dots q_\bullet,\, q_{\bullet+1} + 1,\, \dots,\, q_{\textcolor{red}{p} +1}}, &q_\bullet < j < q_{\bullet + 1} \\
+        g_{q_1 \dots q_\bullet,\, q_{\bullet+1} + 1,\, \dots,\, q_{\textcolor{red}{p} +1}} g_{q_1 \dots q_\bullet + 1,\, q_{\bullet+1} + 1,\, \dots ,\, q_{\textcolor{red}{p} +1}}, &q_\bullet = j
     \end{cases} \\
-    s^d_j{}^* g(\abs{0\, q_1 \dots q_{\textcolor{red}{p}}})
+    (s^d_j{}^* g)_{q_1 \dots q_{\textcolor{red}{p}}}
     &= \begin{cases}
-        g (\abs{0 q_1 \dots q_\bullet (q_{\bullet+1} - 1) \dots (q_{\textcolor{red}{p} -1})}), &q_\bullet < j+1 < q_{\bullet+1} \\
+        g_{q_1 \dots q_\bullet,\, q_{\bullet+1} - 1,\, \dots,\, q_{\textcolor{red}{p}}-1}, &q_\bullet < j+1 < q_{\bullet+1} \\
         1_{G_{\textcolor{red}{p}}}, &j+1 \in \{q_1,\, \dots,\, q_{\textcolor{red}{p}}\}
     \end{cases}
 \end{align}
