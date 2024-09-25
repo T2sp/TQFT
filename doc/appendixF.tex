@@ -95,7 +95,7 @@
         
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
-                &(X \otimes I) \otimes Y \ar[rr, "a_{X,\, I,\, Y}"]\ar[dr, "r_X \otimes 1_Y"'] & &X \otimes (I \otimes Y) \ar[dl, "1_X \otimes l_Y"] \\
+                &(X \otimes I) \otimes Y \ar[rr, "a_{X,\, I,\, Y}"]\ar[dr, "r_X \otimes \mathrm{Id}_Y"'] & &X \otimes (I \otimes Y) \ar[dl, "\mathrm{Id}_X \otimes l_Y"] \\
                 & &X \otimes Y &
             \end{tikzcd}
         \end{center}
@@ -104,10 +104,10 @@
         
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
-                & &((W \otimes X) \otimes Y) \otimes Z \ar[ddl, "a_{W \otimes X,\, Y,\, Z}"']\ar[dr, "a_{W,\, X,\, Y} \otimes 1_Z"] & \\
+                & &((W \otimes X) \otimes Y) \otimes Z \ar[ddl, "a_{W \otimes X,\, Y,\, Z}"']\ar[dr, "a_{W,\, X,\, Y} \otimes \mathrm{Id}_Z"] & \\
                 & & &(W \otimes (X \otimes Y)) \otimes Z \ar[dd, "a_{W,\, X \otimes Y,\, Z}"] \\
                 &(W \otimes X) \otimes (Y \otimes Z) \ar[ddr, "a_{W,\, X,\, Y \otimes Z}"'] & & \\
-                & & &W \otimes ((X \otimes Y) \otimes Z) \ar[dl, "1_Z \otimes a_{X,\, Y,\, Z}"]\\
+                & & &W \otimes ((X \otimes Y) \otimes Z) \ar[dl, "\mathrm{Id}_Z \otimes a_{X,\, Y,\, Z}"]\\
                 & &W \otimes (X \otimes (Y \otimes Z)) &
             \end{tikzcd}
         \end{center}
@@ -144,15 +144,15 @@
         
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
-                &X \otimes (Y \otimes Z) \ar[r, "a_{X,\, Y,\, Z}^{-1}"]\ar[d, "b_{X,\, Y \otimes Z}"] &(X \otimes Y) \otimes Z \ar[r, "b_{X,\, Y} \otimes 1_Z"] &(Y \otimes X) \otimes Z \ar[d, "a_{Y,\, X,\, Z}"] \\
-                &(Y \otimes Z) \otimes X &Y \otimes (Z \otimes X) \ar[l, "a_{Y,\, Z,\, X}^{-1}"] &Y \otimes (X \otimes Z) \ar[l, "1_X \otimes b_{X,\, Z}"]
+                &X \otimes (Y \otimes Z) \ar[r, "a_{X,\, Y,\, Z}^{-1}"]\ar[d, "b_{X,\, Y \otimes Z}"] &(X \otimes Y) \otimes Z \ar[r, "b_{X,\, Y} \otimes \mathrm{Id}_Z"] &(Y \otimes X) \otimes Z \ar[d, "a_{Y,\, X,\, Z}"] \\
+                &(Y \otimes Z) \otimes X &Y \otimes (Z \otimes X) \ar[l, "a_{Y,\, Z,\, X}^{-1}"] &Y \otimes (X \otimes Z) \ar[l, "\mathrm{Id}_X \otimes b_{X,\, Z}"]
             \end{tikzcd}
         \end{center}
         
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
-                &(X \otimes Y) \otimes Z \ar[r, "a_{X,\, Y,\, Z}"]\ar[d, "b_{X \otimes Y ,\, Z}"] &X \otimes (Y \otimes Z) \ar[r, "1_X \otimes b_{Y,\, Z}"] &X \otimes (Z \otimes Y) \ar[d, "a_{X,\, Z,\, Y}^{-1}"] \\
-                &Z \otimes (X \otimes Y) &(Z \otimes X) \otimes Y \ar[l, "a_{Z,\, X,\, Y}"] &(X \otimes Z) \otimes Y \ar[l, "b_{X,\, Z} \otimes 1_Y"]
+                &(X \otimes Y) \otimes Z \ar[r, "a_{X,\, Y,\, Z}"]\ar[d, "b_{X \otimes Y ,\, Z}"] &X \otimes (Y \otimes Z) \ar[r, "\mathrm{Id}_X \otimes b_{Y,\, Z}"] &X \otimes (Z \otimes Y) \ar[d, "a_{X,\, Z,\, Y}^{-1}"] \\
+                &Z \otimes (X \otimes Y) &(Z \otimes X) \otimes Y \ar[l, "a_{Z,\, X,\, Y}"] &(X \otimes Z) \otimes Y \ar[l, "b_{X,\, Z} \otimes \mathrm{Id}_Y"]
             \end{tikzcd}
         \end{center}
     \end{description}
@@ -180,8 +180,8 @@
         
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
-                &X \otimes I \ar[dd, "r_X"']\ar[rr, "1_X \otimes i_X"] & &X \otimes (X^* \otimes X) \ar[d, "a_{X,\, X^*,\, X}^{-1}"] \\
-                & & &(X \otimes X^*) \otimes X \ar[d, "e_X \otimes 1_X"] \\
+                &X \otimes I \ar[dd, "r_X"']\ar[rr, "\mathrm{Id}_X \otimes i_X"] & &X \otimes (X^* \otimes X) \ar[d, "a_{X,\, X^*,\, X}^{-1}"] \\
+                & & &(X \otimes X^*) \otimes X \ar[d, "e_X \otimes \mathrm{Id}_X"] \\
                 &X & &I \otimes X \ar[ll, "l_X"] \\
             \end{tikzcd}
         \end{center}
@@ -189,8 +189,8 @@
 
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
-                &I \otimes X^* \ar[dd, "l_{X^*}"']\ar[rr, "i_X \otimes 1_{X^*}"] & &(X^* \otimes X) \otimes X^* \ar[d, "a_{X^*,\, X,\, X^*}"] \\
-                & & &X^* \otimes (X \otimes X^*) \ar[d, "1_{X^*} \otimes e_X"] \\
+                &I \otimes X^* \ar[dd, "l_{X^*}"']\ar[rr, "i_X \otimes \mathrm{Id}_{X^*}"] & &(X^* \otimes X) \otimes X^* \ar[d, "a_{X^*,\, X,\, X^*}"] \\
+                & & &X^* \otimes (X \otimes X^*) \ar[d, "\mathrm{Id}_{X^*} \otimes e_X"] \\
                 &X^* & &X^* \otimes I \ar[ll, "r_{X^*}"] \\
             \end{tikzcd}
         \end{center}
@@ -205,6 +205,92 @@
     これまでは圏 $\Cat{C}$ の対象を大文字で書いてきたが，以下では文脈によっては小文字で書くことがある．
 \end{marker}
 
+\begin{mydef}[label=redef:monidal-functor,breakable]{モノイダル関手}
+    2つの\hyperref[def:monoidal-category]{モノイダル圏} $\mathcal{C},\, \mathcal{D}$ の間の関手
+    \begin{align}
+        F \colon \mathcal{C} \lto \mathcal{D}
+    \end{align}
+    が\textbf{弱いモノイダル関手} (lax monoidal functor) であるとは，
+    \begin{itemize}
+        \item 射
+        \begin{align}
+            \varepsilon \colon I_{\mathcal{D}} \lto F(I_{\mathcal{C}})
+        \end{align}
+        
+        \item 自然変換
+        \begin{align}
+            \Familyset[\big]{\mu_{X,\, Y} \colon F(X) \otimes_{\mathcal{D}} F(Y) \lto F(X \otimes_{\mathcal{C}} Y)}{X,\, Y \in \Obj{\mathcal{C}}}
+        \end{align}
+    \end{itemize}
+    があって，$\forall X,\, Y,\, Z \in \Obj{\mathcal{C}}$ に対して以下の図式が可換になること：
+    \begin{description}
+        \item[\textbf{(associatibity)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=huge]
+                &(F(X) \otimes_{\mathcal{D}} F(Y)) \otimes_{\mathcal{D}} F(Z) \ar[d, "\mu_{X,\, Y} \otimes \mathrm{Id}_{F(Z)}"']\ar[r, "a^{\mathcal{D}}_{F(X),\, F(Y),\, F(Z)}"'] &F(X) \otimes_{\mathcal{D}} (F(Y) \otimes_{\mathcal{D}} F(Z)) \ar[d, "\mathrm{Id}_{F(X)} \otimes \mu_{Y,\, Z}"]\\
+                &F(X \otimes_{\mathcal{C}} Y) \otimes_{\mathcal{D}} F(Z) \ar[d, "\mu_{X \otimes_{\mathcal{C}} Y,\, Z}"'] & F(X) \otimes_{\mathcal{D}} F(Y \otimes_{\mathcal{C}} Z) \ar[d, "\mu_{X,\, Y \otimes_{\mathcal{C}} Z}"] \\
+                &F((X \otimes_{\mathcal{C}} Y) \otimes_{\mathcal{C}} Z) \ar[r, "F(a_{X,\, Y,\, Z}^{\mathcal{C}})"'] &F(X \otimes_{\mathcal{C}} (Y \otimes_{\mathcal{C}} Z))
+            \end{tikzcd}
+        \end{center}
+        
+        \item[\textbf{(unitality)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=huge]
+                &I_{\mathcal{D}} \otimes_{\mathcal{D}} F(X) \ar[d, "l^{\mathcal{D}}_{F(X)}"']\ar[r, "\varepsilon \otimes \mathrm{Id}_{F(X)}"] &F(I_{\mathcal{C}}) \otimes_{\mathcal{D}} F(X) \ar[d, "\mu_{I_{\mathcal{C}},\, X}"] \\
+                &F(X) &F(I_{\mathcal{C}} \otimes_{\mathcal{C}} X) \ar[l, "F(l^{\mathcal{C}}_X)"]
+            \end{tikzcd}
+        \end{center}
+
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &F(X) \otimes_{\mathcal{D}}  I_{\mathcal{D}} \ar[d, "r^{\mathcal{D}}_{F(X)}"']\ar[r, "\mathrm{Id}_{F(X)} \otimes \varepsilon"] &F(X) \otimes_{\mathcal{D}} F(I_{\mathcal{C}})  \ar[d, "\mu_{X,\, I_{\mathcal{C}}}"] \\
+                &F(X) &F(X \otimes_{\mathcal{C}} I_{\mathcal{C}}) \ar[l, "F(r^{\mathcal{C}}_X)"]
+            \end{tikzcd}
+        \end{center}
+        
+    \end{description}
+    \tcblower
+    \begin{itemize}
+        \item 弱いモノイダル関手 $F$ の $\varepsilon$ と $\mu_{X,\, Y}$ が全て同型射ならば，$F$ は\textbf{強いモノイダル関手} (strong monoidal functor) と呼ばれる．
+        \item 弱いモノイダル関手 $F$ の $\varepsilon$ と $\mu_{X,\, Y}$ が全て恒等射ならば，$F$ は\textbf{厳密なモノイダル関手} (strict monoidal functor) と呼ばれる．
+    \end{itemize}
+\end{mydef}
+
+\begin{mydef}[label=def:monoidal-nat]{モノイダル自然変換}
+    2つの\hyperref[redef:monoidal-category]{モノイダル圏} $\Cat{C},\, \Cat{D}$ の間の2つの\hyperref[redef:monidal-functor]{弱いモノイダル関手}
+    $\Bigl(F_i\colon \Cat{C} \lto \Cat{D},\, \varepsilon_i \colon I_{\mathcal{D}} \lto F(I_{\mathcal{C}}),\, \Familyset[\big]{\mu_i{}_{X,\, Y} \colon F_i(X) \otimes F_i(Y) \lto F_i(X \otimes Y)}{X,\, Y \in \Obj{\Cat{C}}}\Bigr)\WHERE i = 1,\, 2$
+    の間の\hyperref[def:nat]{自然変換}
+    \begin{center}
+        \begin{tikzcd}[row sep=large, column sep=large]
+            \Cat{C} \ar[bend left=50,r, "F_1"{name=U, above}] \ar[bend right=50,r, "F_2"{name=D, below}] &\Cat{D}
+            \ar[Rightarrow, from=U, to=D, "\bm{\tau}"]
+        \end{tikzcd}
+    \end{center}
+    が\textbf{モノイダル自然変換} (monidal natural transformation) であるとは，$\forall X,\, Y \in \Cat{C}$ に対して以下の図式が可換になること：
+    \begin{description}
+        \item[\textbf{(テンソル積の保存)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                 &F_1(X) \otimes_{\mathcal{D}} F_1(Y) \ar[d, "\mu_1{}_{X,Y}"']\ar[r, "\bm{\tau}_X \otimes_{\mathcal{D}} \bm{\tau}_Y"] &F_2(X) \otimes_{\mathcal{D}} F_2(Y) \ar[d, "\mu_2{}_{X,Y}"] \\
+                 &F_1(X \otimes_{\mathcal{C}} Y) \ar[r, "\bm{\tau}_{X \otimes_{\mathcal{C}} Y}"'] &F_2(X \otimes_{\mathcal{C}} Y)
+            \end{tikzcd}
+        \end{center}
+        
+        \item[\textbf{(単位対象の保存)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                 & &I_{\mathcal{D}} \ar[dl, "\varepsilon_1"'] \ar[dr, "\varepsilon_2"] & \\
+                 &F_1(I_{\mathcal{C}})\ar[rr, "\bm{\tau}_{I_{\mathcal{C}}}"'] & &F_2(I_{\mathcal{C}})
+            \end{tikzcd}
+        \end{center}
+        
+    \end{description}
+    
+\end{mydef}
 
 \section{フュージョン圏}
 
@@ -225,15 +311,52 @@
 
 \section{2-群}
 
+~\cite{baez2004higherdimensionalalgebrav2groups}に倣い\textbf{2-群} (2-group) を導入する．
+
 \begin{mydef}[label=def:weak-inverse]{弱い逆対象}
     \hyperref[redef:monoidal-category]{モノイダル圏} $\Cat{C}$ の対象 $x \in \Obj{\Cat{C}}$ を1つとる．
     
     \begin{itemize}
-        \item 対象 $y \in \Obj{\Cat{C}}$ が $X$ の\textbf{弱い逆対象} (weak inverse) であるとは，\hyperref[def:iso]{対象の同型}の意味で\footnote{\hyperref[nat]{自然同型}ではない} $x \otimes y \cong I \AND y \otimes x \cong I$ が成り立つことを言う．
+        \item 対象 $y \in \Obj{\Cat{C}}$ が $X$ の\textbf{弱い逆対象} (weak inverse) であるとは，\hyperref[def:iso]{対象の同型}の意味で\footnote{\hyperref[nat]{自然同型}ではない} $x \otimes y \cong 1 \AND y \otimes x \cong 1$ が成り立つことを言う．
         \item $x$ が\textbf{弱可逆} (weakly invertible) であるとは，$x$ が弱い逆対象を持つことを言う．
     \end{itemize}
     
 \end{mydef}
+
+\begin{mydef}[label=def:W2G-C2G]{弱い2-群・コヒーレントな2-群}
+    \begin{itemize}
+        \item \textbf{弱い2-群} (weak 2-group) とは，\hyperref[redef:monoidal-category]{モノイダル圏} $\Cat{G}$ であって，任意の対象が\hyperref[def:weak-inverse]{弱可逆}でかつ任意の射が\hyperref[def:iso]{同型射}であるもののこと．
+        \item \textbf{コヒーレントな2-群} (coherent 2-group) とは，\hyperref[redef:monoidal-category]{モノイダル圏} $\Cat{G}$ であって，任意の対象 $x \in \Obj{\Cat{G}}$ が\hyperref[def:iso]{可逆}な\hyperref[redef:dual]{unit，counit} $(x,\, \bar{x},\, i_x,\, e_x)$ を持ち，かつ任意の射が\hyperref[def:iso]{同型射}であるもののこと．
+    \end{itemize}
+\end{mydef}
+
+\begin{mytheo}[label=thm:W2G-C2G]{弱い2-群はコヒーレントな2-群}
+    任意の\hyperref[def:W2G-C2G]{弱い2-群}は\hyperref[def:W2G-C2G]{コヒーレントな2-群}にすることができる．
+\end{mytheo}
+
+\begin{proof}
+    勝手な\hyperref[def:W2G-C2G]{弱い2-群} $\Cat{G}$ を1つ固定する．このとき $\forall x \in \Obj{\Cat{G}}$ に対してある $\bar{x} \in \Obj{\Cat{G}}$ および\hyperref[def:iso]{同型射} $i'_x \colon 1 \lto x \otimes \bar{x},\; e'_x \colon \bar{x} \otimes x \lto 1$ が存在する．
+
+    ここで $e_x \coloneqq e'_x$ とおき，
+    \begin{align}
+        i_x \coloneqq (l_x \otimes \mathrm{Id}_{\bar{x}}) \circ a^{-1}_{1,x,\bar{x}} \circ (i'_x{}^{-1} \otimes \mathrm{Id}_{x \otimes \bar{x}}) \circ a^{-1}_{x,\bar{x},x\otimes \bar{x}} \circ (\mathrm{Id}_x \otimes a_{\bar{x},x,\bar{x}}) \circ (\mathrm{Id}_x \otimes e'_x{}^{-1} \otimes \mathrm{Id}_{\bar{x}}) \circ (\mathrm{Id}_x \otimes l^{-1}_{\bar{x}}) \circ i'_x
+    \end{align}
+    とおくと組 $(x,\, \bar{x},\, i_x,\, e_x)$ が\hyperref[redef:dual]{zig-zag equation}を充たすことを示す．
+    実際，$i_x$ の定義をストリング図式で書くと
+    \begin{align}
+        i_x =
+    \end{align}
+    となるから，
+\end{proof}
+
+\begin{marker}
+    定理\ref{thm:W2G-C2G}を踏まえ，以下では\hyperref[def:W2G-C2G]{コヒーレントな2-群}のことを単に\textbf{2-群} (2-group) と呼ぶ．
+\end{marker}
+
+\begin{mydef}[label=def:hom2G]{2-群の準同型}
+    \hyperref[def:W2G-C2G]{2-群} $\mathcal{G},\, \mathcal{G}'$ の間の\textbf{準同型}とは，\hyperref[redef:monidal-functor]{モノイダル関手} $f \colon \mathcal{G} \lto \mathcal{G}'$ のこと．
+\end{mydef}
+
 
 
 \end{document}
