@@ -2,7 +2,7 @@
 
 \begin{document}
 
-\chapter{フュージョン圏}
+\chapter{モノイダル圏・フュージョン圏・高次群}
 
 この章では\underline{標数 $0$ の}体 $\mathbb{K}$ のみを考える．
 
@@ -78,14 +78,14 @@
         \item 圏 $\mathcal{C}$
         \item \textbf{テンソル積} (tensor product) と呼ばれる関手 $\otimes \colon \mathcal{C} \times \mathcal{C} \lto \mathcal{C}$
         \item \textbf{単位対象} (unit object) $I \in \Obj{\mathcal{C}}$
-        \item \textbf{associator}と呼ばれる自然同値
+        \item \textbf{associator}と呼ばれる\hyperref[def:nat]{自然同値}
         \begin{align}
             \Familyset[\big]{a_{X,\, Y,\, Z} \colon (X \otimes Y) \otimes Z \xrightarrow{\cong} X \otimes (Y \otimes Z)}{X,\, Y,\, Z \in \Obj{\mathcal{C}}}
         \end{align}
-        \item \textbf{left/right unitors}と呼ばれる自然同値
+        \item \textbf{left/right unitors}と呼ばれる\hyperref[def:nat]{自然同値}
         \begin{align}
-            &\Familyset[\big]{l_X \colon I \otimes X \xrightarrow{\cong} X}{X \in \Obj{\mathcal{X}}}, \\
-            &\Familyset[\big]{r_X \colon X \otimes I \xrightarrow{\cong} X}{X \in \Obj{\mathcal{X}}}
+            &\Familyset[\big]{l_X \colon I \otimes X \xrightarrow{\cong} X}{X \in \Obj{\mathcal{C}}}, \\
+            &\Familyset[\big]{r_X \colon X \otimes I \xrightarrow{\cong} X}{X \in \Obj{\mathcal{C}}}
         \end{align}
         
     \end{itemize}
@@ -113,8 +113,20 @@
         \end{center}
         
     \end{description}
+    
+    \tcblower
 
+    モノイダル圏 $\Cat{C}$ が\textbf{厳密} (strict) であるとは，$\forall X,\, Y,\, Z \in \Obj{\Cat{C}}$ に対して
+    \begin{align}
+        &(X \otimes Y) \otimes Z = X \otimes (Y \otimes Z), \\
+        &I \otimes X = X,\quad X \otimes I = X
+    \end{align}
+    が成り立ち，かつ $a_{X,\, Y,\, Z},\; l_{X},\, r_X$ が恒等射であることを言う．
 \end{mydef}
+
+\begin{marker}
+    定義\ref{redef:monoidal-category}で言うモノイダル圏を，\textbf{弱いモノイダル圏} (weak monoidal category) と呼ぶこともある．
+\end{marker}
 
 
 \begin{mydef}[label=redef:braided-monoidal]{組紐付きモノイダル圏}
@@ -189,6 +201,11 @@
     \hyperref[def:monoidal-category]{モノイダル圏} $\mathcal{C}$ が\textbf{rigid}であるとは，$\forall X \in \Obj{\mathcal{C}}$ が\hyperref[def:dual]{左・右双対}を持つことを言う．
 \end{mydef}
 
+\begin{marker}
+    これまでは圏 $\Cat{C}$ の対象を大文字で書いてきたが，以下では文脈によっては小文字で書くことがある．
+\end{marker}
+
+
 \section{フュージョン圏}
 
 \begin{mydef}[label=def:fusion-cat]{フュージョン圏}
@@ -205,5 +222,18 @@
 
     フュージョン圏 $\Cat{C}$ が\textbf{組紐付きフュージョン圏} (braided fusion category) であるとは，$\Cat{C}$ が\hyperref[redef:braided-monoidal]{組紐付きモノイダル圏}でもあることを言う．
 \end{mydef}
+
+\section{2-群}
+
+\begin{mydef}[label=def:weak-inverse]{弱い逆対象}
+    \hyperref[redef:monoidal-category]{モノイダル圏} $\Cat{C}$ の対象 $x \in \Obj{\Cat{C}}$ を1つとる．
+    
+    \begin{itemize}
+        \item 対象 $y \in \Obj{\Cat{C}}$ が $X$ の\textbf{弱い逆対象} (weak inverse) であるとは，\hyperref[def:iso]{対象の同型}の意味で\footnote{\hyperref[nat]{自然同型}ではない} $x \otimes y \cong I \AND y \otimes x \cong I$ が成り立つことを言う．
+        \item $x$ が\textbf{弱可逆} (weakly invertible) であるとは，$x$ が弱い逆対象を持つことを言う．
+    \end{itemize}
+    
+\end{mydef}
+
 
 \end{document}
