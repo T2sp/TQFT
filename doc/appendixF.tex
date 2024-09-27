@@ -128,6 +128,15 @@
     定義\ref{redef:monoidal-category}で言うモノイダル圏を，\textbf{弱いモノイダル圏} (weak monoidal category) と呼ぶこともある．
 \end{marker}
 
+\begin{myexample}[label=ex:Cat-monidal]{$\CAT$ のモノイダル構造}
+    $\CAT$ を小圏と関手が成す圏とする．このとき，関手
+    \begin{align}
+        \times \colon \CAT \times \CAT \lto \CAT
+    \end{align}
+    を $\Obj{\Cat{C} \times \Cat{D}} \coloneqq \Obj{\Cat{C}} \times \Obj{\Cat{D}}$ により定めると，組み $(\CAT,\, \times,\, I)$ は\hyperref[redef:monoidal]{厳密なモノイダル圏}になる．ただし $I$ はただ1つの対象 $\bullet$ を持ち，$\Hom{I}(\bullet,\,\bullet) = \{\Id_{\bullet}\}$ とする圏である\footnote{これは $\CAT$ の\hyperref[def:colim]{終対象}でもある．}
+\end{myexample}
+
+
 
 \begin{mydef}[label=redef:braided-monoidal]{組紐付きモノイダル圏}
     \textbf{組紐付きモノイダル圏} (braided monoidal category) とは，以下の2つからなる：
@@ -382,8 +391,8 @@
         $\forall x \in \Obj{\Cat{C}}$ に対して\footnote{これは，通常の関手において恒等射が保存されることに対応する．}
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
-                &I \ar[dr,"j_{f(x)}"']\ar[r, "j_x"] &\Hom{\Cat{C}}(x,\,  x) \ar[d, "F_{x{,}x}"] \\
-                & &\Hom{\Cat{D}}\bigl( f(x),\,  f(x) \bigr) 
+                &I \ar[dr,"j_{F_0(x)}"']\ar[r, "j_x"] &\Hom{\Cat{C}}(x,\,  x) \ar[d, "F_{x{,}x}"] \\
+                & &\Hom{\Cat{D}}\bigl( F_0(x),\,  F_0(x) \bigr) 
             \end{tikzcd}
         \end{center}
         
@@ -398,6 +407,10 @@
 \end{itemize}
 ことで得られる圏である．
 
+\begin{mydef}[label=def:str2cat]{厳密な $2$-圏}
+    小圏と関手の圏 $\CAT$ を\exref{ex:Cat-monidal}の方法で\hyperref[redef:monoidal-category]{モノイダル圏}と見做す．
+    \hyperref[redef:enriched]{$\CAT$-豊穣圏}のことを\textbf{厳密な2-圏} (strict 2-category) と呼ぶ．
+\end{mydef}
 
 
 \subsection{弱い2-群・コヒーレントな2-群・厳密な2-群}
