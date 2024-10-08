@@ -172,15 +172,15 @@
 
 \begin{mydef}[label=redef:dual,breakable]{双対}
     \hyperref[def:monoidal-category]{モノイダル圏} $\mathcal{C}$ およびその任意の対象 $X,\, X^* \in \Obj{\mathcal{C}}$ を与える．
-    $X^*$ が $X$ の\textbf{右双対} (right dual) であり，かつ $X$ が $X^*$ の\textbf{左双対} (left dual) であるとは，
+    $X^*$ が $X$ の\textbf{左双対} (left dual) であり，かつ $X$ が $X^*$ の\textbf{右双対} (right dual) であるとは，
     \begin{itemize}
-        \item \textbf{unit}と呼ばれる射
+        \item \textbf{coevaluation}と呼ばれる射
         \begin{align}
-            i_X \colon I \lto X^* \otimes X
+            i_X \colon I \lto X \otimes X^*
         \end{align}
-        \item \textbf{counit}と呼ばれる射
+        \item \textbf{evaluation}と呼ばれる射
         \begin{align}
-            e_X \colon X \otimes X^* \lto I
+            e_X \colon X^* \otimes X \lto I
         \end{align}
     \end{itemize}
     が存在して以下の図式を可換にすることを言う：
@@ -189,25 +189,86 @@
         
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
-                &X \otimes I \ar[dd, "r_X"']\ar[rr, "\mathrm{Id}_X \otimes i_X"] & &X \otimes (X^* \otimes X) \ar[d, "a_{X,\, X^*,\, X}^{-1}"] \\
-                & & &(X \otimes X^*) \otimes X \ar[d, "e_X \otimes \mathrm{Id}_X"] \\
-                &X & &I \otimes X \ar[ll, "l_X"] \\
+                &I \otimes X \ar[dd, "r_X"']\ar[rr, "i_X \otimes \mathrm{Id}_X"] & &(X \otimes X^*) \otimes X \ar[d, "a_{X,\, X^*,\, X}"] \\
+                & & &X \otimes (X^* \otimes X) \ar[d, "\mathrm{Id}_X \otimes e_X"] \\
+                &X & &X \otimes I\ar[ll, "r_X"] \\
             \end{tikzcd}
         \end{center}
-        
 
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
-                &I \otimes X^* \ar[dd, "l_{X^*}"']\ar[rr, "i_X \otimes \mathrm{Id}_{X^*}"] & &(X^* \otimes X) \otimes X^* \ar[d, "a_{X^*,\, X,\, X^*}"] \\
-                & & &X^* \otimes (X \otimes X^*) \ar[d, "\mathrm{Id}_{X^*} \otimes e_X"] \\
-                &X^* & &X^* \otimes I \ar[ll, "r_{X^*}"] \\
+                &X^* \otimes I \ar[dd, "l_{X^*}"']\ar[rr, "\mathrm{Id}_{X^*} \otimes i_X"] & &X^* \otimes (X \otimes X^*) \ar[d, "a_{X^*,\, X,\, X^*}^{-1}"] \\
+                & & &(X^* \otimes X) \otimes X^* \ar[d, "e_X \otimes \mathrm{Id}_{X^*}"] \\
+                &X^* & &I \otimes X^* \ar[ll, "l_{X^*}"] \\
             \end{tikzcd}
         \end{center}
     \end{description}
 \end{mydef}
+ストリング図式で書くときは
+\begin{align}
+    i_X &\coloneqq
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (1,0);
+        \lcoev{A}{B}
+    \end{tikzpicture} &
+    e_X &\coloneqq 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (1,0);
+        \lev{A}{B}
+    \end{tikzpicture} &
+    e_X^{-1} &\coloneqq
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (1,0);
+        \rcoev{A}{B}
+    \end{tikzpicture} &
+    i_X^{-1} &\coloneqq 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (1,0);
+        \rev{A}{B}
+    \end{tikzpicture}
+\end{align}
+とする．ストリング図式において\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equations)}}}は
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \draw[->-=.5] (0,-1) -- (0,1);
+    \end{tikzpicture}%
+    \quad
+    &=
+    \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (1,0);
+        \coordinate (C) at (2,0);
+        \lcoev{A}{B}
+        \lev{B}{C}
+        \draw[->-=.5] (A) -- (0,1);
+        \draw[->-=.5] (2,-1) -- (C);
+    \end{tikzpicture}% 
+    \\
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \draw[->-=.5] (0,1) -- (0,-1);
+    \end{tikzpicture}%
+    \quad
+    &=
+    \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (1,0);
+        \coordinate (C) at (2,0);
+        \lcoev{B}{C}
+        \lev{A}{B}
+        \draw[->-=.5] (A) -- (0,-1);
+        \draw[->-=.5] (2,1) -- (C);
+    \end{tikzpicture}% 
+\end{align}
+と書ける．
 
 \begin{mydef}[label=redef:rigid]{rigidなモノイダル圏}
-    \hyperref[def:monoidal-category]{モノイダル圏} $\mathcal{C}$ が\textbf{rigid}であるとは，$\forall X \in \Obj{\mathcal{C}}$ が\hyperref[def:dual]{左・右双対}を持つことを言う．
+    \hyperref[def:monoidal-category]{モノイダル圏} $\mathcal{C}$ が\textbf{rigid}であるとは，$\forall X \in \Obj{\mathcal{C}}$ が\hyperref[redef:dual]{左・右双対}を持つことを言う．
 \end{mydef}
 
 \begin{marker}
@@ -448,7 +509,15 @@
     とおくと組 $(x,\, \bar{x},\, i_x,\, e_x)$ が\hyperref[redef:dual]{zig-zag equation}を充たすことを示す．
     実際，$i_x$ の定義をストリング図式で書くと
     \begin{align}
-        i_x =
+        i_x = 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \node (A) at (0,0) {};
+            \node (B) at (1,0) {};
+            \node (C) at (2,0) {};
+            \node (D) at (3,0) {};
+            \lcoev{A}{D}
+            % \EVinv{}
+        \end{tikzpicture}
     \end{align}
     となるから，
 \end{proof}
