@@ -511,15 +511,62 @@
     \begin{align}
         i_x = 
         \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-            \node (A) at (0,0) {};
-            \node (B) at (1,0) {};
-            \node (C) at (2,0) {};
-            \node (D) at (3,0) {};
+            \coordinate (A) at (0,0);
+            \coordinate (B) at (1,0);
+            \coordinate (C) at (2,0);
+            \coordinate (D) at (3,0);
             \lcoev{A}{D}
+            \rcoev{B}{C}
+            \rev{A}{B}
+            \draw[->-=.5] (3,1) -- (D);
+            \draw[->-=.5] (C) -- (2,1);
             % \EVinv{}
         \end{tikzpicture}
     \end{align}
     となるから，
+    \begin{align}
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \coordinate (A) at (0,0);
+            \coordinate (B) at (1,0);
+            \coordinate (C) at (2,0);
+            \coordinate (D) at (3,0);
+            \coordinate (E) at (3,1);
+            \coordinate (F) at (4,1);
+            \lcoev{A}{D}
+            \rcoev{B}{C}
+            \rev{A}{B}
+            \draw[->-=.5] (E) -- (D);
+            \draw[->-=.5] (C) -- (2,2);
+            \lev{E}{F}
+            \draw[->-=.5] (4,-1) -- (F);
+            % \EVinv{}
+        \end{tikzpicture}
+        &\quad = \quad
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \draw[->-=.5] (0,-1) -- (0,2);
+        \end{tikzpicture} \\
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \coordinate (A) at (0,0);
+            \coordinate (B) at (1,0);
+            \coordinate (C) at (2,0);
+            \coordinate (D) at (3,0);
+            \coordinate (E) at (2,1);
+            \coordinate (F) at (-1,1);
+            \lcoev{A}{D}
+            \rcoev{B}{C}
+            \rev{A}{B}
+            \draw[->-=.5] (3,2) -- (D);
+            \draw[->-=.5] (C) -- (E);
+            \lcoev{E}{F}
+            \draw[->-=.5] (F) -- (-1,-1);
+            % \EVinv{}
+        \end{tikzpicture}
+        &\quad = \quad
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \draw[->-=.5] (0,2) -- (0,-1);
+        \end{tikzpicture}
+    \end{align}
+    が成り立つ．
 \end{proof}
 
 \begin{marker}
