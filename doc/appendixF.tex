@@ -473,7 +473,184 @@
     \hyperref[redef:enriched]{$\CAT$-豊穣圏}のことを\textbf{厳密な2-圏} (strict 2-category) と呼ぶ．
 \end{mydef}
 
-より具体的に特徴付けることもできる~\cite[DEFINITION 2.12.1, p.45]{etingof2015tensor}
+定義\ref{def:str2cat}を解読しよう．まず，小圏と関手の圏 $\CAT$ における対象とは小圏のことで，射とは関手のことである．さらに，$\CAT$ のテンソル積とは\exref{ex:Cat-monidal}より直積 $\times$ のことである．
+よって\hyperref[redef:enriched]{豊穣圏の定義}から，厳密な $2$-圏 $\Cat{C}$ は
+\begin{itemize}
+    \item \textbf{対象} (object)\footnote{\textbf{0-セル} (0-cell) とも言う} 全体の集合 $\Obj{\Cat{C}}$ 
+    \item $\forall x,\, y \in \Obj{\Cat{C}}$ の間の\textbf{1-射} (1-morphism)\footnote{\textbf{1-セル} (1-cell) とも言う．正確には，圏 $\Hom{\Cat{C}}(x,\, y)$ の対象のことを1-射と呼ぶ．}全体が成す\underline{圏} $\Hom{\Cat{C}} (x,\, y) \in \Obj{\CAT}$．
+    \item \textbf{合成} (composition) と呼ばれる\underline{関手} $\circ \colon \Hom{\Cat{C}}(x,\, y) \times \Hom{\Cat{C}} (y,\, z) \lto \Hom{\Cat{C}} (x,\, z)$ 
+    \item \textbf{恒等素} (identity morphism) と呼ばれる\underline{関手} $j_x \colon 1 \lto \Hom{\Cat{C}}(x,\, x)$ 
+\end{itemize}
+の4つのデータからなる．従って1-射 $f \colon x \lto y$ とは\underline{圏} $\Hom{\Cat{C}}(x,\, y)$ の\underline{対象} $f \in \Obj{\Hom{\Cat{C}} (x,\, y)}$ のことであるから，2つの1-射 $f,\, g \in \Obj{\Hom{\Cat{C}}(x,\, y)}$ が与えられると，\underline{圏 $\Hom{\Cat{C}}(x,\, y)$ における}，それらの間の射 $\alpha \in \Hom{\Hom{\Cat{C}}(x,\, y)}(f,\, g)$ が存在する．
+このような $\alpha$ を\textbf{2-射} (2-morphism)\footnote{\textbf{2-セル} (2-cell) とも言う}と呼び，混乱防止のため $\alpha \colon f \lto g$ と書く代わりに $\bm{\alpha \colon f \Longrightarrow g}$ と書く．
+
+2つの2-射 $\alpha \in \Hom{\Hom{\Cat{C}}(x,\, y)} (f,\, g),\; \beta \in \Hom{\Hom{\Cat{C}}(x,\, y)} (g,\, h)$ は，\underline{圏 $\Hom{\Cat{C}}(x,\, y)$ における射の合成 $*$} によって結合的かつ単位的に合成することができる：
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \node[] (x) at (0,0) {$x$};
+        \node[] (y) at (3,0) {$y$};
+        \draw[->] (x) to[out=45, in=135] coordinate[midway] (a) node[midway, above] {$f$} (y);
+        \draw[->] (x) to[out=-45, in=-135] coordinate[midway] (c) node[midway, below] {$h$} (y);
+        \draw[-implies,double equal sign distance] (a) -- node[midway, right] {$\beta * \alpha$} (c);
+    \end{tikzpicture}
+    \quad \coloneqq \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \node[] (x) at (0,0) {$x$};
+        \node[] (y) at (3,0) {$y$};
+        \draw[->] (x) to[out=45, in=135] coordinate[midway] (a) node[midway, above] {$f$} (y);
+        \draw[->] (x) to coordinate[midway] (b) node[midway, xshift=-.65cm, yshift=.15cm] {$g$} (y);
+        \draw[->] (x) to[out=-45, in=-135] coordinate[midway] (c) node[midway, below] {$h$} (y);
+        \draw[-implies,double equal sign distance] (a) -- node[midway, right] {$\alpha$} (b);
+        \draw[-implies,double equal sign distance] (b) -- node[midway, right] {$\beta$} (c);
+    \end{tikzpicture}
+\end{align}
+このような2-射の合成を\textbf{縦の合成} (vertical composition) と呼ぶ．
+一方，4つの1-射 $f,\, g \colon x \lto y,\; f',\, g' \colon y \lto z$ および2つの2-射 $\alpha \colon f \Longrightarrow g,\; \alpha' \colon f' \Longrightarrow g'$ が与えられたとき，
+1-射の合成 $\circ$ が関手であることによって，\underline{圏 $\Hom{\Cat{C}} (x,\, y) \times \Hom{\Cat{C}} (y,\, z)$ の射} $(\alpha,\, \alpha') \colon (f,\, f') \lto (g,\, g')$ に対して\underline{圏 $\Hom{\Cat{C}}(x,\, z)$ の射}，i.e. 2-射
+\begin{align}
+    \alpha' \circ \alpha \coloneqq \circ (\alpha,\, \alpha') \colon f' \circ f \Longrightarrow g' \circ g
+\end{align}
+が対応付く：
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \node[] (x) at (0,0) {$x$};
+        \node[] (z) at (6,0) {$z$};
+        \draw[->] (x) to[out=45, in=135] coordinate[midway] (a) node[midway, above] {$f' \circ f$} (z);
+        \draw[->] (x) to[out=-45, in=-135] coordinate[midway] (b) node[midway, below] {$g' \circ g$} (z);
+        \draw[-implies,double equal sign distance] (a) -- node[midway, right] {$\alpha' \circ \alpha$} (b);
+    \end{tikzpicture}
+    \quad \coloneqq \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \node[] (x) at (0,0) {$x$};
+        \node[] (y) at (3,0) {$y$};
+        \node[] (z) at (6,0) {$z$};
+        \draw[->] (x) to[out=45, in=135] coordinate[midway] (a) node[midway, above] {$f$} (y);
+        \draw[->] (x) to[out=-45, in=-135] coordinate[midway] (b) node[midway, below] {$g$} (y);
+        \draw[-implies,double equal sign distance] (a) -- node[midway, right] {$\alpha$} (b);
+        \draw[->] (y) to[out=45, in=135] coordinate[midway] (c) node[midway, above] {$f'$} (z);
+        \draw[->] (y) to[out=-45, in=-135] coordinate[midway] (d) node[midway, below] {$g'$} (z);
+        \draw[-implies,double equal sign distance] (c) -- node[midway, right] {$\alpha'$} (d);
+    \end{tikzpicture}
+\end{align}
+このような2-射の合成を\textbf{横の合成} (horizontal composition) と呼ぶ．横の合成は，モノイダル圏 $\CAT$ が\hyperref[redef:monoidal-category]{厳密なモノイダル圏}であること，および関手 $\circ$ の\hyperref[redef:enriched]{\textsf{\textbf{(associativity), (unitality)}}} によって結合的かつ単位的になる．
+
+縦の合成と横の合成は，$\circ$ が関手であることによって交換する：
+\begin{align}
+    (\beta' * \alpha') \circ (\beta * \alpha)
+    &= \circ \bigl( (\beta,\, \beta') * (\alpha,\, \alpha') \bigr) \\
+    &= \bigl( \circ (\beta,\, \beta') \bigr) * \bigl( \circ (\alpha,\, \alpha') \bigr) \\
+    &= (\beta' \circ \beta) * (\alpha' \circ \alpha)
+\end{align}
+図式で書くと一目瞭然である：
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \node[] (x) at (0,0) {$x$};
+        \node[] (y) at (3,0) {$y$};
+        \node[] (z) at (6,0) {$z$};
+        \draw[->] (x) to[out=45, in=135] coordinate[midway] (a) node[midway, above] {$f$} (y);
+        \draw[->] (x) to[out=-45, in=-135] coordinate[midway] (b) node[midway, below] {$h$} (y);
+        \draw[-implies,double equal sign distance] (a) -- node[midway, right] {$\beta * \alpha$} (b);
+        \draw[->] (y) to[out=45, in=135] coordinate[midway] (c) node[midway, above] {$f'$} (z);
+        \draw[->] (y) to[out=-45, in=-135] coordinate[midway] (d) node[midway, below] {$h'$} (z);
+        \draw[-implies,double equal sign distance] (c) -- node[midway, right] {$\beta' * \alpha'$} (d);
+    \end{tikzpicture}
+    &= \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \node[] (x) at (0,0) {$x$};
+        \node[] (y) at (3,0) {$y$};
+        \node[] (z) at (6,0) {$z$};
+        \draw[->] (x) to[out=45, in=135] coordinate[midway] (a1) node[midway, above] {$f$} (y);
+        \draw[->] (x) to coordinate[midway] (b1) node[midway, xshift=-.65cm, yshift=.15cm] {$g$} (y);
+        \draw[->] (x) to[out=-45, in=-135] coordinate[midway] (c1) node[midway, below] {$h$} (y);
+        \draw[-implies,double equal sign distance] (a1) -- node[midway, right] {$\alpha$} (b1);
+        \draw[-implies,double equal sign distance] (b1) -- node[midway, right] {$\beta$} (c1);
+        \draw[->] (y) to[out=45, in=135] coordinate[midway] (a2) node[midway, above] {$f'$} (z);
+        \draw[->] (y) to coordinate[midway] (b2) node[midway, xshift=-.65cm, yshift=.15cm] {$g'$} (z);
+        \draw[->] (y) to[out=-45, in=-135] coordinate[midway] (c2) node[midway, below] {$h'$} (z);
+        \draw[-implies,double equal sign distance] (a2) -- node[midway, right] {$\alpha'$} (b2);
+        \draw[-implies,double equal sign distance] (b2) -- node[midway, right] {$\beta'$} (c2);
+    \end{tikzpicture} \\
+    &= \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \node[] (x) at (0,0) {$x$};
+        % \node[] (y) at (3,0) {$y$};
+        \node[] (z) at (6,0) {$z$};
+        \draw[->] (x) to[out=45, in=135] coordinate[midway] (a1) node[midway, above] {$f'\circ f$} (z);
+        \draw[->] (x) to coordinate[midway] (b1) node[midway, xshift=-.65cm, yshift=.15cm] {$g'\circ g$} (z);
+        \draw[->] (x) to[out=-45, in=-135] coordinate[midway] (c1) node[midway, below] {$h'\circ h$} (z);
+        \draw[-implies,double equal sign distance] (a1) -- node[midway, right] {$\alpha' \circ \alpha$} (b1);
+        \draw[-implies,double equal sign distance] (b1) -- node[midway, right] {$\beta' \circ \beta$} (c1);
+    \end{tikzpicture}
+\end{align}
+
+\begin{mydef}[label=def:2cat,breakable]{2-圏}
+    \hyperref[def:str2cat]{厳密な2-圏}と同様の
+    \begin{itemize}
+        \item \textbf{対象} (object)\footnote{\textbf{0-セル} (0-cell) とも言う} 全体の集合 $\Obj{\Cat{C}}$ 
+        \item $\forall x,\, y \in \Obj{\Cat{C}}$ の間の\textbf{1-射} (1-morphism)\footnote{\textbf{1-セル} (1-cell) とも言う．正確には，圏 $\Hom{\Cat{C}}(x,\, y)$ の対象のことを1-射と呼ぶ．}全体が成す\underline{圏} $\Hom{\Cat{C}} (x,\, y) \in \Obj{\CAT}$．
+        \item \textbf{合成} (composition) と呼ばれる\underline{関手} $\circ \colon \Hom{\Cat{C}}(x,\, y) \times \Hom{\Cat{C}} (y,\, z) \lto \Hom{\Cat{C}} (x,\, z)$ 
+        \item \textbf{恒等素} (identity morphism) と呼ばれる\underline{関手} $j_x \colon 1 \lto \Hom{\Cat{C}}(x,\, x)$ 
+    \end{itemize}
+    の4つのデータに加えて
+    \begin{itemize}
+        \item $\forall x,\, y,\, z,\, w \in \Obj{\Cat{C}}$ に対して\textbf{associator}と呼ばれる\hyperref[def:nat]{自然同型}\footnote{これは圏 $\CAT$ における図式である．}．
+        \begin{align}
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \node[] (x) at (0,0) {$\Hom{\Cat{C}} (y,\, z) \times \Hom{\Cat{C}} (x,\, y) \times \Hom{\Cat{C}} (w,\, x)$};
+                \node[] (y1) at (4,3) {$\Hom{\Cat{C}} (y,\, z) \times \Hom{\Cat{C}} (w,\, y)$};
+                \node[] (y2) at (4,-3) {$\Hom{\Cat{C}} (x,\, z) \times \Hom{\Cat{C}} (w,\, x)$};
+                \node[] (z) at (8,0) {$\Hom{\Cat{C}} (w,\, z)$};
+                \draw[->] (x) to [out=90,in=-150]  node[midway, above] {$\Id_{\Hom{\Cat{C}(y,\,z)}} \times \circ$} (y1);
+                \draw[->] (x) to [out=-90,in=150] node[midway, below] {$\circ \times \Id_{\Hom{\Cat{C}(w,\,x)}}$} (y2);
+                \draw[->] (y1) to [out=-30,in=90] node[midway, above] {$\circ$} (z);
+                \draw[->] (y2) to [out=30,in=-90] node[midway, below] {$\circ$} (z);
+                \draw[-implies,double equal sign distance, red] (y1) -- node[midway, right] {$\alpha_{w,x,y,z}$} (y2);
+            \end{tikzpicture}
+        \end{align}
+        \item $\forall x,\, y \in \Obj{\Cat{C}}$ に対して\textbf{left/right unitor}と呼ばれる\hyperref[def:nat]{自然同型}
+        \begin{align}
+            \lambda_{x,y} &\coloneqq \Familyset[\big]{l_{x,y}{}_f \colon f \lmto f \circ j_x(1)}{f \in \Hom{\Cat{C}}(x,\, y)} \\
+            \rho_{x,y} &\coloneqq \Familyset[\big]{l_{x,y}{}_f \colon f \lmto j_x(1) \circ f}{f \in \Hom{\Cat{C}}(x,\, y)}
+        \end{align}
+        \begin{align}
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \node[] (x) at (0,0) {$\Hom{\Cat{C}} (x,\, y)$};
+                \node[] (y1) at (4,3) {$\Hom{\Cat{C}} (x,\, y) \times \Hom{\Cat{C}} (x,\, x)$};
+                \node[] (y2) at (4,-3) {$\Hom{\Cat{C}} (y,\, y) \times \Hom{\Cat{C}} (x,\, y)$};
+                \node[] (z) at (8,0) {$\Hom{\Cat{C}} (x,\, y)$};
+                \draw[->] (x) to  [out=90,in=-150]node[midway, above] {$\Id_{\Hom{\Cat{C}(x,\,y)}} \times j_x$} (y1);
+                \draw[->] (x) to  [out=-90,in=150]node[midway, below] {$j_y \times \Id_{\Hom{\Cat{C}(x,\,y)}}$} (y2);
+                \draw[->] (y1) to  [out=-30,in=90]node[midway, above] {$\circ$} (z);
+                \draw[->] (y2) to  [out=30,in=-90]node[midway, below] {$\circ$} (z);
+                \draw[->] (x) to coordinate[midway] (a) node[midway,  xshift=-1.15cm, yshift=.15cm] {$\Id_{\Hom{\Cat{C}} (x,\, y)}$} (z);
+                \draw[-implies,double equal sign distance, red] (y1) -- node[midway, right] {$\lambda_{w,x,y,z}$} (a);
+                \draw[-implies,double equal sign distance, red] (y2) -- node[midway, right] {$\rho_{w,x,y,z}$} (a);
+            \end{tikzpicture}
+        \end{align}
+        
+    \end{itemize}
+    を持ち，
+    \begin{itemize}
+        \item associatorが\hyperref[redef:monoidal-category]{\textsf{\textbf{(pentagon identity)}}}を
+        \item unitorsが\hyperref[redef:monoidal-category]{\textsf{\textbf{(triangle identity)}}}を
+    \end{itemize}
+    充たす $\Cat{C}$ のことを\textbf{2-圏} (2-category) と呼ぶ．
+\end{mydef}
+
+要するに，\hyperref[def:str2cat]{厳密な2-圏}において合成 $\circ$ のassociativityおよびunitalityを自然同型まで弱めたものが\hyperref[def:2cat]{2-圏}である．
+
+\begin{myexample}[label=ex:moncat2cat]{2-圏としてのモノイダル圏}
+    \hyperref[redef:monoidal-category]{モノイダル圏} $\bigl(\Cat{C},\, \otimes,\, I,\, \{a_{x,y,z}\},\, \{l_x\},\, \{l_y\}\bigr)$ は\hyperref[def:2cat]{$2$-圏}である．
+    実際，2-圏 $\deloop{\Cat{C}}$ を
+    \begin{itemize}
+        \item $\Obj{\deloop{\Cat{C}}} \coloneqq \{\bullet\}$（1点集合）
+        \item $\Hom{\deloop{\Cat{C}}} (\bullet,\, \bullet) \coloneqq \Cat{C}$
+        \item $\circ \coloneqq \otimes  \colon \Cat{C} \times \Cat{C} \lto \Cat{C}$
+        \item $j_x \coloneqq \iota_I \colon I \hookrightarrow \Cat{C}$
+        \item $\alpha_{\bullet,\bullet,\bullet} \coloneqq \{a_{x,y,z}\}$
+        \item $\lambda_{\bullet,\bullet} \coloneqq \{l_{x,y,z}\},\quad \rho_{\bullet,\bullet} \coloneqq \{r_{x,y,z}\}$
+    \end{itemize}
+    により定義すると $\Cat{C} = \deloop{\Cat{C}}$ となる．
+\end{myexample}
+
 
 \subsection{弱い2-群・コヒーレントな2-群・厳密な2-群}
 
