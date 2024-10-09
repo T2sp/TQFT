@@ -863,6 +863,23 @@
     
 \end{proof}
 
+\section{3-群}
+
+\subsection{3-圏}
+
+一般の3-圏はassociator, unitorsのせいで扱いが難しいので，まずは\textbf{厳密な3-圏} (strict 3-group) を考える．$\CAT$ を\exref{ex:Cat-monidal}の方法で\hyperref[redef:monoidal-category]{モノイダル圏}と見做す．
+定義\ref{def:str2cat}から，\hyperref[def:2cat]{2-圏}としての同値
+\begin{align}
+    \bm{\mathrm{Str2Cat}} \cong \CAT\mhyphen\CAT
+\end{align}
+が成り立つ．さらに $\CAT\mhyphen\CAT$ は直積に関して\hyperref[redef:monoidal-category]{モノイダル圏}になる．
+
+\begin{mydef}[label=def:str3cat]{厳密な3-圏}
+    \hyperref[def:str2cat]{厳密な2-圏}が成す2-圏 $\CAT\mhyphen\CAT$ を\hyperref[redef:monoidal-category]{モノイダル圏}と見做す．
+    このとき\hyperref[redef:enriched]{$\CAT\mhyphen\CAT$-豊穣圏}のことを\textbf{厳密な3-圏} (strict 3-category) と呼ぶ．
+\end{mydef}
+
+\subsection{2-crossed moduleと厳密な3-群}
 
 
 
