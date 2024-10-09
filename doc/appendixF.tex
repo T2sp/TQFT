@@ -381,7 +381,7 @@
 
 \section{2-群}
 
-\subsection{豊穣圏と厳密な2-圏}
+\subsection{豊穣圏と2-圏}
 
 まず，\textbf{厳密な $2$-圏} (strict $2$-category) を導入する．
 
@@ -657,20 +657,25 @@
 ~\cite{baez2004higherdimensionalalgebrav2groups}に倣い\textbf{2-群} (2-group) を導入する．
 
 \begin{mydef}[label=def:weak-inverse]{弱い逆対象}
-    \hyperref[redef:monoidal-category]{モノイダル圏} $\Cat{C}$ の対象 $x \in \Obj{\Cat{C}}$ を1つとる．
+    \hyperref[redef:monoidal-category]{モノイダル圏} $(\Cat{C},\, \otimes ,\, 1)$ の対象 $x \in \Obj{\Cat{C}}$ を1つとる．
     
     \begin{itemize}
-        \item 対象 $y \in \Obj{\Cat{C}}$ が $X$ の\textbf{弱い逆対象} (weak inverse) であるとは，\hyperref[def:iso]{対象の同型}の意味で\footnote{\hyperref[nat]{自然同型}ではない} $x \otimes y \cong 1 \AND y \otimes x \cong 1$ が成り立つことを言う．
+        \item 対象 $y \in \Obj{\Cat{C}}$ が $x$ の\textbf{弱い逆対象} (weak inverse) であるとは，\hyperref[def:iso]{対象の同型}の意味で\footnote{\hyperref[nat]{自然同型}ではない} $x \otimes y \cong 1 \AND y \otimes x \cong 1$ が成り立つことを言う．
         \item $x$ が\textbf{弱可逆} (weakly invertible) であるとは，$x$ が弱い逆対象を持つことを言う．
     \end{itemize}
     
 \end{mydef}
 
-\begin{mydef}[label=def:W2G-C2G]{弱い2-群・コヒーレントな2-群}
+\begin{mydef}[label=def:W2G-C2G]{弱い2-群・コヒーレントな2-群・厳密な2-群}
     \begin{itemize}
         \item \textbf{弱い2-群} (weak 2-group) とは，\hyperref[redef:monoidal-category]{モノイダル圏} $\Cat{G}$ であって，任意の対象が\hyperref[def:weak-inverse]{弱可逆}でかつ任意の射が\hyperref[def:iso]{同型射}であるもののこと．
         \item \textbf{コヒーレントな2-群} (coherent 2-group) とは，\hyperref[redef:monoidal-category]{モノイダル圏} $\Cat{G}$ であって，任意の対象 $x \in \Obj{\Cat{G}}$ が\hyperref[def:iso]{可逆}な\hyperref[redef:dual]{unit，counit} $(x,\, \bar{x},\, i_x,\, e_x)$ を持ち，かつ任意の射が\hyperref[def:iso]{同型射}であるもののこと．
+        \item \textbf{厳密な2-群} (strict 2-group) とは，\hyperref[redef:monoidal-category]{モノイダル圏} $\Cat{G}$ であって，任意の対象が可逆\footnote{$x \in \Obj{\Cat{C}}$ に対して $x^{-1} \in \Obj{\Cat{C}}$ が存在して，厳密に $x \otimes x^{-1} = 1,\; x^{-1} \otimes x = 1$ が成り立つ．}でかつ任意の射が\hyperref[def:iso]{同型射}であるもののこと．
     \end{itemize}
+\end{mydef}
+
+\begin{mydef}[label=def:hom2G]{2-群の準同型}
+    \hyperref[def:W2G-C2G]{2-群} $\mathcal{G},\, \mathcal{G}'$ の間の\textbf{準同型}とは，\hyperref[redef:monidal-functor]{モノイダル関手} $f \colon \mathcal{G} \lto \mathcal{G}'$ のこと．
 \end{mydef}
 
 \begin{mytheo}[label=thm:W2G-C2G]{弱い2-群はコヒーレントな2-群}
@@ -744,16 +749,120 @@
             \draw[->-=.5] (0,2) -- (0,-1);
         \end{tikzpicture}
     \end{align}
-    が成り立つ．
+    が言える．
 \end{proof}
 
 \begin{marker}
     定理\ref{thm:W2G-C2G}を踏まえ，以下では\hyperref[def:W2G-C2G]{コヒーレントな2-群}のことを単に\textbf{2-群} (2-group) と呼ぶ．
 \end{marker}
 
-\begin{mydef}[label=def:hom2G]{2-群の準同型}
-    \hyperref[def:W2G-C2G]{2-群} $\mathcal{G},\, \mathcal{G}'$ の間の\textbf{準同型}とは，\hyperref[redef:monidal-functor]{モノイダル関手} $f \colon \mathcal{G} \lto \mathcal{G}'$ のこと．
+\hyperref[def:W2G-C2G]{2-群} $\Cat{G}$ において，\hyperref[def:weak-inverse]{弱い逆対象}を対応づける関手
+\begin{align}
+    \label{def:inv-functor}
+    \mathrm{inv} \colon \Cat{G} \lto \Cat{G},\; x \lmto \bar{x}
+\end{align}
+を考えたいが，射の対応は少々厄介である．~\cite[p.34]{baez2004higherdimensionalalgebrav2groups}に倣うと
+\begin{align}
+    \mathrm{inv} \colon 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \node[squarednode] (f) at (0,0) {$f$};
+        \draw[->-=.25,->-=.75] (0,-1) -- node[midway, right] {$x$} (f) -- node[midway, right] {$y$} (0,1);
+    \end{tikzpicture}
+    \lmto
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \node[squarednode] (f) at (0,0) {$f^{-1}$};
+        \coordinate (A) at (-1,0);
+        \coordinate (B) at (1,0);
+        \lev{A}{f}
+        \lcoev{f}{B}
+        \draw[->-=.5] (A) -- node[midway, left] {$\bar{x}$} (-1,-1);
+        \draw[->-=.5] (1,1) -- node[midway, right] {$\bar{y}$} (B);
+        \node at (-0.5,1) {$e_x$};
+        \node at (0.5,-1) {$i_y$};
+    \end{tikzpicture}
+\end{align}
+とすれば良いことがわかる\footnote{定義から\hyperref[def:W2G-C2G]{コヒーレントな2群}は\hyperref[redef:rigid]{rigidなモノイダル圏}であり，zigzag identityを使えることが肝になる．}．
+
+以上より，\hyperref[def:W2G-C2G]{2-群} $\Cat{G}$ を\exref{ex:moncat2cat}により\hyperref[def:2cat]{2圏} $\deloop{\Cat{G}}$ の言葉で表現すると
+\begin{itemize}
+    \item ただ1つの対象を持つ：$\Obj{\deloop{\Cat{G}}} = \{\bullet\}$
+    \item 任意の1-射 $x \in \Obj{\Hom{\deloop{\Cat{G}}} (\bullet,\, \bullet)} = \Obj{\Cat{G}}$ が\hyperref[def:weak-inverse]{弱可逆}であり，その\hyperref[def:weak-inverse]{弱い逆対象} $\bar{x}$ は関手\eqref{def:inv-functor}によって与えられる．
+    \item 任意の2-射 $\alpha \in \Hom{\Hom{\deloop{\Cat{G}}}(\bullet,\, \bullet)} (x,\, y) = \Hom{\Cat{G}} (x,\, y)$ が同型射
+\end{itemize}
+と言うことになる．特に\hyperref[def:W2G-C2G]{厳密な2-群}とは，全ての $\alpha,\, \lambda,\, \rho,\, i,\, e$ が\underline{ $\Cat{G}$ の}恒等射となっていることを言う．
+
+\subsection{交差加群との関係}
+
+\begin{mydef}[label=def:crossed-module]{交差加群}
+    \textbf{交差加群} (crossed module) とは，
+    \begin{itemize}
+        \item 群準同型 $G_2 \xrightarrow{t} G_1$
+        \item $G_1$ の左作用 $\alpha \colon G_1 \lto \Aut (G_2)$
+    \end{itemize}
+    の組であって，以下の条件を満たすもののこと：
+    \begin{description}
+        \item[\textbf{(cr-1)}]
+        以下の図式を可換にする：
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                G_2 \times G_2 \ar[rr, "t \times \Id"]\ar[dr, "\Adj"'] & &G_1 \times G_2 \ar[dl, "\alpha"] \\
+                &G_2 &
+           \end{tikzcd}
+        \end{center}
+        あるいは同じことだが，$\forall g_i \in G_i$ に対して
+        \begin{align}
+            t \bigl( \alpha(g_1)(g_2) \bigr) = g_1 t(g_2) g_1^{-1}
+        \end{align}
+        を充たす．
+
+        \item[\textbf{(cr-2)}]
+        以下の図式を可換にする：
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &G_1 \times G_2 \ar[d, "\Id \times t"']\ar[r, "\alpha"] &G_2 \ar[d, "t"] \\
+                &G_1 \times G_1 \ar[r, "\Adj"'] &G_1
+           \end{tikzcd}
+        \end{center}
+        あるいは同じことだが，$\forall g_2,\, g'_2 \in G_2$ に対して
+        \begin{align}
+            \alpha \bigl( t(g_2) \bigr) \bigl( g'_2 \bigr)  = g_2 g'_2 g_2^{-1}
+        \end{align}
+        を充たす (\textbf{Peiffer identity})．
+    \end{description}
+
 \end{mydef}
+
+\begin{myprop}[label=prop:crossed-S2G]{交差加群と厳密な2-群}
+    \begin{enumerate}
+        \item \hyperref[def:crossed-module]{交差加群} $(G_2 \xrightarrow{t} G_1,\, \alpha)$ が与えられたとする．このとき
+        \begin{itemize}
+            \item 1-射の集合 $\Cat{G}_0 \coloneqq G_1$
+            \item 2-射の集合 $\Cat{G}_1 \coloneqq G_1\ltimes_\alpha G_2$（外部半直積）
+            \item 始点射 $\sigma \colon \Cat{G}_1 \lto \Cat{G}_0,\; (g_1,\, g_2) \lto g_1$
+            \item 終点射 $\tau \colon \Cat{G}_1 \lto \Cat{G}_0,\; (g_1,\, g_2) \lto t(g_2)g_1$
+            \item 恒等素 $j \colon \Cat{G}_0 \lto \Cat{G}_1,\; g_1 \lto (g_1,\, 1_{G_2})$
+            \item 2-射の合成 $\circ \colon \Cat{G}_1 \times_{\Cat{G}_0} \Cat{G}_1 \lto \Cat{G}_1,\; \bigl((g_1,\, g_2),\, (g'_1,\, g'_2)\bigr) \lmto (g_1,\, g_2 g'_2)$
+        \end{itemize}
+        とおくと，圏 $\Cat{G}$ は\hyperref[def:W2G-C2G]{厳密な2-群}になる．
+        \item 逆に\hyperref[def:W2G-C2G]{厳密な2-群} $\Cat{G}$ が与えられたとき，
+        \begin{itemize}
+            \item $G_1 \coloneqq \Cat{G}_0$
+            \item $G_2 \coloneqq \Ker \sigma \subset \Cat{G}_1$
+            \item $t \coloneqq \tau|_{G_2} \colon G_2 \lto G_1$
+            \item $\alpha \colon G_1 \lto \Aut (G_2),\; g_1 \lmto \bigl( g_2 \lmto j(g_1) g_2 j(g_1)^{-1} \bigr)$
+        \end{itemize}
+        とおくことで\hyperref[def:crossed-module]{交差加群} $(G_2 \xrightarrow{t} G_1,\, \alpha)$ が得られる．
+    \end{enumerate}
+    
+\end{myprop}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+    
+\end{proof}
+
 
 
 
