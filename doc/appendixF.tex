@@ -881,6 +881,47 @@
 
 \subsection{2-crossed moduleと厳密な3-群}
 
+\begin{mydef}[label=def:S3G]{厳密な3-群}
+    \hyperref[def:str3-cat]{厳密な3-圏} $\Cat{G}$ であって，ただ1つの対象を持ち，1-射，2-射，3-射が厳密に可逆であるものを\textbf{厳密な3-群} (strict 3-category) と呼ぶ．
+\end{mydef}
+
+\begin{mydef}[label=def:2crossed]{2-交差加群}
+    \textbf{2-交差加群} (2-crossed module) とは，以下のデータからなる：
+    \begin{itemize}
+        \item 群の正規複体 $G_3 \xrightarrow{\partial_2} G_2 \xrightarrow{\partial_1} G_1$
+        \item 群の左作用 $\alpha_1 \colon G_1 \lto \Aut (G_2),\; \alpha_2 \colon G_1 \lto \Aut (G_3)$
+        \item \textbf{Peiffer lifting}と呼ばれる写像 $\{\mhyphen,\, \mhyphen\} \colon G_2 \times G_2 \lto G_3$
+    \end{itemize}
+    これらは以下の条件を充たす：
+    \begin{description}
+        \item[\textbf{(2CM1)}] $\partial_1,\, \partial_2$ は $G_1$-同変
+        \item[\textbf{(2CM2)}] $\forall g_2,\, h_2 \in G_2$ に対して
+        \begin{align}
+            \partial_2 \acomm{g_2}{h_2} = \alpha_1(g_2)(h_2) g_2 h_2^{-1} g_2^{-1}
+        \end{align}
+        
+        \item[\textbf{(2CM3)}] $\forall g_3,\, h_3 \in G_3$ に対して
+        \begin{align}
+            \acomm{\partial_2 g_3}{\partial_2 h_3} = \comm{h_3}{g_3}
+        \end{align}
+        
+        \item[\textbf{(2CM4)}] $\forall g_2 \in G_2,\, g_3 \in G_3$ に対して
+        \begin{align}
+            \acomm{g_2}{\partial_2 g_3} \acomm{\partial_2 g_3}{g_2} = \alpha_2 \bigl( \partial_1(g_2) \bigr) \bigl( g_3 \bigr) g_3^{-1}
+        \end{align}
+
+        \item[\textbf{(2CM5)}] $\forall g_2,\, h_2,\, k_2 \in G_2$ に対して
+        \begin{align}
+            \acomm{g_2}{h_2k_2} &= \acomm{g_2}{h_2} \acomm{\partial_2\acomm{g_2}{k_2}}{g_2 h_2 g_2^{-1}} \acomm{g_2}{k_2} \\
+            \acomm{g_2h_2}{k_2} &= \alpha_2 \bigl( \partial_1(g_2) \bigr) \bigl( \acomm{h_2}{k_2} \bigr) \acomm{g_2}{h_2 k_2 h_2^{-1}}
+        \end{align}
+        
+        \item[\textbf{(2CM6)}] $\forall g_1 \in G_1,\; \forall g_2,\, h_2 \in G_2$ に対して
+        \begin{align}
+            \alpha_2 (g_1)(\acomm{g_2}{h_2}) = \acomm{\alpha_1(g_1)(g_2)}{\alpha_1(g_1)(h_2)}
+        \end{align}
+    \end{description}
+\end{mydef}
 
 
 \end{document}
