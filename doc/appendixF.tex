@@ -1,147 +1,375 @@
-\documentclass[TQFT_main]{subfiles}
+    \documentclass[TQFT_main]{subfiles}
 
-\begin{document}
+    \begin{document}
 
-\chapter{モノイダル圏・フュージョン圏・高次群}
+    \chapter{モノイダル圏・フュージョン圏・高次群}
 
-この章では\underline{標数 $0$ の}体 $\mathbb{K}$ のみを考える．
+    この章では\underline{標数 $0$ の}体 $\mathbb{K}$ のみを考える．
 
-\section{加法圏}
+    \section{加法圏}
 
-\begin{mydef}[label=def:additive-cat]{加法圏・アーベル圏}
-    圏 $\Cat{C}$ が体 $\mathbb{K}$ 上の\textbf{加法圏} (additive category) であるとは，以下を充たすこと：
-    \begin{description}
-        \item[\textbf{(add-1)}]　
+    \begin{mydef}[label=def:additive-cat,breakable]{加法圏・アーベル圏}
+        圏 $\Cat{C}$ が体 $\mathbb{K}$ 上の\textbf{加法圏} (additive category) であるとは，以下を充たすこと：
+        \begin{description}
+            \item[\textbf{(add-1)}]　
+            
+            任意のHom集合 $\Hom{\Cat{C}}(X,\, Y)$ が可換群の構造をもち，かつ射の合成
+            \begin{align}
+                \circ \colon \Hom{\Cat{C}}(Y,\, Z) \times \Hom{\Cat{C}}(X,\, Y) \lto \Hom{\Cat{C}}(X,\, Z)
+            \end{align}
+            が群演算に関して双加法的である．
+
+            \item[\textbf{(add-2)}]　
+            
+            \textbf{零対象}\footnote{始対象かつ終対象} (zero object) $\bm{0} \in \Obj{\Cat{C}}$ が存在し，$\forall X \in \Obj{\Cat{C}}$ に対して $\Hom{\Cat{C}}(\bm{0},\, X) = \Hom{\Cat{C}}(,\, \bm{0}) = 0$ を充たす\footnote{最右辺は \textsf{\textbf{(add-1)}} の意味で零ベクトル空間．}．
+
+            \item[\textbf{(add-3)}]　
+            
+            有限の\hyperref[def:product-coproduct]{余積}が常に存在する．
+        \end{description}
+        加法圏 $\Cat{C}$ は，$\forall X,\, Y \in \Obj{\Cat{C}}$ に関して $\Hom{\Cat{C}}(X,\, Y)$ が $\mathbb{K}$-ベクトル空間の構造を持ち，かつ合成 $\circ$ が $\mathbb{K}$-双線形写像でもあるとき，\textbf{$\mathbb{K}$-線形} ($\mathbb{K}$-linear) であると言われる．
+
+        \tcblower
+
+        加法圏 $\Cat{C}$ は，以下の条件を充たすとき\textbf{アーベル圏} (abelian category) と呼ばれる：
+        \begin{description}
+            \item[\textbf{(Ab-1)}]　
+            
+            任意の射 $f \in \Hom{\Cat{C}}(X,\, Y)$ が核 $\ker f \colon \Ker f \lto X$ および余核 $\coker f \colon Y \lto \Coker f$ を持つ．
+
+            \item[\textbf{(Ab-2)}]　
+            
+            $\Ker f = \bm{0}$ ならば $f = \ker (\coker f)$，かつ $\Coker f = \bm{0}$ ならば $f = \coker (\ker f)$
+        \end{description}
         
-        任意のHom集合 $\Hom{\Cat{C}}(X,\, Y)$ が $\fk$-ベクトル空間の構造をもち，かつ射の合成
+    \end{mydef}
+
+    % 以下では\hyperref[def:additive-cat]{加法圏} $\Cat{C},\, \Cat{D}$ の間の関手 $F \colon \Cat{C} \lto \Cat{D}$ には，$F_{X,\, Y} \colon \Hom{\Cat{C}}(X,\, Y) \lto \Hom{\Cat{D}} \bigl( F(X),\, F(Y) \bigr),\; f \lmto F(f)$ が $\mathbb{K}$-線型写像となることを常に要請する．
+
+    \begin{mydef}[label=def:additive-exact]{加法的関手・完全関手}
+        \hyperref[def:additive-cat]{加法圏} $\Cat{C},\, \Cat{D}$ の間の関手 $F \colon \Cat{C} \lto \Cat{D}$ が\textbf{加法的} (additive) であるとは，
+        $\forall X,\, Y \in \Obj{\Cat{C}}$ に対して定まる写像
         \begin{align}
-            \circ \colon \Hom{\Cat{C}}(Y,\, Z) \times \Hom{\Cat{C}}(X,\, Y) \lto \Hom{\Cat{C}}(X,\, Z)
+            F_{X,\, Y} \colon \Hom{\Cat{C}}(X,\, Y) \lto \Hom{\Cat{D}} \bigl( F(X),\, F(Y) \bigr),\; f \lmto F(f)
         \end{align}
-        が $\mathbb{K}$-双線形写像である．
+        が可換群の準同型であることを言う．特に加法圏 $\Cat{C},\, \Cat{D}$ が\hyperref[def:additive-cat]{$\mathbb{K}$-線形}で，かつ $\forall X,\, Y \in \Cat{C}$ に対して $F_{X,\, Y}$ が $\mathbb{K}$-線型写像でもあるとき，$F$ は\textbf{$\mathbb{K}$-線形} ($\mathbb{K}$-linear) であると言う．
 
-        \item[\textbf{(add-2)}]　
+        \tcblower
+
+        \hyperref[def:additive-cat]{アーベル圏} $\Cat{C},\, \Cat{D}$ の間の加法的関手 $F \colon \Cat{C} \lto \Cat{D}$ を与える．
+        \begin{itemize}
+            \item $F$ が\textbf{左完全} (left exact) であるとは，$\Cat{C}$ の任意の短完全列 $0 \lto X \xrightarrow{f} Y \xrightarrow{g} Z \lto 0$ に対して
+            \begin{align}
+                0 \lto F(X) \xrightarrow{F(f)} F(Y) \xrightarrow{F(g)} F(Z)
+            \end{align}
+            が $\Cat{D}$ の完全列になること．
+            \item $F$ が\textbf{右完全} (right exact) であるとは，$\Cat{C}$ の任意の短完全列 $0 \lto X \xrightarrow{f} Y \xrightarrow{g} Z \lto 0$ に対して
+            \begin{align}
+                F(X) \xrightarrow{F(f)} F(Y) \xrightarrow{F(g)} F(Z) \lto 0
+            \end{align}
+            が $\Cat{D}$ の完全列になること．
+            \item $F$ が\textbf{完全} (exact) であるとは，$F$ が右完全かつ左完全であること．
+        \end{itemize}
         
-        \textbf{零対象}\footnote{始対象かつ終対象} (zero object) $\bm{0} \in \Obj{\Cat{C}}$ が存在し，$\forall X \in \Obj{\Cat{C}}$ に対して $\Hom{\Cat{C}}(\bm{0},\, X) = \Hom{\Cat{C}}(\bm{X},\, 0) = 0$ を充たす\footnote{最右辺は \textsf{\textbf{(add-1)}} の意味で零ベクトル空間．}．
+    \end{mydef}
 
-        \item[\textbf{(add-3)}]　
+
+    \begin{myexample}[label=def:Rep]{表現の圏}
+        $G$ を群とする．このとき
+        \begin{itemize}
+            \item $G$ の表現 $(\rho,\, V)$ を対象とする
+            \item $G$-同変な $\mathbb{K}$-線型写像 $(\rho,\, V) \xrightarrow{f} (\rho',\, V')$ を射とする
+        \end{itemize}
+        圏を $\REP{G}$ と書く．$\REP{G}$ は\hyperref[def:additive-cat]{アーベル圏}である．
+    \end{myexample}
+
+    \begin{mydef}[label=def:semisimple-cat]{単純・半単純}
+        \begin{itemize}
+            \item \hyperref[def:additive-cat]{アーベル圏} $\Cat{C}$ の対象 $X \in \Cat{C}$ が\textbf{単純} (simple) であるとは，
+            任意のモノ射 $\textcolor{blue}{i} \colon \textcolor{blue}{U} \hookrightarrow X$ が $0$ であるか同型射であることを言う．
+            \item アーベル圏 $\Cat{C}$ が\textbf{半単純} (semisimple) であるとは，$\forall X \in \Obj{\Cat{C}}$ が単純対象の有限余積と同型であることを言う．i.e.
+            単純対象の族 $\Familyset[\big]{V_i \in \Obj{\Cat{C}}}{i \in I}$ および有限個を除いて $0$ であるような非負整数の族 $\Familyset[\big]{N_i \in \mathbb{Z}_{\ge 0}}{i \in I}$ が存在して
+            \begin{align}
+                X \cong \bigoplus_{i \in I} N_i X_i
+            \end{align}
+            が成り立つこと．
+        \end{itemize}
+    \end{mydef}
+
+    \begin{mydef}[label=def:finite-abcat]{有限性}
+        \hyperref[def:additive-cat]{アーベル圏} $\Cat{C}$ とその対象 $X \in \Obj{\Cat{C}}$ を与える．
+        \begin{itemize}
+            \item $X$ が\textbf{有限長} (finite length) を持つとは，有限のフィルトレーション
+            \begin{align}
+                0 = X_0 \subset X_1 \subset \cdots \subset X_{n-1} \subset X_n = X
+            \end{align}
+            であって $X_i/X_{i-1} \coloneqq \Coker (X_{i-1} \hookrightarrow X_i) \quad (\forall i)$ が\hyperref[def:semisimple-cat]{単純対象}であるようなもの（\textbf{Jordan-H\"{o}lder列}と言う）が存在することを言う．このときの $n$ を $X$ の\textbf{長さ} (length) と呼ぶ\footnote{Jordan-H\"{o}lderの定理~\cite[THEOREM 1.5.4, p.5]{etingof2015tensor}から，$X$ の任意のJordan-H\"{o}lder列は存在すれば同一の長さを持つ．}．
+        \end{itemize}
+        以下，\hyperref[def:additive-cat]{アーベル圏} $\Cat{C}$ は\hyperref[def:additive-cat]{$\mathbb{K}$-線形}であるとする．
+        \begin{itemize}
+            \item $\Cat{C}$ が\textbf{局所有限} (locally finite) であるとは，以下の2条件を充たすこと：
+            \begin{description}
+                \item[\textbf{(lFin-1)}] $\forall X,\, Y \in \Obj{\Cat{C}}$ に対して，$\mathbb{K}$-ベクトル空間 $\Hom{\Cat{C}}(X,\, Y)$ が有限次元
+                \item[\textbf{(lFin-2)}] $\forall X \in \Obj{\Cat{C}}$ が有限長を持つ．
+            \end{description}
+            \item $\Cat{C}$ が\textbf{有限} (finite) であるとは，以下の4条件を充たすこと：
+            \begin{description}
+                \item[\textbf{(Fin-1)}] $\forall X,\, Y \in \Obj{\Cat{C}}$ に対して，$\mathbb{K}$-ベクトル空間 $\Hom{\Cat{C}}(X,\, Y)$ が有限次元
+                \item[\textbf{(Fin-2)}] $\forall X \in \Obj{\Cat{C}}$ が有限長を持つ．
+                \item[\textbf{(Fin-3)}] $\forall X \in \Obj{\Cat{C}}$ が射影的被覆\footnote{$P \in \Obj{\Cat{C}}$ が\textbf{射影的} (projective) であるとは，関手 $\Hom{\Cat{C}}(P,\, \mhyphen)$ が完全関手であることを言う．$X \in \Obj{\Cat{C}}$ の\textbf{射影的被覆} (projective cover) とは，射影的対象 $P_X \in \Obj{\Cat{C}}$ とエピ射 $p_X \colon P_X \lto X$ の組み $(P_X,\, p_X)$ であって，任意の射影的対象 $\textcolor{blue}{P} \in \Obj{\Cat{C}}$ およびエピ射 $\textcolor{blue}{p} \colon \textcolor{blue}{P} \lto X$ に対してあるエピ射 $\textcolor{red}{h} \colon \textcolor{blue}{P} \lto P_X$ が存在して $p_X \circ \textcolor{red}{h} = p$ を充たすようなもののこと．}を持つ．
+                \item[\textbf{(Fin-4)}] 単純対象の同型類が有限個である．
+            \end{description}
+        \end{itemize}
         
-        有限の\hyperref[def:product-coproduct]{余積}が常に存在する．
-    \end{description}
-    
-    \tcblower
+    \end{mydef}
 
-    加法圏 $\Cat{C}$ は，以下の条件を充たすとき\textbf{アーベル圏} (abelian category) と呼ばれる：
-    \begin{description}
-        \item[\textbf{(Ab-1)}]　
+
+    \section{モノイダル圏}
+
+    これまでも何回か登場したが，モノイダル圏についてまとめておく：
+
+    \begin{mydef}[label=redef:monoidal-category,breakable]{モノイダル圏}
+        \textbf{モノイダル圏} (monidal category) は，以下の5つのデータからなる：
+        \begin{itemize}
+            \item 圏 $\mathcal{C}$
+            \item \textbf{テンソル積} (tensor product) と呼ばれる関手 $\otimes \colon \mathcal{C} \times \mathcal{C} \lto \mathcal{C}$
+            \item \textbf{単位対象} (unit object) $I \in \Obj{\mathcal{C}}$
+            \item \textbf{associator}と呼ばれる\hyperref[def:nat]{自然同値}
+            \begin{align}
+                \Familyset[\big]{a_{X,\, Y,\, Z} \colon (X \otimes Y) \otimes Z \xrightarrow{\cong} X \otimes (Y \otimes Z)}{X,\, Y,\, Z \in \Obj{\mathcal{C}}}
+            \end{align}
+            \item \textbf{left/right unitors}と呼ばれる\hyperref[def:nat]{自然同値}
+            \begin{align}
+                &\Familyset[\big]{l_X \colon I \otimes X \xrightarrow{\cong} X}{X \in \Obj{\mathcal{C}}}, \\
+                &\Familyset[\big]{r_X \colon X \otimes I \xrightarrow{\cong} X}{X \in \Obj{\mathcal{C}}}
+            \end{align}
+            
+        \end{itemize}
+        これらは $\forall X,\, Y,\, Z,\, W \in \Obj{\mathcal{C}}$ について以下の2つの図式を可換にする：
+        \begin{description}
+            \item[\textbf{(triangle diagram)}]　
+            
+            \begin{center}
+                \begin{tikzcd}[row sep=large, column sep=large]
+                    &(X \otimes I) \otimes Y \ar[rr, "a_{X,\, I,\, Y}"]\ar[dr, "r_X \otimes \mathrm{Id}_Y"'] & &X \otimes (I \otimes Y) \ar[dl, "\mathrm{Id}_X \otimes l_Y"] \\
+                    & &X \otimes Y &
+                \end{tikzcd}
+            \end{center}
+            
+            \item[\textbf{(pentagon diagram)}]　
+            
+            \begin{center}
+                \begin{tikzcd}[row sep=large, column sep=large]
+                    & &((W \otimes X) \otimes Y) \otimes Z \ar[ddl, "a_{W \otimes X,\, Y,\, Z}"']\ar[dr, "a_{W,\, X,\, Y} \otimes \mathrm{Id}_Z"] & \\
+                    & & &(W \otimes (X \otimes Y)) \otimes Z \ar[dd, "a_{W,\, X \otimes Y,\, Z}"] \\
+                    &(W \otimes X) \otimes (Y \otimes Z) \ar[ddr, "a_{W,\, X,\, Y \otimes Z}"'] & & \\
+                    & & &W \otimes ((X \otimes Y) \otimes Z) \ar[dl, "\mathrm{Id}_Z \otimes a_{X,\, Y,\, Z}"]\\
+                    & &W \otimes (X \otimes (Y \otimes Z)) &
+                \end{tikzcd}
+            \end{center}
+            
+        \end{description}
         
-        任意の射 $f \in \Hom{\Cat{C}}(X,\, Y)$ が核 $\ker f \colon \Ker f \lto X$ および余核 $\coker f \colon Y \lto \Coker f$ を持つ．
+        \tcblower
 
-        \item[\textbf{(Ab-2)}]　
-        
-        $\Ker f = \bm{0}$ ならば $f = \ker (\coker f)$，かつ $\Coker f = \bm{0}$ ならば $f = \coker (\ker f)$
-    \end{description}
-    
-\end{mydef}
+        モノイダル圏 $\Cat{C}$ が\textbf{厳密} (strict) であるとは，$\forall X,\, Y,\, Z \in \Obj{\Cat{C}}$ に対して
+        \begin{align}
+            &(X \otimes Y) \otimes Z = X \otimes (Y \otimes Z), \\
+            &I \otimes X = X,\quad X \otimes I = X
+        \end{align}
+        が成り立ち，かつ $a_{X,\, Y,\, Z},\; l_{X},\, r_X$ が恒等射であることを言う．
+    \end{mydef}
 
-以下では\hyperref[def:additive-cat]{加法圏} $\Cat{C},\, \Cat{D}$ の間の関手 $F \colon \Cat{C} \lto \Cat{D}$ には，$F_{X,\, Y} \colon \Hom{\Cat{C}}(X,\, Y) \lto \Hom{\Cat{D}} \bigl( F(X),\, F(Y) \bigr),\; f \lmto F(f)$ が $\mathbb{K}$-線型写像となることを常に要請する．
+    \begin{marker}
+        定義\ref{redef:monoidal-category}で言うモノイダル圏を，\textbf{弱いモノイダル圏} (weak monoidal category) と呼ぶこともある．
+    \end{marker}
 
-\begin{myexample}[label=def:Rep]{表現の圏}
-    $G$ を群とする．このとき
+    \begin{myexample}[label=ex:Cat-monidal]{$\CAT$ のモノイダル構造}
+        $\CAT$ を小圏と関手が成す圏とする．このとき，関手
+        \begin{align}
+            \times \colon \CAT \times \CAT \lto \CAT
+        \end{align}
+        を $\Obj{\Cat{C} \times \Cat{D}} \coloneqq \Obj{\Cat{C}} \times \Obj{\Cat{D}}$ により定めると，組み $(\CAT,\, \times,\, I)$ は\hyperref[redef:monoidal]{厳密なモノイダル圏}になる．ただし $I$ はただ1つの対象 $\bullet$ を持ち，$\Hom{I}(\bullet,\,\bullet) = \{\Id_{\bullet}\}$ とする圏である\footnote{これは $\CAT$ の\hyperref[def:colim]{終対象}でもある．}
+    \end{myexample}
+
+
+\begin{mydef}[label=redef:dual,breakable]{双対}
+    \hyperref[def:monoidal-category]{モノイダル圏} $(\mathcal{C},\, \otimes,\, I,\, a,\, l,\, r)$ およびその任意の対象 $X,\, X^* \in \Obj{\mathcal{C}}$ を与える．
+    $X^*$ が $X$ の\textbf{左双対} (left dual) であるとは，
     \begin{itemize}
-        \item $G$ の表現 $(\rho,\, V)$ を対象とする
-        \item $G$-同変な $\mathbb{K}$-線型写像 $(\rho,\, V) \xrightarrow{f} (\rho',\, V')$ を射とする
-    \end{itemize}
-    圏を $\REP{G}$ と書く．$\REP{G}$ は\hyperref[def:additive-cat]{アーベル圏}である．
-\end{myexample}
-
-\begin{mydef}[label=def:semisimple-cat]{単純・半単純}
-    \begin{itemize}
-        \item \hyperref[def:additive-cat]{アーベル圏} $\Cat{C}$ の対象 $X \in \Cat{C}$ が\textbf{単純} (simple) であるとは，
-        任意のモノ射 $\textcolor{blue}{i} \colon \textcolor{blue}{U} \hookrightarrow X$ が $0$ であるか同型射であることを言う．
-        \item アーベル圏 $\Cat{C}$ が\textbf{半単純} (semisimple) であるとは，$\forall X \in \Cat{C}$ が単純対象の有限余積と同型であることを言う．i.e.
-        単純対象の族 $\Familyset[\big]{V_i \in \Obj{\Cat{C}}}{i \in I}$ および有限個を除いて $0$ であるような非負整数の族 $\Familyset[\big]{N_i \in \mathbb{Z}_{\ge 0}}{i \in I}$ が存在して
+        \item \textbf{coevaluation}と呼ばれる射
         \begin{align}
-            X \cong \bigoplus_{i \in I} N_i X_i
+            \lcoev_X \colon I \lto X \otimes X^*
         \end{align}
-        が成り立つこと．
-    \end{itemize}
-    
-\end{mydef}
-
-\section{モノイダル圏}
-
-これまでも何回か登場したが，モノイダル圏についてまとめておく：
-
-\begin{mydef}[label=redef:monoidal-category,breakable]{モノイダル圏}
-    \textbf{モノイダル圏} (monidal category) は，以下の5つのデータからなる：
-    \begin{itemize}
-        \item 圏 $\mathcal{C}$
-        \item \textbf{テンソル積} (tensor product) と呼ばれる関手 $\otimes \colon \mathcal{C} \times \mathcal{C} \lto \mathcal{C}$
-        \item \textbf{単位対象} (unit object) $I \in \Obj{\mathcal{C}}$
-        \item \textbf{associator}と呼ばれる\hyperref[def:nat]{自然同値}
+        \item \textbf{evaluation}と呼ばれる射
         \begin{align}
-            \Familyset[\big]{a_{X,\, Y,\, Z} \colon (X \otimes Y) \otimes Z \xrightarrow{\cong} X \otimes (Y \otimes Z)}{X,\, Y,\, Z \in \Obj{\mathcal{C}}}
+            \lev_X \colon X^* \otimes X \lto I
         \end{align}
-        \item \textbf{left/right unitors}と呼ばれる\hyperref[def:nat]{自然同値}
-        \begin{align}
-            &\Familyset[\big]{l_X \colon I \otimes X \xrightarrow{\cong} X}{X \in \Obj{\mathcal{C}}}, \\
-            &\Familyset[\big]{r_X \colon X \otimes I \xrightarrow{\cong} X}{X \in \Obj{\mathcal{C}}}
-        \end{align}
-        
     \end{itemize}
-    これらは $\forall X,\, Y,\, Z,\, W \in \Obj{\mathcal{C}}$ について以下の2つの図式を可換にする：
+    が存在して以下の図式を可換にすることを言う：
     \begin{description}
-        \item[\textbf{(triangle diagram)}]　
+        \item[\textbf{(zig-zag equations)}]　
         
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
-                &(X \otimes I) \otimes Y \ar[rr, "a_{X,\, I,\, Y}"]\ar[dr, "r_X \otimes \mathrm{Id}_Y"'] & &X \otimes (I \otimes Y) \ar[dl, "\mathrm{Id}_X \otimes l_Y"] \\
-                & &X \otimes Y &
+                &I \otimes X \ar[dd, "r_X"']\ar[rr, "\lcoev_X \otimes \mathrm{Id}_X"] & &(X \otimes X^*) \otimes X \ar[d, "a_{X,\, X^*,\, X}"] \\
+                & & &X \otimes (X^* \otimes X) \ar[d, "\mathrm{Id}_X \otimes \lev_X"] \\
+                &X & &X \otimes I\ar[ll, "r_X"] \\
             \end{tikzcd}
         \end{center}
-        
-        \item[\textbf{(pentagon diagram)}]　
+
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &X^* \otimes I \ar[dd, "l_{X^*}"']\ar[rr, "\mathrm{Id}_{X^*} \otimes \lcoev_X"] & &X^* \otimes (X \otimes X^*) \ar[d, "a_{X^*,\, X,\, X^*}^{-1}"] \\
+                & & &(X^* \otimes X) \otimes X^* \ar[d, "\lev_X \otimes \mathrm{Id}_{X^*}"] \\
+                &X^* & &I \otimes X^* \ar[ll, "l_{X^*}"] \\
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+    \tcblower
+
+    \hyperref[def:monoidal-category]{モノイダル圏} $(\mathcal{C},\, \otimes,\, I,\, a,\, l,\, r)$ およびその任意の対象 $X,\, \rdual{X} \in \Obj{\mathcal{C}}$ を与える．
+    $\rdual{X}$ が $X$ の\textbf{右双対} (right dual) であるとは，
+    \begin{itemize}
+        \item 射 \begin{align}
+            \rcoev_X \colon I \lto \rdual{X} \otimes X
+        \end{align}
+        \item 射 \begin{align}
+            \rev_X \colon X \otimes \rdual{X} \lto I
+        \end{align}
+    \end{itemize}
+    が存在して以下の図式を可換にすることを言う：
+    \begin{description}
+        \item[\textbf{(zig-zag equations)}]　
         
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
-                & &((W \otimes X) \otimes Y) \otimes Z \ar[ddl, "a_{W \otimes X,\, Y,\, Z}"']\ar[dr, "a_{W,\, X,\, Y} \otimes \mathrm{Id}_Z"] & \\
-                & & &(W \otimes (X \otimes Y)) \otimes Z \ar[dd, "a_{W,\, X \otimes Y,\, Z}"] \\
-                &(W \otimes X) \otimes (Y \otimes Z) \ar[ddr, "a_{W,\, X,\, Y \otimes Z}"'] & & \\
-                & & &W \otimes ((X \otimes Y) \otimes Z) \ar[dl, "\mathrm{Id}_Z \otimes a_{X,\, Y,\, Z}"]\\
-                & &W \otimes (X \otimes (Y \otimes Z)) &
+                &X \otimes I \ar[dd, "l_X"']\ar[rr, "\Id_X \otimes \rcoev_X"] & &X \otimes (\rdual{X} \otimes X) \ar[d, "a_{X,\, \rdual{X},\, X}^{-1}"] \\
+                & & &(X \otimes \rdual{X}) \otimes X \ar[d, "\rev_X \otimes \Id_X"] \\
+                &X & &I \otimes X \ar[ll, "l_X"] \\
             \end{tikzcd}
         \end{center}
-        
-    \end{description}
-    
-    \tcblower
 
-    モノイダル圏 $\Cat{C}$ が\textbf{厳密} (strict) であるとは，$\forall X,\, Y,\, Z \in \Obj{\Cat{C}}$ に対して
-    \begin{align}
-        &(X \otimes Y) \otimes Z = X \otimes (Y \otimes Z), \\
-        &I \otimes X = X,\quad X \otimes I = X
-    \end{align}
-    が成り立ち，かつ $a_{X,\, Y,\, Z},\; l_{X},\, r_X$ が恒等射であることを言う．
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &I \otimes \rdual{X} \ar[dd, "l_{X^*}"']\ar[rr, "\rcoev_X \otimes \mathrm{Id}_{\rdual{X}}"] & &(\rdual{X} \otimes X) \otimes \rdual{X} \ar[d, "a_{\rdual{X},\, X,\, \rdual{X}}^{-1}"] \\
+                & & &\rdual{X} \otimes (X \otimes \rdual{X}) \ar[d, "\mathrm{Id}_{\rdual{X}} \otimes \rev_{X}"] \\
+                &\rdual{X} & &\rdual{X} \otimes I \ar[ll, "r_{X^*}"] \\
+            \end{tikzcd}
+        \end{center}
+    \end{description}
 \end{mydef}
+ストリング図式で書くときは
+\begin{align}
+    \lcoev_X &\coloneqq
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (1,0);
+        \LCOEV{A}{B}
+    \end{tikzpicture} &
+    \lev_X &\coloneqq 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (1,0);
+        \LEV{A}{B}
+    \end{tikzpicture} &
+    \rcoev_X&\coloneqq
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (1,0);
+        \RCOEV{A}{B}
+    \end{tikzpicture} &
+    \rev_X &\coloneqq 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (1,0);
+        \REV{A}{B}
+    \end{tikzpicture}
+\end{align}
+とする．ストリング図式において $\lcoev,\, \rcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equations)}}}は
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \draw[->-=.5] (0,-1) -- (0,1);
+    \end{tikzpicture}%
+    \quad
+    &=
+    \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (1,0);
+        \coordinate (C) at (2,0);
+        \LCOEV{A}{B}
+        \LEV{B}{C}
+        \draw[->-=.5] (A) -- (0,1);
+        \draw[->-=.5] (2,-1) -- (C);
+    \end{tikzpicture}% 
+    \\
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \draw[->-=.5] (0,1) -- (0,-1);
+    \end{tikzpicture}%
+    \quad
+    &=
+    \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (1,0);
+        \coordinate (C) at (2,0);
+        \LCOEV{B}{C}
+        \LEV{A}{B}
+        \draw[->-=.5] (A) -- (0,-1);
+        \draw[->-=.5] (2,1) -- (C);
+    \end{tikzpicture}% 
+\end{align}
+$\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equations)}}}は
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \draw[->-=.5] (0,-1) -- (0,1);
+    \end{tikzpicture}%
+    \quad
+    &=
+    \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (1,0);
+        \coordinate (C) at (2,0);
+        \REV{A}{B}
+        \RCOEV{B}{C}
+        \draw[->-=.5] (C) -- (2,1);
+        \draw[->-=.5] (0,-1) -- (A);
+    \end{tikzpicture}% 
+    \\
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \draw[->-=.5] (0,1) -- (0,-1);
+    \end{tikzpicture}%
+    \quad
+    &=
+    \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (1,0);
+        \coordinate (C) at (2,0);
+        \REV{B}{C}
+        \RCOEV{A}{B}
+        \draw[->-=.5] (C) -- (2,-1);
+        \draw[->-=.5] (0,1) -- (A);
+    \end{tikzpicture}% 
+\end{align}
+と書ける．
 
 \begin{marker}
-    定義\ref{redef:monoidal-category}で言うモノイダル圏を，\textbf{弱いモノイダル圏} (weak monoidal category) と呼ぶこともある．
+    $X^*$ が $X$ の\hyperref[def:dual]{左双対}であるならば，$X$ は $X^*$ に関して $\rev_{X^*} = \lev_{X},\; \rcoev_{X^*} = \lcoev_{X}$ とした\hyperref[def:dual]{右双対}となっている．
+    従って，\hyperref[def:dual]{左/右双対}をもつ任意の $X$ に対して $\rdual{(X^*)} \cong X \cong X \cong (\rdual{X})^*$ が成り立つ．
 \end{marker}
 
-\begin{myexample}[label=ex:Cat-monidal]{$\CAT$ のモノイダル構造}
-    $\CAT$ を小圏と関手が成す圏とする．このとき，関手
-    \begin{align}
-        \times \colon \CAT \times \CAT \lto \CAT
-    \end{align}
-    を $\Obj{\Cat{C} \times \Cat{D}} \coloneqq \Obj{\Cat{C}} \times \Obj{\Cat{D}}$ により定めると，組み $(\CAT,\, \times,\, I)$ は\hyperref[redef:monoidal]{厳密なモノイダル圏}になる．ただし $I$ はただ1つの対象 $\bullet$ を持ち，$\Hom{I}(\bullet,\,\bullet) = \{\Id_{\bullet}\}$ とする圏である\footnote{これは $\CAT$ の\hyperref[def:colim]{終対象}でもある．}
-\end{myexample}
-
+\begin{mydef}[label=redef:rigid]{rigidなモノイダル圏}
+    \hyperref[def:monoidal-category]{モノイダル圏} $(\Cat{C},\, \otimes,\, I,\, a,\, l,\, r)$ が\textbf{rigid}であるとは，$\forall X \in \Obj{\mathcal{C}}$ が\hyperref[redef:dual]{左・右双対}を持つことを言う．
+\end{mydef}
 
 
 \begin{mydef}[label=redef:braided-monoidal]{組紐付きモノイダル圏}
     \textbf{組紐付きモノイダル圏} (braided monoidal category) とは，以下の2つからなる：
     \begin{itemize}
-        \item \hyperref[def:monoidal-category]{モノイダル圏} $\mathcal{C}$
+        \item \hyperref[redef:monoidal-category]{モノイダル圏} $(\mathcal{C},\, \otimes,\, I,\, a,\, l,\, r)$
         \item \textbf{組紐} (braiding) と呼ばれる自然同型
         \begin{align}
             \Familyset[\big]{b_{X,\, Y} \colon X \otimes Y \xrightarrow{\cong} Y \otimes X}{X,\, Y \in \Obj{\mathcal{C}}}
@@ -169,114 +397,8 @@
     組紐付きモノイダル圏 $\mathcal{C}$ であって，$\mathcal{C}$ の組紐が $b_{X,\, Y} = b_{Y,\, X}^{-1}$ を充たすもののことを\textbf{対称モノイダル圏} (symmetric monoidal category) と呼ぶ．
 \end{mydef}
 
-
-\begin{mydef}[label=redef:dual,breakable]{双対}
-    \hyperref[def:monoidal-category]{モノイダル圏} $\mathcal{C}$ およびその任意の対象 $X,\, X^* \in \Obj{\mathcal{C}}$ を与える．
-    $X^*$ が $X$ の\textbf{左双対} (left dual) であり，かつ $X$ が $X^*$ の\textbf{右双対} (right dual) であるとは，
-    \begin{itemize}
-        \item \textbf{coevaluation}と呼ばれる射
-        \begin{align}
-            i_X \colon I \lto X \otimes X^*
-        \end{align}
-        \item \textbf{evaluation}と呼ばれる射
-        \begin{align}
-            e_X \colon X^* \otimes X \lto I
-        \end{align}
-    \end{itemize}
-    が存在して以下の図式を可換にすることを言う：
-    \begin{description}
-        \item[\textbf{(zig-zag equations)}]　
-        
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-                &I \otimes X \ar[dd, "r_X"']\ar[rr, "i_X \otimes \mathrm{Id}_X"] & &(X \otimes X^*) \otimes X \ar[d, "a_{X,\, X^*,\, X}"] \\
-                & & &X \otimes (X^* \otimes X) \ar[d, "\mathrm{Id}_X \otimes e_X"] \\
-                &X & &X \otimes I\ar[ll, "r_X"] \\
-            \end{tikzcd}
-        \end{center}
-
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-                &X^* \otimes I \ar[dd, "l_{X^*}"']\ar[rr, "\mathrm{Id}_{X^*} \otimes i_X"] & &X^* \otimes (X \otimes X^*) \ar[d, "a_{X^*,\, X,\, X^*}^{-1}"] \\
-                & & &(X^* \otimes X) \otimes X^* \ar[d, "e_X \otimes \mathrm{Id}_{X^*}"] \\
-                &X^* & &I \otimes X^* \ar[ll, "l_{X^*}"] \\
-            \end{tikzcd}
-        \end{center}
-    \end{description}
-\end{mydef}
-ストリング図式で書くときは
-\begin{align}
-    i_X &\coloneqq
-    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \coordinate (A) at (0,0);
-        \coordinate (B) at (1,0);
-        \lcoev{A}{B}
-    \end{tikzpicture} &
-    e_X &\coloneqq 
-    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \coordinate (A) at (0,0);
-        \coordinate (B) at (1,0);
-        \lev{A}{B}
-    \end{tikzpicture} &
-    e_X^{-1} &\coloneqq
-    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \coordinate (A) at (0,0);
-        \coordinate (B) at (1,0);
-        \rcoev{A}{B}
-    \end{tikzpicture} &
-    i_X^{-1} &\coloneqq 
-    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \coordinate (A) at (0,0);
-        \coordinate (B) at (1,0);
-        \rev{A}{B}
-    \end{tikzpicture}
-\end{align}
-とする．ストリング図式において\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equations)}}}は
-\begin{align}
-    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \draw[->-=.5] (0,-1) -- (0,1);
-    \end{tikzpicture}%
-    \quad
-    &=
-    \quad
-    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \coordinate (A) at (0,0);
-        \coordinate (B) at (1,0);
-        \coordinate (C) at (2,0);
-        \lcoev{A}{B}
-        \lev{B}{C}
-        \draw[->-=.5] (A) -- (0,1);
-        \draw[->-=.5] (2,-1) -- (C);
-    \end{tikzpicture}% 
-    \\
-    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \draw[->-=.5] (0,1) -- (0,-1);
-    \end{tikzpicture}%
-    \quad
-    &=
-    \quad
-    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \coordinate (A) at (0,0);
-        \coordinate (B) at (1,0);
-        \coordinate (C) at (2,0);
-        \lcoev{B}{C}
-        \lev{A}{B}
-        \draw[->-=.5] (A) -- (0,-1);
-        \draw[->-=.5] (2,1) -- (C);
-    \end{tikzpicture}% 
-\end{align}
-と書ける．
-
-\begin{mydef}[label=redef:rigid]{rigidなモノイダル圏}
-    \hyperref[def:monoidal-category]{モノイダル圏} $\mathcal{C}$ が\textbf{rigid}であるとは，$\forall X \in \Obj{\mathcal{C}}$ が\hyperref[redef:dual]{左・右双対}を持つことを言う．
-\end{mydef}
-
-\begin{marker}
-    これまでは圏 $\Cat{C}$ の対象を大文字で書いてきたが，以下では文脈によっては小文字で書くことがある．
-\end{marker}
-
 \begin{mydef}[label=redef:monidal-functor,breakable]{モノイダル関手}
-    2つの\hyperref[def:monoidal-category]{モノイダル圏} $\mathcal{C},\, \mathcal{D}$ の間の関手
+    2つの\hyperref[def:monoidal-category]{モノイダル圏} $(\Cat{C},\, \otimes_{\Cat{C}},\, I_{\Cat{C}},\, a^{\Cat{C}},\, l^{\Cat{C}},\, r^{\Cat{C}}),\, (\Cat{D},\, \otimes_{\Cat{D}},\, I_{\Cat{D}},\, a^{\Cat{D}},\, l^{\Cat{D}},\, r^{\Cat{D}})$ の間の関手
     \begin{align}
         F \colon \mathcal{C} \lto \mathcal{D}
     \end{align}
@@ -329,7 +451,7 @@
 \end{mydef}
 
 \begin{mydef}[label=def:monoidal-nat]{モノイダル自然変換}
-    2つの\hyperref[redef:monoidal-category]{モノイダル圏} $\Cat{C},\, \Cat{D}$ の間の2つの\hyperref[redef:monidal-functor]{弱いモノイダル関手}
+    2つの\hyperref[redef:monoidal-category]{モノイダル圏} $(\Cat{C},\, \otimes_{\Cat{C}},\, I_{\Cat{C}},\, a^{\Cat{C}},\, l^{\Cat{C}},\, r^{\Cat{C}}),\, (\Cat{D},\, \otimes_{\Cat{D}},\, I_{\Cat{D}},\, a^{\Cat{D}},\, l^{\Cat{D}},\, r^{\Cat{D}})$ の間の2つの\hyperref[redef:monidal-functor]{弱いモノイダル関手}
     $\Bigl(F_i\colon \Cat{C} \lto \Cat{D},\, \varepsilon_i \colon I_{\mathcal{D}} \lto F(I_{\mathcal{C}}),\, \Familyset[\big]{\mu_i{}_{X,\, Y} \colon F_i(X) \otimes F_i(Y) \lto F_i(X \otimes Y)}{X,\, Y \in \Obj{\Cat{C}}}\Bigr)\WHERE i = 1,\, 2$
     の間の\hyperref[def:nat]{自然変換}
     \begin{center}
@@ -362,22 +484,373 @@
     
 \end{mydef}
 
-\section{フュージョン圏}
+\section{テンソル圏・フュージョン圏}
 
-\begin{mydef}[label=def:fusion-cat]{フュージョン圏}
-    圏 $\Cat{C}$ が\textbf{フュージョン圏} (fusion category) であるとは，
+\begin{marker}
+    これまでは\hyperref[redef:monoidal-category]{モノイダル圏}の対象を英大文字 $X,\, Y,\, Z,\, \dots$ で，単位対象を $I$ と書いてきたが，以下では対象を英小文字 $x,\, y,\, z,\, \dots$ で，単位対象を $1$ と書くことにする．
+\end{marker}
+
+\begin{mydef}[label=def:ringcat]{環圏}
+    圏 $\Cat{C}$ が\textbf{多重環圏} (multiring category) であるとは，以下の条件を充たすこと：
+    \begin{description}
+        \item[\textbf{(mR-1)}] $\Cat{C}$ は\hyperref[def:finite-abcat]{局所有限}な\hyperref[def:additive-cat]{$\mathbb{K}$-線形アーベル圏}
+        \item[\textbf{(mR-2)}] $\Cat{C}$ は\hyperref[redef:rigid]{モノイダル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$
+        \item[\textbf{(mR-3)}] 関手 $\otimes \colon \Cat{C} \times \Cat{C} \lto \Cat{C}$ が $\mathbb{K}$-線形かつ双完全
+    \end{description}
+    圏 $\Cat{C}$ が\textbf{環圏} (ring category) であるとは，以下の条件を充たすこと：
+    \begin{description}
+        \item[\textbf{(R-1)}] $\Cat{C}$ は多重環圏
+        \item[\textbf{(R-2)}] $\Hom{\Cat{C}} (1,\, 1) \cong \mathbb{K}$ 
+    \end{description}
+\end{mydef}
+
+\begin{mydef}[label=def:tensorfusion-cat]{テンソル圏・フュージョン圏}
+    圏 $\Cat{C}$ が\textbf{多重テンソル圏} (multitensor category) であるとは，以下の条件を充たすこと：
+    \begin{description}
+        \item[\textbf{(mT-1)}] $\Cat{C}$ は\hyperref[def:finite-abcat]{局所有限}な\hyperref[def:additive-cat]{$\mathbb{K}$-線形アーベル圏}
+        \item[\textbf{(mT-2)}] $\Cat{C}$ は\hyperref[redef:rigid]{rigidなモノイダル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$
+        \item[\textbf{(mT-3)}] 関手 $\otimes \colon \Cat{C} \times \Cat{C} \lto \Cat{C}$ が $\forall x,\,y,\,z,\,w \in \Obj{\Cat{C}}$ に対して定める写像 $\otimes_{x,y,z,w} \colon \Hom{\Cat{C}} (x,\, y) \times \Hom{\Cat{C}} (z,\, w) \lto \Hom{\Cat{C}} (x \otimes z,\,  y \otimes w)$ が $\mathbb{K}$-双線形
+    \end{description}
+    圏 $\Cat{C}$ が\textbf{テンソル圏} (tensor category) であるとは，以下の条件を充たすこと：
+    \begin{description}
+        \item[\textbf{(T-1)}] $\Cat{C}$ は多重テンソル圏
+        \item[\textbf{(T-2)}] $\Hom{\Cat{C}} (1,\, 1) \cong \mathbb{K}$ 
+    \end{description}
+    
+    \tcblower
+
+    圏 $\Cat{C}$ が\textbf{多重フュージョン圏} (multifusion category) であるとは，以下の条件を充たすこと：
+    \begin{description}
+        \item[\textbf{(mFus-1)}] $\Cat{C}$ は多重テンソル圏
+        \item[\textbf{(mFus-2)}] $\Cat{C}$ は\hyperref[def:additive-cat]{$\mathbb{K}$-線形アーベル圏}として\hyperref[def:finite-abcat]{有限}かつ\hyperref[def:finite-abcat]{半単純}
+    \end{description}
+    圏 $\Cat{C}$ が\textbf{フュージョン圏} (fusion category) であるとは，以下の条件を充たすこと：
+    \begin{description}
+        \item[\textbf{(Fus-1)}] $\Cat{C}$ はテンソル圏
+        \item[\textbf{(Fus-2)}] $\Cat{C}$ は\hyperref[def:additive-cat]{$\mathbb{K}$-線形アーベル圏}として\hyperref[def:finite-abcat]{有限}かつ\hyperref[def:finite-abcat]{半単純}
+    \end{description}
+\end{mydef}
+
+\begin{myprop}[label=prop:tensor-ring]{多重テンソル圏のテンソル積は双完全}
+    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $\Cat{C}$ の関手 $\otimes \colon \Cat{C} \times \Cat{C} \lto \Cat{C}$ は双完全である．
+\end{myprop}
+
+\begin{proof}
+    ~\cite[PROPOSITION 4.2.1., p.66]{etingof2015tensor}
+\end{proof}
+
+命題\ref{prop:tensor-ring}より，
+\begin{align}
+    \text{\hyperref[def:tensorfusion-cat]{（多重）テンソル圏}} \IMP \text{\hyperref[def:ringcat]{（多重）環圏}}
+\end{align}
+が言える．
+
+\begin{mydef}[label=def:tensor-functor]{テンソル関手・ファイバー関手}
+    $\Cat{C},\, \Cat{D}$ を\hyperref[def:ringcat]{多重環圏}とする．関手 $F \colon \Cat{C} \lto \Cat{D}$ を与える．
+    $F$ が\textbf{テンソル関手} (tensor functor) であるとは，以下を充たすこと：
+    \begin{description}
+        \item[\textbf{(TF-1)}] $F$ は\hyperref[def:additive-exact]{$\mathbb{K}$-線形}
+        \item[\textbf{(TF-2)}] $F$ は\hyperref[redef:monidal-functor]{弱いモノイダル関手}
+        \item[\textbf{(TF-3)}] $F$ は\hyperref[def:additive-exact]{完全}かつ\hyperref[def:faithful]{忠実}\footnote{この条件は\cite[DEFINITION 4.2.5., p.66]{etingof2015tensor}に合わせて付けたものであり，テンソル関手と言った際には必要とされないことも多い．}
+    \end{description}
+    特に $\Cat{D} = \VEC{\mathbb{K}}$ のとき，テンソル関手 $F \colon \Cat{C} \lto \VEC{\mathbb{K}}$ は\textbf{ファイバー関手} (fiber functor) と呼ばれる．
+\end{mydef}
+
+\begin{myexample}[label=def:CG]{圏 $\Cat{C}(G)$}
+    $G$ を群とする．\hyperref[redef:monoidal-category]{厳密なモノイダル圏} $\Cat{C}(G)$ を，
     \begin{itemize}
-        \item $\Cat{C}$ は\hyperref[def:semisimple-cat]{半単純}な $\mathbb{K}$-上の\hyperref[def:additive-cat]{アーベル圏}
-        \item $\Cat{C}$ は\hyperref[redef:rigid]{rigid}な\hyperref[redef:monoidal-category]{モノイダル圏}
-        \item $\Cat{C}$ の\hyperref[def:semisimple-cat]{単純対象}の同型類が有限個
-        \item 単位対象 $I \in \Obj{\Cat{C}}$ について，$\Hom{\Cat{C}}(I,\, I) = \mathbb{K}$
+        \item $\Obj{\Cat{C}(G)} \coloneqq G$
+        \item $\forall g_1,\, g_2 \in G$ に対して
+        \begin{align}
+            \Hom{\Cat{C}(G)}(g_1,\, g_2) \coloneqq 
+            \begin{cases}
+                \LU(1), &g_1 = g_2 \\
+                \emptyset, &g_1 \neq g_2
+            \end{cases}
+        \end{align}
+        \item $g_1 \otimes g_2 \coloneqq g_1 g_2$ かつ，$g \xrightarrow{\forall \theta_1,\, \theta_2}  g$ に対して $\theta_1 \otimes \theta_2 \coloneqq \theta_1 \theta_2$
+        \item $1 \coloneqq 1_G$
+        \item $a_{g_1,g_2,g_3} \coloneqq 1,\; l_{g} \coloneqq 1,\, r_g \coloneqq 1$
     \end{itemize}
-    が成り立つこと．
+    で定義する．
+    
+    $\mathbb{K} = \mathbb{C}$ とする．
+    % $\Cat{C}(G)$ は明らかに\hyperref[def:tensorfusion-cat]{フュージョン圏}である．
+\end{myexample}
+
+\begin{myexample}[label=def:CGa]{圏 $\Cat{C}(G;\, \alpha)$}
+    $G$ を群とする．\exref{def:CG}の\hyperref[redef:monoidal-category]{associatorとunitors}を非自明にしてみよう．
+    今 $\alpha \in \irm{Z^3}{Grp} \bigl(G;\, \LU(1)\bigr)$ を1つ固定する\footnote{i.e. 3-コサイクル}．
+    
+    \hyperref[redef:monoidal-category]{モノイダル圏} $\Cat{C}(G;\, \alpha)$ を，
+    \begin{align}
+        a_{g_1,g_2,g_3} &\coloneqq \alpha(g_1,\, g_2,\, g_3), \\
+        l_{g} &\coloneqq \alpha(1,\, 1,\, g)^{-1}, \\
+        r_{g} &\coloneqq \alpha(g,\, 1,\, g)
+    \end{align}
+    とおくことにより定義する\footnote{他のデータは\exref{def:CG}と全く同じである}．実際，\hyperref[redef:monoidal-category]{\textsf{\textbf{(pentagon identity)}}}はコサイクル条件および $\LU(1)$ の可換性により
+    \begin{align}
+        &(\Id_{g_4} \otimes a_{g_1,g_2,g_3}) \circ a_{g_4,g_1 \otimes g_2,g_3} \circ (a_{g_4,g_1,g_2} \otimes \Id_{g_3}) \\
+        &= \alpha(g_1,\, g_2,\, g_3) \alpha(g_4,\, g_1g_2,\, g_3) \alpha (g_4,\, g_1,\, g_2) \\
+        &= \alpha(g_4g_1,\, g_2,\, g_3) \alpha(g_4,\, g_1,\, g_2g_3) \\
+        &= \alpha(g_4,\, g_1,\, g_2g_3)\alpha(g_4g_1,\, g_2,\, g_3) \\
+        &= a_{g_4,g_1,g_2g_3} \circ a_{g_4 \otimes g_1,\, g_2,\, g_3}
+    \end{align}
+    が成り立ち，充たされている．
+    % \underline{$G$ が有限群ならば} $\Cat{C}(G;\, \alpha)$ は\hyperref[def:tensorfusion-cat]{フュージョン圏}である．
+\end{myexample}
+
+\subsection{量子次元}
+
+\begin{mydef}[label=def:qtrace,breakable]{量子トレース}
+    \begin{itemize}
+        \item \hyperref[redef:rigid]{rigidなモノイダル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$
+        \item 対象 $V \in \Cat{C}$
+        \item $f \in \Hom{\Cat{C}}(V,\, V^{**}),\; g \in \Hom{\Cat{C}}(V,\, \prescript{**}{}{V})$
+    \end{itemize}
+    を与える．
+    \begin{itemize}
+        \item $f$ の\textbf{左量子トレース} (left quantum trace) を以下で定義する：
+        \begin{align}
+            \lqTr(f) \colon 1 \xrightarrow{\lcoev_V} V \otimes V^* \xrightarrow{f \otimes \Id_V} V^{**} \otimes V^* \xrightarrow{\lev_{V^*}} 1
+        \end{align}
+        ストリング図式で書くと次のようになる\footnote{$\lev_{V^*} = \rev_{V^{**}}$ を使った．}：
+        \begin{align}
+            \lqTr(f) \coloneqq 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \coordinate (A1) at (0,-1);
+                \coordinate (A2) at (0,1);
+                \node[squarednode] (f) at (0,0) {$f$};
+                \coordinate (B1) at (1,-1);
+                \coordinate (B2) at (1,1);
+                \draw[->-=.5] (A1) -- node[midway, left]{$V$} (f);
+                \draw[->-=.5] (f) -- node[midway, left]{$V^{**}$} (A2);
+                \draw[->-=.5] (B2) -- node[midway, right]{$V^{*}$} (B1);
+                \LCOEV{A1}{B1}
+                \REV{A2}{B2}
+            \end{tikzpicture}
+            \in \Hom{\Cat{C}} (1,\, 1)
+        \end{align}
+        \item $g$ の\textbf{右量子トレース} (right quantum trace) を以下で定義する：
+        \begin{align}
+            \rqTr(g) \colon 1 \xrightarrow{\rcoev_{\rdual{V}}} \rdual{V} \otimes V \xrightarrow{\Id_{\rdual{V}} \otimes g} \rdual{V} \otimes \prescript{**}{}{V} \xrightarrow{\rev_{\prescript{**}{}{V}}} 1
+        \end{align}
+        ストリング図式で書くと次のようになる\footnote{$\rev_{\prescript{**}{}{V}} = \lev_{\rdual{V}}$ を使った．}：
+        \begin{align}
+            \lqTr(g) \coloneqq 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \coordinate (A1) at (0,-1);
+                \coordinate (A2) at (0,1);
+                \node[squarednode] (g) at (1,0) {$g$};
+                \coordinate (B1) at (1,-1);
+                \coordinate (B2) at (1,1);
+                \draw[->-=.5] (B1) -- node[midway, right]{$V$} (g);
+                \draw[->-=.5] (g) -- node[midway, right]{$\prescript{**}{}{V}$} (B2);
+                \draw[->-=.5] (A2) -- node[midway, left]{$\rdual{V}$} (A1);
+                \RCOEV{A1}{B1}
+                \LEV{A2}{B2}
+            \end{tikzpicture}
+            \in \Hom{\Cat{C}} (1,\, 1)
+        \end{align}
+    \end{itemize}
+    
+\end{mydef}
+
+\begin{mydef}[label=def:pivotal,breakable]{旋回構造}
+    \hyperref[redef:rigid]{rigidなモノイダル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
+    $\Cat{C}$ の\textbf{旋回構造} (pivotal structure) とは，\hyperref[def:monoidal-nat]{モノイダル自然同型}
+    \begin{center}
+        \begin{tikzpicture}
+            \node (C1) at (0,0) {$\Cat{C}$};
+            \node (C2) at (3,0) {$\Cat{C}$};
+            \draw[->] (C1) to [out=45,in=135] coordinate[midway] (A) node[midway, above] {$\Id_{\Cat{C}}$} (C2);
+            \draw[->] (C1) to [out=-45,in=-135] coordinate[midway] (B) node[midway, below] {$(\mhyphen)^{**}$} (C2);
+            \draw[-implies,double equal sign distance, red] (A) to node[midway, left] {$p$} (B);
+        \end{tikzpicture}
+    \end{center}
+    のこと．
+\end{mydef}
+
+\begin{mydef}[label=def:qdim,breakable]{球状圏・量子次元}
+    \hyperref[def:tensorfusion-cat]{テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ が\hyperref[def:pivotal]{旋回構造} $p$ を持つとする．
+    圏 $\Cat{C}$ が\textbf{球状} (spherical) であるとは，$\forall V \in \Obj{\Cat{C}}$ に対して
+    \begin{align}
+        \lqTr(p_V) =
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \coordinate (A1) at (0,-1);
+            \coordinate (A2) at (0,1);
+            \node[squarednode] (f) at (0,0) {$p_V$};
+            \coordinate (B1) at (1,-1);
+            \coordinate (B2) at (1,1);
+            \draw[->-=.5] (A1) -- node[midway, left]{$V$} (f);
+            \draw[->-=.5] (f) -- node[midway, left]{$V^{**}$} (A2);
+            \draw[->-=.5] (B2) -- node[midway, right]{$V^{*}$} (B1);
+            \LCOEV{A1}{B1}
+            \REV{A2}{B2}
+        \end{tikzpicture}
+        =
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \coordinate (A1) at (0,-1);
+            \coordinate (A2) at (0,1);
+            \node[squarednode] (g) at (1,0) {$p_{V}$};
+            \coordinate (B1) at (1,-1);
+            \coordinate (B2) at (1,1);
+            \draw[->-=.5] (B1) -- node[midway, right]{$V$} (g);
+            \draw[->-=.5] (g) -- node[midway, right]{$\prescript{**}{}{V}$} (B2);
+            \draw[->-=.5] (A2) -- node[midway, left]{$\rdual{V}$} (A1);
+            \RCOEV{A1}{B1}
+            \LEV{A2}{B2}
+        \end{tikzpicture}
+        = \rqTr(p_V)
+    \end{align}
+    が成り立つことを言う．
 
     \tcblower
 
-    フュージョン圏 $\Cat{C}$ が\textbf{組紐付きフュージョン圏} (braided fusion category) であるとは，$\Cat{C}$ が\hyperref[redef:braided-monoidal]{組紐付きモノイダル圏}でもあることを言う．
+    球状圏 $\Cat{C}$ の対象 $V \in \Obj{\Cat{C}}$ の\textbf{量子次元} (quantum dimension) を以下で定義する：
+    \begin{align}
+        \dim_p (V) \coloneqq \lqTr(p_V) \coloneqq 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \coordinate (A1) at (0,-1);
+            \coordinate (A2) at (0,1);
+            \node[squarednode] (f) at (0,0) {$a_V$};
+            \coordinate (B1) at (1,-1);
+            \coordinate (B2) at (1,1);
+            \draw[->-=.5] (A1) -- node[midway, left]{$V$} (f);
+            \draw[->-=.5] (f) -- node[midway, left]{$V^{**}$} (A2);
+            \draw[->-=.5] (B2) -- node[midway, right]{$V^{*}$} (B1);
+            \LCOEV{A1}{B1}
+            \REV{A2}{B2}
+        \end{tikzpicture}
+        \in \Hom{\Cat{C}} (1,\, 1)
+    \end{align}
 \end{mydef}
+
+\subsection{Deligneのテンソル積}
+
+\begin{mydef}[label=def:DeligneProduct]{Deligneのテンソル積}
+    $\Cat{C},\, \Cat{D}$ を\hyperref[def:finite-abcat]{局所有限}な\hyperref[def:additive-cat]{$\mathbb{K}$-線形アーベル圏}とする．
+    \textbf{Deligneのテンソル積} (Deligne's tensor product) とは，以下の性質をみたす\hyperref[def:additive-cat]{$\mathbb{K}$-線形アーベル圏} $\bm{\Cat{C} \boxtimes \Cat{D}}$ と双\hyperref[def:additive-exact]{右完全関手} $\boxtimes \colon \Cat{C} \times \Cat{D} \lto \Cat{C} \boxtimes \Cat{D}$ の組み $(\Cat{C} \boxtimes \Cat{D},\, \boxtimes)$ のこと：
+    \begin{description}
+        \item[\textbf{(普遍性)}]　
+        
+        任意の双右完全関手 $\textcolor{blue}{F} \colon \Cat{C} \times \Cat{D} \lto \Cat{C} \boxtimes \textcolor{blue}{\Cat{A}}$ に対し，ある双右完全関手 $\textcolor{red}{\bar{F}} \colon \Cat{C} \boxtimes \Cat{D} \lto \textcolor{blue}{\Cat{A}}$ が一意的に存在して $\textcolor{red}{\bar{F}} \circ \boxtimes = \textcolor{blue}{F}$ を充たす．
+    \end{description}
+    
+\end{mydef}
+
+\begin{myprop}[label=prop:DeligneProduct]{Deligneのテンソル積の基本性質}
+    \begin{enumerate}
+        \item \hyperref[def:DeligneProduct]{Deligneのテンソル積}は存在し，それ自身が\hyperref[def:finite-abcat]{局所有限}な\hyperref[def:additive-cat]{$\mathbb{K}$-線形アーベル圏}になる．
+        \item 関手 $\boxtimes \colon \Cat{C} \times \Cat{D} \lto \Cat{C} \boxtimes \Cat{D}$ は双\hyperref[def:additive-exact]{完全}であり，
+        \begin{align}
+            \Hom{\Cat{C}} (x_1,\, y_1) \otimes_{\mathbb{K}} \Hom{\Cat{C}} (x_2,\, y_2) \cong \Hom{\Cat{C} \boxtimes \Cat{D}} (x_1 \boxtimes x_2,\, y_1 \boxtimes y_2)
+        \end{align}
+        を充たす．
+        \item $\Cat{C},\, \Cat{D}$ が\hyperref[def:ringcat]{(多重) 環圏}/\hyperref[def:tensorfusion-cat]{(多重) テンソル圏}ならば $\Cat{C} \boxtimes \Cat{D}$ は\hyperref[def:ringcat]{(多重) 環圏}/\hyperref[def:tensorfusion-cat]{(多重) テンソル圏}である．
+    \end{enumerate}
+    
+\end{myprop}
+
+\begin{proof}
+    \begin{enumerate}
+        \item ~\cite[PROPOSITION 1.11.2., p.15]{etingof2015tensor}
+        \item ~\cite[PROPOSITION 1.11.2., p.15]{etingof2015tensor}
+        \item ~\cite[PROPOSITION 4.6.1., p.73]{etingof2015tensor}
+    \end{enumerate}
+    
+\end{proof}
+
+\section{加群圏}
+
+\begin{mydef}[label=def:modulecat]{左加群圏}
+    $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r)$ を\hyperref[redef:monoidal-category]{モノイダル圏}とする．
+
+    \textbf{左 $\Cat{C}$-加群圏} (left $\Cat{C}$-module category) $\Cat{M}$ は，以下のデータからなる：
+    \begin{itemize}
+        \item 圏 $\Cat{M}$
+        \item 関手 $\btr \colon \Cat{C} \times \Cat{M} \lto \Cat{M}$
+        \item \hyperref[def:nat]{自然同型} $\Familyset[\big]{\alpha_{x,\, y,\, m} \colon (x \otimes y) \btr m \lto x \btr (y \btr m)}{x,y \in \Obj{\Cat{C}},\, m \in \Obj{\Cat{M}}}$
+    \end{itemize}
+    これらは以下の条件を充たす：
+    \begin{description}
+        \item[\textbf{(lMod-1)}] 関手 $\Cat{M} \lto \Cat{M},\; m \lmto 1 \btr m$ は圏の自己同型である
+        \item[\textbf{(lMod-2)}] $\forall x,\,y,\, z \in \Obj{\Cat{C}},\; \forall m \in \Obj{\Cat{M}}$ に対して以下の図式を可換にする：
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                 & &\bigl( (x \otimes y) \otimes z \bigr) \btr m \ar[ddl, "a_{x,y,z}\btr \Id_m"']\ar[dr, "\alpha_{x\otimes y,z,m}"] & \\
+                 & & &(x\otimes y) \btr (z \btr m) \ar[dd, "\alpha_{x,y,z\btr m}"] \\
+                 &\bigl( x \otimes (y \otimes z) \bigr) \btr m \ar[ddr, "\alpha_{x,y\otimes z,m}"'] & & \\
+                 & & &x \btr \bigl( y \btr (z \btr m) \bigr)  \\
+                 & &x \btr \bigl( (y \otimes z) \btr m \bigr) \ar[ur, "\Id_x \btr \alpha_{y,z,m}"'] &
+            \end{tikzcd}
+        \end{center}
+        
+    \end{description}
+
+    \tcblower
+
+    \textbf{右 $\Cat{C}$-加群圏} $\Cat{M}$ も同様に定義される．
+\end{mydef}
+
+\begin{mydef}[label=def:bimodulecat,breakable]{両側加群圏}
+    $(\Cat{C}_i,\, \otimes_i,\, 1,\, a_i,\, l_i,\, r_i) \WHERE i =1,\, 2$ を\hyperref[redef:monoidal-category]{モノイダル圏}とする．
+
+    \textbf{$(\Cat{C}_1,\, \Cat{C}_2)$-両側加群圏} ($(\Cat{C}_1,\, \Cat{C}_2)$-bimodule category) $\Cat{M}$ は，以下のデータからなる：
+    \begin{itemize}
+        \item 圏 $\Cat{M}$
+        \item 関手 $\btr \colon \Cat{C}_1 \times \Cat{M} \lto \Cat{M}$
+        \item 関手 $\btl \colon \Cat{M} \times \Cat{C}_2 \lto \Cat{M}$
+        \item \hyperref[def:nat]{自然同型} $\Familyset[\big]{\alpha_{x_1,\, y_1,\, m} \colon (x_1 \otimes y_1) \btr m \lto x_1 \btr (y_1 \btr m)}{x_1,y_1\in \Obj{\Cat{C}_1},\, m \in \Obj{\Cat{M}}}$
+        \item \hyperref[def:nat]{自然同型} $\Familyset[\big]{\beta_{m,\, x_2,\, y_2} \colon m \btl (x_2 \otimes y_2) \lto  (m \btl x_2) \btl y_2}{x_2,y_2 \in \Obj{\Cat{C}_2},\, m \in \Obj{\Cat{M}}}$
+        \item \hyperref[def:nat]{自然同型} $\Familyset[\big]{b_{x_1,\,m,\, x_2} \colon (x_1 \btr m) \btl x_2 \lto  x_1 \btr (m \btl x_2)}{x_1 \in \Obj{\Cat{C}_1},\, x_2 \in \Obj{\Cat{C}_2} m \in \Obj{\Cat{M}}}$
+    \end{itemize}
+    これらは以下の条件を充たす：
+    \begin{description}
+        \item[\textbf{(Bimod-1)}] 関手 $\Cat{M} \lto \Cat{M},\; m \lmto 1 \btr m$ および $\Cat{M} \lto \Cat{M},\; m \lmto m \btl 1$ は圏の自己同型である
+        \item[\textbf{(Bimod-2)}] $\forall x,\,y,\, z \in \Obj{\Cat{C}_1},\; \forall m \in \Obj{\Cat{M}}$ に対して以下の図式を可換にする：
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                 & &\bigl( (x \otimes y) \otimes z \bigr) \btr m \ar[ddl, "a_{x,y,z}\btr \Id_m"']\ar[dr, "\alpha_{x\otimes y,z,m}"] & \\
+                 & & &(x\otimes y) \btr (z \btr m) \ar[dd, "\alpha_{x,y,z\btr m}"] \\
+                 &\bigl( x \otimes (y \otimes z) \bigr) \btr m \ar[ddr, "\alpha_{x,y\otimes z,m}"'] & & \\
+                 & & &x \btr \bigl( y \btr (z \btr m) \bigr)  \\
+                 & &x \btr \bigl( (y \otimes z) \btr m \bigr) \ar[ur, "\Id_x \btr \alpha_{y,z,m}"'] &
+            \end{tikzcd}
+        \end{center}
+        \item[\textbf{(Bimod-3)}] $\forall x,\,y,\, z \in \Obj{\Cat{C}_2},\; \forall m \in \Obj{\Cat{M}}$ に対して以下の図式を可換にする：
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                 & &m \btl \bigl( x \otimes (y \otimes z) \bigr) \ar[ddl, "\Id_m \btl a_{x,y,z}"']\ar[dr, "\beta_{m, x,y\otimes z}"] & \\
+                 & & &(m \btl x) \btl (y\otimes z) \ar[dd, "\beta_{m\btl x,y,z}"] \\
+                 &m \btl \bigl( (x \otimes y) \otimes z \bigr) \ar[ddr, "\beta_{m,x\otimes y,z}"'] & & \\
+                 & & &\bigl((m \btl x) \btl y \bigr) \btl z \\
+                 & &\bigl(m \btl (x \otimes y) \bigr) \btl z \ar[ur, "\Id_x \btl \beta_{m,x,y}"'] &
+            \end{tikzcd}
+        \end{center} 
+        \item[\textbf{(Bimod-4)}] $\forall x_i,\, y_i \in \Obj{\Cat{C}_i},\; \forall m \in \Obj{\Cat{M}}$ に対して以下の図式を可換にする：
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                 & &\bigl( (x_1 \otimes_1 y_1) \btr m \bigr) \btl x_1 \ar[ddl, "\alpha_{x_1,y_1,m} \btr \Id_{x_1}"']\ar[dr, "b_{x_1\otimes_1 y_1,m,x_2}"] & \\
+                 & & &(x_1\otimes_1 y_1) \btr (m \btl x_2) \ar[dd, "\alpha_{x_1,y_1,m\btl x_2}"] \\
+                 &\bigl( x_1 \btr (y_1 \btr m) \bigr) \btl x_1 \ar[ddr, "b_{x_1,y_1\btr m,x_2}"'] & & \\
+                 & & &x_1 \btr \bigl( y_1 \btr (m \btl x_2) \bigr) \\
+                 & &x_1 \btr \bigl( (y_1 \btr m) \btl x_1 \bigr) \ar[ur, "\Id_{x_1} \btr b_{y_1,m,_1}"'] &
+            \end{tikzcd}%
+        \end{center}
+        \begin{center}
+            \begin{tikzcd}[row sep=large]
+                &                           &x_1 \btr \bigl(m \btl (x_2 \otimes_2 y_2) \bigr) \ar[ddl, "\Id_{x_1} \btr \beta_{m,x_2,y_2}"']& \\
+                &                           &                                                                                              &(x_1 \btr m) \btl (x_2 \otimes_2 y_2) \ar[ul, "b_{x_1,m,x_2\otimes_2 y_2}"']\ar[dd, "\beta_{x_1 \btr m,x_2,y_2}"] \\
+                &x_1 \btr \bigl( (m \btl x_2) \btl y_2 \bigr)  & & \\
+                &                           &                                                                                              &\bigl( (x_1 \btr m) \btl x_2 \bigr) \btl y_2 \ar[dl, "b_{x_1,m,x_2} \btl \Id_{y_2}"] \\
+                &                           &\bigl( x_1 \btr (m \btl x_2) \bigr)  \btl y_2 \ar[uul, "b_{x_1,m\btl x_2,y_2}"]               &
+            \end{tikzcd}%
+        \end{center}
+        
+    \end{description}
+\end{mydef}
+
 
 \section{2-群}
 
@@ -698,9 +1171,9 @@
             \coordinate (B) at (1,0);
             \coordinate (C) at (2,0);
             \coordinate (D) at (3,0);
-            \lcoev{A}{D}
-            \rcoev{B}{C}
-            \rev{A}{B}
+            \LCOEV{A}{D}
+            \RCOEV{B}{C}
+            \REV{A}{B}
             \draw[->-=.5] (3,1) -- (D);
             \draw[->-=.5] (C) -- (2,1);
             % \EVinv{}
@@ -715,12 +1188,12 @@
             \coordinate (D) at (3,0);
             \coordinate (E) at (3,1);
             \coordinate (F) at (4,1);
-            \lcoev{A}{D}
-            \rcoev{B}{C}
-            \rev{A}{B}
+            \LCOEV{A}{D}
+            \RCOEV{B}{C}
+            \REV{A}{B}
             \draw[->-=.5] (E) -- (D);
             \draw[->-=.5] (C) -- (2,2);
-            \lev{E}{F}
+            \LEV{E}{F}
             \draw[->-=.5] (4,-1) -- (F);
             % \EVinv{}
         \end{tikzpicture}
@@ -735,12 +1208,12 @@
             \coordinate (D) at (3,0);
             \coordinate (E) at (2,1);
             \coordinate (F) at (-1,1);
-            \lcoev{A}{D}
-            \rcoev{B}{C}
-            \rev{A}{B}
+            \LCOEV{A}{D}
+            \RCOEV{B}{C}
+            \REV{A}{B}
             \draw[->-=.5] (3,2) -- (D);
             \draw[->-=.5] (C) -- (E);
-            \lcoev{E}{F}
+            \LCOEV{E}{F}
             \draw[->-=.5] (F) -- (-1,-1);
             % \EVinv{}
         \end{tikzpicture}
@@ -773,8 +1246,8 @@
         \node[squarednode] (f) at (0,0) {$f^{-1}$};
         \coordinate (A) at (-1,0);
         \coordinate (B) at (1,0);
-        \lev{A}{f}
-        \lcoev{f}{B}
+        \LEV{A}{f}
+        \LCOEV{f}{B}
         \draw[->-=.5] (A) -- node[midway, left] {$\bar{x}$} (-1,-1);
         \draw[->-=.5] (1,1) -- node[midway, right] {$\bar{y}$} (B);
         \node at (-0.5,1) {$e_x$};
