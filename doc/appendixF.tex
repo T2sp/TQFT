@@ -699,14 +699,14 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
 \begin{mydef}[label=def:qtrace,breakable]{量子トレース}
     \begin{itemize}
         \item \hyperref[redef:rigid]{rigidなモノイダル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$
-        \item 対象 $V \in \Cat{C}$
-        \item $f \in \Hom{\Cat{C}}(V,\, V^{**}),\; g \in \Hom{\Cat{C}}(V,\, \prescript{**}{}{V})$
+        \item 対象 $x \in \Cat{C}$
+        \item $f \in \Hom{\Cat{C}}(x,\, x^{**}),\; g \in \Hom{\Cat{C}}(x,\, \rddual{x})$
     \end{itemize}
     を与える．
     \begin{itemize}
         \item $f$ の\textbf{左量子トレース} (left quantum trace) を以下で定義する：
         \begin{align}
-            \lqTr(f) \colon 1 \xrightarrow{\lcoev_V} V \otimes V^* \xrightarrow{f \otimes \Id_V} V^{**} \otimes V^* \xrightarrow{\lev_{V^*}} 1
+            \lqTr(f) \colon 1 \xrightarrow{\lcoev_x} x \otimes x^* \xrightarrow{f \otimes \Id_x} x^{**} \otimes x^* \xrightarrow{\lev_{x^*}} 1
         \end{align}
         ストリング図式で書くと次のようになる\footnote{$\lev_{V^*} = \rev_{V^{**}}$ を使った．}：
         \begin{align}
@@ -717,9 +717,9 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
                 \node[squarednode] (f) at (0,0) {$f$};
                 \coordinate (B1) at (1,-1);
                 \coordinate (B2) at (1,1);
-                \draw[->-=.5] (A1) -- node[midway, left]{$V$} (f);
-                \draw[->-=.5] (f) -- node[midway, left]{$V^{**}$} (A2);
-                \draw[->-=.5] (B2) -- node[midway, right]{$V^{*}$} (B1);
+                \draw[->-=.5] (A1) -- node[midway, left]{\small $x$} (f);
+                \draw[->-=.5] (f) -- node[midway, left]{\small$x^{**}$} (A2);
+                \draw[->-=.5] (B2) -- node[midway, right]{\small$x^{*}$} (B1);
                 \LCOEV{A1}{B1}
                 \REV{A2}{B2}
             \end{tikzpicture}
@@ -727,9 +727,9 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
         \end{align}
         \item $g$ の\textbf{右量子トレース} (right quantum trace) を以下で定義する：
         \begin{align}
-            \rqTr(g) \colon 1 \xrightarrow{\rcoev_{\rdual{V}}} \rdual{V} \otimes V \xrightarrow{\Id_{\rdual{V}} \otimes g} \rdual{V} \otimes \prescript{**}{}{V} \xrightarrow{\rev_{\prescript{**}{}{V}}} 1
+            \rqTr(g) \colon 1 \xrightarrow{\rcoev_{\rdual{x}}} \rdual{x} \otimes x \xrightarrow{\Id_{\rdual{x}} \otimes g} \rdual{x} \otimes \rddual{x} \xrightarrow{\rev_{\rddual{x}}} 1
         \end{align}
-        ストリング図式で書くと次のようになる\footnote{$\rev_{\prescript{**}{}{V}} = \lev_{\rdual{V}}$ を使った．}：
+        ストリング図式で書くと次のようになる\footnote{$\rev_{\rddual{x}} = \lev_{\rdual{x}}$ を使った．}：
         \begin{align}
             \lqTr(g) \coloneqq 
             \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
@@ -738,9 +738,9 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
                 \node[squarednode] (g) at (1,0) {$g$};
                 \coordinate (B1) at (1,-1);
                 \coordinate (B2) at (1,1);
-                \draw[->-=.5] (B1) -- node[midway, right]{$V$} (g);
-                \draw[->-=.5] (g) -- node[midway, right]{$\prescript{**}{}{V}$} (B2);
-                \draw[->-=.5] (A2) -- node[midway, left]{$\rdual{V}$} (A1);
+                \draw[->-=.5] (B1) -- node[midway, right]{\small$x$} (g);
+                \draw[->-=.5] (g) -- node[midway, right]{\small $\rddual{x}$} (B2);
+                \draw[->-=.5] (A2) -- node[midway, left]{\small $\rdual{x}$} (A1);
                 \RCOEV{A1}{B1}
                 \LEV{A2}{B2}
             \end{tikzpicture}
@@ -767,18 +767,18 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
 
 \begin{mydef}[label=def:qdim,breakable]{球状圏・量子次元}
     \hyperref[def:tensorfusion-cat]{テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ が\hyperref[def:pivotal]{旋回構造} $p$ を持つとする．
-    圏 $\Cat{C}$ が\textbf{球状} (spherical) であるとは，$\forall V \in \Obj{\Cat{C}}$ に対して
+    圏 $\Cat{C}$ が\textbf{球状} (spherical) であるとは，$\forall x \in \Obj{\Cat{C}}$ に対して
     \begin{align}
-        \lqTr(p_V) =
+        \lqTr(p_x) =
         \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
             \coordinate (A1) at (0,-1);
             \coordinate (A2) at (0,1);
-            \node[squarednode] (f) at (0,0) {$p_V$};
+            \node[squarednode] (f) at (0,0) {$p_x$};
             \coordinate (B1) at (1,-1);
             \coordinate (B2) at (1,1);
-            \draw[->-=.5] (A1) -- node[midway, left]{$V$} (f);
-            \draw[->-=.5] (f) -- node[midway, left]{$V^{**}$} (A2);
-            \draw[->-=.5] (B2) -- node[midway, right]{$V^{*}$} (B1);
+            \draw[->-=.5] (A1) -- node[midway, left]{\small $x$} (f);
+            \draw[->-=.5] (f) -- node[midway, left]{\small $x^{**}$} (A2);
+            \draw[->-=.5] (B2) -- node[midway, right]{\small $x^{*}$} (B1);
             \LCOEV{A1}{B1}
             \REV{A2}{B2}
         \end{tikzpicture}
@@ -786,33 +786,33 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
         \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
             \coordinate (A1) at (0,-1);
             \coordinate (A2) at (0,1);
-            \node[squarednode] (g) at (1,0) {$p_{V}$};
+            \node[squarednode] (g) at (1,0) {$p_{x}$};
             \coordinate (B1) at (1,-1);
             \coordinate (B2) at (1,1);
-            \draw[->-=.5] (B1) -- node[midway, right]{$V$} (g);
-            \draw[->-=.5] (g) -- node[midway, right]{$\prescript{**}{}{V}$} (B2);
-            \draw[->-=.5] (A2) -- node[midway, left]{$\rdual{V}$} (A1);
+            \draw[->-=.5] (B1) -- node[midway, right]{\small $x$} (g);
+            \draw[->-=.5] (g) -- node[midway, right]{$\rddual{x}$} (B2);
+            \draw[->-=.5] (A2) -- node[midway, left]{$\rdual{x}$} (A1);
             \RCOEV{A1}{B1}
             \LEV{A2}{B2}
         \end{tikzpicture}
-        = \rqTr(p_V)
+        = \rqTr(p_x)
     \end{align}
     が成り立つことを言う．
 
     \tcblower
 
-    球状圏 $\Cat{C}$ の対象 $V \in \Obj{\Cat{C}}$ の\textbf{量子次元} (quantum dimension) を以下で定義する：
+    球状圏 $\Cat{C}$ の対象 $x \in \Obj{\Cat{C}}$ の\textbf{量子次元} (quantum dimension) を以下で定義する：
     \begin{align}
-        \dim_p (V) \coloneqq \lqTr(p_V) \coloneqq 
+        \dim_p (x) \coloneqq \lqTr(p_x) \coloneqq 
         \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
             \coordinate (A1) at (0,-1);
             \coordinate (A2) at (0,1);
-            \node[squarednode] (f) at (0,0) {$a_V$};
+            \node[squarednode] (f) at (0,0) {$p_x$};
             \coordinate (B1) at (1,-1);
             \coordinate (B2) at (1,1);
-            \draw[->-=.5] (A1) -- node[midway, left]{$V$} (f);
-            \draw[->-=.5] (f) -- node[midway, left]{$V^{**}$} (A2);
-            \draw[->-=.5] (B2) -- node[midway, right]{$V^{*}$} (B1);
+            \draw[->-=.5] (A1) -- node[midway, left]{$x$} (f);
+            \draw[->-=.5] (f) -- node[midway, left]{$x^{**}$} (A2);
+            \draw[->-=.5] (B2) -- node[midway, right]{$x^{*}$} (B1);
             \LCOEV{A1}{B1}
             \REV{A2}{B2}
         \end{tikzpicture}
