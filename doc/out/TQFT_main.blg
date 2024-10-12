@@ -9,23 +9,23 @@ while executing---line 964 of file myh-physrev.bst
 You've used 54 entries,
             1990 wiz_defined-function locations,
             969 strings with 12761 characters,
-and the built_in function-call counts, 11325 in all, are:
-= -- 770
+and the built_in function-call counts, 11470 in all, are:
+= -- 783
 > -- 468
 < -- 1
 + -- 147
 - -- 93
-* -- 1029
-:= -- 1389
+* -- 1043
+:= -- 1402
 add.period$ -- 54
 call.type$ -- 54
 change.case$ -- 5
 chr.to.int$ -- 0
 cite$ -- 55
-duplicate$ -- 516
-empty$ -- 1230
+duplicate$ -- 517
+empty$ -- 1244
 format.name$ -- 147
-if$ -- 2684
+if$ -- 2724
 int.to.chr$ -- 0
 int.to.str$ -- 54
 missing$ -- 62
@@ -35,16 +35,16 @@ pop$ -- 292
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 533
+skip$ -- 545
 stack$ -- 0
-substring$ -- 765
+substring$ -- 802
 swap$ -- 137
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 81
+while$ -- 82
 width$ -- 56
 write$ -- 420
 is.kanji.str$ -- 0
