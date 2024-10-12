@@ -545,24 +545,13 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
 \end{align}
 が言える．
 
-\begin{mydef}[label=def:tensor-functor]{テンソル関手・ファイバー関手}
-    $\Cat{C},\, \Cat{D}$ を\hyperref[def:ringcat]{多重環圏}とする．関手 $F \colon \Cat{C} \lto \Cat{D}$ を与える．
-    $F$ が\textbf{テンソル関手} (tensor functor) であるとは，以下を充たすこと：
-    \begin{description}
-        \item[\textbf{(TF-1)}] $F$ は\hyperref[def:additive-exact]{$\mathbb{K}$-線形}
-        \item[\textbf{(TF-2)}] $F$ は\hyperref[redef:monidal-functor]{弱いモノイダル関手}
-        \item[\textbf{(TF-3)}] $F$ は\hyperref[def:additive-exact]{完全}かつ\hyperref[def:faithful]{忠実}\footnote{この条件は\cite[DEFINITION 4.2.5., p.66]{etingof2015tensor}に合わせて付けたものであり，テンソル関手と言った際には必要とされないことも多い．}
-    \end{description}
-    特に $\Cat{D} = \VEC{\mathbb{K}}$ のとき，テンソル関手 $F \colon \Cat{C} \lto \VEC{\mathbb{K}}$ は\textbf{ファイバー関手} (fiber functor) と呼ばれる．
-\end{mydef}
-
-\begin{myexample}[label=def:CG]{圏 $\Cat{C}(G)$}
-    $G$ を群とする．\hyperref[redef:monoidal-category]{厳密なモノイダル圏} $\Cat{C}(G)$ を，
+\begin{myexample}[label=def:CG]{圏 $\Cat{C}_G$・$\VecG{G}$}
+    $G$ を群とする．\hyperref[redef:monoidal-category]{厳密なモノイダル圏} $\Cat{C}_G$ を，
     \begin{itemize}
-        \item $\Obj{\Cat{C}(G)} \coloneqq G$
+        \item $\Obj{\Cat{C}_G} \coloneqq G$
         \item $\forall g_1,\, g_2 \in G$ に対して
         \begin{align}
-            \Hom{\Cat{C}(G)}(g_1,\, g_2) \coloneqq 
+            \Hom{\Cat{C}_G}(g_1,\, g_2) \coloneqq 
             \begin{cases}
                 \LU(1), &g_1 = g_2 \\
                 \emptyset, &g_1 \neq g_2
@@ -574,21 +563,40 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
     \end{itemize}
     で定義する．
     
-    $\mathbb{K} = \mathbb{C}$ とする．
-    % $\Cat{C}(G)$ は明らかに\hyperref[def:tensorfusion-cat]{フュージョン圏}である．
+    $\mathbb{K} = \mathbb{C}$ とする．\hyperref[redef:monoidal-category]{厳密なモノイダル圏} $\VecG{G}$ を，
+    \begin{itemize}
+        \item $G$-gradedな $\mathbb{K}$-ベクトル空間
+        \begin{align}
+            V = \bigoplus_{g \in G} V_g
+        \end{align}
+        を対象とする．
+        \item gradingを保存する $\mathbb{K}$-線型変換
+        \begin{align}
+            f \colon \bigoplus_{g \in G} V_g \lto \bigoplus_{g \in G} W_G \quad \mathrm{s.t.} \quad \forall g \in G,\; f (V_g) \subset W_g
+        \end{align}
+        を射とする．
+        \item テンソル積 $\otimes \colon \VecG{G} \times \VecG{G} \lto \VecG{G}$ は，
+        \begin{align}
+            V \otimes W \coloneqq \bigoplus_{g \in G} \left( \bigoplus_{\substack{x,\, y \in G, \\ xy = g}} V_x \otimes_{\mathbb{K}} W_y\right)
+        \end{align}
+        と定義する．
+        \item 単位対象は $1 \coloneqq \mathbb{K}$ とする\footnote{$1_G \in G$ 成分以外が全て $0$}
+        \item $a_{g_1,g_2,g_3} \coloneqq 1,\; l_{g} \coloneqq 1,\, r_g \coloneqq 1$
+    \end{itemize}
+    によって定義する．\underline{$G$ が有限群ならば} $\Cat{C}_G$ は\hyperref[def:tensorfusion-cat]{フュージョン圏}である．
 \end{myexample}
 
-\begin{myexample}[label=def:CGa]{圏 $\Cat{C}(G;\, \alpha)$}
+\begin{myexample}[label=def:CGa]{圏 $\Cat{C}_G^\alpha$・$\mathrm{Vec}^\alpha_G$}
     $G$ を群とする．\exref{def:CG}の\hyperref[redef:monoidal-category]{associatorとunitors}を非自明にしてみよう．
     今 $\alpha \in \irm{Z^3}{Grp} \bigl(G;\, \LU(1)\bigr)$ を1つ固定する\footnote{i.e. 3-コサイクル}．
     
-    \hyperref[redef:monoidal-category]{モノイダル圏} $\Cat{C}(G;\, \alpha)$ を，
+    \hyperref[redef:monoidal-category]{モノイダル圏} $\Cat{C}_G^\alpha$ を，
     \begin{align}
         a_{g_1,g_2,g_3} &\coloneqq \alpha(g_1,\, g_2,\, g_3), \\
         l_{g} &\coloneqq \alpha(1,\, 1,\, g)^{-1}, \\
-        r_{g} &\coloneqq \alpha(g,\, 1,\, g)
+        r_{g} &\coloneqq \alpha(g,\, 1,\, 1)
     \end{align}
-    とおくことにより定義する\footnote{他のデータは\exref{def:CG}と全く同じである}．実際，\hyperref[redef:monoidal-category]{\textsf{\textbf{(pentagon identity)}}}はコサイクル条件および $\LU(1)$ の可換性により
+    とおくことにより定義する\footnote{他のデータは\exref{def:CG}と全く同じである}．実際，コサイクル条件および $\LU(1)$ の可換性により
     \begin{align}
         &(\Id_{g_4} \otimes a_{g_1,g_2,g_3}) \circ a_{g_4,g_1 \otimes g_2,g_3} \circ (a_{g_4,g_1,g_2} \otimes \Id_{g_3}) \\
         &= \alpha(g_1,\, g_2,\, g_3) \alpha(g_4,\, g_1g_2,\, g_3) \alpha (g_4,\, g_1,\, g_2) \\
@@ -596,9 +604,95 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
         &= \alpha(g_4,\, g_1,\, g_2g_3)\alpha(g_4g_1,\, g_2,\, g_3) \\
         &= a_{g_4,g_1,g_2g_3} \circ a_{g_4 \otimes g_1,\, g_2,\, g_3}
     \end{align}
-    が成り立ち，充たされている．
-    % \underline{$G$ が有限群ならば} $\Cat{C}(G;\, \alpha)$ は\hyperref[def:tensorfusion-cat]{フュージョン圏}である．
+    の通りに\hyperref[redef:monoidal-category]{\textsf{\textbf{(pentagon identity)}}}が成り立ち，
+    \begin{align}
+        (\Id_{g_1} \otimes l_{g_2}) \circ a_{g_1,1,g_2} 
+        &= \frac{\alpha(g_1,\, 1,\, g_2)}{\alpha(1,\, 1,\, g_2)} \\
+        &= \frac{\alpha(g_1,\, 1,\, 1)\cancel{\alpha(g_1,\, 1,\, g_2)\alpha(1,\,1,\, g_2)}}{\cancel{\alpha(g_1,\, 1,\, g_2)\alpha(1,\, 1,\, g_2)}} \\
+        &= \alpha (g_1,\, 1,\, 1) \\
+        &= r_{g_1}
+    \end{align}
+    の通りに\hyperref[redef:monoidal-category]{\textsf{\textbf{(triangle identity)}}}が成り立つ．
+    もし $l_g = r_g = \Id_g$ にしたければ
+    \begin{align}
+        \forall g,\, h \in G,\; \alpha (g,\, 1,\, h) = 1_G
+    \end{align}
+    を充たす $\alpha \in \irm{Z}{Grp}^3\bigl(G;\, \LU(1)\bigr)$ をとることが必要十分である（\textbf{正規化条件}）．
+
+    圏 $\VecG{G}^\alpha$ は，$\alpha \in \irm{Z}{Grp}^3\bigl(G;\, \mathbb{K}^\times\bigr)$ に対して $\Cat{C}_G^\alpha$ の構成を線形に拡張することで得られる．
+    \underline{$G$ が有限群ならば} $\VecG{G}^\alpha$ は\hyperref[def:tensorfusion-cat]{フュージョン圏}である．
 \end{myexample}
+
+\begin{mydef}[label=def:tensor-functor]{テンソル関手・ファイバー関手}
+    $\Cat{C},\, \Cat{D}$ を\hyperref[def:ringcat]{多重環圏}とする．関手 $F \colon \Cat{C} \lto \Cat{D}$ を与える．
+    $F$ が\textbf{テンソル関手} (tensor functor) であるとは，以下を充たすこと：
+    \begin{description}
+        \item[\textbf{(TF-1)}] $F$ は\hyperref[def:additive-exact]{$\mathbb{K}$-線形}
+        \item[\textbf{(TF-2)}] $F$ は\hyperref[redef:monidal-functor]{強いモノイダル関手}
+        \item[\textbf{(TF-3)}] $F$ は\hyperref[def:additive-exact]{完全}かつ\hyperref[def:faithful]{忠実}\footnote{この条件は\cite[DEFINITION 4.2.5., p.66]{etingof2015tensor}に合わせて付けたものであり，テンソル関手と言った際には必要とされないことも多い．}
+    \end{description}
+    特に $\Cat{D} = \VEC{\mathbb{K}}$ のとき，テンソル関手 $F \colon \Cat{C} \lto \VEC{\mathbb{K}}$ は\textbf{ファイバー関手} (fiber functor) と呼ばれる．
+\end{mydef}
+
+\begin{myexample}[label=def:CG-functor]{圏 $\VecG{G}^\alpha$ のテンソル関手}
+    $G_1,\, G_2$ を群，$\omega_i \in \irm{Z}{Grp}^3 \bigl(G_i;\, \LU(1) \bigr)$ を3-コサイクルとする．
+    \hyperref[def:tensor-functor]{テンソル関手} 
+    \begin{align}
+        F \colon \Cat{C}_{G_1}^{\alpha_1} \lto \Cat{C}_{G_2}^{\alpha_2}
+    \end{align}
+    とはどのようなものだろうか．
+
+    まず $F$ は\hyperref[redef:monidal-functor]{強いモノイダル関手}であるから，対象の対応について群準同型
+    \begin{align}
+        f \colon G_1 \lto G_2
+    \end{align}
+    このとき\hyperref[redef:monidal-functor]{強いモノイダル関手}の持つ自然変換とは，ある $\mu \in \irm{C}{Grp}^2 \bigl( G_1;\, \LU(1) \bigr) $ を用いて
+    \begin{align}
+        \mu_{g_1,g_2} \coloneqq \mu(g_1,\, g_2) \Id_{f(g_1 g_2)} \colon f(g_1) f(g_2) \xrightarrow{\cong} f(g_1g_2) \WHERE g_1,\, g_2 \in G_1
+    \end{align}
+    と書けるが，\hyperref[redef:monidal-functor]{\textsf{\textbf{(associativity)}}}から
+    \begin{align}
+        \mu(g_1,\, g_2 g_3) \mu(g_2,\, g_3) \alpha_2 \bigl( f(g_1),\, f(g_2),\, f(g_3) \bigr) = \alpha_1 (g_1,\, g_2,\, g_3) \mu(g_1g_2,\, g_3) \mu(g_1,\, g_2)
+    \end{align}
+    でなくてはいけない．i.e. 
+    \begin{align}
+        \label{eq:CG-cohomologus}
+        \alpha_1 = f^* \omega_2 \cdot \delta \mu
+    \end{align}
+    である．逆に群準同型 $f \colon G_1 \lto G_2$ および $\mu \in \irm{C}{Grp}^3 \bigl( G_1;\, \LU(1) \bigr)$ の組 $(f,\, \mu)$ であって\eqref{eq:CG-cohomologus}を充たすものが与えられると，これらを素材にして\hyperref[def:tensor-functor]{テンソル関手} 
+    \begin{align}
+        F \colon \Cat{C}_{G_1}^{\alpha_1} \lto \Cat{C}_{G_2}^{\alpha_2}
+    \end{align}
+    を構成することができる．このような関手 $F$ が圏同値になる必要十分条件は $f$ が群の同型写像になることである．
+\end{myexample}
+
+\begin{myexample}[label=def:CG-monoidalnat]{圏 $\VecG{G}^\alpha$ のモノイダル自然変換}
+    \exref{def:CG-functor}の構成で得られる\hyperref[def:tensor-functor]{テンソル関手}を $F_{f,\, \mu}$ と書く．
+    このとき，\hyperref[def:monoidal-nat]{モノイダル自然変換} 
+    \begin{center}
+        \begin{tikzcd}[row sep=large, column sep=large]
+            \VecG{G_1}^{\alpha_1} \ar[bend left=50,r, "F_{f,\, \mu}"{name=U, above}] \ar[bend right=50,r, "F_{f',\, \mu'}"{name=D, below}] &\VecG{G_2}^{\alpha_2}
+            \ar[Rightarrow, from=U, to=D, red, "\bm{\tau}"]
+        \end{tikzcd}
+    \end{center}
+    を同定しよう．まず自然変換と言うからには $\forall g \in G_1$ に対して
+    \begin{align}
+        \tau_g \coloneqq \tau(g) \Id_{f(g)} \colon f(g) \lto f'(g)
+    \end{align}
+    を定めないといけない．ただし $\tau \in \irm{C}{Grp}^1\bigl(G_1;\, \LU(1)\bigr)$ である．ところが，\exref{def:CGa}より $\VecG{G_2}^{\alpha_2}$ の射は $f(g) = f'(g)$，i.e. $f = f'$ でないと自然変換が存在しない．
+
+    \hyperref[def:monidal-nat]{\textsf{\textbf{(テンソル積の保存)}}}の条件から，$\forall g_1,\, g_2 \in G_1$ に対して
+    \begin{align}
+        \mu'(g_1,\, g_2) \tau(g_1) \tau(g_2) = \tau(g_1g_2)\mu(g_1,\, g_2)
+    \end{align}
+    でなくてはいけない．i.e.
+    \begin{align}
+        \label{eq:CGnat-cohomologus}
+        \mu = \mu' \cdot \delta \tau
+    \end{align}
+    である．逆に\eqref{eq:CGnat-cohomologus}を充たす $\tau \in \irm{C}{Grp}^1$ からモノイダル自然変換 $\tau \colon F_{f,\, \mu} \Longrightarrow F_{f,\, \mu'}$ を構成することができる．
+\end{myexample}
+
 
 \subsection{量子次元}
 
