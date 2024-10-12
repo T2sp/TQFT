@@ -2616,13 +2616,63 @@ $p$ 単体の\textbf{向き}は常に $l_0 < \cdots < l_p$ を充たすように
 
 定理\ref{prop.cocycle}と同様に，主 $2$-束を変換関数によって特徴付ける．
 
-\section{ゲージ化}
-
-\subsection{(1+1)-次元の有限群 $0$-form対称性のゲージ化}
+\section{(1+1)-次元の有限群 $0$-form対称性のゲージ化}
 
 ~\cite{BhardwajTachikawa2017gauging2d}に従って，$(1+1)$-次元系の，フュージョン則が有限群（非可換でも良い）$G$ であるような $0$-form symmetryをゲージ化する手続きを与える．
 
+\subsection{ユニタリフュージョン圏としての $0$-form対称性}
 
+\begin{myaxiom}[label=ax:symcat-2d-0form]{$(1+1)$-次元の有限群 $0$-form対称性}
+    $(1+1)$-次元系における有限群 $G$ の\hyperref[def:p-form-sym]{0-form symmetry}は，\hyperref[def:tensorfusion-cat]{ユニタリフュージョン圏}として特徴付けられる．
+\end{myaxiom}
+
+公理\ref{ax:symcat-2d-0form}を解読する．ユニタリフュージョン圏 $\Cat{C}$ を1つ固定する．
+
+まず，トポロジカル演算子は $a \in \Obj{\Cat{C}}$ によってラベルされる．$C \subset M$ を向きづけられた1次元部分多様体（i.e. 曲線）とすると，
+理論 $T$ にトポロジカル演算子を挿入した際の分配関数は
+\begin{align}
+    \expval{\cdots U_a (C) \cdots}
+\end{align}
+となる．特に，単位対象 $1 \in \Obj{\Cat{C}}$ に対応するトポロジカル演算子は分配関数を変えない：
+\begin{align}
+    \expval{\cdots U_1 (C) \cdots} = \expval{\cdots}
+\end{align}
+
+$f \in \Hom{\Cat[C]}(a,\, b)$ は，トポロジカルな点状の演算子を表し，トロポジカル演算子のラベルを取り替える．
+\begin{center}
+    \begin{tikzpicture}
+        \node[bullet] (f) at (0,0) {};
+        \node[right] () at (0,0) {$f$};
+        \coordinate (a) at (0,-1);
+        \coordinate (b) at (0,1);
+        \draw[->-=.5] (a) to node[midway, left] {$a$} (f);
+        \draw[->-=.5] (f) to node[midway, left] {$b$} (b);
+    \end{tikzpicture}
+\end{center}
+
+$\forall a,\, b \in \Obj{\Cat{C}}$ に対し，和
+\begin{align}
+    \expval{\cdots U_{a \oplus b} (C) \cdots} = \expval{\cdots U_a (C) \cdots} + \expval{\cdots U_b(C) \cdots}
+\end{align}
+が存在する．また，2つのトポロジカル演算子はフュージョンすることができる：
+\begin{align}
+    \expval{\cdots U_{a \otimes b} (C) \cdots} = \sum_{c \in \mathrm{Simp}(\Cat{C})} N^c_{ab} \expval{\cdots U_c (C) \cdots}
+\end{align}
+特に $\Cat{C}$ が\hyperref[def:tensorfusion-cat]{フュージョン圏}であることから，$\mathrm{Simp}(\Cat{C})$ にはある種の\hyperref[def:finite-abcat]{有限性}を要請していることになる．
+
+$\Cat{C}$ は\hyperref[redef:rigid]{rigidなモノイダル圏}でもあり，associator，evaluation, coevaluationに対応するデータも持つ．associatorに対応するデータはしばしば\textbf{$F$-symbol}と呼ばれる．
+
+\begin{myexample}[label=ex:CGa]{圏 $\VecG{G}^\alpha$ とアノマリー}
+    $\Cat{C} = \VecG{G}^\alpha$ とする．\exref{def:CG-functor}により
+    $\VecG{G}^\alpha$ と $\VecG{G}^{\alpha'}$ の間の\hyperref[def:tensor-functor]{テンソル関手}は2つ組 $(f,\, \mu) \in \Aut (G) \times \irm{H}{Grp}^3 \bigl( G;\, \LU(1) \bigr)$ によって指定される．
+    特に $f = \Id$ と選ぶと，これは2次元の理論 $T$ におけるDijkgraaf-Wittenタイプの't Hooftアノマリーを指定することに他ならない．
+\end{myexample}
+
+\begin{myexample}[label=ex:CGa]{圏 $\VecG{G}^\alpha$ と $G$-SPTのスタック}
+    $\Cat{C} = \VecG{G}^\alpha$ とする．
+    $\VecG{G}^\alpha$ の自己同型は\hyperref[def:tensor-functor]{モノイダル自然同型}によって与えられるが，\exref{def:CG-monoidalnat}によりそれは2つ組 $(f,\, \tau) \in \Aut (G) \times \irm{H}{Grp}^2 \bigl( G;\, \LU(1) \bigr)$ を指定する．
+    これは2次元の理論 $T$ に2次元のボゾニック $G$-SPTをスタックする操作に他ならない．
+\end{myexample}
 
 \section{離散的高次対称性}
 

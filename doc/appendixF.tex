@@ -557,7 +557,7 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
                 \emptyset, &g_1 \neq g_2
             \end{cases}
         \end{align}
-        \item $g_1 \otimes g_2 \coloneqq g_1 g_2$ かつ，$g \xrightarrow{\forall \theta_1,\, \theta_2}  g$ に対して $\theta_1 \otimes \theta_2 \coloneqq \theta_1 \theta_2$
+        \item $g_1 \otimes g_2 \coloneqq g_1 g_2$ かつ，$g_i \xrightarrow{\forall \theta_i}  g_i$ に対して $\theta_1 \otimes \theta_2 \coloneqq \theta_1 \theta_2$
         \item $1 \coloneqq 1_G$
         \item $a_{g_1,g_2,g_3} \coloneqq 1,\; l_{g} \coloneqq 1,\, r_g \coloneqq 1$
     \end{itemize}
@@ -572,7 +572,7 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
         を対象とする．
         \item gradingを保存する $\mathbb{K}$-線型変換
         \begin{align}
-            f \colon \bigoplus_{g \in G} V_g \lto \bigoplus_{g \in G} W_G \quad \mathrm{s.t.} \quad \forall g \in G,\; f (V_g) \subset W_g
+            f \colon \bigoplus_{g \in G} V_g \lto \bigoplus_{g \in G} W_g \quad \mathrm{s.t.} \quad \forall g \in G,\; f (V_g) \subset W_g
         \end{align}
         を射とする．
         \item テンソル積 $\otimes \colon \VecG{G} \times \VecG{G} \lto \VecG{G}$ は，
@@ -657,7 +657,7 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
     でなくてはいけない．i.e. 
     \begin{align}
         \label{eq:CG-cohomologus}
-        \alpha_1 = f^* \omega_2 \cdot \delta \mu
+        \alpha_1 = f^* \alpha_2 \cdot \delta \mu
     \end{align}
     である．逆に群準同型 $f \colon G_1 \lto G_2$ および $\mu \in \irm{C}{Grp}^3 \bigl( G_1;\, \LU(1) \bigr)$ の組 $(f,\, \mu)$ であって\eqref{eq:CG-cohomologus}を充たすものが与えられると，これらを素材にして\hyperref[def:tensor-functor]{テンソル関手} 
     \begin{align}
@@ -681,7 +681,7 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
     \end{align}
     を定めないといけない．ただし $\tau \in \irm{C}{Grp}^1\bigl(G_1;\, \LU(1)\bigr)$ である．ところが，\exref{def:CGa}より $\VecG{G_2}^{\alpha_2}$ の射は $f(g) = f'(g)$，i.e. $f = f'$ でないと自然変換が存在しない．
 
-    \hyperref[def:monidal-nat]{\textsf{\textbf{(テンソル積の保存)}}}の条件から，$\forall g_1,\, g_2 \in G_1$ に対して
+    \hyperref[def:monoidal-nat]{\textsf{\textbf{(テンソル積の保存)}}}の条件から，$\forall g_1,\, g_2 \in G_1$ に対して
     \begin{align}
         \mu'(g_1,\, g_2) \tau(g_1) \tau(g_2) = \tau(g_1g_2)\mu(g_1,\, g_2)
     \end{align}
