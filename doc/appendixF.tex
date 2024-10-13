@@ -545,7 +545,7 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
 \end{align}
 が言える．
 
-\begin{myexample}[label=def:CG]{圏 $\Cat{C}_G$・$\VecG{G}$}
+\begin{myexample}[label=def:CG]{圏 $\Cat{C}_G$ と $\VecG{G}$}
     $G$ を群とする．\hyperref[redef:monoidal-category]{厳密なモノイダル圏} $\Cat{C}_G$ を，
     \begin{itemize}
         \item $\Obj{\Cat{C}_G} \coloneqq G$
@@ -586,9 +586,9 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
     によって定義する．\underline{$G$ が有限群ならば} $\Cat{C}_G$ は\hyperref[def:tensorfusion-cat]{フュージョン圏}である．
 \end{myexample}
 
-\begin{myexample}[label=def:CGa]{圏 $\Cat{C}_G^\alpha$・$\mathrm{Vec}^\alpha_G$}
+\begin{myexample}[label=def:CGa]{圏 $\Cat{C}_G^\alpha$ と $\mathrm{Vec}^\alpha_G$}
     $G$ を群とする．\exref{def:CG}の\hyperref[redef:monoidal-category]{associatorとunitors}を非自明にしてみよう．
-    今 $\alpha \in \irm{Z^3}{Grp} \bigl(G;\, \LU(1)\bigr)$ を1つ固定する\footnote{i.e. 3-コサイクル}．
+    今 $\alpha \in \irm{Z}{Grp}^3 \bigl(G;\, \LU(1)\bigr)$ を1つ固定する\footnote{i.e. 3-コサイクル}．
     
     \hyperref[redef:monoidal-category]{モノイダル圏} $\Cat{C}_G^\alpha$ を，
     \begin{align}
@@ -857,26 +857,35 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
 
 \section{加群圏}
 
-\begin{mydef}[label=def:modulecat]{左加群圏}
-    $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r)$ を\hyperref[redef:monoidal-category]{モノイダル圏}とする．
+\subsection{左/右加群圏}
 
+\begin{mydef}[label=def:modulecat,breakable]{左/右加群圏}
+    $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r)$ を\hyperref[redef:monoidal-category]{モノイダル圏}とする．
     \textbf{左 $\Cat{C}$-加群圏} (left $\Cat{C}$-module category) $\Cat{M}$ は，以下のデータからなる：
     \begin{itemize}
         \item 圏 $\Cat{M}$
-        \item 関手 $\btr \colon \Cat{C} \times \Cat{M} \lto \Cat{M}$
-        \item \hyperref[def:nat]{自然同型} $\Familyset[\big]{\alpha_{x,\, y,\, m} \colon (x \otimes y) \btr m \lto x \btr (y \btr m)}{x,y \in \Obj{\Cat{C}},\, m \in \Obj{\Cat{M}}}$
+        \item \textbf{左加群積} (left module product) と呼ばれる関手\footnote{記号として $\oslash$ を使うこともある（参考：\url{https://ncatlab.org/nlab/show/action+of+a+monoidal+category}）．} $\btr \colon \Cat{C} \times \Cat{M} \lto \Cat{M}$
+        \item \textbf{left actor}と呼ばれる\hyperref[def:nat]{自然同型} $\Familyset[\big]{\alpha_{x,\, y,\, m} \colon (x \otimes y) \btr m \lto x \btr (y \btr m)}{x,y \in \Obj{\Cat{C}},\, m \in \Obj{\Cat{M}}}$
+        \item \textbf{left unitor}と呼ばれる\hyperref[def:nat]{自然同型} $\Familyset[\big]{\lambda_{m} \colon 1 \btr m \lto m}{m \in \Obj{\Cat{M}}}$
     \end{itemize}
-    これらは以下の条件を充たす：
+    これらは以下の条件を充たさねばならない：
     \begin{description}
         \item[\textbf{(lMod-1)}] 関手 $\Cat{M} \lto \Cat{M},\; m \lmto 1 \btr m$ は圏の自己同型である
         \item[\textbf{(lMod-2)}] $\forall x,\,y,\, z \in \Obj{\Cat{C}},\; \forall m \in \Obj{\Cat{M}}$ に対して以下の図式を可換にする：
+        \begin{flushleft}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                & &\bigl( (x \otimes y) \otimes z \bigr) \btr m \ar[ddl, "a_{x,y,z}\btr \Id_m"']\ar[dr, "\alpha_{x\otimes y,z,m}"] & \\
+                & & &(x\otimes y) \btr (z \btr m) \ar[dd, "\alpha_{x,y,z\btr m}"] \\
+                &\bigl( x \otimes (y \otimes z) \bigr) \btr m \ar[ddr, "\alpha_{x,y\otimes z,m}"'] & & \\
+                & & &x \btr \bigl( y \btr (z \btr m) \bigr)  \\
+                & &x \btr \bigl( (y \otimes z) \btr m \bigr) \ar[ur, "\Id_x \btr \alpha_{y,z,m}"'] &
+            \end{tikzcd}
+        \end{flushleft}
+        \item[\textbf{(lMod-3)}] $\forall x \in \Cat{C},\; \forall m \in \Cat{M}$ に対して以下の図式を可換にする：
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
-                 & &\bigl( (x \otimes y) \otimes z \bigr) \btr m \ar[ddl, "a_{x,y,z}\btr \Id_m"']\ar[dr, "\alpha_{x\otimes y,z,m}"] & \\
-                 & & &(x\otimes y) \btr (z \btr m) \ar[dd, "\alpha_{x,y,z\btr m}"] \\
-                 &\bigl( x \otimes (y \otimes z) \bigr) \btr m \ar[ddr, "\alpha_{x,y\otimes z,m}"'] & & \\
-                 & & &x \btr \bigl( y \btr (z \btr m) \bigr)  \\
-                 & &x \btr \bigl( (y \otimes z) \btr m \bigr) \ar[ur, "\Id_x \btr \alpha_{y,z,m}"'] &
+                &(x \otimes 1) \btr m \ar[rr, "\alpha_{x,1,m}"]\ar[dr, "r_x \btr \Id_m"'] & &x \btr (1 \btr m) \ar[dl, "\Id_x \btr \textcolor{red}{\lambda_m}"] \\
+                & &x \btr m &
             \end{tikzcd}
         \end{center}
         
@@ -884,55 +893,125 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
 
     \tcblower
 
-    \textbf{右 $\Cat{C}$-加群圏} $\Cat{M}$ も同様に定義される．
+    $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r)$ を\hyperref[redef:monoidal-category]{モノイダル圏}とする．
+    \textbf{右 $\Cat{C}$-加群圏} $\Cat{M}$ は，以下のデータからなる：
+    \begin{itemize}
+        \item 圏 $\Cat{M}$
+        \item \textbf{右加群積} (left module product) と呼ばれる関手\footnote{記号として $\oslash$ を使うこともある（参考：\url{https://ncatlab.org/nlab/show/action+of+a+monoidal+category}）．} $\btr \colon \Cat{C} \times \Cat{M} \lto \Cat{M}$
+        \item \textbf{right actor}と呼ばれる\hyperref[def:nat]{自然同型} $\Familyset[\big]{\beta_{m,\, x,\, y} \colon m \btl (x \otimes y) \lto (m \btl x) \btl y}{x,y \in \Obj{\Cat{C}},\, m \in \Obj{\Cat{M}}}$
+        \item \textbf{right unitor}と呼ばれる\hyperref[def:nat]{自然同型} $\Familyset[\big]{\rho_{m} \colon m \btl 1 \lto m}{m \in \Obj{\Cat{M}}}$
+    \end{itemize}
+    これらは以下の条件を充たさねばならない：
+    \begin{description}
+        \item[\textbf{(rMod-1)}] 関手 $\Cat{M} \lto \Cat{M},\; m \lmto m \btl 1$ は圏の自己同型である．
+        \item[\textbf{(rMod-2)}] $\forall x,\,y,\, z \in \Obj{\Cat{C}},\; \forall m \in \Obj{\Cat{M}}$ に対して以下の図式を可換にする：
+        \item[\textbf{(rMod-3)}] $\forall x \in \Cat{C},\; \forall m \in \Cat{M}$ に対して以下の図式を可換にする：
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &m \btl (1 \otimes x) \ar[rr, "\beta_{m,1,x}"]\ar[dr, "\Id_m \btl l_x"'] & &(m \btl 1) \btl x \ar[dl, "\textcolor{red}{\rho_m} \btl \Id_x"] \\
+                & &m \btl x &
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+    
 \end{mydef}
+
+\begin{mydef}[label=def:module-functor,breakable]{加群関手}
+    $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r)$ を\hyperref[redef:monoidal-category]{モノイダル圏}，$(\Cat{M}_i,\, \btr_i,\, \alpha_i,\, \lambda_i) \WHERE i =1,\, 2$ を\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏}とする．
+    \textbf{左 $\Cat{C}$-加群関手} (left $\Cat{C}$-module functor) は，以下のデータからなる：
+    \begin{itemize}
+        \item 関手 $F \colon \Cat{M}_1 \lto \Cat{M}_2$
+        \item \hyperref[def:nat]{自然同型} $\Familyset[\big]{s_{x,m} \colon F(x \btr_1 m) \lto x \btr_2 F(m)}{x \in \Obj{\Cat{C}},\; m \in \Obj{\Cat{M}_1}}$
+    \end{itemize}
+    これらは以下の条件を充たさねばならない：
+    \begin{description}
+        \item[\textbf{(pentagon identity)}] $\forall x,\, y \in \Obj{\Cat{C}},\; \forall m \in \Obj{\Cat{M}_1}$ に対して以下の図式を可換にする：
+        \begin{flushleft}
+            \begin{tikzcd}[row sep=large]
+                & &F \bigl( (x \otimes y) \btr_1 m \bigr) \ar[ddl, "F(\alpha_1{}_{x,y,m})"']\ar[dr, "s_{x\otimes y,m}"] & \\
+                & & &(x \otimes y) \btr_2 F(m) \ar[dd, "\alpha_2{}_{x,y,F(m)}"] \\
+                &F \bigl( x \btr_1 (y \btr_1 m) \bigr) \ar[ddr, "s_{x,y \btr_1 m}"'] & & \\
+                & & &x \btr_2 \bigl( y \btr_2 F(m) \bigr) \\
+                & &x \btr_2 F(y \btr_1 m) \ar[ur, "\Id_x \btr_2 s_{y,m}"'] &
+            \end{tikzcd}
+        \end{flushleft}
+        
+        \item[\textbf{(triangle identity)}] $\forall m \in \Cat{M}_1$ に対して以下の図式を可換にする：
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &F(1 \btr_1 m) \ar[rr, "s_{1,m}"]\ar[dr, "F(\lambda_1{}_m)"'] & &1 \otimes_2 F(m) \ar[dl, "\lambda_2{}_{F(m)}"] \\
+                & &F(m) &
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+    
+\end{mydef}
+
+\begin{mydef}[label=def:module-nat,breakable]{加群圏の自然変換}
+    $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r)$ を\hyperref[redef:monoidal-category]{モノイダル圏}，
+    $(\Cat{M}_i,\, \btr_i,\, \alpha_i,\, \lambda_i) \WHERE i=1,\, 2$ を\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏}，
+    $(F_i \colon \Cat{M}_1 \lto \Cat{M}_2,\; s_i) \WHERE i=1,\, 2$ を\hyperref[def:module-functor]{$\Cat{C}$-加群関手}とする．
+    このとき，\hyperref[def:nat]{自然変換}
+    \begin{center}
+        \begin{tikzcd}[row sep=large, column sep=large]
+            \Cat{M}_1 \ar[bend left=50,r, "F_1"{name=U, above}] \ar[bend right=50,r, "F_2"{name=D, below}] &\Cat{M}_2
+            \ar[Rightarrow, from=U, to=D, red, "\tau"]
+        \end{tikzcd}
+    \end{center}
+    が\textbf{$\Cat{C}$-加群圏の自然変換}であるとは，$\forall x \in \Cat{C},\; \forall m \in \Cat{M}_1$ に対して以下の図式が可換になること：
+    \begin{description}
+        \item[\textbf{(actionの保存)}] 
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &F_1(x \btr_1 m) \ar[r, "s_1{}_{x,m}"]\ar[d,red,"\tau_{x \btr_1 m}"'] &x \btr_2 F_1(m) \ar[d, red,"\tau_{x} \btr_2 \Id_m"] \\
+                &F_2(x \btr_1 m) \ar[r, "s_2{}_{x,m}"'] &x \btr_2 F_2(m)
+            \end{tikzcd}
+        \end{center}
+        
+    \end{description}
+    
+\end{mydef}
+
+
+\subsection{両側加群圏}
 
 \begin{mydef}[label=def:bimodulecat,breakable]{両側加群圏}
     $(\Cat{C}_i,\, \otimes_i,\, 1,\, a_i,\, l_i,\, r_i) \WHERE i =1,\, 2$ を\hyperref[redef:monoidal-category]{モノイダル圏}とする．
-
     \textbf{$(\Cat{C}_1,\, \Cat{C}_2)$-両側加群圏} ($(\Cat{C}_1,\, \Cat{C}_2)$-bimodule category) $\Cat{M}$ は，以下のデータからなる：
     \begin{itemize}
         \item 圏 $\Cat{M}$
-        \item 関手 $\btr \colon \Cat{C}_1 \times \Cat{M} \lto \Cat{M}$
-        \item 関手 $\btl \colon \Cat{M} \times \Cat{C}_2 \lto \Cat{M}$
-        \item \hyperref[def:nat]{自然同型} $\Familyset[\big]{\alpha_{x_1,\, y_1,\, m} \colon (x_1 \otimes y_1) \btr m \lto x_1 \btr (y_1 \btr m)}{x_1,y_1\in \Obj{\Cat{C}_1},\, m \in \Obj{\Cat{M}}}$
-        \item \hyperref[def:nat]{自然同型} $\Familyset[\big]{\beta_{m,\, x_2,\, y_2} \colon m \btl (x_2 \otimes y_2) \lto  (m \btl x_2) \btl y_2}{x_2,y_2 \in \Obj{\Cat{C}_2},\, m \in \Obj{\Cat{M}}}$
-        \item \hyperref[def:nat]{自然同型} $\Familyset[\big]{b_{x_1,\,m,\, x_2} \colon (x_1 \btr m) \btl x_2 \lto  x_1 \btr (m \btl x_2)}{x_1 \in \Obj{\Cat{C}_1},\, x_2 \in \Obj{\Cat{C}_2} m \in \Obj{\Cat{M}}}$
+        \item \textbf{左加群積}と呼ばれる関手 $\btr \colon \Cat{C}_1 \times \Cat{M} \lto \Cat{M}$
+        \item \textbf{右加群積}と呼ばれる関手 $\btl \colon \Cat{M} \times \Cat{C}_2 \lto \Cat{M}$
+        \item \textbf{left actor} と呼ばれる\hyperref[def:nat]{自然同型}
+        \begin{align}
+            \Familyset[\big]{\alpha_{x_1,\, y_1,\, m} \colon (x_1 \otimes y_1) \btr m \lto x_1 \btr (y_1 \btr m)}{x_1,y_1\in \Obj{\Cat{C}_1},\, m \in \Obj{\Cat{M}}}
+        \end{align}
+        \item \textbf{left unitor}と呼ばれる\hyperref[def:nat]{自然同型} $\Familyset[\big]{\lambda_{m} \colon 1 \btr m \lto m}{m \in \Obj{\Cat{M}}}$
+        \item \textbf{right actor} と呼ばれる\hyperref[def:nat]{自然同型}
+        \begin{align}
+            \Familyset[\big]{\beta_{m,\, x_2,\, y_2} \colon m \btl (x_2 \otimes y_2) \lto  (m \btl x_2) \btl y_2}{x_2,y_2 \in \Obj{\Cat{C}_2},\, m \in \Obj{\Cat{M}}}
+        \end{align}
+        \item \textbf{right unitor}と呼ばれる\hyperref[def:nat]{自然同型} $\Familyset[\big]{\rho_{m} \colon m \btl 1 \lto m}{m \in \Obj{\Cat{M}}}$
+        \item \textbf{middle actor} と呼ばれる\hyperref[def:nat]{自然同型}
+        \begin{align}
+            \Familyset[\big]{b_{x_1,\,m,\, x_2} \colon (x_1 \btr m) \btl x_2 \lto  x_1 \btr (m \btl x_2)}{x_1 \in \Obj{\Cat{C}_1},\, x_2 \in \Obj{\Cat{C}_2} m \in \Obj{\Cat{M}}}
+        \end{align}
     \end{itemize}
     これらは以下の条件を充たす：
     \begin{description}
-        \item[\textbf{(Bimod-1)}] 関手 $\Cat{M} \lto \Cat{M},\; m \lmto 1 \btr m$ および $\Cat{M} \lto \Cat{M},\; m \lmto m \btl 1$ は圏の自己同型である
-        \item[\textbf{(Bimod-2)}] $\forall x,\,y,\, z \in \Obj{\Cat{C}_1},\; \forall m \in \Obj{\Cat{M}}$ に対して以下の図式を可換にする：
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-                 & &\bigl( (x \otimes y) \otimes z \bigr) \btr m \ar[ddl, "a_{x,y,z}\btr \Id_m"']\ar[dr, "\alpha_{x\otimes y,z,m}"] & \\
-                 & & &(x\otimes y) \btr (z \btr m) \ar[dd, "\alpha_{x,y,z\btr m}"] \\
-                 &\bigl( x \otimes (y \otimes z) \bigr) \btr m \ar[ddr, "\alpha_{x,y\otimes z,m}"'] & & \\
-                 & & &x \btr \bigl( y \btr (z \btr m) \bigr)  \\
-                 & &x \btr \bigl( (y \otimes z) \btr m \bigr) \ar[ur, "\Id_x \btr \alpha_{y,z,m}"'] &
-            \end{tikzcd}
-        \end{center}
-        \item[\textbf{(Bimod-3)}] $\forall x,\,y,\, z \in \Obj{\Cat{C}_2},\; \forall m \in \Obj{\Cat{M}}$ に対して以下の図式を可換にする：
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-                 & &m \btl \bigl( x \otimes (y \otimes z) \bigr) \ar[ddl, "\Id_m \btl a_{x,y,z}"']\ar[dr, "\beta_{m, x,y\otimes z}"] & \\
-                 & & &(m \btl x) \btl (y\otimes z) \ar[dd, "\beta_{m\btl x,y,z}"] \\
-                 &m \btl \bigl( (x \otimes y) \otimes z \bigr) \ar[ddr, "\beta_{m,x\otimes y,z}"'] & & \\
-                 & & &\bigl((m \btl x) \btl y \bigr) \btl z \\
-                 & &\bigl(m \btl (x \otimes y) \bigr) \btl z \ar[ur, "\Id_x \btl \beta_{m,x,y}"'] &
-            \end{tikzcd}
-        \end{center} 
-        \item[\textbf{(Bimod-4)}] $\forall x_i,\, y_i \in \Obj{\Cat{C}_i},\; \forall m \in \Obj{\Cat{M}}$ に対して以下の図式を可換にする：
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-                 & &\bigl( (x_1 \otimes_1 y_1) \btr m \bigr) \btl x_1 \ar[ddl, "\alpha_{x_1,y_1,m} \btr \Id_{x_1}"']\ar[dr, "b_{x_1\otimes_1 y_1,m,x_2}"] & \\
-                 & & &(x_1\otimes_1 y_1) \btr (m \btl x_2) \ar[dd, "\alpha_{x_1,y_1,m\btl x_2}"] \\
-                 &\bigl( x_1 \btr (y_1 \btr m) \bigr) \btl x_1 \ar[ddr, "b_{x_1,y_1\btr m,x_2}"'] & & \\
-                 & & &x_1 \btr \bigl( y_1 \btr (m \btl x_2) \bigr) \\
-                 & &x_1 \btr \bigl( (y_1 \btr m) \btl x_1 \bigr) \ar[ur, "\Id_{x_1} \btr b_{y_1,m,_1}"'] &
+        \item[\textbf{(Bimod-1)}] 組 $(\Cat{M},\, \btr,\, \alpha)$ は\hyperref[def:modulecat]{左 $\Cat{C}_1$-加群圏}である．
+        \item[\textbf{(Bimod-2)}] 組 $(\Cat{M},\, \btl,\, \beta)$ は\hyperref[def:modulecat]{右 $\Cat{C}_2$-加群圏}である．
+        \item[\textbf{(Bimod-3)}] $\forall x_i,\, y_i \in \Obj{\Cat{C}_i},\; \forall m \in \Obj{\Cat{M}}$ に対して以下の図式を可換にする：
+        \begin{flushleft}
+            \begin{tikzcd}[row sep=large]
+                & &\bigl( (x_1 \otimes_1 y_1) \btr m \bigr) \btl x_1 \ar[ddl, "\alpha_{x_1,y_1,m} \btr \Id_{x_1}"']\ar[dr, "b_{x_1\otimes_1 y_1,m,x_2}"] & \\
+                & & &(x_1\otimes_1 y_1) \btr (m \btl x_2) \ar[dd, "\alpha_{x_1,y_1,m\btl x_2}"] \\
+                &\bigl( x_1 \btr (y_1 \btr m) \bigr) \btl x_1 \ar[ddr, "b_{x_1,y_1\btr m,x_2}"'] & & \\
+                & & &x_1 \btr \bigl( y_1 \btr (m \btl x_2) \bigr) \\
+                & &x_1 \btr \bigl( (y_1 \btr m) \btl x_1 \bigr) \ar[ur, "\Id_{x_1} \btr b_{y_1,m,_1}"'] &
             \end{tikzcd}%
-        \end{center}
-        \begin{center}
+        \end{flushleft}
+        \begin{flushleft}
             \begin{tikzcd}[row sep=large]
                 &                           &x_1 \btr \bigl(m \btl (x_2 \otimes_2 y_2) \bigr) \ar[ddl, "\Id_{x_1} \btr \beta_{m,x_2,y_2}"']& \\
                 &                           &                                                                                              &(x_1 \btr m) \btl (x_2 \otimes_2 y_2) \ar[ul, "b_{x_1,m,x_2\otimes_2 y_2}"']\ar[dd, "\beta_{x_1 \btr m,x_2,y_2}"] \\
@@ -940,7 +1019,7 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
                 &                           &                                                                                              &\bigl( (x_1 \btr m) \btl x_2 \bigr) \btl y_2 \ar[dl, "b_{x_1,m,x_2} \btl \Id_{y_2}"] \\
                 &                           &\bigl( x_1 \btr (m \btl x_2) \bigr)  \btl y_2 \ar[uul, "b_{x_1,m\btl x_2,y_2}"]               &
             \end{tikzcd}%
-        \end{center}
+        \end{flushleft}
         
     \end{description}
 \end{mydef}
