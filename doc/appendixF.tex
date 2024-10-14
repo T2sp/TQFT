@@ -1024,6 +1024,49 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
     \end{description}
 \end{mydef}
 
+\subsection{代数}
+
+\begin{mydef}[label=def:algobj]{代数対象}
+    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
+    $ \Cat{C}$ の\textbf{代数対象} (algebra object) $x$ とは，以下のデータからなる：
+    \begin{itemize}
+        \item $\Cat{C}$ の対象 $x \in \Obj{\Cat{C}}$ 
+        \item \textbf{乗法} (multiplication) と呼ばれる $\Cat{C}$ の射 $\mu \colon x \otimes x \lto x$
+        \item \textbf{単位} (unit) と呼ばれる $\Cat{C}$ の射 $\upsilon \colon 1 \lto x$
+    \end{itemize}
+    これらは以下の条件を充たさねばならない：
+    \begin{description}
+        \item[\textbf{(associatibity)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+              &  &(x \otimes x) \otimes x \ar[ddl, "\mu \otimes \Id_x"']\ar[dr, "a_{x,x,x}"]  &  \\
+              &  &  &x \otimes (x \otimes x)\ar[dd, "\Id_x \otimes \mu"]  \\
+              &x \otimes x\ar[ddr, "\mu"]  &  &  \\
+              &  &  &x\otimes x  \\
+              &  &x\ar[from=ur, "\mu"']  &
+            \end{tikzcd}
+        \end{center}
+        
+        \item[\textbf{(unitality)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &1 \otimes x \ar[r, "l_x"]\ar[d, "\upsilon \otimes \Id_x"'] &x \ar[d, "\Id_x"] \\
+                &x \otimes x \ar[r, "\mu"'] &x
+            \end{tikzcd}
+        \end{center}
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &x \otimes 1 \ar[r, "r_x"]\ar[d, "\Id_x \otimes \upsilon"'] &x \ar[d, "\Id_x"] \\
+                &x \otimes x \ar[r, "\mu"'] &x
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+    
+\end{mydef}
+
 
 \section{2-群}
 
