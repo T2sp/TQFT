@@ -1026,7 +1026,7 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
 
 \subsection{代数}
 
-\begin{mydef}[label=def:algobj]{代数対象}
+\begin{mydef}[label=def:algobj,breakable]{代数対象}
     \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
     $ \Cat{C}$ の\textbf{代数対象} (algebra object) $x$ とは，以下のデータからなる：
     \begin{itemize}
@@ -1042,12 +1042,12 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
             \begin{tikzcd}[row sep=large, column sep=large]
               &  &(x \otimes x) \otimes x \ar[ddl, "\mu \otimes \Id_x"']\ar[dr, "a_{x,x,x}"]  &  \\
               &  &  &x \otimes (x \otimes x)\ar[dd, "\Id_x \otimes \mu"]  \\
-              &x \otimes x\ar[ddr, "\mu"]  &  &  \\
+              &x \otimes x\ar[ddr, "\mu"']  &  &  \\
               &  &  &x\otimes x  \\
-              &  &x\ar[from=ur, "\mu"']  &
+              &  &x\ar[from=ur, "\mu"]  &
             \end{tikzcd}
         \end{center}
-        
+    
         \item[\textbf{(unitality)}]　
         
         \begin{center}
@@ -1065,8 +1065,206 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
         \end{center}
     \end{description}
     
+     \tcblower
+
+     \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
+    $ \Cat{C}$ の\textbf{余代数対象} (coalgebra object) $y$ とは，以下のデータからなる：
+    \begin{itemize}
+        \item $\Cat{C}$ の対象 $y \in \Obj{\Cat{C}}$ 
+        \item \textbf{余乗法} (comultiplication) と呼ばれる $\Cat{C}$ の射 $\Delta \colon y \lto y \otimes y$
+        \item \textbf{余単位} (counit) と呼ばれる $\Cat{C}$ の射 $\epsilon \colon y \lto 1$
+    \end{itemize}
+    これらは以下の条件を充たさねばならない：
+    \begin{description}
+        \item[\textbf{(coassociatibity)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+              &  &(y \otimes y) \otimes y \ar[from=ddl, "\Delta \otimes \Id_y"]\ar[from=dr, "a_{y,y,y}"']  &  \\
+              &  &  &y \otimes (y \otimes y)\ar[from=dd, "\Id_y \otimes \Delta"']  \\
+              &y \otimes y\ar[from=ddr, "\Delta"]  &  &  \\
+              &  &  &y\otimes y  \\
+              &  &y\ar[ur, "\Delta"']  &
+            \end{tikzcd}
+        \end{center}
+        
+        \item[\textbf{(unitality)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &1 \otimes y \ar[from=r, "l_y"']\ar[from=d, "\epsilon \otimes \Id_y"] &y \ar[from=d, "\Id_y"'] \\
+                &y \otimes y \ar[from=r, "\Delta"] &y
+            \end{tikzcd}
+        \end{center}
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &y \otimes 1 \ar[from=r, "r_y"']\ar[from=d, "\Id_y \otimes \epsilon"] &y \ar[from=d, "\Id_y"'] \\
+                &y \otimes y \ar[from=r, "\Delta"] &y
+            \end{tikzcd}
+        \end{center}
+    \end{description}
 \end{mydef}
 
+ストリング図式で\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$ の \textsf{\textbf{(associatibity)}}, \textsf{\textbf{(unitality)}} を書くと，それぞれ
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\dx}{cos(60)}
+        \pgfmathsetmacro{\dy}{sin(60)}
+        \node[bullet] (m1) at (0,0) {};
+        \node[bullet] (m2) at ($(m1) + (\dx,\dy)$) {};
+        \node[right] () at (m1) {$\mu$};
+        \node[right] () at (m2) {$\mu$};
+        \coordinate (x1) at ($(m1) + (-\dx,-\dy)$);
+        \coordinate (x2) at ($(m1) + (\dx,-\dy)$);
+        \coordinate (x3) at ($(m2) + 2*(\dx,-\dy)$);
+        \coordinate (x4) at ($(m2) + (0,\dy)$);
+        \draw[->-=.5] (x1) -- node[midway, above left] {$x$} (m1);
+        \draw[->-=.5] (m1) -- node[midway, above left] {$x$} (m2);
+        \draw[->-=.5] (m2) -- node[midway, above left] {$x$} (x4);
+        \draw[->-=.5] (x2) -- node[midway, above right] {$x$} (m1);
+        \draw[->-=.5] (x3) -- node[midway, above right] {$x$} (m2);
+    \end{tikzpicture}
+    \quad &= \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\dx}{cos(60)}
+        \pgfmathsetmacro{\dy}{sin(60)}
+        \node[bullet] (m1) at (0,0) {};
+        \node[bullet] (m2) at ($(m1) + (-\dx,\dy)$) {};
+        \node[right] () at (m1) {$\mu$};
+        \node[right] () at (m2) {$\mu$};
+        \coordinate (x1) at ($(m2) + 2*(-\dx,-\dy)$);
+        \coordinate (x2) at ($(m1) + (-\dx,-\dy)$);
+        \coordinate (x3) at ($(m1) + (\dx,-\dy)$);
+        \coordinate (x4) at ($(m2) + (0,\dy)$);
+        \draw[->-=.5] (x1) -- node[midway, above left] {$x$} (m2);
+        \draw[->-=.5] (x2) -- node[midway, above left] {$x$} (m1);
+        \draw[->-=.5] (x3) -- node[midway, above right] {$x$} (m1);
+        \draw[->-=.5] (m1) -- node[midway, above right] {$x$} (m2);
+        \draw[->-=.5] (m2) -- node[midway, above left] {$x$} (x4);
+    \end{tikzpicture} \\
+    & \\
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\dx}{cos(60)}
+        \pgfmathsetmacro{\dy}{sin(60)}
+        \node[bullet] (m1) at (0,0) {};
+        \node[bullet] (m2) at ($(m1) + (\dx,\dy)$) {};
+        \node[below] () at (m1) {$\upsilon$};
+        \node[right] () at (m2) {$\mu$};
+        \coordinate (x1) at ($(m1) + (-\dx,-\dy)$);
+        \coordinate (x2) at ($(m1) + (\dx,-\dy)$);
+        \coordinate (x3) at ($(m2) + 2*(\dx,-\dy)$);
+        \coordinate (x4) at ($(m2) + (0,\dy)$);
+        % \draw[->-=.5] (x1) -- node[midway, above left] {$x$} (m1);
+        \draw[->-=.5] (m1) -- node[midway, above left] {$x$} (m2);
+        \draw[->-=.5] (m2) -- node[midway, above left] {$x$} (x4);
+        % \draw[->-=.5] (x2) -- node[midway, above right] {$x$} (m1);
+        \draw[->-=.5] (x3) -- node[midway, above right] {$x$} (m2);
+    \end{tikzpicture}
+    \quad &= \quad 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\dx}{cos(60)}
+        \pgfmathsetmacro{\dy}{sin(60)}
+        \node[bullet] (m1) at (0,0) {};
+        \node[bullet] (m2) at ($(m1) + (-\dx,\dy)$) {};
+        \node[below] () at (m1) {$\upsilon$};
+        \node[right] () at (m2) {$\mu$};
+        \coordinate (x1) at ($(m2) + 2*(-\dx,-\dy)$);
+        \coordinate (x2) at ($(m1) + (-\dx,-\dy)$);
+        \coordinate (x3) at ($(m1) + (\dx,-\dy)$);
+        \coordinate (x4) at ($(m2) + (0,\dy)$);
+        \draw[->-=.5] (x1) -- node[midway, above left] {$x$} (m2);
+        % \draw[->-=.5] (x2) -- node[midway, above left] {$x$} (m1);
+        % \draw[->-=.5] (x3) -- node[midway, above right] {$x$} (m1);
+        \draw[->-=.5] (m1) -- node[midway, above right] {$x$} (m2);
+        \draw[->-=.5] (m2) -- node[midway, above left] {$x$} (x4);
+    \end{tikzpicture}
+    \quad = \quad 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\dy}{sin(60)}
+        \draw[->-=.5] (0,0) -- node[midway, left] {$x$} (0,3*\dy);
+    \end{tikzpicture}
+\end{align}
+となり，\hyperref[def:algobj]{余代数対象} $(y,\, \Delta,\, \epsilon)$ の \textsf{\textbf{(associatibity)}}, \textsf{\textbf{(unitality)}} を書くと
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\dx}{cos(60)}
+        \pgfmathsetmacro{\dy}{sin(60)}
+        \node[bullet] (m1) at (0,0) {};
+        \node[bullet] (m2) at ($(m1) + (-\dx,\dy)$) {};
+        \node[left] () at (m1) {$\Delta$};
+        \node[left] () at (m2) {$\Delta$};
+        \coordinate (y1) at ($(m1) + (0,-\dy)$);
+        \coordinate (y2) at ($(m1) + 2*(\dx,\dy)$);
+        \coordinate (y3) at ($(m2) + (\dx,\dy)$);
+        \coordinate (y4) at ($(m2) + (-\dx,\dy)$);
+        \draw[->-=.5] (y1) -- node[midway, right] {$y$} (m1);
+        \draw[->-=.5] (m1) -- node[midway, right] {$y$} (y2);
+        \draw[->-=.5] (m1) -- node[midway, left] {$y$} (m2);
+        \draw[->-=.5] (m2) -- node[midway, right] {$y$} (y3);
+        \draw[->-=.5] (m2) -- node[midway, left] {$y$} (y4);
+    \end{tikzpicture}
+    \quad &= \quad 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\dx}{cos(60)}
+        \pgfmathsetmacro{\dy}{sin(60)}
+        \node[bullet] (m1) at (0,0) {};
+        \node[bullet] (m2) at ($(m1) + (\dx,\dy)$) {};
+        \node[left] () at (m1) {$\Delta$};
+        \node[right] () at (m2) {$\Delta$};
+        \coordinate (y1) at ($(m1) + (0,-\dy)$);
+        \coordinate (y2) at ($(m2) + (\dx,\dy)$);
+        \coordinate (y3) at ($(m2) + (-\dx,\dy)$);
+        \coordinate (y4) at ($(m1) + 2*(-\dx,\dy)$);
+        \draw[->-=.5] (y1) -- node[midway, right] {$y$} (m1);
+        \draw[->-=.5] (m2) -- node[midway, right] {$y$} (y2);
+        \draw[->-=.5] (m1) -- node[midway, right] {$y$} (m2);
+        \draw[->-=.5] (m2) -- node[midway, left] {$y$} (y3);
+        \draw[->-=.5] (m1) -- node[midway, left] {$y$} (y4);
+    \end{tikzpicture} \\
+    & \\
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\dx}{cos(60)}
+        \pgfmathsetmacro{\dy}{sin(60)}
+        \node[bullet] (m1) at (0,0) {};
+        \node[bullet] (m2) at ($(m1) + (-\dx,\dy)$) {};
+        \node[left] () at (m1) {$\Delta$};
+        \node[above] () at (m2) {$\epsilon$};
+        \coordinate (y1) at ($(m1) + (0,-\dy)$);
+        \coordinate (y2) at ($(m1) + 2*(\dx,\dy)$);
+        \coordinate (y3) at ($(m2) + (\dx,\dy)$);
+        \coordinate (y4) at ($(m2) + (-\dx,\dy)$);
+        \draw[->-=.5] (y1) -- node[midway, right] {$y$} (m1);
+        \draw[->-=.5] (m1) -- node[midway, right] {$y$} (y2);
+        \draw[->-=.5] (m1) -- node[midway, left] {$y$} (m2);
+        % \draw[->-=.5] (m2) -- node[midway, right] {$y$} (y3);
+        % \draw[->-=.5] (m2) -- node[midway, left] {$y$} (y4);
+    \end{tikzpicture}
+    \quad &= \quad 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\dx}{cos(60)}
+        \pgfmathsetmacro{\dy}{sin(60)}
+        \node[bullet] (m1) at (0,0) {};
+        \node[bullet] (m2) at ($(m1) + (\dx,\dy)$) {};
+        \node[left] () at (m1) {$\Delta$};
+        \node[above] () at (m2) {$\epsilon$};
+        \coordinate (y1) at ($(m1) + (0,-\dy)$);
+        \coordinate (y2) at ($(m2) + (\dx,\dy)$);
+        \coordinate (y3) at ($(m2) + (-\dx,\dy)$);
+        \coordinate (y4) at ($(m1) + 2*(-\dx,\dy)$);
+        \draw[->-=.5] (y1) -- node[midway, right] {$y$} (m1);
+        % \draw[->-=.5] (m2) -- node[midway, right] {$y$} (y2);
+        \draw[->-=.5] (m1) -- node[midway, right] {$y$} (m2);
+        % \draw[->-=.5] (m2) -- node[midway, left] {$y$} (y3);
+        \draw[->-=.5] (m1) -- node[midway, left] {$y$} (y4);
+    \end{tikzpicture}
+    \quad = \quad 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\dy}{sin(60)}
+        \draw[->-=.5] (0,0) -- node[midway, left] {$y$} (0,3*\dy);
+    \end{tikzpicture}
+\end{align}
+となる．
 
 \section{2-群}
 
