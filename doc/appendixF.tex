@@ -1024,7 +1024,7 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
     \end{description}
 \end{mydef}
 
-\subsection{代数}
+\subsection{代数と加群}
 
 \begin{mydef}[label=def:algobj,breakable]{代数対象}
     \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
@@ -1265,6 +1265,106 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
     \end{tikzpicture}
 \end{align}
 となる．
+
+\begin{mydef}[label=def:moduleobj,breakable]{加群対象}
+    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ 
+    および $\Cat{C}$ の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$ を与える．
+    
+    $\Cat{C}$ における，\textbf{左 $\bm{x}$-加群対象} (right $x$-module object) $m$ とは，以下のデータからなる：
+    \begin{itemize}
+        \item $\Cat{C}$ の対象 $m \in \Obj{\Cat{C}}$ 
+        \item \textbf{左作用} (right action) と呼ばれる $\Cat{C}$ の射 $\lambda \colon m \otimes x \lto m$
+    \end{itemize}
+    これらは以下の条件を充たさねばならない：
+    \begin{description}
+        \item[\textbf{(associativity)}]　 
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+              &  &x \otimes (x \otimes m)\ar[ddl, "\Id_x \otimes \lambda"']\ar[dr, "a_{x,x,m}^{-1}"]  &  \\
+              &  &  &(x \otimes x) \otimes m\ar[dd, "\Id_x \otimes \rho"]  \\
+              &x \otimes m \ar[ddr, "\lambda"']  &  &  \\
+              &  &  &x \otimes m  \\
+              &  &m\ar[from=ur, "\lambda"]  &
+            \end{tikzcd}
+        \end{center}
+
+        \item[\textbf{(unitarity)}]　 
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &1 \otimes m \ar[r, "l_m"]\ar[d, "\upsilon \otimes \Id_m"'] &m \ar[d, "\Id_m"] \\
+                &x \otimes m \ar[r, "\lambda"'] &m
+            \end{tikzcd}
+        \end{center}
+        
+    \end{description}
+    
+    \tcblower 
+
+    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ 
+    および $\Cat{C}$ の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$ を与える．
+    
+    $\Cat{C}$ における，\textbf{右 $\bm{x}$-加群対象} (right $x$-module object) $m$ とは，以下のデータからなる：
+    \begin{itemize}
+        \item $\Cat{C}$ の対象 $m \in \Obj{\Cat{C}}$ 
+        \item \textbf{右作用} (right action) と呼ばれる $\Cat{C}$ の射 $\rho \colon m \otimes x \lto m$
+    \end{itemize}
+    これらは以下の条件を充たさねばならない：
+    \begin{description}
+        \item[\textbf{(associativity)}]　 
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+              &  &(m \otimes x) \otimes x\ar[ddl, "\rho \otimes \Id_x"']\ar[dr, "a_{m,x,x}"]  &  \\
+              &  &  &m \otimes (x \otimes x)\ar[dd, "\Id_x \otimes \rho"]  \\
+              &m \otimes x\ar[ddr, "\rho"']  &  &  \\
+              &  &  &m \otimes x  \\
+              &  &m\ar[from=ur, "\rho"]  &
+            \end{tikzcd}
+        \end{center}
+        \item[\textbf{(unitarity)}]　 
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &m \otimes 1 \ar[r, "r_m"]\ar[d, "\Id_m \otimes \upsilon"'] &m \ar[d, "\Id_m"] \\
+                &m \otimes x \ar[r, "\rho"'] &m
+            \end{tikzcd}
+        \end{center}
+        
+    \end{description}
+    
+\end{mydef}
+
+\subsection{両側加群}
+
+\begin{mydef}[label=def:bomodobj,breakable]{両側加群}
+    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ 
+    および $\Cat{C}$ の2つの\hyperref[def:algobj]{代数対象} $(x_i,\, \mu_i,\, \upsilon_i)$ を与える．
+    $\Cat{C}$ における\textbf{$(\bm{x_1},\, \bm{x_2})$-両側加群対象} ($(x_1,\, x_2)$-bimodule object) とは，以下のデータからなる：
+    \begin{itemize}
+        \item $\Cat{C}$ の対象 $m \in \Obj{\Cat{C}}$ 
+        \item \textbf{左作用} (left action) と呼ばれる $\Cat{C}$ の射 $\rho \colon x_1 \otimes m \lto m$
+        \item \textbf{右作用} (right action) と呼ばれる $\Cat{C}$ の射 $\rho \colon m \otimes x_2 \lto m$
+    \end{itemize}
+    これらは以下の条件を充たさねばならない：
+    \begin{description}
+        \item[\textbf{(bimod-1)}] 組 $(m,\, \lambda)$ は $\Cat{C}$ の\hyperref[def:moduleobj]{左 $x_1$-加群対象}
+        \item[\textbf{(bimod-2)}] 組 $(m,\, \rho)$ は $\Cat{C}$ の\hyperref[def:moduleobj]{右 $x_2$-加群対象}
+        \item[\textbf{(bimod-3)}] 以下の図式を可換にする：
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large]
+              &  &(x_1 \otimes m) \otimes x_2\ar[ddl, "\lambda \otimes \Id_{x_2}"']\ar[dr, "a_{x_1,m,x_2}"]  &  \\
+              &  &  &x_1 \otimes (m \otimes x_2)\ar[dd, "\Id_{x_1} \otimes \rho"]  \\
+              &m \otimes x_2\ar[ddr, "\rho"']  &  &  \\
+              &  &  &x_1 \otimes m  \\
+              &  &m\ar[from=ur, "\lambda"]  &
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+    
+\end{mydef}
+
 
 \section{2-群}
 
