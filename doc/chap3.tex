@@ -2638,7 +2638,7 @@ $p$ 単体の\textbf{向き}は常に $l_0 < \cdots < l_p$ を充たすように
     \expval{\cdots U_1 (C) \cdots} = \expval{\cdots}
 \end{align}
 
-$f \in \Hom{\Cat[C]}(a,\, b)$ は，トポロジカルな点状の演算子を表し，トロポジカル演算子のラベルを取り替える．
+$f \in \Hom{\Cat{C}}(a,\, b)$ は，トポロジカルな点状の演算子を表し，トロポジカル演算子のラベルを取り替える．
 \begin{center}
     \begin{tikzpicture}
         \node[bullet] (f) at (0,0) {};
@@ -2660,7 +2660,7 @@ $\forall a,\, b \in \Obj{\Cat{C}}$ に対し，和
 \end{align}
 特に $\Cat{C}$ が\hyperref[def:tensorfusion-cat]{フュージョン圏}であることから，$\mathrm{Simp}(\Cat{C})$ にはある種の\hyperref[def:finite-abcat]{有限性}を要請していることになる．
 
-$\Cat{C}$ は\hyperref[redef:rigid]{rigidなモノイダル圏}でもあり，associator，evaluation, coevaluationに対応するデータも持つ．associatorに対応するデータはしばしば\textbf{$F$-symbol}と呼ばれる．
+$\Cat{C}$ は\hyperref[redef:rigid]{rigidなモノイダル圏}でもあり，associator，evaluation, coevaluationに対応するデータも持つ．associatorに対応するデータはしばしば\textbf{$F$-symbol}\footnote{$F$-symbolは，厳密にはassociatorそのものではない．}と呼ばれる．
 
 \begin{myexample}[label=ex:CGa]{圏 $\VecG{G}^\alpha$ とアノマリー}
     $\Cat{C} = \VecG{G}^\alpha$ とする．\exref{def:CG-functor}により
@@ -2673,6 +2673,190 @@ $\Cat{C}$ は\hyperref[redef:rigid]{rigidなモノイダル圏}でもあり，as
     $\VecG{G}^\alpha$ の自己同型は\hyperref[def:tensor-functor]{モノイダル自然同型}によって与えられるが，\exref{def:CG-monoidalnat}によりそれは2つ組 $(f,\, \tau) \in \Aut (G) \times \irm{H}{Grp}^2 \bigl( G;\, \LU(1) \bigr)$ を指定する．
     これは2次元の理論 $T$ に2次元のボゾニック $G$-SPTをスタックする操作に他ならない．
 \end{myexample}
+
+\subsection{代数対象とゲージ化}
+
+$(1+1)$-次元系における有限の\hyperref[def:p-form-sym]{$0$-form symmetry}を公理\ref{ax:symcat-2d-0form}により\hyperref[def:tensorfusion-cat]{ユニタリフュージョン圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ と見做す．
+
+\begin{mydef}[label=def:gauging]{ゲージ化}
+    $(1+1)$-次元時空 $\mfd{M}{2}$ 上の場の理論 $T$ が\hyperref[def:p-form-sym]{$0$-form symmetry} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を持つとする．
+
+    $T$ の\textbf{ゲージ化} (gauging) とは，
+    \begin{itemize}
+        \item 圏 $\Cat{C}$ における\hyperref[def:sym-Frobenius]{対称Frobenius代数} $(A,\, \mu,\, \upsilon,\, \Delta,\, \epsilon)$
+        \item $\mfd{M}{2}$ の\underline{十分細かい}三角形分割\footnote{より正確には，Poincar\'{e}双対をとることで $K$ を再現するような，trivalent junctionからなるメッシュのことを指す．} $K \in \Obj{\SimpSet}$
+    \end{itemize}
+    の組のこと．ゲージ化された理論のことを $T/A$ と書く．
+\end{mydef}
+
+定義\ref{def:gauging}を解読する．簡単のため $G$ を可換とは限らない有限群，$\Cat{C} = \VecG{G}$ とし，$A \coloneqq \bigoplus_{g \in G} \mathbb{K} g$ とおく．ただし $\forall g \in G$ に対して $\mathbb{K} g$ は1次元 $\mathbb{K}$-ベクトル空間であり，その基底を $e_g$ と書く．
+このとき
+\begin{itemize}
+    \item $\VecG{G}$ の射
+    \begin{align}
+        \mu \colon A \otimes A \lto A,\; e_g \otimes e_h \lmto e_{gh}
+    \end{align}
+    \item $\VecG{G}$ の射
+    \begin{align}
+        \upsilon \colon 1 \lto A,\; 1_G \lmto \sum_{g \in G} \delta_{1_G,g} e_g
+    \end{align}
+\end{itemize}
+は明らかに $\VecG{G}$ の\hyperref[def:algobj]{代数対称}である．さらに
+\begin{itemize}
+    \item $\VecG{G}$ の射
+    \begin{align}
+        \Delta \colon A \lto A \otimes A,\; e_g \lmto \sum_{h \in G} e_h \otimes e_{h^{-1}g}
+    \end{align}
+    \item $\VecG{G}$ の射
+    \begin{align}
+        \epsilon \colon A \lto 1,\; e_g \lmto \delta_{1_G,g} e_{1_G}
+    \end{align}
+\end{itemize}
+は $\forall g \in G$ に対して
+\begin{align}
+    (\Id_A \otimes \Delta) \circ \Delta (e_g) 
+    &= (\Id_A \otimes \Delta) \left(\sum_{h \in G} e_h \otimes e_{h^{-1}g}\right) \\
+    &= \sum_{h,\, k \in G} e_h \otimes e_{k} \otimes e_{(hk)^{-1} g}, \\
+    (\Delta \otimes \Id_A) \circ \Delta (e_g) 
+    &= \sum_{h,\, k \in G} e_k \otimes e_{k^{-1} h} \otimes e_{h^{-1} g} \\
+    &= \sum_{k \in G} e_k \otimes \left(\sum_{h \in G} e_{k^{-1} h} \otimes e_{h^{-1} g}\right) \\
+    &= \sum_{k \in G} e_k \otimes \left(\sum_{h \in G} e_{h} \otimes e_{(kh)^{-1} g}\right) \\
+    &= (\Id_A \otimes \Delta) \circ \Delta (e_g), \\
+    (\epsilon \otimes \Id_A) \circ \Delta (e_g)
+    &= \sum_{h \in G} \delta_{1_G,h} e_{1_G} \otimes e_{h^{-1}g} \\
+    &= e_{1_G} \otimes e_g \\
+    &= l_A (e_g), \\
+    (\Id_A \otimes \epsilon) \circ \Delta (e_g)
+    &= \sum_{h \in G} \delta_{1_G,h^{-1} g} e_{h} \otimes e_{h^{-1}g} \\
+    &= e_{g} \otimes e_{1_G} \\
+    &= r_A (e_g)
+\end{align}
+が成り立つので組 $(A,\, \Delta,\, \epsilon)$ は\hyperref[def:algobj]{余代数対称}である．その上
+\begin{align}
+    \mu \circ \Delta (e_g) 
+    &= \mu \left(\sum_{h \in G} e_h \otimes e_{h^{-1} g}\right) \\
+    &= \sum_{h \in G} e_{g} \\
+    &= \abs{G} \Id_A (e_g)
+\end{align}
+が成り立つので\hyperref[def:separable-alg]{分離可能}であり，
+\begin{align}
+    (\Id_A \otimes \mu) \circ (\Delta \otimes \Id_A) (e_g \otimes e_h) 
+    &= (\Id_A \otimes \mu) \left(\sum_{k \in G} e_k \otimes e_{k^{-1}g} \otimes e_h \right) \\
+    &= \sum_{k \in G} e_k \otimes e_{k^{-1}gh}, \\
+    \Delta \circ \mu (e_g \otimes e_h) \\
+    &= \sum_{k \in G} e_k \otimes e_{k^{-1}(gh)} \\
+    (\mu\otimes \Id_A) \circ (\Id_A\otimes \Delta) (e_g \otimes e_h)
+    &= (\mu \otimes \Id_A) \left( \sum_{k \in G} e_g \otimes e_k \otimes e_{k^{-1} h} \right)  \\
+    &= \sum_{k \in G} e_{gk} \otimes e_{k^{-1} h} \\
+    &= \sum_{k \in G} e_{k} \otimes e_{(g^{-1}k)^{-1} h} \\
+    &= \sum_{k \in G} e_{k} \otimes e_{k^{-1} gh}
+\end{align}
+が成り立つので\hyperref[def:Frobenius-alg]{Frobenius代数}であり，
+\begin{align}
+    (\epsilon \otimes \Id_{A^*}) \circ (\mu \otimes \Id_{x^*}) \circ (\Id_A \otimes \lcoev_A) (e_g)
+    &=(\epsilon \otimes \Id_{A^*}) \circ (\mu \otimes \Id_{x^*}) \left(e_g \otimes \left( \sum_{h \in G} e_h \otimes e_{h^{-1}}\right) \right) \\
+    &= \sum_{h \in G} \delta_{1_G,gh} e_{h^{-1}} \\
+    &= e_g, \\
+    (\Id_{\rdual{A}} \otimes \epsilon) \circ (\Id_{\rdual{x}} \otimes \mu) \circ (\rcoev_A \otimes \Id_A) (e_g)
+    &= (\Id_{\rdual{A}} \otimes \epsilon) \circ (\Id_{\rdual{x}} \otimes \mu) \left( \left( \sum_{h \in G} e_{h^{-1}} \otimes e_{h}\right) \otimes e_g \right) \\
+    &= \sum_{h \in G} \delta_{1_G,hg} e_{h^{-1}} \\
+    &= e_g
+\end{align}
+が成り立つので\hyperref[def:sym-Frobenius]{対称Frobenius代数}であることがわかる．
+
+これらの関係式のストリング図式のPoincar\'{e}双対をとることにより，従来のゲージ化の定義との対応が明らかになる．
+
+\subsection{ゲージ化された理論の持つ対称性}
+
+定義\ref{def:gauging}に倣い，\hyperref[def:tensorfusion-cat]{ユニタリフュージョン圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ の\hyperref[def:sym-Frobenius]{対称Frobenius代数} $(A,\, \mu,\, \upsilon,\, \Delta,\, \epsilon)$ を1つ固定する．
+このとき，\hyperref[def:gauging]{ゲージ化}された理論 $T/A$ の持つ\hyperref[ax:symcat-2d-0form]{$0$-form symmetry}はどのようなユニタリフュージョン圏で特徴づけられるのだろうか？
+
+\begin{myprop}[label=prop:symcat-2d-gauged]{ゲージ化された理論の持つ対称性}
+    $T/A$ の持つ対称性は，$\Cat{C}$ における\hyperref[def:bimodobj]{$(A,\, A)$-両側加群対象}がなす圏 $\BIMODC{\Cat{C}}{A}{A}$ である．
+\end{myprop}
+
+命題\ref{prop:symcat-2d-gauged}を理解しよう．まず，$T/A$ の分配関数は，$T$ の分配関数に $\textcolor{red}{A}$ でラベルされたトポロジカル演算子を，時空多様体 $\mfd{M}{2}$ 上のメッシュに沿って挿入したものである：
+\begin{align}
+    Z_{T/A}(\mfd{M}{2})
+    &= Z_T \left(
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (a) at (0,0);
+        \coordinate (b) at ($(a) + (-1,0)$);
+        \coordinate (c) at ($(a) + (0,-1)$);
+        \coordinate (d) at (1,1);
+        \coordinate (e) at ($(d) + (1,0)$);
+        \coordinate (f) at ($(d) + (0,1)$);
+        \draw[->-=.5,red] (b) -- (a);
+        \draw[->-=.5,red] (c) -- (a);
+        \draw[->-=.5,red] (a) -- (d);
+        \draw[->-=.5,red] (d) -- (e);
+        \draw[->-=.5,red] (d) -- (f);
+    \end{tikzpicture} \right)
+\end{align}
+したがってトポロジカル演算子として $p \in \Obj{\Cat{C}}$ でラベルされるようなものを依然として考えることができるが，それが $\textcolor{red}{A}$ の任意のメッシュの配位に対してトポロジカルであるためには，$p$ でラベルされたトポロジカル演算子と $\textcolor{red}{A}$ でラベルされたトポロジカル演算子との間のフュージョン則にある種の整合性条件を課す必要がある．
+命題\ref{prop:symcat-2d-gauged}は，その整合性条件がまさに\hyperref[def:bimodobj]{$(A,\, A)$-両側加群対象}の\hyperref[def:bimodobj]{条件\textsf{\textbf{(bimod-1)}}-\textsf{\textbf{(bimod-3)}}}であることを主張している．
+物理的には，トポロジカル演算子の向きが逆になっていてもフュージョンできるべきである．幸いにして $\Cat{C}$ が\hyperref[def:tensorfusion-cat]{ユニタリフュージョン圏}であることから，$\lcoev,\, \rcoev$ を用いることで $A$-加群の構造の定義に登場する矢印の向きを全て逆転して，$A$-余加群の構造を常に持たせることができる．
+
+次に，2つの異なるトポロジカル演算子 $p,\, q \in \Obj{\Cat{C}}$ を考える．これらの接合部となる点状のトポロジカル演算子 $f \in \Hom{\Cat{C}} (p,\, q)$ は，左右からの $\textcolor{red}{A}$ の作用について可換でなくてはいけない．i.e. \hyperref[def:hom-bimod]{$(A,\, A)$-両側加群}の準同型ということになる．
+このことから，$(1+1)$-次元の理論 $T/A$ の持つトポロジカル演算子全体が圏 $\BIMODC{\Cat{C}}{\textcolor{red}{A}}{\textcolor{red}{A}}$ を成すことがわかる．
+
+しかるに，圏 $\BIMODC{\Cat{C}}{\textcolor{red}{A}}{\textcolor{red}{A}}$ が\hyperref[ax:symcat-2d-0form]{$0$-form symmetry}であるためにはそれが\hyperref[def:tensorfusion-cat]{ユニタリフュージョン圏}にならなくてはいけない．
+まず，テンソル積は\hyperref[def:tensor-overalg]{代数 $A$ 上のテンソル積} $(\otimes_{\textcolor{red}{A}},\, \pi)$ だと考えられる．実際，こうすることで $(p,\, \lambda_1,\, \rho_1),\, (q,\, \lambda_2,\, \rho_2) \in \Obj{\BIMODC{\Cat{C}}{\textcolor{red}{A}}{\textcolor{red}{A}}}$ のフュージョン則が
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\dx}{cos(60)}
+        \pgfmathsetmacro{\dy}{sin(60)}
+        \node[bullet] (m1) at (0,0) {};
+        \node[bullet] (m2) at ($(m1) + (\dx,\dy)$) {};
+        \node[right] () at (m1) {$\rho_1$};
+        \node[right] () at (m2) {$\pi$};
+        \coordinate (x1) at ($(m1) + (-\dx,-\dy)$);
+        \coordinate (x2) at ($(m1) + (\dx,-\dy)$);
+        \coordinate (x3) at ($(m2) + 2*(\dx,-\dy)$);
+        \coordinate (x4) at ($(m2) + (0,\dy)$);
+        \draw[->-=.5] (x1) -- node[midway, above left] {$p$} (m1);
+        \draw[->-=.5] (m1) -- node[midway, above left] {$p$} (m2);
+        \draw[->-=.5] (m2) -- node[midway, above left] {$p \otimes_{\textcolor{red}{A}} q$} (x4);
+        \draw[->-=.5,red] (x2) -- node[midway, above right] {$A$} (m1);
+        \draw[->-=.5] (x3) -- node[midway, above right] {$q$} (m2);
+    \end{tikzpicture}
+    \quad &= \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\dx}{cos(60)}
+        \pgfmathsetmacro{\dy}{sin(60)}
+        \node[bullet] (m1) at (0,0) {};
+        \node[bullet] (m2) at ($(m1) + (-\dx,\dy)$) {};
+        \node[right] () at (m1) {$\lambda_2$};
+        \node[right] () at (m2) {$\pi$};
+        \coordinate (x1) at ($(m2) + 2*(-\dx,-\dy)$);
+        \coordinate (x2) at ($(m1) + (-\dx,-\dy)$);
+        \coordinate (x3) at ($(m1) + (\dx,-\dy)$);
+        \coordinate (x4) at ($(m2) + (0,\dy)$);
+        \draw[->-=.5] (x1) -- node[midway, above left] {$p$} (m2);
+        \draw[->-=.5,red] (x2) -- node[midway, above left] {$A$} (m1);
+        \draw[->-=.5] (x3) -- node[midway, above right] {$q$} (m1);
+        \draw[->-=.5] (m1) -- node[midway, above right] {$q$} (m2);
+        \draw[->-=.5] (m2) -- node[midway, above left] {$p \otimes_{\textcolor{red}{A}} q$} (x4);
+    \end{tikzpicture}
+\end{align}
+のようになるが，これはまさに $p,\, q$ に挟まれた $\textcolor{red}{A}$ のメッシュを $p,\, q$ のフュージョンにおいて無視できることを意味する．
+$\BIMODC{\Cat{C}}{\textcolor{red}{A}}{\textcolor{red}{A}}$ のassociatorとunitors，left/right evaluation, coevaluationは
+\begin{align}
+    \tilde{a}_{p,q,r} &\coloneqq \pi_{p,q\otimes_{\textcolor{red}{A}} r} \circ (\Id_{p} \otimes \pi_{q,r}) \circ a_{p,q,r} \circ (\bar{\pi}_{p,q} \otimes \Id_{r}) \circ \bar{\pi}_{p \otimes_{\textcolor{red}{A}} q, r}, \\
+    \bar{\lev}_p &\coloneqq \upsilon \circ \lev_p \circ \bar{\pi}_{p^*,p}, \\
+    \bar{\lcoev}_p &\coloneqq \pi_{p,p^*} \circ \lcoev_p \circ \Delta, \\
+    &\vdots 
+\end{align}
+のように定義する．こうして $(\BIMODC{\Cat{C}}{\textcolor{red}{A}}{\textcolor{red}{A}},\, \otimes_{\textcolor{red}{A}},\, 1,\, \bar{a},\, \bar{l},\, \bar{r},\, \bar{\lev},\, \bar{\lcoev},\, \bar{\rev},\, \bar{\rcoev})$ が\hyperref[def:tensorfusion-cat]{ユニタリフュージョン圏}になり，公理\ref{ax:symcat-2d-0form}の意味で $T/A$ の $0$-form symmetryを特徴付ける．
+
+\begin{myprop}[label=prop:domainwall-gauged]{ゲージ化前後のドメインウォールの持つ対称性}
+    時空多様体 $M$ が1次元部分多様体 $D$ によって2つの領域 $M_1,\, M_2$ に分割されているとする．左側の $M_1$ には理論 $T$ を，右側の $M_2$ には\hyperref[def:gauging]{ゲージ化}された理論 $T/\textcolor{red}{A}$ を置く．
+    このとき $D$ の持つ対称性は $\MODCR{\Cat{C}}{\textcolor{red}{A}}$ であり，\hyperref[def:modulecat]{$(\Cat{C},\, \BIMODC{\Cat{C}}{\textcolor{red}{A}}{\textcolor{red}{A}})$-両側加群圏}の構造を持つ．
+\end{myprop}
+
+\subsection{等価なゲージ化}
+
+
 
 \section{離散的高次対称性}
 
