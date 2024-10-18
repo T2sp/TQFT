@@ -914,6 +914,8 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
     
 \end{mydef}
 
+$\Cat{C}$ が\hyperref[def:tensorfusion-cat]{多重テンソル圏}である場合は，\hyperref[def:modulecat]{左/右加群積}が射について $\mathbb{K}$-双線形であること，および両方の引数について\hyperref[def:additive-exact]{完全関手}になっていることを要請する\footnote{実際には，第1/第2引数について完全になっていさえいれば残りの引数についても自動的に完全になる~\cite[EXERCISE7.3.2, p.135]{etingof2015tensor}}．
+
 \begin{mydef}[label=def:module-functor,breakable]{加群関手}
     $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r)$ を\hyperref[redef:monoidal-category]{モノイダル圏}，$(\Cat{M}_i,\, \btr_i,\, \alpha_i,\, \lambda_i) \WHERE i =1,\, 2$ を\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏}とする．
     \textbf{左 $\Cat{C}$-加群関手} (left $\Cat{C}$-module functor) は，以下のデータからなる：
@@ -1528,6 +1530,33 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
     ある\hyperref[def:hom-bimod]{$(x,\, x)$-両側加群の準同型} $\bar{\mu} \colon x \lto x \otimes x$ が存在して $\mu \circ \bar{\mu} = \Id_x$ を充たすことを言う\footnote{補題\ref{lem:bimod}-(1) によって $x \otimes x$ を $(x,\, x)$-両側加群対象と見做す．}．
 \end{mydef}
 
+\hyperref[def:separable-alg]{分離可能性}をストリング図式で表すと
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (a) at (0,0);
+        \coordinate (b1) at (-.5,2);
+        \coordinate (b2) at (.5,2);
+        \coordinate (c) at (0,4);
+        \node[red,bullet] (D) at (barycentric cs:a=1,b1=1,b2=1) {};
+        \node[red,right] at (D) {$\exists \bar{\mu}$};
+        \node[bullet] (M) at (barycentric cs:c=1,b1=1,b2=1) {};
+        \node[right] at (M) {$\mu$};
+        \draw[->-=.5,red] (a) -- node[midway,right] {$x$} (D);
+        \draw[->-=.5,red] (D) to [out=60,in=-90] node[midway,right] {$x$} (b2);
+        \draw[->-=.5,red] (D) to [out=120,in=-90] node[midway,left] {$x$} (b1);
+        \draw[->-=.5] (b1) to [out=90,in=-120] node[midway,left] {$x$} (M);
+        \draw[->-=.5] (b2) to [out=90,in=-60] node[midway,right] {$x$} (M);
+        \draw[->-=.5] (M) -- node[midway,right] {$x$} (c);
+    \end{tikzpicture}
+    &\quad = \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (a) at (0,0);
+        \coordinate (c) at (0,4);
+        \draw[->-=.5] (a) -- node[midway,right] {$x$} (c);
+    \end{tikzpicture}
+\end{align}
+となる．
+
 \begin{myprop}[label=prop:separable-alg]{分離可能性と半単純性}
     \hyperref[def:tensorfusion-cat]{フュージョン圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ の\hyperref[def:algobj]{代数対象} $(x,\,\mu ,\,\upsilon)$ を与える．
 
@@ -1538,8 +1567,171 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
     ~\cite[PROPOSITION7.8.30, p.146]{etingof2015tensor}
 \end{proof}
 
+\subsection{Frobenius代数}
+
+\begin{mydef}[label=def:Frobenius-alg]{Frobenius代数}
+    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\,r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
+
+    $\Cat{C}$ の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$ が\textbf{Frobenius代数} (Frobenius algebra) であるとは，
+    \begin{itemize}
+        \item \textbf{余乗法} (comultiplication) と呼ばれる $\Cat{C}$ の射 $\Delta \colon x \lto x \otimes x$
+        \item \textbf{余単位} (counit) と呼ばれる $\Cat{C}$ の射 $\epsilon \colon x \lto 1$
+    \end{itemize}
+    が存在して以下を充たすことを言う：
+    \begin{description}
+        \item[\textbf{(Frob-1)}] $(x,\, \Delta,\, \epsilon)$ は $\Cat{C}$ の\hyperref[def:algobj]{余代数対象}である．
+        \item[\textbf{(Frob-2)}] 以下の図式を可換にする：
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &   &x \otimes x \ar[dl, "\Delta \otimes \Id_x"']\ar[d, "\mu"]\ar[dr, "\Id_x \otimes \Delta"] & \\
+                &x \otimes x \otimes x \ar[dr, "\Id_x \otimes \mu"']  &x \ar[d, "\Delta"] &x \otimes x \otimes x \ar[dl, "\mu \otimes \Id_x"] \\
+                & &x \otimes x &
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+    
+\end{mydef}
+
+ストリング図式で\hyperref[def:Frobenius-alg]{\textsf{\textbf{(Frob-2)}}}を書くと次のようになる：
+\begin{align}
+    \label{eq:Frobenius}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (b1) at (0,0);
+        \coordinate (b2) at (2,0);
+        \coordinate (b3) at (4,0);
+        \coordinate (a1) at (1,-2);
+        \coordinate (a2) at (b3 |- a1);
+        \coordinate (c2) at (3,2);
+        \coordinate (c1) at (b1 |- c2);
+        \node[bullet] (D) at ($(a1) + (0,1)$) {};
+        \node[left] at (D) {$\Delta$};
+        \node[bullet] (M) at ($(c2) + (0,-1)$) {};
+        \node[right] at (M) {$\mu$};
+        \draw[->-=.5] (a1) -- node[midway, left] {$x$} (D);
+        \draw[->-=.5] (a2) -- node[midway, left] {$x$} (b3);
+        \draw[->-=.5] (D) to [out=30,in=-90] node[midway, right] {$x$} (b2);
+        \draw[->-=.5] (D) to [out=150,in=-90] node[midway, left] {$x$} (b1);
+        \draw[->-=.5] (b1) -- node[midway, left] {$x$} (c1);
+        \draw[->-=.5] (b2) to [out=90,in=-150] node[midway, left] {$x$} (M);
+        \draw[->-=.5] (b3) to [out=90,in=-30] node[midway, right] {$x$} (M);
+        \draw[->-=.5] (M) -- node[midway, right] {$x$} (c2);
+    \end{tikzpicture}
+    &\quad = 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (b) at (0,0);
+        \coordinate (a1) at (-1,-2);
+        \coordinate (a2) at (1,-2);
+        \coordinate (c1) at (-1,2);
+        \coordinate (c2) at (1,2);
+        \node[bullet] (D) at ($(b) + (0,-1)$) {};
+        \node[left] at (D) {$\Delta$};
+        \node[bullet] (M) at ($(b) + (0,1)$) {};
+        \node[right] at (M) {$\mu$};
+        \draw[->-=.5] (a1) -- node[midway, left] {$x$} (D);
+        \draw[->-=.5] (a2) -- node[midway, right] {$x$} (D);
+        \draw[->-=.5] (D) -- node[midway, right] {$x$} (M);
+        \draw[->-=.5] (M) -- node[midway, left] {$x$} (c1);
+        \draw[->-=.5] (M) -- node[midway, right] {$x$} (c2);
+    \end{tikzpicture}
+    = \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (b1) at (0,0);
+        \coordinate (b2) at (2,0);
+        \coordinate (b3) at (4,0);
+        \coordinate (a2) at (3,-2);
+        \coordinate (a1) at (b1 |- a2);
+        \coordinate (c1) at (1,2);
+        \coordinate (c2) at (b3 |- c1);
+        \node[bullet] (D) at ($(a2) + (0,1)$) {};
+        \node[left] at (D) {$\Delta$};
+        \node[bullet] (M) at ($(c1) + (0,-1)$) {};
+        \node[right] at (M) {$\mu$};
+        \draw[->-=.5] (a1) -- node[midway, left] {$x$} (b1);
+        \draw[->-=.5] (a2) -- node[midway, left] {$x$} (D);
+        \draw[->-=.5] (D) to [out=30,in=-90] node[midway, right] {$x$} (b3);
+        \draw[->-=.5] (D) to [out=150,in=-90] node[midway, left] {$x$} (b2);
+        \draw[->-=.5] (b3) -- node[midway, left] {$x$} (c2);
+        \draw[->-=.5] (b1) to [out=90,in=-150] node[midway, left] {$x$} (M);
+        \draw[->-=.5] (b2) to [out=90,in=-30] node[midway, right] {$x$} (M);
+        \draw[->-=.5] (M) -- node[midway, right] {$x$} (c1);
+    \end{tikzpicture}
+\end{align}
+
+\begin{mydef}[label=def:sym-Frobenius]{対称Frobenius代数}
+    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\,r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
+
+    $\Cat{C}$ の\hyperref[def:Frobenius-alg]{Frobenius代数} $(x,\, \mu,\, \upsilon,\, \Delta,\, \epsilon)$ が\textbf{対称} (symmetric) であるとは，
+    以下の図式を可換にすることを言う：
+    \begin{center}
+        \begin{tikzcd}[row sep=large, column sep=large]
+            &x \ar[r, "\rcoev_x \otimes \Id_x"]\ar[d, "\Id_x \otimes \lcoev_x"'] &\rdual{x} \otimes x \otimes x \ar[d, "\Id_{\rdual{x}} \otimes \mu"] \\
+            &x \otimes x \otimes x^* \ar[d, "\mu \otimes \Id_{x^*}"'] &\rdual{x} \otimes x \ar[d, "\Id_{\rdual{x}} \otimes \epsilon"]\\
+            &x \otimes x^* \ar[r, "\epsilon \otimes \Id_{x^*}"'] &\rdual{x}
+        \end{tikzcd}
+    \end{center}
+\end{mydef}
+
+ストリング図式では
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (a) at (0,0);
+        \coordinate (b1) at (0,2);
+        \coordinate (b2) at (1,2);
+        \coordinate (b3) at (2,2);
+        \coordinate (c1) at (0.5,3);
+        \coordinate (c2) at (2,4);
+        \node[bullet] (M) at (barycentric cs:b1=0.7,b2=0.7,c1=1) {};
+        \node[above right] at (M) {$\mu$};
+        \node[bullet] (E) at (c1) {};
+        \node[above] at (E) {$\epsilon$};
+        \draw[->-=.5] (a) -- node[midway,left] {$x$} (b1);
+        \draw[->-=.5] (b1) to [out=90,in=-150] (M);
+        \draw[->-=.5] (b2) to [out=90,in=-30] (M);
+        \draw[->-=.5] (M) -- (c1);
+        \draw[->-=.5] (c2) -- node[midway, right] {$x^*$} (b3);
+        \LCOEV{b2}{b3}
+    \end{tikzpicture}
+    \quad = \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (a) at (2,0);
+        \coordinate (b1) at (0,2);
+        \coordinate (b2) at (1,2);
+        \coordinate (b3) at (2,2);
+        \coordinate (c1) at (0,4);
+        \coordinate (c2) at (1.5,3);
+        \node[bullet] (M) at (barycentric cs:b2=0.7,b3=0.7,c2=1) {};
+        \node[above right] at (M) {$\mu$};
+        \node[bullet] (E) at (c2) {};
+        \node[above] at (E) {$\epsilon$};
+        \draw[->-=.5] (a) -- node[midway,right] {$x$} (b3);
+        \draw[->-=.5] (b2) to [out=90,in=-150] (M);
+        \draw[->-=.5] (b3) to [out=90,in=-30] (M);
+        \draw[->-=.5] (M) -- (c2);
+        \draw[->-=.5] (c1) -- node[midway, left] {$\rdual{x}$} (b1);
+        \RCOEV{b1}{b2}
+    \end{tikzpicture}
+\end{align}
+となる．
+
 \subsection{加群圏におけるinternal hom}
 
+
+\begin{mydef}[label=def:internal-hom,breakable]{加群圏におけるinternal hom}
+    $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r)$ を\hyperref[redef:monoidal-category]{モノイダル圏}とする．
+    \hyperref[def:modulecat]{左 $\Cat{C}$-加群圏} $(\mathcal{M},\, \btr,\, \alpha,\, \lambda)$ を与える．
+    $\Cat{M}$ の\textbf{internal hom}とは，以下のデータの組のこと：
+    \begin{itemize}
+        \item 関手
+        \begin{align}
+            \multimap \colon \OP{\Cat{M}} \times \Cat{M} \lto \VEC{\mathbb{K}}
+        \end{align}
+        \item 
+        \textbf{currying}と呼ばれる\hyperref[def:nat]{自然同型}
+        \begin{align}
+            \Familyset[\big]{c_{x,\, m_1,\, m_2} \colon \Hom{}(x \btr m_1,\, m_2) \xrightarrow{\cong} \Hom{}(x,\, m_1 \multimap m_2)}{x \in \Obj{\Cat{C}},\, Y,\, Z \in \Obj{\mathcal{C}}}
+        \end{align}
+    \end{itemize}    
+\end{mydef}
 
 
 \section{2-群}
