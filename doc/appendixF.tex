@@ -870,8 +870,7 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
     \end{itemize}
     これらは以下の条件を充たさねばならない：
     \begin{description}
-        \item[\textbf{(lMod-1)}] 関手 $\Cat{M} \lto \Cat{M},\; m \lmto 1 \btr m$ は圏の自己同型である
-        \item[\textbf{(lMod-2)}] $\forall x,\,y,\, z \in \Obj{\Cat{C}},\; \forall m \in \Obj{\Cat{M}}$ に対して以下の図式を可換にする：
+        \item[\textbf{(lMod-1)}] $\forall x,\,y,\, z \in \Obj{\Cat{C}},\; \forall m \in \Obj{\Cat{M}}$ に対して以下の図式を可換にする：
         \begin{flushleft}
             \begin{tikzcd}[row sep=large, column sep=large]
                 & &\bigl( (x \otimes y) \otimes z \bigr) \btr m \ar[ddl, "a_{x,y,z}\btr \Id_m"']\ar[dr, "\alpha_{x\otimes y,z,m}"] & \\
@@ -881,7 +880,7 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
                 & &x \btr \bigl( (y \otimes z) \btr m \bigr) \ar[ur, "\Id_x \btr \alpha_{y,z,m}"'] &
             \end{tikzcd}
         \end{flushleft}
-        \item[\textbf{(lMod-3)}] $\forall x \in \Cat{C},\; \forall m \in \Cat{M}$ に対して以下の図式を可換にする：
+        \item[\textbf{(lMod-2)}] $\forall x \in \Cat{C},\; \forall m \in \Cat{M}$ に対して以下の図式を可換にする：
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
                 &(x \otimes 1) \btr m \ar[rr, "\alpha_{x,1,m}"]\ar[dr, "r_x \btr \Id_m"'] & &x \btr (1 \btr m) \ar[dl, "\Id_x \btr \textcolor{red}{\lambda_m}"] \\
@@ -903,9 +902,8 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
     \end{itemize}
     これらは以下の条件を充たさねばならない：
     \begin{description}
-        \item[\textbf{(rMod-1)}] 関手 $\Cat{M} \lto \Cat{M},\; m \lmto m \btl 1$ は圏の自己同型である．
-        \item[\textbf{(rMod-2)}] $\forall x,\,y,\, z \in \Obj{\Cat{C}},\; \forall m \in \Obj{\Cat{M}}$ に対して以下の図式を可換にする：
-        \item[\textbf{(rMod-3)}] $\forall x \in \Cat{C},\; \forall m \in \Cat{M}$ に対して以下の図式を可換にする：
+        \item[\textbf{(rMod-1)}] $\forall x,\,y,\, z \in \Obj{\Cat{C}},\; \forall m \in \Obj{\Cat{M}}$ に対して以下の図式を可換にする：
+        \item[\textbf{(rMod-2)}] $\forall x \in \Cat{C},\; \forall m \in \Cat{M}$ に対して以下の図式を可換にする：
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
                 &m \btl (1 \otimes x) \ar[rr, "\beta_{m,1,x}"]\ar[dr, "\Id_m \btl l_x"'] & &(m \btl 1) \btl x \ar[dl, "\textcolor{red}{\rho_m} \btl \Id_x"] \\
@@ -1335,15 +1333,126 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
     
 \end{mydef}
 
+\begin{mydef}[label=def:hom-algmod]{代数および加群の準同型}
+    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ 
+    および $\Cat{C}$ の2つの\hyperref[def:algobj]{代数対象} $(x_i,\, \mu_i,\, \upsilon_i) \WHERE i = 1,\, 2$ を与える．
+
+    このとき，\underline{$\Cat{C}$ の}射 $f \in \Hom{\Cat{C}} (x_1,\, x_2)$ が\textbf{代数準同型} (algebra homomorphism) であるとは，以下の条件を充たすことを言う：
+    \begin{description}
+        \item[\textbf{(乗法の保存)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &x_1 \otimes x_1 \ar[r, "f \otimes f"]\ar[d, "\mu_1"'] &x_2 \otimes x_2 \ar[d, "\mu_2"] \\
+                &x_1 \ar[r, "f"'] &x_2
+            \end{tikzcd}
+        \end{center}
+        
+        \item[\textbf{(単位の保存)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &1 \ar[rr, "\upsilon_1"]\ar[dr, "\upsilon_2"'] & &A_1 \ar[dl, "f"] \\
+                & &A_2 &
+            \end{tikzcd}
+        \end{center}
+        
+    \end{description}
+    
+    \tcblower
+
+        \begin{itemize}
+            \item \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ 
+            \item $\Cat{C}$ の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$
+            \item $\Cat{C}$ の2つの\hyperref[def:moduleobj]{左 $x$-加群対象} $(m_i,\, \lambda_i) \WHERE i = 1,\, 2$
+        \end{itemize}
+        を与える．
+
+        このとき，\underline{$\Cat{C}$ の}射 $f \in \Hom{\Cat{C}} (m_1,\, m_2)$ が\textbf{左 $x$-加群準同型} (left $x$-module homohorphism) であるとは，以下の条件を充たすことを言う：
+
+        \begin{description}
+            \item[\textbf{(左作用の保存)}]　
+            
+            \begin{center}
+                \begin{tikzcd}[row sep=large, column sep=large]
+                    &x \otimes m_1 \ar[r, "\Id_x \otimes f"]\ar[d, "\lambda_1"'] &x \otimes m_2 \ar[d, "\lambda_2"] \\
+                    &x_1 \ar[r, "f"'] &x_2
+                \end{tikzcd}
+            \end{center}
+            
+        \end{description}
+\end{mydef}
+
+しばらくの間 \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ および $\Cat{C}$ の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$ を1つ固定する．
+
+2つの\hyperref[def:moduleobj]{左 $x$-加群対象} $(m_i,\, \lambda_i) \WHERE i = 1,\, 2$ の間の\hyperref[def:hom-algmod]{左 $x$-加群の準同型}全体がなす集合を $\bm{\Hom{x}(m_1,\, m_2)} \subset \Hom{\Cat{C}} (m_1,\, m_2)$ と書くと，これは部分 $\mathbb{K}$-ベクトル空間をなす．
+さらに準同型の合成は準同型であるから，\hyperref[def:additive-cat]{アーベル圏} $\MODC{\Cat{C}}{x}$ を次のようにして構成することができる：
+\begin{itemize}
+    \item $\Cat{C}$ における\hyperref[def:moduleobj]{左 $x$-加群対象}を対象とする．
+    \item \hyperref[def:hom-algmod]{左 $x$-加群の準同型}を射とする．
+\end{itemize}
+同様にして $\Cat{C}$ における\hyperref[def:moduleobj]{右 $x$-加群対象}がなす圏 $\MODCR{\Cat{C}}{x}$ を定義できる．
+
+\hyperref[def:modulecat]{左加群圏}と $\MODCR{\Cat{C}}{x}$ の間には関係がある．
+今，$\Cat{C}$ における任意の\hyperref[def:moduleobj]{右 $x$-加群対象} $(m,\, \rho)$ および $\Cat{C}$ の任意の対象 $y \in \Obj{\Cat{C}}$ を与える．
+すると，$y \otimes m \in \Obj{\Cat{C}}$ と
+\begin{align}
+    \rho_{y \otimes m} \colon (y \otimes m) \otimes x \xrightarrow{a_{y,m,x}} y \otimes (m \otimes x) \xrightarrow{\Id_y \otimes \rho} y \otimes m
+\end{align}
+の組み $(y \otimes m,\, \rho_{y \otimes m})$ は右 $x$-加群になる．i.e. $(y \otimes m,\, \rho_{y \otimes m}) \in \Obj{\MODCR{\Cat{C}}{x}}$ である．
+この構成により関手
+\begin{align}
+    \label{eq:modc-product}
+    \btr \colon \Cat{C} \times \MODCR{\Cat{C}}{x} \lto \MODCR{\Cat{C}}{x}
+\end{align}
+が定義できる．さらに，$\Cat{C}$ が元々持っていたassociatorとunitorsに関しては，
+$\forall (m,\, \rho) \in \Obj{\MODCR{\Cat{C}}{x}},\; \forall y,\,z \in \Obj{\Cat{C}}$ に対して
+\begin{align}
+    a_{y,z,m} &\colon (y \otimes z) \btr m \lto y \btr (z \btr m) \\
+    l_{y} &\colon 1 \btr m \lto m
+\end{align}
+が自然な\footnote{$a \coloneqq \Familyset[\big]{a_{y,z,m}}{y,z \in \Obj{\Cat{C}},\, m \in \Obj{\MODCR{\Cat{C}}{x}}}$ が\hyperref[def:nat]{自然同型}．}\hyperref[def:hom-algmod]{右 $x$-加群の同型}になる．
+
+\begin{myprop}[label=prop:modc-modcat]{$\MODCR{\Cat{C}}{x}$ は左加群圏}
+    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ および $\Cat{C}$ の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$ を1つ与える．
+
+    このとき，組み\footnote{$\btr \colon \Cat{C} \times \MODCR{\Cat{C}}{x} \lto \MODCR{\Cat{C}}{x}$ は\eqref{eq:modc-product}で定義した関手である．} $(\MODCR{\Cat{C}}{x},\, \btr,\, a,\, l)$ は\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏}である．
+\end{myprop}
+
+\begin{proof}
+    $\forall y,\,z,\, w \in \Obj{\Cat{C}},\; \forall (m,\, \rho) \in \Obj{\MODCR{\Cat{C}}{x}}$ に対して\hyperref[def:modulecat]{\textsf{\textbf{(lMOD-1)}}, \textsf{\textbf{(lMOD-2)}}}が成り立つことを示せば良い．
+\end{proof}
+
+\begin{mydef}[label=def:Morita-equiv]{森田同値}
+    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
+    
+    $\Cat{C}$ の2つの\hyperref[def:algobj]{代数対象} $(x_i,\, \mu_i,\, \upsilon_i) \WHERE i = 1,\, 2$ が\textbf{森田同値} (Morita equivalent) であるとは，\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏}として $\MODC{\Cat{C}}{x_1}$ と $\MODC{\Cat{C}}{x_2}$ が圏同値であることを言う．
+\end{mydef}
+
+\begin{mydef}[label=def:tensor-overalg]{代数上のテンソル積}
+    \begin{itemize}
+        \item \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ および $\Cat{C}$ の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$
+        \item $\Cat{C}$ における\hyperref[def:moduleobj]{右 $x$-加群対象} $(m,\, \rho) \in \Obj{\MODCR{\Cat{C}}{x}}$
+        \item $\Cat{C}$ における\hyperref[def:moduleobj]{左 $x$-加群対象} $(n,\, \lambda) \in \Obj{\MODR{\Cat{C}}{x}}$
+    \end{itemize}
+    を与える．このとき，$m$ と $n$ の\textbf{$\bm{x}$ 上のテンソル積} (tensor product over $x$) $\bm{m \otimes_x n} \in \Obj{\Cat{C}}$ を，以下の図式の\hyperref[def:colim]{コイコライザ}として定義する：
+    \begin{center}
+        \begin{tikzcd}[row sep=large, column sep=large]
+            &m \otimes x \otimes n \ar[r, shift left, "\rho \otimes \Id_n"]\ar[r, shift right, "\Id_m \otimes \lambda"'] &m \otimes n \ar[r, red, "\pi"] &\textcolor{red}{m \otimes_x n}
+       \end{tikzcd}
+    \end{center}
+\end{mydef}
+
+
 \subsection{両側加群}
 
-\begin{mydef}[label=def:bomodobj,breakable]{両側加群}
+\begin{mydef}[label=def:bimodobj,breakable]{両側加群}
     \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ 
     および $\Cat{C}$ の2つの\hyperref[def:algobj]{代数対象} $(x_i,\, \mu_i,\, \upsilon_i)$ を与える．
     $\Cat{C}$ における\textbf{$(\bm{x_1},\, \bm{x_2})$-両側加群対象} ($(x_1,\, x_2)$-bimodule object) とは，以下のデータからなる：
     \begin{itemize}
         \item $\Cat{C}$ の対象 $m \in \Obj{\Cat{C}}$ 
-        \item \textbf{左作用} (left action) と呼ばれる $\Cat{C}$ の射 $\rho \colon x_1 \otimes m \lto m$
+        \item \textbf{左作用} (left action) と呼ばれる $\Cat{C}$ の射 $\lambda \colon x_1 \otimes m \lto m$
         \item \textbf{右作用} (right action) と呼ばれる $\Cat{C}$ の射 $\rho \colon m \otimes x_2 \lto m$
     \end{itemize}
     これらは以下の条件を充たさねばならない：
@@ -1364,6 +1473,73 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
     \end{description}
     
 \end{mydef}
+
+\begin{mydef}[label=def:hom-bimod]{両側加群の準同型}
+    \begin{itemize}
+        \item \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ 
+        および $\Cat{C}$ の2つの\hyperref[def:algobj]{代数対象} $(x_i,\, \mu_i,\, \upsilon_i)$
+        \item 2つの\hyperref[def:bimodobj]{$(x_1,\, x_2)$-両側加群対象} $(m_i,\, \lambda_i,\, \rho_i) \WHERE i = 1,\, 2$
+    \end{itemize}
+    を与える．
+    このとき，\underline{$\Cat{C}$ の}射 $ f \colon m_1 \lto m_2$ が\textbf{$(x_1,\, x_2)$ 両側加群の準同型}であるとは，それが\hyperref[def:hom-algmod]{左 $x_1$-加群の準同型}かつ\hyperref[def:hom-algmod]{右 $x_2$-加群の準同型}であることを言う．
+\end{mydef}
+
+しばらくの間 \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ および $\Cat{C}$ の2つの\hyperref[def:algobj]{代数対象} $(x_i,\, \mu_i,\, \upsilon_i)$ を固定する．
+
+2つの\hyperref[def:bimodobj]{$(x_1,\, x_2)$-両側加群対象} $(m_i,\, \lambda_i,\, \rho_i) \WHERE i = 1,\, 2$ の間の\hyperref[def:hom-bimod]{$(x_1,\, x_2)$-両側加群の準同型}全体がなす集合を $\bm{\Hom{x_1 \mhyphen x_2}(m_1,\, m_2)} \subset \Hom{\Cat{C}} (m_1,\, m_2)$ と書くと，これは部分 $\mathbb{K}$-ベクトル空間をなす．
+さらに準同型の合成は準同型であるから，\hyperref[def:additive-cat]{アーベル圏} $\BIMODC{\Cat{C}}{x_1}{x_2}$ を次のようにして構成することができる：
+\begin{itemize}
+    \item $\Cat{C}$ における\hyperref[def:bimodobj]{$(x_1,\, x_2)$-加群対象}を対象とする．
+    \item \hyperref[def:hom-bimod]{$(x_1,\, x_2)$-両側加群の準同型}を射とする．
+\end{itemize}
+同様にして $\Cat{C}$ における\hyperref[def:moduleobj]{右 $x$-加群対象}がなす圏 $\MODCR{\Cat{C}}{x}$ を定義できる．
+
+\begin{mylem}[label=lem:bimod]{両側加群のテンソル積}
+    \begin{itemize}
+        \item \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ 
+        および $\Cat{C}$ の4つの\hyperref[def:algobj]{代数対象} $(x_i,\, \mu_i,\, \upsilon_i) \WHERE  i = 1,\, \dots,\, 4$
+        \item \hyperref[def:bimodobj]{$(x_1,\, x_2)$-両側加群対象} $(m_1,\, \lambda_1,\, \rho_1) \in \Obj{\BIMODC{\Cat{C}}{x_1}{x_2}}$
+        \item \hyperref[def:bimodobj]{$(x_2,\, x_3)$-両側加群対象} $(m_2,\, \lambda_2,\, \rho_2) \in \Obj{\BIMODC{\Cat{C}}{x_2}{x_3}}$
+        \item \hyperref[def:bimodobj]{$(x_3,\, x_4)$-両側加群対象} $(m_3,\, \lambda_3,\, \rho_3) \in \Obj{\BIMODC{\Cat{C}}{x_3}{x_4}}$
+    \end{itemize}
+    を与える．このとき以下が成り立つ：
+    \begin{enumerate}
+        \item $m_1 \otimes_{x_2} m_2$ は自然な $(x_1,\, x_3)$-両側加群対象の構造を持つ．
+        \item 自然な\hyperref[def:hom-bimod]{$(x_1,\, x_4)$-両側加群の同型}
+        \begin{align}
+            \bar{a}_{m_1,m_2,m_3} &\colon (m_1 \otimes_{x_2} m_2) \otimes_{x_3} m_3 \xrightarrow{\cong} m_1 \otimes_{x_2} (m_2 \otimes_{x_3} m_3) \\
+            \bar{l}_{m_1} &\colon x_1 \otimes_{x_1} m_1 \xrightarrow{\cong} m_1 \\
+            \bar{r}_{m_1} &\colon m_1 \otimes_{x_2} x_2 \xrightarrow{\cong} m_1
+        \end{align}
+        が存在する．
+    \end{enumerate}
+\end{mylem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+\end{proof}
+
+$\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$ について，明らかに $(x,\, \mu,\, \mu) \in \BIMODC{\Cat{C}}{x}{x}$ である．
+
+\begin{mydef}[label=def:separable-alg]{分離可能性}
+    \hyperref[def:tensorfusion-cat]{テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ の\hyperref[def:algobj]{代数対象} $(x,\,\mu ,\,\upsilon)$ が\textbf{分離可能} (separable) であるとは，
+    ある\hyperref[def:hom-bimod]{$(x,\, x)$-両側加群の準同型} $\bar{\mu} \colon x \lto x \otimes x$ が存在して $\mu \circ \bar{\mu} = \Id_x$ を充たすことを言う\footnote{補題\ref{lem:bimod}-(1) によって $x \otimes x$ を $(x,\, x)$-両側加群対象と見做す．}．
+\end{mydef}
+
+\begin{myprop}[label=prop:separable-alg]{分離可能性と半単純性}
+    \hyperref[def:tensorfusion-cat]{フュージョン圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ の\hyperref[def:algobj]{代数対象} $(x,\,\mu ,\,\upsilon)$ を与える．
+
+    このときもし $(x,\, \mu,\, \upsilon)$ が\hyperref[def:separable-alg]{分離可能}ならば，\hyperref[def:additive-cat]{アーベル圏} $\MODCR{\Cat{C}}{x}$ は\hyperref[def:semisimple-cat]{半単純}である．
+\end{myprop}
+
+\begin{proof}
+    ~\cite[PROPOSITION7.8.30, p.146]{etingof2015tensor}
+\end{proof}
+
+\subsection{加群圏におけるinternal hom}
+
 
 
 \section{2-群}
