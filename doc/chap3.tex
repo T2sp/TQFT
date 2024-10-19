@@ -2854,6 +2854,77 @@ $\BIMODC{\Cat{C}}{\textcolor{red}{A}}{\textcolor{red}{A}}$ のassociatorとunito
     このとき $D$ の持つ対称性は $\MODCR{\Cat{C}}{\textcolor{red}{A}}$ であり，\hyperref[def:modulecat]{$(\Cat{C},\, \BIMODC{\Cat{C}}{\textcolor{red}{A}}{\textcolor{red}{A}})$-両側加群圏}の構造を持つ．
 \end{myprop}
 
+\begin{myexample}[label=ex:gauging-VecG]{$\VecG{G}$ のゲージ化}
+    $G$ を有限群とする．前小節と同様に，$\VecG{G}$ の\hyperref[def:sym-Frobenius]{対象Frobenius代数}として
+    \begin{align}
+        A &\coloneqq \bigoplus_{g \in G} \mathbb{K} \{e_g\} \\
+        \mu \colon A \otimes A &\lto A,\; e_g \otimes e_h \lmto e_{gh} \\
+        \upsilon \colon 1 &\lto A,\; 1_G \lmto \sum_{g \in G} \delta_{1_G,g} e_g \\
+        \Delta \colon A &\lto A \otimes A,\; e_g \lmto \sum_{h \in G} e_h \otimes e_{h^{-1}g} \\
+        \epsilon \colon A &\lto 1,\; e_g \lmto \delta_{1_G,g} e_{1_G}
+    \end{align}
+    を選ぶ．$\VecG{G}$ の右 $A$-加群対象全体がなす圏 $\MODCR{\VecG{G}}{A}$ とはなんだろうか．
+
+    　まず，$\forall m \in \Obj{\VecG{G}}$ に対してある非負整数の族 $\Familyset[\big]{N_g}{g \in G}$ が存在して $m = \bigoplus_{g \in G} N_g \mathbb{K} \{e_g\}$ と書くことができる．
+    $m$ が\hyperref[def:moduleobj]{右 $A$-加群対象}であるためには，\textsf{\textbf{(associativity), (unitarity)}} を充たす $\VecG{G}$ の射 $\rho \in \Hom{\VecG{G}}(m \otimes A,\, m)$ を見つけなくてはいけない．
+    \exref{def:CG}から，$\VecG{G}$ のテンソル積は
+    \begin{align}
+        m \otimes A = \bigoplus_{g \in G}  \bigoplus_{h \in G} N_h \mathbb{K} e_h \otimes_{\mathbb{K}} \mathbb{K}e_{h^{-1}g}
+    \end{align}
+    と書けるから，結局 $\forall g,\, h \in G$ に対して
+    \begin{align}
+        \rho_{g,h} \colon N_g \mathbb{K} e_g \otimes_{\mathbb{K}} \mathbb{K} e_{h} \lto N_{gh} \mathbb{K} e_{gh}
+    \end{align}
+    を指定すれば $\rho$ が定まる．\textsf{\textbf{(associativity)}}より $\forall g,\, h,\, k \in G$ に対して
+    \begin{align}
+        \rho_{gh,k} \circ \rho_{g,h} = \rho_{g,hk}
+    \end{align}
+    が，\textsf{\textbf{(unitarity)}}より $\forall g \in G$ に対して
+    \begin{align}
+        \rho_{g, 1_G} = \Id
+    \end{align}
+    がわかる．よって $\forall g,\, h \in G$ に対して
+    \begin{align}
+        \rho_{g,h} \circ \rho_{gh,h^{-1}} 
+        &= \rho_{gh,1_G} = \Id
+    \end{align}
+    が言える．ここから
+    \begin{align}
+        N_g &= N_{1_G} \eqqcolon N
+        \rho_{g,h} &= \rho_{1_G,gh} \circ \rho_{1_G,g}^{-1}
+    \end{align}
+    が分かる．i.e. $m = N A$ であり，$\rho$ は線型同型写像の族 $\Familyset[\big]{\rho_{1_G,g}}{g \in G}$ によって完全に決定できる．
+    ところが，$\forall (NA,\, \Familyset[\big]{\rho_{1_G,g}}{g \in G}) \in \Obj{\MODCR{\VecG{G}}{A}}$ は明らかに $(NA,\, \Familyset[\big]{\Id}{g \in G})$ と右 $A$-加群対象として同型である．よって $(NA,\, \Familyset[\big]{\Id}{g \in G})$ のみ考えれば良い．
+
+    次に，射 $f \in \Hom{\MODCR{\VecG{G}}{A}}(NA,\, N' A)$ を考える．右作用が自明なのでこれはただの線型写像である．以上の考察から，まず $\MODCR{\VecG{G}}{A} \cong \VEC{\mathbb{K}}$ が分かった．
+
+    同様の考察から，$(NA,\, \Familyset[\big]{\lambda_{g,1_G}}{g \in G},\,  \Familyset[\big]{\rho_{1_G,g}}{g \in G}) \in \Obj{\BIMODC{\VecG{G}}{A}{A}}$ と見做すことができる．条件\hyperref[def:bimodobj]{\textsf{\textbf{(bimod-3)}}}から $\forall g,\, h \in G$ に対して
+    \begin{align}
+        \lambda_{g,1_G} \circ \lambda_{h,1_G} = x_{gh,1_G}
+    \end{align}
+    がわかるが，$\lambda_{g,1_G} \in \LGL(NA)$ であることから左作用のデータ $\Familyset[\big]{\lambda_{g,1_G}}{g \in G}$ は群 $G$ の表現を与えることが分かる．$\BIMODC{\VecG{G}}{A}{A}$ の射は明らかに $G$-同変写像であるから，$\BIMODC{\VecG{G}}{A}{A} \cong \REP{G}$ が分かった．
+\end{myexample}
+
+\begin{myexample}[label=ex:gaiging-RepG]{$\REP{G}$ のゲージ化}
+    $G$ を有限群とする．$\REP{G}$ の\hyperref[def:sym-Frobenius]{対象Frobenius代数}としては，\textbf{正則表現} (regular representation)
+    \begin{align}
+        A \colon G \lto \LGL \left( \bigoplus_{g \in G} \mathbb{K} \widehat{g} \right),\; g \lmto (\widehat{h} \lmto \widehat{gh})
+    \end{align}
+    をとってくる．代数対象の乗法は $G$-同変写像
+    \begin{align}
+        \mu \colon \left( \bigoplus_{g \in G} \mathbb{K} \widehat{g} \right) \otimes \left( \bigoplus_{g \in G} \mathbb{K} \widehat{g} \right) \lto \bigoplus_{g \in G} \mathbb{K} \widehat{g},\; \widehat{g} \otimes \widehat{g} \lmto \delta_{g,h} \widehat{g}
+    \end{align}
+    で，unitは $G$-同変写像
+    \begin{align}
+        \upsilon \colon 1 \lto \bigoplus_{g \in G} \mathbb{K} \widehat{g},\; 1 \lmto \sum_{g \in G} \widehat{g}
+    \end{align}
+    である．
+
+    $\forall (r \colon G \lto \LGL(R)) \in \Obj{\REP{G}}$ を1つ固定する．右 $A$-加群対象を指定するには右作用 $\rho \colon r \otimes A \lto r$ を指定せねばならない．
+    
+\end{myexample}
+
+
 \subsection{等価なゲージ化}
 
 時空多様体 $\mfd{M}{2}$ のメッシュが同一だとすると，異なる\hyperref[def:sym-Frobenius]{対称Frobenius代数} $(A,\, \mu,\, \upsilon,\, \Delta,\, \epsilon),\; (A',\, \mu',\, \upsilon',\, \Delta',\, \epsilon')$ はいつ同じ\hyperref[def:gauging]{ゲージ化}された理論 $T/A \cong T/A'$ を与えるのだろうか？
