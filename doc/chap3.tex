@@ -2856,6 +2856,52 @@ $\BIMODC{\Cat{C}}{\textcolor{red}{A}}{\textcolor{red}{A}}$ のassociatorとunito
 
 \subsection{等価なゲージ化}
 
+時空多様体 $\mfd{M}{2}$ のメッシュが同一だとすると，異なる\hyperref[def:sym-Frobenius]{対称Frobenius代数} $(A,\, \mu,\, \upsilon,\, \Delta,\, \epsilon),\; (A',\, \mu',\, \upsilon',\, \Delta',\, \epsilon')$ はいつ同じ\hyperref[def:gauging]{ゲージ化}された理論 $T/A \cong T/A'$ を与えるのだろうか？
+この $\cong$ は，ゲージ化された理論の持つ\hyperref[ax:symcat-2d-0form]{対称性}および\hyperref[prop:domainwall-gauged]{ドメインウォールの持つ対称性}が等価であることを意味する．
+
+\begin{mydef}[label=def:gauged-isom]{等価なゲージ化}
+    $T/A \cong T/A'$ であるとは，\hyperref[def:tensor-functor]{左 $\Cat{C}$-加群圏の同値} $\MODCR{\Cat{C}}{A} \cong \MODCR{\Cat{C}}{A}$ が成り立つこと，i.e. $A$ と $A'$ が\hyperref[def:Morita-equiv]{森田同値}であることを言う．
+\end{mydef}
+
+\begin{mytheo}[label=thm:modulecat]{加群圏の特徴付け}
+    \begin{itemize}
+        \item \hyperref[def:finite-abcat]{有限}な\hyperref[def:tenosrfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$
+        \item 既約かつ\hyperref[def:modulecat-exact]{完全}な\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏} $(\Cat{M},\, \btr,\, \alpha,\, \lambda)$\footnote{~\cite[p.152]{etingof2015tensor}}
+        \item 勝手な $\Cat{M}$ の対象 $m \in \Obj{\Cat{M}}$
+    \end{itemize}
+    を与える．このとき $\Cat{M}$ の\hyperref[def:internal-hom]{internal hom functor} $\multimap \colon \OP{\Cat{M}} \times \Cat{M} \lto \Cat{C}$ に関して $m \multimap m$ は $\Cat{C}$ における\hyperref[def:algobj]{代数対象}になり，
+    関手
+    \begin{align}
+        F \colon \Cat{M} \lto \MODCR{\Cat{C}}{(m \multimap m)},\; n \lmto m \multimap n
+    \end{align}
+    は\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏}の同値である．
+
+\end{mytheo}
+
+\begin{proof}
+    ~\cite[THEOREM7.10.1, p.150]{etingof2015tensor}
+\end{proof}
+
+定理\ref{thm:modulecat}および定義\ref{def:gauged-isom}より，ゲージ化の同値類は既約かつ\hyperref[def:modulecat-exact]{完全}な\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏} $(\Cat{M},\, \btr,\, \alpha,\, \lambda)$\footnote{~\cite[p.152]{etingof2015tensor}}と一対一対応する．
+このことから，ゲージ化された理論を $T/A$ と書く代わりに $T/\Cat{M}$ と書く．
+さらに命題\ref{prop:domainwall-gauged}より，その $\Cat{M}$ は元の理論 $T$ とゲージ化された理論 $T/\Cat{M}$ の接触境界が持つ対称性を記述する．
+
+\subsection{再ゲージ化}
+
+既約かつ\hyperref[def:modulecat-exact]{完全}な\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏} $(\Cat{M},\, \btr,\, \alpha,\, \lambda)$ を1つ固定する．
+命題\ref{prop:symcat-2d-gauged}, \ref{prop:domainwall-gauged}および定理\ref{thm:modulecat}から，ある\hyperref[def:sym-Frobenius]{対称Frobenius代数対象} $A \in \Obj{\Cat{C}}$ が存在して左 $\Cat{C}$-加群圏の同値 $\Cat{M} \cong \MODCR{\Cat{C}}{A}$ が成り立ち，ゲージ化された理論 $T/\Cat{M}$ は $\Cat{C}' \coloneqq \BIMODC{\Cat{C}}{A}{A}$ の対称性を持ち，$\Cat{M}$ は自然に\hyperref[def:bimodule-cat]{$(\Cat{C},\, \BIMODC{\Cat{C}}{A}{A})$-両側加群圏}の構造を持つ．
+
+既約かつ\hyperref[def:modulecat-exact]{完全}な\hyperref[def:modulecat]{左 $\BIMODC{\Cat{C}}{A}{A}$-加群圏} $(\Cat{M}',\, \btr',\, \alpha',\, \lambda')'$ をとってきてこの操作を繰り返すことは，
+\hyperref[def:bimodule-cat]{$(\Cat{C},\, \Cat{C}'')$-両側加群圏}の構造を持つ\hyperref[def:DeligneProduct]{Deligneのテンソル積} $\Cat{M} \boxtimes_{\Cat{C}'} \Cat{M}'$ によって $T/(\Cat{M} \boxtimes_{\Cat{C}'} \Cat{M}')$ とゲージ化することに等しい．
+特に，$\Cat{M}$ の反対加群\footnote{反対圏は op を上付きに書くことで区別する．} $\irm{\Cat{M}}{op}$ を加群積の順序を逆にすることで定義する\footnote{より正確には，さらにleft/right actorの逆写像をとる}と，$\irm{\Cat{M}}{op}$ は $(\Cat{C}',\, \Cat{C})$-両側加群圏となり，$\Cat{M} \boxtimes_{\Cat{C}'} \irm{\Cat{M}}{op}$ によるゲージ化は対称性を元に戻す．i.e. 定義\ref{def:gauged-isom}の意味で $T \cong T/\Cat{M}/\irm{\Cat{M}}{op}$ が成り立つ．
+
+\subsection{ゲージ化で移り合える対称性・anyon condensation}
+
+\begin{myprop}[label=prop:symtrans-gauging]{ゲージ化で互いに移り合える対称性}
+    $(1+1)$-次元の理論の\hyperref[ax:symcat-2d-0form]{対称性} $\Cat{C},\, \Cat{C}'$ が適切な\hyperref[def:gauging]{ゲージ化}によって互いに移り合える必要十分条件は，そのDrinfeldセンターが一致することである．
+\end{myprop}
+
+命題\ref{prop:symtrans-gauging}の操作をモジュラーテンソル圏に対して行うことを\textbf{エニオン凝縮} (anyon condensation) と呼ぶ．
 
 
 \section{離散的高次対称性}
