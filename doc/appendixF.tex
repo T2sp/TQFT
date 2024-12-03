@@ -2201,15 +2201,15 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
             \item 始点射 $\sigma \colon \Cat{G}_1 \lto \Cat{G}_0,\; (g_1,\, g_2) \lto g_1$
             \item 終点射 $\tau \colon \Cat{G}_1 \lto \Cat{G}_0,\; (g_1,\, g_2) \lto t(g_2)g_1$
             \item 恒等素 $j \colon \Cat{G}_0 \lto \Cat{G}_1,\; g_1 \lto (g_1,\, 1_{G_2})$
-            \item 2-射の合成 $\circ \colon \Cat{G}_1 \times_{\Cat{G}_0} \Cat{G}_1 \lto \Cat{G}_1,\; \bigl((g_1,\, g_2),\, (g'_1,\, g'_2)\bigr) \lmto (g_1,\, g_2 g'_2)$
+            \item 2-射の合成 $\circ \colon \Cat{G}_1 \times_{\Cat{G}_0} \Cat{G}_1 \lto \Cat{G}_1,\; \bigl((g_1,\, g_2),\, (g'_1,\, g'_2)\bigr) \lmto (g'_1,\, g_2g'_2)$
         \end{itemize}
         とおくと，圏 $\Cat{G}$ は\hyperref[def:W2G-C2G]{厳密な2-群}になる．
-        \item 逆に\hyperref[def:W2G-C2G]{厳密な2-群} $\Cat{G}$ が与えられたとき，
+        \item 逆に\hyperref[def:W2G-C2G]{厳密な2-群} $(\Cat{G},\, \otimes,\, 1)$ が与えられたとき，
         \begin{itemize}
             \item $G_1 \coloneqq \Cat{G}_0$
             \item $G_2 \coloneqq \Ker \sigma \subset \Cat{G}_1$
             \item $t \coloneqq \tau|_{G_2} \colon G_2 \lto G_1$
-            \item $\alpha \colon G_1 \lto \Aut (G_2),\; g_1 \lmto \bigl( g_2 \lmto j(g_1) g_2 j(g_1)^{-1} \bigr)$
+            \item $\alpha \colon G_1 \lto \Aut (G_2),\; g_1 \lmto \bigl( g_2 \lmto j(g_1) \otimes g_2 \otimes j(g_1)^{-1} \bigr)$
         \end{itemize}
         とおくことで\hyperref[def:crossed-module]{交差加群} $(G_2 \xrightarrow{t} G_1,\, \alpha)$ が得られる．
     \end{enumerate}
@@ -2219,9 +2219,141 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
 \begin{proof}
     \begin{enumerate}
         \item 
+        圏 $\Cat{G}$ を
+        \begin{itemize}
+            \item 対象が成す集合を $\Obj{\Cat{G}} \coloneqq \Cat{G}_0$ と定義する．
+            \item $\forall g,\, h \in \Obj{\Cat{G}} = \Cat{G}_0$ に対して，
+            その間の射が成す集合を 
+            \begin{align}
+                \Hom{\Cat{G}}(g,\, h) \coloneqq \bigl\{\, (f_1,\, f_2) \in \Cat{G}_1 \bigm| \sigma(f_1,\, f_2) = g,\; \tau(f_1,\, f_2) = h \,\bigr\} 
+            \end{align}
+            と定義する．
+            \item $\forall g,\, h,\, k \in \Cat{G}$ に対して，射の合成を
+            \begin{align}
+                \circ_{g,h,k} \colon \Hom{\Cat{G}}(h,\, k) \times \Hom{\Cat{G}}(g,\, h) &\lto \Hom{\Cat{G}}(g,\, k), \\
+                \bigl( (l_1,\, l_2),\, (m_1,\, m_2) \bigr) &\lmto (m_1,\, l_2m_2)
+            \end{align}
+            と定義する．なお，
+            \begin{align}
+                \sigma (m_1,\, l_2m_2) &= m_1 = \sigma (m_1,\, m_2) = g, \\
+                \tau (m_1,\, l_2 m_2) &= t(l_2 m_2) m_1 \\
+                &= t(l_2)\bigl(t(m_2)m_1\bigr) \\
+                &= t(l_2)h \\
+                &= t(l_2)\sigma(l_1,\, l_2) \\
+                &= t(l_2)l_1 \\
+                &= \tau(l_1,\, l_2) \\
+                &= k
+            \end{align}
+            が成り立つので写像 $\circ_{g,h,k}$ はwell-definedである．
+        \end{itemize}
+        として構成する．実際，$\forall (f_1,\, f_2) \in \Hom{\Cat{G}} (g,\, h)$ に対して\footnote{Hom集合の定義より $f_1 = \sigma(f_1,\, f_2) = g$ が自動的に成り立つ．}
+        \begin{align}
+            (f_1,\, f_2) \circ (g,\, 1_{G_2}) &= (g,\, f_2) = (f_1,\, f_2), \\
+            (h,\, 1_{G_2}) \circ (f_1,\, f_2) &= (f_1,\, f_2)
+        \end{align}
+        が成り立つので $\Id_g = (g,\, 1_{G_2}) = j(g)\in \Hom{\Cat{G}}(g,\, g)$ であり，かつ $\forall (f_1,\, f_2) \in \Hom{\Cat{G}} (g,\, h),\, \forall (g_1,\, g_2) \in \Hom{\Cat{G}} (h,\, k),\, \forall (h_1,\, h_2) \in \Hom{\Cat{G}} (k,\, l)$ に対して
+        \begin{align}
+            \bigl( (h_1,\ h_2) \circ (g_1,\, g_2) \bigr) \circ (f_1,\, f_2)
+            &= (g_1,\, h_2 g_2) \circ (f_1,\, f_2)  \\
+            &= (f_1,\, h_2 g_2 f_2) \\
+            &= (h_1,\, h_2) \circ (f_1,\, g_2 f_2) \\
+            &= (h_1,\, h_2) \circ \bigl( (g_1,\, g_2) \circ (f_1,\, f_2) \bigr) 
+        \end{align}
+        が成り立つので，$\Cat{G}$ は\hyperref[def:category]{圏の公理}を充たす．
+        
+        　さて，$\Cat{G}_1$ の積を $(g_1,\, g_2) \cdot (h_1,\, h_2) \coloneqq \bigl(g_1h_1,\, g_2 \alpha(g_1)(h_2)\bigr)$ と書こう．
+        そして関手
+        \begin{align}
+            \otimes \colon \Cat{G} \times \Cat{G} \lto  \Cat{G} 
+        \end{align}
+        を次のように定義する：
+        \begin{itemize}
+            \item $\forall (g,\, h) \in \Obj{\Cat{G} \times \Cat{G}} = \Cat{G}_0 \times \Cat{G}_0$ に対して
+            \begin{align}
+                g \otimes h \coloneqq gh \in \Obj{\Cat{G}} = \Cat{G}_0
+            \end{align}
+            を対応付ける
+            \item $\forall \bigl( (f_1,\, f_2),\, (g_1,\, g_2) \bigr) \in \Hom{\Cat{G} \times \Cat{G}} \bigl( (g,\, h),\, (g',\, h') \bigr)$ に対して
+            \begin{align}
+                (f_1,\, f_2) \otimes (g_1,\, g_2) \coloneqq (f_1,\, f_2) \cdot (g_1,\, g_2) \in \Hom{\Cat{G}} (gh,\, g'h')
+            \end{align}
+            を対応付ける．なお，
+            \begin{align}
+                \sigma\bigl((f_1,\, f_2) \cdot (g_1,\, g_2)\bigr) &= f_1 g_1 \\
+                &= \sigma(f_1,\, f_2) \sigma(g_1,\, g_2) \\
+                &= gh, \\
+                \tau\bigl((f_1,\, f_2) \cdot (g_1,\, g_2)\bigr) &= t \bigl( f_2 \alpha(f_1)(g_2) \bigr) f_1 g_1 \\
+                &= t(f_2) t\bigl( \alpha(f_1)(g_2) \bigr) f_1 g_1  \\
+                &= t(f_2) f_1 t(g_2) g_1 & &\because\;\text{\hyperref[def:crossed-module]{Crossed moduleの定義}} \\
+                &= \tau(f_1,\, f_2) \tau(g_1,\, g_2) \\
+                &= g'h'
+            \end{align}
+            なのでこの対応はwell-definedである．
+        \end{itemize}
+        群演算の結合則より $\otimes$ に関するassociatorは全て恒等射で，かつ $1 \coloneqq 1_{G_1}$ とおくとleft/right unitorも恒等射になる．
+        よって $(\Cat{G},\, \otimes,\, 1_{G_1},\, \{\Id\},\, \{\Id\},\, \{\Id\})$ は\hyperref[redef:monoidal-category]{厳密なモノイダル圏}を成す．
+        $\forall g \in \Cat{G}_0$ に対して明らかに $g \otimes g^{-1} = g^{-1} \otimes g = 1$ であり，かつ $\forall (f_1,\, f_2) \in \Hom{\Cat{G}}(g,\, h)$ に対して $(h,\, f_2^{-1}) \in \Hom{\Hom{\Cat{G}}(\bullet,\, \bullet)}(h,\, g)$ は
+        \begin{align}
+            (f_1,\, f_2) \circ (h,\, f_2^{-1}) &= (h,\, 1_{G_2}) = \Id_h \\
+            (h,\, f_2^{-1}) \circ (f_1,\, f_2) &= (g,\, 1_{G_2}) = \Id_g
+        \end{align}
+        を充たすので，$\Cat{G}$ は\hyperref[def:W2G-C2G]{厳密な2群}である．
+
+        \item 始めに，\hyperref[def:W2G-C2G]{厳密な $2$-群の定義}から1-射の集合 $\Cat{G}_0 \coloneqq \Obj{\Cat{G}}$ は $\otimes$ を積とする群を成し，2-射全体がなす集合 $\Cat{G}_1 \coloneqq \bigcup_{g,\, h \in \Cat{G}_0} \Hom{\Cat{G}}(g,\, h)$ もまたテンソル積 $\otimes$ について群を成すことに注意する
+        \footnote{
+            まず，$\forall \varphi \in \Hom{\Cat{G}}(g,\, h)$ に対して $\varphi \otimes \Id_1 = \varphi$ であるから，単位元は $\Id_1 \in \Hom{\Cat{G}}(1, 1)$ である．
+            逆元を見つけるのは少し難しい．$\forall \varphi \in \Hom{\Cat{G}}(g,\, h)$ を1つ固定しよう．$\Cat{G}$ が厳密な2-群であることから，$g \otimes g^{-1} = 1$ を充たす $g^{-1} \in \Obj{\Cat{G}}$ が存在する．
+            よって $\otimes$ が関手なので $\Id_g \otimes \Id_{g^{-1}} = \Id_{g \otimes g^{-1}} = \Id_{1}$ であり，任意の恒等射が逆元を持つことが分かった．
+            さらに，$\otimes$ が関手であることにより $\forall \varphi \in \Hom{\Cat{G}}(g,\, h),\; \forall \psi \in \Hom{\Cat{G}} (g',\, h')$ に対して
+            \begin{align}
+                \varphi \otimes \psi = (\Id_h \circ \varphi) \otimes (\psi \circ \Id_{g'}) = (\Id_h \otimes \psi) \circ (\varphi \otimes \Id_{g'})
+            \end{align}
+            が成り立つので，$\varphi$ の $\otimes$ に関する逆元は $\psi \coloneqq \Id_{h^{-1}} \otimes \varphi^{-1} \otimes \Id_{g^{-1}}$ であることが分かる．
+        }
+        ．恒等素は
+        \begin{align}
+            j \colon \Cat{G}_0 \lto \Cat{G}_1,\; g \lmto \Id_g
+        \end{align}
+        と定義され，始点射および終点射は
+        \begin{align}
+            \sigma \colon \Cat{G}_1 &\lto \Cat{G}_0,\; \underbrace{\varphi}_{\in \Hom{\Cat{G}}(g,\, h)} \lmto g \\
+            \tau \colon \Cat{G}_1 &\lto \Cat{G}_0,\; \underbrace{\varphi}_{\in \Hom{\Cat{G}}(g,\, h)} \lmto h
+        \end{align}
+        のように定義される．特に $\forall \varphi \in \Hom{\Cat{G}}(g,\, h),\; \forall \psi \in \Hom{\Cat{G}}(g',\, h')$ に対して
+        \begin{align}
+            \sigma (\psi \otimes \varphi) &= g \otimes g' = \sigma(\psi) \otimes \sigma(\varphi) \\
+            \tau (\psi \otimes \varphi) &= h \otimes h' = \tau(\psi) \otimes \tau(\varphi)
+        \end{align}
+        が成り立つので $\sigma,\, \tau$ は群準同型である．
+
+        　\hyperref[def:crossed-module]{交差加群}の定義 \textsf{\textbf{(cr-1)}}, \textsf{\textbf{(cr-2)}} を確認する．
+        \begin{description}
+            \item[\textbf{(cr-1)}]　
+            $\forall g_1 \in G_1,\; \forall g_2 \in G_2$ に対して
+            \begin{align}
+                t \bigl( \alpha(g_1)(g_2) \bigr) 
+                &= t \bigl( \Id_{g_1} \otimes g_2 \otimes \Id_{g_1^{-1}} \bigr) \\
+                &= g_1 \otimes t(g_2) \otimes g_1^{-1}
+            \end{align}
+            
+            \item[\textbf{(cr-2)}]　
+            $\forall g_2,\, g'_2 \in G_2$ に対して
+            \begin{align}
+                \alpha \bigl( t(g_2) \bigr) (g'_2)
+                &= \Id_{t(g_2)} \otimes g'_2 \otimes \Id_{t(g_2)^{-1}} \\
+                &= \Id_{\tau(g_2)} \otimes g'_2 \otimes \Id_{\tau(g_2^{-1})} \\
+                &= g_2 \otimes g'_2 \otimes g_2^{-1}
+            \end{align}
+            ただし $\sigma (g_2) = 1$ であることを使った．
+        \end{description}
+        
     \end{enumerate}
     
 \end{proof}
+
+\subsection{2-群の分類}
+
+
 
 \section{3-群}
 
