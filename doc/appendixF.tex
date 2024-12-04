@@ -2353,6 +2353,114 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
 
 \subsection{2-群の分類}
 
+\begin{mydef}[label=def:skeltal2G]{骨格的}
+    \hyperref[def:W2G-C2G]{コヒーレントな2群} $(\Cat{G},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev)$ が\textbf{骨格的} (skeltal) であるとは，任意の同型な1-射が等しいことを言う．
+\end{mydef}
+
+\hyperref[def:skeltal2G]{骨格的}であるとは，同型射が自己同型しか存在しないことを意味する．
+~\cite[p.55]{baez2004higherdimensionalalgebrav2groups}に倣って特別な2群を定義する．
+
+\begin{mydef}[label=def:special2G]{特別な2群}
+    \hyperref[def:W2G-C2G]{コヒーレントな2群} $(\Cat{G},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev)$ が\textbf{特別} (special) であるとは，
+    \hyperref[def:skeltal2G]{骨格的}でかつ $l,\, r,\, \lev,\, \lcoev$ が恒等\hyperref[def:nat]{自然変換}であることを言う．
+\end{mydef}
+
+\begin{myprop}[label=prop:special2G]{}
+    任意の\hyperref[def:W2G-C2G]{コヒーレントな2群} $(\Cat{G},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev)$ は，ある\hyperref[def:special2G]{特別な2群}と\hyperref[def:hom2G]{同型}である．
+\end{myprop}
+
+\begin{proof}
+    % 選択公理を認めると，任意の圏 $\Cat{G}$ は\hyperref[def:skeltal2G]{骨格的}な\hyperref[def:faithful]{充満部分圏} $\mathrm{sk}(\Cat{G})$ を持つ．以降 $\Cat{G}$ を $\mathrm{sk}(\Cat{G})$ と同一視する．
+    % あとは\hyperref[def:skeltal2G]{骨格的}な
+    \hyperref[def:W2G-C2G]{コヒーレントな2群} $\Cat{G}$ から，それと2群として同型な\hyperref[def:special2G]{特別な2群} $(\Cat{G},\, \tilde{\otimes},\, 1,\, \tilde{a},\, \tilde{l},\, \tilde{r},\, \tilde{\lev},\, \tilde{\lcoev})$ を構成する\footnote{下地になる圏 $\Cat{G}$ と単位対象 $1$ は同じものをとる．}．
+    そのためにまず，$\forall x,\, y \in \Obj{\Cat{G}}$ に対してある対象 $x \tilde{\otimes} y \in \Obj{\Cat{G}}$ および同型射 $\gamma_{x,y} \in \Hom{\Cat{G}}(x \tilde{\otimes}y,\, x\otimes y)$ を選べたとしよう．
+    このとき，$\gamma_{x,y}$ の可逆性により
+    \begin{itemize}
+        \item 関手 $\mathrm{id} \colon \Cat{G} \lto \Cat{G}$
+        \item 射 $\Id_1 \colon 1 \lto \mathrm{id}(1) = 1$
+        \item 射の族 $\Familyset[\big]{\gamma_{x,y} \colon \mathrm{id}(x \tilde{\otimes} y) \lto \mathrm{id}(x) \otimes \mathrm{id}(y) }{x,\, y \in \Obj{\Cat{G}}}$
+    \end{itemize}
+    の3つ組が\hyperref[def:monoidal-functior]{モノイダル関手}になるように関手 $\tilde{\otimes} \colon \Cat{G} \times \Cat{G} \lto \Cat{G}$ および自然変換 $\tilde{a},\, \tilde{l},\, \tilde{r}$ を構成することができる．
+    $\tilde{\lev},\, \tilde{\lcoev}$ は，以下の可換図式が成り立つように決めれば良い：
+    \begin{center}
+        \begin{tikzcd}[row sep=large, column sep=large]
+            &\mathrm{id}(x \tilde{\otimes} x^*) \ar[r, "\gamma_{x,x^*}"] &\mathrm{id}(x) \otimes \mathrm{id}(x^*) \\
+            &\mathrm{id}(1) \ar[u, "\mathrm{id}(\lcoev_x)"] &1 \ar[u,"\lcoev_{\mathrm{id}(x)}"']\ar[l, "\Id_1"] 
+        \end{tikzcd}
+
+        \begin{tikzcd}[row sep=large, column sep=large]
+            &\mathrm{id}(x \tilde{\otimes} x^*) \ar[r, "\gamma_{x,x^*}"] &\mathrm{id}(x) \otimes \mathrm{id}(x^*) \\
+            &\mathrm{id}(1) \ar[from=u, "\mathrm{id}(\lev_x)"'] &1 \ar[from=u,"\lev_{\mathrm{id}(x)}"]\ar[l, "\Id_1"] 
+        \end{tikzcd}
+    \end{center}
+    このようにして得られる\hyperref[redef:rigid]{rigidなモノイダル圏} $(\Cat{G},\, \tilde{\otimes},\, 1,\, \tilde{a},\, \tilde{l},\, \tilde{r},\, \tilde{\lev},\, \tilde{\lcoev})$ は明らかに\hyperref[def:W2G-C2G]{コヒーレントな2群}であり，
+    \hyperref[def:hom2G]{2群の準同型} $(\mathrm{id},\, \Id_1,\, \{\gamma_{x,y}\})$ がもとのコヒーレントな2群 $(\Cat{G},\, \tilde{\otimes},\, 1,\, \tilde{a},\, \tilde{l},\, \tilde{r},\, \tilde{\lev},\, \tilde{\lcoev})$ との同型を与える．
+    具体的に
+    \begin{align}
+        x \tilde{\otimes} y
+        &\coloneqq \begin{cases}
+            y, &x = 1 \\
+            x, &y = 1 \\
+            1, &x = y^* \\
+            1, &y = x^* \\
+            x \otimes y, &\text{otherwise}
+        \end{cases} \\
+        \gamma_{x,y}
+        &\coloneqq \begin{cases}
+            l_y^{-1}, &x = 1 \\
+            r_x^{-1}, &y = 1 \\
+            \lev_y{}^{-1}, &x = y^* \\
+            \lcoev_x, &y = x^* \\
+            \Id_{x \otimes y}, &\text{otherwise}
+        \end{cases}
+    \end{align}
+    と選ぶことで，上述の構成で $\tilde{l},\, \tilde{r},\, \tilde{\lev},\, \tilde{\lcoev}$ を全て恒等自然変換にすることができる．
+
+    ところで，選択公理を認めると，任意の圏 $\Cat{G}$ は\hyperref[def:skeltal2G]{骨格的}な\hyperref[def:faithful]{充満部分圏} $\mathrm{sk}(\Cat{G})$ を持つ．$\Cat{G}$ を $\mathrm{sk}(\Cat{G})$ と同一視することで証明が完了する．
+\end{proof}
+
+命題\ref{prop:special2G}により，\hyperref[def:W2G-C2G]{コヒーレントな2群}の分類は\hyperref[def:special2G]{特別な2群}の分類と一致する．
+
+\begin{myprop}[label=prop:classification2G]{2群の分類}
+    \hyperref[def:special2G]{特別な2群} $(\Cat{G},\, \otimes,\, 1,\, a)$ は以下のデータの組 $(G,\, H,\, \alpha,\, a)$ と1対1対応する：
+    \begin{itemize}
+        \item 群 $G$
+        \item 可換群 $H$
+        \item 群作用 $\alpha \colon G \lto H$
+        \item 正規化された3-コサイクル $a \in \irm{Z}{Grp}^3(G;\, H)$
+    \end{itemize}
+    
+\end{myprop}
+
+\begin{proof}
+    \hyperref[def:special2G]{特別な2群} $(\Cat{G},\, \otimes,\, 1,\, a)$ を与える．$\Cat{G}$ は\hyperref[def:skeltal2G]{骨格的}なので，その1-射の集合は $\otimes$ に関して群をなす．
+    \begin{align}
+        G \coloneqq \Obj{\Cat{G}}
+    \end{align}
+    とおく．
+
+    $\forall h,\, h' \in \Hom{\Cat{G}}(1,\, 1)$ に対して，$\otimes$ の関手性から
+    \begin{align}
+        h \otimes h' 
+        &= (h \circ \Id_1) \otimes (\Id_1 \circ h') \\
+        &= (h \otimes \Id_1) \circ (\Id_1 \otimes h') \\
+        &= h \circ h' \\
+        &= (\Id_1 \otimes h) \circ (h' \otimes \Id_1) \\
+        &= (\Id_1 \circ h') \otimes (h \circ \Id_1) \\
+        &= h' \otimes h
+    \end{align}
+    が成り立つ．命題\ref{prop:crossed-S2G}-(2) の証明と同様の議論により $\otimes$ に関する逆元も存在するので，
+    \begin{align}
+        H \coloneqq \Hom{\Cat{G}}(1,\, 1)
+    \end{align}
+    は $\otimes$ に関して可換群をなす．
+
+    ここで，写像
+    \begin{align}
+        \alpha \colon G \lto \Aut(H),\; g \lmto \bigl(h \lmto (\Id_g \otimes h) \otimes \Id_{g*}\bigr)
+    \end{align}
+    を考える．
+\end{proof}
 
 
 \section{3-群}
