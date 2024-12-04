@@ -2459,7 +2459,17 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
     \begin{align}
         \alpha \colon G \lto \Aut(H),\; g \lmto \bigl(h \lmto (\Id_g \otimes h) \otimes \Id_{g*}\bigr)
     \end{align}
-    を考える．
+    を考える．$\otimes$ の関手性により $\alpha$ は群準同型である．
+    
+    最後に，$\Cat{G}$ が\hyperref[def:skeltal2G]{骨格的}であることからassociatorが
+    \begin{align}
+        a_{g_1,g_2,g_3} \in \Hom{\Cat{G}}(g_1 \otimes g_2 \otimes g_3,\, g_1 \otimes g_2 \otimes g_3)
+    \end{align}
+    のように自己同型になることに注意する．ここから
+    \begin{align}
+        a \colon G^{\times 3} \lto H,\, (g_1,\, g_2,\, g_3) &\lmto a_{g_1,g_2,g_3} \otimes (\Id_{(g_1 \otimes g_2 \otimes g_3)^*})
+    \end{align}
+    のように定義すると，pentagon identityから $a \in \irm{Z}{Grp}^3(G;\, H)$ が分かり，triangle identityから $g_1,\, g_2,\, g_3$ のうち少なくとも1つが $1$ であるときに $a(g_1,\, g_2,\, 1) = \Id_1$ が成り立つことが分かる．
 \end{proof}
 
 
