@@ -61,6 +61,13 @@
         },
         postaction={decorate}
     },
+    -<-/.style={
+        decoration={
+            markings,
+            mark=at position #1 with {\arrow{<}}
+        },
+        postaction={decorate}
+    },
     bullet/.style={
         circle,fill,
         inner sep=2pt,
@@ -73,6 +80,7 @@
 \usepackage{tikz-feynman}
 \usepackage{tikz-network}
 \usepackage{tikz-3dplot}
+\usepackage{spath3}
 \usepackage{pgfplots}
 \usepgfplotslibrary{patchplots}
 \pgfplotsset{compat=1.15}

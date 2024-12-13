@@ -193,6 +193,96 @@
     \end{myexample}
 
 
+    \begin{mydef}[label=redef:monidal-functor,breakable]{モノイダル関手}
+        2つの\hyperref[def:monoidal-category]{モノイダル圏} $(\Cat{C},\, \otimes_{\Cat{C}},\, I_{\Cat{C}},\, a^{\Cat{C}},\, l^{\Cat{C}},\, r^{\Cat{C}}),\, (\Cat{D},\, \otimes_{\Cat{D}},\, I_{\Cat{D}},\, a^{\Cat{D}},\, l^{\Cat{D}},\, r^{\Cat{D}})$ の間の関手
+        \begin{align}
+            F \colon \mathcal{C} \lto \mathcal{D}
+        \end{align}
+        が\textbf{弱いモノイダル関手} (lax monoidal functor) であるとは，
+        \begin{itemize}
+            \item 射
+            \begin{align}
+                \varepsilon \colon I_{\mathcal{D}} \lto F(I_{\mathcal{C}})
+            \end{align}
+            
+            \item 自然変換
+            \begin{align}
+                \Familyset[\big]{\mu_{X,\, Y} \colon F(X) \otimes_{\mathcal{D}} F(Y) \lto F(X \otimes_{\mathcal{C}} Y)}{X,\, Y \in \Obj{\mathcal{C}}}
+            \end{align}
+        \end{itemize}
+        があって，$\forall X,\, Y,\, Z \in \Obj{\mathcal{C}}$ に対して以下の図式が可換になること：
+        \begin{description}
+            \item[\textbf{(associatibity)}]　
+            
+            \begin{center}
+                \begin{tikzcd}[row sep=large, column sep=huge]
+                    &(F(X) \otimes_{\mathcal{D}} F(Y)) \otimes_{\mathcal{D}} F(Z) \ar[d, "\mu_{X,\, Y} \otimes \mathrm{Id}_{F(Z)}"']\ar[r, "a^{\mathcal{D}}_{F(X),\, F(Y),\, F(Z)}"'] &F(X) \otimes_{\mathcal{D}} (F(Y) \otimes_{\mathcal{D}} F(Z)) \ar[d, "\mathrm{Id}_{F(X)} \otimes \mu_{Y,\, Z}"]\\
+                    &F(X \otimes_{\mathcal{C}} Y) \otimes_{\mathcal{D}} F(Z) \ar[d, "\mu_{X \otimes_{\mathcal{C}} Y,\, Z}"'] & F(X) \otimes_{\mathcal{D}} F(Y \otimes_{\mathcal{C}} Z) \ar[d, "\mu_{X,\, Y \otimes_{\mathcal{C}} Z}"] \\
+                    &F((X \otimes_{\mathcal{C}} Y) \otimes_{\mathcal{C}} Z) \ar[r, "F(a_{X,\, Y,\, Z}^{\mathcal{C}})"'] &F(X \otimes_{\mathcal{C}} (Y \otimes_{\mathcal{C}} Z))
+                \end{tikzcd}
+            \end{center}
+            
+            \item[\textbf{(unitality)}]　
+            
+            \begin{center}
+                \begin{tikzcd}[row sep=large, column sep=huge]
+                    &I_{\mathcal{D}} \otimes_{\mathcal{D}} F(X) \ar[d, "l^{\mathcal{D}}_{F(X)}"']\ar[r, "\varepsilon \otimes \mathrm{Id}_{F(X)}"] &F(I_{\mathcal{C}}) \otimes_{\mathcal{D}} F(X) \ar[d, "\mu_{I_{\mathcal{C}},\, X}"] \\
+                    &F(X) &F(I_{\mathcal{C}} \otimes_{\mathcal{C}} X) \ar[l, "F(l^{\mathcal{C}}_X)"]
+                \end{tikzcd}
+            \end{center}
+    
+            \begin{center}
+                \begin{tikzcd}[row sep=large, column sep=large]
+                    &F(X) \otimes_{\mathcal{D}}  I_{\mathcal{D}} \ar[d, "r^{\mathcal{D}}_{F(X)}"']\ar[r, "\mathrm{Id}_{F(X)} \otimes \varepsilon"] &F(X) \otimes_{\mathcal{D}} F(I_{\mathcal{C}})  \ar[d, "\mu_{X,\, I_{\mathcal{C}}}"] \\
+                    &F(X) &F(X \otimes_{\mathcal{C}} I_{\mathcal{C}}) \ar[l, "F(r^{\mathcal{C}}_X)"]
+                \end{tikzcd}
+            \end{center}
+            
+        \end{description}
+        \tcblower
+        \begin{itemize}
+            \item 弱いモノイダル関手 $F$ の $\varepsilon$ と $\mu_{X,\, Y}$ が全て同型射ならば，$F$ は\textbf{強いモノイダル関手} (strong monoidal functor) と呼ばれる．
+            \item 弱いモノイダル関手 $F$ の $\varepsilon$ と $\mu_{X,\, Y}$ が全て恒等射ならば，$F$ は\textbf{厳密なモノイダル関手} (strict monoidal functor) と呼ばれる．
+        \end{itemize}
+    \end{mydef}
+
+    
+    \begin{mydef}[label=def:monoidal-nat]{モノイダル自然変換}
+        2つの\hyperref[redef:monoidal-category]{モノイダル圏} $(\Cat{C},\, \otimes_{\Cat{C}},\, I_{\Cat{C}},\, a^{\Cat{C}},\, l^{\Cat{C}},\, r^{\Cat{C}}),\, (\Cat{D},\, \otimes_{\Cat{D}},\, I_{\Cat{D}},\, a^{\Cat{D}},\, l^{\Cat{D}},\, r^{\Cat{D}})$ の間の2つの\hyperref[redef:monidal-functor]{弱いモノイダル関手}
+        $\Bigl(F_i\colon \Cat{C} \lto \Cat{D},\, \varepsilon_i \colon I_{\mathcal{D}} \lto F(I_{\mathcal{C}}),\, \Familyset[\big]{\mu_i{}_{X,\, Y} \colon F_i(X) \otimes F_i(Y) \lto F_i(X \otimes Y)}{X,\, Y \in \Obj{\Cat{C}}}\Bigr)\WHERE i = 1,\, 2$
+        の間の\hyperref[def:nat]{自然変換}
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                \Cat{C} \ar[bend left=50,r, "F_1"{name=U, above}] \ar[bend right=50,r, "F_2"{name=D, below}] &\Cat{D}
+                \ar[Rightarrow, from=U, to=D, "\bm{\tau}"]
+            \end{tikzcd}
+        \end{center}
+        が\textbf{モノイダル自然変換} (monidal natural transformation) であるとは，$\forall X,\, Y \in \Cat{C}$ に対して以下の図式が可換になること：
+        \begin{description}
+            \item[\textbf{(テンソル積の保存)}]　
+            
+            \begin{center}
+                \begin{tikzcd}[row sep=large, column sep=large]
+                     &F_1(X) \otimes_{\mathcal{D}} F_1(Y) \ar[d, "\mu_1{}_{X,Y}"']\ar[r, "\bm{\tau}_X \otimes_{\mathcal{D}} \bm{\tau}_Y"] &F_2(X) \otimes_{\mathcal{D}} F_2(Y) \ar[d, "\mu_2{}_{X,Y}"] \\
+                     &F_1(X \otimes_{\mathcal{C}} Y) \ar[r, "\bm{\tau}_{X \otimes_{\mathcal{C}} Y}"'] &F_2(X \otimes_{\mathcal{C}} Y)
+                \end{tikzcd}
+            \end{center}
+            
+            \item[\textbf{(単位対象の保存)}]　
+            
+            \begin{center}
+                \begin{tikzcd}[row sep=large, column sep=large]
+                     & &I_{\mathcal{D}} \ar[dl, "\varepsilon_1"'] \ar[dr, "\varepsilon_2"] & \\
+                     &F_1(I_{\mathcal{C}})\ar[rr, "\bm{\tau}_{I_{\mathcal{C}}}"'] & &F_2(I_{\mathcal{C}})
+                \end{tikzcd}
+            \end{center}
+            
+        \end{description}
+        
+    \end{mydef}    
+
+\subsection{rigidなモノイダル圏}
+
 \begin{mydef}[label=redef:dual,breakable]{双対}
     \hyperref[def:monoidal-category]{モノイダル圏} $(\mathcal{C},\, \otimes,\, I,\, a,\, l,\, r)$ およびその任意の対象 $X,\, X^* \in \Obj{\mathcal{C}}$ を与える．
     $X^*$ が $X$ の\textbf{左双対} (left dual) であるとは，
@@ -286,7 +376,7 @@
         \REV{A}{B}
     \end{tikzpicture}
 \end{align}
-とする．ストリング図式において $\lcoev,\, \rcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equations)}}}は
+とする．ストリング図式において $\lcoev,\, \lev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equations)}}}は
 \begin{align}
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
         \draw[->-=.5] (0,-1) -- (0,1);
@@ -320,7 +410,7 @@
         \draw[->-=.5] (2,1) -- (C);
     \end{tikzpicture}% 
 \end{align}
-$\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equations)}}}は
+$\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equations)}}}は
 \begin{align}
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
         \draw[->-=.5] (0,-1) -- (0,1);
@@ -356,15 +446,364 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
 \end{align}
 と書ける．
 
-\begin{marker}
-    $X^*$ が $X$ の\hyperref[def:dual]{左双対}であるならば，$X$ は $X^*$ に関して $\rev_{X^*} = \lev_{X},\; \rcoev_{X^*} = \lcoev_{X}$ とした\hyperref[def:dual]{右双対}となっている．
-    従って，\hyperref[def:dual]{左/右双対}をもつ任意の $X$ に対して $\rdual{(X^*)} \cong X \cong X \cong (\rdual{X})^*$ が成り立つ．
-\end{marker}
+\begin{mylem}[label=lem:duals]{双対の基本性質}
+    モノイダル圏 $(\Cat{C},\, \otimes,\, I,\, a,\, l,\, r)$ およびその対象 $X,\, Y,\, Z \in \Obj{\Cat{C}}$ を与える．
+    \begin{enumerate}
+        \item $Y$ が $X$ の\hyperref[redef:dual]{左双対}ならば，$X$ は $Y$ の\hyperref[redef:dual]{右双対}である．
+        \item $Z$ が $X$ の\hyperref[redef:dual]{右双対}ならば，$X$ は $Z$ の\hyperref[redef:dual]{左双対}である．
+        \item $X$ が\hyperref[redef:dual]{左・右双対}を持つならば，$\rdual{(X^*)} \cong X \cong (\rdual{X})^*$ が成り立つ．
+    \end{enumerate}
+\end{mylem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 仮定より，$\lcoev_X \colon I \lto X \otimes Y,\; \lev_X \colon Y \otimes X \lto I$ が存在して左双対の\hyperref[redef:dual]{\textsf{\textbf{(zig-zag-equations)}}}を充たす．
+        よって $\rcoev_Y \coloneqq \lcoev_X,\; \rev_Y \coloneqq \lev_X$ と定めれば，組 $(Y,\, X,\, \rcoev_Y,\, \rev_Y)$ は右双対の\hyperref[redef:dual]{\textsf{\textbf{(zig-zag-equations)}}}を充たす．
+        \item 仮定より，$\rcoev_X \colon I \lto Z \otimes X,\; \rev_X \colon X \otimes Z \lto I$ が存在して右双対の\hyperref[redef:dual]{\textsf{\textbf{(zig-zag-equations)}}}を充たす．
+        よって $\lcoev_Z \coloneqq \rcoev_X,\; \lev_Z \coloneqq \rev_X$ と定めれば，組 $(Z,\, X,\, \lcoev_Z,\, \lev_Z)$ は左双対の\hyperref[redef:dual]{\textsf{\textbf{(zig-zag-equations)}}}を充たす．
+        \item 射 $\alpha \colon X \lto \rdual{(X^*)},\; \beta \colon \rdual{(X^*)} \lto X$ をそれぞれ
+        \begin{align}
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \draw[->-=.5] (0,-1) -- node[midway, right] {$X$} (0,0);
+                \draw[->-=.5] (0,0) -- node[midway, right] {$\rdual{(X^*)}$} (0,1);
+                \node[bullet] at (0,0) {};
+                \node[left] at (0,0) {$\alpha$};
+            \end{tikzpicture}
+            &\coloneqq \quad
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \coordinate (A) at (0,0);
+                \coordinate (B) at (1,0);
+                \coordinate (C) at (2,0);
+                \LCOEV{A}{B}
+                \LEV{B}{C}
+                \draw[->-=.5] (A) --  node[left] {$\rdual{(X^*)}$} (0,1);
+                \draw[->-=.5] (2,-1) -- node[right] {$X$} (C);
+                \node[right] at (B) {$X^*$};
+                \node[above] at (1.5,0.6) {$\lev_{X}$};
+                \node[below] at (0.5,-0.6) {$\rcoev_{X^*}$};
+            \end{tikzpicture} \\
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \draw[->-=.5] (0,-1) -- node[midway, right] {$\rdual{(X^*)}$} (0,0);
+                \draw[->-=.5] (0,0) -- node[midway, right] {$X$} (0,1);
+                \node[bullet] at (0,0) {};
+                \node[left] at (0,0) {$\beta$};
+            \end{tikzpicture}
+            &\coloneqq \quad
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \coordinate (A) at (0,0);
+                \coordinate (B) at (1,0);
+                \coordinate (C) at (2,0);
+                \LCOEV{A}{B}
+                \LEV{B}{C}
+                \draw[->-=.5] (A) --  node[left] {$X$} (0,1);
+                \draw[->-=.5] (2,-1) -- node[right] {$\rdual{(X^*)}$} (C);
+                \node[right] at (B) {$X^*$};
+                \node[above] at (1.5,0.6) {$\rev_{X^*}$};
+                \node[below] at (0.5,-0.6) {$\lcoev_{X}$};
+            \end{tikzpicture}
+        \end{align}
+    \end{enumerate}
+    と定義すれば，\hyperref[redef:dual]{\textsf{\textbf{(zig-zag-equations)}}}により $\alpha \circ \beta = \Id_{X^*},\; \beta \circ \alpha = \Id_X$ が言える．$(\rdual{X})^*$ についても同様である．
+\end{proof}
+% \begin{marker}
+%     $X^*$ が $X$ の\hyperref[redef:dual]{左双対}であるならば，$X$ は $X^*$ に関して $\rev_{X^*} = \lev_{X},\; \rcoev_{X^*} = \lcoev_{X}$ とした\hyperref[redef:dual]{右双対}となっている．
+%     従って，\hyperref[redef:dual]{左/右双対}をもつ任意の $X$ に対して $\rdual{(X^*)} \cong X \cong X \cong (\rdual{X})^*$ が成り立つ．
+% \end{marker}
 
 \begin{mydef}[label=redef:rigid]{rigidなモノイダル圏}
     \hyperref[def:monoidal-category]{モノイダル圏} $(\Cat{C},\, \otimes,\, I,\, a,\, l,\, r)$ が\textbf{rigid}であるとは，$\forall X \in \Obj{\mathcal{C}}$ が\hyperref[redef:dual]{左・右双対}を持つことを言う．
 \end{mydef}
 
+\hyperref[redef:rigid]{rigidなモノイダル圏} $(\Cat{C},\, \otimes,\, I,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ において，
+対応
+\begin{align}
+    (\mhyphen)^* \colon \Cat{C} \lto \Cat{C}
+\end{align}
+を次のように構成する：
+\begin{itemize}
+    \item $X \in \Obj{\Cat{C}}$ に対してその\hyperref[redef:dual]{左双対} $X^* \in \Obj{\Cat{C}}$ を対応づける．
+    \item $f \colon X \lto Y$ に対して，
+    \begin{align}
+        \label{eq:dual-functor}
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \draw[->-=.5] (0,1) -- node[midway, right] {$X^*$} (0,0);
+            \draw[->-=.5] (0,0) -- node[midway, right] {$Y^*$} (0,-1);
+            \node[bullet] at (0,0) {};
+            \node[left] at (0,0) {$f^*$};
+        \end{tikzpicture}
+        \quad \coloneqq \quad 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \coordinate (A) at (0,0);
+            \coordinate (B) at (1,0);
+            \coordinate (C) at (2,0);
+            \coordinate (D) at (0,1);
+            \coordinate (E) at (1,1);
+            \coordinate (F) at (2,1);
+            \LCOEV{B}{C}
+            \draw[->-=.5] (A) -- node[midway, left] {$Y^*$} ++(0,-1);
+            \node[left] at (B) {$X$};
+            \node[right] at (C) {$X^*$};
+            \draw[->-=.5] (D) -- (A);
+            \draw[] (B) -- node[midway,bullet] {} (E);
+            \node[right] at ($(B)+(0,0.5)$) {$f$};
+            \draw[->-=.5] (F) -- (C);
+            \LEV{D}{E}
+            \node[left] at (E) {$Y$};
+            \draw[->-=.5] ($(F) + (0,1)$) -- (F);
+            \node[above] at (0.5,1.6) {$\lev_Y$};
+            \node[below] at (1.5,-0.6) {$\lcoev_X$};
+        \end{tikzpicture}
+    \end{align}
+\end{itemize}
+
+\begin{mylem}[label=lem:ldual-functor]{関手性}
+    \begin{enumerate}
+        \item 対応 $(\mhyphen)^* \colon \Cat{C} \lto \Cat{C}$ は反変関手である．
+        \item $\forall X,\, Y \in \Obj{\Cat{C}}$ に対して $(X \otimes Y)^* = Y^* \otimes X^*$ が成り立つ．
+    \end{enumerate}
+\end{mylem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 任意の射 $f \colon X \lto Y,\, g \colon Y \lto Z$ をとる．\hyperref[redef:dual]{\textsf{\textbf{(zig-zag-equations)}}}により，
+        \begin{align}
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \draw[->-=.5] (0,1) -- node[midway, right] {$X^*$} (0,0);
+                \draw[->-=.5] (0,0) -- node[midway, right] {$Z^*$} (0,-1);
+                \node[bullet] at (0,0) {};
+                \node[left] at (0,0) {$(g \circ f)^*$};
+            \end{tikzpicture}
+            \quad &= \quad 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \coordinate (A) at (0,0);
+                \coordinate (B) at (1,0);
+                \coordinate (C) at (2,0);
+                \coordinate (D) at (0,2);
+                \coordinate (E) at (1,2);
+                \coordinate (F) at (2,2);
+                \LCOEV{B}{C}
+                \LEV{D}{E}
+                \draw[] (B) -- node[midway,bullet]{} ++(0,1) -- node[midway,bullet]{} (E);
+                \node[left] at (1,0.5) {$f$};
+                \node[left] at (1,1.5) {$g$};
+                \draw[->-=.5,red] (1,0.5) -- node[midway,left] {$Y$} (1,1.5);
+                \draw[->-=.5] (D) -- (0,-1);
+                \draw[->-=.5] (2,3) -- (C);
+            \end{tikzpicture}
+            \quad = \quad
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \coordinate (A) at (0,0);
+                \coordinate (B) at (2,0);
+                \coordinate (C) at (3,0);
+                \coordinate (D) at (0,2);
+                \coordinate (E) at (1,2);
+                \coordinate (F) at (3,2);
+                \LCOEV{B}{C}
+                \LEV{D}{E}
+                \coordinate (X) at (1,1);
+                \coordinate (Y) at (1.5,1);
+                \coordinate (Z) at (2,1);
+                \LCOEV{X}{Y}
+                \LEV{Y}{Z}
+                \draw[] (B) -- ++(0,0.5) node[bullet]{}; 
+                \draw[] (1,1.5) node[bullet]{} -- (E);
+                \draw[->-=.5] (X) -- ++(0,0.5);
+                \draw[->-=.5] ($(Z) + (0,-0.5)$) -- (Z);
+                \node[left] at (2,0.5) {$f$};
+                \node[left] at (1,1.5) {$g$};
+                % \draw[->-=.5,red] (1,0.5) -- node[midway,left] {$Y$} (1,1.5);
+                \draw[->-=.5] (D) -- (0,-1);
+                \draw[->-=.5] (3,3) -- (C);
+            \end{tikzpicture} \\
+            &= \quad
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                    \path coordinate (Af)
+                        ++(0,-1.5) coordinate (Bf)
+                        ++(-1,0) coordinate (Cf)
+                        ++(0,0.5) coordinate[bullet,label=left:$f$] (f)
+                        ++(0,0.5) coordinate (Df)
+                        ++(-1,0) coordinate (Ef)
+                        ++(0,-1) coordinate (Ag)
+                        ++(0,-1.5) coordinate (Bg)
+                        ++(-1,0) coordinate (Cg)
+                        ++(0,0.5) coordinate[bullet,label=left:$g$] (g)
+                        ++(0,0.5) coordinate (Dg)
+                        ++(-1,0) coordinate (Eg);
+                    \draw[->-=.5] (Af) -- (Bf);
+                    % \draw[->-=.2,->-=.8] (Bf) to[out=-90,in=-90] (Cf);
+                    \LCOEV{Cf}{Bf}
+                    \draw[] (Cf) -- (f.center) -- (Df);
+                    % \draw[->-=.2,->-=.8] (Df) to[out=90,in=90] (Ef);
+                    \LEV{Ef}{Df}
+                    \draw[->-=.5] (Ef) -- (Ag) -- (Bg);
+                    % \draw[->-=.2,->-=.8] (Bg) to[out=-90,in=-90] (Cg);
+                    \LCOEV{Cg}{Bg}
+                    \draw[] (Cg) -- (g.center) -- (Dg);
+                    % \draw[->-=.2,->-=.8] (Dg) to[out=90,in=90] (Eg);
+                    \LEV{Eg}{Dg}
+                    \draw[] (Eg) -- ++(0,-1.5);
+            \end{tikzpicture} 
+            \quad = \quad \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \draw[->-=.5] (0,2) -- node[midway, right] {$X^*$} (0,1);
+                \draw[->-=.5] (0,1) -- node[midway, right] {$Y^*$} (0,0);
+                \draw[->-=.5] (0,0) -- node[midway, right] {$Z^*$} (0,-1);
+                \node[bullet] at (0,1) {};
+                \node[bullet] at (0,0) {};
+                \node[left] at (0,1) {$f^*$};
+                \node[left] at (0,0) {$g^*$};
+            \end{tikzpicture}
+        \end{align}
+        \item $X \otimes Y$ に関する\hyperref[redef:dual]{coevaluation, evaluation}をそれぞれ
+        \begin{align}
+            \lcoev_{X \otimes Y} &\colon I \xrightarrow{\lcoev_X} X \otimes X^* \xrightarrow{l_X^{-1}} (X \otimes I) \otimes X^* \xrightarrow{(\Id_X \otimes \lcoev_Y) \otimes \Id_{X^*}} \bigl( X \otimes (Y\otimes Y^*) \bigr)\otimes X^* \\ 
+            &\qquad  \xrightarrow{a} (X \otimes Y) \otimes (Y^* \otimes X^*) \\
+            \lev_{X \otimes Y} &\colon (Y^* \otimes X^*) \otimes (X \otimes Y) \xrightarrow{a} \bigl(Y^* \otimes (X^* \otimes X)\bigr) \otimes Y \xrightarrow{(\Id_{Y^*} \otimes \lev_X) \otimes \Id_Y} (Y^* \otimes I) \otimes Y \\
+            &\qquad \xrightarrow{l_{Y^*}} Y^* \otimes Y \xrightarrow{\lev_Y} I
+        \end{align}
+        で定義し，組 $(X \otimes Y,\, Y^* \otimes X^*,\, \lcoev_{X \otimes Y},\, \lev_{X \otimes Y} )$ が\hyperref[redef:dual]{\textsf{\textbf{(zig-zag-equations)}}}を充たすことを示せば良い．
+        ストリング図式で書くと
+        \begin{align}
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \coordinate (A) at (0,0);
+                \coordinate (B) at (1,0);
+                \node[left] at (A) {$X \otimes Y$};
+                \node[right] at (B) {$Y^* \otimes X^*$};
+                \LCOEV{A}{B}
+                \node[below] at (0.5,-0.6) {$\lcoev_{X \otimes Y}$};
+            \end{tikzpicture}
+            &\quad \coloneqq \quad 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \coordinate (A) at (0,0);
+                \coordinate (B) at (1,0);
+                \coordinate (C) at (2,0);
+                \coordinate (D) at (3,0);
+                \node[left] at (A) {$X$};
+                \node[left] at (B) {$Y$};
+                \node[right] at (C) {$Y^*$};
+                \node[right] at (D) {$X^*$};
+                \LCOEV{A}{D}
+                \LCOEV{B}{C}
+            \end{tikzpicture}, \\
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \coordinate (A) at (0,0);
+                \coordinate (B) at (1,0);
+                \node[left] at (A) {$Y^* \otimes X^*$};
+                \node[right] at (B) {$X \otimes Y$};
+                \LEV{A}{B}
+                \node[above] at (0.5,0.6) {$\lev_{X \otimes Y}$};
+            \end{tikzpicture}
+            &\quad \coloneqq \quad 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \coordinate (A) at (0,0);
+                \coordinate (B) at (1,0);
+                \coordinate (C) at (2,0);
+                \coordinate (D) at (3,0);
+                \node[left] at (A) {$X$};
+                \node[left] at (B) {$Y$};
+                \node[right] at (C) {$Y^*$};
+                \node[right] at (D) {$X^*$};
+                \LEV{A}{D}
+                \LEV{B}{C}
+            \end{tikzpicture}
+        \end{align}
+        なので明らか．
+    \end{enumerate}
+\end{proof}
+
+
+全く同様にして，反変関手
+\begin{align}
+    \rdual{(\mhyphen)} \colon \Cat{C} \lto \Cat{C}
+\end{align}
+を作ることができる．
+
+\begin{myexample}[label=def:dual-functor]{双対関手}
+    補題\ref{lem:ldual-functor}より，\hyperref[redef:rigid]{rigidなモノイダル圏} $(\Cat{C},\, \otimes,\, I,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ において関手
+    \begin{align}
+        (\mhyphen)^{**} \colon \Cat{C} &\lto \Cat{C} \\
+        {}^{**}(\mhyphen) \colon \Cat{C} &\lto \Cat{C}
+    \end{align}
+    は\hyperref[redef:monidal-functor]{モノイダル関手}である．
+\end{myexample}
+
+
+\begin{mylem}[label=lem:rigid-hom]{rigidity isomorphism}
+    \hyperref[redef:rigid]{rigidなモノイダル圏} $(\Cat{C},\, \otimes,\, I,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ に対し，以下が成り立つ：
+    \begin{enumerate}
+        \item $\forall X,\, Y,\, Z \in \Obj{\Cat{C}}$ に対して\hyperref[def:nat]{自然な同型}
+        \begin{align}
+            \Hom{\Cat{C}} (X \otimes Y,\, Z) &\xrightarrow{\cong} \Hom{\Cat{C}} (X,\, Z \otimes Y^*) \\
+            \Hom{\Cat{C}} (Y^* \otimes X,\, Z) &\xrightarrow{\cong} \Hom{\Cat{C}} (X,\, Y \otimes Z)
+        \end{align}
+        が存在する．
+        \item $\forall X,\, Y,\, Z \in \Obj{\Cat{C}}$ に対して\hyperref[def:nat]{自然な同型}
+        \begin{align}
+            \Hom{\Cat{C}} (X \otimes \rdual{Y},\, Z) &\xrightarrow{\cong} \Hom{\Cat{C}} (X,\, Z \otimes Y) \\
+            \Hom{\Cat{C}} (Y \otimes X,\, Z) &\xrightarrow{\cong} \Hom{\Cat{C}} (X,\, \rdual{Y} \otimes Z)
+        \end{align}
+        が存在する．
+    \end{enumerate}
+    
+\end{mylem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 最初の同型は
+        \begin{align}
+            \alpha_{X,Y,Z} \colon 
+                \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                    \path coordinate[label=left:$X$] (X)
+                    ++(1,0) coordinate[label=right:$Y$] (Y)
+                    ++(-0.5,1) coordinate[bullet,label=right:$f$] (f)
+                    ++(0,1) coordinate[label=left:$Z$] (Z);
+                    \draw[->-=.5] (X) -- (f);
+                    \draw[->-=.5] (Y) -- (f);
+                    \draw[->-=.5] (f) -- (Z);
+                \end{tikzpicture}
+                &\lmto 
+                    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                        \path coordinate[label=left:$X$] (X)
+                        +(2,0) coordinate[label=right:$Y^*$] (W)
+                        ++(1,0) coordinate[label=right:$Y$] (Y)
+                        ++(-0.5,1) coordinate[bullet,label=right:$f$] (f)
+                        ++(0,1) coordinate[label=left:$Z$] (Z);
+                        \draw[->-=.5] (X) -- (f);
+                        \draw[->-=.5] (Y) -- (f);
+                        \draw[->-=.5] (f) -- (Z);
+                        \draw[-<-=.5] (X) -- ++(0,-1);
+                        \draw[-<-=.5] (W) -- ++(0,2);
+                        \LCOEV{Y}{W}
+                    \end{tikzpicture} \\
+            \alpha_{X,Y,Z}^{-1} \colon 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[label=left:$X$] (X)
+                ++(0,1) coordinate[bullet,label=right:$g$] (g)
+                +(-0.5,1) coordinate[label=left:$Z$] (Z)
+                +(0.5,1) coordinate[label=left:$Y^*$] (Y);
+                \draw[->-=.5] (X) -- (g);
+                \draw[->-=.5] (g) -- (Z);
+                \draw[->-=.5] (Y) -- (g);
+            \end{tikzpicture}
+            &\lmto 
+                \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                    \path coordinate[label=left:$X$] (X)
+                    ++(0,1) coordinate[bullet,label=right:$g$] (g)
+                    +(-0.5,1) coordinate[label=left:$Z$] (Z)
+                    +(0.5,1) coordinate[label=left:$Y^*$] (Y)
+                    ++(1.5,1) coordinate[label=left:$Y$] (W);
+                    \draw[->-=.5] (X) -- (g);
+                    \draw[->-=.5] (g) -- (Z);
+                    \draw[->-=.5] (Y) -- (g);
+                    \LEV{Y}{W}
+                    \draw[-<-=.5] (W) -- ++(0,-2);
+                \end{tikzpicture}
+        \end{align}
+        である．他も同様．
+    \end{enumerate}
+    
+\end{proof}
+
+\subsection{組紐付きモノイダル圏}
 
 \begin{mydef}[label=redef:braided-monoidal]{組紐付きモノイダル圏}
     \textbf{組紐付きモノイダル圏} (braided monoidal category) とは，以下の2つからなる：
@@ -395,93 +834,6 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
     \end{description}
     \tcblower
     組紐付きモノイダル圏 $\mathcal{C}$ であって，$\mathcal{C}$ の組紐が $b_{X,\, Y} = b_{Y,\, X}^{-1}$ を充たすもののことを\textbf{対称モノイダル圏} (symmetric monoidal category) と呼ぶ．
-\end{mydef}
-
-\begin{mydef}[label=redef:monidal-functor,breakable]{モノイダル関手}
-    2つの\hyperref[def:monoidal-category]{モノイダル圏} $(\Cat{C},\, \otimes_{\Cat{C}},\, I_{\Cat{C}},\, a^{\Cat{C}},\, l^{\Cat{C}},\, r^{\Cat{C}}),\, (\Cat{D},\, \otimes_{\Cat{D}},\, I_{\Cat{D}},\, a^{\Cat{D}},\, l^{\Cat{D}},\, r^{\Cat{D}})$ の間の関手
-    \begin{align}
-        F \colon \mathcal{C} \lto \mathcal{D}
-    \end{align}
-    が\textbf{弱いモノイダル関手} (lax monoidal functor) であるとは，
-    \begin{itemize}
-        \item 射
-        \begin{align}
-            \varepsilon \colon I_{\mathcal{D}} \lto F(I_{\mathcal{C}})
-        \end{align}
-        
-        \item 自然変換
-        \begin{align}
-            \Familyset[\big]{\mu_{X,\, Y} \colon F(X) \otimes_{\mathcal{D}} F(Y) \lto F(X \otimes_{\mathcal{C}} Y)}{X,\, Y \in \Obj{\mathcal{C}}}
-        \end{align}
-    \end{itemize}
-    があって，$\forall X,\, Y,\, Z \in \Obj{\mathcal{C}}$ に対して以下の図式が可換になること：
-    \begin{description}
-        \item[\textbf{(associatibity)}]　
-        
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=huge]
-                &(F(X) \otimes_{\mathcal{D}} F(Y)) \otimes_{\mathcal{D}} F(Z) \ar[d, "\mu_{X,\, Y} \otimes \mathrm{Id}_{F(Z)}"']\ar[r, "a^{\mathcal{D}}_{F(X),\, F(Y),\, F(Z)}"'] &F(X) \otimes_{\mathcal{D}} (F(Y) \otimes_{\mathcal{D}} F(Z)) \ar[d, "\mathrm{Id}_{F(X)} \otimes \mu_{Y,\, Z}"]\\
-                &F(X \otimes_{\mathcal{C}} Y) \otimes_{\mathcal{D}} F(Z) \ar[d, "\mu_{X \otimes_{\mathcal{C}} Y,\, Z}"'] & F(X) \otimes_{\mathcal{D}} F(Y \otimes_{\mathcal{C}} Z) \ar[d, "\mu_{X,\, Y \otimes_{\mathcal{C}} Z}"] \\
-                &F((X \otimes_{\mathcal{C}} Y) \otimes_{\mathcal{C}} Z) \ar[r, "F(a_{X,\, Y,\, Z}^{\mathcal{C}})"'] &F(X \otimes_{\mathcal{C}} (Y \otimes_{\mathcal{C}} Z))
-            \end{tikzcd}
-        \end{center}
-        
-        \item[\textbf{(unitality)}]　
-        
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=huge]
-                &I_{\mathcal{D}} \otimes_{\mathcal{D}} F(X) \ar[d, "l^{\mathcal{D}}_{F(X)}"']\ar[r, "\varepsilon \otimes \mathrm{Id}_{F(X)}"] &F(I_{\mathcal{C}}) \otimes_{\mathcal{D}} F(X) \ar[d, "\mu_{I_{\mathcal{C}},\, X}"] \\
-                &F(X) &F(I_{\mathcal{C}} \otimes_{\mathcal{C}} X) \ar[l, "F(l^{\mathcal{C}}_X)"]
-            \end{tikzcd}
-        \end{center}
-
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-                &F(X) \otimes_{\mathcal{D}}  I_{\mathcal{D}} \ar[d, "r^{\mathcal{D}}_{F(X)}"']\ar[r, "\mathrm{Id}_{F(X)} \otimes \varepsilon"] &F(X) \otimes_{\mathcal{D}} F(I_{\mathcal{C}})  \ar[d, "\mu_{X,\, I_{\mathcal{C}}}"] \\
-                &F(X) &F(X \otimes_{\mathcal{C}} I_{\mathcal{C}}) \ar[l, "F(r^{\mathcal{C}}_X)"]
-            \end{tikzcd}
-        \end{center}
-        
-    \end{description}
-    \tcblower
-    \begin{itemize}
-        \item 弱いモノイダル関手 $F$ の $\varepsilon$ と $\mu_{X,\, Y}$ が全て同型射ならば，$F$ は\textbf{強いモノイダル関手} (strong monoidal functor) と呼ばれる．
-        \item 弱いモノイダル関手 $F$ の $\varepsilon$ と $\mu_{X,\, Y}$ が全て恒等射ならば，$F$ は\textbf{厳密なモノイダル関手} (strict monoidal functor) と呼ばれる．
-    \end{itemize}
-\end{mydef}
-
-\begin{mydef}[label=def:monoidal-nat]{モノイダル自然変換}
-    2つの\hyperref[redef:monoidal-category]{モノイダル圏} $(\Cat{C},\, \otimes_{\Cat{C}},\, I_{\Cat{C}},\, a^{\Cat{C}},\, l^{\Cat{C}},\, r^{\Cat{C}}),\, (\Cat{D},\, \otimes_{\Cat{D}},\, I_{\Cat{D}},\, a^{\Cat{D}},\, l^{\Cat{D}},\, r^{\Cat{D}})$ の間の2つの\hyperref[redef:monidal-functor]{弱いモノイダル関手}
-    $\Bigl(F_i\colon \Cat{C} \lto \Cat{D},\, \varepsilon_i \colon I_{\mathcal{D}} \lto F(I_{\mathcal{C}}),\, \Familyset[\big]{\mu_i{}_{X,\, Y} \colon F_i(X) \otimes F_i(Y) \lto F_i(X \otimes Y)}{X,\, Y \in \Obj{\Cat{C}}}\Bigr)\WHERE i = 1,\, 2$
-    の間の\hyperref[def:nat]{自然変換}
-    \begin{center}
-        \begin{tikzcd}[row sep=large, column sep=large]
-            \Cat{C} \ar[bend left=50,r, "F_1"{name=U, above}] \ar[bend right=50,r, "F_2"{name=D, below}] &\Cat{D}
-            \ar[Rightarrow, from=U, to=D, "\bm{\tau}"]
-        \end{tikzcd}
-    \end{center}
-    が\textbf{モノイダル自然変換} (monidal natural transformation) であるとは，$\forall X,\, Y \in \Cat{C}$ に対して以下の図式が可換になること：
-    \begin{description}
-        \item[\textbf{(テンソル積の保存)}]　
-        
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-                 &F_1(X) \otimes_{\mathcal{D}} F_1(Y) \ar[d, "\mu_1{}_{X,Y}"']\ar[r, "\bm{\tau}_X \otimes_{\mathcal{D}} \bm{\tau}_Y"] &F_2(X) \otimes_{\mathcal{D}} F_2(Y) \ar[d, "\mu_2{}_{X,Y}"] \\
-                 &F_1(X \otimes_{\mathcal{C}} Y) \ar[r, "\bm{\tau}_{X \otimes_{\mathcal{C}} Y}"'] &F_2(X \otimes_{\mathcal{C}} Y)
-            \end{tikzcd}
-        \end{center}
-        
-        \item[\textbf{(単位対象の保存)}]　
-        
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-                 & &I_{\mathcal{D}} \ar[dl, "\varepsilon_1"'] \ar[dr, "\varepsilon_2"] & \\
-                 &F_1(I_{\mathcal{C}})\ar[rr, "\bm{\tau}_{I_{\mathcal{C}}}"'] & &F_2(I_{\mathcal{C}})
-            \end{tikzcd}
-        \end{center}
-        
-    \end{description}
-    
 \end{mydef}
 
 \section{テンソル圏・フュージョン圏}
@@ -690,7 +1042,7 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
         \label{eq:CGnat-cohomologus}
         \mu = \mu' \cdot \delta \tau
     \end{align}
-    である．逆に\eqref{eq:CGnat-cohomologus}を充たす $\tau \in \irm{C}{Grp}^1$ からモノイダル自然変換 $\tau \colon F_{f,\, \mu} \Longrightarrow F_{f,\, \mu'}$ を構成することができる．
+    である．逆に\eqref{eq:CGnat-cohomologus}を充たす $\tau \in \irm{C}{Grp}^1 \bigl( G_1;\, \LU(1) \bigr)$ からモノイダル自然変換 $\tau \colon F_{f,\, \mu} \Longrightarrow F_{f,\, \mu'}$ を構成することができる．
 \end{myexample}
 
 
@@ -762,12 +1114,131 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
             \draw[-implies,double equal sign distance, red] (A) to node[midway, left] {$p$} (B);
         \end{tikzpicture}
     \end{center}
-    のこと．
+    のこと．ただし $(\mhyphen)^{**}$ は\exref{def:dual-functor}で構成したモノイダル関手である．
 \end{mydef}
 
-\begin{mydef}[label=def:qdim,breakable]{球状圏・量子次元}
-    \hyperref[def:tensorfusion-cat]{テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ が\hyperref[def:pivotal]{旋回構造} $p$ を持つとする．
-    圏 $\Cat{C}$ が\textbf{球状} (spherical) であるとは，$\forall x \in \Obj{\Cat{C}}$ に対して
+\begin{mylem}[label=lem:pivotal]{旋回構造と双対}
+    \hyperref[redef:rigid]{rigidなモノイダル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ の\hyperref[def:pivotal]{旋回構造} $p$ を与える．
+    このとき $\forall x \in \Obj{\Cat{C}}$ に対して以下が成り立つ：
+    \begin{enumerate}
+        \item $p_{x^*} = (p_x)^{*}{}^{-1}$
+        \item $p_{x^{**}} = (p_x)^{**}$
+    \end{enumerate}
+\end{mylem}
+
+\begin{proof}
+    $\forall x \in \Obj{\Cat{C}}$ を1つ固定する．
+    \begin{enumerate}
+        \item 
+        \item $p$ の自然性より
+        \begin{align}
+            (p_x)^{**} \circ p_x = p_{x^{**}} \circ p_x
+        \end{align}
+        が言える．$p_x \colon x \lto x^{**}$ は同型射だから示された．
+    \end{enumerate}
+\end{proof}
+
+非常に重要な予想がある~\cite[Conjecture 2.8., p.5]{EtingofNikschychOstrik2002}：
+\begin{myconj}[label=conj:kfusion-pivotal]{フュージョン圏はpivotal}
+    任意の\hyperref[def:tensorfusion-cat]{フュージョン圏}は\hyperref[def:pivotal]{旋回構造}を持つ．
+\end{myconj}
+本資料ではこの予想を認める．
+
+\begin{mydef}[label=def:qdim,breakable]{量子次元}
+    \hyperref[def:pivotal]{旋回構造} $p$ を持つ\hyperref[redef:rigid]{rigidなモノイダル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
+    $\Cat{C}$ の対象 $x \in \Obj{\Cat{C}}$ の，$p$ に関する\textbf{量子次元} (quantum dimension) を以下で定義する：
+    \begin{align}
+        \dim_p (x) \coloneqq \lqTr(p_x) \coloneqq 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \coordinate (A1) at (0,-1);
+            \coordinate (A2) at (0,1);
+            \node[squarednode] (f) at (0,0) {$p_x$};
+            \coordinate (B1) at (1,-1);
+            \coordinate (B2) at (1,1);
+            \draw[->-=.5] (A1) -- node[midway, left]{$x$} (f);
+            \draw[->-=.5] (f) -- node[midway, left]{$x^{**}$} (A2);
+            \draw[->-=.5] (B2) -- node[midway, right]{$x^{*}$} (B1);
+            \LCOEV{A1}{B1}
+            \REV{A2}{B2}
+        \end{tikzpicture}
+        \in \Hom{\Cat{C}} (1,\, 1)
+    \end{align}
+\end{mydef}
+
+補題\ref{lem:duals}-(2) の証明より
+\begin{align}
+    \left(
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate[label=right:$x^*$] (A)
+            +(-1,0) coordinate[label=left:$x$] (B)
+            +(-0.5,-0.6) coordinate[label=below:$\lcoev_x$];
+            \LCOEV{B}{A}
+        \end{tikzpicture}
+    \right)^*
+    \quad &= \quad
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate[label=left:$x^*$] (A)
+            ++(0,1) coordinate (B)
+            ++(1,0) coordinate[label=left:$x$] (C)
+            ++(1,0) coordinate[label=right:$x^*$] (D)
+            ++(-3,0) coordinate[label=left:$x^{**}$] (E)
+            ++(0,-1) coordinate (F);
+            \LEV{B}{C}
+            \LCOEV{C}{D}
+            \REV{E}{D}
+            \draw[->-=.5] (A) -- (B);
+            \draw[->-=.5] (F) -- (E);
+        \end{tikzpicture}
+        \quad = \quad 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate[label=right:$x^{*}$] (A)
+            +(-1,0) coordinate[label=left:$x^{**}$] (B)
+            +(-0.5,0.6) coordinate[label=above:$\lev_{x^*}$];
+            \REV{B}{A}
+        \end{tikzpicture}, \\
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate[label=right:$x$] (A)
+            +(-1,0) coordinate[label=left:$x^*$] (B)
+            +(-0.5,0.6) coordinate[label=above:$\lev_x$];
+            \LEV{B}{A}
+        \end{tikzpicture}
+        \quad &= \quad 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate[label=right:$x^{**}$] (A)
+            +(-1,0) coordinate[label=left:$x^*$] (B)
+            +(-0.5,-0.6) coordinate[label=below:$\lcoev_{x^*}$];
+            \RCOEV{B}{A}
+        \end{tikzpicture}
+\end{align}
+であるから，$(\mhyphen)^{**}$ の関手性および補題\ref{lem:pivotal}-(2) により
+\begin{align}
+    \dim_p(x^{**})
+    &=     
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate[bullet,label=right:$p_{x^{**}}$] (A)
+            +(1,0) coordinate (B)
+            +(0,0.3) coordinate[label=left:$x^{****}$]
+            +(0,-0.3) coordinate[label=left:$x^{**}$]
+            +(1,0) coordinate[label=right:$x^{***}$];
+            \REV{A}{B}
+            \LCOEV{A}{B}
+    \end{tikzpicture}
+    =   \left(  \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate[bullet,label=right:$p_{x}$] (A)
+        +(1,0) coordinate (B)
+        +(0,0.3) coordinate[label=left:$x^{**}$]
+        +(0,-0.3) coordinate[label=left:$x^*$]
+        +(1,0) coordinate[label=right:$x$];
+        \REV{A}{B}
+        \LCOEV{A}{B}
+        \end{tikzpicture}\right)^{**}
+    = \dim_p(x)
+\end{align}
+が言える．ただし，$(\mhyphen)^*$ の定義\eqref{eq:dual-functor}より $f \in \Hom{\Cat{C}}(1,\, 1)$ に対して\footnote{$1^* = \rdual{1} = 1$ である．} $f^{*} = (l_1 \otimes \Id_1)  \circ (\Id_1 \otimes f \otimes\Id_1) \circ (\Id_1 \otimes l_1^{-1}) = f$ が成り立つことを使った．
+
+\begin{mydef}[label=spherical]{球状圏}
+    \hyperref[def:tensorfusion-cat]{テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ の
+    \hyperref[def:pivotal]{旋回構造} $p$ が\textbf{球状} (spherical) であるとは，$\forall x \in \Obj{\Cat{C}}$ に対して
     \begin{align}
         \lqTr(p_x) =
         \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
@@ -798,27 +1269,8 @@ $\rcoev,\, \lcoev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag eq
         = \rqTr(p_x)
     \end{align}
     が成り立つことを言う．
-
-    \tcblower
-
-    球状圏 $\Cat{C}$ の対象 $x \in \Obj{\Cat{C}}$ の\textbf{量子次元} (quantum dimension) を以下で定義する：
-    \begin{align}
-        \dim_p (x) \coloneqq \lqTr(p_x) \coloneqq 
-        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-            \coordinate (A1) at (0,-1);
-            \coordinate (A2) at (0,1);
-            \node[squarednode] (f) at (0,0) {$p_x$};
-            \coordinate (B1) at (1,-1);
-            \coordinate (B2) at (1,1);
-            \draw[->-=.5] (A1) -- node[midway, left]{$x$} (f);
-            \draw[->-=.5] (f) -- node[midway, left]{$x^{**}$} (A2);
-            \draw[->-=.5] (B2) -- node[midway, right]{$x^{*}$} (B1);
-            \LCOEV{A1}{B1}
-            \REV{A2}{B2}
-        \end{tikzpicture}
-        \in \Hom{\Cat{C}} (1,\, 1)
-    \end{align}
 \end{mydef}
+
 
 \subsection{Deligneのテンソル積}
 
