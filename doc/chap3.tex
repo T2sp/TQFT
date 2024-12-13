@@ -2928,7 +2928,7 @@ $\BIMODC{\Cat{C}}{\textcolor{red}{A}}{\textcolor{red}{A}}$ のassociatorとunito
 \subsection{等価なゲージ化}
 
 時空多様体 $\mfd{M}{2}$ のメッシュが同一だとすると，異なる\hyperref[def:sym-Frobenius]{対称Frobenius代数} $(A,\, \mu,\, \upsilon,\, \Delta,\, \epsilon),\; (A',\, \mu',\, \upsilon',\, \Delta',\, \epsilon')$ はいつ同じ\hyperref[def:gauging]{ゲージ化}された理論 $T/A \cong T/A'$ を与えるのだろうか？
-この $\cong$ は，ゲージ化された理論の持つ\hyperref[ax:symcat-2d-0form]{対称性}および\hyperref[prop:domainwall-gauged]{ドメインウォールの持つ対称性}が等価であることを意味する．
+この $\cong$ は，ゲージ化された理論の持つ\hyperref[ax:symcat-2d-0form]{対称性}および\hyperref[prop:domainwall-gauged]{ドメインウォール}が等価であることを意味する．
 
 \begin{mydef}[label=def:gauged-isom]{等価なゲージ化}
     $T/A \cong T/A'$ であるとは，\hyperref[def:tensor-functor]{左 $\Cat{C}$-加群圏の同値} $\MODCR{\Cat{C}}{A} \cong \MODCR{\Cat{C}}{A}$ が成り立つこと，i.e. $A$ と $A'$ が\hyperref[def:Morita-equiv]{森田同値}であることを言う．
@@ -2973,6 +2973,283 @@ $\BIMODC{\Cat{C}}{\textcolor{red}{A}}{\textcolor{red}{A}}$ のassociatorとunito
 \end{myprop}
 
 命題\ref{prop:symtrans-gauging}の操作をモジュラーテンソル圏に対して行うことを\textbf{エニオン凝縮} (anyon condensation) と呼ぶ．
+
+
+\section{Turaev-Viro理論}
+
+前節で見てきたように，$1+1$ 次元における\hyperref[ax:symcat-2d-0form]{有限対称性}とは \hyperref[def:tensorfusion-cat]{ユニタリフュージョン圏}のことであった．
+一方で，\textbf{Turaev-Viro理論}とは，与えられた\hyperref[def:spherical]{球状フュージョン圏} $\Cat{C}$ のデータを素材にして構成される $2+1$ 次元のTQFTである~\cite{TuraevViro1992TQFT}．
+$2+1$ 次元のsymmetry TFTとしてTuraev-Viro理論を採用することにより，境界に $\Cat{C}$ の対称性を持つ理論を作ることができる~\cite{AFM2020}．
+
+この節では~\cite{Bakalov2001lectures}, ~\cite{KirillovBalsam2010TVBW}に従いTuraev-Viro理論の構成を行う．
+
+\subsection{球状圏に関する準備}
+
+以下では，代数閉体 $\mathbb{K}$ 上の\hyperref[def:spherical]{球状フュージョン圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, \rcoev,\, \rev)$ と，その\hyperref[def:pivotal]{旋回構造} $p$ を1つ固定する．
+$\Cat{C}$ の\hyperref[def:semisimple-cat]{単純対象}が成す有限集合を $\mathrm{Simp}(\Cat{C})$ と書く．
+
+\begin{mylem}[label=lem:MS]{Moore-Seibergの欠片}
+    $\forall x_1,\, \dots,\, x_n,\, y_1,\, \dots,\, y_n,\, z \in \Obj{\Cat{C}}$ に対して，以下の\hyperref[def:nat]{自然同型}が存在する：
+    \begin{description}
+        \item[\textbf{(Rotation isomorphism)}]　 
+        
+        \begin{align}
+            Z \colon \Hom{\Cat{C}} (1,\, x_1 \otimes x_2 \otimes \cdots \otimes x_n) \lto \Hom{\Cat{C}} (1,\, x_n \otimes x_1 \otimes \cdots \otimes x_{n-1})
+        \end{align}
+        
+        \item[\textbf{(Gluing isomorphism)}]　
+        
+        \begin{align}
+            G &\colon \Hom{\Cat{C}} (1,\, x_1 \otimes \cdots \otimes x_n \otimes z) \otimes  \Hom{\Cat{C}}(1,\, z^* \otimes y_1 \otimes \cdots \otimes y_n) \\
+            &\qquad \lto \Hom{\Cat{C}} (x_1\otimes \cdots \otimes x_{n} \otimes y_1 \otimes \cdots \otimes y_n), \\
+            \varphi \otimes \psi &\lmto \lev_z \circ (\varphi \otimes \psi)
+        \end{align}
+        
+        % \item[\textbf{(Gluing isomorphism)}]  $Z \colon \Hom{\Cat{C}} (1,\, V_1 \otimes V_2 \otimes \cdots \otimes V_n) \lto \Hom{\Cat{C}} (1,\, V_n \otimes V_1 \otimes \cdots \otimes V_{n-1})$
+    \end{description}
+    
+\end{mylem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item \hyperref[def:pivotal]{旋回構造} $p$ の存在と補題\ref{lem:rigid-hom}より，
+        \begin{align}
+            Z &\colon \Hom{\Cat{C}} (1,\, x_1 \otimes x_2 \otimes \cdots \otimes x_n) \\
+            &\qquad \xrightarrow{\Hom{\Cat{C}} (\Id_1,\, \Id_{x_1 \otimes \cdots \otimes x_{n-1}} \otimes p_{x_n})} \Hom{\Cat{C}} (1,\, x_1 \otimes \cdots \otimes x_n^{**})  \\
+            &\qquad \xrightarrow{\alpha_{1,x_n^*,x_1\otimes \cdots \otimes x_{n-1}}^{-1}} \Hom{\Cat{C}} (x_n^{*},\, x_1 \otimes \cdots \otimes x_{n-1}) \\
+            &\qquad \xrightarrow{\beta_{x_n,1,x_1 \otimes \cdots \otimes x_{n-1}}} \Hom{\Cat{C}} (1,\, x_n \otimes x_1 \otimes \cdots \otimes x_{n-1})
+        \end{align}
+        と自然同型が構成できる．
+        \item $\Cat{C}$ は定義から\hyperref[def:semisimple-cat]{半単純}なので，
+        $z = \bigoplus_{a \in \mathrm{Simp}(\Cat{C})} N_a a$ と書くことができる．さらに補題\ref{lem:ldual-functor}により $(\mhyphen)^* \colon \Cat{C} \lto \Cat{C}$ は反変関手だが，\hyperref[def:adjoint]{左随伴関手}を持つので命題\ref{prop:adj-lim}より余極限 $\bigoplus$ と交換し，
+        \begin{align}
+            z^* = \bigoplus_{a \in \mathrm{Simp}(\Cat{C})} N_a a^*
+        \end{align}
+        と書ける．よって\hyperref[prop:lim-colim-basic]{余極限とHomの交換}から自然同型
+        \begin{align}
+            &\Hom{\Cat{C}} (1,\, x_1 \otimes \cdots \otimes x_n \otimes z) \otimes  \Hom{\Cat{C}}(1,\, z^* \otimes y_1 \otimes \cdots \otimes y_n) \\
+            &\cong \bigoplus_{a \in \mathrm{Simp}(\Cat{C})} \Hom{\Cat{C}} (1,\, x_1 \otimes \cdots \otimes x_n \otimes a) \otimes  \Hom{\Cat{C}}(1,\, a^* \otimes y_1 \otimes \cdots \otimes y_n)
+        \end{align}
+        が従う．さらに\hyperref[def:pivotal]{旋回構造} $p$ と補題\ref{lem:rigid-hom}，\hyperref[prop:lim-colim-basic]{余極限とHomの交換}などを使うと自然同型
+        \begin{align}
+            &\bigoplus_{a \in \mathrm{Simp}(\Cat{C})} \Hom{\Cat{C}} (1,\, x_1 \otimes \cdots \otimes x_n \otimes a) \otimes  \Hom{\Cat{C}}(1,\, a^* \otimes y_1 \otimes \cdots \otimes y_n) \\
+            &\cong \bigoplus_{a \in \mathrm{Simp}(\Cat{C})} \Hom{\Cat{C}} (1,\, x_1 \otimes \cdots \otimes x_n \otimes a) \otimes  \Hom{\Cat{C}}(a^{**},\, y_1 \otimes \cdots \otimes y_n) \\
+            &\cong \bigoplus_{a \in \mathrm{Simp}(\Cat{C})} \Hom{\Cat{C}} (1,\, x_1 \otimes \cdots \otimes x_n \otimes a) \otimes  \Hom{\Cat{C}}(a,\, y_1 \otimes \cdots \otimes y_n) \\
+            &\cong \Hom{\Cat{C}} (x_1\otimes \cdots \otimes x_{n} \otimes y_1 \otimes \cdots \otimes y_n)
+        \end{align}
+        が分かる．
+    \end{enumerate}
+    
+\end{proof}
+
+\begin{marker}
+    補題\ref{lem:MS}のデータは，本質的にMoore-SeibergによるRCFTの公理のデータの一部分である~\cite[THEOREM5.3.8., p.111]{Bakalov2001lectures}．
+    関手
+    \begin{align}
+        \label{eq:CB-functor}
+        \expval{\mhyphen} \colon \Cat{C}^{\times n} &\lto \VEC{\mathbb{K}},\\ 
+        (x_1,\, \dots,\, x_n) &\lmto \Hom{\Cat{C}}(1,\, x_1,\, \dots,\, x_n)
+    \end{align}
+    は共形ブロックのデータを与える．以下では関手\eqref{eq:CB-functor}に準じた略記 $\expval{x_1,\, \dots,\, x_n} \coloneqq \Hom{\Cat{C}} (1,\, x_1 \otimes \cdots \otimes x_n)$ を行う．
+\end{marker}
+
+\begin{mylem}[label=lem:nondegen-pairing]{非退化な双線形形式}
+    $\forall x,\, y \in \Obj{\Cat{C}}$ について，双線形形式
+    \begin{align}
+        (\;,\,) \colon \Hom{\Cat{C}}(x,\, y) \otimes \Hom{\Cat{C}}(x^*,\, y^*) &\lto \mathbb{K} \\
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \draw[->-=.25,->-=.75] (0,-1) -- (0,0) coordinate[bullet,label=left:$f$] -- (0,1);
+            \draw[->-=.25,->-=.75] (1,-1) -- (1,0) coordinate[bullet,label=right:$g$] -- (1,1);
+        \end{tikzpicture}
+        &\lmto 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (a)
+            +(1,0) coordinate (b)
+            +(0,1) coordinate[bullet,label=left:$f$] (f)
+            +(1,1) coordinate[bullet,label=right:$g$] (g)
+            +(0,2) coordinate (c)
+            +(1,2) coordinate (d)
+            ;
+            \LCOEV{a}{b}
+            \LEV{c}{d}
+            \draw (a) -- (c);
+            \draw (b) -- (d);
+        \end{tikzpicture}
+    \end{align}
+    は非退化であり，自然同型
+    \begin{align}
+        \Hom{\Cat{C}}(x,\, y)^* \cong \Hom{\Cat{C}}(x^*,\, y^*)
+    \end{align}
+    を誘導する．
+\end{mylem}
+
+\begin{proof}
+    
+\end{proof}
+
+以下，$\varphi \in \Hom{\Cat{C}} (1,\, x_1 \otimes \cdots \otimes x_n)$ のストリング図式を書く際には，
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (f)
+        + (0:1) coordinate[label=right:$\vdots$]
+        + (180:1) coordinate[label=left:$\vdots$]
+        + (240:1) coordinate[label=left:$x_1$]
+        + (300:1) coordinate[label=right:$x_n$];
+        \foreach \x in {0,...,5} {
+            \draw[->-=.8] (f.center) -- ++(\x*60:1);
+        }
+        \node[circlenode] at (f) {$\varphi$};
+    \end{tikzpicture}
+    \coloneqq 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate[bullet,label=below:$\varphi$] (f)
+        ++ (-2,1) coordinate[label=left:$x_1$] (a)
+        ++ (1,0) coordinate (b)
+        ++ (1,0) coordinate (c)
+        ++ (1,0) coordinate (d)
+        ++ (1,0) coordinate[label=right:$x_n$] (e);
+        \draw[->-=.8] (f) to[out=150,in=-90] (a);
+        \draw[->-=.8] (f) to[out=120,in=-90] (b);
+        \draw[->-=.8] (f) to[out=90,in=-90] (c);
+        \draw[->-=.8] (f) to[out=60,in=-90] (d);
+        \draw[->-=.8] (f) to[out=30,in=-90] (e);
+    \end{tikzpicture}
+\end{align}
+のような略記をすることがある．
+さらに，補題\ref{lem:nondegen-pairing}により，有限次元 $\mathbb{K}$-ベクトル空間 $\expval{x_1,\, \dots,\, x_n}$ の基底を $\{\varphi_\alpha\}$ と書くと，その双対基底 $\{\varphi^\alpha\}$ は $\expval{x_n^*,\, \dots,\, x_1^*}$ の基底をなす．
+このことから，以下のような略記を導入する：
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (f)
+        + (240:1) coordinate[label=left:$x_1$]
+        + (300:1) coordinate[label=right:$x_n$]
+        ++ (3,0) coordinate (g)
+        + (240:1) coordinate[label=left:$x_n^*$]
+        + (300:1) coordinate[label=right:$x_1^*$]
+        ;
+        \foreach \x in {0,...,5} {
+            \draw[->-=.8] (f.center) -- ++(\x*60:1);
+        }
+        \foreach \x in {0,...,5} {
+            \draw[-<-=.8] (g.center) -- ++(\x*60:1);
+        }
+        \node[circlenode] at (f) {$\varphi_\bullet$};
+        \node[circlenode] at (g) {$\varphi^\bullet$};
+    \end{tikzpicture}
+    \coloneqq \sum_\alpha 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (f)
+        + (240:1) coordinate[label=left:$x_1$]
+        + (300:1) coordinate[label=right:$x_n$]
+        ++ (3,0) coordinate (g)
+        + (240:1) coordinate[label=left:$x_n^*$]
+        + (300:1) coordinate[label=right:$x_1^*$]
+        ;
+        \foreach \x in {0,...,5} {
+            \draw[->-=.8] (f.center) -- ++(\x*60:1);
+        }
+        \foreach \x in {0,...,5} {
+            \draw[-<-=.8] (g.center) -- ++(\x*60:1);
+        }
+        \node[circlenode] at (f) {$\varphi_\alpha$};
+        \node[circlenode] at (g) {$\varphi^\alpha$};
+    \end{tikzpicture}
+\end{align}
+
+\begin{mylem}[label=lem:TVBW-1]{技術的な補題}
+    補題\ref{lem:nondegen-pairing}の双線形形式 $(\;,\,)$ を用いる．
+    \begin{enumerate}
+        \item $\forall a \in \mathrm{Simp} (\Cat{C})$ および $\forall \varphi \in \expval{a,\, x},\; \forall\psi \in \expval{x^*,\, a^*}$ に対して
+        \begin{align}
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[bullet,label=below:$\varphi$] (f)
+                +(-0.5,1.6) coordinate[label=left:$a$] (a)
+                +(0.5,1) coordinate[label=left:$x$] (x)
+                +(1.5,1) coordinate[label=right:$x^*$] (y)
+                +(2.5,1.6) coordinate[label=right:$a^*$] (b)
+                +(2,0) coordinate[bullet,label=below:$\psi$] (g);
+                \REV{x}{y}
+                \draw[->-=.5] (f) to[out=120,in=-90] (a);
+                \draw[->-=.5] (f) to[out=60,in=-90] (x);
+                \draw[-<-=.5] (g) to[out=120,in=-90] (y);
+                \draw[-<-=.5] (g) to[out=60,in=-90] (b);
+            \end{tikzpicture}
+            &= \frac{(\varphi,\, \psi)}{\dim_p(a)}
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[label=left:$a$] (a)
+                +(1,0) coordinate[label=right:$a^*$] (b);
+                \LCOEV{a}{b}
+            \end{tikzpicture}
+        \end{align}
+        \item 
+        \begin{align}
+            \sum_{a \in \mathrm{Simp}(\Cat{C})} \dim_p(a)\;
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (f)
+                +(60:1) coordinate (a)
+                ++(2,0) coordinate (g)
+                +(120:1) coordinate (b);
+                \draw[->-=.5] (f) to[out=60,in=120] node[midway,above]{$\lev_a$} (g);
+                \foreach \x in {120,180,240} {
+                    \draw[->-=.8] (f) -- +(\x:1);
+                }
+                \foreach \x in {60,0,-60} {
+                    \draw[-<-=.8] (g) -- +(\x:1);
+                }
+                \node[circlenode] at (f) {$\varphi_\bullet$};
+                \node[circlenode] at (g) {$\varphi^\bullet$};
+            \end{tikzpicture}
+            &= \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[label=above:$x_1 \otimes \cdots \otimes x_n$] (a)
+                +(1,0) coordinate (b);
+                \LCOEV{a}{b}
+            \end{tikzpicture}
+        \end{align}
+        \item 
+        \begin{align}
+            \bigl( \mathrm{ev}_a \circ (\varphi \otimes \psi),\, \mathrm{ev}_{a^*} \circ (\psi',\, \varphi')\bigr)
+            &= \frac{(\varphi,\, \varphi')(\psi',\, \psi)}{\dim_p(a)}
+        \end{align}
+        \item 
+        \begin{align}
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (A)
+                +(2,0) coordinate (f)
+                +(3.5,0) coordinate (g)
+                +(5.5,0) coordinate (B);
+                \foreach \x in {-45,-15,15,45} {
+                    \draw[-<-=.5] (A) to[out=\x,in={180-\x}] (f);
+                    \draw[-<-=.5] (g) to[out=\x,in={180-\x}] (B);
+                }
+                \node[circlenode] at (f) {$\varphi_\bullet$};
+                \node[circlenode] at (g) {$\varphi^\bullet$};
+                \node[circle,fill=black!20,minimum size=10mm] at (A) {};
+                \node[circle,fill=black!20,minimum size=10mm] at (B) {};
+            \end{tikzpicture}
+            = \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (A)
+                +(3,0) coordinate (B);
+                \foreach \x in {-45,-15,15,45} {
+                    \draw[-<-=.5] (A) to[out=\x,in={180-\x}] (B);
+                }
+                \node[circle,fill=black!20,minimum size=10mm] at (A) {};
+                \node[circle,fill=black!20,minimum size=10mm] at (B) {};
+            \end{tikzpicture}
+        \end{align}
+        
+    \end{enumerate}
+    
+\end{mylem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+    
+\end{proof}
+
+\subsubsection{PL多様体に関する準備}
+
 
 
 \section{離散的高次対称性}

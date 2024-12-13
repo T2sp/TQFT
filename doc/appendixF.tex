@@ -732,14 +732,14 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
     \begin{enumerate}
         \item $\forall X,\, Y,\, Z \in \Obj{\Cat{C}}$ に対して\hyperref[def:nat]{自然な同型}
         \begin{align}
-            \Hom{\Cat{C}} (X \otimes Y,\, Z) &\xrightarrow{\cong} \Hom{\Cat{C}} (X,\, Z \otimes Y^*) \\
-            \Hom{\Cat{C}} (Y^* \otimes X,\, Z) &\xrightarrow{\cong} \Hom{\Cat{C}} (X,\, Y \otimes Z)
+            \alpha_{X,Y,Z}\colon \Hom{\Cat{C}} (X \otimes Y,\, Z) &\xrightarrow{\cong} \Hom{\Cat{C}} (X,\, Z \otimes Y^*) \\
+            \beta_{Y,X,Z}\colon \Hom{\Cat{C}} (Y^* \otimes X,\, Z) &\xrightarrow{\cong} \Hom{\Cat{C}} (X,\, Y \otimes Z)
         \end{align}
         が存在する．
         \item $\forall X,\, Y,\, Z \in \Obj{\Cat{C}}$ に対して\hyperref[def:nat]{自然な同型}
         \begin{align}
-            \Hom{\Cat{C}} (X \otimes \rdual{Y},\, Z) &\xrightarrow{\cong} \Hom{\Cat{C}} (X,\, Z \otimes Y) \\
-            \Hom{\Cat{C}} (Y \otimes X,\, Z) &\xrightarrow{\cong} \Hom{\Cat{C}} (X,\, \rdual{Y} \otimes Z)
+            \gamma_{X,Y,Z}\colon \Hom{\Cat{C}} (X \otimes \rdual{Y},\, Z) &\xrightarrow{\cong} \Hom{\Cat{C}} (X,\, Z \otimes Y) \\
+            \gamma_{Y,X,Z}\colon \Hom{\Cat{C}} (Y \otimes X,\, Z) &\xrightarrow{\cong} \Hom{\Cat{C}} (X,\, \rdual{Y} \otimes Z)
         \end{align}
         が存在する．
     \end{enumerate}
