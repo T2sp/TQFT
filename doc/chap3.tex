@@ -2986,7 +2986,12 @@ $2+1$ 次元のsymmetry TFTとしてTuraev-Viro理論を採用することによ
 \subsection{球状圏に関する準備}
 
 以下では，代数閉体 $\mathbb{K}$ 上の\hyperref[def:spherical]{球状フュージョン圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, \rcoev,\, \rev)$ と，その\hyperref[def:pivotal]{旋回構造} $p$ を1つ固定する．
-$\Cat{C}$ の\hyperref[def:semisimple-cat]{単純対象}が成す有限集合を $\mathrm{Simp}(\Cat{C})$ と書く．
+$\Cat{C}$ の\hyperref[def:semisimple-cat]{単純対象}の同型類が成す有限集合を $\mathrm{Simp}(\Cat{C})$ と書く．
+$\mathbb{K}$ を代数閉体にとったことにより，$\forall a,\, b \in \mathrm{Simp}(\Cat{C})$ に対してSchurの補題から
+\begin{align}
+    \Hom{\Cat{C}} (a,\, b) = \delta_{ab} \mathbb{K}
+\end{align}
+が言える．
 
 \begin{mylem}[label=lem:MS]{Moore-Seibergの欠片}
     $\forall x_1,\, \dots,\, x_n,\, y_1,\, \dots,\, y_n,\, z \in \Obj{\Cat{C}}$ に対して，以下の\hyperref[def:nat]{自然同型}が存在する：
@@ -3116,7 +3121,7 @@ $\Cat{C}$ の\hyperref[def:semisimple-cat]{単純対象}が成す有限集合を
     \end{tikzpicture}
 \end{align}
 のような略記をすることがある．
-さらに，補題\ref{lem:nondegen-pairing}により，有限次元 $\mathbb{K}$-ベクトル空間 $\expval{x_1,\, \dots,\, x_n}$ の基底を $\{\varphi_\alpha\}$ と書くと，その双対基底 $\{\varphi^\alpha\}$ は $\expval{x_n^*,\, \dots,\, x_1^*}$ の基底をなす．
+さらに，補題\ref{lem:nondegen-pairing}により，有限次元 $\mathbb{K}$-ベクトル空間 $\expval{x_1,\, \dots,\, x_n}$ の基底を $\{\varphi_\alpha\}$ と書くと，それの $(\;,\, )$ に関する双対基底 $\{\varphi^\alpha\}$ は $\expval{x_n^*,\, \dots,\, x_1^*}$ の基底をなす．
 このことから，以下のような略記を導入する：
 \begin{align}
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
@@ -3210,7 +3215,7 @@ $\Cat{C}$ の\hyperref[def:semisimple-cat]{単純対象}が成す有限集合を
             \bigl( \mathrm{ev}_a \circ (\varphi \otimes \psi),\, \mathrm{ev}_{a^*} \circ (\psi',\, \varphi')\bigr)
             &= \frac{(\varphi,\, \varphi')(\psi',\, \psi)}{\dim_p(a)}
         \end{align}
-        \item 
+        \item $\forall a \in \mathrm{Simp}(\Cat{C})$ および $\forall \varphi \in \expval{x,\, a},\, \forall \varphi \in \expval{a^*,\, x^*},\, \forall \psi \in \expval{a^*,\, y},\; \forall \psi' \in \expval{y^*,\, a}$ に対して
         \begin{align}
             \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
                 \path coordinate (A)
@@ -3243,12 +3248,233 @@ $\Cat{C}$ の\hyperref[def:semisimple-cat]{単純対象}が成す有限集合を
 
 \begin{proof}
     \begin{enumerate}
-        \item 
+        \item 左辺は $\Hom{\Cat{C}}(1,\, a \otimes a^*)$ の元だが，補題\ref{lem:rigid-hom}の同型 $\alpha^{-1}_{1,a,a} \colon \Hom{\Cat{C}} (1,\, a\otimes a^*) \xrightarrow{\cong} \Hom{\Cat{C}} (a,\, a)$ およびSchurの補題から，ある定数 $A_a \in \mathbb{K}$ を用いて
+        \begin{align}
+            \alpha_{1,a,a}^{-1} \left(  \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[bullet,label=below:$\varphi$] (f)
+                +(-0.5,1.6) coordinate[label=left:$a$] (a)
+                +(0.5,1) coordinate[label=left:$x$] (x)
+                +(1.5,1) coordinate[label=right:$x^*$] (y)
+                +(2.5,1.6) coordinate[label=right:$a^*$] (b)
+                +(2,0) coordinate[bullet,label=below:$\psi$] (g);
+                \REV{x}{y}
+                \draw[->-=.5] (f) to[out=120,in=-90] (a);
+                \draw[->-=.5] (f) to[out=60,in=-90] (x);
+                \draw[-<-=.5] (g) to[out=120,in=-90] (y);
+                \draw[-<-=.5] (g) to[out=60,in=-90] (b);
+            \end{tikzpicture} \right) 
+            &= A_a\quad 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \draw[->-=.5] (0,-1) -- node[midway,right] {$a$} (0,1);
+            \end{tikzpicture}
+        \end{align}
+        が分かる．逆射 $a_{1,a,a}$ を作用させることで
+        \begin{align}
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[bullet,label=below:$\varphi$] (f)
+                +(-0.5,1.6) coordinate[label=left:$a$] (a)
+                +(0.5,1) coordinate[label=left:$x$] (x)
+                +(1.5,1) coordinate[label=right:$x^*$] (y)
+                +(2.5,1.6) coordinate[label=right:$a^*$] (b)
+                +(2,0) coordinate[bullet,label=below:$\psi$] (g);
+                \REV{x}{y}
+                \draw[->-=.5] (f) to[out=120,in=-90] (a);
+                \draw[->-=.5] (f) to[out=60,in=-90] (x);
+                \draw[-<-=.5] (g) to[out=120,in=-90] (y);
+                \draw[-<-=.5] (g) to[out=60,in=-90] (b);
+            \end{tikzpicture}
+            &= A_a \quad 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[label=left:$a$] (a)
+                +(1,0) coordinate[label=right:$a^*$] (b);
+                \LCOEV{a}{b}
+            \end{tikzpicture}
+        \end{align}
+        が分かるので，両辺の\hyperref[def:qtrace]{量子トレース}を取ることで
+        \begin{align}
+            A_a = \frac{(\varphi,\, \psi)}{\dim_p(a)}
+        \end{align}
+        と求まる．
+        \item $\Cat{C}$ が有限かつ半単純なので，$x \coloneqq x_1 \otimes \cdots \otimes x_n$ が単純対象である場合に示せば良い．(1) および $(\varphi_\alpha,\, \varphi^\beta) = \delta^\beta_\alpha$ を用いれば良い．
+        \item (1) より明らか．
+        \item $1 \in \mathrm{Simp}(\Cat{C})$ なので，(1) および $(\varphi_\alpha,\, \varphi^\beta) = \delta^\beta_\alpha$ を用いれば良い．
     \end{enumerate}
     
 \end{proof}
 
-\subsubsection{PL多様体に関する準備}
+\subsection{PL多様体に関する準備}
+
+\begin{mydef}[label=def:PLmfd]{PL多様体}
+    任意の座標変換が区分的線形であるようなアトラスを\textbf{PL構造} (piecewise linear structure) と呼び，区分的線形構造を持つ位相多様体を\textbf{PL多様体} (piecewise linear manifold) と呼ぶ．
+\end{mydef}
+
+2つの単体的複体 $K,\, L \in \Obj{\SimpSet}$ を取り，その幾何学的実現をそれぞれ $\abs{K},\, \abs{L}$ と書く．
+\begin{itemize}
+    \item 連続写像 $f \colon \abs{K} \lto \abs{L}$ が\textbf{PL写像}であるとは，$K,\, L$ の細分 $K',\, L'$ が存在して，$f$ が $K'$ の単体を $L'$ の単体に写し，各単体への制限が線型写像になっていることを言う．
+    \item 同相写像 $f \colon \abs{K} \lto \abs{L}$ が\textbf{PL同相写像}であるとは，それがPL写像であることを言う．
+    \item 勝手な単体 $A \in K$ に対し，
+    \begin{align}
+        \bm{\mathrm{St}(A)} &\coloneqq \bigl\{\, \sigma \in K \bigm| \sigma \cup A \in K \,\bigr\} \\
+        \bm{\mathrm{Lk}(A)} &\coloneqq \bigl\{\, \sigma \in \mathrm{St}(A) \bigm| \sigma \cap A = \emptyset \,\bigr\} 
+    \end{align}
+    とおいてそれぞれ\textbf{星状複体} (star), \textbf{絡み複体} (link) と呼ぶ．
+    \item 三角形分割された位相多様体 $(M,\, K,\, \psi \colon \abs{K} \xrightarrow{\approx} M)$ が\textbf{組み合わせ多様体} (combinatorial manifold) であるとは，$\forall v \in K_0$ に対して $\abs{\mathrm{Lk}(v)} \approx S^{\dim M - 1}$ が成り立つことを言う．
+    また，位相多様体 $M$ を組み合わせ多様体にする三角形分割 $(K,\, \psi \colon \abs{K} \xrightarrow{\approx} M)$ のことを\textbf{組み合わせ三角形分割}と呼ぶ．
+\end{itemize}
+
+\begin{mytheo}[label=thm:PL-combinatorial]{}
+    PL多様体は組み合わせ三角形分割を持つ．逆に，組み合わせ多様体はPL多様体である．
+\end{mytheo}
+
+定理\ref{thm:PL-combinatorial}により，以後PL多様体と組み合わせ多様体を区別しない．
+
+\subsubsection{星状同値}
+
+単体的複体 $K,\, L$ が，互いに頂点を1つも共有していないとする．このとき，これらの\textbf{join}と呼ばれる単体的複体を
+\begin{align}
+    \bm{K * L} \coloneqq \bigl\{\, \sigma \cup \tau \bigm| \sigma \in K \AND \tau \in L \,\bigr\} 
+\end{align}
+で定義する．また，$\forall \sigma \in K$ に対して
+\begin{align}
+    \bar{\sigma} &\coloneqq \bigl\{\, \tau \subset \sigma  \,\bigr\} , \\
+    \partial\bar{\sigma} &\coloneqq \bigl\{\, \tau \subsetneq \sigma  \,\bigr\}
+\end{align}
+と定義する．
+
+単体的複体 $K$ の\textbf{双星状移動} (bistellar move)\footnote{\textbf{Pachner move}とも言う．} とは，次のような操作のことを言う：
+\begin{enumerate}
+    \item まず，$\sigma \in K,\; \tau \notin K$ であって $\mathrm{Lk}_K (\sigma) = \partial \bar{\tau},\; \mathrm{St}_K (\sigma) = \bar{\sigma} * \bar{\tau}$ を充たすものを持ってくる．
+    \item 次に，
+    \begin{align}
+        K \lmto \bigl(K \setminus (\bar{\sigma} * \partial \bar{\tau}) \bigr) \cup (\partial \bar{\sigma} * \bar{\tau})
+    \end{align}
+    なる置き換えをして新たな単体的複体を得る．
+\end{enumerate}
+2つの\hyperref[def:PLmfd]{PL多様体} $(M,\, K,\, \psi),\; (N,\, L,\, \varphi)$ が\textbf{双星状同値} (bistellar equivalent) であるとは，
+$K$ に有限回の双星状移動を施すことで $L$ にすることができること．
+
+\begin{mytheo}[label=thm:Pachner]{Pachnerの定理}
+    PL同相 $\IFF$ 双星状同値
+\end{mytheo}
+
+従って，PL多様体の上に構成した量が位相不変量（i.e. PL不変量）であることを示すには，それが双星状移動に関して不変であることを示すだけで良い．
+
+\subsubsection{多面体分割}
+
+技術的な理由により，\textbf{多面体分割} (polytope decomposition) を導入する~\cite[p.11]{KirillovBalsam2010TVBW}．
+
+\begin{mydef}[label=def:polytope-decomp]{多面体分割}
+    $d = 2,\, 3$ 次元の\hyperref[def:PLmfd]{PL多様体} $(M,\, K,\, \psi)$ の\textbf{多面体分割} (polytope decomposition) とは，三角形分割 $\psi \colon \abs{K} \xrightarrow{\approx} M$ に以下の操作を施して得られる $M$ の胞体分割のこと:
+    \begin{description}
+        \item[\textbf{(M1)}] 
+        \item[\textbf{(M2)}] 
+        \item[\textbf{(M3)}] 
+    \end{description}
+\end{mydef}
+
+\begin{mytheo}[label=thm:polytope]{多面体分割のPL不変性}
+    3次元の境界付き\hyperref[def:PLmfd]{PL多様体} $M$ および2次元境界付き部分多様体 $X \subset \partial M$ を与える．
+    $\mathcal{N}$ を $X$ の\hyperref[def:polytope-decomp]{多面体分割}とするとき，以下が成り立つ：
+    \begin{enumerate}
+        \item $\mathcal{N}$ は $M$ の多面体分割 $\mathcal{M}$ へ拡張することができる．
+        \item $M$ の任意の2つの多面体分割 $\mathcal{M}_1,\, \mathcal{M}_2$ であって，$\mathcal{M}_1|_{X} = \mathcal{M}_2|_X = \mathcal{N}$ を充たすものは，有限回の\textsf{\textbf{(M1)-(M3)}}の操作によって $\mathcal{N}$ を変えることなく互いに写り合う．
+    \end{enumerate}
+    % の任意の2つの\hyperref[def:polytope-decomp]{多面体分割}は，有限回の\textsf{\textbf{(M1)-(M3)}}の操作によって互いに写り合う．
+\end{mytheo}
+
+\begin{proof}
+    
+\end{proof}
+
+\subsection{Turaev-Viro不変量の構成}
+
+\hyperref[def:polytope-decomp]{多面体分割}された\hyperref[def:PLmfd]{PL多様体} $(M,\, \mathcal{M},\, \psi)$ を与える．$\mathcal{M}$ の全ての辺 $e \in \mathcal{M}_1$ に向き $\epsilon_e \in \{\pm 1\}$ を与え\footnote{この向きは，大元の三角形分割から誘導されるものである}，それを $\mathcal{O} \coloneqq \Familyset[\big]{\epsilon_e}{e \in \mathcal{M}_1}$ と書く．
+向き付けられた多面体分割を $\mathcal{M}^{\mathcal{O}}$ と書く．
+
+\begin{mydef}[label=def:state]{状態}
+    \textbf{状態} (state) とは，写像
+    \begin{align}
+        \Gamma \colon \mathcal{M}^{\mathcal{O}}_1 \lto \Obj{\Cat{C}}
+    \end{align}
+    であって
+    \begin{align}
+        \Gamma(-e) = \Gamma(e)^*
+    \end{align}
+    を充たすもののこと．
+    \tcblower
+    2つの状態 $\Gamma_1,\, \Gamma_2$ が同値であるとは，$\forall e \in \mathcal{M}^{\mathcal{O}}_1$ に対して $\Gamma_1(e) \cong \Gamma_2(e)$ が成り立つこと．
+\end{mydef}
+
+\hyperref[def:state]{状態} $\Gamma \colon \mathcal{M}^{\mathcal{O}}_1 \lto \Obj{\Cat{C}}$ を1つ固定する．このときの\textbf{状態空間} (state space) とは，写像
+\begin{align}
+    \mathcal{H} (\mhyphen;\, \Gamma) \colon \mathcal{M}^{\mathcal{O}}_2 &\lto \Obj{\Vec{\mathbb{K}}}, \\
+    \sigma &\lmto  \expval{\Gamma(e_1),\, \dots,\, \Gamma(e_n)} \WHERE \partial \sigma = e_1 \cup \cdots \cup e_n
+\end{align}
+ただし，$e_1,\, \cdots ,\, e_n$ は $\sigma$ の向きから誘導される向きに辿る．なお，\hyperref[lem:MS]{\textsf{\textbf{(Rotation isomorphism)}}}により始点をどこにとっても良いことには注意する．
+最後に，任意の2次元組み合わせ部分多様体　$N \subset M,\; \mathcal{N}^{\mathcal{o}} \subset \mathcal{M}_2^{\mathcal{O}}$ について
+\begin{align}
+    \mathcal{H}(N) \coloneqq \bigoplus_{\Gamma \colon \mathcal{M}^{\mathcal{O}}_1 \lto \Obj{\Cat{C}}} \mathcal{H}(N;\, \Gamma)
+\end{align}
+と定義することで，Hilbert空間の構成が完了する．特に補題\ref{lem:nondegen-pairing}より
+\begin{align}
+    \label{eq:TVBW-involutive}
+    \mathcal{H}(-N) = \mathcal{H}(N)^*
+\end{align}
+が成り立つ．
+
+次に，3次元多様体 $M$ 自身の分配関数を構成する．
+そのためにはまず\hyperref[def:state]{状態} $\Gamma \colon \mathcal{M}^{\mathcal{O}}_1 \lto \Obj{\Cat{C}}$ を1つ固定し，任意の3-セル $\mu \in \mathcal{M}^{\mathcal{O}}_3$ に対して，上手い位相不変量
+\begin{align}
+    Z(\mu;\, \Gamma) \in \mathcal{H} (\partial\mu;\, \Gamma) = \bigotimes_{\sigma \in \{\partial\mu\;\text{の面}\}} \expval{\Gamma(\partial\sigma_1),\, \dots,\, \Gamma(\partial\sigma_n)}
+\end{align}
+を見つけてくる必要がある．
+そこで，些か天下り的だが，$\partial\mu$ の辺のPoincar\'{e}双対のグラフ $\mu^{\vee}$ をとり，
+\begin{itemize}
+    \item 辺には　$\Gamma(e)^{\pm} \in \Obj{\Cat{C}}$ を
+    \item 頂点（ちょうど $\partial\mu$ の面の個数だけ存在する）には $\varphi_\sigma \in \expval{\Gamma(e_1)^{\pm},\, \cdots,\, \Gamma(e_n)^{\pm}} \WHERE \partial\sigma = e_1 \cup \cdots \cup e_n$ を
+\end{itemize}
+載せる．このようなとき，後述する方法により\textbf{Reshetikhin-Turaev不変量} $\irm{Z}{RT}(\mu^{\vee};\, \Gamma,\, \{\varphi_\sigma\}) \in \mathbb{K}$ を構成することができる．
+
+補題\ref{lem:nondegen-pairing}の2次形式は非退化だから，結局
+\begin{align}
+    \bigl( Z(\mu;\, \Gamma),\, \bigotimes_{\sigma \in \{\partial\mu\;\text{の面}\}} \varphi_\sigma \bigr) \coloneqq \irm{Z}{RT}(\mu^{\vee};\, \Gamma,\, \{\varphi_\sigma\})
+\end{align}
+によって $Z(\mu;\, \Gamma) \in \mathcal{H} (\partial\mu;\, \Gamma)$ を定義できる．
+
+\begin{mydef}[label=def:inv-TV]{Turaev-Viro不変量}
+    \hyperref[def:polytope-decomp]{多面体分割}された境界付き3次元\hyperref[def:PLmfd]{PL多様体} $(M,\, \mathcal{M},\, \psi)$ を与える．
+    このとき，\textbf{Turaev-Viro不変量}を以下のように定義する：
+    \footnotesize
+    \begin{align}
+        \irm{Z}{TV}(M) \coloneqq \left( \sum_{a \in \mathrm{Simp}(\Cat{C})} \dim(a)^2\right)^{-v(M)} \sum_{\Gamma \colon \mathcal{M}^{\mathcal{o}}_1 \to \Obj{\Cat{C}}} \left( \lev \left( \bigotimes_{\mu \in \mathcal{M}^{\mathcal{O}}_3} Z(\mu;\, \Gamma) \right) \prod_{e \in \mathcal{M}_1} \dim \bigl( \Gamma(e) \bigr) ^{n_e}  \right)
+    \end{align}
+    \normalsize
+    ただし，
+    \begin{align}
+        v(M) &\coloneqq \#\{\text{vertex in}\; \mathrm{Int}(M)\} + \frac{1}{2} \# \{\text{vertex on}\; \partial M\} \\
+        n_e &\coloneqq \begin{cases}
+            1, & e \in \mathrm{Int}(M) \\
+            1/2, & e \in \partial(M)
+        \end{cases}
+    \end{align}
+    とおいた．
+\end{mydef}
+
+
+\begin{mytheo}[label=thm:TVBW]{}
+    $\irm{Z}{TV}(M)$ は $M$ の\hyperref[def:polytope-decomp]{多面体分割}の取り方によらない．
+\end{mytheo}
+
+\begin{proof}
+    
+\end{proof}
+
+% \begin{mytheo}[label=thm:inv-RT]{Reshetikhin-Turaev不変量}
+    
+% \end{mytheo}
+
+
+
 
 
 
