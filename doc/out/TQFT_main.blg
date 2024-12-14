@@ -4,46 +4,48 @@ The top-level auxiliary file: TQFT_main.aux
 The style file: myh-physrev.bst
 Database file #1: TQFTrefs.bib
 Warning--empty publisher in Kugo1989qft2
-You've used 55 entries,
+You can't pop an empty literal stack for entry Bakalov2001lectures
+while executing---line 964 of file myh-physrev.bst
+You've used 59 entries,
             1990 wiz_defined-function locations,
-            974 strings with 12908 characters,
-and the built_in function-call counts, 11781 in all, are:
-= -- 806
-> -- 481
-< -- 0
-+ -- 151
-- -- 96
-* -- 1074
-:= -- 1440
-add.period$ -- 55
-call.type$ -- 55
+            1000 strings with 13516 characters,
+and the built_in function-call counts, 12657 in all, are:
+= -- 864
+> -- 524
+< -- 1
++ -- 164
+- -- 105
+* -- 1158
+:= -- 1548
+add.period$ -- 59
+call.type$ -- 59
 change.case$ -- 5
 chr.to.int$ -- 0
-cite$ -- 56
-duplicate$ -- 528
-empty$ -- 1274
-format.name$ -- 151
-if$ -- 2800
+cite$ -- 60
+duplicate$ -- 567
+empty$ -- 1362
+format.name$ -- 164
+if$ -- 3006
 int.to.chr$ -- 0
-int.to.str$ -- 55
-missing$ -- 63
-newline$ -- 230
-num.names$ -- 55
-pop$ -- 296
+int.to.str$ -- 59
+missing$ -- 68
+newline$ -- 246
+num.names$ -- 59
+pop$ -- 315
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 562
+skip$ -- 608
 stack$ -- 0
-substring$ -- 839
-swap$ -- 138
-text.length$ -- 0
+substring$ -- 897
+swap$ -- 148
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 84
-width$ -- 57
-write$ -- 428
+while$ -- 89
+width$ -- 61
+write$ -- 458
 is.kanji.str$ -- 0
-(There was 1 warning)
+(There was 1 error message)
