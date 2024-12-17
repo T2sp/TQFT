@@ -1,21 +1,19 @@
-This is upBibTeX, Version 0.99d-j0.36-u1.30 (utf8.euc) (TeX Live 2024/Homebrew)
+This is upBibTeX, Version 0.99d-j0.36-u1.29 (utf8.euc) (TeX Live 2023)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: TQFT_main.aux
 The style file: myh-physrev.bst
 Database file #1: TQFTrefs.bib
 Warning--empty publisher in Kugo1989qft2
-You can't pop an empty literal stack for entry Bakalov2001lectures
-while executing---line 964 of file myh-physrev.bst
 You've used 59 entries,
             1990 wiz_defined-function locations,
-            1000 strings with 13516 characters,
-and the built_in function-call counts, 12657 in all, are:
+            999 strings with 13514 characters,
+and the built_in function-call counts, 12649 in all, are:
 = -- 864
 > -- 524
-< -- 1
+< -- 0
 + -- 164
 - -- 105
-* -- 1158
+* -- 1155
 := -- 1548
 add.period$ -- 59
 call.type$ -- 59
@@ -25,7 +23,7 @@ cite$ -- 60
 duplicate$ -- 567
 empty$ -- 1362
 format.name$ -- 164
-if$ -- 3006
+if$ -- 3005
 int.to.chr$ -- 0
 int.to.str$ -- 59
 missing$ -- 68
@@ -35,11 +33,11 @@ pop$ -- 315
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 608
+skip$ -- 607
 stack$ -- 0
 substring$ -- 897
-swap$ -- 148
-text.length$ -- 1
+swap$ -- 147
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
@@ -48,4 +46,4 @@ while$ -- 89
 width$ -- 61
 write$ -- 458
 is.kanji.str$ -- 0
-(There was 1 error message)
+(There was 1 warning)
