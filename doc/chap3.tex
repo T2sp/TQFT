@@ -2987,11 +2987,51 @@ $2+1$ 次元のsymmetry TFTとしてTuraev-Viro理論を採用することによ
 
 以下では，代数閉体 $\mathbb{K}$ 上の\hyperref[def:spherical]{球状フュージョン圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, \rcoev,\, \rev)$ と，その\hyperref[def:pivotal]{旋回構造} $p$ を1つ固定する．
 $\Cat{C}$ の\hyperref[def:semisimple-cat]{単純対象}の同型類が成す有限集合を $\mathrm{Simp}(\Cat{C})$ と書く．
-$\mathbb{K}$ を代数閉体にとったことにより，$\forall a,\, b \in \mathrm{Simp}(\Cat{C})$ に対してSchurの補題から
-\begin{align}
-    \Hom{\Cat{C}} (a,\, b) = \delta_{ab} \mathbb{K}
-\end{align}
-が言える．
+
+\begin{mylem}[label=lem:simple-hom,breakable]{単純対象のHom}
+    $\forall a,\, b \in \mathrm{Simp}(\Cat{C})$ に対して
+    \begin{align}
+        \Hom{\Cat{C}} (a,\, b) = \delta_{ab} \mathbb{K}
+    \end{align}
+\end{mylem}
+
+\begin{proof}
+    \hyperref[def:additive-cat]{アーベル圏の定義}により，$\forall \varphi \in \Hom{\Cat{C}}(a,\, b) \setminus \{0\}$ は核 $\ker \varphi \colon \Ker \varphi \hookrightarrow a$ および余核 $\coker \varphi \colon b \twoheadrightarrow \Coker \varphi$ を持つ．
+        いま $a$ は\hyperref[def:semisimple-cat]{単純}だから，モノ射 $\ker \varphi$ は零射である．よって $\varphi$ がモノ射だと分かった．
+        一方で，再度\hyperref[def:additive-cat]{アーベル圏の定義}によりモノ射 $\ker (\coker \varphi) \colon \Ker (\coker \varphi) \hookrightarrow b$ が存在する\footnote{この2つ組 $\bigl(\Ker (\coker \varphi),\, \ker (\coker \varphi)\bigr)$ を射 $\varphi$ の\textbf{像}と呼び，$(\Im \varphi,\, \im \varphi)$ と書くのだった．}．
+        $b$ もまた\hyperref[def:semisimple-cat]{単純}でかつ $\varphi \neq 0$ より，モノ射 $\ker (\coker \varphi)$ は同型射であり，従って $\coker \varphi = 0$，i.e. $\varphi$ はエピ射だと分かった．
+
+        　以上の考察から $\forall \varphi \in \Hom{\Cat{C}}(a,\, b)$ は零射であるか同型射であるかのどちらかである\footnote{これを\textbf{Schurの補題}と呼ぶ．}から，$a \neq b$ ならば $\Hom{\Cat{C}}(a,\, b) = 0$ である．$a = b$ のとき，$\Hom{\Cat{C}}(a,\, b) \eqqcolon \End_{\Cat{C}}(a)$ は射の合成に関して結合多元体 (division algebra) を成すが，\hyperref[def:tensorfusion-cat]{フュージョン圏} $\Cat{C}$ は\hyperref[def:finite-abcat]{有限}なので $\End_{\Cat{C}}(a)$ は $\mathbb{K}$-ベクトル空間として有限次元であり，かつ $\mathbb{K}$ が代数閉体であるから，$\End_{\Cat{C}}(a) = \mathbb{K}$ しかありえない．
+\end{proof}
+
+$\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わずに\hyperref[def:additive-cat]{$\mathbb{K}$-線形な加法圏}における\hyperref[def:semisimple]{半単純性}を特徴付ける方法が存在する~\cite[Proposition 28, p.7]{James2017semisimple}．
+
+\begin{mydef}[label=def:semisimple-Muger,breakable]{M\"{u}ger半単純}
+    \hyperref[def:additive-cat]{$\mathbb{K}$-線形な加法圏} $\Cat{C}$ が\textbf{M\"{u}ger半単純}であるとは，
+    \begin{description}
+        \item[\textbf{(Muger1)}] 有限余積が常に存在する
+        \item[\textbf{(Muger2)}] 任意の冪等射が分裂する（\textbf{冪等完全}; idempotent complete）
+        \item[\textbf{(Muger3)}] 対象の部分集合 $\Simp(\Cat{C}) \subset \Obj{\Cat{C}}$ が存在して以下を充たす：
+        \begin{enumerate}
+            \item $\forall a,\, b \in \Simp(\Cat{C})$ に対して
+            \begin{align}
+                \Hom{\Cat{C}}(a,\, b) = \delta_{ab}\mathbb{K}
+            \end{align}
+            \item $\forall x,\, y \in \Obj{\Cat{C}}$ に対して，$\mathbb{K}$-線型写像
+            \begin{align}
+                \label{eq:Muger}
+                \bigoplus_{a \in \Simp(\Cat{C})}\Hom{\Cat{C}} (x,\, a) \otimes \Hom{\Cat{C}} (a,\, y) &\lto \Hom{\Cat{C}} (x,\, y), \\
+                \sum_{a \in \Simp(\Cat{C})} \varphi_a \otimes \psi_a &\lmto \sum_{a \in \Simp(\Cat{C})} \psi_a \circ \varphi_a
+            \end{align}
+            は自然な $\mathbb{K}$-ベクトル空間の同型写像である．
+        \end{enumerate}
+    \end{description}
+\end{mydef}
+
+半単純性の定義として\ref{def:semisimple-Muger}を採用すると，任意の対象が単純対象の直和に分解することが証明できる~\cite[Proposition 28, p.7]{James2017semisimple}．
+\hyperref[def:semisimple-cat]{アーベル圏における半単純性の定義}は\hyperref[def:semisimple-Muger]{M\"{u}ger半単純}と等価\underline{でない}点に注意しよう．
+具体的には，\hyperref[def:semisimple-cat]{アーベル圏における半単純性の定義}から\eqref{eq:Muger}を示すことはできない．
+本資料では\eqref{eq:Muger}を認めることにする．
 
 \begin{mylem}[label=lem:MS]{Moore-Seibergの欠片}
     $\forall x_1,\, \dots,\, x_n,\, y_1,\, \dots,\, y_n,\, z \in \Obj{\Cat{C}}$ に対して，以下の\hyperref[def:nat]{自然同型}が存在する：
@@ -3006,7 +3046,7 @@ $\mathbb{K}$ を代数閉体にとったことにより，$\forall a,\, b \in \m
         
         \begin{align}
             G &\colon \Hom{\Cat{C}} (1,\, x_1 \otimes \cdots \otimes x_n \otimes z) \otimes  \Hom{\Cat{C}}(1,\, z^* \otimes y_1 \otimes \cdots \otimes y_n) \\
-            &\qquad \lto \Hom{\Cat{C}} (x_1\otimes \cdots \otimes x_{n} \otimes y_1 \otimes \cdots \otimes y_n), \\
+            \qquad &\lto \Hom{\Cat{C}} (x_1\otimes \cdots \otimes x_{n} \otimes y_1 \otimes \cdots \otimes y_n), \\
             \varphi \otimes \psi &\lmto \lev_z \circ (\varphi \otimes \psi)
         \end{align}
         
@@ -3035,12 +3075,13 @@ $\mathbb{K}$ を代数閉体にとったことにより，$\forall a,\, b \in \m
             &\Hom{\Cat{C}} (1,\, x_1 \otimes \cdots \otimes x_n \otimes z) \otimes  \Hom{\Cat{C}}(1,\, z^* \otimes y_1 \otimes \cdots \otimes y_n) \\
             &\cong \bigoplus_{a \in \mathrm{Simp}(\Cat{C})} \Hom{\Cat{C}} (1,\, x_1 \otimes \cdots \otimes x_n \otimes a) \otimes  \Hom{\Cat{C}}(1,\, a^* \otimes y_1 \otimes \cdots \otimes y_n)
         \end{align}
-        が従う．さらに\hyperref[def:pivotal]{旋回構造} $p$ と補題\ref{lem:rigid-hom}，\hyperref[prop:lim-colim-basic]{余極限とHomの交換}などを使うと自然同型
+        が従う．さらに\hyperref[def:pivotal]{旋回構造} $p$ と補題\ref{lem:rigid-hom}，\hyperref[def:semisimple-Muger]{M\"{u}ger半単純}の自然同型\eqref{eq:Muger}，および\hyperref[prop:lim-colim-basic]{余極限とHomの交換}などを使うと自然同型
         \begin{align}
             &\bigoplus_{a \in \mathrm{Simp}(\Cat{C})} \Hom{\Cat{C}} (1,\, x_1 \otimes \cdots \otimes x_n \otimes a) \otimes  \Hom{\Cat{C}}(1,\, a^* \otimes y_1 \otimes \cdots \otimes y_n) \\
-            &\cong \bigoplus_{a \in \mathrm{Simp}(\Cat{C})} \Hom{\Cat{C}} (1,\, x_1 \otimes \cdots \otimes x_n \otimes a) \otimes  \Hom{\Cat{C}}(a^{**},\, y_1 \otimes \cdots \otimes y_n) \\
-            &\cong \bigoplus_{a \in \mathrm{Simp}(\Cat{C})} \Hom{\Cat{C}} (1,\, x_1 \otimes \cdots \otimes x_n \otimes a) \otimes  \Hom{\Cat{C}}(a,\, y_1 \otimes \cdots \otimes y_n) \\
-            &\cong \Hom{\Cat{C}} (x_1\otimes \cdots \otimes x_{n} \otimes y_1 \otimes \cdots \otimes y_n)
+            &\cong \bigoplus_{a \in \mathrm{Simp}(\Cat{C})} \Hom{\Cat{C}} (x_n^* \otimes \cdots \otimes x_1^*,\, a) \otimes  \Hom{\Cat{C}}(a^{**},\, y_1 \otimes \cdots \otimes y_n) \\
+            &\cong \bigoplus_{a \in \mathrm{Simp}(\Cat{C})} \Hom{\Cat{C}} (x_n^* \otimes \cdots \otimes x_1^*,\, a) \otimes  \Hom{\Cat{C}}(a,\, y_1 \otimes \cdots \otimes y_n) \\
+            &\cong \Hom{\Cat{C}} (x_n^* \otimes \cdots \otimes x_1^*,\, y_1 \otimes \cdots \otimes y_n) \\
+            &\cong \Hom{\Cat{C}} (1,\, x_1\otimes \cdots \otimes x_{n} \otimes y_1 \otimes \cdots \otimes y_n)
         \end{align}
         が分かる．
     \end{enumerate}
