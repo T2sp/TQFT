@@ -3036,17 +3036,15 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
 \begin{mylem}[label=lem:MS]{Moore-Seibergの欠片}
     $\forall x_1,\, \dots,\, x_n,\, y_1,\, \dots,\, y_n,\, z \in \Obj{\Cat{C}}$ に対して，以下の\hyperref[def:nat]{自然同型}が存在する：
     \begin{description}
-        \item[\textbf{(Rotation isomorphism)}]　 
-        
+        \item[\textbf{(Rotation isomorphism)}]
         \begin{align}
             Z \colon \Hom{\Cat{C}} (1,\, x_1 \otimes x_2 \otimes \cdots \otimes x_n) \lto \Hom{\Cat{C}} (1,\, x_n \otimes x_1 \otimes \cdots \otimes x_{n-1})
         \end{align}
         
-        \item[\textbf{(Gluing isomorphism)}]　
-        
+        \item[\textbf{(Gluing isomorphism)}]
         \begin{align}
-            G &\colon \Hom{\Cat{C}} (1,\, x_1 \otimes \cdots \otimes x_n \otimes z) \otimes  \Hom{\Cat{C}}(1,\, z^* \otimes y_1 \otimes \cdots \otimes y_n) \\
-            \qquad &\lto \Hom{\Cat{C}} (x_1\otimes \cdots \otimes x_{n} \otimes y_1 \otimes \cdots \otimes y_n), \\
+            G \colon \Hom{\Cat{C}} (1,\, x_1 \otimes \cdots \otimes x_n &\otimes z) \otimes  \Hom{\Cat{C}}(1,\, z^* \otimes y_1 \otimes \cdots \otimes y_n) \\
+            &\lto \Hom{\Cat{C}} (x_1\otimes \cdots \otimes x_{n} \otimes y_1 \otimes \cdots \otimes y_n), \\
             \varphi \otimes \psi &\lmto \lev_z \circ (\varphi \otimes \psi)
         \end{align}
         
