@@ -3004,7 +3004,7 @@ $\Cat{C}$ の\hyperref[def:semisimple-cat]{単純対象}の同型類が成す有
         　以上の考察から $\forall \varphi \in \Hom{\Cat{C}}(a,\, b)$ は零射であるか同型射であるかのどちらかである\footnote{これを\textbf{Schurの補題}と呼ぶ．}から，$a \neq b$ ならば $\Hom{\Cat{C}}(a,\, b) = 0$ である．$a = b$ のとき，$\Hom{\Cat{C}}(a,\, b) \eqqcolon \End_{\Cat{C}}(a)$ は射の合成に関して結合多元体 (division algebra) を成すが，\hyperref[def:tensorfusion-cat]{フュージョン圏} $\Cat{C}$ は\hyperref[def:finite-abcat]{有限}なので $\End_{\Cat{C}}(a)$ は $\mathbb{K}$-ベクトル空間として有限次元であり，かつ $\mathbb{K}$ が代数閉体であるから，$\End_{\Cat{C}}(a) = \mathbb{K}$ しかありえない．
 \end{proof}
 
-$\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わずに\hyperref[def:additive-cat]{$\mathbb{K}$-線形な加法圏}における\hyperref[def:semisimple]{半単純性}を特徴付ける方法が存在する~\cite[Proposition 28, p.7]{James2017semisimple}．
+$\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わずに\hyperref[def:additive-cat]{$\mathbb{K}$-線形な加法圏}における\hyperref[def:semisimple]{半単純性}を特徴付ける方法が存在する~\cite[p.6]{Mueger2002subfactor}．
 
 \begin{mydef}[label=def:semisimple-Muger,breakable]{M\"{u}ger半単純}
     \hyperref[def:additive-cat]{$\mathbb{K}$-線形な加法圏} $\Cat{C}$ が\textbf{M\"{u}ger半単純}であるとは，
@@ -3020,7 +3020,7 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
             \item $\forall x,\, y \in \Obj{\Cat{C}}$ に対して，$\mathbb{K}$-線型写像
             \begin{align}
                 \label{eq:Muger}
-                \bigoplus_{a \in \Simp(\Cat{C})}\Hom{\Cat{C}} (x,\, a) \otimes \Hom{\Cat{C}} (a,\, y) &\lto \Hom{\Cat{C}} (x,\, y), \\
+                m_{x,y} \colon \bigoplus_{a \in \Simp(\Cat{C})}\Hom{\Cat{C}} (x,\, a) \otimes \Hom{\Cat{C}} (a,\, y) &\lto \Hom{\Cat{C}} (x,\, y), \\
                 \sum_{a \in \Simp(\Cat{C})} \varphi_a \otimes \psi_a &\lmto \sum_{a \in \Simp(\Cat{C})} \psi_a \circ \varphi_a
             \end{align}
             は自然な $\mathbb{K}$-ベクトル空間の同型写像である．
@@ -3044,7 +3044,7 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
         \item[\textbf{(Gluing isomorphism)}]
         \begin{align}
             G \colon \Hom{\Cat{C}} (1,\, x_1 \otimes \cdots \otimes x_n &\otimes z) \otimes  \Hom{\Cat{C}}(1,\, z^* \otimes y_1 \otimes \cdots \otimes y_n) \\
-            &\lto \Hom{\Cat{C}} (x_1\otimes \cdots \otimes x_{n} \otimes y_1 \otimes \cdots \otimes y_n), \\
+            &\lto \Hom{\Cat{C}} (1,\, x_1\otimes \cdots \otimes x_{n} \otimes y_1 \otimes \cdots \otimes y_n), \\
             \varphi \otimes \psi &\lmto \lev_z \circ (\varphi \otimes \psi)
         \end{align}
         
@@ -3103,19 +3103,23 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
         (\;,\,) \colon \Hom{\Cat{C}}(x,\, y) \otimes \Hom{\Cat{C}}(x^*,\, y^*) &\lto \mathbb{K} \\
         \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
             \draw[->-=.25,->-=.75] (0,-1) -- (0,0) coordinate[bullet,label=left:$f$] -- (0,1);
-            \draw[->-=.25,->-=.75] (1,-1) -- (1,0) coordinate[bullet,label=right:$g$] -- (1,1);
+            \draw[->-=.25,->-=.75] (1,1) -- (1,0) coordinate[bullet,label=right:$g$] -- (1,-1);
         \end{tikzpicture}
         &\lmto 
         \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
             \path coordinate (a)
             +(1,0) coordinate (b)
+            +(0.5,2.5) coordinate (A)
+            +(0.5,-0.5) coordinate (B)
             +(0,1) coordinate[bullet,label=left:$f$] (f)
             +(1,1) coordinate[bullet,label=right:$g$] (g)
             +(0,2) coordinate (c)
             +(1,2) coordinate (d)
             ;
             \LCOEV{a}{b}
-            \LEV{c}{d}
+            \REV{c}{d}
+            \node[above] at(A) {$\lev_{y^*}$};
+            \node[below] at(B) {$\lcoev_{x}$};
             \draw (a) -- (c);
             \draw (b) -- (d);
         \end{tikzpicture}
@@ -3128,6 +3132,51 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
 \end{mylem}
 
 \begin{proof}
+    $x = 1$ の場合に示す．
+    圏 $\Cat{C}$ は\hyperref[def:tensorfusion-cat]{フュージョン圏}なので，補題\ref{prop:1-simple}より $1 \in \Simp(\Cat{C})$ である．
+    $\Cat{C}$ は\hyperref[def:semisimple-cat]{半単純}だから，$y = \bigoplus_{a \in \Simp(\Cat{C})} N_a a$ と書ける．このとき，\hyperref[prop:lim-colim-basic]{余極限とHomの交換}および補題\ref{lem:simple-hom}-(1) より
+    \begin{align}
+        \Hom{\Cat{C}}(1,\, y) &\cong \bigoplus_{a \in \Simp(\Cat{C})} N_a \Hom{\Cat{C}}(1,\, a) = \mathbb{K}^{\oplus N_1}, \\
+        \Hom{\Cat{C}}(y,\, 1) &\cong \bigoplus_{a \in \Simp(\Cat{C})} N_a \Hom{\Cat{C}}(a,\, 1) = \mathbb{K}^{\oplus N_1}
+    \end{align}
+    なので，\eqref{eq:Muger}より $\Hom{\Cat{C}}(1,\, y),\, \Hom{\Cat{C}}(y,\, 1)$ の基底 $\Familyset[\big]{p_j \colon 1 \lto y}{1 \le j \le N_1},\, \Familyset[\big]{q_j \colon y \lto 1}{1 \le j \le N_1}$ であって $q_i \circ p_j = \delta_{ij} \Id_1 \in \Hom{\Cat{C}}(1,\, 1) = \mathbb{K}$ を充たすものが存在する\footnote{要するに双対基底をとっている．なお，ここで圏 $\Cat{C}$ の\hyperref[def:finite-abcat]{有限性}を使っている．}．
+    ここで，$\mathbb{K}$-線形写像
+    \begin{align}
+        \alpha \colon \Hom{\Cat{C}}(1,\, y^*) \lto \Hom{\Cat{C}}(y,\, 1),\; \psi \lmto \lev_{y^*} \circ (\Id_y \otimes \psi)
+    \end{align}
+    は逆写像
+    \begin{align}
+        \beta \colon \Hom{\Cat{C}}(y,\, 1) \lto \Hom{\Cat{C}}(1,\, y^*),\; \varphi \lmto (\Id_{y^*} \otimes \varphi) \circ \lcoev_{y^*}
+    \end{align}
+    を持つので $\mathbb{K}$-ベクトル空間の同型写像であり，よって $\Familyset[\big]{\beta(q_j) \colon 1 \lto y^* }{1 \le j \le N_1}$ は $\Hom{\Cat{C}}(1,\, y^*)$ の基底を成す．そして
+    $\Hom{\Cat{C}}(1,\, y) \otimes \Hom{\Cat{C}}(1,\, y^*)$ の基底 $\{p_i \otimes \beta(q_j)\}_{1 \le i,\, j \le N_1}$ に関する $(\;,\,)$ の表現行列は
+    \begin{align}
+        \bigl(p_i,\, \beta(q_j)\bigr) = \lev_{y^*} \circ \bigl(p_i \otimes (\Id_{y^*} \otimes q_j)\bigr) \circ (\Id_1 \otimes \lcoev_{y^*}) = q_j \circ p_i = \delta_{ij}
+    \end{align}
+    であるから，$(\;,\, )$ は非退化である．
+    % まず，$\Hom{\Cat{C}}(a,\, y)$ と $\Hom{\Cat{C}}(y,\, a)$ が\hyperref[redef:rigid]{rigidなモノイダル圏} $\VEC{\mathbb{K}}$ において互いに双対であることを示す．
+    % \begin{align}
+    %     \lev_{\Hom{\Cat{C}}(a,\, y)} \colon \Hom{\Cat{C}}(y,\, a) \otimes \Hom{\Cat{C}}(a,\, y) &\lto \mathbb{K} = \Hom{\Cat{C}}(a,\, a), \\
+    %     \varphi \otimes \psi &\lmto \varphi \circ \psi
+    % \end{align}
+    % とおく．coevaluationはややこしいが，\eqref{eq:Muger}の自然同型を用いて
+    % \begin{align}
+    %     m_{y,y}^{-1}\colon \Hom{\Cat{C}}(y,\, y) &\lto \bigoplus_{b \in \Simp(\Cat{C})} \Hom{\Cat{C}}(y,\, a) \otimes \Hom{\Cat{C}}(a,\, y), \\
+    %     \Id_y &\lmto m_{y,y}^{-1}(\Id_y) \eqqcolon \sum_{b \in \Simp(\Cat{C})} f_b \otimes g_b
+    % \end{align}
+    % とおき，
+    % \begin{align}
+    %     \lcoev_{\Hom{\Cat{C}}(a,\, y)} \colon \mathbb{K} = \Hom{\Cat{C}}(a,\, a) &\lto \Hom{\Cat{C}}(a,\, y) \otimes \Hom{\Cat{C}}(y,\, a), \\
+    %     \Id_a &\lmto g_a \otimes f_a
+    % \end{align}
+    % と定義する．すると，$\forall \varphi \in \Hom{\Cat{C}}(a,\, y)$ に対して
+    % \begin{align}
+    %     &(\unity_{\Hom{\Cat{C}}(a,\, y)} \otimes \lev_{\Hom{\Cat{C}}(a,\, y)}) \circ (\lcoev_{\Hom{\Cat{C}}(a,\, y)} \otimes \unity_{\Hom{\Cat{C}}(a,\, y)}) (\Id_a \otimes \varphi) \\
+    %     &= (\unity_{\Hom{\Cat{C}}(a,\, y)} \otimes \lev_{\Hom{\Cat{C}}(a,\, y)})(g_a \otimes f_a \otimes \varphi) \\
+    %     &= g_a \otimes (f_a \circ \varphi) \\
+    %     &= (g_a \otimes f_a) \circ (\Id_{a} \otimes \varphi) \\
+    %     &= 
+    % \end{align}
     
 \end{proof}
 
@@ -3287,7 +3336,7 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
 
 \begin{proof}
     \begin{enumerate}
-        \item 左辺は $\Hom{\Cat{C}}(1,\, a \otimes a^*)$ の元だが，補題\ref{lem:rigid-hom}の同型 $\alpha^{-1}_{1,a,a} \colon \Hom{\Cat{C}} (1,\, a\otimes a^*) \xrightarrow{\cong} \Hom{\Cat{C}} (a,\, a)$ およびSchurの補題から，ある定数 $A_a \in \mathbb{K}$ を用いて
+        \item 左辺は $\Hom{\Cat{C}}(1,\, a \otimes a^*)$ の元だが，補題\ref{lem:rigid-hom}の同型 $\alpha^{-1}_{1,a,a} \colon \Hom{\Cat{C}} (1,\, a\otimes a^*) \xrightarrow{\cong} \Hom{\Cat{C}} (a,\, a) = \mathbb{K}$ から，ある定数 $A_a \in \mathbb{K}$ を用いて
         \begin{align}
             \alpha_{1,a,a}^{-1} \left(  \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
                 \path coordinate[bullet,label=below:$\varphi$] (f)
@@ -3424,6 +3473,10 @@ $K$ に有限回の双星状移動を施すことで $L$ にすることがで�
 \begin{proof}
     
 \end{proof}
+
+\subsection{グラフ上のアイソトピー不変量}
+
+
 
 \subsection{Turaev-Viro不変量の構成}
 

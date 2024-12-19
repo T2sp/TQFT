@@ -556,7 +556,7 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
     \end{align}
 \end{itemize}
 
-\begin{mylem}[label=lem:ldual-functor]{関手性}
+\begin{mylem}[label=lem:ldual-functor]{左双対の関手性}
     \begin{enumerate}
         \item 対応 $(\mhyphen)^* \colon \Cat{C} \lto \Cat{C}$ は反変関手である．
         \item $\forall X,\, Y \in \Obj{\Cat{C}}$ に対して $(X \otimes Y)^* = Y^* \otimes X^*$ が成り立つ．
@@ -846,8 +846,8 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
     圏 $\Cat{C}$ が\textbf{多重環圏} (multiring category) であるとは，以下の条件を充たすこと：
     \begin{description}
         \item[\textbf{(mR-1)}] $\Cat{C}$ は\hyperref[def:finite-abcat]{局所有限}な\hyperref[def:additive-cat]{$\mathbb{K}$-線形アーベル圏}
-        \item[\textbf{(mR-2)}] $\Cat{C}$ は\hyperref[redef:rigid]{モノイダル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$
-        \item[\textbf{(mR-3)}] 関手 $\otimes \colon \Cat{C} \times \Cat{C} \lto \Cat{C}$ が $\mathbb{K}$-線形かつ双完全
+        \item[\textbf{(mR-2)}] $\Cat{C}$ は\hyperref[redef:rigid]{モノイダル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r)$
+        \item[\textbf{(mR-3)}] 関手 $\otimes \colon \Cat{C} \times \Cat{C} \lto \Cat{C}$ が $\mathbb{K}$-双線形かつ双完全
     \end{description}
     圏 $\Cat{C}$ が\textbf{環圏} (ring category) であるとは，以下の条件を充たすこと：
     \begin{description}
@@ -855,6 +855,46 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
         \item[\textbf{(R-2)}] $\Hom{\Cat{C}} (1,\, 1) \cong \mathbb{K}$ 
     \end{description}
 \end{mydef}
+
+\begin{mylem}[label=lem:1-simple-ringcat]{環圏における $1$ の単純性}
+    \begin{enumerate}
+        \item \hyperref[redef:dual]{左双対}を持つ\hyperref[def:ringcat]{多重環圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev)$ において，\hyperref[lem:ldual-functor]{左双対関手} $(\mhyphen)^* \colon \Cat{C} \lto \Cat{C}$ は\hyperref[def:additive-exact]{完全}である．
+        \item \hyperref[redef:dual]{左双対}を持つ\hyperref[def:ringcat]{環圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev)$ において，$1 \in \Obj{\Cat{C}}$ は\hyperref[def:semisimple-cat]{単純対象}である．
+    \end{enumerate}
+\end{mylem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 完全列 $0 \lto x \xrightarrow{f} y \xrightarrow{g} z \lto 0$ を与える．示すべきは $0 \lto z^* \xrightarrow{g^*} y^* \xrightarrow{f^*} x^* \lto 0$ が完全であることである．
+        $\forall w \in \Obj{\Cat{C}}$ を1つとり，圏 $\Cat{C}$ における図式
+        \begin{align}
+            0 \lto \Hom{\Cat{C}}(w,\, z^*) \xrightarrow{\Hom{\Cat{C}}(w,\, g^*)} \Hom{\Cat{C}}(w,\, y^*) \xrightarrow{\Hom{\Cat{C}}(w,\, f^*)} \Hom{\Cat{C}}(w,\, x^*)
+        \end{align}
+        を考える．補題\ref{lem:rigid-hom}-(1) の自然同型によりこれは
+        \begin{align}
+            0 \lto \Hom{\Cat{C}}(w \otimes z,\, 1) \lto \Hom{\Cat{C}}(w \otimes y,\, 1) \lto \Hom{\Cat{C}}(w \otimes x,\, 1)
+        \end{align}
+        と書けるが，\hyperref[def:ringcat]{多重環圏の定義}より $\otimes$ は完全で，かつ $\Hom{\Cat{C}}(\mhyphen,\, 1)$ は左完全関手なので，これは完全列である．よって $0 \lto z^* \xrightarrow{g^*} y^* \xrightarrow{f^*} x^*$ は完全である．
+        同様の議論から $z^* \xrightarrow{g^*} y^* \xrightarrow{f^*} x^* \lto 0$ の完全性も従う．
+
+        \item 任意のゼロでない単純な部分対象 $x \overset{i}{\hookrightarrow} 1$ を1つとる\footnote{アーベル圏 $\Cat{C}$ の\hyperref[def:finite-abcat]{有限性}から，このような $x$ は存在する．}．
+        $\Cat{C}$ は\hyperref[def:additivecat]{アーベル圏}なので $i$ の余核が存在し，
+        \begin{align}
+            0 \lto x \overset{i}{\hookrightarrow} 1 \xrightarrow{\coker i} \Coker i \lto 0
+        \end{align}
+        は完全列になる．(1) より
+        \begin{align}
+            0 \lto (\Coker i)^* \lto 1 \lto x^* \lto 0
+        \end{align}
+        は完全列である．さらに，\hyperref[def:ringcat]{環圏の定義}より $\otimes$ は完全なので
+        \begin{align}
+            \label{eq:1-simple-ringcat}
+            0 \lto x \otimes (\Coker i)^* \lto x \lto x \otimes x^* \lto 0
+        \end{align}
+        も完全列だが，$x$ は単純でかつ $x \otimes x^* \neq 0$（evaluationが零射でないため）なので\footnote{\eqref{eq:1-simple-ringcat}は完全列なので $x \otimes (\Coker i)^* \lto x$ はモノ射であり，かつ $x \neq 0$ なので $\Coker i \neq 1$ であるから，$x \otimes (\Coker i)^* = 0$ が言える．} $x \otimes x^* \cong x$ が分かった．よってエピ射 $1 \xrightarrow{\lcoev_x} x \otimes x^* \lto x$ を得る．
+        よって零射でない $1 \twoheadrightarrow x \overset{i}{\hookrightarrow} 1$ を得るが，$\Hom{\Cat{C}}(1,\, 1) = \mathbb{K}$ なので $x = 1$ でなくてはいけない．
+    \end{enumerate}
+\end{proof}
 
 \begin{mydef}[label=def:tensorfusion-cat]{テンソル圏・フュージョン圏}
     圏 $\Cat{C}$ が\textbf{多重テンソル圏} (multitensor category) であるとは，以下の条件を充たすこと：
@@ -896,6 +936,16 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
     \text{\hyperref[def:tensorfusion-cat]{（多重）テンソル圏}} \IMP \text{\hyperref[def:ringcat]{（多重）環圏}}
 \end{align}
 が言える．
+
+\begin{myprop}[label=prop:1-simple]{テンソル圏における $1$ の単純性}
+    \hyperref[def:tensorfusion-cat]{テンソル圏}において $1$ は\hyperref[def:semisimple-cat]{単純}である．
+\end{myprop}
+
+\begin{proof}
+    命題\ref{prop:tensor-ring}と補題\ref{lem:1-simple-ringcat}と\hyperref[def:tensorfusion-cat]{テンソル圏の定義}から従う．
+\end{proof}
+
+
 
 \begin{myexample}[label=def:CG]{圏 $\Cat{C}_G$ と $\VecG{G}$}
     $G$ を群とする．\hyperref[redef:monoidal-category]{厳密なモノイダル圏} $\Cat{C}_G$ を，
