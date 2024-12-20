@@ -3451,28 +3451,378 @@ $K$ に有限回の双星状移動を施すことで $L$ にすることがで�
 
 技術的な理由により，\textbf{多面体分割} (polytope decomposition) を導入する~\cite[p.11]{KirillovBalsam2010TVBW}．
 
-\begin{mydef}[label=def:polytope-decomp]{多面体分割}
-    $d = 2,\, 3$ 次元の\hyperref[def:PLmfd]{PL多様体} $(M,\, K,\, \psi)$ の\textbf{多面体分割} (polytope decomposition) とは，三角形分割 $\psi \colon \abs{K} \xrightarrow{\approx} M$ に以下の操作を施して得られる $M$ の胞体分割のこと:
-    \begin{description}
-        \item[\textbf{(M1)}] 
-        \item[\textbf{(M2)}] 
-        \item[\textbf{(M3)}] 
-    \end{description}
+\begin{mydef}[label=def:polyhedron,breakable]{2-多面体}
+    \begin{itemize}
+        \item 2次元コンパクト多様体\footnote{位相多様体．境界はついていてもいなくても良い．} $P$ が\textbf{2-多面体} (2-polyhedra) であるとは，$P$ の三角形分割 $\psi \colon \abs{K} \xrightarrow{\approx} P$ であって，任意の0-単体および1単体がある2-単体の面になっているものが存在することを言う．
+        \item 2-多面体の\textbf{層状化} (stratification) とは，$P$ に埋め込まれたグラフ\footnote{ここでは，位相空間としてのグラフを考えている．} $P^{(1)} \subset P$ であって $P \setminus \Int(P) \subset P^{(1)}$
+        \textbf{層状化された多面体} (stratified polyhedra) とは，2-多面体 $P$ とその層状化 $P^{(1)} \subset P$ の組み $(P,\, P^{(1)})$ のこと．
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}
+                \path coordinate (a)
+                ++(2,0) coordinate (b)
+                ++(0.4,2) coordinate (c)
+                ++(-1.6,1) coordinate (d)
+                ++(-1,-1.2) coordinate (e);
+                \coordinate (g) at (barycentric cs:a=1,b=1,c=1,d=1,e=1);
+                \coordinate (l) at (barycentric cs:b=1,c=1,g=1);
+                \coordinate (p) at (barycentric cs:c=1,d=1);
+                \coordinate (m) at ($(c) + (0.5,0.5)$);
+                \node at (l) {$P$};
+                \node[red,right] at (m) {$P^{(1)}$};
+                \draw[red,->] (m) to[out=180,in=60] (p);
+                \draw[spath/save=bdy] (a) -- (b) -- (c) -- (d) -- (e) -- cycle;
+                \draw[red,thick,spath/use=bdy];
+                \draw[red,thick] (g) -- (a);
+                \draw[red,thick] (g) -- (b);
+                \draw[red,thick] (g) -- (c);
+                \draw[red,thick] (g) -- (d);
+                % \draw[red,thick] (g) -- (e);
+                \begin{scope}[on background layer]
+                    \fill[gray!20, spath/use=bdy];
+                \end{scope}
+            \end{tikzpicture}
+            \caption{層状化された多面体 $(P,\, P^{(1)})$}
+        \end{figure}%        
+        \item 層状化された多面体 $(P,\, P^{(1)})$ において，$P \setminus P^{(1)}$ の連結成分の閉包を\textbf{領域} (region) と呼ぶ．$(P,\, P^{(1)})$ の領域を全て集めた集合を $\mathrm{Reg}(P)$ と書くことにする．
+        
+        　領域 $R \in \mathrm{Reg}(P)$ が\textbf{埋め込み可能}であるとは，全射 $p \colon \partial(\overline{P \setminus P^{(1)}}) \twoheadrightarrow P^{(1)}$ の制限 $p|_{\partial R} \colon \partial R \to P^{(1)}$ が単射であることを言う．
+        \item 層状化された多面体 $(P,\, P^{(1)})$ において，
+        頂点 $v \in \mathsf{V}(P^{(1)})$ の\textbf{分岐}とは，連続曲線 $\gamma \colon [0,\, 1] \lto P$ であって $\gamma (0) = v$ かつ $\gamma \bigl( (0,\, 1] \bigr) \subset P \setminus P^{(1)}$ を充たすもののホモトピー類のこと．
+        頂点 $v$ の分岐の総数を，頂点 $v$ の\textbf{配位数} (valence) と呼ぶ．
+        \item 層状化された多面体 $(P,\, P^{(1)})$ において，
+        辺 $e \in \mathsf{E}(P^{(1)})$ の\textbf{分岐}とは，連続曲線 $\gamma \colon [0,\, 1] \lto P$ であって $\gamma (0) \in \Int(e)$ かつ $\gamma \bigl( (0,\, 1] \bigr) \subset P \setminus P^{(1)}$ を充たすもののホモトピー類のこと．
+        辺 $e$ の分岐がなす集合を $P^{(1)}_e$ と書き，$\abs{P^{(1)}_e} \in \mathbb{N}$ を辺 $e$ の\textbf{配位数} (valence) と呼ぶ．
+        \item 層状化された多面体 $(P,\, P^{(1)})$ の\textbf{向き} (orientation) とは，位相空間 $P \setminus P^{(1)}$ の向きのこと．
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}
+                \path coordinate (a)
+                ++(2,0) coordinate (b)
+                ++(0.4,2) coordinate (c)
+                ++(-1.6,1) coordinate (d)
+                ++(-1,-1.2) coordinate (e);
+                \coordinate (g) at (barycentric cs:a=1,b=1,c=1,d=1,e=1);
+                \coordinate (P) at (barycentric cs:a=1,b=1,g=1);
+                \coordinate (Q) at (barycentric cs:b=1,c=1,g=1);
+                \coordinate (R) at (barycentric cs:c=1,d=1,g=1);
+                \coordinate (S) at (barycentric cs:d=1,e=1,a=1,g=1);
+
+                \draw[spath/save=bdy] (a) -- (b) -- (c) -- (d) -- (e) -- cycle;
+                \draw[red,thick,spath/use=bdy];
+                \draw[red,thick] (g) -- (a);
+                \draw[red,thick] (g) -- (b);
+                \draw[red,thick] (g) -- (c);
+                \draw[red,thick] (g) -- (d);
+                % \draw[red,thick] (g) -- (e);
+
+                \draw[->] ($(P)+(0.2,0)$) arc (0:270:0.2);
+                \draw[->] ($(Q)+(0.2,0)$) arc (0:-270:0.2);
+                \draw[->] ($(R)+(0.2,0)$) arc (0:270:0.2);
+                \draw[->] ($(S)+(0.2,0)$) arc (0:-270:0.2);
+                \begin{scope}[on background layer]
+                    \fill[gray!20, spath/use=bdy];
+                \end{scope}
+            \end{tikzpicture}
+            \caption{層状化された多面体の向き}
+        \end{figure}%
+    \end{itemize}
+    
 \end{mydef}
 
-\begin{mytheo}[label=thm:polytope]{多面体分割のPL不変性}
-    3次元の境界付き\hyperref[def:PLmfd]{PL多様体} $M$ および2次元境界付き部分多様体 $X \subset \partial M$ を与える．
-    $\mathcal{N}$ を $X$ の\hyperref[def:polytope-decomp]{多面体分割}とするとき，以下が成り立つ：
+\begin{mydef}[label=def:graph-bdy]{境界グラフ}
+    \begin{itemize}
+        \item \hyperref[def:polyhedron]{層状化された多面体} $(P,\, P^{(1)})$ の\textbf{境界} (boundary) とは，グラフ
+        \begin{align}
+            \partial P \coloneqq \bigl\{\, e \in \mathsf{E}(P^{(1)}) \bigm| \text{配位数}\;1 \,\bigr\} 
+        \end{align}
+        のこと．$(P,\, P^{(1)})$ の向きは，グラフ $\partial P$ に向きを誘導する．
+        \item \hyperref[def:polyhedron]{層状化された多面体} $(P,\, P^{(1)})$ が\textbf{円筒境界を持つ}とは，
+        $\forall v \in \mathsf{V}(\partial P)$ に対して $e_v \in \mathsf{E}(P^{(1)}) \setminus \mathsf{E}(P^{(1)})$ がただ1つ存在し，以下を充たすことを言う：
+        \begin{itemize}
+            \item $d_v$ の端点のうち1つは $v$ で，もう1つは $v$ でない．
+            \item $v$ の全ての分岐に隣接する
+        \end{itemize}
+        このとき，位相多様体 $\partial P \subset P$ は $\partial P \times [0,\, 1]$ と同相な近傍を持つ．
+    \end{itemize}
+\end{mydef}
+
+位相空間
+\begin{align}
+    \mathcal{B} \coloneqq \bigl\{\, (x^1,\, x^2,\, x^3) \in \mathbb{R}^3 \bigm| x^3 = 0 \,\bigr\} \cup \bigl\{\, (x^1,\, x^2,\, x^3) \in \mathbb{R}^3 \bigm| x^1 = 0,\, x^3 > 0 \,\bigr\} \cup \bigl\{\, (x^1,\, x^2,\, x^3) \in \mathbb{R}^3 \bigm| x^2 = 0,\, x^3 < 0 \,\bigr\} 
+\end{align}
+を考える．図示すると次のようになる：
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \path coordinate[bullet] (O)
+        +(2,0) coordinate (xr)
+        +(2,-2) coordinate (xrd)
+        +(-2,0) coordinate (xl)
+        +(-2,-2) coordinate (xld)
+        +(0.4,0.5) coordinate (yr)
+        +(0.4,2.5) coordinate (yru)
+        +(-0.4,-0.5) coordinate (yl)
+        +(-0.4,1.5) coordinate (ylu);
+
+        \draw (xl) -- (xr) -- (xrd) -- (xld) --cycle;
+        \draw (yl) -- (yr) -- (yru) -- (ylu) -- cycle;
+        \draw (yl) -- ++(2,0) -- ++(0.8,1) -- (yr) -- cycle;
+        \draw (yr) -- ++(-2,0) -- ++(-0.8,-1) -- (yl) -- cycle;
+
+        \draw[->] (xl) -- (2.5,0) node[right] {$x^1$};
+        \draw[->] (yl) -- ($(yr)+(0.5,0.625)$) node[above right] {$x^2$};
+        \draw[->] (O.center) -- ++(0,2.5) node[above] {$x^3$};
+    \end{tikzpicture}    
+    \caption{位相空間 $\mathcal{B}$}
+\end{figure}%
+
+\begin{mydef}[label=def:polyhedra-special]{2-多面体のクラス}
+    \begin{itemize}
+        \item \hyperref[def:polyhedron]{層状化された多面体} $(P,\, P^{(1)})$ が\textbf{正則} (regular) であるとは，$P$ の部分空間 $\forall R \in \mathrm{Reg}(P)$ が $R \approx D^2$ でかつ\hyperref[def:polyhedron]{埋め込み可能}であることを言う．
+        \item \hyperref[def:polyhedron]{層状化された多面体} $(P,\, P^{(1)})$ が\textbf{特殊} (special) であるとは，以下の条件を充たすことを言う：
+        \begin{enumerate}
+            \item $\forall p \in P$ に対してある開近傍 $p \in U \subset P$ および開部分集合 $V \subset \mathcal{B}$ が存在し，$U \approx V$ となる．
+            \item $P$ の各連結成分には，(1) の同相写像で $\mathcal{B}$ の原点に移されるような点が少なくとも1つ存在する．
+            \item $P \setminus \Int(P)$ の各連結成分は $S^1$ と同相でない．
+        \end{enumerate}
+        
+    \end{itemize}
+    
+\end{mydef}
+
+\begin{myexample}[label=ex:tetrahedron]{4面体の重心細分}
+    4面体の重心細分として得られる\hyperref[def:polyhedra-special]{層状化された多面体}は，正則かつ特殊である．
+\end{myexample}
+
+
+\begin{mydef}[label=def:polytope-decomp]{多面体分割}
+    向き付けられた $3$ 次元閉多様体 $M$ の\textbf{多面体分割}とは，\hyperref[def:graph-bdy]{境界グラフ}が空の\footnote{従って，$\forall e \in \mathsf{E}(P^{(1)})$ の配位数は2以上である．}\hyperref[def:polyhedron]{向き付けられ，層状化された多面体} $(P,\, P^{(1)})$ であって，
+    $M$ に埋め込まれており，$M \setminus P$ が開球のdisjoint unionになっているもののこと． 
+    % \begin{itemize}
+    %     \item $3$ 次元閉多様体 $M$ の多面体分割 $(P,\, P^{(1)})$ が\textbf{正則} (regular) であるとは，層状化された多面体 $(P,\, P^{(1)})$ が\hyperref[def:polyhedra-special]{正則}であることを言う．
+    %     \item $3$ 次元閉多様体 $M$ の多面体分割 $(P,\, P^{(1)})$ が\textbf{特殊} (special) であるとは，層状化された多面体 $(P,\, P^{(1)})$ が\hyperref[def:polyhedra-special]{特殊}であることを言う．
+    % \end{itemize}
+    
+    \tcblower
+
+    向き付けられた境界付き $3$ 次元コンパクト多様体 $M$，およびその境界に埋め込まれた有向グラフ $G \subset \partial M$ を与える．$\forall v \in \mathsf{V}(G)$ の\hyperref[def:polyhedron]{配位数}は2以上であるとする\footnote{従って，境界の境界は考えない．}．
+    組 $(M,\, G)$ の\textbf{多面体分割}とは，\hyperref[def:graph-bdy]{$\partial$-円筒境界を持つ}，\hyperref[def:polyhedron]{向き付けられ，層状化された2-多面体} $(P\, P^{(1)})$ であって，
     \begin{enumerate}
-        \item $\mathcal{N}$ は $M$ の多面体分割 $\mathcal{M}$ へ拡張することができる．
-        \item $M$ の任意の2つの多面体分割 $\mathcal{M}_1,\, \mathcal{M}_2$ であって，$\mathcal{M}_1|_{X} = \mathcal{M}_2|_X = \mathcal{N}$ を充たすものは，有限回の\textsf{\textbf{(M1)-(M3)}}の操作によって $\mathcal{N}$ を変えることなく互いに写り合う．
+        \item $P$ は $M$ に埋め込まれている
+        \item 有向グラフとして $\partial P = G$ で，かつ $P \setminus \partial P \subset M \setminus \partial M$
+        \item $M \setminus P$ は3-開球および3次元多様体 $(\partial M \setminus G) \times [0,\, 1)$ のdisjoint unionである．
     \end{enumerate}
-    % の任意の2つの\hyperref[def:polytope-decomp]{多面体分割}は，有限回の\textsf{\textbf{(M1)-(M3)}}の操作によって互いに写り合う．
+    
+\end{mydef}
+
+$M$ の多面体分割 $(P,\, P^{(1)})$ の任意の頂点 $v \in \mathsf{V}(P^{(1)})$ に対して，$v$ の閉球近傍 $B_v \subset M$ を十分小さく取ることで図のようなグラフを得る：
+これを頂点 $v$ の\textbf{絡みグラフ}と呼び，$\mathrm{Lk}(v)$ と書くことにする．
+
+\begin{mytheo}[label=thm:MP-polytope,breakable]{多面体分割のPL不変性}
+    向き付けられた境界付き $3$ 次元コンパクト多様体 $M$，およびその境界に埋め込まれた有向グラフ $G \subset \partial M$ を与える．$\forall v \in \mathsf{V}(G)$ の\hyperref[def:polyhedron]{配位数}は2以上であるとする\footnote{従って，境界の境界は考えない．}．
+
+    このとき，$(M,\, G)$ の任意の2つの\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)}),\, (P',\, P'{}^{(1)})$ は，以下の操作の有限回の組み合わせで互いに写り合う：
+    \begin{description}
+        \item[\textbf{(T0)}] $\partial D^2 = D^2 \cap P \subset P \setminus P^{(1)}$ を充たすような2次元円板 $D^2$ を $P$ に付け足す．さらにグラフ $P^{(1)}$ に1つの頂点とループ辺 $\partial D^2$ を付け足す．
+        \begin{align}
+            T_0 \colon
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (a)
+                ++(2,0) coordinate (b)
+                ++(0.5,1.5) coordinate (c)
+                ++(-2,0) coordinate (d);
+                \draw[dashed,spath/save=frame] (a) to[out=-10,in=-170] (b) to[out=30,in=-60] (c) to[out=170,in=10] (d) to[out=-150,in=120] (a);
+                \begin{scope}[on background layer]
+                    \fill[gray!20, spath/use=frame];
+                \end{scope}
+            \end{tikzpicture}
+            \lmto 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (a)
+                ++(2,0) coordinate (b)
+                ++(0.5,1.5) coordinate (c)
+                ++(-2,0) coordinate (d);
+                \coordinate (g) at (barycentric cs:a=1,b=1,c=1,d=1);
+                \draw[dashed,spath/save=frame] (a) to[out=-10,in=-170] (b) to[out=30,in=-60] (c) to[out=170,in=10] (d) to[out=-150,in=120] (a);
+                \draw[spath/save=bubble] ($(g)+(-0.8,0)$) to[out=90,in=90] ($(g)+(0.8,0)$) arc (0:-180:0.8 and 0.2);
+                \draw[red,thick] ($(g)+(0.8,0)$) arc (0:360:0.8 and 0.2);
+                \node[bullet,red] at ($(g) + (0,-0.2)$) {};
+                \begin{scope}[on background layer]
+                    \fill[gray!20, spath/use=frame];
+                    \fill[red!20, spath/use=bubble];
+                \end{scope}
+            \end{tikzpicture}
+        \end{align}
+        
+        \item[\textbf{(T1)}] 
+        
+        \begin{align}
+            T_1 \colon
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (a)
+                ++(2,0) coordinate (b)
+                ++(0.5,1.5) coordinate (c)
+                ++(-2,0) coordinate (d);
+                \coordinate (g) at (barycentric cs:a=1,b=1,c=1,d=1);
+                \coordinate[bullet] (p) at ($(g) + (-0.5,0)$);
+                \coordinate[bullet] (q) at ($(g) + (0.5,0)$);
+                \draw[dashed,spath/save=frame] (a) to[out=-10,in=-170] (b) to[out=30,in=-60] (c) to[out=170,in=10] (d) to[out=-150,in=120] (a);
+                \clip[spath/use=frame];
+                \draw (p) -- ++(120:2);
+                \draw (p) -- ++(180:2);
+                \draw (p) -- ++(-120:2);
+                \draw (q) -- ++(60:2);
+                \draw (q) -- ++(0:2);
+                \draw (q) -- ++(-60:2);
+                \begin{scope}[on background layer]
+                    \fill[gray!20, spath/use=frame];
+                \end{scope}
+            \end{tikzpicture}
+            \lmto 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (a)
+                ++(2,0) coordinate (b)
+                ++(0.5,1.5) coordinate (c)
+                ++(-2,0) coordinate (d);
+                \coordinate (g) at (barycentric cs:a=1,b=1,c=1,d=1);
+                \coordinate[bullet] (p) at ($(g) + (-0.5,0)$);
+                \coordinate[bullet] (q) at ($(g) + (0.5,0)$);
+                \draw[thick,red] (p) -- (q);
+                \draw[dashed,spath/save=frame] (a) to[out=-10,in=-170] (b) to[out=30,in=-60] (c) to[out=170,in=10] (d) to[out=-150,in=120] (a);
+                \clip[spath/use=frame];
+                \draw (p) -- ++(120:2);
+                \draw (p) -- ++(180:2);
+                \draw (p) -- ++(-120:2);
+                \draw (q) -- ++(60:2);
+                \draw (q) -- ++(0:2);
+                \draw (q) -- ++(-60:2);
+                \begin{scope}[on background layer]
+                    \fill[gray!20, spath/use=frame];
+                \end{scope}
+            \end{tikzpicture}
+        \end{align}
+
+        \item[\textbf{(T2)}] 
+  
+        \begin{align}
+            T_2 \colon
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (a)
+                ++(2,0) coordinate (b)
+                ++(0.5,1.5) coordinate (c)
+                ++(-2,0) coordinate (d);
+                \coordinate (g) at (barycentric cs:a=1,b=1,c=1,d=1);
+                \coordinate[bullet] (p) at ($(g) + (-0.5,0)$);
+                \coordinate[bullet] (q) at ($(g) + (0.5,0)$);
+                \draw[dashed,spath/save=frame] (a) to[out=-10,in=-170] (b) to[out=30,in=-60] (c) to[out=170,in=10] (d) to[out=-150,in=120] (a);
+                \clip[spath/use=frame];
+                \draw (p) -- (q);
+                \draw (p) -- ++(120:2);
+                \draw (p) -- ++(180:2);
+                \draw (p) -- ++(-120:2);
+                \draw (q) -- ++(60:2);
+                \draw (q) -- ++(0:2);
+                \draw (q) -- ++(-60:2);
+                \begin{scope}[on background layer]
+                    \fill[gray!20, spath/use=frame];
+                \end{scope}
+            \end{tikzpicture}
+            \lmto 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (a)
+                ++(2,0) coordinate (b)
+                ++(0.5,1.5) coordinate (c)
+                ++(-2,0) coordinate (d);
+                \coordinate[bullet] (g) at (barycentric cs:a=1,b=1,c=1,d=1);
+                \draw[dashed,spath/save=frame] (a) to[out=-10,in=-170] (b) to[out=30,in=-60] (c) to[out=170,in=10] (d) to[out=-150,in=120] (a);
+                \clip[spath/use=frame];
+                \draw (g) -- ++(120:2);
+                \draw (g) -- ++(180:2);
+                \draw (g) -- ++(-120:2);
+                \draw (g) -- ++(60:2);
+                \draw (g) -- ++(0:2);
+                \draw (g) -- ++(-60:2);
+                \begin{scope}[on background layer]
+                    \fill[gray!20, spath/use=frame];
+                \end{scope}
+            \end{tikzpicture}
+        \end{align}
+
+ 
+        \item[\textbf{(T3)}] 
+        
+        \begin{align}
+            T_3 \colon
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (a)
+                ++(2,0) coordinate (b)
+                ++(0.5,1.5) coordinate (c)
+                ++(-2,0) coordinate (d);
+                \coordinate[bullet] (g) at (barycentric cs:a=1,b=1,c=1,d=1);
+                \draw[dashed,spath/save=frame] (a) to[out=-10,in=-170] (b) to[out=30,in=-60] (c) to[out=170,in=10] (d) to[out=-150,in=120] (a);
+                \clip[spath/use=frame];
+                \draw (g.center) -- ++(30:2);
+                \draw (g.center) to[out=90,in=-90] ++(150:2);
+                \draw (g.center) to[out=-120,in=90] ++(-150:2);
+                \draw (g.center) -- ++(-30:2);
+                \begin{scope}[on background layer]
+                    \fill[gray!20, spath/use=frame];
+                \end{scope}
+            \end{tikzpicture}
+            \lmto 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (a)
+                ++(2,0) coordinate (b)
+                ++(0.5,1.5) coordinate (c)
+                ++(-2,0) coordinate (d);
+                \coordinate[bullet] (g) at (barycentric cs:a=1,b=1,c=1,d=1);
+                \draw[dashed,spath/save=frame] (a) to[out=-10,in=-170] (b) to[out=30,in=-60] (c) to[out=170,in=10] (d) to[out=-150,in=120] (a);
+                \clip[spath/use=frame];
+                \draw (g.center) -- ++(30:2);
+                \draw (g.center) to[out=90,in=-90] ++(150:2);
+                \draw (g.center) to[out=-120,in=90] ++(-150:2);
+                \draw (g.center) -- ++(-30:2);
+                \draw[spath/save=reg] ($(g)+(-0.8,0)$) to[out=90,in=180] ($(g) + (-0.2,0.6)$) to[out=0,in=180] ($(g) + (0.2,0.4)$) to[out=0,in=-150] ($(g) + (30:2)$);
+                \draw[red,thick] (g) arc (0:360:0.4 and 0.1);
+                \begin{scope}[on background layer]
+                    \fill[gray!20, spath/use=frame];
+                    \clip[spath/use=frame];
+                    \fill[red!20, spath/use=reg] -- ($(g) + (-30:2)$) -- (g) arc(0:-180:0.4 and 0.1);
+                \end{scope}
+            \end{tikzpicture}
+        \end{align}
+    \end{description}
+    
 \end{mytheo}
 
 \begin{proof}
-    
+    ~\cite[Theorem 11.5, p.250]{Turaev2017}
 \end{proof}
+
+
+% \begin{mydef}[label=def:polytope-decomp]{多面体分割}
+%     $d = 2,\, 3$ 次元の\hyperref[def:PLmfd]{PL多様体} $(M,\, K,\, \psi)$ の\textbf{多面体分割} (polytope decomposition) とは，三角形分割 $\psi \colon \abs{K} \xrightarrow{\approx} M$ に以下の操作を施して得られる $M$ の胞体分割のこと:
+%     \begin{description}
+%         \item[\textbf{(M1)}] 
+%         \item[\textbf{(M2)}] 
+%         \item[\textbf{(M3)}] 
+%     \end{description}
+% \end{mydef}
+
+% \begin{mytheo}[label=thm:polytope]{多面体分割のPL不変性}
+%     3次元の境界付き\hyperref[def:PLmfd]{PL多様体} $M$ および2次元境界付き部分多様体 $X \subset \partial M$ を与える．
+%     $\mathcal{N}$ を $X$ の\hyperref[def:polytope-decomp]{多面体分割}とするとき，以下が成り立つ：
+%     \begin{enumerate}
+%         \item $\mathcal{N}$ は $M$ の多面体分割 $\mathcal{M}$ へ拡張することができる．
+%         \item $M$ の任意の2つの多面体分割 $\mathcal{M}_1,\, \mathcal{M}_2$ であって，$\mathcal{M}_1|_{X} = \mathcal{M}_2|_X = \mathcal{N}$ を充たすものは，有限回の\textsf{\textbf{(M1)-(M3)}}の操作によって $\mathcal{N}$ を変えることなく互いに写り合う．
+%     \end{enumerate}
+%     % の任意の2つの\hyperref[def:polytope-decomp]{多面体分割}は，有限回の\textsf{\textbf{(M1)-(M3)}}の操作によって互いに写り合う．
+% \end{mytheo}
+
+% \begin{proof}
+    
+% \end{proof}
 
 \subsection{グラフ上のアイソトピー不変量}
 
@@ -3480,86 +3830,141 @@ $K$ に有限回の双星状移動を施すことで $L$ にすることがで�
 
 \subsection{Turaev-Viro不変量の構成}
 
-\hyperref[def:polytope-decomp]{多面体分割}された\hyperref[def:PLmfd]{PL多様体} $(M,\, \mathcal{M},\, \psi)$ を与える．$\mathcal{M}$ の全ての辺 $e \in \mathcal{M}_1$ に向き $\epsilon_e \in \{\pm 1\}$ を与え\footnote{この向きは，大元の三角形分割から誘導されるものである}，それを $\mathcal{O} \coloneqq \Familyset[\big]{\epsilon_e}{e \in \mathcal{M}_1}$ と書く．
-向き付けられた多面体分割を $\mathcal{M}^{\mathcal{O}}$ と書く．
+\subsubsection{閉多様体の場合}
 
-\begin{mydef}[label=def:state]{状態}
-    \textbf{状態} (state) とは，写像
-    \begin{align}
-        \Gamma \colon \mathcal{M}^{\mathcal{O}}_1 \lto \Obj{\Cat{C}}
-    \end{align}
-    であって
-    \begin{align}
-        \Gamma(-e) = \Gamma(e)^*
-    \end{align}
-    を充たすもののこと．
-    \tcblower
-    2つの状態 $\Gamma_1,\, \Gamma_2$ が同値であるとは，$\forall e \in \mathcal{M}^{\mathcal{O}}_1$ に対して $\Gamma_1(e) \cong \Gamma_2(e)$ が成り立つこと．
-\end{mydef}
-
-\hyperref[def:state]{状態} $\Gamma \colon \mathcal{M}^{\mathcal{O}}_1 \lto \Obj{\Cat{C}}$ を1つ固定する．このときの\textbf{状態空間} (state space) とは，写像
+向き付けられた3次元閉多様体 $M$ の\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)})$ をとる．
+$P$ の\textbf{彩色} (coloring) とは，
+写像
 \begin{align}
-    \mathcal{H} (\mhyphen;\, \Gamma) \colon \mathcal{M}^{\mathcal{O}}_2 &\lto \Obj{\Vec{\mathbb{K}}}, \\
-    \sigma &\lmto  \expval{\Gamma(e_1),\, \dots,\, \Gamma(e_n)} \WHERE \partial \sigma = e_1 \cup \cdots \cup e_n
+    c \colon \mathrm{Reg}(P) \lto \Simp(\Cat{C})
 \end{align}
-ただし，$e_1,\, \cdots ,\, e_n$ は $\sigma$ の向きから誘導される向きに辿る．なお，\hyperref[lem:MS]{\textsf{\textbf{(Rotation isomorphism)}}}により始点をどこにとっても良いことには注意する．
-最後に，任意の2次元組み合わせ部分多様体　$N \subset M,\; \mathcal{N}^{\mathcal{o}} \subset \mathcal{M}_2^{\mathcal{O}}$ について
+のこと．ここで，
 \begin{align}
-    \mathcal{H}(N) \coloneqq \bigoplus_{\Gamma \colon \mathcal{M}^{\mathcal{O}}_1 \lto \Obj{\Cat{C}}} \mathcal{H}(N;\, \Gamma)
+    \dim (c) \coloneqq \prod_{R \in \mathrm{Reg}(P)} \bigl( \dim_p \bigl( c(R) \bigr)  \bigr)^{\chi(R)} \in \mathbb{K}
 \end{align}
-と定義することで，Hilbert空間の構成が完了する．特に補題\ref{lem:nondegen-pairing}より
+と定義する．ただし $\chi(R)$ は $R$ のEuler標数である．
+
+彩色 $c \colon \mathrm{Reg}(P)$ を1つ固定したとき，対応する $Z(c;\, P) \in \mathbb{K}$ を構成しよう．
+まず $\mathsf{V}(P^{(1)}) = \empty$ のときは　$\abs{c} \coloneqq 1$ と定義する．
+$\mathsf{V}(P^{(1)}) \neq \empty$ の場合を考える．
+$\forall e \in \mathsf{E}(P^{(1)})$ に勝手な向きを与える．
+すると，辺 $e$ の\hyperref[def:polyhedron]{分岐}の集合 $P^{(1)}_e$ にはサイクリックな順序を入れることができる．
+さらに $\forall b \in P_e^{(1)}$ に対して，$\epsilon_b \in \{\pm\}$ を $M$ から誘導される向きと $e$ の向きが整合しているならば $+$，不整合ならば $-$ となるように定義することで，
 \begin{align}
-    \label{eq:TVBW-involutive}
-    \mathcal{H}(-N) = \mathcal{H}(N)^*
+    \mathcal{H}(e;\, c) \coloneqq \expval{c(b_1)^{\epsilon_{b_1}},\, \dots,\, c(b_n)^{\epsilon_{b_n}}} \WHERE P_e^{(1)} = \{b_1 < \cdots < b_n\}
 \end{align}
-が成り立つ．
-
-次に，3次元多様体 $M$ 自身の分配関数を構成する．
-そのためにはまず\hyperref[def:state]{状態} $\Gamma \colon \mathcal{M}^{\mathcal{O}}_1 \lto \Obj{\Cat{C}}$ を1つ固定し，任意の3-セル $\mu \in \mathcal{M}^{\mathcal{O}}_3$ に対して，上手い位相不変量
+と構成しよう．補題\ref{lem:MS}の\textsf{\textbf{(Rotation isomorphism)}} により $\mathcal{H}(e;\, c)$ はwell-definedである．
 \begin{align}
-    Z(\mu;\, \Gamma) \in \mathcal{H} (\partial\mu;\, \Gamma) = \bigotimes_{\sigma \in \{\partial\mu\;\text{の面}\}} \expval{\Gamma(\partial\sigma_1),\, \dots,\, \Gamma(\partial\sigma_n)}
+    \mathcal{H}(c) \coloneqq \bigotimes_{e \in \mathsf{E}(P^{(1)})} \mathcal{H}(e;\, c)
 \end{align}
-を見つけてくる必要がある．
-そこで，些か天下り的だが，$\partial\mu$ の辺のPoincar\'{e}双対のグラフ $\mu^{\vee}$ をとり，
-\begin{itemize}
-    \item 辺には　$\Gamma(e)^{\pm} \in \Obj{\Cat{C}}$ を
-    \item 頂点（ちょうど $\partial\mu$ の面の個数だけ存在する）には $\varphi_\sigma \in \expval{\Gamma(e_1)^{\pm},\, \cdots,\, \Gamma(e_n)^{\pm}} \WHERE \partial\sigma = e_1 \cup \cdots \cup e_n$ を
-\end{itemize}
-載せる．このようなとき，後述する方法により\textbf{Reshetikhin-Turaev不変量} $\irm{Z}{RT}(\mu^{\vee};\, \Gamma,\, \{\varphi_\sigma\}) \in \mathbb{K}$ を構成することができる．
+とおく．
 
-補題\ref{lem:nondegen-pairing}の2次形式は非退化だから，結局
+$\forall v \in \mathsf{V}(P^{(1)})$ に対しては，まずそれの絡み近傍 $B_v$ および絡みグラフ $\mathrm{Lk}(v) \subset B_v$ をとる．
+$\partial B_v$ には $M$ から誘導される向きを入れる．$\forall a \in \mathsf{E}\bigl(\mathrm{Lk}(v)\bigr)$ はある1つの\hyperref[def:polyhedron]{領域} $R_a$ に含まれているから，$a$ には $c(R_a) \in \Simp(\Cat{C})$ を割り当て，$a$ 自身の向きとしては $R_a \setminus \Int(B_a)$ から誘導されるものを入れる．
+ここで，$\forall x \in \mathsf{V}\bigl(\mathrm{Lk}(v)\bigr)$ に対して勝手な $\alpha_x \in \expval{c(a_1)^{\epsilon_{a_1}},\, \dots,\, c(a_m)^{\epsilon_{a_m}}}$ を割り当てることで，絡みグラフ $\mathrm{Lk}(v) \subset B_v$ をストリング図式に読み替える．特に $M$ が境界を持たないことから絡みグラフは配位数が $2$ 以上なので，このようにして得られたストリング図式は端点を持たない．
+i.e. ストリング図式に対応する射は $\mathbb{F}_{\Cat{C}} \bigl( \mathrm{Lk}(v) \bigr)\bigl( \bigotimes_{x \in \mathsf{V} \bigl( \mathrm{Lk}(v) \bigr) } \alpha_x \bigr) \in \Hom{\Cat{C}} (1,\, 1)$ と書ける．これを $\mathbb{K}$-線形に拡張することで
+，$\mathbb{K}$-線型写像
 \begin{align}
-    \bigl( Z(\mu;\, \Gamma),\, \bigotimes_{\sigma \in \{\partial\mu\;\text{の面}\}} \varphi_\sigma \bigr) \coloneqq \irm{Z}{RT}(\mu^{\vee};\, \Gamma,\, \{\varphi_\sigma\})
+    \mathbb{F}_{\Cat{C}} \bigl( \mathrm{Lk}(v) \bigr) \in \Hom{\VEC{\mathbb{K}}} \left( \mathcal{H}(\mathrm{Lk}(v)),\, \mathbb{K}\right) 
 \end{align}
-によって $Z(\mu;\, \Gamma) \in \mathcal{H} (\partial\mu;\, \Gamma)$ を定義できる．
-
-\begin{mydef}[label=def:inv-TV]{Turaev-Viro不変量}
-    \hyperref[def:polytope-decomp]{多面体分割}された境界付き3次元\hyperref[def:PLmfd]{PL多様体} $(M,\, \mathcal{M},\, \psi)$ を与える．
-    このとき，\textbf{Turaev-Viro不変量}を以下のように定義する：
-    \footnotesize
-    \begin{align}
-        \irm{Z}{TV}(M) \coloneqq \left( \sum_{a \in \mathrm{Simp}(\Cat{C})} \dim(a)^2\right)^{-v(M)} \sum_{\Gamma \colon \mathcal{M}^{\mathcal{o}}_1 \to \Obj{\Cat{C}}} \left( \lev \left( \bigotimes_{\mu \in \mathcal{M}^{\mathcal{O}}_3} Z(\mu;\, \Gamma) \right) \prod_{e \in \mathcal{M}_1} \dim \bigl( \Gamma(e) \bigr) ^{n_e}  \right)
-    \end{align}
-    \normalsize
-    ただし，
-    \begin{align}
-        v(M) &\coloneqq \#\{\text{vertex in}\; \mathrm{Int}(M)\} + \frac{1}{2} \# \{\text{vertex on}\; \partial M\} \\
-        n_e &\coloneqq \begin{cases}
-            1, & e \in \mathrm{Int}(M) \\
-            1/2, & e \in \partial(M)
-        \end{cases}
-    \end{align}
-    とおいた．
-\end{mydef}
+を得る．ここで
+\begin{align}
+    \mathcal{H}(\mathrm{Lk}(v)) \cong \bigotimes_{e_v;\, v\, \text{を端点に持つ}} \mathcal{H}(e_v;\, c)
+\end{align}
+より
+\begin{align}
+    \bigotimes_{v \in \mathsf{V}(P^{(1)})}\Hom{\VEC{\mathbb{K}}} \left( \mathcal{H}(\mathrm{Lk}(v)),\, \mathbb{K}\right)  
+    &\cong \bigotimes_{v} \bigotimes_{e_v;\, v\, \text{を端点に持つ}} \Hom{\VEC{\mathbb{K}}} \left( \mathcal{H}(e_v;\, c),\, \mathbb{K}\right) \\
+    &\cong \Hom{\VEC{\mathbb{K}}} \bigl(H(c),\, \mathbb{K}\bigr)
+\end{align}
+であるから，
+\begin{align}
+    \bigotimes_{v}\mathbb{F}_{\Cat{C}} \bigl( \mathrm{Lk}(v) \bigr) \in \Hom{\VEC{\mathbb{K}}} \bigl(H(c),\, \mathbb{K}\bigr)
+\end{align}
+がわかる．
 
 
-\begin{mytheo}[label=thm:TVBW]{}
-    $\irm{Z}{TV}(M)$ は $M$ の\hyperref[def:polytope-decomp]{多面体分割}の取り方によらない．
-\end{mytheo}
 
-\begin{proof}
+% \hyperref[def:polytope-decomp]{多面体分割}された\hyperref[def:PLmfd]{PL多様体} $(M,\, \mathcal{M},\, \psi)$ を与える．$\mathcal{M}$ の全ての辺 $e \in \mathcal{M}_1$ に向き $\epsilon_e \in \{\pm 1\}$ を与え\footnote{この向きは，大元の三角形分割から誘導されるものである}，それを $\mathcal{O} \coloneqq \Familyset[\big]{\epsilon_e}{e \in \mathcal{M}_1}$ と書く．
+% 向き付けられた多面体分割を $\mathcal{M}^{\mathcal{O}}$ と書く．
+
+% \begin{mydef}[label=def:state]{状態}
+%     \textbf{状態} (state) とは，写像
+%     \begin{align}
+%         \Gamma \colon \mathcal{M}^{\mathcal{O}}_1 \lto \Obj{\Cat{C}}
+%     \end{align}
+%     であって
+%     \begin{align}
+%         \Gamma(-e) = \Gamma(e)^*
+%     \end{align}
+%     を充たすもののこと．
+%     \tcblower
+%     2つの状態 $\Gamma_1,\, \Gamma_2$ が同値であるとは，$\forall e \in \mathcal{M}^{\mathcal{O}}_1$ に対して $\Gamma_1(e) \cong \Gamma_2(e)$ が成り立つこと．
+% \end{mydef}
+
+% \hyperref[def:state]{状態} $\Gamma \colon \mathcal{M}^{\mathcal{O}}_1 \lto \Obj{\Cat{C}}$ を1つ固定する．このときの\textbf{状態空間} (state space) とは，写像
+% \begin{align}
+%     \mathcal{H} (\mhyphen;\, \Gamma) \colon \mathcal{M}^{\mathcal{O}}_2 &\lto \Obj{\Vec{\mathbb{K}}}, \\
+%     \sigma &\lmto  \expval{\Gamma(e_1),\, \dots,\, \Gamma(e_n)} \WHERE \partial \sigma = e_1 \cup \cdots \cup e_n
+% \end{align}
+% ただし，$e_1,\, \cdots ,\, e_n$ は $\sigma$ の向きから誘導される向きに辿る．なお，\hyperref[lem:MS]{\textsf{\textbf{(Rotation isomorphism)}}}により始点をどこにとっても良いことには注意する．
+% 最後に，任意の2次元組み合わせ部分多様体　$N \subset M,\; \mathcal{N}^{\mathcal{o}} \subset \mathcal{M}_2^{\mathcal{O}}$ について
+% \begin{align}
+%     \mathcal{H}(N) \coloneqq \bigoplus_{\Gamma \colon \mathcal{M}^{\mathcal{O}}_1 \lto \Obj{\Cat{C}}} \mathcal{H}(N;\, \Gamma)
+% \end{align}
+% と定義することで，Hilbert空間の構成が完了する．特に補題\ref{lem:nondegen-pairing}より
+% \begin{align}
+%     \label{eq:TVBW-involutive}
+%     \mathcal{H}(-N) = \mathcal{H}(N)^*
+% \end{align}
+% が成り立つ．
+
+% 次に，3次元多様体 $M$ 自身の分配関数を構成する．
+% そのためにはまず\hyperref[def:state]{状態} $\Gamma \colon \mathcal{M}^{\mathcal{O}}_1 \lto \Obj{\Cat{C}}$ を1つ固定し，任意の3-セル $\mu \in \mathcal{M}^{\mathcal{O}}_3$ に対して，上手い位相不変量
+% \begin{align}
+%     Z(\mu;\, \Gamma) \in \mathcal{H} (\partial\mu;\, \Gamma) = \bigotimes_{\sigma \in \{\partial\mu\;\text{の面}\}} \expval{\Gamma(\partial\sigma_1),\, \dots,\, \Gamma(\partial\sigma_n)}
+% \end{align}
+% を見つけてくる必要がある．
+% そこで，些か天下り的だが，$\partial\mu$ の辺のPoincar\'{e}双対のグラフ $\mu^{\vee}$ をとり，
+% \begin{itemize}
+%     \item 辺には　$\Gamma(e)^{\pm} \in \Obj{\Cat{C}}$ を
+%     \item 頂点（ちょうど $\partial\mu$ の面の個数だけ存在する）には $\varphi_\sigma \in \expval{\Gamma(e_1)^{\pm},\, \cdots,\, \Gamma(e_n)^{\pm}} \WHERE \partial\sigma = e_1 \cup \cdots \cup e_n$ を
+% \end{itemize}
+% 載せる．このようなとき，後述する方法により\textbf{Reshetikhin-Turaev不変量} $\irm{Z}{RT}(\mu^{\vee};\, \Gamma,\, \{\varphi_\sigma\}) \in \mathbb{K}$ を構成することができる．
+
+% 補題\ref{lem:nondegen-pairing}の2次形式は非退化だから，結局
+% \begin{align}
+%     \bigl( Z(\mu;\, \Gamma),\, \bigotimes_{\sigma \in \{\partial\mu\;\text{の面}\}} \varphi_\sigma \bigr) \coloneqq \irm{Z}{RT}(\mu^{\vee};\, \Gamma,\, \{\varphi_\sigma\})
+% \end{align}
+% によって $Z(\mu;\, \Gamma) \in \mathcal{H} (\partial\mu;\, \Gamma)$ を定義できる．
+
+% \begin{mydef}[label=def:inv-TV]{Turaev-Viro不変量}
+%     \hyperref[def:polytope-decomp]{多面体分割}された境界付き3次元\hyperref[def:PLmfd]{PL多様体} $(M,\, \mathcal{M},\, \psi)$ を与える．
+%     このとき，\textbf{Turaev-Viro不変量}を以下のように定義する：
+%     \footnotesize
+%     \begin{align}
+%         \irm{Z}{TV}(M) \coloneqq \left( \sum_{a \in \mathrm{Simp}(\Cat{C})} \dim(a)^2\right)^{-v(M)} \sum_{\Gamma \colon \mathcal{M}^{\mathcal{o}}_1 \to \Obj{\Cat{C}}} \left( \lev \left( \bigotimes_{\mu \in \mathcal{M}^{\mathcal{O}}_3} Z(\mu;\, \Gamma) \right) \prod_{e \in \mathcal{M}_1} \dim \bigl( \Gamma(e) \bigr) ^{n_e}  \right)
+%     \end{align}
+%     \normalsize
+%     ただし，
+%     \begin{align}
+%         v(M) &\coloneqq \#\{\text{vertex in}\; \mathrm{Int}(M)\} + \frac{1}{2} \# \{\text{vertex on}\; \partial M\} \\
+%         n_e &\coloneqq \begin{cases}
+%             1, & e \in \mathrm{Int}(M) \\
+%             1/2, & e \in \partial M
+%         \end{cases}
+%     \end{align}
+%     とおいた．
+% \end{mydef}
+
+
+% \begin{mytheo}[label=thm:TVBW]{}
+%     $\irm{Z}{TV}(M)$ は $M$ の\hyperref[def:polytope-decomp]{多面体分割}の取り方によらない．
+% \end{mytheo}
+
+% \begin{proof}
     
-\end{proof}
+% \end{proof}
 
 % \begin{mytheo}[label=thm:inv-RT]{Reshetikhin-Turaev不変量}
     
