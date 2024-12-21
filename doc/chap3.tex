@@ -3844,9 +3844,9 @@ $P$ の\textbf{彩色} (coloring) とは，
 \end{align}
 と定義する．ただし $\chi(R)$ は $R$ のEuler標数である．
 
-彩色 $c \colon \mathrm{Reg}(P)$ を1つ固定したとき，対応する $Z(c;\, P) \in \mathbb{K}$ を構成しよう．
-まず $\mathsf{V}(P^{(1)}) = \empty$ のときは　$\abs{c} \coloneqq 1$ と定義する．
-$\mathsf{V}(P^{(1)}) \neq \empty$ の場合を考える．
+彩色 $c \colon \mathrm{Reg}(P) \lto \Simp(\Cat{C})$ を1つ固定したとき，対応する $Z(c;\, P) \in \mathbb{K}$ を構成しよう．
+まず $\mathsf{V}(P^{(1)}) = \emptyset$ のときは　$\abs{c} \coloneqq 1$ と定義する．
+$\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
 $\forall e \in \mathsf{E}(P^{(1)})$ に勝手な向きを与える．
 すると，辺 $e$ の\hyperref[def:polyhedron]{分岐}の集合 $P^{(1)}_e$ にはサイクリックな順序を入れることができる．
 さらに $\forall b \in P_e^{(1)}$ に対して，$\epsilon_b \in \{\pm\}$ を $M$ から誘導される向きと $e$ の向きが整合しているならば $+$，不整合ならば $-$ となるように定義することで，
@@ -3858,6 +3858,20 @@ $\forall e \in \mathsf{E}(P^{(1)})$ に勝手な向きを与える．
     \mathcal{H}(c) \coloneqq \bigotimes_{e \in \mathsf{E}(P^{(1)})} \mathcal{H}(e;\, c)
 \end{align}
 とおく．
+ところで，$e \in \mathsf{E}(P^{(1)})$ に向きを与えない場合，2通りの向き付けが存在する．それぞれ $e_1,\, e_2$ とおくと
+\begin{align}
+    \mathcal{H}(e_1;\, c) = \mathcal{H}(e_2;\, c)^*
+\end{align}
+であるから，補題\ref{lem:nondegen-pairing}の非退化な双線形形式によって
+\begin{align}
+    *_{e,\, c} \in \mathcal{H}(e_1;\, c) \otimes \mathcal{H}(e_2;\, c)
+\end{align}
+が定まり，
+\begin{align}
+    \label{eq:contraction}
+    *_c \coloneqq \bigotimes_{e \in \mathsf{E}(P^{(1)})} *_{e,\, c} \in \mathcal{H}(c)
+\end{align}
+を得る．
 
 $\forall v \in \mathsf{V}(P^{(1)})$ に対しては，まずそれの絡み近傍 $B_v$ および絡みグラフ $\mathrm{Lk}(v) \subset B_v$ をとる．
 $\partial B_v$ には $M$ から誘導される向きを入れる．$\forall a \in \mathsf{E}\bigl(\mathrm{Lk}(v)\bigr)$ はある1つの\hyperref[def:polyhedron]{領域} $R_a$ に含まれているから，$a$ には $c(R_a) \in \Simp(\Cat{C})$ を割り当て，$a$ 自身の向きとしては $R_a \setminus \Int(B_a)$ から誘導されるものを入れる．
@@ -3875,14 +3889,34 @@ i.e. ストリング図式に対応する射は $\mathbb{F}_{\Cat{C}} \bigl( \ma
 \begin{align}
     \bigotimes_{v \in \mathsf{V}(P^{(1)})}\Hom{\VEC{\mathbb{K}}} \left( \mathcal{H}(\mathrm{Lk}(v)),\, \mathbb{K}\right)  
     &\cong \bigotimes_{v} \bigotimes_{e_v;\, v\, \text{を端点に持つ}} \Hom{\VEC{\mathbb{K}}} \left( \mathcal{H}(e_v;\, c),\, \mathbb{K}\right) \\
-    &\cong \Hom{\VEC{\mathbb{K}}} \bigl(H(c),\, \mathbb{K}\bigr)
+    &\cong \Hom{\VEC{\mathbb{K}}} \bigl(\mathcal{H}(c),\, \mathbb{K}\bigr)
 \end{align}
 であるから，
 \begin{align}
-    \bigotimes_{v}\mathbb{F}_{\Cat{C}} \bigl( \mathrm{Lk}(v) \bigr) \in \Hom{\VEC{\mathbb{K}}} \bigl(H(c),\, \mathbb{K}\bigr)
+    \bigotimes_{v}\mathbb{F}_{\Cat{C}} \bigl( \mathrm{Lk}(v) \bigr) \in \Hom{\VEC{\mathbb{K}}} \bigl(\mathcal{H}(c),\, \mathbb{K}\bigr)
 \end{align}
-がわかる．
+がわかる．これで\eqref{eq:contraction}を写像することで
+\begin{align}
+    Z(c;\, P) \coloneqq \left(\bigotimes_{v}\mathbb{F}_{\Cat{C}} \bigl( \mathrm{Lk}(v) \bigr)\right)(*_c) \in \mathbb{K}
+\end{align}
+を得る．
 
+\begin{mydef}[label=def:TV-closed]{閉多様体におけるTV不変量}
+    向き付けられた3次元閉多様体 $M$ および\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)})$ をとる．
+    \textbf{Turaev-Viro不変量}を
+    \begin{align}
+        \irm{Z}{\text{TV},\Cat{C}}(M) \coloneqq \left( \sum_{a \in \mathrm{Simp}(\Cat{C})} \dim(a)^2\right)^{-v(M)} \sum_{c \colon \mathrm{Reg} \lto \Simp(\Cat{C})} \dim(c) Z(c;\, P)
+    \end{align}
+    で定義する．ただし $v(M)$ は $M \setminus P$ の連結成分の個数である．
+\end{mydef}
+
+\begin{mytheo}[label=thm:TV-closed]{}
+    Turaev不変量 $\irm{Z}{\text{TV},\Cat{C}}(M) $ は\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)})$ の取り方によらない．
+\end{mytheo}
+
+\begin{proof}
+    
+\end{proof}
 
 
 % \hyperref[def:polytope-decomp]{多面体分割}された\hyperref[def:PLmfd]{PL多様体} $(M,\, \mathcal{M},\, \psi)$ を与える．$\mathcal{M}$ の全ての辺 $e \in \mathcal{M}_1$ に向き $\epsilon_e \in \{\pm 1\}$ を与え\footnote{この向きは，大元の三角形分割から誘導されるものである}，それを $\mathcal{O} \coloneqq \Familyset[\big]{\epsilon_e}{e \in \mathcal{M}_1}$ と書く．
