@@ -2989,19 +2989,48 @@ $2+1$ 次元のsymmetry TFTとしてTuraev-Viro理論を採用することによ
 $\Cat{C}$ の\hyperref[def:semisimple-cat]{単純対象}の同型類が成す有限集合を $\mathrm{Simp}(\Cat{C})$ と書く．
 
 \begin{mylem}[label=lem:simple-hom,breakable]{単純対象のHom}
-    $\forall a,\, b \in \mathrm{Simp}(\Cat{C})$ に対して
-    \begin{align}
-        \Hom{\Cat{C}} (a,\, b) = \delta_{ab} \mathbb{K}
-    \end{align}
+    \hyperref[def:semisimple-cat]{半単純}かつ\hyperref[def:finite-abcat]{有限}な任意の $\mathbb{K}$-線形アーベル圏 $\Cat{C}$ において，以下が成り立つ：
+    \begin{enumerate}
+        \item $\forall a,\, b \in \mathrm{Simp}(\Cat{C})$ に対して
+        \begin{align}
+            \Hom{\Cat{C}} (a,\, b) = \delta_{ab} \mathbb{K}
+        \end{align}
+        が成り立つ．
+        \item $\forall a \in \Simp(\Cat{C})$ および $\forall x \in \Obj{\Cat{C}}$ に対して，以下の条件を充たす射の族
+        \begin{align}
+            \Familyset[\big]{p_\alpha \colon x \lto a,\; i_\alpha \colon a \lto x}{\alpha \in \Lambda}
+        \end{align}
+        が存在する：
+        \begin{description}
+            \item[\textbf{(part-1)}] $\abs{\Lambda} = \dim_{\mathbb{K}} \Hom{\Cat{C}} (x,\, a) = \dim_{\mathbb{K}} \Hom{\Cat{C}} (a,\, x)$
+            \item[\textbf{(part-2)}] $\Familyset[\big]{p_\alpha \colon x \lto a}{\alpha \in \Lambda}$ は $\mathbb{K}$-ベクトル空間 $\Hom{\Cat{C}}(x,\, a)$ の基底である．
+            \item[\textbf{(part-3)}] $\Familyset[\big]{i_\alpha \colon a \lto x}{\alpha \in \Lambda}$ は $\mathbb{K}$-ベクトル空間 $\Hom{\Cat{C}}(a,\, x)$ の基底である．
+            \item[\textbf{(part-4)}] $\forall \alpha,\, \beta \in \Lambda$ に対して，$p_\alpha \circ i_\beta = \delta_{\alpha\beta} \Id_a$
+        \end{description}
+    \end{enumerate}
 \end{mylem}
 
 \begin{proof}
-    \hyperref[def:additive-cat]{アーベル圏の定義}により，$\forall \varphi \in \Hom{\Cat{C}}(a,\, b) \setminus \{0\}$ は核 $\ker \varphi \colon \Ker \varphi \hookrightarrow a$ および余核 $\coker \varphi \colon b \twoheadrightarrow \Coker \varphi$ を持つ．
+    \begin{enumerate}
+        \item \hyperref[def:additive-cat]{アーベル圏の定義}により，$\forall \varphi \in \Hom{\Cat{C}}(a,\, b) \setminus \{0\}$ は核 $\ker \varphi \colon \Ker \varphi \hookrightarrow a$ および余核 $\coker \varphi \colon b \twoheadrightarrow \Coker \varphi$ を持つ．
         いま $a$ は\hyperref[def:semisimple-cat]{単純}だから，モノ射 $\ker \varphi$ は零射である．よって $\varphi$ がモノ射だと分かった．
         一方で，再度\hyperref[def:additive-cat]{アーベル圏の定義}によりモノ射 $\ker (\coker \varphi) \colon \Ker (\coker \varphi) \hookrightarrow b$ が存在する\footnote{この2つ組 $\bigl(\Ker (\coker \varphi),\, \ker (\coker \varphi)\bigr)$ を射 $\varphi$ の\textbf{像}と呼び，$(\Im \varphi,\, \im \varphi)$ と書くのだった．}．
         $b$ もまた\hyperref[def:semisimple-cat]{単純}でかつ $\varphi \neq 0$ より，モノ射 $\ker (\coker \varphi)$ は同型射であり，従って $\coker \varphi = 0$，i.e. $\varphi$ はエピ射だと分かった．
 
         　以上の考察から $\forall \varphi \in \Hom{\Cat{C}}(a,\, b)$ は零射であるか同型射であるかのどちらかである\footnote{これを\textbf{Schurの補題}と呼ぶ．}から，$a \neq b$ ならば $\Hom{\Cat{C}}(a,\, b) = 0$ である．$a = b$ のとき，$\Hom{\Cat{C}}(a,\, b) \eqqcolon \End_{\Cat{C}}(a)$ は射の合成に関して結合多元体 (division algebra) を成すが，\hyperref[def:tensorfusion-cat]{フュージョン圏} $\Cat{C}$ は\hyperref[def:finite-abcat]{有限}なので $\End_{\Cat{C}}(a)$ は $\mathbb{K}$-ベクトル空間として有限次元であり，かつ $\mathbb{K}$ が代数閉体であるから，$\End_{\Cat{C}}(a) = \mathbb{K}$ しかありえない．
+
+        \item $\Cat{C}$ は\hyperref[def:semisimple-cat]{半単純}なので，$x$ は有限の直和分解
+        \begin{align}
+            x \cong \bigoplus_{b \in \Simp(\Cat{C})} N_b b
+        \end{align}
+        を持つ．ここで $\Lambda \coloneqq \{1,\, \dots,\, N_a\}$ とおき，直和を特徴付ける射の族のうち\footnote{直和分解が有限個の直和因子しか持たないので，直和と直積は同型である．} $a \in \Simp(\Cat{C})$ を定義域・値域に持つものを $\Familyset[\big]{p_\alpha \colon x \lto a,\; i_\alpha \colon a \lto x}{\alpha \in \Lambda}$ に選ぶことで \textsf{\textbf{(part-4)}} が充たされる．
+        さらに，\hyperref[prop:lim-colim-basic]{極限・余極限とHomの交換}および (1) から $\mathbb{K}$-ベクトル空間としての同型
+        \begin{align}
+            \Hom{\Cat{C}}(x,\, a) &\cong \bigoplus_{b \in \Simp(\Cat{C})} N_b \Hom{\Cat{C}}(b,\, a) = \mathbb{K}^{\oplus N_a}, \\
+            \Hom{\Cat{C}}(a,\, x) &\cong \bigoplus_{b \in \Simp(\Cat{C})} N_b \Hom{\Cat{C}}(a,\, b) = \mathbb{K}^{\oplus N_a}
+        \end{align}
+        があるので \textsf{\textbf{(part-1)}}-\textsf{\textbf{(part-3)}} も充たされる．
+    \end{enumerate}
 \end{proof}
 
 $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わずに\hyperref[def:additive-cat]{$\mathbb{K}$-線形な加法圏}における\hyperref[def:semisimple]{半単純性}を特徴付ける方法が存在する~\cite[p.6]{Mueger2002subfactor}．
@@ -3032,6 +3061,30 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
 \hyperref[def:semisimple-cat]{アーベル圏における半単純性の定義}は\hyperref[def:semisimple-Muger]{M\"{u}ger半単純}と等価\underline{でない}点に注意しよう．
 具体的には，\hyperref[def:semisimple-cat]{アーベル圏における半単純性の定義}から\eqref{eq:Muger}を示すことはできない．
 本資料では\eqref{eq:Muger}を認めることにする．
+
+% \eqref{eq:Muger}の帰結として，$\forall a \in \Simp (\Cat{C})$ および $\forall y \in \Obj{\Cat{C}}$ に対して $\Hom{\Cat{C}}(y,\, a)$ と $\Hom{\Cat{C}}(a,\, y)$ が\hyperref[redef:rigid]{rigidなモノイダル圏} $\VEC{\mathbb{K}}$ において互いに双対であることを示す．
+% \begin{align}
+%     \lev_{\Hom{\Cat{C}}(y,\, a)} \colon \Hom{\Cat{C}}(a,\, y) \otimes \Hom{\Cat{C}}(y,\, a) &\lto \mathbb{K} = \Hom{\Cat{C}}(a,\, a), \\
+%     \varphi \otimes \psi &\lmto \psi \circ \varphi
+% \end{align}
+% とおく．coevaluationはややこしいが，\eqref{eq:Muger}の自然同型を用いて
+% \begin{align}
+%     m_{y,y}^{-1}\colon \Hom{\Cat{C}}(y,\, y) &\lto \bigoplus_{b \in \Simp(\Cat{C})} \Hom{\Cat{C}}(y,\, b) \otimes \Hom{\Cat{C}}(b,\, y), \\
+%     \Id_y &\lmto m_{y,y}^{-1}(\Id_y) \eqqcolon \sum_{b \in \Simp(\Cat{C})} f_b \otimes g_b
+% \end{align}
+% とおき，
+% \begin{align}
+%     \lcoev_{\Hom{\Cat{C}}(a,\, y)} \colon \mathbb{K} = \Hom{\Cat{C}}(a,\, a) &\lto \Hom{\Cat{C}}(y,\, a) \otimes \Hom{\Cat{C}}(a,\, y), \\
+%     \Id_a &\lmto f_a \otimes g_a
+% \end{align}
+% と定義する．すると，$\forall \varphi \in \Hom{\Cat{C}}(y,\, a)$ に対して
+% \begin{align}
+%     &(\unity_{\Hom{\Cat{C}}(y,\, a)} \otimes \lev_{\Hom{\Cat{C}}(y,\, a)}) \circ (\lcoev_{\Hom{\Cat{C}}(y,\, a)} \otimes \unity_{\Hom{\Cat{C}}(y,\, a)}) (\Id_a \otimes \varphi) \\
+%     &= (\unity_{\Hom{\Cat{C}}(a,\, y)} \otimes \lev_{\Hom{\Cat{C}}(a,\, y)})(f_a \otimes g_a \otimes \varphi) \\
+%     &= f_a \otimes (\varphi \circ g_a) \\
+%     &= (\Id_{a} \otimes \varphi) \circ (f_a \otimes g_a) \\
+%     &= 
+% \end{align}
 
 \begin{mylem}[label=lem:MS]{Moore-Seibergの欠片}
     $\forall x_1,\, \dots,\, x_n,\, y_1,\, \dots,\, y_n,\, z \in \Obj{\Cat{C}}$ に対して，以下の\hyperref[def:nat]{自然同型}が存在する：
@@ -3103,7 +3156,10 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
         (\;,\,) \colon \Hom{\Cat{C}}(x,\, y) \otimes \Hom{\Cat{C}}(x^*,\, y^*) &\lto \mathbb{K} \\
         \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
             \draw[->-=.25,->-=.75] (0,-1) -- (0,0) coordinate[bullet,label=left:$f$] -- (0,1);
-            \draw[->-=.25,->-=.75] (1,1) -- (1,0) coordinate[bullet,label=right:$g$] -- (1,-1);
+        \end{tikzpicture}
+        \quad \otimes \quad 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \draw[->-=.25,->-=.75] (0,1) -- (0,0) coordinate[bullet,label=right:$g$] -- (0,-1);
         \end{tikzpicture}
         &\lmto 
         \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
@@ -3132,6 +3188,29 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
 \end{mylem}
 
 \begin{proof}
+    % $x = 1$ の場合に示す．
+    % 圏 $\Cat{C}$ は\hyperref[def:tensorfusion-cat]{フュージョン圏}なので，補題\ref{prop:1-simple}より $1 \in \Simp(\Cat{C})$ である．
+    % $\Cat{C}$ は\hyperref[def:semisimple-cat]{半単純}だから，$y = \bigoplus_{a \in \Simp(\Cat{C})} N_a a$ と書ける．このとき，\hyperref[prop:lim-colim-basic]{余極限とHomの交換}および補題\ref{lem:simple-hom}-(1) より
+    % \begin{align}
+    %     \Hom{\Cat{C}}(1,\, y) &\cong \bigoplus_{a \in \Simp(\Cat{C})} N_a \Hom{\Cat{C}}(1,\, a) = \mathbb{K}^{\oplus N_1}, \\
+    %     \Hom{\Cat{C}}(y,\, 1) &\cong \bigoplus_{a \in \Simp(\Cat{C})} N_a \Hom{\Cat{C}}(a,\, 1) = \mathbb{K}^{\oplus N_1}
+    % \end{align}
+    % なので，\eqref{eq:Muger}より $\Hom{\Cat{C}}(1,\, y),\, \Hom{\Cat{C}}(y,\, 1)$ の基底 $\Familyset[\big]{p_j \colon 1 \lto y}{1 \le j \le N_1},\, \Familyset[\big]{q_j \colon y \lto 1}{1 \le j \le N_1}$ であって $q_i \circ p_j = \delta_{ij} \Id_1 \in \Hom{\Cat{C}}(1,\, 1) = \mathbb{K}$ を充たすものが存在する\footnote{要するに双対基底をとっている．なお，ここで圏 $\Cat{C}$ の\hyperref[def:finite-abcat]{有限性}を使っている．}．
+    % ここで，$\mathbb{K}$-線形写像
+    % \begin{align}
+    %     \alpha \colon \Hom{\Cat{C}}(1,\, y^*) \lto \Hom{\Cat{C}}(y,\, 1),\; \psi \lmto \lev_{y^*} \circ (\Id_y \otimes \psi)
+    % \end{align}
+    % は逆写像
+    % \begin{align}
+    %     \beta \colon \Hom{\Cat{C}}(y,\, 1) \lto \Hom{\Cat{C}}(1,\, y^*),\; \varphi \lmto (\Id_{y^*} \otimes \varphi) \circ \lcoev_{y^*}
+    % \end{align}
+    % を持つので $\mathbb{K}$-ベクトル空間の同型写像であり，よって $\Familyset[\big]{\beta(q_j) \colon 1 \lto y^* }{1 \le j \le N_1}$ は $\Hom{\Cat{C}}(1,\, y^*)$ の基底を成す．そして
+    % $\Hom{\Cat{C}}(1,\, y) \otimes \Hom{\Cat{C}}(1,\, y^*)$ の基底 $\{p_i \otimes \beta(q_j)\}_{1 \le i,\, j \le N_1}$ に関する $(\;,\,)$ の表現行列は
+    % \begin{align}
+    %     \bigl(p_i,\, \beta(q_j)\bigr) = \lev_{y^*} \circ \bigl(p_i \otimes (\Id_{y^*} \otimes q_j)\bigr) \circ (\Id_1 \otimes \lcoev_{y^*}) = q_j \circ p_i = \delta_{ij}
+    % \end{align}
+    % であるから，$(\;,\, )$ は非退化である．
+
     $x = 1$ の場合に示す．
     圏 $\Cat{C}$ は\hyperref[def:tensorfusion-cat]{フュージョン圏}なので，補題\ref{prop:1-simple}より $1 \in \Simp(\Cat{C})$ である．
     $\Cat{C}$ は\hyperref[def:semisimple-cat]{半単純}だから，$y = \bigoplus_{a \in \Simp(\Cat{C})} N_a a$ と書ける．このとき，\hyperref[prop:lim-colim-basic]{余極限とHomの交換}および補題\ref{lem:simple-hom}-(1) より
@@ -3139,7 +3218,7 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
         \Hom{\Cat{C}}(1,\, y) &\cong \bigoplus_{a \in \Simp(\Cat{C})} N_a \Hom{\Cat{C}}(1,\, a) = \mathbb{K}^{\oplus N_1}, \\
         \Hom{\Cat{C}}(y,\, 1) &\cong \bigoplus_{a \in \Simp(\Cat{C})} N_a \Hom{\Cat{C}}(a,\, 1) = \mathbb{K}^{\oplus N_1}
     \end{align}
-    なので，\eqref{eq:Muger}より $\Hom{\Cat{C}}(1,\, y),\, \Hom{\Cat{C}}(y,\, 1)$ の基底 $\Familyset[\big]{p_j \colon 1 \lto y}{1 \le j \le N_1},\, \Familyset[\big]{q_j \colon y \lto 1}{1 \le j \le N_1}$ であって $q_i \circ p_j = \delta_{ij} \Id_1 \in \Hom{\Cat{C}}(1,\, 1) = \mathbb{K}$ を充たすものが存在する\footnote{要するに双対基底をとっている．なお，ここで圏 $\Cat{C}$ の\hyperref[def:finite-abcat]{有限性}を使っている．}．
+    なので，補題\ref{lem:simple-hom}-(2) より $\Hom{\Cat{C}}(1,\, y),\, \Hom{\Cat{C}}(y,\, 1)$ の基底 $\Familyset[\big]{p_j \colon 1 \lto y}{1 \le j \le N_1},\, \Familyset[\big]{q_j \colon y \lto 1}{1 \le j \le N_1}$ であって $q_i \circ p_j = \delta_{ij} \Id_1 \in \Hom{\Cat{C}}(1,\, 1) = \mathbb{K}$ を充たすものが存在する\footnote{要するに双対基底をとっている．なお，ここで圏 $\Cat{C}$ の\hyperref[def:finite-abcat]{有限性}を使っている．}．
     ここで，$\mathbb{K}$-線形写像
     \begin{align}
         \alpha \colon \Hom{\Cat{C}}(1,\, y^*) \lto \Hom{\Cat{C}}(y,\, 1),\; \psi \lmto \lev_{y^*} \circ (\Id_y \otimes \psi)
@@ -3154,30 +3233,6 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
         \bigl(p_i,\, \beta(q_j)\bigr) = \lev_{y^*} \circ \bigl(p_i \otimes (\Id_{y^*} \otimes q_j)\bigr) \circ (\Id_1 \otimes \lcoev_{y^*}) = q_j \circ p_i = \delta_{ij}
     \end{align}
     であるから，$(\;,\, )$ は非退化である．
-    % まず，$\Hom{\Cat{C}}(a,\, y)$ と $\Hom{\Cat{C}}(y,\, a)$ が\hyperref[redef:rigid]{rigidなモノイダル圏} $\VEC{\mathbb{K}}$ において互いに双対であることを示す．
-    % \begin{align}
-    %     \lev_{\Hom{\Cat{C}}(a,\, y)} \colon \Hom{\Cat{C}}(y,\, a) \otimes \Hom{\Cat{C}}(a,\, y) &\lto \mathbb{K} = \Hom{\Cat{C}}(a,\, a), \\
-    %     \varphi \otimes \psi &\lmto \varphi \circ \psi
-    % \end{align}
-    % とおく．coevaluationはややこしいが，\eqref{eq:Muger}の自然同型を用いて
-    % \begin{align}
-    %     m_{y,y}^{-1}\colon \Hom{\Cat{C}}(y,\, y) &\lto \bigoplus_{b \in \Simp(\Cat{C})} \Hom{\Cat{C}}(y,\, a) \otimes \Hom{\Cat{C}}(a,\, y), \\
-    %     \Id_y &\lmto m_{y,y}^{-1}(\Id_y) \eqqcolon \sum_{b \in \Simp(\Cat{C})} f_b \otimes g_b
-    % \end{align}
-    % とおき，
-    % \begin{align}
-    %     \lcoev_{\Hom{\Cat{C}}(a,\, y)} \colon \mathbb{K} = \Hom{\Cat{C}}(a,\, a) &\lto \Hom{\Cat{C}}(a,\, y) \otimes \Hom{\Cat{C}}(y,\, a), \\
-    %     \Id_a &\lmto g_a \otimes f_a
-    % \end{align}
-    % と定義する．すると，$\forall \varphi \in \Hom{\Cat{C}}(a,\, y)$ に対して
-    % \begin{align}
-    %     &(\unity_{\Hom{\Cat{C}}(a,\, y)} \otimes \lev_{\Hom{\Cat{C}}(a,\, y)}) \circ (\lcoev_{\Hom{\Cat{C}}(a,\, y)} \otimes \unity_{\Hom{\Cat{C}}(a,\, y)}) (\Id_a \otimes \varphi) \\
-    %     &= (\unity_{\Hom{\Cat{C}}(a,\, y)} \otimes \lev_{\Hom{\Cat{C}}(a,\, y)})(g_a \otimes f_a \otimes \varphi) \\
-    %     &= g_a \otimes (f_a \circ \varphi) \\
-    %     &= (g_a \otimes f_a) \circ (\Id_{a} \otimes \varphi) \\
-    %     &= 
-    % \end{align}
-    
 \end{proof}
 
 以下，$\varphi \in \Hom{\Cat{C}} (1,\, x_1 \otimes \cdots \otimes x_n)$ のストリング図式を書く際には，
@@ -3249,7 +3304,106 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
     \end{tikzpicture}
 \end{align}
 
-\begin{mylem}[label=lem:TVBW-1]{技術的な補題}
+さらに，$\forall a \in \Simp(\Cat{C}),\; \forall x \in \Obj{\Cat{C}}$ が与えられたときに，補題\ref{lem:simple-hom}-(2) の射の族
+\begin{align}
+    \Familyset[\big]{p_\alpha \colon x \lto a,\; i_\alpha \colon a \lto x}{\alpha \in \Lambda}
+\end{align}
+を用いて構成される射
+\begin{align}
+    \sum_{\alpha \in \Lambda} p_\alpha \otimes i_\alpha \in \Hom{\Cat{C}} (x,\, a) \otimes \Hom{\Cat{C}} (a,\, x)
+\end{align}
+を次のような図式で表現する：
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (a)
+        +(1,0) coordinate (b)
+        +(0,1) coordinate (c)
+        +(1,1) coordinate (d)
+        +(0,2) coordinate (e)
+        +(1,2) coordinate (f);
+        \draw[->-=.5] (a) -- node[midway,left] {$x$} (c) node[trinode,fill=red] {};
+        \draw[->-=.5] (c) -- node[midway,left] {$a$} (e);
+        \draw[->-=.5] (b) -- node[midway,right] {$a$} (d) node[trinvnode,fill=red] {};
+        \draw[->-=.5] (d) -- node[midway,right] {$x$} (f);
+    \end{tikzpicture}
+    \coloneqq \sum_{\alpha \in \Lambda}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (a)
+        +(1,0) coordinate (b)
+        +(0,1) coordinate (c)
+        +(1,1) coordinate (d)
+        +(0,2) coordinate (e)
+        +(1,2) coordinate (f);
+        \node[left] at (c) {$p_\alpha$};
+        \node[right] at (d) {$i_\alpha$};
+        \draw[->-=.5] (a) -- node[midway,left] {$x$} (c) node[bullet] {};
+        \draw[->-=.5] (c.north) -- node[midway,left] {$a$} (e);
+        \draw[->-=.5] (b) -- node[midway,right] {$a$} (d) node[bullet] {};
+        \draw[->-=.5] (d.north) -- node[midway,right] {$x$} (f);
+    \end{tikzpicture}
+\end{align}
+
+\begin{mylem}[label=lem:triangle-rule]{技術的な補題1}
+    $\forall a \in \Simp(\Cat{C}),\; \forall x,\, x_1,\, \dots,\, x_n \in \Obj{\Cat{C}}$ に対して以下が成り立つ：
+    \begin{enumerate}
+        \item \begin{align}
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (a)
+                +(0,1) coordinate (b)
+                +(0,2) coordinate (c)
+                +(0,3) coordinate (d);
+                \draw[->-=.5] (a) -- node[midway,left] {$a$} (b) node[trinvnode,fill=red] {};
+                \draw[->-=.5] (b) -- node[midway,left] {$x$} (c) node[trinode,fill=red] {};
+                \draw[->-=.5] (c) -- node[midway,left] {$a$} (d);
+            \end{tikzpicture}
+            \quad = \dim_{\mathbb{K}} \Hom{\Cat{C}} (a,\, x) \quad 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (a)
+                +(0,3) coordinate (b);
+                \draw[->-=.5] (a) -- node[midway,right] {$a$} (b);
+            \end{tikzpicture}
+        \end{align}
+        \item \begin{align}
+            \sum_{a \in \Simp(\Cat{C})}
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (a)
+                +(0,1) coordinate (b)
+                +(0,2) coordinate (c);
+                +(0,3) coordinate (d);
+                \draw[->-=.5] (a) -- node[midway,left] {$x$} (b) node[trinode,fill=red] {};
+                \draw[->-=.5] (b) -- node[midway,left] {$a$} (c) node[trinvnode,fill=red] {};
+                \draw[->-=.5] (c) -- node[midway,left] {$x$} (d);
+            \end{tikzpicture}
+            \quad = \quad
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (a)
+                +(0,3) coordinate (b);
+                \draw[->-=.5] (a) -- node[midway,right] {$x$} (b);
+            \end{tikzpicture}
+        \end{align}
+        \item 
+    \end{enumerate}
+    
+\end{mylem}
+
+\begin{proof}
+    補題\ref{lem:simple-hom}-(2) の射の族
+    \begin{align}
+        \Familyset[\big]{p_\alpha \colon x \lto a,\; i_\alpha \colon a \lto x}{\alpha \in \Lambda}
+    \end{align}
+    を1つ固定する．
+    \begin{enumerate}
+        \item 補題\ref{lem:simple-hom}-(2) の \textsf{\textbf{(part-4)}} より明らか．
+        \item 直和の特徴付けより
+        \begin{align}
+            \sum_{\alpha \in \Lambda} i_\alpha \circ p_\alpha = \Id_x
+        \end{align}
+        が成り立つ．
+    \end{enumerate}
+    
+\end{proof}
+
+\begin{mylem}[label=lem:TVBW-1]{技術的な補題2}
     補題\ref{lem:nondegen-pairing}の双線形形式 $(\;,\,)$ を用いる．
     \begin{enumerate}
         \item $\forall a \in \mathrm{Simp} (\Cat{C})$ および $\forall \varphi \in \expval{a,\, x},\; \forall\psi \in \expval{x^*,\, a^*}$ に対して
