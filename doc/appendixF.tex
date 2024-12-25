@@ -1290,11 +1290,12 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
     \hyperref[def:tensorfusion-cat]{テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ の
     \hyperref[def:pivotal]{旋回構造} $p$ が\textbf{球状} (spherical) であるとは，$\forall x \in \Obj{\Cat{C}}$ に対して
     \begin{align}
-        \lqTr(p_x) =
+        \dim_p(x) =
         \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
             \coordinate (A1) at (0,-1);
             \coordinate (A2) at (0,1);
-            \node[squarednode] (f) at (0,0) {$p_x$};
+            \node[bullet] (f) at (0,0) {};
+            \node[right] at (f) {$p_x$};
             \coordinate (B1) at (1,-1);
             \coordinate (B2) at (1,1);
             \draw[->-=.5] (A1) -- node[midway, left]{\small $x$} (f);
@@ -1305,21 +1306,35 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
         \end{tikzpicture}
         =
         \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-            \coordinate (A1) at (0,-1);
-            \coordinate (A2) at (0,1);
-            \node[squarednode] (g) at (1,0) {$p_{x}$};
-            \coordinate (B1) at (1,-1);
-            \coordinate (B2) at (1,1);
-            \draw[->-=.5] (B1) -- node[midway, right]{\small $x$} (g);
-            \draw[->-=.5] (g) -- node[midway, right]{$\rddual{x}$} (B2);
-            \draw[->-=.5] (A2) -- node[midway, left]{$\rdual{x}$} (A1);
-            \RCOEV{A1}{B1}
-            \LEV{A2}{B2}
+            \path coordinate (x1)
+            +(0,1) coordinate[bullet,label=right:$p_{x^*}$] (p)
+            +(0,2) coordinate (y1)
+            +(1,0) coordinate (x2)
+            +(1,2) coordinate (y2);
+            \draw[->-=.5] (y1) -- node[midway, left] {$x^{***}$} (p);
+            \draw[->-=.5] (p) -- node[midway, left] {$x^{*}$} (x1);
+            \draw[->-=.5] (x2) -- node[midway,right] {$x^{**}$} (y2);
+            \RCOEV{x1}{x2}
+            \LEV{y1}{y2}
         \end{tikzpicture}
-        = \rqTr(p_x)
+        = \dim_p(x^*)
     \end{align}
     が成り立つことを言う．
 \end{mydef}
+
+\begin{mytheo}[label=thm:LR-trace]{球状圏における左/右量子トレース}
+    \hyperref[def:spherical]{球状圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev,\, p)$ およびその対象 $\forall x \in \Obj{\Cat{C}}$ を1つとる．
+
+    このとき，$\forall f \in \Hom{\Cat{C}}(x,\, x)$ に対して以下が成り立つ：
+    \begin{align}
+        \lqTr (p_x \circ f) = \rqTr (f \circ p_x^{-1})
+    \end{align}
+\end{mytheo}
+
+\begin{proof}
+    ~\cite[THEOREM 4.7.15]{etingof2015tensor}
+\end{proof}
+
 
 \subsection{フュージョン環・$F$-シンボル}
 
@@ -1382,30 +1397,30 @@ $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 上の積\eqref{eq:fusionring}は明らか�
 と等価である．この同型写像の行列要素を\textbf{$\bm{F}$-シンボル} ($F$-symbol) と呼ぶ．ストリング図式として書くと，$F$-シンボルとは次のようにして定義される $(F^{xyz}_u)_{(a;\, v_1,\, v_2),\, (b;\, v_3,\, v_4)} \in \mathbb{K}$ のことである：
 \begin{align}
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \path coordinate[red,bullet,label=right:$v_2$] (v2)
+        \path coordinate[red,bullet,label=right:$\textcolor{red}{v_2}$] (v2)
         +(0,1) coordinate (u) 
         +(-60:2) coordinate (z)
-        ++(-120:1) coordinate[red,bullet,label=right:$v_1$] (v1) 
+        ++(-120:1) coordinate[red,bullet,label=right:$\textcolor{red}{v_1}$] (v1) 
         +(-60:1) coordinate (y)
         +(-120:1) coordinate (x);
         \draw[->-=.5] (x) -- node[midway,left] {$x$} (v1);
         \draw[->-=.5] (y) -- node[midway,right] {$y$} (v1);
-        \draw[->-=.5] (v1) -- node[midway,left] {$\textcolor{red}{a}$} (v2);
+        \draw[->-=.5,red] (v1) -- node[midway,left] {$a$} (v2);
         \draw[->-=.5] (z) -- node[midway,right] {$z$} (v2);
         \draw[->-=.5] (v2) -- node[midway,left] {$u$} (u);
     \end{tikzpicture}
     \quad \eqqcolon \sum_{\substack{\textcolor{red}{b} \in \Simp(\Cat{C}), \\ \textcolor{red}{v_3} \in \mathrm{Basis}(y \otimes z,\, \textcolor{red}{b}), \\ \textcolor{red}{v_4} \in \mathrm{Basis}(x \otimes \textcolor{red}{b},\, u)}} 
-    (F^{xyz}_u)_{(\textcolor{red}{a};\, v_1,\, v_2),\, (\textcolor{red}{b};\, v_3,\, v_4)}
+    (F^{xyz}_u)_{(\textcolor{red}{a;\, v_1,\, v_2}),\, (\textcolor{red}{b;\, v_3,\, v_4})}
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \path coordinate[red,bullet,label=left:$v_4$] (v4)
+        \path coordinate[red,bullet,label=left:$\textcolor{red}{v_4}$] (v4)
         +(0,1) coordinate (u) 
         +(-120:2) coordinate (x)
-        ++(-60:1) coordinate[red,bullet,label=left:$v_3$] (v3) 
+        ++(-60:1) coordinate[red,bullet,label=left:$\textcolor{red}{v_3}$] (v3) 
         +(-120:1) coordinate (y)
         +(-60:1) coordinate (z);
         \draw[->-=.5] (x) -- node[midway,left] {$x$} (v4);
         \draw[->-=.5] (y) -- node[midway,left] {$y$} (v3);
-        \draw[->-=.5] (v3) -- node[midway,left] {$\textcolor{red}{b}$} (v4);
+        \draw[->-=.5,red] (v3) -- node[midway,right] {$b$} (v4);
         \draw[->-=.5] (z) -- node[midway,right] {$z$} (v3);
         \draw[->-=.5] (v4) -- node[midway,left] {$u$} (u);
     \end{tikzpicture}
@@ -1438,6 +1453,16 @@ $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 上の積\eqref{eq:fusionring}は明らか�
     が成り立つことを言う．
 \end{mydef}
 
+\begin{myprop}[label=prop:pseudo-unitary]{擬フュージョン圏における球状構造}
+    \hyperref[def:pseudo-unitary]{擬フュージョン圏} $\Cat{C}$ は一意的な\hyperref[def:spherical]{球状構造} $p$ を持つ．
+    
+    さらに，その球状構造 $p$ は $\forall x \in \Simp(\Cat{C})$ に対して $\dim_p (x) = \FPdim_{\Cat{C}} (x)$ を充たす．
+\end{myprop}
+
+\begin{proof}
+    ~\cite[PROPOSITION 9.5.1., p.284]{etingof2015tensor}
+\end{proof}
+
 \begin{mydef}[label=def:starcat]{$C^*$-圏}
     \textbf{$\bm{*}$-圏}は\footnote{\hyperref[redef:dual]{双対}の記号に $(\mhyphen)^*$ を使用してしまったので，$(\mhyphen)^\dagger$ と書くことにする．}，以下のデータからなる：
     \begin{itemize}
@@ -1461,10 +1486,18 @@ $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 上の積\eqref{eq:fusionring}は明らか�
     \end{description}
 \end{mydef}
 
+
 \begin{mydef}[label=def:UFC]{ユニタリフュージョン圏}
     \textbf{ユニタリフュージョン圏} (unitary fusion category) とは，\hyperref[def:tensorfusion-cat]{フュージョン圏}であって\hyperref[def:starcat]{$C^*$-圏}でもあり，$(f \otimes g)^\dagger = f^\dagger \otimes g^\dagger$ を充たすもののこと．
 \end{mydef}
 
+\begin{myprop}[label=prop:unitaryfusion]{ユニタリフュージョン圏は擬ユニタリ}
+    \hyperref[def:UFC]{ユニタリフュージョン圏}は\hyperref[def:pseudo-unitary]{擬ユニタリ}である．
+\end{myprop}
+
+\begin{proof}
+    
+\end{proof}
 
 
 \subsection{Deligneのテンソル積}
