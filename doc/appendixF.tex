@@ -88,7 +88,7 @@
             \item \hyperref[def:additive-cat]{アーベル圏} $\Cat{C}$ の対象 $X \in \Cat{C}$ が\textbf{単純} (simple) であるとは，
             任意のモノ射 $\textcolor{blue}{i} \colon \textcolor{blue}{U} \hookrightarrow X$ が $0$ であるか同型射であることを言う．
             \item アーベル圏 $\Cat{C}$ が\textbf{半単純} (semisimple) であるとは，$\forall X \in \Obj{\Cat{C}}$ が単純対象の有限余積と同型であることを言う．i.e.
-            単純対象の族 $\Familyset[\big]{V_i \in \Obj{\Cat{C}}}{i \in I}$ および有限個を除いて $0$ であるような非負整数の族 $\Familyset[\big]{N_i \in \mathbb{Z}_{\ge 0}}{i \in I}$ が存在して
+            単純対象の族 $\Familyset[\big]{X_i \in \Obj{\Cat{C}}}{i \in I}$ および有限個を除いて $0$ であるような非負整数の族 $\Familyset[\big]{N_i \in \mathbb{Z}_{\ge 0}}{i \in I}$ が存在して
             \begin{align}
                 X \cong \bigoplus_{i \in I} N_i X_i
             \end{align}
@@ -377,7 +377,7 @@
     \end{tikzpicture}
 \end{align}
 とする．ストリング図式において $\lcoev,\, \lev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equations)}}}は
-zzzz\begin{align}
+\begin{align}
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
         \draw[->-=.5] (0,-1) -- (0,1);
     \end{tikzpicture}%
@@ -1320,6 +1320,151 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
     \end{align}
     が成り立つことを言う．
 \end{mydef}
+
+\subsection{フュージョン環・$F$-シンボル}
+
+$(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, \rcoev,\, \rev)$ を体 $\mathbb{K}$ 上の\hyperref[def:tensorfusion-cat]{多重フュージョン圏}とする．
+$\Cat{C}$ の\hyperref[def:semisimple-cat]{単純対象}の同型類が成す有限集合を $\bm{\Simp (\Cat{C})}$ と書く．
+
+このとき，$\Simp(\Cat{C})$ が生成する自由 $\mathbb{Z}$-加群 $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ の上に次のようにして積を入れることができる：
+\begin{align}
+    \label{eq:fusionring}
+    x \star y \coloneqq [x \otimes y]\qquad \forall x,\, y \in \Simp(\Cat{C})
+\end{align}
+$\Cat{C}$ は\hyperref[def:semisimple-cat]{半単純}なので，右辺に対して非負整数の族 $\Familyset[\big]{N^c_{xy} \in \mathbb{Z}_{\ge 0}}{c \in \Simp(\Cat{C})}$ が存在して
+\begin{align}
+    \label{eq:fusionrule}
+    x \star y = \sum_{c \in \Simp(\Cat{C})} N^c_{xy}\, c
+\end{align}
+と書ける．式\eqref{eq:fusionrule}のことを\textbf{フュージョン則} (fusion rule) と呼ぶ．
+$\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 上の積\eqref{eq:fusionring}は明らかに結合則を充たし，単位元 $[1]$ を持つ
+\footnote{命題\ref{prop:1-simple}より $\Cat{C}$ がテンソル圏ならば $1 \in \Simp(\Cat{C})$ であるが，多重テンソル圏においては必ずしもそうではない．しかるに，$1 \notin \Simp{\Cat{C}}$ であったとしても $\Cat{C}$ の半単純性から $[1] \in \mathbb{Z}^{\oplus \Simp(\Cat{C})}$ は成り立つ．}．
+このようにしてできる環 $(\mathbb{Z}^{\oplus \Simp(\Cat{C})},\, \star\; ,\, [1])$ のことを\textbf{フュージョン環} (fusion ring) と呼ぶ．
+
+\begin{mydef}[label=def:FPdim]{Frobenius-Perron次元}
+    $x \in \Simp(\Cat{C})$ の\textbf{Frobenius-Perron次元} (Frobenius-Perron dimension) とは，非負整数値行列 $\bigl[\, N^{\textcolor{red}{c}}_{x \textcolor{red}{b}} \bigr]_{1 \le \textcolor{red}{b},\, \textcolor{red}{c} \le \abs{\Simp(\Cat{C})}}$ の最大の非負固有値 $\bm{\FPdim_{\Cat{C}} (x)} \in \mathbb{C}$ のこと．
+\end{mydef}
+
+\hyperref[def:tensorfusion-cat]{多重フュージョン圏}は\hyperref[def:semisimple-cat]{半単純}かつ\hyperref[def:finite-abcat]{有限}なので，補題\ref{lem:simple-hom}-(1) および\hyperref[prop:lim-colim-basic]{極限・余極限とHomの交換}，フュージョン則\eqref{eq:fusionrule}から
+\begin{align}
+    \Hom{\Cat{C}} (x \otimes y,\, z) \cong \bigoplus_{w \in \Simp(\Cat{C})} N^w_{xy} \Hom{\Cat{C}}(w,\, z) \cong \mathbb{K}^{\oplus N^w_{xy}}
+\end{align}
+が $\forall x,\, y,\, z \in \Simp{\Cat{C}}$ に対して成り立つ．i.e. $\dim_{\mathbb{K}} \Hom{\Cat{C}} (x \otimes y,\, z) = N^z_{xy}$ である\footnote{この次元は $\mathbb{K}$-ベクトル空間としての次元である．}．
+よって
+\begin{align}
+    (x \otimes y) \otimes z &\cong \bigoplus_{w,\, u \in \Simp{\Cat{C}}} N^w_{xy} N^{u}_{wz}\, u \\
+    &\cong \bigoplus_{w,\, u \in \Simp{\Cat{C}}} \dim_{\mathbb{K}}\Hom{\Cat{C}} (x \otimes y,\, w) \dim_{\mathbb{K}}\Hom{\Cat{C}} (w \otimes z,\, u)\, u \\
+    x \otimes (y \otimes z) &\cong \bigoplus_{w,\, u \in \Simp{\Cat{C}}} N^{u}_{wx} N^w_{yz}\, u \\
+    &\cong \bigoplus_{w,\, u \in \Simp{\Cat{C}}}  \dim_{\mathbb{K}}\Hom{\Cat{C}} (w \otimes x,\, u) \dim_{\mathbb{K}}\Hom{\Cat{C}} (y \otimes z,\, w)\, u
+\end{align}
+が成り立つが，\hyperref[redef:monoidal-category]{associator}による自然同型 $(x \otimes y) \otimes z \cong x \otimes (y \otimes z)$ により
+\begin{align}
+    &\bigoplus_{w \in \Simp{\Cat{C}}} \dim_{\mathbb{K}}\Hom{\Cat{C}} (x \otimes y,\, w) \dim_{\mathbb{K}}\Hom{\Cat{C}} (w \otimes z,\, u) \\
+    &= \bigoplus_{w \in \Simp{\Cat{C}}} \dim_{\mathbb{K}}\Hom{\Cat{C}} (w \otimes x,\, u) \dim_{\mathbb{K}}\Hom{\Cat{C}} (y \otimes z,\, w)
+\end{align}
+が言える．ここから $\mathbb{K}$-ベクトル空間としての同型
+\begin{align}
+    \label{eq:6j}
+    \Phi^{xyz}_{u} \colon \bigoplus_{w} \Hom{\Cat{C}} (x \otimes y,\, w) \otimes \Hom{\Cat{C}} (w \otimes z,\, u) \xrightarrow{\cong} \bigoplus_{w} \Hom{\Cat{C}} (w \otimes x,\, u) \otimes \Hom{\Cat{C}} (y \otimes z,\, w)
+\end{align}
+が存在することが分かる．この同型写像の第 $(a,\, b)$ 成分
+\begin{align}
+    \label{def:6j-symbol}
+    (\Phi^{xyz}_u)_{ab} \colon \Hom{\Cat{C}} (x \otimes y,\, a) \otimes \Hom{\Cat{C}} (a \otimes z,\, u) \lto \Hom{\Cat{C}} (b\otimes x,\, u) \otimes \Hom{\Cat{C}} (y \otimes z,\, b)
+\end{align}
+のことを\textbf{6j-シンボル} (6j-symbol) と呼ぶ．
+
+特に $\mathbb{K}$ が代数閉体のときは，\hyperref[def:semisimple-Muger]{M\"{u}ger半単純性}および補題\ref{lem:rigid-hom}より，\eqref{eq:6j}の同型写像は
+\begin{align}
+    \label{def:F-symbol}
+    F^{xyz}_u \colon \Hom{\Cat{C}} \bigl( (x \otimes y) \otimes z,\, u \bigr) \xrightarrow{\cong} \Hom{\Cat{C}} \bigl(x \otimes (y \otimes z),\, u\bigr)
+\end{align}
+と等価である．この同型写像の行列要素を\textbf{$\bm{F}$-シンボル} ($F$-symbol) と呼ぶ．ストリング図式として書くと，$F$-シンボルとは次のようにして定義される $(F^{xyz}_u)_{(a;\, v_1,\, v_2),\, (b;\, v_3,\, v_4)} \in \mathbb{K}$ のことである：
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate[red,bullet,label=right:$v_2$] (v2)
+        +(0,1) coordinate (u) 
+        +(-60:2) coordinate (z)
+        ++(-120:1) coordinate[red,bullet,label=right:$v_1$] (v1) 
+        +(-60:1) coordinate (y)
+        +(-120:1) coordinate (x);
+        \draw[->-=.5] (x) -- node[midway,left] {$x$} (v1);
+        \draw[->-=.5] (y) -- node[midway,right] {$y$} (v1);
+        \draw[->-=.5] (v1) -- node[midway,left] {$\textcolor{red}{a}$} (v2);
+        \draw[->-=.5] (z) -- node[midway,right] {$z$} (v2);
+        \draw[->-=.5] (v2) -- node[midway,left] {$u$} (u);
+    \end{tikzpicture}
+    \quad \eqqcolon \sum_{\substack{\textcolor{red}{b} \in \Simp(\Cat{C}), \\ \textcolor{red}{v_3} \in \mathrm{Basis}(y \otimes z,\, \textcolor{red}{b}), \\ \textcolor{red}{v_4} \in \mathrm{Basis}(x \otimes \textcolor{red}{b},\, u)}} 
+    (F^{xyz}_u)_{(\textcolor{red}{a};\, v_1,\, v_2),\, (\textcolor{red}{b};\, v_3,\, v_4)}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate[red,bullet,label=left:$v_4$] (v4)
+        +(0,1) coordinate (u) 
+        +(-120:2) coordinate (x)
+        ++(-60:1) coordinate[red,bullet,label=left:$v_3$] (v3) 
+        +(-120:1) coordinate (y)
+        +(-60:1) coordinate (z);
+        \draw[->-=.5] (x) -- node[midway,left] {$x$} (v4);
+        \draw[->-=.5] (y) -- node[midway,left] {$y$} (v3);
+        \draw[->-=.5] (v3) -- node[midway,left] {$\textcolor{red}{b}$} (v4);
+        \draw[->-=.5] (z) -- node[midway,right] {$z$} (v3);
+        \draw[->-=.5] (v4) -- node[midway,left] {$u$} (u);
+    \end{tikzpicture}
+\end{align}
+ただし，$\forall x,\, y,\, z \in \Simp(\Cat{C})$ に対して定まる $\mathbb{K}$-ベクトル空間 $\Hom{\Cat{C}}(x \otimes y,\, z)$ の基底を $\mathrm{Basis}(x \otimes y,\, z)$ と書いた．
+
+
+
+
+\subsection{$C^*$ 圏・ユニタリフュージョン圏}
+
+% この小節では $\mathbb{K} = \mathbb{C}$ とする．
+標数 $0$ の代数閉体 $\mathbb{K}$ 上の\hyperref[def:tensorfusion-cat]{フュージョン圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, \rcoev,\, \rev)$ とその上の\hyperref[def:pivotal]{旋回構造} $p$ を考える．
+圏 $\Cat{C}$ の\textbf{圏論的次元} (categorical dimension) を
+\begin{align}
+    \label{def:categorialTr}
+    \bm{\dim (\Cat{C})} &\coloneqq \sum_{x \in \Simp(\Cat{C})} \Tr^{\mathrm{L}} (p_x) \circ \Tr^{\mathrm{L}} \bigl( (p_x^{-1})^* \bigr) \in \Hom{\Cat{C}}(1,\, 1) = \mathbb{K}
+\end{align}
+で定義し\footnote{右辺は旋回構造の取り方に依存しない~\cite[p.179]{etingof2015tensor}．}，\hyperref[def:FPdim]{Frobenius-Perron次元}について
+\begin{align}
+    \bm{\FPdim (\Cat{C})} \coloneqq \sum_{x \in \Simp(\Cat{C})} \FPdim (x)^2
+\end{align}
+とおく．
+
+\begin{mydef}[label=def:pseudo-unitary]{擬フュージョン圏}
+    $\mathbb{K} = \mathbb{C}$ とする．このときフュージョン圏 $\Cat{C}$ が\textbf{擬フュージョン圏} (pseudo-fusion category) であるとは，
+    \begin{align}
+        \dim (\Cat{C}) = \FPdim (\Cat{C})
+    \end{align}
+    が成り立つことを言う．
+\end{mydef}
+
+\begin{mydef}[label=def:starcat]{$C^*$-圏}
+    \textbf{$\bm{*}$-圏}は\footnote{\hyperref[redef:dual]{双対}の記号に $(\mhyphen)^*$ を使用してしまったので，$(\mhyphen)^\dagger$ と書くことにする．}，以下のデータからなる：
+    \begin{itemize}
+        \item $\mathbb{C}$-線形な\hyperref[def:additive-cat]{アーベル圏} $\Cat{C}$
+        \item $\mathbb{C}$-反線形な関手 $(\mhyphen)^\dagger \colon \OP{\Cat{C}} \lto \Cat{C}$ であって，$\forall x \in \Cat{C}$ に対して $x^\dagger = x$ を見たすもの
+    \end{itemize}
+    これらは以下を充たす：
+    \begin{description}
+        \item[\textbf{(star-1)}] $\OP{\dagger} \circ \dagger = \Id_{\Cat{C}}$
+    \end{description}
+    
+    \tcblower
+
+    $\bm{C^*}$\textbf{-圏}とは，$*$-圏 $(\Cat{C},\, (\mhyphen)^\dagger)$ であって以下の条件を充たすもののこと~\cite[p.5]{Reutter2020fusion}：
+    \begin{description}
+        \item[\textbf{(Cstar-1)}] $\forall f \in \Hom{\Cat{C}}(x,\, y)$ に対して，ある $g \in \Hom{\Cat{C}}(x,\, x)$ が存在して $f^\dagger \circ f = g^\dagger \circ g$ と書ける．
+        \item[\textbf{(Cstar-2)}] $\forall x,\, y \in \Obj{\Cat{C}}$ に対して，$\mathbb{C}$-ベクトル空間 $\Hom{\Cat{C}} (x,\, y)$ は以下のノルムによって完備なノルム空間になる：
+        \begin{align}
+            \norm{f} \coloneqq \sup \bigl\{\, \abs{\lambda} \bigm| \lambda \in \mathbb{C} \ST f^\dagger \circ f - \lambda \Id_x\; \text{が可逆でない} \,\bigr\} 
+        \end{align}
+    \end{description}
+\end{mydef}
+
+\begin{mydef}[label=def:UFC]{ユニタリフュージョン圏}
+    \textbf{ユニタリフュージョン圏} (unitary fusion category) とは，\hyperref[def:tensorfusion-cat]{フュージョン圏}であって\hyperref[def:starcat]{$C^*$-圏}でもあり，$(f \otimes g)^\dagger = f^\dagger \otimes g^\dagger$ を充たすもののこと．
+\end{mydef}
+
 
 
 \subsection{Deligneのテンソル積}
