@@ -3049,8 +3049,8 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
             \item $\forall x,\, y \in \Obj{\Cat{C}}$ に対して，$\mathbb{K}$-線型写像
             \begin{align}
                 \label{eq:Muger}
-                m_{x,y} \colon \bigoplus_{a \in \Simp(\Cat{C})}\Hom{\Cat{C}} (x,\, a) \otimes \Hom{\Cat{C}} (a,\, y) &\lto \Hom{\Cat{C}} (x,\, y), \\
-                \sum_{a \in \Simp(\Cat{C})} \varphi_a \otimes \psi_a &\lmto \sum_{a \in \Simp(\Cat{C})} \psi_a \circ \varphi_a
+                m_{x,y} \colon \bigoplus_{a \in \Simp(\Cat{C})}\Hom{\Cat{C}} (x,\, a) \otimes_{\mathbb{K}} \Hom{\Cat{C}} (a,\, y) &\lto \Hom{\Cat{C}} (x,\, y), \\
+                \sum_{a \in \Simp(\Cat{C})} \varphi_a \otimes_{\mathbb{K}} \psi_a &\lmto \sum_{a \in \Simp(\Cat{C})} \psi_a \circ \varphi_a
             \end{align}
             は自然な $\mathbb{K}$-ベクトル空間の同型写像である．
         \end{enumerate}
@@ -3061,6 +3061,11 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
 \hyperref[def:semisimple-cat]{アーベル圏における半単純性の定義}は\hyperref[def:semisimple-Muger]{M\"{u}ger半単純}と等価\underline{でない}点に注意しよう．
 具体的には，\hyperref[def:semisimple-cat]{アーベル圏における半単純性の定義}から\eqref{eq:Muger}を示すことはできない．
 本資料では\eqref{eq:Muger}を認めることにする．
+
+\begin{marker}
+    以下では，混乱防止のため\hyperref[redef:monoidal-category]{厳密なモノイダル圏}\underline{$\VEC{\mathbb{K}}$ における}テンソル積を $\otimes_{\mathbb{K}}$ と書き，$\forall x \in \Obj{\VEC{\mathbb{K}}}$ における恒等射を $\unity_x$ と書くことにする．
+\end{marker}
+
 
 % \eqref{eq:Muger}の帰結として，$\forall a \in \Simp (\Cat{C})$ および $\forall y \in \Obj{\Cat{C}}$ に対して $\Hom{\Cat{C}}(y,\, a)$ と $\Hom{\Cat{C}}(a,\, y)$ が\hyperref[redef:rigid]{rigidなモノイダル圏} $\VEC{\mathbb{K}}$ において互いに双対であることを示す．
 % \begin{align}
@@ -3096,7 +3101,7 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
         
         \item[\textbf{(Gluing isomorphism)}]
         \begin{align}
-            G \colon \Hom{\Cat{C}} (1,\, x_1 \otimes \cdots \otimes x_n &\otimes z) \otimes  \Hom{\Cat{C}}(1,\, z^* \otimes y_1 \otimes \cdots \otimes y_n) \\
+            G \colon \Hom{\Cat{C}} (1,\, x_1 \otimes \cdots \otimes x_n &\otimes z) \otimes_{\mathbb{K}}  \Hom{\Cat{C}}(1,\, z^* \otimes y_1 \otimes \cdots \otimes y_n) \\
             &\lto \Hom{\Cat{C}} (1,\, x_1\otimes \cdots \otimes x_{n} \otimes y_1 \otimes \cdots \otimes y_n), \\
             \varphi \otimes \psi &\lmto \lev_z \circ (\varphi \otimes \psi)
         \end{align}
@@ -3151,15 +3156,15 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
 \end{marker}
 
 \begin{mylem}[label=lem:nondegen-pairing]{非退化な双線形形式}
-    $\forall x,\, y \in \Obj{\Cat{C}}$ について，双線形形式
+    $\forall x \in \Obj{\Cat{C}}$ について，双線形形式
     \begin{align}
-        (\;,\,) \colon \Hom{\Cat{C}}(x,\, y) \otimes \Hom{\Cat{C}}(x^*,\, y^*) &\lto \mathbb{K} \\
+        \omega\colon \Hom{\Cat{C}}(x^*,\, y^*) \otimes_{\mathbb{K}} \Hom{\Cat{C}}(x,\, y) &\lto \mathbb{K} \\
         \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-            \draw[->-=.25,->-=.75] (0,-1) -- (0,0) coordinate[bullet,label=left:$f$] -- (0,1);
+            \draw[->-=.25,->-=.75] (0,1) -- (0,0) coordinate[bullet,label=left:$f$] -- (0,-1);
         \end{tikzpicture}
-        \quad \otimes \quad 
+        \quad \otimes_{\mathbb{K}} \quad 
         \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-            \draw[->-=.25,->-=.75] (0,1) -- (0,0) coordinate[bullet,label=right:$g$] -- (0,-1);
+            \draw[->-=.25,->-=.75] (0,-1) -- (0,0) coordinate[bullet,label=right:$g$] -- (0,1);
         \end{tikzpicture}
         &\lmto 
         \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
@@ -3172,10 +3177,10 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
             +(0,2) coordinate (c)
             +(1,2) coordinate (d)
             ;
-            \LCOEV{a}{b}
-            \REV{c}{d}
-            \node[above] at(A) {$\lev_{y^*}$};
-            \node[below] at(B) {$\lcoev_{x}$};
+            \RCOEV{a}{b}
+            \LEV{c}{d}
+            \node[above] at(A) {$\lev_{y}$};
+            \node[below] at(B) {$\lcoev_{x^*}$};
             \draw (a) -- (c);
             \draw (b) -- (d);
         \end{tikzpicture}
@@ -3228,21 +3233,24 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
         \beta \colon \Hom{\Cat{C}}(y,\, 1) \lto \Hom{\Cat{C}}(1,\, y^*),\; \varphi \lmto (\Id_{y^*} \otimes \varphi) \circ \lcoev_{y^*}
     \end{align}
     を持つので $\mathbb{K}$-ベクトル空間の同型写像であり，よって $\Familyset[\big]{\beta(q_j) \colon 1 \lto y^* }{1 \le j \le N_1}$ は $\Hom{\Cat{C}}(1,\, y^*)$ の基底を成す．そして
-    $\Hom{\Cat{C}}(1,\, y) \otimes \Hom{\Cat{C}}(1,\, y^*)$ の基底 $\{p_i \otimes \beta(q_j)\}_{1 \le i,\, j \le N_1}$ に関する $(\;,\,)$ の表現行列は
+    $\Hom{\Cat{C}}(1,\, y^*) \otimes_{\mathbb{K}} \Hom{\Cat{C}}(1,\, y)$ の基底 $\{\beta(q_i) \otimes_{\mathbb{K}} p_j\}_{1 \le i,\, j \le N_1}$ に関する $\omega$ の表現行列は
     \begin{align}
-        \bigl(p_i,\, \beta(q_j)\bigr) = \lev_{y^*} \circ \bigl(p_i \otimes (\Id_{y^*} \otimes q_j)\bigr) \circ (\Id_1 \otimes \lcoev_{y^*}) = q_j \circ p_i = \delta_{ij}
+        \omega\bigl(\beta(q_i) \otimes_{\mathbb{K}} p_j\bigr) = \lev_{y} \circ \bigl((\Id_{y^*} \otimes q_i) \otimes p_j\bigr) \circ (\lcoev_{y^*} \otimes \Id_1) = q_i \circ p_j = \delta_{ij}
     \end{align}
-    であるから，$(\;,\, )$ は非退化である．
+    であるから，$\omega$ は非退化である．
 \end{proof}
 
 以下，$\varphi \in \Hom{\Cat{C}} (1,\, x_1 \otimes \cdots \otimes x_n)$ のストリング図式を書く際には，
 \begin{align}
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
         \path coordinate (f)
-        + (0:1) coordinate[label=right:$\vdots$]
-        + (180:1) coordinate[label=left:$\vdots$]
+        + (180:1) coordinate[label=left:$x_2$]
         + (240:1) coordinate[label=left:$x_1$]
         + (300:1) coordinate[label=right:$x_n$];
+        \node[rotate=60] at ($(f) + (150:0.8)$) {$\dots$};
+        \node[rotate=0] at ($(f) + (90:0.8)$) {$\dots$};
+        \node[rotate=120] at ($(f) + (30:0.8)$) {$\dots$};
+        \node[rotate=60] at ($(f) + (-30:0.8)$) {$\dots$};
         \foreach \x in {0,...,5} {
             \draw[->-=.8] (f.center) -- ++(\x*60:1);
         }
@@ -3251,11 +3259,12 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
     \coloneqq 
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
         \path coordinate[bullet,label=below:$\varphi$] (f)
-        ++ (-2,1) coordinate[label=left:$x_1$] (a)
-        ++ (1,0) coordinate (b)
+        ++ (-2,1) coordinate[label=above:$x_1$] (a)
+        ++ (1,0) coordinate[label=above:$x_2$] (b)
         ++ (1,0) coordinate (c)
+        ++ (1.5,0) coordinate[label=above:$\dots$] (c)
         ++ (1,0) coordinate (d)
-        ++ (1,0) coordinate[label=right:$x_n$] (e);
+        ++ (1,0) coordinate[label=above:$x_n$] (e);
         \draw[->-=.8] (f) to[out=150,in=-90] (a);
         \draw[->-=.8] (f) to[out=120,in=-90] (b);
         \draw[->-=.8] (f) to[out=90,in=-90] (c);
@@ -3264,7 +3273,7 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
     \end{tikzpicture}
 \end{align}
 のような略記をすることがある．
-さらに，補題\ref{lem:nondegen-pairing}により，有限次元 $\mathbb{K}$-ベクトル空間 $\expval{x_1,\, \dots,\, x_n}$ の基底を $\{\varphi_\alpha\}$ と書くと，それの $(\;,\, )$ に関する双対基底 $\{\varphi^\alpha\}$ は $\expval{x_n^*,\, \dots,\, x_1^*}$ の基底をなす．
+さらに，補題\ref{lem:nondegen-pairing}により，有限次元 $\mathbb{K}$-ベクトル空間 $\expval{x_1,\, \dots,\, x_n}$ の基底を $\{\varphi_\alpha\}$ と書くと，それの $\omega$ に関する双対基底 $\{\varphi^\alpha\}$ は $\expval{x_n^*,\, \dots,\, x_1^*}$ の基底をなす．
 このことから，以下のような略記を導入する：
 \begin{align}
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
@@ -3310,30 +3319,34 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
 \end{align}
 を用いて構成される射
 \begin{align}
-    \sum_{\alpha \in \Lambda} p_\alpha \otimes i_\alpha \in \Hom{\Cat{C}} (x,\, a) \otimes \Hom{\Cat{C}} (a,\, x)
+    \sum_{\alpha \in \Lambda} p_\alpha \otimes_{\mathbb{K}} i_\alpha \in \Hom{\Cat{C}} (x,\, a) \otimes_{\mathbb{K}} \Hom{\Cat{C}} (a,\, x)
 \end{align}
 を次のような図式で表現する：
 \begin{align}
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
         \path coordinate (a)
-        +(1,0) coordinate (b)
+        +(1.5,0) coordinate (b)
         +(0,1) coordinate (c)
-        +(1,1) coordinate (d)
+        +(1.5,1) coordinate (d)
         +(0,2) coordinate (e)
-        +(1,2) coordinate (f);
-        \draw[->-=.5] (a) -- node[midway,left] {$x$} (c) node[trinode,fill=red] {};
+        +(1.5,2) coordinate (f);
+        \draw[->-=.5] (a) -- node[midway,left] {$x$} (c);
         \draw[->-=.5] (c) -- node[midway,left] {$a$} (e);
-        \draw[->-=.5] (b) -- node[midway,right] {$a$} (d) node[trinvnode,fill=red] {};
+        \draw[->-=.5] (b) -- node[midway,right] {$a$} (d);
         \draw[->-=.5] (d) -- node[midway,right] {$x$} (f);
+        \draw[spath/save=proj] ($(c) + (-0.4,-0.2)$) -- ++(0.8,0) to[out=120,in=60] ++(-0.8,0);
+        \draw[spath/save=inj] ($(d) + (-0.4,-0.2)$) to[out=60,in=120] ++(0.8,0) -- ++(0,0.3) -- ++(-0.8,0) -- ++(0,-0.3);
+        \fill[red, spath/use=proj];
+        \fill[red, spath/use=inj];
     \end{tikzpicture}
-    \coloneqq \sum_{\alpha \in \Lambda}
+    \quad \coloneqq \quad \sum_{\alpha \in \Lambda} \quad
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
         \path coordinate (a)
-        +(1,0) coordinate (b)
+        +(1.5,0) coordinate (b)
         +(0,1) coordinate (c)
-        +(1,1) coordinate (d)
+        +(1.5,1) coordinate (d)
         +(0,2) coordinate (e)
-        +(1,2) coordinate (f);
+        +(1.5,2) coordinate (f);
         \node[left] at (c) {$p_\alpha$};
         \node[right] at (d) {$i_\alpha$};
         \draw[->-=.5] (a) -- node[midway,left] {$x$} (c) node[bullet] {};
@@ -3343,7 +3356,7 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
     \end{tikzpicture}
 \end{align}
 
-\begin{mylem}[label=lem:triangle-rule]{技術的な補題1}
+\begin{mylem}[label=lem:triangle-rule,breakable]{技術的な補題1}
     $\forall a \in \Simp(\Cat{C}),\; \forall x,\, x_1,\, \dots,\, x_n \in \Obj{\Cat{C}}$ に対して以下が成り立つ：
     \begin{enumerate}
         \item \begin{align}
@@ -3352,9 +3365,13 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
                 +(0,1) coordinate (b)
                 +(0,2) coordinate (c)
                 +(0,3) coordinate (d);
-                \draw[->-=.5] (a) -- node[midway,left] {$a$} (b) node[trinvnode,fill=red] {};
-                \draw[->-=.5] (b) -- node[midway,left] {$x$} (c) node[trinode,fill=red] {};
+                \draw[->-=.5] (a) -- node[midway,left] {$a$} (b) {};
+                \draw[->-=.5] (b) -- node[midway,left] {$x$} (c) {};
                 \draw[->-=.5] (c) -- node[midway,left] {$a$} (d);
+                \draw[spath/save=proj] ($(c) + (-0.4,-0.2)$) -- ++(0.8,0) to[out=120,in=60] ++(-0.8,0);
+                \draw[spath/save=inj] ($(b) + (-0.4,-0.2)$) to[out=60,in=120] ++(0.8,0) -- ++(0,0.3) -- ++(-0.8,0) -- ++(0,-0.3);
+                \fill[red, spath/use=proj];
+                \fill[red, spath/use=inj];
             \end{tikzpicture}
             \quad = \dim_{\mathbb{K}} \Hom{\Cat{C}} (a,\, x) \quad 
             \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
@@ -3370,9 +3387,13 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
                 +(0,1) coordinate (b)
                 +(0,2) coordinate (c);
                 +(0,3) coordinate (d);
-                \draw[->-=.5] (a) -- node[midway,left] {$x$} (b) node[trinode,fill=red] {};
-                \draw[->-=.5] (b) -- node[midway,left] {$a$} (c) node[trinvnode,fill=red] {};
+                \draw[->-=.5] (a) -- node[midway,left] {$x$} (b) {};
+                \draw[->-=.5] (b) -- node[midway,left] {$a$} (c) {};
                 \draw[->-=.5] (c) -- node[midway,left] {$x$} (d);
+                \draw[spath/save=proj] ($(b) + (-0.4,-0.2)$) -- ++(0.8,0) to[out=120,in=60] ++(-0.8,0);
+                \draw[spath/save=inj] ($(c) + (-0.4,-0.2)$) to[out=60,in=120] ++(0.8,0) -- ++(0,0.3) -- ++(-0.8,0) -- ++(0,-0.3);
+                \fill[red, spath/use=proj];
+                \fill[red, spath/use=inj];
             \end{tikzpicture}
             \quad = \quad
             \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
@@ -3381,7 +3402,115 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
                 \draw[->-=.5] (a) -- node[midway,right] {$x$} (b);
             \end{tikzpicture}
         \end{align}
-        \item 
+        \item \begin{align}
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[bullet] (a)
+                +(0,1) coordinate (b)
+                +(0,2) coordinate (c);
+                +(0,3) coordinate (d);
+                \draw[->-=.5] (a) -- node[midway,left] {$x$} (b) {};
+                % \draw[->-=.5] (b) -- node[midway,left] {$a$} (c) {};
+                \draw[->-=.5] (c) -- node[midway,left] {$x$} (d);
+                \draw[spath/save=proj] ($(b) + (-0.4,-0.2)$) -- ++(0.8,0) to[out=120,in=60] ++(-0.8,0);
+                \draw[spath/save=inj] ($(c) + (-0.4,-0.2)$) to[out=60,in=120] ++(0.8,0) -- ++(0,0.3) -- ++(-0.8,0) -- ++(0,-0.3);
+                \fill[red, spath/use=proj];
+                \fill[red, spath/use=inj];
+            \end{tikzpicture}
+            \quad &= \quad
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[bullet] (a)
+                +(0,3) coordinate (b);
+                \draw[->-=.5] (a) -- node[midway,right] {$x$} (b);
+            \end{tikzpicture}, &
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (a)
+                +(0,1) coordinate (b)
+                +(0,2) coordinate (c)
+                +(0,3) coordinate[bullet] (d);
+                \draw[->-=.5] (a) -- node[midway,left] {$x$} (b) {};
+                % \draw[->-=.5] (b) -- node[midway,left] {$a$} (c) {};
+                \draw[->-=.5] (c) -- node[midway,left] {$x$} (d);
+                \draw[spath/save=proj] ($(b) + (-0.4,-0.2)$) -- ++(0.8,0) to[out=120,in=60] ++(-0.8,0);
+                \draw[spath/save=inj] ($(c) + (-0.4,-0.2)$) to[out=60,in=120] ++(0.8,0) -- ++(0,0.3) -- ++(-0.8,0) -- ++(0,-0.3);
+                \fill[red, spath/use=proj];
+                \fill[red, spath/use=inj];
+            \end{tikzpicture}
+            \quad &= \quad
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (a)
+                +(0,3) coordinate[bullet] (b);
+                \draw[->-=.5] (a) -- node[midway,right] {$x$} (b);
+            \end{tikzpicture}
+        \end{align}
+        \item \hyperref[lem:nondegen-pairing]{非退化な双線形形式} $\omega \colon \Hom{\Cat{C}} (1,\, x^*) \otimes_{\mathbb{K}} \Hom{\Cat{C}}(1,\, x) \lto \mathbb{K}$ について，
+        \begin{align}
+            \Omega \colon \mathbb{K} &\lto \Hom{\Cat{C}} (1,\, x) \otimes_{\mathbb{K}} \Hom{\Cat{C}} (1,\, x^*) \\
+            1_{\mathbb{K}} &\lmto 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (a)
+                +(0,1) coordinate (b);
+                \draw[->-=.5] (a) -- (b);
+                % \draw[spath/save=proj] ($() + (-0.4,-0.2)$) -- ++(0.8,0) to[out=120,in=60] ++(-0.8,0);
+                \draw[spath/save=inj] ($(a) + (-0.4,-0.2)$) to[out=60,in=120] ++(0.8,0) -- ++(0,0.3) -- ++(-0.8,0) -- ++(0,-0.3);
+                % \fill[red, spath/use=proj];
+                \fill[red, spath/use=inj];
+            \end{tikzpicture}
+            \otimes_{\mathbb{K}}
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (a)
+                ++(1,0) coordinate (b)
+                ++(0,1) coordinate (c);
+                \draw[->-=.5] (c) -- (b);
+                \LCOEV{a}{b}
+                \draw[spath/save=proj] ($(a) + (-0.4,-0.2)$) -- ++(0.8,0) to[out=120,in=60] ++(-0.8,0);
+                % \draw[spath/save=inj] ($(a) + (-0.4,-0.2)$) to[out=60,in=120] ++(0.8,0) -- ++(0,0.3) -- ++(-0.8,0) -- ++(0,-0.3);
+                \fill[red, spath/use=proj];
+                % \fill[red, spath/use=inj];
+            \end{tikzpicture}
+        \end{align}
+        で定義される双線形形式は，\underline{圏 $\VEC{\mathbb{K}}$ において}\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equation)}}}を充たす：
+        \begin{align}
+            (\unity_{x^*} \otimes_{\mathbb{K}} \omega) \circ (\Omega \otimes_{\mathbb{K}} \unity_{x}) &= \unity_{x^*}, \\
+            (\omega \otimes_{\mathbb{K}} \unity_x) \circ (\unity_x \otimes_{\mathbb{K}} \Omega) &= \unity_{x}
+        \end{align}
+        さらに，$\expval{x_1,\, \dots,\, x_n}$ の基底 $\{\varphi_{\bullet}\}$ の取り方によらず
+        \begin{align}
+            \Omega(1_{\mathbb{K}}) &= 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \coordinate (O) at (0,0);
+                \begin{pgfonlayer}{foreground}
+                    \node[circlenode] at (O) {$\varphi_{\bullet}$};
+                \end{pgfonlayer}
+                \foreach \q in {0,60,...,300} {
+                    \draw[->-=.8] (O) -- ++(\q:1);
+                }
+                \node[left] at (-120:1){$x_1$};
+                \node[left] at (180:1){$x_2$};
+                \node[right] at (-60:1){$x_n$};
+                \node[rotate=60] at ($(O) + (150:0.8)$) {$\dots$};
+                \node[rotate=0] at ($(O) + (90:0.8)$) {$\dots$};
+                \node[rotate=120] at ($(O) + (30:0.8)$) {$\dots$};
+                \node[rotate=60] at ($(O) + (-30:0.8)$) {$\dots$};
+            \end{tikzpicture}
+            \otimes_{\mathbb{K}} 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \coordinate (O) at (0,0);
+                \begin{pgfonlayer}{foreground}
+                    \node[circlenode] at (O) {$\varphi^{\bullet}$};
+                \end{pgfonlayer}        
+                \foreach \q in {0,60,...,300} {
+                    \draw[-<-=.8] (O.center) -- ++(\q:1);
+                }
+                \node[left] at (-120:1) {$x_n^*$};
+                \node[right] at (0:1) {$x_2^*$};
+                \node[right] at (-60:1) {$x_1^*$};
+                \node[rotate=120] at ($(O) + (-150:0.8)$) {$\dots$};
+                \node[rotate=60] at ($(O) + (150:0.8)$) {$\dots$};
+                \node[rotate=0] at ($(O) + (90:0.8)$) {$\dots$};
+                \node[rotate=120] at ($(O) + (30:0.8)$) {$\dots$};
+            \end{tikzpicture}
+        \end{align}
+        が成り立つ~\cite[Lemma4.8, p.82]{Turaev2017}．
     \end{enumerate}
     
 \end{mylem}
@@ -3399,14 +3528,170 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
             \sum_{\alpha \in \Lambda} i_\alpha \circ p_\alpha = \Id_x
         \end{align}
         が成り立つ．
+        \item 補題\ref{lem:simple-hom}より $\Hom{\Cat{C}} (1,\, a) = \Hom{\Cat{C}} (a,\, 1) = \delta_{a,\, 1}\mathbb{K}$ なので，(2) において 
+        \begin{align}
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[bullet] (a)
+                +(0,3) coordinate (b);
+                \draw[->-=.5] (a) -- node[midway,right] {$x$} (b);
+            \end{tikzpicture}
+            &= \sum_{a \in \Simp(\Cat{C})}
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[bullet] (a)
+                +(0,1) coordinate (b)
+                +(0,2) coordinate (c)
+                +(0,3) coordinate (d);
+                \draw[->-=.5] (a) -- node[midway,left] {$x$} (b) {};
+                \draw[->-=.5] (b) -- node[midway,left] {$a$} (c) {};
+                \draw[->-=.5] (c) -- node[midway,left] {$x$} (d);
+                \draw[dashed] ($(a) + (-1,-0.5)$) -- ++(2,0) -- node[midway,right] {$\in \Hom{\Cat{C}}(1,\, a)$} ($(b) + (1,0.5)$) -- ++(-2,0) -- cycle;
+                \draw[spath/save=proj] ($(b) + (-0.4,-0.2)$) -- ++(0.8,0) to[out=120,in=60] ++(-0.8,0);
+                \draw[spath/save=inj] ($(c) + (-0.4,-0.2)$) to[out=60,in=120] ++(0.8,0) -- ++(0,0.3) -- ++(-0.8,0) -- ++(0,-0.3);
+                \fill[red, spath/use=proj];
+                \fill[red, spath/use=inj];
+            \end{tikzpicture}
+            =
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[bullet] (a)
+                +(0,1) coordinate (b)
+                +(0,2) coordinate (c)
+                +(0,3) coordinate (d);
+                \draw[->-=.5] (a) -- node[midway,left] {$x$} (b) {};
+                % \draw[->-=.5] (b) -- node[midway,left] {$a$} (c) {};
+                \draw[->-=.5] (c) -- node[midway,left] {$x$} (d);
+                \draw[spath/save=proj] ($(b) + (-0.4,-0.2)$) -- ++(0.8,0) to[out=120,in=60] ++(-0.8,0);
+                \draw[spath/save=inj] ($(c) + (-0.4,-0.2)$) to[out=60,in=120] ++(0.8,0) -- ++(0,0.3) -- ++(-0.8,0) -- ++(0,-0.3);
+                \fill[red, spath/use=proj];
+                \fill[red, spath/use=inj];
+            \end{tikzpicture} \\
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (a)
+                +(0,3) coordinate[bullet] (b);
+                \draw[->-=.5] (a) -- node[midway,right] {$x$} (b);
+            \end{tikzpicture}
+            &= \sum_{a \in \Simp(\Cat{C})}
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (a)
+                +(0,1) coordinate (b)
+                +(0,2) coordinate (c)
+                +(0,3) coordinate[bullet] (d);
+                \draw[->-=.5] (a) -- node[midway,left] {$x$} (b) {};
+                \draw[->-=.5] (b) -- node[midway,left] {$a$} (c) {};
+                \draw[->-=.5] (c) -- node[midway,left] {$x$} (d);
+                \draw[dashed] ($(c) + (-1,-0.5)$) -- ++(2,0) -- node[midway,right] {$\in \Hom{\Cat{C}}(a,\, 1)$} ($(d) + (1,0.5)$) -- ++(-2,0) -- cycle;
+                \draw[spath/save=proj] ($(b) + (-0.4,-0.2)$) -- ++(0.8,0) to[out=120,in=60] ++(-0.8,0);
+                \draw[spath/save=inj] ($(c) + (-0.4,-0.2)$) to[out=60,in=120] ++(0.8,0) -- ++(0,0.3) -- ++(-0.8,0) -- ++(0,-0.3);
+                \fill[red, spath/use=proj];
+                \fill[red, spath/use=inj];
+            \end{tikzpicture}
+            =
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (a)
+                +(0,1) coordinate (b)
+                +(0,2) coordinate (c)
+                +(0,3) coordinate[bullet] (d);
+                \draw[->-=.5] (a) -- node[midway,left] {$x$} (b) {};
+                % \draw[->-=.5] (b) -- node[midway,left] {$a$} (c) {};
+                \draw[->-=.5] (c) -- node[midway,left] {$x$} (d);
+                \draw[spath/save=proj] ($(b) + (-0.4,-0.2)$) -- ++(0.8,0) to[out=120,in=60] ++(-0.8,0);
+                \draw[spath/save=inj] ($(c) + (-0.4,-0.2)$) to[out=60,in=120] ++(0.8,0) -- ++(0,0.3) -- ++(-0.8,0) -- ++(0,-0.3);
+                \fill[red, spath/use=proj];
+                \fill[red, spath/use=inj];
+            \end{tikzpicture}
+        \end{align}
+        と計算できる．
+        \item (3) より，$\forall f \in \Hom{\Cat{C}}(1,\, x)$ に対して
+        \begin{align}
+            (\unity \otimes_{\mathbb{K}} \omega) \circ (\Omega \otimes_{\mathbb{K}} \unity) (1_{\mathbb{K}} \otimes_{\mathbb{K}} f)
+            &= (\unity \otimes_{\mathbb{K}} \omega) \bigl(\Omega(1_{\mathbb{K}}) \otimes_{\mathbb{K}} f\bigr) \\
+            &= \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (a)
+                +(1.5,0) coordinate (b)
+                +(2.5,0) coordinate (c)
+                +(3.5,0) coordinate[bullet,label=right:$f$] (f);
+                \draw[->-=.5] (a) -- ++(0,1);
+                \LCOEV{b}{c}
+                \LEV{c}{f}
+                \draw[spath/save=proj] ($(b) + (-0.4,-0.2)$) -- ++(0.8,0) to[out=120,in=60] ++(-0.8,0);
+                \draw[spath/save=inj] ($(a) + (-0.4,-0.2)$) to[out=60,in=120] ++(0.8,0) -- ++(0,0.3) -- ++(-0.8,0) -- ++(0,-0.3);
+                \fill[red, spath/use=proj];
+                \fill[red, spath/use=inj];
+            \end{tikzpicture} \\
+            &= \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (a)
+                +(0,-.5) coordinate (b)
+                +(0,-1.5) coordinate[bullet,label=right:$f$] (f);
+                \draw[->-=.5] (a) -- ++(0,1);
+                \draw[->-=.5] (f) -- (b);
+                \draw[spath/save=proj] ($(b) + (-0.4,-0.2)$) -- ++(0.8,0) to[out=120,in=60] ++(-0.8,0);
+                \draw[spath/save=inj] ($(a) + (-0.4,-0.2)$) to[out=60,in=120] ++(0.8,0) -- ++(0,0.3) -- ++(-0.8,0) -- ++(0,-0.3);
+                \fill[red, spath/use=proj];
+                \fill[red, spath/use=inj];
+            \end{tikzpicture} \\
+            &= f
+        \end{align}
+        同様に，$\forall g \in \Hom{\Cat{C}}(1,\, x^*)$ に対して
+        \begin{align}
+            (\omega \otimes_{\mathbb{K}} \unity_x) \circ (\unity_x \otimes_{\mathbb{K}} \Omega) (g \otimes_{\mathbb{K}} 1_{\mathbb{K}})
+            &= (\omega \otimes_{\mathbb{K}} \unity_x) \bigl( g \otimes_{\mathbb{K}} \Omega(1_{\mathbb{K}}) \bigr) \\
+            &= \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[bullet,label=left:$g$] (g)
+                +(1,0) coordinate (i)
+                +(2,0) coordinate (p)
+                +(3,0) coordinate (in);
+                \LEV{g}{i}
+                \LCOEV{p}{in}
+                \draw[-<-=.5] (in) -- ++(0,1);
+                \draw[spath/save=proj] ($(p) + (-0.4,-0.2)$) -- ++(0.8,0) to[out=120,in=60] ++(-0.8,0);
+                \draw[spath/save=inj] ($(i) + (-0.4,-0.2)$) to[out=60,in=120] ++(0.8,0) -- ++(0,0.3) -- ++(-0.8,0) -- ++(0,-0.3);
+                \fill[red, spath/use=proj];
+                \fill[red, spath/use=inj];
+            \end{tikzpicture} \\
+            &= \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[bullet,label=left:$g$] (g)
+                ++(1,0) coordinate (i)
+                ++(0,-0.5) coordinate (p)
+                ++(1,0) coordinate (in);
+                \LEV{g}{i}
+                \LCOEV{p}{in}
+                \draw[-<-=.5] (in) -- ++(0,1);
+                \draw[spath/save=proj] ($(p) + (-0.4,-0.2)$) -- ++(0.8,0) to[out=120,in=60] ++(-0.8,0);
+                \draw[spath/save=inj] ($(i) + (-0.4,-0.2)$) to[out=60,in=120] ++(0.8,0) -- ++(0,0.3) -- ++(-0.8,0) -- ++(0,-0.3);
+                \fill[red, spath/use=proj];
+                \fill[red, spath/use=inj];
+            \end{tikzpicture} \\
+            &= g
+        \end{align}
+        が成り立つので \textsf{\textbf{(zig-zag equation)}} が示された．
+
+        ここで，$\expval{x_1,\, \dots,\, x_n}$ の勝手な基底 $\{\varphi_{\alpha}\}_{\alpha \in \Lambda}$ および $\omega$ に関する $\expval{x_n^*,\, \dots,\, x_1^*}$ の双対基底 $\{\varphi^{\alpha}\}_{\alpha \in \Lambda}$ を1つとる．
+        そして $\omega^\alpha{}_\beta \coloneqq \omega (\varphi^\alpha \otimes_{\mathbb{K}} \varphi_\beta),\, \Omega^\alpha{}_\beta \coloneqq \bigl((\varphi_\alpha)^* \otimes_{\mathbb{K}} (\varphi^\beta)^*\bigr) \bigl( \Omega(1_{\mathbb{K}}) \bigr)$ とおく．
+        すると
+        \begin{align}
+            \omega^\alpha{}_\beta \Omega^\beta{}_\gamma
+            &= \omega (\varphi^\alpha \otimes_{\mathbb{K}} \varphi_\beta) \, \bigl((\varphi_\beta)^* \otimes_{\mathbb{K}} (\varphi^\gamma)^*\bigr) \bigl( \Omega(1_{\mathbb{K}}) \bigr) \\
+            &= \omega \Bigl((\varphi^\alpha \otimes_{\mathbb{K}} \varphi_\beta) \bigl( (\varphi_\beta)^* \otimes_{\mathbb{K}} (\varphi^\gamma)^*\bigr) \bigl( \Omega(1_{\mathbb{K}}) \bigr) \Bigr) \\
+            &= \omega \Bigl((\varphi^\alpha \otimes_{\mathbb{K}} \unity_{\expval{x_1,\, \dots,\, x_n}}) \circ \bigl(\unity_{\expval{x_1,\, \dots,\, x_n}} \otimes_{\mathbb{K}} (\varphi^\gamma)^* \bigr) \circ \Omega(1_{\mathbb{K}}) \Bigr) \\
+            &= (\varphi^\gamma)^* \Bigl( (\omega \otimes_{\mathbb{K}} \unity_{\expval{x_n^*,\, \dots,\, x_1^*}} ) \circ (\unity_{\expval{x_n^*,\, \dots,\, x_1^*}} \otimes_{\mathbb{K}} \Omega) (\varphi^\alpha \otimes_{\mathbb{K}} 1_{\mathbb{K}}) \bigr) \Bigr) \\
+            &= (\varphi^\gamma)^* (\varphi^\alpha) \qquad \because\; \text{\textsf{\textbf{(zig-zag equation)}}} \\
+            &= \delta_\gamma^\alpha
+        \end{align}
+        であるから，双対基底の定義より $\omega^\alpha{}_\beta = \delta^{\alpha}_\beta$ であることに注意すると\footnote{双対基底でなくとも，$\bigl[\, \omega^{\alpha}{}_\beta \,\bigr]$ が可逆行列ならばこの構成が有効である．}
+        \begin{align}
+            \Omega(1_{\mathbb{K}}) 
+            &= \Omega^\alpha{}_\beta\, \varphi_\alpha \otimes_{\mathbb{K}} \varphi^\beta  \\
+            &= \bigl[\,\omega^{-1}\,\bigr]^\alpha{}_\beta \varphi_\alpha \otimes_{\mathbb{K}} \varphi^\beta \\
+            &= \varphi_\alpha \otimes_{\mathbb{K}} \varphi^\alpha
+        \end{align}
+        が分かる．
     \end{enumerate}
     
 \end{proof}
 
 \begin{mylem}[label=lem:TVBW-1]{技術的な補題2}
-    補題\ref{lem:nondegen-pairing}の双線形形式 $(\;,\,)$ を用いる．
+    補題\ref{lem:nondegen-pairing}の双線形形式 $\omega$ を用いる．
     \begin{enumerate}
-        \item $\forall a \in \mathrm{Simp} (\Cat{C})$ および $\forall \varphi \in \expval{a,\, x},\; \forall\psi \in \expval{x^*,\, a^*}$ に対して
+        \item $\forall a \in \mathrm{Simp} (\Cat{C}),\, \forall x \in \Obj{\Cat{C}}$ および $\forall \varphi \in \expval{a,\, x},\; \forall\psi \in \expval{x^*,\, a^*}$ に対して
         \begin{align}
             \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
                 \path coordinate[bullet,label=below:$\varphi$] (f)
@@ -3421,14 +3706,14 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
                 \draw[-<-=.5] (g) to[out=120,in=-90] (y);
                 \draw[-<-=.5] (g) to[out=60,in=-90] (b);
             \end{tikzpicture}
-            &= \frac{(\varphi,\, \psi)}{\dim_p(a)}
+            &= \frac{\omega(\varphi,\, \psi)}{\dim_p(a)}
             \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
                 \path coordinate[label=left:$a$] (a)
                 +(1,0) coordinate[label=right:$a^*$] (b);
                 \LCOEV{a}{b}
             \end{tikzpicture}
         \end{align}
-        \item 
+        \item $\forall x_1,\, \dots,\, x_n \in \Obj{\Cat{C}}$ に対して
         \begin{align}
             \sum_{a \in \mathrm{Simp}(\Cat{C})} \dim_p(a)\;
             \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
@@ -3436,7 +3721,7 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
                 +(60:1) coordinate (a)
                 ++(2,0) coordinate (g)
                 +(120:1) coordinate (b);
-                \draw[->-=.5] (f) to[out=60,in=120] node[midway,above]{$\lev_a$} (g);
+                \draw[-<-=.5] (f) to[out=60,in=120] node[midway,above]{$\lev_a$} (g);
                 \foreach \x in {120,180,240} {
                     \draw[->-=.8] (f) -- +(\x:1);
                 }
@@ -3444,20 +3729,35 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
                     \draw[-<-=.8] (g) -- +(\x:1);
                 }
                 \node[circlenode] at (f) {$\varphi_\bullet$};
+                \node[below left] at ($(f) + (-120:1)$) {$x_1$};
+                \node[left] at ($(f) + (180:1)$) {$x_2$};
+                \node[rotate=60] at ($(f) + (150:0.8)$) {$\dots$};
+                \node[above left] at ($(f) + (120:1)$) {$x_n$};
                 \node[circlenode] at (g) {$\varphi^\bullet$};
+                \node[below right] at ($(g) + (-60:1)$) {$x_1^*$};
+                \node[right] at ($(g) + (0:1)$) {$x_2^*$};
+                \node[above right] at ($(g) + (60:1)$) {$x_n^*$};
+                \node[rotate=120] at ($(g) + (30:0.8)$) {$\dots$};
             \end{tikzpicture}
             &= \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-                \path coordinate[label=above:$x_1 \otimes \cdots \otimes x_n$] (a)
-                +(1,0) coordinate (b);
-                \LCOEV{a}{b}
+                \path coordinate[label=above:$x_1$] (l1)
+                ++(0.5,0) coordinate[label=above:$x_2$] (l2)
+                ++(0.8,0) coordinate[label=above:$x_n$] (l3)
+                ++(1,0) coordinate (r3)
+                ++(0.8,0) coordinate (r2)
+                ++(0.5,0) coordinate (r1);
+                \node at ($(l2) + (0.15,0)$) {$\dots$};
+                \LCOEV{l1}{r1}
+                \LCOEV{l2}{r2}
+                \LCOEV{l3}{r3}
             \end{tikzpicture}
         \end{align}
-        \item 
+        \item $\forall a \in \mathrm{Simp}(\Cat{C})$ および $\forall \varphi \in \expval{x,\, a},\, \forall \varphi \in \expval{a^*,\, x^*},\, \forall \psi \in \expval{a^*,\, y},\; \forall \psi' \in \expval{y^*,\, a}$ に対して
         \begin{align}
             \bigl( \mathrm{ev}_a \circ (\varphi \otimes \psi),\, \mathrm{ev}_{a^*} \circ (\psi',\, \varphi')\bigr)
             &= \frac{(\varphi,\, \varphi')(\psi',\, \psi)}{\dim_p(a)}
         \end{align}
-        \item $\forall a \in \mathrm{Simp}(\Cat{C})$ および $\forall \varphi \in \expval{x,\, a},\, \forall \varphi \in \expval{a^*,\, x^*},\, \forall \psi \in \expval{a^*,\, y},\; \forall \psi' \in \expval{y^*,\, a}$ に対して
+        \item 
         \begin{align}
             \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
                 \path coordinate (A)
@@ -3537,9 +3837,111 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
             A_a = \frac{(\varphi,\, \psi)}{\dim_p(a)}
         \end{align}
         と求まる．
-        \item $\Cat{C}$ が有限かつ半単純なので，$x \coloneqq x_1 \otimes \cdots \otimes x_n$ が単純対象である場合に示せば良い．(1) および $(\varphi_\alpha,\, \varphi^\beta) = \delta^\beta_\alpha$ を用いれば良い．
+        \item 補題\ref{lem:triangle-rule}-(4) により，
+        \begin{align}
+            &\sum_{a \in \mathrm{Simp}(\Cat{C})} \dim_p(a)\;
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (f)
+                +(60:1) coordinate (a)
+                ++(2,0) coordinate (g)
+                +(120:1) coordinate (b);
+                \draw[-<-=.5] (f) to[out=60,in=120] node[midway,above]{$\lev_a$} (g);
+                \foreach \x in {120,180,240} {
+                    \draw[->-=.8] (f) -- +(\x:1);
+                }
+                \foreach \x in {60,0,-60} {
+                    \draw[-<-=.8] (g) -- +(\x:1);
+                }
+                \node[circlenode] at (f) {$\varphi_\bullet$};
+                \node[below left] at ($(f) + (-120:1)$) {$x_1$};
+                \node[left] at ($(f) + (180:1)$) {$x_2$};
+                \node[rotate=60] at ($(f) + (150:0.8)$) {$\dots$};
+                \node[above left] at ($(f) + (120:1)$) {$x_n$};
+                \node[circlenode] at (g) {$\varphi^\bullet$};
+                \node[below right] at ($(g) + (-60:1)$) {$x_1^*$};
+                \node[right] at ($(g) + (0:1)$) {$x_2^*$};
+                \node[above right] at ($(g) + (60:1)$) {$x_n^*$};
+                \node[rotate=120] at ($(g) + (30:0.8)$) {$\dots$};
+            \end{tikzpicture} \\
+            &= \sum_{a \in \Simp(\Cat{C})} \dim_p(a)
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                % \begin{pgfonlayer}{foreground}
+                %     \node[squarednode] (O) at (0,0) {$\Omega(1_{\mathbb{K}})$};
+                % \end{pgfonlayer}
+                \path coordinate (f)
+                +(-2,1.5) coordinate[label=above:$x_1$] (l1)
+                +(-1.5,1.5) coordinate[label=above:$x_2$] (l2)
+                +(-0.5,1.5) coordinate[label=above:$x_n$] (l3)
+                ++(1,0) coordinate (g)
+                +(0.5,1.5) coordinate (r3)
+                +(1.5,1.5) coordinate (r2)
+                +(2,1.5) coordinate (r1);
+                \draw[->-=.8] (f) to[out=90,in=-90] (l1);
+                \draw[->-=.8] (f) to[out=90,in=-90] (l2);
+                \draw[->-=.8] (f) to[out=90,in=-90] (l3);
+                \draw[->-=.5] (g) ..controls ($(g) + (0,1)$) and ($(f) + (0,1)$) .. node[midway, above]{$a$} (f);
+                \draw[-<-=.8] (g) to[out=90,in=-90] (r1);
+                \draw[-<-=.8] (g) to[out=90,in=-90] (r2);
+                \draw[-<-=.8] (g) to[out=90,in=-90] (r3);
+                \begin{pgfonlayer}{foreground}
+                    \node[squarednode,fill=white] (O) at (barycentric cs:f=1,g=1) {$\Omega(1_{\mathbb{K}})$};
+                \end{pgfonlayer}
+                % \draw[spath/save=proj] ($(c) + (-0.4,-0.2)$) -- ++(0.8,0) to[out=120,in=60] ++(-0.8,0);
+                % \draw[spath/save=inj] ($(d) + (-0.4,-0.2)$) to[out=60,in=120] ++(0.8,0) -- ++(0,0.3) -- ++(-0.8,0) -- ++(0,-0.3);
+                % \fill[red, spath/use=proj];
+                % \fill[red, spath/use=inj];
+            \end{tikzpicture} \\
+            &= \sum_{a \in \Simp(\Cat{C})} \dim_p(a)
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                % \begin{pgfonlayer}{foreground}
+                %     \node[squarednode] (O) at (0,0) {$\Omega(1_{\mathbb{K}})$};
+                % \end{pgfonlayer}
+                \path coordinate (f)
+                +(-1,1.5) coordinate[label=above:$x_1$] (l1)
+                +(-0.5,1.5) coordinate[label=above:$x_2$] (l2)
+                +(1,0) coordinate (l4)
+                +(0.5,1.5) coordinate[label=above:$x_n$] (l3)
+                ++(5,0) coordinate (g)
+                +(-1,0) coordinate (r4)
+                +(-0.5,0) coordinate (r3)
+                +(0.5,0) coordinate (r2)
+                +(1,0) coordinate (r1)
+                +(-2,0) coordinate (p4)
+                +(-2.2,0) coordinate (p3)
+                +(-2.7,0) coordinate (p2)
+                +(-3,0) coordinate (p1);
+                \draw[-<-=.2] (l1) -- ++(0,-1.5);
+                \draw[-<-=.2] (l2) -- ++(0,-1.5);
+                \draw[-<-=.2] (l3) -- ++(0,-1.5);
+                \draw[-<-=.8] (r3) -- ++(0,1.5);
+                \draw[-<-=.8] (r2) -- ++(0,1.5);
+                \draw[-<-=.8] (r1) -- ++(0,1.5);
+                \LCOEV{p1}{r1}
+                \LCOEV{p2}{r2}
+                \LCOEV{p3}{r3}
+                \LCOEV{p4}{r4}
+                \draw[->-=.5] (r4) to[out=90, in=90] node[midway, above] {$a$} (l4);
+                \draw[spath/save=proj] ($(g) + (-3.7,-0.4)$) -- ++(2.4,0) to[out=120,in=60] ++(-2.4,0);
+                \draw[spath/save=inj] ($(f) + (-1.2,-0.6)$) to[out=60,in=120] ++(2.4,0) -- ++(0,0.8) -- ++(-2.4,0) -- ++(0,-0.8);
+                \fill[red, spath/use=proj];
+                \fill[red, spath/use=inj];
+            \end{tikzpicture} \\
+            &= \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[label=above:$x_1$] (l1)
+                ++(0.5,0) coordinate[label=above:$x_2$] (l2)
+                ++(0.8,0) coordinate[label=above:$x_n$] (l3)
+                ++(1,0) coordinate (r3)
+                ++(0.8,0) coordinate (r2)
+                ++(0.5,0) coordinate (r1);
+                \node at ($(l2) + (0.15,0)$) {$\dots$};
+                \LCOEV{l1}{r1}
+                \LCOEV{l2}{r2}
+                \LCOEV{l3}{r3}
+            \end{tikzpicture}
+        \end{align}
+        
         \item (1) より明らか．
-        \item $1 \in \mathrm{Simp}(\Cat{C})$ なので，(1) および $(\varphi_\alpha,\, \varphi^\beta) = \delta^\beta_\alpha$ を用いれば良い．
+        \item (2) と補題\ref{lem:simple-hom}-(1) より従う．
     \end{enumerate}
     
 \end{proof}
@@ -3977,10 +4379,6 @@ $M$ の多面体分割 $(P,\, P^{(1)})$ の任意の頂点 $v \in \mathsf{V}(P^{
 % \begin{proof}
     
 % \end{proof}
-
-\subsection{グラフ上のアイソトピー不変量}
-
-
 
 \subsection{Turaev-Viro不変量の構成}
 
