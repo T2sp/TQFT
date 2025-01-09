@@ -4767,7 +4767,7 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
     % $\partial B_v$ には $M$ から誘導される向きを入れ，
     $a$ には $R_a \setminus \Int(B_a)$ から誘導される向きを入れることで，$\mathrm{Lk}(v;\, P)$ を\underline{有向グラフ}にする．
     
-    　ここで，$\forall x \in \mathsf{V}\bigl(\mathrm{Lk}(v;\, P)\bigr)$ に対して勝手な $\alpha_x \in \expval{\Gamma(a_1)^{\varepsilon_{a_1}},\, \dots,\, \Gamma(a_m)^{\varepsilon_{a_m}}} \eqqcolon \mathcal{H}\bigl(\mathrm{Lk}(v;\, P);\, \Gamma\bigr)$ を割り当てることで，絡みグラフ $\mathrm{Lk}(v;\, P) \subset \partial B_v$ をストリング図式に読み替える．
+    　ここで，$\forall x \in \mathsf{V}\bigl(\mathrm{Lk}(v;\, P)\bigr)$ に対して勝手な $\alpha_x \in \expval{\Gamma(a_1)^{\varepsilon_{a_1}},\, \dots,\, \Gamma(a_m)^{\varepsilon_{a_m}}} \eqqcolon \mathcal{H}_x\bigl(\mathrm{Lk}(v;\, P);\, \Gamma\bigr)$ を割り当てることで，絡みグラフ $\mathrm{Lk}(v;\, P) \subset \partial B_v$ をストリング図式に読み替える．
     ただし，$\varepsilon_{a_i}$ は\underline{有向辺} $a_i \in \mathsf{E} \bigl( \mathrm{Lk}(v;\, P) \bigr)$ が $v$ を始点に持つならば $+$，終点に持つならば $-$ を与える．
     特に $M$ が境界を持たないことから絡みグラフは配位数が $2$ 以上なので，このようにして得られたストリング図式は端点を持たない．
     i.e. ストリング図式に対応する射は $\mathbb{F}_{\Cat{C},\, \Gamma} \bigl( \mathrm{Lk}(v;\, P) \bigr)\bigl( \bigotimes_{x \in \mathsf{V} \bigl( \mathrm{Lk}(v;\, P) \bigr) } \alpha_x \bigr) \in \Hom{\Cat{C}} (1,\, 1)$ と書ける．これを $\mathbb{K}$-線形に拡張することで
@@ -4775,7 +4775,11 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
     \begin{align}
         \mathbb{F}_{\Cat{C},\, \Gamma} \bigl( \mathrm{Lk}(v;\, P) \bigr) \in \Hom{\VEC{\mathbb{K}}} \Bigl( \mathcal{H}\bigl(\mathrm{Lk}(v;\, P);\, \Gamma\bigr),\, \mathbb{K}\Bigr) 
     \end{align}
-    を得る．
+    を得る．ただし，
+    \begin{align}
+        \mathcal{H}\bigl(\mathrm{Lk}(v;\, P) \bigr) \coloneqq \bigotimes_{x \in \mathsf{V} \bigl( \mathrm{Lk}(v;\, P) \bigr)} \mathcal{H}_x\bigl(\mathrm{Lk}(v;\, P) \bigr)
+    \end{align}
+    とおいた．
     
     \item[\textbf{STEP5. アイソトピー不変量の構成}]　
     
