@@ -3240,7 +3240,7 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
     であるから，$\omega$ は非退化である．
 \end{proof}
 
-以下，$\varphi \in \Hom{\Cat{C}} (1,\, x_1 \otimes \cdots \otimes x_n)$ のストリング図式を書く際には，
+以下，$\varphi \in \expval{x_1,\, \cdots ,\, x_n}$ のストリング図式を書く際には
 \begin{align}
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
         \path coordinate (f)
@@ -3259,38 +3259,47 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
     \coloneqq 
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
         \path coordinate[bullet,label=below:$\varphi$] (f)
-        ++ (-2,1) coordinate[label=above:$x_1$] (a)
+        ++ (-2.5,1) coordinate[label=above:$x_1$] (a)
         ++ (1,0) coordinate[label=above:$x_2$] (b)
+        + (0.5,0) coordinate[label=above:$\dots$]
         ++ (1,0) coordinate (c)
-        ++ (1.5,0) coordinate[label=above:$\dots$] (c)
+        + (0.5,0) coordinate[label=above:$\dots$]
         ++ (1,0) coordinate (d)
-        ++ (1,0) coordinate[label=above:$x_n$] (e);
+        + (0.5,0) coordinate[label=above:$\dots$]
+        ++ (1,0) coordinate (e)
+        + (0.5,0) coordinate[label=above:$\dots$]
+        ++ (1,0) coordinate[label=above:$x_n$] (g);
         \draw[->-=.8] (f) to[out=150,in=-90] (a);
         \draw[->-=.8] (f) to[out=120,in=-90] (b);
         \draw[->-=.8] (f) to[out=90,in=-90] (c);
         \draw[->-=.8] (f) to[out=60,in=-90] (d);
         \draw[->-=.8] (f) to[out=30,in=-90] (e);
+        \draw[->-=.8] (f) to[out=30,in=-90] (g);
     \end{tikzpicture}
 \end{align}
 のような略記をすることがある．
-さらに，補題\ref{lem:nondegen-pairing}により，有限次元 $\mathbb{K}$-ベクトル空間 $\expval{x_1,\, \dots,\, x_n}$ の基底を $\{\varphi_\alpha\}$ と書くと，それの $\omega$ に関する双対基底 $\{\varphi^\alpha\}$ は $\expval{x_n^*,\, \dots,\, x_1^*}$ の基底をなす．
+さらに，有限次元 $\mathbb{K}$-ベクトル空間 $\expval{x_1,\, \dots,\, x_n}$ の基底を $\{\varphi_\alpha\}$ と書くと，補題\ref{lem:nondegen-pairing}により，それの $\omega$ に関する双対基底 $\{\varphi^\alpha\}$ は同一次元の $\mathbb{K}$-ベクトル空間 $\expval{x_n^*,\, \dots,\, x_1^*}$ の基底をなす．
 このことから，以下のような略記を導入する：
 \begin{align}
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
         \path coordinate (f)
         + (240:1) coordinate[label=left:$x_1$]
         + (300:1) coordinate[label=right:$x_n$]
-        ++ (3,0) coordinate (g)
-        + (240:1) coordinate[label=left:$x_n^*$]
-        + (300:1) coordinate[label=right:$x_1^*$]
         ;
         \foreach \x in {0,...,5} {
             \draw[->-=.8] (f.center) -- ++(\x*60:1);
         }
+        \node[circlenode] at (f) {$\varphi_\bullet$};
+    \end{tikzpicture}
+    \otimes_{\mathbb{K}} 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (g)
+        + (240:1) coordinate[label=left:$x_n^*$]
+        + (300:1) coordinate[label=right:$x_1^*$]
+        ;
         \foreach \x in {0,...,5} {
             \draw[-<-=.8] (g.center) -- ++(\x*60:1);
         }
-        \node[circlenode] at (f) {$\varphi_\bullet$};
         \node[circlenode] at (g) {$\varphi^\bullet$};
     \end{tikzpicture}
     \coloneqq \sum_\alpha 
@@ -3298,21 +3307,24 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
         \path coordinate (f)
         + (240:1) coordinate[label=left:$x_1$]
         + (300:1) coordinate[label=right:$x_n$]
-        ++ (3,0) coordinate (g)
-        + (240:1) coordinate[label=left:$x_n^*$]
-        + (300:1) coordinate[label=right:$x_1^*$]
         ;
         \foreach \x in {0,...,5} {
             \draw[->-=.8] (f.center) -- ++(\x*60:1);
         }
+        \node[circlenode] at (f) {$\varphi_\alpha$};
+    \end{tikzpicture}
+    \otimes_{\mathbb{K}}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (g)
+        + (240:1) coordinate[label=left:$x_n^*$]
+        + (300:1) coordinate[label=right:$x_1^*$]
+        ;
         \foreach \x in {0,...,5} {
             \draw[-<-=.8] (g.center) -- ++(\x*60:1);
         }
-        \node[circlenode] at (f) {$\varphi_\alpha$};
         \node[circlenode] at (g) {$\varphi^\alpha$};
     \end{tikzpicture}
 \end{align}
-
 さらに，$\forall a \in \Simp(\Cat{C}),\; \forall x \in \Obj{\Cat{C}}$ が与えられたときに，補題\ref{lem:simple-hom}-(2) の射の族
 \begin{align}
     \Familyset[\big]{p_\alpha \colon x \lto a,\; i_\alpha \colon a \lto x}{\alpha \in \Lambda}
@@ -3325,38 +3337,49 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
 \begin{align}
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
         \path coordinate (a)
-        +(1.5,0) coordinate (b)
         +(0,1) coordinate (c)
-        +(1.5,1) coordinate (d)
         +(0,2) coordinate (e)
-        +(1.5,2) coordinate (f);
+        ;
         \draw[->-=.5] (a) -- node[midway,left] {$x$} (c);
         \draw[->-=.5] (c) -- node[midway,left] {$a$} (e);
+        \draw[spath/save=proj] ($(c) + (-0.4,-0.2)$) -- ++(0.8,0) to[out=120,in=60] ++(-0.8,0);
+        \fill[red, spath/use=proj];
+    \end{tikzpicture}
+    \quad \otimes_{\mathbb{K}} \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (b)
+        +(0,1) coordinate (d)
+        +(0,2) coordinate (f)
+        ;
         \draw[->-=.5] (b) -- node[midway,right] {$a$} (d);
         \draw[->-=.5] (d) -- node[midway,right] {$x$} (f);
-        \draw[spath/save=proj] ($(c) + (-0.4,-0.2)$) -- ++(0.8,0) to[out=120,in=60] ++(-0.8,0);
         \draw[spath/save=inj] ($(d) + (-0.4,-0.2)$) to[out=60,in=120] ++(0.8,0) -- ++(0,0.3) -- ++(-0.8,0) -- ++(0,-0.3);
-        \fill[red, spath/use=proj];
         \fill[red, spath/use=inj];
     \end{tikzpicture}
     \quad \coloneqq \quad \sum_{\alpha \in \Lambda} \quad
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
         \path coordinate (a)
-        +(1.5,0) coordinate (b)
         +(0,1) coordinate (c)
-        +(1.5,1) coordinate (d)
         +(0,2) coordinate (e)
-        +(1.5,2) coordinate (f);
+        ;
         \node[left] at (c) {$p_\alpha$};
-        \node[right] at (d) {$i_\alpha$};
+        % \node[right] at (d) {$i_\alpha$};
         \draw[->-=.5] (a) -- node[midway,left] {$x$} (c) node[bullet] {};
         \draw[->-=.5] (c.north) -- node[midway,left] {$a$} (e);
+    \end{tikzpicture} 
+    \quad\otimes_{\mathbb{K}}\quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (b)
+        +(0,1) coordinate (d)
+        +(0,2) coordinate (f)
+        ;
+        \node[right] at (d) {$i_\alpha$};
         \draw[->-=.5] (b) -- node[midway,right] {$a$} (d) node[bullet] {};
         \draw[->-=.5] (d.north) -- node[midway,right] {$x$} (f);
     \end{tikzpicture}
 \end{align}
 
-\begin{mylem}[label=lem:triangle-rule,breakable]{技術的な補題1}
+\begin{mylem}[label=lem:spherical-partition,breakable]{技術的な補題1}
     $\forall a \in \Simp(\Cat{C}),\; \forall x,\, x_1,\, \dots,\, x_n \in \Obj{\Cat{C}}$ に対して以下が成り立つ：
     \begin{enumerate}
         \item \begin{align}
@@ -3373,7 +3396,7 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
                 \fill[red, spath/use=proj];
                 \fill[red, spath/use=inj];
             \end{tikzpicture}
-            \quad = \dim_{\mathbb{K}} \Hom{\Cat{C}} (a,\, x) \quad 
+            \quad = \dim_{\mathbb{K}} \bigl(\Hom{\Cat{C}} (a,\, x)\bigr) \quad 
             \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
                 \path coordinate (a)
                 +(0,3) coordinate (b);
@@ -3440,6 +3463,58 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
                 \path coordinate (a)
                 +(0,3) coordinate[bullet] (b);
                 \draw[->-=.5] (a) -- node[midway,right] {$x$} (b);
+            \end{tikzpicture}
+        \end{align}
+        \item 
+        \begin{align}
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (a)
+                +(0,1) coordinate (c)
+                +(0,2) coordinate (e)
+                ;
+                \draw[->-=.5] (a) -- node[midway,left] {$x$} (c);
+                \draw[->-=.5] (c) -- node[midway,left] {$a$} (e);
+                \draw[spath/save=proj] ($(c) + (-0.4,-0.2)$) -- ++(0.8,0) to[out=120,in=60] ++(-0.8,0);
+                \fill[red, spath/use=proj];
+            \end{tikzpicture}
+            \quad \otimes_{\mathbb{K}} \quad
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (b)
+                +(0,1) coordinate (d)
+                +(0,2) coordinate (f)
+                ;
+                \draw[->-=.5] (b) -- node[midway,right] {$a$} (d);
+                \draw[->-=.5] (d) -- node[midway,right] {$x$} (f);
+                \draw[spath/save=inj] ($(d) + (-0.4,-0.2)$) to[out=60,in=120] ++(0.8,0) -- ++(0,0.3) -- ++(-0.8,0) -- ++(0,-0.3);
+                \fill[red, spath/use=inj];
+            \end{tikzpicture}
+            &= \dim_p (a) 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (x)
+                ++(0,1) coordinate (px)
+                ++(0.5,0) coordinate (pa)
+                ++(1,0) coordinate (da)
+                ++(0,1) coordinate (ua)
+                ;
+                \draw[->-=.5] (x) -- node[midway,left] {$x$} (px);
+                \draw[->-=.5] (da) -- node[midway,left] {$a$} (ua);
+                \RCOEV{pa}{da}
+                \draw[spath/save=proj] ($(px) + (-0.4,-0.2)$) -- ++(1.3,0) to[out=120,in=60] ++(-1.3,0);
+                \fill[blue, spath/use=proj];
+            \end{tikzpicture}
+            \quad \otimes_{\mathbb{K}} \quad
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (da)
+                ++(0,1) coordinate (ua)
+                ++(-1,0) coordinate (ia)
+                ++(-0.5,0)  coordinate (ix)
+                ++(0,1) coordinate (x)
+                ;
+                \draw[->-=.5] (da) -- node[midway,right] {$a$} (ua);
+                \draw[->-=.5] (ix) -- node[midway,right] {$x$} (x);
+                \LEV{ia}{ua}
+                \draw[spath/save=inj] ($(ix) + (-0.4,-0.4)$) to[out=60,in=120] ++(1.3,0) -- ++(0,0.5) -- ++(-1.3,0) -- ++(0,-0.5);
+                \fill[blue, spath/use=inj];
             \end{tikzpicture}
         \end{align}
         \item \hyperref[lem:nondegen-pairing]{非退化な双線形形式} $\omega \colon \Hom{\Cat{C}} (1,\, x^*) \otimes_{\mathbb{K}} \Hom{\Cat{C}}(1,\, x) \lto \mathbb{K}$ について，
@@ -3522,13 +3597,47 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
     \end{align}
     を1つ固定する．
     \begin{enumerate}
-        \item 補題\ref{lem:simple-hom}-(2) の \textsf{\textbf{(part-4)}} より明らか．
+        \item 補題\ref{lem:simple-hom}-(2) より
+        \begin{align}
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (a)
+                +(0,1) coordinate (b)
+                +(0,2) coordinate (c)
+                +(0,3) coordinate (d);
+                \draw[->-=.5] (a) -- node[midway,left] {$a$} (b);
+                \draw[->-=.5] (b) -- node[midway,left] {$x$} (c);
+                \draw[->-=.5] (c) -- node[midway,left] {$a$} (d);
+                \draw[spath/save=proj] ($(c) + (-0.4,-0.2)$) -- ++(0.8,0) to[out=120,in=60] ++(-0.8,0);
+                \draw[spath/save=inj] ($(b) + (-0.4,-0.2)$) to[out=60,in=120] ++(0.8,0) -- ++(0,0.3) -- ++(-0.8,0) -- ++(0,-0.3);
+                \fill[red, spath/use=proj];
+                \fill[red, spath/use=inj];
+            \end{tikzpicture}
+            &\coloneqq \sum_{\alpha \in \Lambda} 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (a1)
+                +(0,1) coordinate[bullet, label=right:$i_\alpha$] (i)
+                +(0,2) coordinate[bullet, label=right:$p_\alpha$] (p)
+                +(0,3) coordinate (a2)
+                ;
+                \draw[->-=.5] (a1) -- node[midway,left] {$a$} (i);
+                \draw[->-=.5] (i) -- node[midway,left] {$x$} (p);
+                \draw[->-=.5] (p) -- node[midway,left] {$a$} (a2);
+            \end{tikzpicture}
+            = \sum_{\alpha \in \Lambda} 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (a1)
+                +(0,3) coordinate (a2)
+                ;
+                \draw[->-=.5] (a1) -- node[midway,left] {$a$} (a2);
+            \end{tikzpicture}
+            = \dim_{\mathbb{K}} \bigl( \Hom{\Cat{C}} (a,\, x) \bigr) \Id_a
+        \end{align}
         \item 直和の特徴付けより
         \begin{align}
             \sum_{\alpha \in \Lambda} i_\alpha \circ p_\alpha = \Id_x
         \end{align}
         が成り立つ．
-        \item 補題\ref{lem:simple-hom}より $\Hom{\Cat{C}} (1,\, a) = \Hom{\Cat{C}} (a,\, 1) = \delta_{a,\, 1}\mathbb{K}$ なので，(2) において 
+        \item 補題\ref{lem:simple-hom}-(1) より $\Hom{\Cat{C}} (1,\, a) = \Hom{\Cat{C}} (a,\, 1) = \delta_{a,\, 1}\mathbb{K}$ なので，(2) において 
         \begin{align}
             \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
                 \path coordinate[bullet] (a)
@@ -3600,6 +3709,100 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
             \end{tikzpicture}
         \end{align}
         と計算できる．
+        \item 補題\ref{lem:simple-hom}-(2) の射の族
+        \begin{align}
+            \Familyset[\big]{\textcolor{blue}{P_\alpha} \colon x \otimes a^* \lto 1,\; \textcolor{blue}{I_\alpha} \colon 1 \lto x \otimes a^*}{\alpha \in \Lambda}
+        \end{align}
+        を1つとり，
+        \begin{align}
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (x)
+                ++(0,1) coordinate (px)
+                ++(0.5,0) coordinate (pa)
+                ++(0,-1) coordinate (a)
+                ;
+                \draw[->-=.5] (x) -- node[midway,left] {$x$} (px);
+                \draw[->-=.5] (pa) -- node[midway,right] {$a^*$} (a);
+                \draw[spath/save=proj] ($(px) + (-0.4,-0.2)$) -- ++(1.3,0) to[out=120,in=60] ++(-1.3,0);
+                \fill[blue, spath/use=proj];
+            \end{tikzpicture}
+            \quad \otimes_{\mathbb{K}} \quad
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (x)
+                ++(0,-1) coordinate (ix)
+                ++(0.5,0) coordinate (ia)
+                ++(0,1) coordinate (a)
+                ;
+                \draw[->-=.5] (ix) -- node[midway,left] {$x$} (x);
+                \draw[->-=.5] (a) -- node[midway,right] {$a^*$} (ia);
+                \draw[spath/save=inj] ($(ix) + (-0.4,-0.4)$) to[out=60,in=120] ++(1.3,0) -- ++(0,0.5) -- ++(-1.3,0) -- ++(0,-0.5);
+                \fill[blue, spath/use=inj];
+            \end{tikzpicture}
+            &\coloneqq \sum_{\alpha \in \Lambda} \textcolor{blue}{P_\alpha} \otimes_{\mathbb{K}} \textcolor{blue}{I_\alpha}
+        \end{align}
+        とおく．このとき
+        \begin{align}
+            \tilde{p}_\alpha \coloneqq \dim_p(a)
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (x)
+                ++(0.25,1) coordinate[bullet, label=above:$\textcolor{blue}{P_\alpha}$] (p)
+                ++(1,0) coordinate (da)
+                ++(0,1) coordinate (ua)
+                ;
+                \draw[->-=.5] (x) to[out=90,in=-120] node[midway,left] {$x$} (p);
+                \RCOEV{p}{da}
+                \draw[->-=.5] (da) -- node[midway,right] {$a$} (ua);
+            \end{tikzpicture}, \quad 
+            \tilde{i}_\alpha \coloneqq 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (x)
+                ++(0.25,-1) coordinate[bullet, label=below:$\textcolor{blue}{I_\alpha}$] (i)
+                ++(1,0) coordinate (ua)
+                ++(0,-1) coordinate (da)
+                ;
+                \draw[->-=.5] (i) to[out=120,in=-90] node[midway,left] {$x$} (x);
+                \LEV{i}{ua}
+                \draw[->-=.5] (da) -- node[midway,right] {$a$} (ua);
+            \end{tikzpicture}
+        \end{align}
+        と定義した射の族
+        \begin{align}
+            \Familyset[\big]{\tilde{p}_\alpha \colon x \lto a,\quad \tilde{i}_\alpha \colon a \lto x}{\alpha \in \Lambda}
+        \end{align}
+        が補題\ref{lem:simple-hom}-(2) の条件\textsf{\textbf{(part-4)}}を充たすことを示せばよい．
+        実際，$\forall \alpha,\, \beta \in \Lambda$ について
+        $\tilde{p}_\alpha \circ \tilde{i}_{\beta} \in \Hom{\Cat{C}} (a,\, a) = \mathbb{K}$ なので，ある $A_{\alpha\beta} \in \mathbb{K}$ が存在して
+        $\tilde{p}_\alpha \circ \tilde{i}_{\beta} = A_{\alpha\beta} \Id_a$ と書ける．両辺の\hyperref[def:qtrace]{量子トレース}をとることで
+        \begin{align}
+            \dim_p (a) A_{\alpha\beta} &= 
+            \dim_p (a) \quad
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (dla)
+                +(1,0) coordinate (dra)
+                ++(-0.5,0) coordinate[bullet,label=below:$\textcolor{blue}{I_\beta}$] (i)
+                ++(0,1) coordinate[bullet,label=above:$\textcolor{blue}{P_\alpha}$] (p)
+                ++(0.5,0) coordinate (ula)
+                +(1,0) coordinate (ura)
+                ;
+                \draw[->-=.5] (i) to[out=120,in=-120] node[midway,left] {$x$} (p);
+                \LEV{i}{dla}
+                \RCOEV{p}{ula}
+                \REV{ula}{ura}
+                \LCOEV{dla}{dra}
+                \draw[->-=.5] (ura) -- node[midway,right] {$a^*$} (dra);
+            \end{tikzpicture} \\
+            &= \dim_p (a) \quad
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[bullet,label=below:$\textcolor{blue}{I_\beta}$] (i) 
+                ++(0,1) coordinate[bullet,label=above:$\textcolor{blue}{P_\alpha}$] (p)
+                ;
+                \draw[->-=.5] (i) to[out=120,in=-120] node[midway,left] {$x$} (p);
+                \draw[->-=.5] (p) to[out=-60,in=60] node[midway,right] {$a^*$} (i);
+            \end{tikzpicture} &&\because \text{\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equation)}}}} \\
+            &= \dim_p(a) \textcolor{blue}{P_{\alpha} \circ I_\beta} \\
+            &= \dim_p(a) \delta_{\alpha\beta} &&\because \text{\hyperref[lem:simple-hom]{\textsf{\textbf{(part-4)}}}}
+        \end{align}
+        が分かった．i.e. $A_{\alpha\beta} = \delta_{\alpha\beta}$ である．
         \item (3) より，$\forall f \in \Hom{\Cat{C}}(1,\, x)$ に対して
         \begin{align}
             (\unity \otimes_{\mathbb{K}} \omega) \circ (\Omega \otimes_{\mathbb{K}} \unity) (1_{\mathbb{K}} \otimes_{\mathbb{K}} f)
@@ -3743,19 +3946,14 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
                 \path coordinate[label=above:$x_1$] (l1)
                 ++(0.5,0) coordinate[label=above:$x_2$] (l2)
                 ++(0.8,0) coordinate[label=above:$x_n$] (l3)
-                ++(1,0) coordinate (r3)
-                ++(0.8,0) coordinate (r2)
-                ++(0.5,0) coordinate (r1);
-                \node at ($(l2) + (0.15,0)$) {$\dots$};
+                ++(1,0) coordinate[label=above:$x_n^*$] (r3)
+                ++(0.8,0) coordinate[label=above:$x_2^*$] (r2)
+                ++(0.5,0) coordinate[label=above:$x_1^*$] (r1);
+                \node at ($(l3) + (0.5,-1)$) {$\vdots$};
                 \LCOEV{l1}{r1}
                 \LCOEV{l2}{r2}
                 \LCOEV{l3}{r3}
             \end{tikzpicture}
-        \end{align}
-        \item $\forall a \in \mathrm{Simp}(\Cat{C})$ および $\forall \varphi \in \expval{x,\, a},\, \forall \varphi \in \expval{a^*,\, x^*},\, \forall \psi \in \expval{a^*,\, y},\; \forall \psi' \in \expval{y^*,\, a}$ に対して
-        \begin{align}
-            \bigl( \mathrm{ev}_a \circ (\varphi \otimes \psi),\, \mathrm{ev}_{a^*} \circ (\psi',\, \varphi')\bigr)
-            &= \frac{(\varphi,\, \varphi')(\psi',\, \psi)}{\dim_p(a)}
         \end{align}
         \item 
         \begin{align}
@@ -3763,27 +3961,37 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
                 \path coordinate (A)
                 +(2,0) coordinate (f)
                 +(3.5,0) coordinate (g)
-                +(5.5,0) coordinate (B);
-                \foreach \x in {-45,-15,15,45} {
+                ++(5.5,1)  coordinate (xn)
+                +(0,-0.75) coordinate
+                ++(0,-1.5) coordinate (x2)
+                ++(0,-0.5) coordinate (x1)
+                ;
+                \foreach \x in {-45,-15,45} {
                     \draw[-<-=.5] (A) to[out=\x,in={180-\x}] (f);
-                    \draw[-<-=.5] (g) to[out=\x,in={180-\x}] (B);
+                    % \draw[-<-=.5] (g) to[out=\x,in={180-\x}] (B);
                 }
+                \node at ($(A) + (15:1)$) {$\vdots$};
+                \draw[-<-=.5] (g) to[out=-45,in=180] (x1);
+                \draw[-<-=.5] (g) to[out=-15,in=180] (x2);
+                \draw[-<-=.5] (g) to[out=45,in=180] (xn);
                 \node[circlenode] at (f) {$\varphi_\bullet$};
                 \node[circlenode] at (g) {$\varphi^\bullet$};
                 \node[circle,fill=black!20,minimum size=10mm] at (A) {};
-                \node[circle,fill=black!20,minimum size=10mm] at (B) {};
+                % \node[circle,fill=black!20,minimum size=10mm] at (B) {};
             \end{tikzpicture}
-            = \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \quad = \quad \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
                 \path coordinate (A)
-                +(3,0) coordinate (B);
-                \foreach \x in {-45,-15,15,45} {
-                    \draw[-<-=.5] (A) to[out=\x,in={180-\x}] (B);
-                }
+                ++(3,1)    coordinate (xn)
+                +(0,-0.75) coordinate[label=left:$\vdots$]
+                ++(0,-1.5) coordinate (x2)
+                ++(0,-0.5) coordinate (x1)
+                ;
+                \draw[-<-=.5] (A) to[out=-45,in=180] (x1);
+                \draw[-<-=.5] (A) to[out=-15,in=180] (x2);
+                \draw[-<-=.5] (A) to[out=45,in=180] (xn);
                 \node[circle,fill=black!20,minimum size=10mm] at (A) {};
-                \node[circle,fill=black!20,minimum size=10mm] at (B) {};
             \end{tikzpicture}
         \end{align}
-        
     \end{enumerate}
     
 \end{mylem}
@@ -3810,7 +4018,7 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
                 \draw[->-=.5] (0,-1) -- node[midway,right] {$a$} (0,1);
             \end{tikzpicture}
         \end{align}
-        が分かる．逆射 $a_{1,a,a}$ を作用させることで
+        と書ける．逆射 $\alpha_{1,a,a}$ を作用させることで
         \begin{align}
             \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
                 \path coordinate[bullet,label=below:$\varphi$] (f)
@@ -3834,10 +4042,10 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
         \end{align}
         が分かるので，両辺の\hyperref[def:qtrace]{量子トレース}を取ることで
         \begin{align}
-            A_a = \frac{(\varphi,\, \psi)}{\dim_p(a)}
+            A_a = \frac{\omega(\varphi,\, \psi)}{\dim_p(a)}
         \end{align}
         と求まる．
-        \item 補題\ref{lem:triangle-rule}-(4) により，
+        \item 
         \begin{align}
             &\sum_{a \in \mathrm{Simp}(\Cat{C})} \dim_p(a)\;
             \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
@@ -3871,11 +4079,13 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
                 \path coordinate (f)
                 +(-2,1.5) coordinate[label=above:$x_1$] (l1)
                 +(-1.5,1.5) coordinate[label=above:$x_2$] (l2)
+                +(-1,1.5) coordinate[label=above:$\dots$]
                 +(-0.5,1.5) coordinate[label=above:$x_n$] (l3)
                 ++(1,0) coordinate (g)
-                +(0.5,1.5) coordinate (r3)
-                +(1.5,1.5) coordinate (r2)
-                +(2,1.5) coordinate (r1);
+                +(0.5,1.5) coordinate[label=above:$x_n^*$] (r3)
+                +(1,1.5) coordinate[label=above:$\dots$]
+                +(1.5,1.5) coordinate[label=above:$x_2^*$] (r2)
+                +(2,1.5) coordinate[label=above:$x_1^*$] (r1);
                 \draw[->-=.8] (f) to[out=90,in=-90] (l1);
                 \draw[->-=.8] (f) to[out=90,in=-90] (l2);
                 \draw[->-=.8] (f) to[out=90,in=-90] (l3);
@@ -3890,8 +4100,8 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
                 % \draw[spath/save=inj] ($(d) + (-0.4,-0.2)$) to[out=60,in=120] ++(0.8,0) -- ++(0,0.3) -- ++(-0.8,0) -- ++(0,-0.3);
                 % \fill[red, spath/use=proj];
                 % \fill[red, spath/use=inj];
-            \end{tikzpicture} \\
-            &= \sum_{a \in \Simp(\Cat{C})} \dim_p(a)
+            \end{tikzpicture} &&\because \text{補題\ref{lem:spherical-partition}-(5)}\\
+            &= \sum_{a \in \Simp(\Cat{C})} \dim_p(a^*)
             \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
                 % \begin{pgfonlayer}{foreground}
                 %     \node[squarednode] (O) at (0,0) {$\Omega(1_{\mathbb{K}})$};
@@ -3899,49 +4109,85 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
                 \path coordinate (f)
                 +(-1,1.5) coordinate[label=above:$x_1$] (l1)
                 +(-0.5,1.5) coordinate[label=above:$x_2$] (l2)
+                +(0,1.5) coordinate[label=above:$\dots$]
                 +(1,0) coordinate (l4)
                 +(0.5,1.5) coordinate[label=above:$x_n$] (l3)
                 ++(5,0) coordinate (g)
                 +(-1,0) coordinate (r4)
                 +(-0.5,0) coordinate (r3)
+                +(0,0) coordinate[label=above:$\dots$]
                 +(0.5,0) coordinate (r2)
                 +(1,0) coordinate (r1)
                 +(-2,0) coordinate (p4)
                 +(-2.2,0) coordinate (p3)
+                +(-2.45,0) coordinate[label=above:$\dots$]
                 +(-2.7,0) coordinate (p2)
-                +(-3,0) coordinate (p1);
+                +(-3,0) coordinate (p1)
+                ;
                 \draw[-<-=.2] (l1) -- ++(0,-1.5);
                 \draw[-<-=.2] (l2) -- ++(0,-1.5);
                 \draw[-<-=.2] (l3) -- ++(0,-1.5);
-                \draw[-<-=.8] (r3) -- ++(0,1.5);
-                \draw[-<-=.8] (r2) -- ++(0,1.5);
-                \draw[-<-=.8] (r1) -- ++(0,1.5);
+                \draw[-<-=.8] (r3) -- ++(0,1.5) node[above] {$x_n^*$};
+                \draw[-<-=.8] (r2) -- ++(0,1.5) node[above] {$x_2^*$};
+                \draw[-<-=.8] (r1) -- ++(0,1.5) node[above] {$x_1^*$};
                 \LCOEV{p1}{r1}
                 \LCOEV{p2}{r2}
                 \LCOEV{p3}{r3}
-                \LCOEV{p4}{r4}
+                \RCOEV{p4}{r4}
                 \draw[->-=.5] (r4) to[out=90, in=90] node[midway, above] {$a$} (l4);
                 \draw[spath/save=proj] ($(g) + (-3.7,-0.4)$) -- ++(2.4,0) to[out=120,in=60] ++(-2.4,0);
                 \draw[spath/save=inj] ($(f) + (-1.2,-0.6)$) to[out=60,in=120] ++(2.4,0) -- ++(0,0.8) -- ++(-2.4,0) -- ++(0,-0.8);
+                \fill[blue, spath/use=proj];
+                \fill[blue, spath/use=inj];
+            \end{tikzpicture}  \\
+            &= \sum_{a \in \Simp(\Cat{C})}
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (ia)
+                ++(-1,0)  coordinate (ix1)
+                ++(0.5,0) coordinate (ix2)
+                +(0.75,1.5) coordinate[label=above:$\dots$]
+                ++(1.5,0) coordinate (ixn)
+                + (1,0) coordinate[label=right:$a^*$] (a)
+                ++(2,0) coordinate (px1)
+                +(1,0) coordinate (pa)
+                ++(0.5,0) coordinate (px2)
+                ++(1.5,0) coordinate (pxn)
+                ++(1,0) coordinate (xn)
+                +(0.75,0) coordinate[label=above:$\dots$]
+                ++(1.5,0) coordinate (x2)
+                ++(0.5,0) coordinate (x1)
+                ;
+                \draw[->-=.5] (ix1) -- ++(0,1.5) node[above] {$x_1$};
+                \draw[->-=.5] (ix2) -- ++(0,1.5) node[above] {$x_2$};
+                \draw[->-=.5] (ixn) -- ++(0,1.5) node[above] {$x_n$};
+                \draw[-<-=.5] (x1) -- ++(0,1.5) node[above] {$x_1^*$};
+                \draw[-<-=.5] (x2) -- ++(0,1.5) node[above] {$x_2^*$};
+                \draw[-<-=.5] (xn) -- ++(0,1.5) node[above] {$x_n^*$};
+                \LCOEV{px1}{x1}
+                \LCOEV{px2}{x2}
+                \LCOEV{pxn}{xn}
+                \LCOEV{ia}{a}
+                \LEV{a}{pa}
+                \draw[spath/save=inj] ($(ix1) + (-0.2,-0.6)$) to[out=60,in=120] ++(2.4,0) -- ++(0,0.8) -- ++(-2.4,0) -- ++(0,-0.8);
+                \draw[spath/save=proj] ($(px1) + (-0.2,-0.2)$) -- ++(2.4,0) to[out=120,in=60] ++(-2.4,0);
                 \fill[red, spath/use=proj];
                 \fill[red, spath/use=inj];
-            \end{tikzpicture} \\
+            \end{tikzpicture} &&\because \text{補題\ref{lem:spherical-partition}-(4)} \\
             &= \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
                 \path coordinate[label=above:$x_1$] (l1)
                 ++(0.5,0) coordinate[label=above:$x_2$] (l2)
                 ++(0.8,0) coordinate[label=above:$x_n$] (l3)
-                ++(1,0) coordinate (r3)
-                ++(0.8,0) coordinate (r2)
-                ++(0.5,0) coordinate (r1);
-                \node at ($(l2) + (0.15,0)$) {$\dots$};
+                ++(1,0) coordinate[label=above:$x_n^*$] (r3)
+                ++(0.8,0) coordinate[label=above:$x_2^*$] (r2)
+                ++(0.5,0) coordinate[label=above:$x_1^*$] (r1);
+                \node at ($(l3) + (0.5,-1)$) {$\vdots$};
                 \LCOEV{l1}{r1}
                 \LCOEV{l2}{r2}
                 \LCOEV{l3}{r3}
-            \end{tikzpicture}
+            \end{tikzpicture} &&\because \text{補題\ref{lem:spherical-partition}-(2)}
         \end{align}
         
-        \item (1) より明らか．
-        \item (2) と補題\ref{lem:simple-hom}-(1) より従う．
+        \item (2) と補題\ref{lem:simple-hom}-(1)，および $\dim_p(1) = 1_{\mathbb{K}}$ より従う．
     \end{enumerate}
     
 \end{proof}
@@ -4010,7 +4256,7 @@ $K$ に有限回の双星状移動を施すことで $L$ にすることがで�
 \begin{mydef}[label=def:polyhedron,breakable]{2-多面体}
     \begin{itemize}
         \item 2次元コンパクト多様体\footnote{位相多様体．境界はついていてもいなくても良い．} $P$ が\textbf{2-多面体} (2-polyhedra) であるとは，$P$ の三角形分割 $\psi \colon \abs{K} \xrightarrow{\approx} P$ であって，任意の0-単体および1単体がある2-単体の面になっているものが存在することを言う．
-        \item 2-多面体の\textbf{層状化} (stratification) とは，$P$ に埋め込まれたグラフ\footnote{ここでは，位相空間としてのグラフを考えている．} $P^{(1)} \subset P$ であって $P \setminus \Int(P) \subset P^{(1)}$
+        \item 2-多面体の\textbf{層状化} (stratification) とは，$P$ に埋め込まれた\underline{無向グラフ}\footnote{ここでは，位相空間としてのグラフを考えている．} $P^{(1)} \subset P$ であって $P \setminus \Int(P) \subset P^{(1)}$
         \textbf{層状化された多面体} (stratified polyhedra) とは，2-多面体 $P$ とその層状化 $P^{(1)} \subset P$ の組み $(P,\, P^{(1)})$ のこと．
         \begin{figure}[H]
             \centering
@@ -4088,13 +4334,13 @@ $K$ に有限回の双星状移動を施すことで $L$ にすることがで�
 
 \begin{mydef}[label=def:graph-bdy]{境界グラフ}
     \begin{itemize}
-        \item \hyperref[def:polyhedron]{層状化された多面体} $(P,\, P^{(1)})$ の\textbf{境界} (boundary) とは，グラフ
+        \item \hyperref[def:polyhedron]{層状化された多面体} $(P,\, P^{(1)})$ の\textbf{境界} (boundary) とは，無向グラフ
         \begin{align}
             \partial P \coloneqq \bigl\{\, e \in \mathsf{E}(P^{(1)}) \bigm| \text{配位数}\;1 \,\bigr\} 
         \end{align}
-        のこと．$(P,\, P^{(1)})$ の向きは，グラフ $\partial P$ に向きを誘導する．
+        のこと．$(P,\, P^{(1)})$ の\hyperref[def:polyhedron]{向き}は，グラフ $\partial P$ に（グラフとしての）向き $\mathcal{O}_{\partial P}$ を一意的に誘導する．
         \item \hyperref[def:polyhedron]{層状化された多面体} $(P,\, P^{(1)})$ が\textbf{円筒境界を持つ}とは，
-        $\forall v \in \mathsf{V}(\partial P)$ に対して $e_v \in \mathsf{E}(P^{(1)}) \setminus \mathsf{E}(P^{(1)})$ がただ1つ存在し，以下を充たすことを言う：
+        $\forall v \in \mathsf{V}(\partial P)$ に対して $e_v \in \mathsf{E}(P^{(1)}) \setminus \mathsf{E}(\partial P)$ がただ1つ存在し，以下を充たすことを言う：
         \begin{itemize}
             \item $d_v$ の端点のうち1つは $v$ で，もう1つは $v$ でない．
             \item $v$ の全ての分岐に隣接する
@@ -4121,14 +4367,21 @@ $K$ に有限回の双星状移動を施すことで $L$ にすることがで�
         +(-0.4,-0.5) coordinate (yl)
         +(-0.4,1.5) coordinate (ylu);
 
-        \draw (xl) -- (xr) -- (xrd) -- (xld) --cycle;
-        \draw (yl) -- (yr) -- (yru) -- (ylu) -- cycle;
-        \draw (yl) -- ++(2,0) -- ++(0.8,1) -- (yr) -- cycle;
-        \draw (yr) -- ++(-2,0) -- ++(-0.8,-1) -- (yl) -- cycle;
+        \draw[spath/save=planeX] (xl) -- (xr) -- (xrd) -- (xld) --cycle;
+        \draw[spath/save=planeZ] (yl) -- (yr) -- (yru) -- (ylu) -- cycle;
+        \draw[spath/save=planeY1] (yl) -- ++(2,0) -- ++(0.8,1) -- (yr) -- cycle;
+        \draw[spath/save=planeY2] (yr) -- ++(-2,0) -- ++(-0.8,-1) -- (yl) -- cycle;
 
         \draw[->] (xl) -- (2.5,0) node[right] {$x^1$};
         \draw[->] (yl) -- ($(yr)+(0.5,0.625)$) node[above right] {$x^2$};
         \draw[->] (O.center) -- ++(0,2.5) node[above] {$x^3$};
+
+        \begin{scope}[on background layer]
+            \fill[red, opacity=0.1, spath/use=planeX];
+            \fill[blue, opacity=0.1, spath/use=planeY1];
+            \fill[blue, opacity=0.1, spath/use=planeY2];
+            \fill[green, opacity=0.1, spath/use=planeZ];
+        \end{scope}
     \end{tikzpicture}    
     \caption{位相空間 $\mathcal{B}$}
 \end{figure}%
@@ -4162,23 +4415,87 @@ $K$ に有限回の双星状移動を施すことで $L$ にすることがで�
     
     \tcblower
 
-    向き付けられた境界付き $3$ 次元コンパクト多様体 $M$，およびその境界に埋め込まれた有向グラフ $G \subset \partial M$ を与える．$\forall v \in \mathsf{V}(G)$ の\hyperref[def:polyhedron]{配位数}は2以上であるとする\footnote{従って，境界の境界は考えない．}．
-    組 $(M,\, G)$ の\textbf{多面体分割}とは，\hyperref[def:graph-bdy]{$\partial$-円筒境界を持つ}，\hyperref[def:polyhedron]{向き付けられ，層状化された2-多面体} $(P\, P^{(1)})$ であって，
+    向き付けられた境界付き $3$ 次元コンパクト多様体 $M$，およびその境界に埋め込まれた\underline{有向}グラフ $G \subset \partial M$ を与える．$\forall v \in \mathsf{V}(G)$ の\hyperref[def:polyhedron]{配位数}は2以上であるとする\footnote{従って，境界の境界は考えない．}．
+    組 $(M,\, G)$ の\textbf{多面体分割}とは，\hyperref[def:graph-bdy]{$\partial$-円筒境界を持つ}，\hyperref[def:polyhedron]{向き付けられ，層状化された2-多面体} $(P,\, P^{(1)})$ であって，
     \begin{enumerate}
         \item $P$ は $M$ に埋め込まれている
-        \item 有向グラフとして $\partial P = G$ で，かつ $P \setminus \partial P \subset M \setminus \partial M$
+        \item 有向グラフとして $\partial P^{\mathcal{O}_{\partial P}} = G$ で，かつ $P \setminus \partial P \subset M \setminus \partial M$
         \item $M \setminus P$ は3-開球および3次元多様体 $(\partial M \setminus G) \times [0,\, 1)$ のdisjoint unionである．
     \end{enumerate}
     
 \end{mydef}
 
-$M$ の多面体分割 $(P,\, P^{(1)})$ の任意の頂点 $v \in \mathsf{V}(P^{(1)})$ に対して，$v$ の閉球近傍 $B_v \subset M$ を十分小さく取ることで図のようなグラフを得る：
-これを頂点 $v$ の\textbf{絡みグラフ}と呼び，$\mathrm{Lk}(v)$ と書くことにする．
+$M$ の多面体分割 $(P,\, P^{(1)})$ の任意の頂点 $v \in \mathsf{V}(P^{(1)})$ に対して，$v$ の閉球近傍 $B_v \subset M$ を十分小さく取ることで右下図のようなグラフを得る：
+\begin{align}
+    \label{def:linkedG}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate[bullet, label=above:$v$] (O) at (0,0,0);
+        \begin{scope}[canvas is xy plane at z=0]
+            % \path coordinate (dlXY) at (-2,-2)
+            % +(4,0) coordinate (drXY)
+            % +(4,4) coordinate (urXY)
+            % +(0,4) coordinate (ulXY)
+            % ;
+            \draw[dashed,spath/save=planeXY] (-2,-2) -- ++(4,0) -- ++(0,2) -- ++(-4,0) -- cycle;
+            \draw[very thick, blue] (1.5,0) arc (0:-180:1.5);
+            \node[bullet,blue] (e1) at (1.5,0) {};
+            \node[blue,below right] at (e1) {$e_1$};
+            \node[bullet,blue] (e3) at (-1.5,0) {};
+            \node[blue,below left] at (e3) {$e_3$};
+            \begin{scope}[on background layer]
+                \fill[red, opacity=0.1, spath/use=planeXY];
+            \end{scope}
+        \end{scope}        
+        \begin{scope}[canvas is zy plane at x=0]
+            \draw[dashed,spath/save=planeZY] (-2,0) -- ++(4,0) -- ++(0,2) -- ++(-4,0) -- cycle;
+            \draw[very thick, blue] (1.5,0) arc (0:180:1.5);
+            \node[bullet,blue] (e2) at (1.5,0) {};
+            \node[blue,above right] at (e2) {$e_4$};
+            \node[bullet,blue] (e4) at (-1.5,0) {};
+            \node[blue,below right] at (e4) {$e_2$};
+            \begin{scope}[on background layer]
+                \fill[green, opacity=0.1, spath/use=planeZY];
+            \end{scope}
+        \end{scope}
+        \begin{scope}[canvas is zx plane at y=0]
+            \draw[dashed,spath/save=planeZX] (-2,-2) -- ++(4,0) -- ++(0,4) -- ++(-4,0) -- cycle;
+            \draw[very thick,spath/save=re] (O) -- ++(2,0);
+            \draw[very thick,spath/save=le] (O) -- ++(-2,0);
+            \draw[very thick,spath/save=ue] (O) -- ++(0,2);
+            \draw[very thick,spath/save=de] (O) -- ++(0,-2);
+            \draw[very thick, blue] (1.5,0) arc (0:180:1.5);
+            \draw[very thick, blue] (1.5,0) arc (0:-180:1.5);
+            \begin{scope}[on background layer]
+                \fill[blue, opacity=0.1, spath/use=planeZX];
+            \end{scope}
+        \end{scope}
+        \begin{scope}[on background layer]
+            \fill[red, opacity=0.1, spath/use=planeXY];
+            \fill[blue, opacity=0.1, spath/use=planeZY];
+            \fill[green, opacity=0.1, spath/use=planeZX];
+        \end{scope}
+    \end{tikzpicture}
+    \quad \lmto \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate[bullet,blue,label=right:$e_1$] (e1)
+        ++(-1,1) coordinate[bullet,blue,label=below:$e_2$] (e2)
+        ++(-1,-1) coordinate[bullet,blue,label=left:$e_3$] (e3)
+        ++(1,-1) coordinate[bullet,blue,label=above:$e_4$] (e4)
+        ;
+        \draw[very thick, blue] (e1) arc (0:90:1);
+        \draw[very thick, blue] (e2) arc (90:180:1);
+        \draw[very thick, blue] (e3) arc (180:270:1);
+        \draw[very thick, blue] (e4) arc (270:360:1);
+        \draw[very thick, blue] (e1) -- (e3);
+        \draw[very thick, blue] (e2) ..controls ($(e2) + (3,1)$) and ($(e4) + (3,-1)$) .. (e4);
+    \end{tikzpicture}
+\end{align}
+これを頂点 $v$ の\textbf{絡みグラフ}と呼び，$\mathrm{Lk}(v;\, P)$ と書くことにする．
 
 \begin{mytheo}[label=thm:MP-polytope,breakable]{多面体分割のPL不変性}
     向き付けられた境界付き $3$ 次元コンパクト多様体 $M$，およびその境界に埋め込まれた有向グラフ $G \subset \partial M$ を与える．$\forall v \in \mathsf{V}(G)$ の\hyperref[def:polyhedron]{配位数}は2以上であるとする\footnote{従って，境界の境界は考えない．}．
 
-    このとき，$(M,\, G)$ の任意の2つの\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)}),\, (P',\, P'{}^{(1)})$ は，以下の操作の有限回の組み合わせで互いに写り合う：
+    このとき，$(M,\, G)$ の任意の2つの\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)}),\, (P',\, P'{}^{(1)})$ は，以下の操作（\textbf{Matveev-Piergallini move}と呼ぶ）の有限回の組み合わせで互いに写り合う：
     \begin{description}
         \item[\textbf{(T0)}] $\partial D^2 = D^2 \cap P \subset P \setminus P^{(1)}$ を充たすような2次元円板 $D^2$ を $P$ に付け足す．さらにグラフ $P^{(1)}$ に1つの頂点とループ辺 $\partial D^2$ を付け足す．
         \begin{align}
@@ -4384,181 +4701,139 @@ $M$ の多面体分割 $(P,\, P^{(1)})$ の任意の頂点 $v \in \mathsf{V}(P^{
 
 \subsubsection{閉多様体の場合}
 
-向き付けられた3次元閉多様体 $M$ の\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)})$ をとる．
-$P$ の\textbf{彩色} (coloring) とは，
-写像
-\begin{align}
-    c \colon \mathrm{Reg}(P) \lto \Simp(\Cat{C})
-\end{align}
-のこと．ここで，
-\begin{align}
-    \dim (c) \coloneqq \prod_{R \in \mathrm{Reg}(P)} \bigl( \dim_p \bigl( c(R) \bigr)  \bigr)^{\chi(R)} \in \mathbb{K}
-\end{align}
-と定義する．ただし $\chi(R)$ は $R$ のEuler標数である．
+向き付けられた3次元閉多様体 $M$ の\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)})$ を1つ固定する．
 
-彩色 $c \colon \mathrm{Reg}(P) \lto \Simp(\Cat{C})$ を1つ固定したとき，対応する $Z(c;\, P) \in \mathbb{K}$ を構成しよう．
-まず $\mathsf{V}(P^{(1)}) = \emptyset$ のときは　$\abs{c} \coloneqq 1$ と定義する．
+\begin{mydef}[label=def:coloring]{彩色}
+    \hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)})$ の\textbf{彩色} (coloring) とは，
+    写像
+    \begin{align}
+        \Gamma \colon \mathrm{Reg}(P) \lto \Simp(\Cat{C})
+    \end{align}
+    のこと．    
+\end{mydef}
+% ここで，
+% \begin{align}
+%     \dim (\Gamma) \coloneqq \prod_{R \in \mathrm{Reg}(P)} \bigl( \dim_p \bigl( \Gamma(R) \bigr)  \bigr)^{\chi(R)} \in \mathbb{K}
+% \end{align}
+% と定義する．ただし $\chi(R)$ は $R \in \mathrm{Reg}(P)$ のEuler標数である．
+
+\hyperref[def:coloring]{彩色} $\Gamma \colon \mathrm{Reg}(P) \lto \Simp(\Cat{C})$ を1つ固定したとき，対応するアイソトピー不変量 $Z(\Gamma;\, P) \in \mathbb{K}$ を構成しよう．
+まず $\mathsf{V}(P^{(1)}) = \emptyset$ のときは $Z(\Gamma;\, P) \coloneqq 1_{\mathbb{K}}$ と定義する．
 $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
-$\forall e \in \mathsf{E}(P^{(1)})$ に勝手な向きを与える．
-すると，辺 $e$ の\hyperref[def:polyhedron]{分岐}の集合 $P^{(1)}_e$ にはサイクリックな順序を入れることができる．
-さらに $\forall b \in P_e^{(1)}$ に対して，$\epsilon_b \in \{\pm\}$ を $M$ から誘導される向きと $e$ の向きが整合しているならば $+$，不整合ならば $-$ となるように定義することで，
-\begin{align}
-    \mathcal{H}(e;\, c) \coloneqq \expval{c(b_1)^{\epsilon_{b_1}},\, \dots,\, c(b_n)^{\epsilon_{b_n}}} \WHERE P_e^{(1)} = \{b_1 < \cdots < b_n\}
-\end{align}
-と構成しよう．補題\ref{lem:MS}の\textsf{\textbf{(Rotation isomorphism)}} により $\mathcal{H}(e;\, c)$ はwell-definedである．
-\begin{align}
-    \mathcal{H}(c) \coloneqq \bigotimes_{e \in \mathsf{E}(P^{(1)})} \mathcal{H}(e;\, c)
-\end{align}
-とおく．
-ところで，$e \in \mathsf{E}(P^{(1)})$ に向きを与えない場合，2通りの向き付けが存在する．それぞれ $e_1,\, e_2$ とおくと
-\begin{align}
-    \mathcal{H}(e_1;\, c) = \mathcal{H}(e_2;\, c)^*
-\end{align}
-であるから，補題\ref{lem:nondegen-pairing}の非退化な双線形形式によって
-\begin{align}
-    *_{e,\, c} \in \mathcal{H}(e_1;\, c) \otimes \mathcal{H}(e_2;\, c)
-\end{align}
-が定まり，
-\begin{align}
-    \label{eq:contraction}
-    *_c \coloneqq \bigotimes_{e \in \mathsf{E}(P^{(1)})} *_{e,\, c} \in \mathcal{H}(c)
-\end{align}
-を得る．
 
-$\forall v \in \mathsf{V}(P^{(1)})$ に対しては，まずそれの絡み近傍 $B_v$ および絡みグラフ $\mathrm{Lk}(v) \subset B_v$ をとる．
-$\partial B_v$ には $M$ から誘導される向きを入れる．$\forall a \in \mathsf{E}\bigl(\mathrm{Lk}(v)\bigr)$ はある1つの\hyperref[def:polyhedron]{領域} $R_a$ に含まれているから，$a$ には $c(R_a) \in \Simp(\Cat{C})$ を割り当て，$a$ 自身の向きとしては $R_a \setminus \Int(B_a)$ から誘導されるものを入れる．
-ここで，$\forall x \in \mathsf{V}\bigl(\mathrm{Lk}(v)\bigr)$ に対して勝手な $\alpha_x \in \expval{c(a_1)^{\epsilon_{a_1}},\, \dots,\, c(a_m)^{\epsilon_{a_m}}}$ を割り当てることで，絡みグラフ $\mathrm{Lk}(v) \subset B_v$ をストリング図式に読み替える．特に $M$ が境界を持たないことから絡みグラフは配位数が $2$ 以上なので，このようにして得られたストリング図式は端点を持たない．
-i.e. ストリング図式に対応する射は $\mathbb{F}_{\Cat{C}} \bigl( \mathrm{Lk}(v) \bigr)\bigl( \bigotimes_{x \in \mathsf{V} \bigl( \mathrm{Lk}(v) \bigr) } \alpha_x \bigr) \in \Hom{\Cat{C}} (1,\, 1)$ と書ける．これを $\mathbb{K}$-線形に拡張することで
-，$\mathbb{K}$-線型写像
-\begin{align}
-    \mathbb{F}_{\Cat{C}} \bigl( \mathrm{Lk}(v) \bigr) \in \Hom{\VEC{\mathbb{K}}} \left( \mathcal{H}(\mathrm{Lk}(v)),\, \mathbb{K}\right) 
-\end{align}
-を得る．ここで
-\begin{align}
-    \mathcal{H}(\mathrm{Lk}(v)) \cong \bigotimes_{e_v;\, v\, \text{を端点に持つ}} \mathcal{H}(e_v;\, c)
-\end{align}
-より
-\begin{align}
-    \bigotimes_{v \in \mathsf{V}(P^{(1)})}\Hom{\VEC{\mathbb{K}}} \left( \mathcal{H}(\mathrm{Lk}(v)),\, \mathbb{K}\right)  
-    &\cong \bigotimes_{v} \bigotimes_{e_v;\, v\, \text{を端点に持つ}} \Hom{\VEC{\mathbb{K}}} \left( \mathcal{H}(e_v;\, c),\, \mathbb{K}\right) \\
-    &\cong \Hom{\VEC{\mathbb{K}}} \bigl(\mathcal{H}(c),\, \mathbb{K}\bigr)
-\end{align}
-であるから，
-\begin{align}
-    \bigotimes_{v}\mathbb{F}_{\Cat{C}} \bigl( \mathrm{Lk}(v) \bigr) \in \Hom{\VEC{\mathbb{K}}} \bigl(\mathcal{H}(c),\, \mathbb{K}\bigr)
-\end{align}
-がわかる．これで\eqref{eq:contraction}を写像することで
-\begin{align}
-    Z(c;\, P) \coloneqq \left(\bigotimes_{v}\mathbb{F}_{\Cat{C}} \bigl( \mathrm{Lk}(v) \bigr)\right)(*_c) \in \mathbb{K}
-\end{align}
-を得る．
+\begin{description}
+    \item[\textbf{STEP1. 各辺に載せるベクトル空間の構成}]　
+    
+    まず，\underline{無向}グラフ $P^{(1)}$ に勝手な向き $\mathcal{O} \in \{\pm\}^{\abs{\mathsf{E}(P^{(1)})}}$ を与えて有向グラフ $P^{(1)}{}^{\mathcal{O}}$ にする．
+    そして\underline{有向}辺 $\tilde{e} \in \mathsf{E}(P^{(1)}{}^{\mathcal{O}})$ の\hyperref[def:polyhedron]{分岐}の集合 $P^{(1)}_{\tilde{e}}$ に，右ネジの法則に従うサイクリックな順序 $<$ を与える．
+    さらに $\forall R \in P_{\tilde{e}}^{(1)}$ に対して，$\epsilon_R \in \{\pm\}$ を，$M$ から誘導される向きと $\tilde{e}$ の向きが整合しているならば $+$，不整合ならば $-$ となるように定義することで，
+    \underline{有向}辺 $\tilde{e} \in \mathsf{E}(P^{(1)}{}^{\mathcal{O}})$ 上の $\mathbb{K}$-ベクトル空間を
+    \begin{align}
+        \mathcal{H}(\tilde{e};\, \Gamma) \coloneqq \expval{\Gamma(R_1)^{\epsilon_{R_1}},\, \dots,\, \Gamma(R_n)^{\epsilon_{R_n}}} \WHERE P_{\tilde{e}}^{(1)} = \{R_1 < \cdots < R_n\}
+    \end{align}
+    と構成する．
+
+    \item[\textbf{STEP2. 全系のベクトル空間の構成}]　
+    
+    全系の $\mathbb{K}$-ベクトル空間は，\underline{有向グラフとしての}テンソル積\footnote{より正確には，\textbf{unordered tensor product}を取っている~\cite[Appendix E, p.477]{Turaev2017}．}
+    \begin{align}
+        \mathcal{H}(\Gamma) \coloneqq \bigotimes_{\mathcal{O}} \bigotimes_{\tilde{e} \in \mathsf{E}(P^{(1)}{}^{\mathcal{O}})} \mathcal{H} (\tilde{e};\, \Gamma)
+    \end{align}
+    として構成する．
+
+    \item[\textbf{STEP3. contraction vectorの構成}]　
+    
+    \underline{無向辺} $\forall e \in \mathsf{E}(P^{(1)})$ は，丁度2通りの方法で有向辺になる．こうして得られる2つの有向辺をそれぞれ $\tilde{e}_1,\, \tilde{e}_2$ と書くと，\textsf{\textbf{STEP1.}} の構成により
+    \begin{align}
+        \mathcal{H} (\tilde{e}_2;\, \Gamma) = \mathcal{H} (\tilde{e}_1;\, \Gamma)^*
+    \end{align}
+    が成り立つ．よって補題\ref{lem:nondegen-pairing}の非退化な双線形形式 $\omega_{\Gamma,\, e} \colon \mathcal{H} (\tilde{e}_2;\, \Gamma) \otimes_{\mathbb{K}} \mathcal{H} (\tilde{e}_1;\, \Gamma) \lto \mathbb{K}$ を考えることができ，
+    補題\ref{lem:TVBW-1}-(5) の構成によりその双対 $\Omega_{\Gamma,\, e} \colon \mathbb{K} \lto \mathcal{H} (\tilde{e}_1;\, \Gamma) \otimes_{\mathbb{K}} \mathcal{H} (\tilde{e}_2;\, \Gamma)$ を得る．特に
+    \begin{align}
+        \bigotimes_{e \in \mathsf{E}(P^{(1)})} \bigl( \mathcal{H} (\tilde{e}_1;\, \Gamma) \otimes_{\mathbb{K}} \mathcal{H} (\tilde{e}_2;\, \Gamma)\bigr)
+        &= \bigotimes_{\mathcal{O}} \bigotimes_{\tilde{e} \in \mathsf{E}(P^{(1)}{}^{\mathcal{O}})} \mathcal{H} (\tilde{e};\, \Gamma) = \mathcal{H}(\Gamma)
+    \end{align}
+    に注意して，
+    \begin{align}
+        \label{eq:contraction}
+        \Omega_\Gamma(1_{\mathbb{K}}) \coloneqq \bigotimes_{e \in \mathsf{E}(P^{(1)})} \Omega_{\Gamma,\, e} (1_{\mathbb{K}}) \in \mathcal{H}(\Gamma)
+    \end{align}
+    のことを\textbf{contraction vector}と呼ぶ．
+
+    \item[\textbf{STEP4. 絡みグラフをストリング図式に読み替える}]　
+    
+    $\forall v \in \mathsf{V}(P^{(1)})$ に対しては，十分小さな開球近傍 $B_v$ およびその\hyperref[def:linkedG]{絡みグラフ} $\mathrm{Lk}(v;\, P) \subset \partial B_v$ をとる．
+    $\forall a \in \mathsf{E}\bigl(\mathrm{Lk}(v;\, P)\bigr)$ はある1つの\hyperref[def:polyhedron]{領域} $R_a \in \mathrm{Reg}(P)$ に含まれているから，$a$ には $\Gamma(R_a) \in \Simp(\Cat{C})$ を割り当てる．
+    % $\partial B_v$ には $M$ から誘導される向きを入れ，
+    $a$ には $R_a \setminus \Int(B_a)$ から誘導される向きを入れることで，$\mathrm{Lk}(v;\, P)$ を\underline{有向グラフ}にする．
+    
+    　ここで，$\forall x \in \mathsf{V}\bigl(\mathrm{Lk}(v;\, P)\bigr)$ に対して勝手な $\alpha_x \in \expval{\Gamma(a_1)^{\varepsilon_{a_1}},\, \dots,\, \Gamma(a_m)^{\varepsilon_{a_m}}} \eqqcolon \mathcal{H}\bigl(\mathrm{Lk}(v;\, P);\, \Gamma\bigr)$ を割り当てることで，絡みグラフ $\mathrm{Lk}(v;\, P) \subset \partial B_v$ をストリング図式に読み替える．
+    ただし，$\varepsilon_{a_i}$ は\underline{有向辺} $a_i \in \mathsf{E} \bigl( \mathrm{Lk}(v;\, P) \bigr)$ が $v$ を始点に持つならば $+$，終点に持つならば $-$ を与える．
+    特に $M$ が境界を持たないことから絡みグラフは配位数が $2$ 以上なので，このようにして得られたストリング図式は端点を持たない．
+    i.e. ストリング図式に対応する射は $\mathbb{F}_{\Cat{C},\, \Gamma} \bigl( \mathrm{Lk}(v;\, P) \bigr)\bigl( \bigotimes_{x \in \mathsf{V} \bigl( \mathrm{Lk}(v;\, P) \bigr) } \alpha_x \bigr) \in \Hom{\Cat{C}} (1,\, 1)$ と書ける．これを $\mathbb{K}$-線形に拡張することで
+    ，$\mathbb{K}$-線型写像
+    \begin{align}
+        \mathbb{F}_{\Cat{C},\, \Gamma} \bigl( \mathrm{Lk}(v;\, P) \bigr) \in \Hom{\VEC{\mathbb{K}}} \Bigl( \mathcal{H}\bigl(\mathrm{Lk}(v;\, P);\, \Gamma\bigr),\, \mathbb{K}\Bigr) 
+    \end{align}
+    を得る．
+    
+    \item[\textbf{STEP5. アイソトピー不変量の構成}]　
+    
+    \begin{align}
+        \mathcal{H}\bigl(\mathrm{Lk}(v;\, P);\, \Gamma\bigr) \cong \bigotimes_{\tilde{e}_v;\, v\, \text{を始点に持つ}} \mathcal{H}(\tilde{e}_v;\, \Gamma)
+    \end{align}
+    に注意すると
+    \begin{align}
+        \bigotimes_{v \in \mathsf{V}(P^{(1)})}\Hom{\VEC{\mathbb{K}}} \Bigl( \mathcal{H}\bigl(\mathrm{Lk}(v;\, P);\, \Gamma\bigr),\, \mathbb{K}\Bigr)  
+        &\cong \bigotimes_{v} \bigotimes_{\tilde{e}_v;\, v\, \text{を始点に持つ}} \Hom{\VEC{\mathbb{K}}} \left( \mathcal{H}(\tilde{e}_v;\, \Gamma),\, \mathbb{K}\right) \\
+        &\cong \Hom{\VEC{\mathbb{K}}} \bigl(\mathcal{H}(\Gamma),\, \mathbb{K}\bigr)
+    \end{align}
+    が成り立つことが分かる．よって
+    \begin{align}
+        z(\Gamma;\, P) \coloneqq \bigotimes_{v}\mathbb{F}_{\Cat{C},\, \Gamma} \bigl( \mathrm{Lk}(v;\, P) \bigr) \in \Hom{\VEC{\mathbb{K}}} \bigl(\mathcal{H}(c),\, \mathbb{K}\bigr)
+    \end{align}
+    だと分かった．これで\eqref{eq:contraction}を写像することで
+    \begin{align}
+        Z(\Gamma;\, P) \coloneqq z(\Gamma;\, P) \circ \Omega_\Gamma (1_{\mathbb{K}}) \in \mathbb{K}
+    \end{align}
+    を得る．
+\end{description}
+% 補題\ref{lem:MS}の\textsf{\textbf{(Rotation isomorphism)}} により $\mathcal{H}(e;\, \Gamma)$ はwell-definedである．
+% \begin{align}
+%     \mathcal{H}(\Gamma) \coloneqq \bigotimes_{e \in \mathsf{E}(P^{(1)})} \mathcal{H}(e;\, c)
+% \end{align}
+% とおく．
+% ところで，$e \in \mathsf{E}(P^{(1)})$ に向きを与えない場合，2通りの向き付けが存在する．それぞれ $e_1,\, e_2$ とおくと
+% \begin{align}
+%     \mathcal{H}(e_1;\, c) = \mathcal{H}(e_2;\, c)^*
+% \end{align}
+% であるから，補題\ref{lem:nondegen-pairing}の非退化な双線形形式によって
+% \begin{align}
+%     *_{e,\, c} \in \mathcal{H}(e_1;\, c) \otimes \mathcal{H}(e_2;\, c)
+% \end{align}
+% が定まり，
+% \begin{align}
+%     \label{eq:contraction}
+%     *_c \coloneqq \bigotimes_{e \in \mathsf{E}(P^{(1)})} *_{e,\, c} \in \mathcal{H}(c)
+% \end{align}
+% を得る．
 
 \begin{mydef}[label=def:TV-closed]{閉多様体におけるTV不変量}
     向き付けられた3次元閉多様体 $M$ および\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)})$ をとる．
     \textbf{Turaev-Viro不変量}を
     \begin{align}
-        \irm{Z}{\text{TV},\Cat{C}}(M) \coloneqq \left( \sum_{a \in \mathrm{Simp}(\Cat{C})} \dim(a)^2\right)^{-v(M)} \sum_{c \colon \mathrm{Reg} \lto \Simp(\Cat{C})} \dim(c) Z(c;\, P)
+        \irm{Z}{\text{TV},\Cat{C}}(M) \coloneqq \left( \sum_{a \in \mathrm{Simp}(\Cat{C})} \dim(a)^2\right)^{-v(M)} \sum_{\Gamma \colon \mathrm{Reg} \lto \Simp(\Cat{C})} Z(\Gamma;\, P) \prod_{R \in \mathrm{Reg}(P)} \dim \bigl( \Gamma(R) \bigr)^{\chi(R)}
     \end{align}
-    で定義する．ただし $v(M)$ は $M \setminus P$ の連結成分の個数である．
+    で定義する．ただし $v(M)$ は $M \setminus P$ の連結成分の個数で，$\chi (R)$ は\hyperref[def:polyhedron]{領域} $R \in \mathrm{Reg}(P)$ のEuler標数である．
 \end{mydef}
 
 \begin{mytheo}[label=thm:TV-closed]{}
-    Turaev不変量 $\irm{Z}{\text{TV},\Cat{C}}(M) $ は\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)})$ の取り方によらない．
+    Turaev不変量 $\irm{Z}{\text{TV},\Cat{C}}(M)$ は\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)})$ の取り方によらない．
 \end{mytheo}
 
 \begin{proof}
-    
+    $\irm{Z}{\text{TV},\Cat{C}}(M)$ が定理\ref{thm:MP-polytope}の操作 \textsf{\textbf{(T0)-(T3)}} に関して不変であることを示せば良い．
 \end{proof}
-
-
-% \hyperref[def:polytope-decomp]{多面体分割}された\hyperref[def:PLmfd]{PL多様体} $(M,\, \mathcal{M},\, \psi)$ を与える．$\mathcal{M}$ の全ての辺 $e \in \mathcal{M}_1$ に向き $\epsilon_e \in \{\pm 1\}$ を与え\footnote{この向きは，大元の三角形分割から誘導されるものである}，それを $\mathcal{O} \coloneqq \Familyset[\big]{\epsilon_e}{e \in \mathcal{M}_1}$ と書く．
-% 向き付けられた多面体分割を $\mathcal{M}^{\mathcal{O}}$ と書く．
-
-% \begin{mydef}[label=def:state]{状態}
-%     \textbf{状態} (state) とは，写像
-%     \begin{align}
-%         \Gamma \colon \mathcal{M}^{\mathcal{O}}_1 \lto \Obj{\Cat{C}}
-%     \end{align}
-%     であって
-%     \begin{align}
-%         \Gamma(-e) = \Gamma(e)^*
-%     \end{align}
-%     を充たすもののこと．
-%     \tcblower
-%     2つの状態 $\Gamma_1,\, \Gamma_2$ が同値であるとは，$\forall e \in \mathcal{M}^{\mathcal{O}}_1$ に対して $\Gamma_1(e) \cong \Gamma_2(e)$ が成り立つこと．
-% \end{mydef}
-
-% \hyperref[def:state]{状態} $\Gamma \colon \mathcal{M}^{\mathcal{O}}_1 \lto \Obj{\Cat{C}}$ を1つ固定する．このときの\textbf{状態空間} (state space) とは，写像
-% \begin{align}
-%     \mathcal{H} (\mhyphen;\, \Gamma) \colon \mathcal{M}^{\mathcal{O}}_2 &\lto \Obj{\Vec{\mathbb{K}}}, \\
-%     \sigma &\lmto  \expval{\Gamma(e_1),\, \dots,\, \Gamma(e_n)} \WHERE \partial \sigma = e_1 \cup \cdots \cup e_n
-% \end{align}
-% ただし，$e_1,\, \cdots ,\, e_n$ は $\sigma$ の向きから誘導される向きに辿る．なお，\hyperref[lem:MS]{\textsf{\textbf{(Rotation isomorphism)}}}により始点をどこにとっても良いことには注意する．
-% 最後に，任意の2次元組み合わせ部分多様体　$N \subset M,\; \mathcal{N}^{\mathcal{o}} \subset \mathcal{M}_2^{\mathcal{O}}$ について
-% \begin{align}
-%     \mathcal{H}(N) \coloneqq \bigoplus_{\Gamma \colon \mathcal{M}^{\mathcal{O}}_1 \lto \Obj{\Cat{C}}} \mathcal{H}(N;\, \Gamma)
-% \end{align}
-% と定義することで，Hilbert空間の構成が完了する．特に補題\ref{lem:nondegen-pairing}より
-% \begin{align}
-%     \label{eq:TVBW-involutive}
-%     \mathcal{H}(-N) = \mathcal{H}(N)^*
-% \end{align}
-% が成り立つ．
-
-% 次に，3次元多様体 $M$ 自身の分配関数を構成する．
-% そのためにはまず\hyperref[def:state]{状態} $\Gamma \colon \mathcal{M}^{\mathcal{O}}_1 \lto \Obj{\Cat{C}}$ を1つ固定し，任意の3-セル $\mu \in \mathcal{M}^{\mathcal{O}}_3$ に対して，上手い位相不変量
-% \begin{align}
-%     Z(\mu;\, \Gamma) \in \mathcal{H} (\partial\mu;\, \Gamma) = \bigotimes_{\sigma \in \{\partial\mu\;\text{の面}\}} \expval{\Gamma(\partial\sigma_1),\, \dots,\, \Gamma(\partial\sigma_n)}
-% \end{align}
-% を見つけてくる必要がある．
-% そこで，些か天下り的だが，$\partial\mu$ の辺のPoincar\'{e}双対のグラフ $\mu^{\vee}$ をとり，
-% \begin{itemize}
-%     \item 辺には　$\Gamma(e)^{\pm} \in \Obj{\Cat{C}}$ を
-%     \item 頂点（ちょうど $\partial\mu$ の面の個数だけ存在する）には $\varphi_\sigma \in \expval{\Gamma(e_1)^{\pm},\, \cdots,\, \Gamma(e_n)^{\pm}} \WHERE \partial\sigma = e_1 \cup \cdots \cup e_n$ を
-% \end{itemize}
-% 載せる．このようなとき，後述する方法により\textbf{Reshetikhin-Turaev不変量} $\irm{Z}{RT}(\mu^{\vee};\, \Gamma,\, \{\varphi_\sigma\}) \in \mathbb{K}$ を構成することができる．
-
-% 補題\ref{lem:nondegen-pairing}の2次形式は非退化だから，結局
-% \begin{align}
-%     \bigl( Z(\mu;\, \Gamma),\, \bigotimes_{\sigma \in \{\partial\mu\;\text{の面}\}} \varphi_\sigma \bigr) \coloneqq \irm{Z}{RT}(\mu^{\vee};\, \Gamma,\, \{\varphi_\sigma\})
-% \end{align}
-% によって $Z(\mu;\, \Gamma) \in \mathcal{H} (\partial\mu;\, \Gamma)$ を定義できる．
-
-% \begin{mydef}[label=def:inv-TV]{Turaev-Viro不変量}
-%     \hyperref[def:polytope-decomp]{多面体分割}された境界付き3次元\hyperref[def:PLmfd]{PL多様体} $(M,\, \mathcal{M},\, \psi)$ を与える．
-%     このとき，\textbf{Turaev-Viro不変量}を以下のように定義する：
-%     \footnotesize
-%     \begin{align}
-%         \irm{Z}{TV}(M) \coloneqq \left( \sum_{a \in \mathrm{Simp}(\Cat{C})} \dim(a)^2\right)^{-v(M)} \sum_{\Gamma \colon \mathcal{M}^{\mathcal{o}}_1 \to \Obj{\Cat{C}}} \left( \lev \left( \bigotimes_{\mu \in \mathcal{M}^{\mathcal{O}}_3} Z(\mu;\, \Gamma) \right) \prod_{e \in \mathcal{M}_1} \dim \bigl( \Gamma(e) \bigr) ^{n_e}  \right)
-%     \end{align}
-%     \normalsize
-%     ただし，
-%     \begin{align}
-%         v(M) &\coloneqq \#\{\text{vertex in}\; \mathrm{Int}(M)\} + \frac{1}{2} \# \{\text{vertex on}\; \partial M\} \\
-%         n_e &\coloneqq \begin{cases}
-%             1, & e \in \mathrm{Int}(M) \\
-%             1/2, & e \in \partial M
-%         \end{cases}
-%     \end{align}
-%     とおいた．
-% \end{mydef}
-
-
-% \begin{mytheo}[label=thm:TVBW]{}
-%     $\irm{Z}{TV}(M)$ は $M$ の\hyperref[def:polytope-decomp]{多面体分割}の取り方によらない．
-% \end{mytheo}
-
-% \begin{proof}
-    
-% \end{proof}
-
-% \begin{mytheo}[label=thm:inv-RT]{Reshetikhin-Turaev不変量}
-    
-% \end{mytheo}
-
-
-
-
 
 
 \section{離散的高次対称性}
