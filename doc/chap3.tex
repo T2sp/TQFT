@@ -4425,14 +4425,13 @@ $K$ に有限回の双星状移動を施すことで $L$ にすることがで�
     
 \end{mydef}
 
-$M$ の多面体分割 $(P,\, P^{(1)})$ の任意の頂点 $v \in \mathsf{V}(P^{(1)})$ に対して，$v$ の閉球近傍 $B_v \subset M$ を十分小さく取ることで右下図のようなグラフを得る：
+$M$ の多面体分割 $(P,\, P^{(1)})$ の任意の頂点 $v \in \mathsf{V}(P^{(1)})$ に対して，$v$ の閉球近傍 $B_v \subset M$ を十分小さく取る．
+すると，$v$ の\hyperref[def:polyhedron]{分岐} $R_v \in \mathrm{Reg}(P)$ と $\partial B_v$ の共通部分 $R \cap \partial B_v$ を辺に持つグラフが得られる：
 \begin{align}
     \label{def:linkedG}
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \shade[ball color = lightgray,opacity = 0.5] (0,0,0) circle (1.6);
         \coordinate[bullet, label=above:$v$] (O) at (0,0,0);
-        \shade[ball color = lightgray,opacity = 0.5] (O) circle (1.6);
-        \node at (2,2,0) {$B_v$};
-        \draw[->] (2,2,0) -- ++(-1,-1,0);
         \begin{scope}[canvas is xy plane at z=0]
             % \path coordinate (dlXY) at (-2,-2)
             % +(4,0) coordinate (drXY)
@@ -4445,6 +4444,8 @@ $M$ の多面体分割 $(P,\, P^{(1)})$ の任意の頂点 $v \in \mathsf{V}(P^{
             \node[blue,below right] at (e1) {$e_1$};
             \node[bullet,blue] (e3) at (-1.5,0) {};
             \node[blue,below left] at (e3) {$e_3$};
+            \node[right] at (2,2) {$B_v$};
+            \draw[->,thin] (2,2) to[out=180,in=60] ++(-1,-1);
             \begin{scope}[on background layer]
                 \fill[red, opacity=0.1, spath/use=planeXY];
             \end{scope}
@@ -4492,6 +4493,7 @@ $M$ の多面体分割 $(P,\, P^{(1)})$ の任意の頂点 $v \in \mathsf{V}(P^{
         \draw[very thick, blue] (e1) -- (e3);
         \draw[very thick, blue] (e2) ..controls ($(e2) + (3,1)$) and ($(e4) + (3,-1)$) .. (e4);
     \end{tikzpicture}
+    \mathrm{Lk}(v;\, P)
 \end{align}
 これを頂点 $v$ の\textbf{絡みグラフ}と呼び，$\mathrm{Lk}(v;\, P)$ と書くことにする．
 
@@ -4580,7 +4582,7 @@ $M$ の多面体分割 $(P,\, P^{(1)})$ の任意の頂点 $v \in \mathsf{V}(P^{
         \end{align}
 
         \item[\textbf{(T2)}] 
-  
+
         \begin{align}
             T_2 \colon
             \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
@@ -4724,17 +4726,315 @@ $M$ の多面体分割 $(P,\, P^{(1)})$ の任意の頂点 $v \in \mathsf{V}(P^{
 まず $\mathsf{V}(P^{(1)}) = \emptyset$ のときは $Z(\Gamma;\, P) \coloneqq 1_{\mathbb{K}}$ と定義する．
 $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
 
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \coordinate[bullet] (O) at (0,0,0);
+        \begin{scope}[
+            plane x={({0.83*cos(-10)},{0.83*sin(-10)})},
+            plane y={(0,1)},
+            canvas is plane
+        ]
+            \draw[very thick, spath/save=f1] (0,0) -- (3,0) -- (0,3) -- cycle;
+            
+            \node[bullet] at (3,0){};
+            \node[bullet] at (0,3){};
+    
+            % 多様体の向きから誘導される向き
+            \draw[->] (1.2,1.2) arc (0:270:0.15);
+    
+            \begin{scope}[on background layer]
+                \fill[blue, opacity=0.1, spath/use=f1];
+            \end{scope}
+        \end{scope}
+    
+        \begin{scope}[
+            plane x={({0.97*cos(-150)},{0.97*sin(-150)})},
+            plane y={(0,1)},
+            canvas is plane
+        ]
+            \draw[very thick, spath/save=f2] (0,0) -- (3,0) -- (0,3) -- cycle;
+            \node[bullet] at (3,0){};
+    
+            % 多様体の向きから誘導される向き
+            \draw[->] (1.2,1.2) arc (0:270:0.15);
+            
+            \begin{scope}[on background layer]
+                \fill[green, opacity=0.1, spath/use=f2];
+            \end{scope}
+        \end{scope}
+    
+        \begin{scope}[
+            plane x={({0.83*cos(-50)},{0.83*sin(-50)})},
+            plane y={(0,1)},
+            canvas is plane
+        ]
+            \draw[very thick, spath/save=f3] (0,0) -- (3,0) -- (0,3) -- cycle;
+            \node[bullet] at (3,0){};
+    
+            % 多様体の向きから誘導される向き
+            \draw[->] (1.2,1.2) arc (0:270:0.15);
+    
+            \begin{scope}[on background layer]
+                \fill[red, opacity=0.1, spath/use=f3];
+            \end{scope}
+        \end{scope}
+    
+        \begin{scope}[
+            plane x={({0.83*cos(-50)},{0.83*sin(-50)})},
+            plane y={({0.83*cos(-10)},{0.83*sin(-10)})},
+            canvas is plane
+        ]
+            \draw[very thick, spath/save=f4] (0,0) -- (3,0) -- (0,3) -- cycle;
+    
+            % 多様体の向きから誘導される向き
+            \draw[->] (1.2,1.2) arc (0:270:0.15);
+    
+            \begin{scope}[on background layer]
+                \fill[DarkGreen, opacity=0.1, spath/use=f4];
+            \end{scope}
+        \end{scope}
+    
+        \begin{scope}[
+            plane x={({0.83*cos(-10)},{0.83*sin(-10)})},
+            plane y={({0.97*cos(-150)},{0.97*sin(-150)})},
+            canvas is plane
+        ]
+            \draw[very thick, dashed,spath/save=f5] (0,0) -- (3,0) -- (0,3) -- cycle;
+    
+            % 多様体の向きから誘導される向き
+            \draw[->] (1.2,1.2) arc (0:-270:0.15);
+    
+            \begin{scope}[on background layer]
+                \fill[DarkOrange, opacity=0.1, spath/use=f5];
+            \end{scope}
+        \end{scope}
+    
+        \begin{scope}[
+            plane x={({0.97*cos(-150)},{0.97*sin(-150)})},
+            plane y={({0.83*cos(-50)},{0.83*sin(-50)})},
+            canvas is plane
+        ]
+            \draw[very thick, spath/save=f6] (0,0) -- (3,0) -- (0,3) -- cycle;
+    
+            % 多様体の向きから誘導される向き
+            \draw[->] (1.2,1.2) arc (0:270:0.15);
+    
+            \begin{scope}[on background layer]
+                \fill[LightSlateBlue, opacity=0.1, spath/use=f6];
+            \end{scope}
+        \end{scope}
+    \end{tikzpicture}
+    \caption{\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)})$ の一部．各\hyperref[def:polyhedron]{領域}上に $M$ から誘導される向きを図示した．}
+    \label{fig:STEP1-unoriented}
+\end{figure}%
+
 \begin{description}
     \item[\textbf{STEP1. 各辺に載せるベクトル空間の構成}]　
-    
-    まず，\underline{無向}グラフ $P^{(1)}$ に勝手な向き $\mathcal{O} \in \{\pm\}^{\abs{\mathsf{E}(P^{(1)})}}$ を与えて有向グラフ $P^{(1)}{}^{\mathcal{O}}$ にする．
-    そして\underline{有向}辺 $\tilde{e} \in \mathsf{E}(P^{(1)}{}^{\mathcal{O}})$ の\hyperref[def:polyhedron]{分岐}の集合 $P^{(1)}_{\tilde{e}}$ に，右ネジの法則に従うサイクリックな順序 $<$ を与える．
-    さらに $\forall R \in P_{\tilde{e}}^{(1)}$ に対して，$\epsilon_R \in \{\pm\}$ を，$M$ から誘導される向きと $\tilde{e}$ の向きが整合しているならば $+$，不整合ならば $-$ となるように定義することで，
+
+    まず，\underline{無向}グラフ $P^{(1)}$ に勝手な向き $\mathcal{O} \in \{\pm\}^{\abs{\mathsf{E}(P^{(1)})}}$ を与えて有向グラフ $P^{(1)}{}^{\mathcal{O}}$ にする（図\ref{subfig:STEP1-oriented}）．
+    そして\underline{有向}辺 $\tilde{e} \in \mathsf{E}(P^{(1)}{}^{\mathcal{O}})$ の\hyperref[def:polyhedron]{分岐}の集合 $P^{(1)}_{\tilde{e}}$ に，右ネジの法則に従うサイクリックな順序 $<$ を与える（図\ref{subfig:STEP1-branch}）．
+    さらに $\forall R \in P_{\tilde{e}}^{(1)}$ に対して，$\epsilon_R \in \{\pm\}$ を，$M$ から誘導される向きと $\tilde{e}$ の向きが整合しているならば $+$，不整合ならば $-$ となるように定義する（図\ref{subfig:STEP1-branch}）ことで，
     \underline{有向}辺 $\tilde{e} \in \mathsf{E}(P^{(1)}{}^{\mathcal{O}})$ 上の $\mathbb{K}$-ベクトル空間を
     \begin{align}
         \mathcal{H}(\tilde{e};\, \Gamma) \coloneqq \expval{\Gamma(R_1)^{\epsilon_{R_1}},\, \dots,\, \Gamma(R_n)^{\epsilon_{R_n}}} \WHERE P_{\tilde{e}}^{(1)} = \{R_1 < \cdots < R_n\}
     \end{align}
     と構成する．
+
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}{0.4\columnwidth}
+            \centering
+            \begin{tikzpicture}
+                \coordinate[bullet] (O) at (0,0,0);
+                \begin{scope}[
+                    plane x={({0.83*cos(-10)},{0.83*sin(-10)})},
+                    plane y={(0,1)},
+                    canvas is plane
+                ]
+                    \draw[very thick, spath/save=f1] (0,0) -- (3,0) -- (0,3) -- cycle;
+                    \node[bullet] at (3,0){};
+                    \node[bullet] at (0,3){};
+                
+                    % 多様体の向きから誘導される向き
+                    \draw[->] (1.2,1.2) arc (0:270:0.15);
+                
+                    \draw[very thick, ->-=0.5] (0,0) -- (3,0);
+                    \draw[very thick, ->-=0.5] (3,0) -- (0,3);
+                    \draw[very thick, ->-=0.5] (0,0) -- (0,3);
+                    \begin{scope}[on background layer]
+                        \fill[blue, opacity=0.1, spath/use=f1];
+                    \end{scope}
+                \end{scope}
+            
+                \begin{scope}[
+                    plane x={({0.97*cos(-150)},{0.97*sin(-150)})},
+                    plane y={(0,1)},
+                    canvas is plane
+                ]
+                    \draw[very thick, spath/save=f2] (0,0) -- (3,0) -- (0,3) -- cycle;
+                    \node[bullet] at (3,0){};
+                    \draw[very thick, -<-=0.5] (0,0) -- (3,0);
+                    \draw[very thick, -<-=0.5] (3,0) -- (0,3);
+                
+                
+                    % 多様体の向きから誘導される向き
+                    \draw[->] (1.2,1.2) arc (0:270:0.15);
+                
+                    \begin{scope}[on background layer]
+                        \fill[green, opacity=0.1, spath/use=f2];
+                    \end{scope}
+                \end{scope}
+            
+                \begin{scope}[
+                    plane x={({0.83*cos(-50)},{0.83*sin(-50)})},
+                    plane y={(0,1)},
+                    canvas is plane
+                ]
+                    % \draw[very thick, spath/save=f3] (0,0) -- (3,0) -- (0,3) -- cycle;
+                    \node[bullet] at (3,0){};
+                    \draw[very thick, -<-=0.5] (3,0) -- (0,3);
+                
+                    % 多様体の向きから誘導される向き
+                    \draw[->] (1.2,1.2) arc (0:270:0.15);
+
+                    \begin{pgfonlayer}{foreground}
+                        \draw[red, very thick, ->-=0.5] (0,0) -- node[midway, left] {$\textcolor{red}{\tilde{e}}$} (3,0);
+                    \end{pgfonlayer}
+                
+                    \begin{scope}[on background layer]
+                        \fill[red, opacity=0.1]  (0,0) -- (3,0) -- (0,3) -- cycle;
+                    \end{scope}
+                \end{scope}
+            
+                \begin{scope}[
+                    plane x={({0.83*cos(-50)},{0.83*sin(-50)})},
+                    plane y={({0.83*cos(-10)},{0.83*sin(-10)})},
+                    canvas is plane
+                ]
+                    \draw[very thick, spath/save=f4] (0,0) -- (3,0) -- (0,3) -- cycle;
+                    \draw[very thick, -<-=0.5] (3,0) -- (0,3);
+                
+                    % 多様体の向きから誘導される向き
+                    \draw[->] (1.2,1.2) arc (0:270:0.15);
+                
+                    \begin{scope}[on background layer]
+                        \fill[DarkGreen, opacity=0.1, spath/use=f4];
+                    \end{scope}
+                \end{scope}
+            
+                \begin{scope}[
+                    plane x={({0.83*cos(-10)},{0.83*sin(-10)})},
+                    plane y={({0.97*cos(-150)},{0.97*sin(-150)})},
+                    canvas is plane
+                ]
+                    \draw[very thick, dashed,spath/save=f5] (0,0) -- (3,0) -- (0,3) -- cycle;
+                    \draw[very thick, dashed, -<-=0.5] (3,0) -- (0,3);
+                
+                    % 多様体の向きから誘導される向き
+                    \draw[->] (1.2,1.2) arc (0:-270:0.15);
+                
+                    \begin{scope}[on background layer]
+                        \fill[DarkOrange, opacity=0.1, spath/use=f5];
+                    \end{scope}
+                \end{scope}
+            
+                \begin{scope}[
+                    plane x={({0.97*cos(-150)},{0.97*sin(-150)})},
+                    plane y={({0.83*cos(-50)},{0.83*sin(-50)})},
+                    canvas is plane
+                ]
+                    \draw[very thick, spath/save=f6] (0,0) -- (3,0) -- (0,3) -- cycle;
+                    \draw[very thick, -<-=0.5] (3,0) -- (0,3);
+                
+                    % 多様体の向きから誘導される向き
+                    \draw[->] (1.2,1.2) arc (0:270:0.15);
+                
+                    \begin{scope}[on background layer]
+                        \fill[LightSlateBlue, opacity=0.1, spath/use=f6];
+                    \end{scope}
+                \end{scope}
+            \end{tikzpicture}
+            \caption{有向グラフ $P^{(1)}{}^{\mathcal{O}}$ の一部}
+            \label{subfig:STEP1-oriented}
+        \end{subfigure}
+        \hspace{5mm}
+        \begin{subfigure}{0.4\columnwidth}
+            \centering
+            \begin{tikzpicture}
+                \coordinate[bullet] (O) at (0,0,0);
+                \begin{scope}[
+                    plane x={({0.83*cos(-50)},{0.83*sin(-50)})},
+                    plane y={(0,1)},
+                    canvas is plane
+                ]
+                    \draw (0,0) -- (3,0) -- (0,3) -- cycle;
+                    \node[bullet] at (3,0){};
+                    % \draw[very thick, -<-=0.5] (3,0) -- (0,3);
+            
+                    % 多様体の向きから誘導される向き
+                    \draw[->] ($(1.2,1.2) + (-0.5,0.5)$) arc (0:270:0.15);
+                    
+                    % color
+                    \node[red] at (0.8,1.3) {$R_1$};
+                    \node[red] at (1,1) {$\epsilon_{R_1} = +$};
+            
+                    \begin{pgfonlayer}{foreground}
+                        \draw[red, very thick, ->-=0.5] (0,0) -- node[midway, left] {$\textcolor{red}{\tilde{e}}$} (3,0);
+                    \end{pgfonlayer}
+            
+                    \begin{scope}[on background layer]
+                        \fill[red, opacity=0.1]  (0,0) -- (3,0) -- (0,3) -- cycle;
+                    \end{scope}
+                \end{scope}
+            
+                \begin{scope}[
+                    plane x={({0.83*cos(-50)},{0.83*sin(-50)})},
+                    plane y={({0.83*cos(-10)},{0.83*sin(-10)})},
+                    canvas is plane
+                ]
+                    \draw (0,0) -- (3,0) -- (0,3) -- cycle;
+                    % \draw[very thick, -<-=0.5] (3,0) -- (0,3);
+            
+                    % 多様体の向きから誘導される向き
+                    \draw[->] ($(1.2,1.2) + (-0.7,1)$) arc (0:270:0.15);
+                    
+                    % color
+                    \node[DarkGreen] at (0.8,1.3) {$R_3$};
+                    \node[DarkGreen] at (1.3,1.3) {$\epsilon_{R_3} = +$};
+            
+                    \begin{scope}[on background layer]
+                        \fill[DarkGreen, opacity=0.1] (0,0) -- (3,0) -- (0,3) -- cycle;
+                    \end{scope}
+                \end{scope}
+
+                \begin{scope}[
+                    plane x={({0.97*cos(-150)},{0.97*sin(-150)})},
+                    plane y={({0.83*cos(-50)},{0.83*sin(-50)})},
+                    canvas is plane
+                ]
+                    \draw (0,0) -- (3,0) -- (0,3) -- cycle;
+                    % \draw[very thick, -<-=0.5] (3,0) -- (0,3);
+            
+                    % 多様体の向きから誘導される向き
+                    \draw[->] ($(1.2,1.2) + (-0.5,0.5)$) arc (0:270:0.15);
+            
+                    % color
+                    \node[blue] at (0.9,0.7) {$R_2$};
+                    \node[blue] at (1.2,1) {$\epsilon_{R_2} = -$};
+            
+                    \begin{scope}[on background layer]
+                        \fill[LightSlateBlue, opacity=0.1] (0,0) -- (3,0) -- (0,3) -- cycle;
+                    \end{scope}
+                \end{scope}
+            \end{tikzpicture}
+            \caption{有向辺 $\tilde{e} \in \mathsf{E}(P^{(1)}{}^{\mathcal{O}})$ の\hyperref[def:polyhedron]{分岐}の集合 $P^{(1)}_{\tilde{e}} = \{\textcolor{red}{R_1} < \textcolor{blue}{R_2} < \textcolor{DarkGreen}{R_3}\}$ 及び $\epsilon_{R_j} \in \{\pm\}$ の定義．}
+            \label{subfig:STEP1-branch}
+        \end{subfigure}
+        \caption{$\mathcal{H} (\tilde{e};\, \Gamma)$ の構成}
+        \label{fig:STEP1}
+    \end{figure}%
+    
 
     \item[\textbf{STEP2. 全系のベクトル空間の構成}]　
     
@@ -4750,7 +5050,7 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
     \begin{align}
         \mathcal{H} (\tilde{e}_2;\, \Gamma) = \mathcal{H} (\tilde{e}_1;\, \Gamma)^*
     \end{align}
-    が成り立つ．よって補題\ref{lem:nondegen-pairing}の非退化な双線形形式 $\omega_{\Gamma,\, e} \colon \mathcal{H} (\tilde{e}_2;\, \Gamma) \otimes_{\mathbb{K}} \mathcal{H} (\tilde{e}_1;\, \Gamma) \lto \mathbb{K}$ を考えることができ，
+    が成り立つ（図\ref{fig:STEP3}）．よって補題\ref{lem:nondegen-pairing}の非退化な双線形形式 $\omega_{\Gamma,\, e} \colon \mathcal{H} (\tilde{e}_2;\, \Gamma) \otimes_{\mathbb{K}} \mathcal{H} (\tilde{e}_1;\, \Gamma) \lto \mathbb{K}$ を考えることができ，
     補題\ref{lem:TVBW-1}-(5) の構成によりその双対 $\Omega_{\Gamma,\, e} \colon \mathbb{K} \lto \mathcal{H} (\tilde{e}_1;\, \Gamma) \otimes_{\mathbb{K}} \mathcal{H} (\tilde{e}_2;\, \Gamma)$ を得る．特に
     \begin{align}
         \bigotimes_{e \in \mathsf{E}(P^{(1)})} \bigl( \mathcal{H} (\tilde{e}_1;\, \Gamma) \otimes_{\mathbb{K}} \mathcal{H} (\tilde{e}_2;\, \Gamma)\bigr)
@@ -4763,41 +5063,346 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
     \end{align}
     のことを\textbf{contraction vector}と呼ぶ．
 
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \coordinate[bullet] (O) at (0,0,0);
+            \begin{scope}[
+                plane x={({0.83*cos(-50)},{0.83*sin(-50)})},
+                plane y={(0,1)},
+                canvas is plane
+            ]
+                \draw (0,0) -- (3,0) -- (0,3) -- cycle;
+                \node[bullet] at (3,0){};
+                % \draw[very thick, -<-=0.5] (3,0) -- (0,3);
+            
+                % 多様体の向きから誘導される向き
+                \draw[->] ($(1.2,1.2) + (-0.5,0.5)$) arc (0:270:0.15);
+
+                % color
+                \node[red] at (0.8,1.3) {$R_1$};
+                \node[red] at (1,1) {$\epsilon_{R_1} = +$};
+            
+                \begin{pgfonlayer}{foreground}
+                    \draw[very thick, ->-=0.5] (0,0) -- node[midway, left] {$\bm{\tilde{e}_1}$} (3,0);
+                \end{pgfonlayer}
+            
+                \begin{scope}[on background layer]
+                    \fill[red, opacity=0.1]  (0,0) -- (3,0) -- (0,3) -- cycle;
+                \end{scope}
+            \end{scope}
+        
+            \begin{scope}[
+                plane x={({0.83*cos(-50)},{0.83*sin(-50)})},
+                plane y={({0.83*cos(-10)},{0.83*sin(-10)})},
+                canvas is plane
+            ]
+                \draw (0,0) -- (3,0) -- (0,3) -- cycle;
+                % \draw[very thick, -<-=0.5] (3,0) -- (0,3);
+            
+                % 多様体の向きから誘導される向き
+                \draw[->] ($(1.2,1.2) + (-0.7,1)$) arc (0:270:0.15);
+
+                % color
+                \node[DarkGreen] at (0.8,1.3) {$R_3$};
+                \node[DarkGreen] at (1.3,1.3) {$\epsilon_{R_3} = +$};
+            
+                \begin{scope}[on background layer]
+                    \fill[DarkGreen, opacity=0.1] (0,0) -- (3,0) -- (0,3) -- cycle;
+                \end{scope}
+            \end{scope}
+        
+            \begin{scope}[
+                plane x={({0.97*cos(-150)},{0.97*sin(-150)})},
+                plane y={({0.83*cos(-50)},{0.83*sin(-50)})},
+                canvas is plane
+            ]
+                \draw (0,0) -- (3,0) -- (0,3) -- cycle;
+                % \draw[very thick, -<-=0.5] (3,0) -- (0,3);
+            
+                % 多様体の向きから誘導される向き
+                \draw[->] ($(1.2,1.2) + (-0.5,0.5)$) arc (0:270:0.15);
+            
+                % color
+                \node[blue] at (0.9,0.7) {$R_2$};
+                \node[blue] at (1.2,1) {$\epsilon_{R_2} = -$};
+            
+                \node at (1.7,2.3) {$\textcolor{red}{R_1} < \textcolor{blue}{R_2} < \textcolor{DarkGreen}{R_3}$};
+                \begin{scope}[on background layer]
+                    \fill[LightSlateBlue, opacity=0.1] (0,0) -- (3,0) -- (0,3) -- cycle;
+                \end{scope}
+            \end{scope}
+        \end{tikzpicture}
+        \begin{tikzpicture}
+            \coordinate[bullet] (O) at (0,0,0);
+            \begin{scope}[
+                plane x={({0.83*cos(-50)},{0.83*sin(-50)})},
+                plane y={(0,1)},
+                canvas is plane
+            ]
+                \draw (0,0) -- (3,0) -- (0,3) -- cycle;
+                \node[bullet] at (3,0){};
+                % \draw[very thick, -<-=0.5] (3,0) -- (0,3);
+            
+                % 多様体の向きから誘導される向き
+                \draw[->] ($(1.2,1.2) + (-0.5,0.5)$) arc (0:270:0.15);
+
+                % color
+                \node[red] at (0.8,1.3) {$R_1$};
+                \node[red] at (1,1) {$\epsilon_{R_1} = -$};
+            
+                \begin{pgfonlayer}{foreground}
+                    \draw[very thick, -<-=0.5] (0,0) -- node[midway, left] {$\bm{\tilde{e}_2}$} (3,0);
+                \end{pgfonlayer}
+            
+                \begin{scope}[on background layer]
+                    \fill[red, opacity=0.1]  (0,0) -- (3,0) -- (0,3) -- cycle;
+                \end{scope}
+            \end{scope}
+        
+            \begin{scope}[
+                plane x={({0.83*cos(-50)},{0.83*sin(-50)})},
+                plane y={({0.83*cos(-10)},{0.83*sin(-10)})},
+                canvas is plane
+            ]
+                \draw (0,0) -- (3,0) -- (0,3) -- cycle;
+                % \draw[very thick, -<-=0.5] (3,0) -- (0,3);
+            
+                % 多様体の向きから誘導される向き
+                \draw[->] ($(1.2,1.2) + (-0.7,1)$) arc (0:270:0.15);
+
+                % color
+                \node[DarkGreen] at (0.8,1.3) {$R_3$};
+                \node[DarkGreen] at (1.3,1.3) {$\epsilon_{R_3} = -$};
+            
+                \begin{scope}[on background layer]
+                    \fill[DarkGreen, opacity=0.1] (0,0) -- (3,0) -- (0,3) -- cycle;
+                \end{scope}
+            \end{scope}
+        
+            \begin{scope}[
+                plane x={({0.97*cos(-150)},{0.97*sin(-150)})},
+                plane y={({0.83*cos(-50)},{0.83*sin(-50)})},
+                canvas is plane
+            ]
+                \draw (0,0) -- (3,0) -- (0,3) -- cycle;
+                % \draw[very thick, -<-=0.5] (3,0) -- (0,3);
+            
+                % 多様体の向きから誘導される向き
+                \draw[->] ($(1.2,1.2) + (-0.5,0.5)$) arc (0:270:0.15);
+            
+                % color
+                \node[blue] at (0.9,0.7) {$R_2$};
+                \node[blue] at (1.2,1) {$\epsilon_{R_2} = +$};
+            
+                \node at (1.7,2.3) {$\textcolor{DarkGreen}{R_3} < \textcolor{blue}{R_2} < \textcolor{red}{R_1}$};
+            
+                \begin{scope}[on background layer]
+                    \fill[LightSlateBlue, opacity=0.1] (0,0) -- (3,0) -- (0,3) -- cycle;
+                \end{scope}
+            \end{scope}
+        \end{tikzpicture}
+        \caption{有向辺 $\tilde{e}_1,\; \tilde{e}_2$ と，それぞれの\hyperref[def:polyhedron]{分岐}の集合 $P^{(1)}_{\tilde{e}_1} = \{\textcolor{red}{R_1} < \textcolor{blue}{R_2} < \textcolor{DarkGreen}{R_3}\},\, P^{(1)}_{\tilde{e}_2} = \{\textcolor{DarkGreen}{R_3} < \textcolor{blue}{R_2} < \textcolor{red}{R_1}\}$ 及び $\epsilon_{R_j} \in \{\pm\}$ の定義．$\epsilon_{R_j}$ は互いに逆符号であることに注意．}
+        \label{fig:STEP3}
+    \end{figure}%
+
     \item[\textbf{STEP4. 絡みグラフをストリング図式に読み替える}]　
     
     $\forall v \in \mathsf{V}(P^{(1)})$ に対しては，十分小さな開球近傍 $B_v$ およびその\hyperref[def:linkedG]{絡みグラフ} $\mathrm{Lk}(v;\, P) \subset \partial B_v$ をとる．
-    $\forall a \in \mathsf{E}\bigl(\mathrm{Lk}(v;\, P)\bigr)$ はある1つの\hyperref[def:polyhedron]{領域} $R_a \in \mathrm{Reg}(P)$ に含まれているから，$a$ には $\Gamma(R_a) \in \Simp(\Cat{C})$ を割り当てる．
     % $\partial B_v$ には $M$ から誘導される向きを入れ，
-    $a$ には $R_a \setminus \Int(B_a)$ から誘導される向きを入れることで，$\mathrm{Lk}(v;\, P)$ を\underline{有向グラフ}にする．
+    $a$ には $R_a \setminus \Int(B_a)$ から誘導される向きを入れることで，$\mathrm{Lk}(v;\, P)$ を\underline{有向グラフ}にする（図\ref{fig:STEP4}）．
     
-    　ここで，$\forall x \in \mathsf{V}\bigl(\mathrm{Lk}(v;\, P)\bigr)$ に対して勝手な $\alpha_x \in \expval{\Gamma(a_1)^{\varepsilon_{a_1}},\, \dots,\, \Gamma(a_m)^{\varepsilon_{a_m}}} \eqqcolon \mathcal{H}_x\bigl(\mathrm{Lk}(v;\, P);\, \Gamma\bigr)$ を割り当てることで，絡みグラフ $\mathrm{Lk}(v;\, P) \subset \partial B_v$ をストリング図式に読み替える．
-    ただし，$\varepsilon_{a_i}$ は\underline{有向辺} $a_i \in \mathsf{E} \bigl( \mathrm{Lk}(v;\, P) \bigr)$ が $v$ を始点に持つならば $+$，終点に持つならば $-$ を与える．
-    特に $M$ が境界を持たないことから絡みグラフは配位数が $2$ 以上なので，このようにして得られたストリング図式は端点を持たない．
-    i.e. ストリング図式に対応する射は $\mathbb{F}_{\Cat{C},\, \Gamma} \bigl( \mathrm{Lk}(v;\, P) \bigr)\bigl( \bigotimes_{x \in \mathsf{V} \bigl( \mathrm{Lk}(v;\, P) \bigr) } \alpha_x \bigr) \in \Hom{\Cat{C}} (1,\, 1)$ と書ける．これを $\mathbb{K}$-線形に拡張することで
+    　ここで，$a \in \mathsf{E}\bigl(\mathrm{Lk}(v;\, P)\bigr)$ はある1つの\hyperref[def:polyhedron]{領域} $R_a \in \mathrm{Reg}(P)$ に含まれているから，$a$ には $\Gamma(R_a) \in \Simp(\Cat{C})$ を割り当てる．
+    さらに $\forall x \in \mathsf{V}\bigl(\mathrm{Lk}(v;\, P)\bigr)$ に対して勝手な $\alpha_x \in \expval{\Gamma(R_{a_1})^{\varepsilon_{a_1}},\, \dots,\, \Gamma(R_{a_m})^{\varepsilon_{a_m}}} \eqqcolon \mathcal{H}_x\bigl(\mathrm{Lk}(v;\, P);\, \Gamma\bigr)$ を割り当てることで，絡みグラフ $\mathrm{Lk}(v;\, P)$ をストリング図式に読み替える．
+    ただし，$\varepsilon_{a_i}$ は\underline{有向辺} $a_i \in \mathsf{E} \bigl( \mathrm{Lk}(v;\, P) \bigr)$ が $x \in \mathsf{V}\bigl(\mathrm{Lk}(v;\, P)\bigr)$ を始点に持つならば $+$，終点に持つならば $-$ を与える．
+    例えば図\ref{fig:STEP4}の絡みグラフ $\mathrm{Lk}(v;\, P)$ に対応するストリング図式は，
+    \begin{align}
+        \alpha_x &\in \expval{\Gamma(\textcolor{blue}{R_a}),\, \Gamma(\textcolor{LimeGreen}{R_b}),\, \Gamma(\textcolor{red}{R_c})}, \\
+        \alpha_y &\in \expval{\Gamma(\textcolor{blue}{R_a})^*,\, \Gamma(\textcolor{DarkGreen}{R_d}),\, \Gamma(\textcolor{DarkOrange}{R_e})}, \\
+        \alpha_z &\in \expval{\Gamma(\textcolor{LimeGreen}{R_b})^*,\, \Gamma(\textcolor{DarkOrange}{R_e})^*,\,\Gamma(\textcolor{MediumSlateBlue}{R_f})^*}, \\
+        \alpha_w &\in \expval{\Gamma(\textcolor{red}{R_c})^*,\, \Gamma(\textcolor{MediumSlateBlue}{R_f}),\, \Gamma(\textcolor{DarkGreen}{R_d})^*}
+    \end{align}
+    について
+    \begin{align}
+        \mathbb{F}_{\Cat{C},\, \Gamma} \bigl( \mathrm{Lk}(v;\, P) \bigr) \bigl(\alpha_x \otimes_{\mathbb{K}} \alpha_y \otimes_{\mathbb{K}} \alpha_z \otimes_{\mathbb{K}} \alpha_w\bigr)
+        = \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path    coordinate (x)
+            +(30:2) coordinate (y)
+            +(150:2) coordinate (z)
+            +(-90:2) coordinate (w)
+            ;
+            \draw[very thick,->-=.5] (x) -- node[midway,below right] {$\Gamma(\textcolor{blue}{R_a})$} (y);
+            \draw[very thick,->-=.5] (x) -- node[midway,below] {$\Gamma(\textcolor{LimeGreen}{R_b})$} (z);
+            \draw[very thick,->-=.5] (x) -- node[midway,right] {$\Gamma(\textcolor{red}{R_c})$} (w);
+            \draw[very thick,->-=.5] (y) arc (30:-90:2) node[midway,right] {$\Gamma(\textcolor{DarkGreen}{R_d})$};
+            \draw[very thick,->-=.5] (y) arc (30:150:2) node[midway,above] {$\Gamma(\textcolor{DarkOrange}{R_e})$};
+            \draw[very thick,->-=.5] (w) arc (-90:-210:2) node[midway,left] {$\Gamma(\textcolor{MediumSlateBlue}{R_f})$};
+            \node[circlenode] at (x) {$\alpha_x$};
+            \node[circlenode] at (y) {$\alpha_y$};
+            \node[circlenode] at (z) {$\alpha_z$};
+            \node[circlenode] at (w) {$\alpha_w$};
+        \end{tikzpicture}
+    \end{align}
+    と読み取れる．
+
+    　$M$ が境界を持たないことから\hyperref[def:linkedG]{絡みグラフ} $\mathrm{Lk}(v;\, P)$ の配位数は $2$ 以上なので，このようにして得られたストリング図式は端点を持たない．
+    i.e. ストリング図式に対応する射は $\mathbb{F}_{\Cat{C},\, \Gamma} \bigl( \mathrm{Lk}(v;\, P) \bigr)\bigl( \bigotimes_{x \in \mathsf{V} \bigl( \mathrm{Lk}(v;\, P) \bigr) } \alpha_x \bigr) \in \Hom{\Cat{C}} (1,\, 1) = \mathbb{K}$ を充たす．これを $\mathbb{K}$-線形に拡張することで
     ，$\mathbb{K}$-線型写像
     \begin{align}
-        \mathbb{F}_{\Cat{C},\, \Gamma} \bigl( \mathrm{Lk}(v;\, P) \bigr) \in \Hom{\VEC{\mathbb{K}}} \Bigl( \mathcal{H}\bigl(\mathrm{Lk}(v;\, P);\, \Gamma\bigr),\, \mathbb{K}\Bigr) 
+        \mathbb{F}_{\Cat{C},\, \Gamma} \bigl( \mathrm{Lk}(v;\, P) \bigr) \in \Hom{\VEC{\mathbb{K}}} \Bigl( \bigotimes_{x \in \mathsf{V} \bigl( \mathrm{Lk}(v;\, P) \bigr)} \mathcal{H}_x\bigl(\mathrm{Lk}(v;\, P) \bigr),\, \mathbb{K}\Bigr) 
     \end{align}
-    を得る．ただし，
-    \begin{align}
-        \mathcal{H}\bigl(\mathrm{Lk}(v;\, P) \bigr) \coloneqq \bigotimes_{x \in \mathsf{V} \bigl( \mathrm{Lk}(v;\, P) \bigr)} \mathcal{H}_x\bigl(\mathrm{Lk}(v;\, P) \bigr)
-    \end{align}
-    とおいた．
-    
+    を得る．
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \shade[ball color = lightgray,opacity = 0.5] (0,0,0) circle (1.1);
+            \coordinate[bullet, label=left:$v$] (O) at (0,0,0);
+            \begin{scope}[
+                plane x={({0.83*cos(-10)},{0.83*sin(-10)})},
+                plane y={(0,1)},
+                canvas is plane
+            ]
+                \draw[very thick, spath/save=f1] (0,0) -- (3,0) -- (0,3) -- cycle;
+
+                \node[bullet] at (3,0){};
+                \node[bullet] at (0,3){};
+            
+                % 多様体の向きから誘導される向き
+                \draw[->] (1.3,1.3) arc (0:270:0.15);
+                \node at (1.6,1.0) {$\textcolor{blue}{R_a}$};
+                % linked graph
+                \draw[very thick, dashed, blue, -<-=.5] (1.0,0) node[blue,bullet] {} arc (0:90:1.0) node[midway, right] {$\textcolor{blue}{a}$} node[blue,bullet] {};
+            
+                \begin{scope}[on background layer]
+                    \fill[blue, opacity=0.1, spath/use=f1];
+                \end{scope}
+            \end{scope}
+        
+            \begin{scope}[
+                plane x={({0.97*cos(-150)},{0.97*sin(-150)})},
+                plane y={(0,1)},
+                canvas is plane
+            ]
+                \draw[very thick, spath/save=f2] (0,0) -- (3,0) -- (0,3) -- cycle;
+                \node[bullet] at (3,0){};
+            
+                % 多様体の向きから誘導される向き
+                \draw[->] (1.3,1.3) arc (0:270:0.15);
+                \node at (1.6,1.0) {$\textcolor{LimeGreen}{R_b}$};
+                % linked graph
+                \draw[very thick, blue, -<-=.5] (1.0,0) node[blue,bullet] {} arc (0:90:1.0) node[midway, left] {$\textcolor{LimeGreen}{b}$} node[blue,bullet] {};
+            
+                \begin{scope}[on background layer]
+                    \fill[green, opacity=0.1, spath/use=f2];
+                \end{scope}
+            \end{scope}
+        
+            \begin{scope}[
+                plane x={({0.83*cos(-50)},{0.83*sin(-50)})},
+                plane y={(0,1)},
+                canvas is plane
+            ]
+                \draw[very thick, spath/save=f3] (0,0) -- (3,0) -- (0,3) -- cycle;
+                \node[bullet] at (3,0){};
+            
+                % 多様体の向きから誘導される向き
+                \draw[->] (0.5,2.0) arc (0:270:0.15);
+                \node at (0.5,1.7) {$\textcolor{red}{R_c}$};
+                % linked graph
+                \draw[very thick, blue, -<-=.5] (1.0,0) node[blue,bullet] {} arc (0:90:1.0) node[midway, right] {$\textcolor{red}{c}$} node[blue,bullet] {};
+            
+                \begin{scope}[on background layer]
+                    \fill[red, opacity=0.1, spath/use=f3];
+                \end{scope}
+            \end{scope}
+        
+            \begin{scope}[
+                plane x={({0.83*cos(-50)},{0.83*sin(-50)})},
+                plane y={({0.83*cos(-10)},{0.83*sin(-10)})},
+                canvas is plane
+            ]
+                \draw[very thick, spath/save=f4] (0,0) -- (3,0) -- (0,3) -- cycle;
+            
+                % 多様体の向きから誘導される向き
+                \draw[->] (1.3,1.3) arc (0:270:0.15);
+                \node at (1.6,1.0) {$\textcolor{DarkGreen}{R_d}$};
+                % linked graph
+                \draw[very thick, blue, -<-=.5] (1.0,0) node[blue,bullet] {} arc (0:90:1.0) node[midway, right] {$\textcolor{DarkGreen}{d}$} node[blue,bullet] {};
+            
+                \begin{scope}[on background layer]
+                    \fill[DarkGreen, opacity=0.1, spath/use=f4];
+                \end{scope}
+            \end{scope}
+        
+            \begin{scope}[
+                plane x={({0.83*cos(-10)},{0.83*sin(-10)})},
+                plane y={({0.97*cos(-150)},{0.97*sin(-150)})},
+                canvas is plane
+            ]
+                \draw[very thick, dashed,spath/save=f5] (0,0) -- (3,0) -- (0,3) -- cycle;
+            
+                % 多様体の向きから誘導される向き
+                \draw[->] (0.5,2.0) arc (0:-270:0.15);
+                \node at (0.5,1.5) {$\textcolor{DarkOrange}{R_e}$};
+                % linked graph
+                \draw[very thick, dashed, blue, ->-=.5] (1.0,0) node[blue,bullet] {} arc (0:90:1.0) node[midway,below] {$\textcolor{DarkOrange}{e}$} node[blue,bullet] {};
+            
+                \begin{scope}[on background layer]
+                    \fill[DarkOrange, opacity=0.1, spath/use=f5];
+                \end{scope}
+            \end{scope}
+        
+            \begin{scope}[
+                plane x={({0.97*cos(-150)},{0.97*sin(-150)})},
+                plane y={({0.83*cos(-50)},{0.83*sin(-50)})},
+                canvas is plane
+            ]
+                \draw[very thick, spath/save=f6] (0,0) -- (3,0) -- (0,3) -- cycle;
+            
+                % 多様体の向きから誘導される向き
+                \draw[->] (1.3,1.3) arc (0:270:0.15);
+                \node at (1.6,1.0) {$\textcolor{MediumSlateBlue}{R_f}$};
+                % linked graph
+                \draw[very thick, blue, -<-=.5] (1.0,0) node[blue,bullet] {} arc (0:90:1.0) node[midway, below] {$\textcolor{MediumSlateBlue}{f}$} node[blue,bullet] {};
+            
+                \begin{scope}[on background layer]
+                    \fill[LightSlateBlue, opacity=0.1, spath/use=f6];
+                \end{scope}
+            \end{scope}
+        \end{tikzpicture}
+        $\lmto$
+        \begin{tikzpicture}
+            \path    coordinate[blue,bullet,label=above:$x$] (x)
+            +(30:2) coordinate[blue,bullet,label=above right:$y$] (y)
+            +(150:2) coordinate[blue,bullet,label=above left:$z$] (z)
+            +(-90:2) coordinate[blue,bullet,label=below:$w$] (w)
+            ;
+            \draw[very thick,blue,->-=.5] (x) -- node[midway,right] {$\textcolor{blue}{a}$} (y);
+            \draw[very thick,blue,->-=.5] (x) -- node[midway,left] {$\textcolor{LimeGreen}{b}$} (z);
+            \draw[very thick,blue,->-=.5] (x) -- node[midway,right] {$\textcolor{red}{c}$} (w);
+            \draw[very thick,blue,->-=.5] (y) arc (30:-90:2) node[midway,right] {$\textcolor{DarkGreen}{d}$};
+            \draw[very thick,blue,->-=.5] (y) arc (30:150:2) node[midway,above] {$\textcolor{DarkOrange}{e}$};
+            \draw[very thick,blue,->-=.5] (w) arc (-90:-210:2) node[midway,left] {$\textcolor{MediumSlateBlue}{f}$};
+        \end{tikzpicture}
+        \caption{有向グラフ $\mathrm{Lk}(v;\, P)$}
+        \label{fig:STEP4}
+    \end{figure}%
+
     \item[\textbf{STEP5. アイソトピー不変量の構成}]　
     
+    $\mathbb{K}$-ベクトル空間としての同型
     \begin{align}
-        \mathcal{H}\bigl(\mathrm{Lk}(v;\, P);\, \Gamma\bigr) \cong \bigotimes_{\tilde{e}_v;\, v\, \text{を始点に持つ}} \mathcal{H}(\tilde{e}_v;\, \Gamma)
+        \bigotimes_{x \in \mathsf{V} \bigl( \mathrm{Lk}(v;\, P) \bigr)} \mathcal{H}_x\bigl(\mathrm{Lk}(v;\, P) \bigr) \cong \bigotimes_{\tilde{e}_v;\, v\, \text{を始点に持つ}} \mathcal{H}(\tilde{e}_v;\, \Gamma)
     \end{align}
     に注意すると
     \begin{align}
-        \bigotimes_{v \in \mathsf{V}(P^{(1)})}\Hom{\VEC{\mathbb{K}}} \Bigl( \mathcal{H}\bigl(\mathrm{Lk}(v;\, P);\, \Gamma\bigr),\, \mathbb{K}\Bigr)  
-        &\cong \bigotimes_{v} \bigotimes_{\tilde{e}_v;\, v\, \text{を始点に持つ}} \Hom{\VEC{\mathbb{K}}} \left( \mathcal{H}(\tilde{e}_v;\, \Gamma),\, \mathbb{K}\right) \\
+        &\bigotimes_{v \in \mathsf{V}(P^{(1)})}\Hom{\VEC{\mathbb{K}}} \Bigl( \bigotimes_{x \in \mathsf{V} \bigl( \mathrm{Lk}(v;\, P) \bigr)} \mathcal{H}_x\bigl(\mathrm{Lk}(v;\, P) \bigr),\, \mathbb{K}\Bigr) \\
+        &\cong \Hom{\VEC{\mathbb{K}}} \Bigl( \bigotimes_{v \in \mathsf{V} \bigl( \mathrm{Lk}(v;\, P) \bigr)} \bigotimes_{\tilde{e}_v;\, v\, \text{を始点に持つ}} \mathcal{H}(\tilde{e}_v;\, \Gamma),\, \mathbb{K}\Bigr) \\
         &\cong \Hom{\VEC{\mathbb{K}}} \bigl(\mathcal{H}(\Gamma),\, \mathbb{K}\bigr)
     \end{align}
     が成り立つことが分かる．よって
     \begin{align}
-        z(\Gamma;\, P) \coloneqq \bigotimes_{v}\mathbb{F}_{\Cat{C},\, \Gamma} \bigl( \mathrm{Lk}(v;\, P) \bigr) \in \Hom{\VEC{\mathbb{K}}} \bigl(\mathcal{H}(c),\, \mathbb{K}\bigr)
+        z(\Gamma;\, P) \coloneqq \bigotimes_{v \in \mathsf{V}(P^{(1)})}\mathbb{F}_{\Cat{C},\, \Gamma} \bigl( \mathrm{Lk}(v;\, P) \bigr) \in \Hom{\VEC{\mathbb{K}}} \bigl(\mathcal{H}(\Gamma),\, \mathbb{K}\bigr)
     \end{align}
     だと分かった．これで\eqref{eq:contraction}を写像することで
     \begin{align}
@@ -4835,7 +5440,7 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
 \end{mydef}
 
 \begin{mytheo}[label=thm:TV-closed]{}
-    Turaev不変量 $\irm{Z}{\text{TV},\Cat{C}}(M)$ は\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)})$ の取り方によらない．
+    Turaev-Viro不変量 $\irm{Z}{\text{TV},\Cat{C}}(M)$ は\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)})$ の取り方によらない．
 \end{mytheo}
 
 \begin{proof}
