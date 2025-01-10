@@ -5208,12 +5208,13 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
 
     \item[\textbf{STEP4. 絡みグラフをストリング図式に読み替える}]　
     
-    $\forall v \in \mathsf{V}(P^{(1)})$ に対しては，十分小さな開球近傍 $B_v$ およびその\hyperref[def:linkedG]{絡みグラフ} $\mathrm{Lk}(v;\, P) \subset \partial B_v$ をとる．
+    $\forall v \in \mathsf{V}(P^{(1)})$ を1つ固定し，
+    頂点 $v$ の十分小さな開球近傍 $B_v$ およびその\hyperref[def:linkedG]{絡みグラフ} $\mathrm{Lk}(v;\, P) \subset \partial B_v$ をとる．
     % $\partial B_v$ には $M$ から誘導される向きを入れ，
     $a$ には $R_a \setminus \Int(B_a)$ から誘導される向きを入れることで，$\mathrm{Lk}(v;\, P)$ を\underline{有向グラフ}にする（図\ref{fig:STEP4}）．
     
     　ここで，$a \in \mathsf{E}\bigl(\mathrm{Lk}(v;\, P)\bigr)$ はある1つの\hyperref[def:polyhedron]{領域} $R_a \in \mathrm{Reg}(P)$ に含まれているから，$a$ には $\Gamma(R_a) \in \Simp(\Cat{C})$ を割り当てる．
-    さらに $\forall x \in \mathsf{V}\bigl(\mathrm{Lk}(v;\, P)\bigr)$ に対して勝手な $\alpha_x \in \expval{\Gamma(R_{a_1})^{\varepsilon_{a_1}},\, \dots,\, \Gamma(R_{a_m})^{\varepsilon_{a_m}}} \eqqcolon \mathcal{H}_x\bigl(\mathrm{Lk}(v;\, P);\, \Gamma\bigr)$ を割り当てることで，絡みグラフ $\mathrm{Lk}(v;\, P)$ をストリング図式に読み替える．
+    さらに $\forall x \in \mathsf{V}\bigl(\mathrm{Lk}(v;\, P)\bigr)$ に対して勝手な $\alpha_x \in \expval{\Gamma(R_{a_1})^{\varepsilon_{a_1}},\, \dots,\, \Gamma(R_{a_m})^{\varepsilon_{a_m}}} \eqqcolon \mathcal{H}_x\bigl(\mathrm{Lk}(v;\, P);\, \Gamma\bigr)$ を割り当てることで，絡みグラフ $\mathrm{Lk}(v;\, P)$ をストリング図式 $\mathbb{F}_{\Cat{C},\, \Gamma} \bigl( \mathrm{Lk}(v;\, P) \bigr)\bigl( \bigotimes_{x \in \mathsf{V} \bigl( \mathrm{Lk}(v;\, P) \bigr) } \alpha_x \bigr)$ に読み替える．
     ただし，$\varepsilon_{a_i}$ は\underline{有向辺} $a_i \in \mathsf{E} \bigl( \mathrm{Lk}(v;\, P) \bigr)$ が $x \in \mathsf{V}\bigl(\mathrm{Lk}(v;\, P)\bigr)$ を始点に持つならば $+$，終点に持つならば $-$ を与える．
     例えば図\ref{fig:STEP4}の絡みグラフ $\mathrm{Lk}(v;\, P)$ に対応するストリング図式は，
     \begin{align}
@@ -5246,7 +5247,7 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
     と読み取れる．
 
     　$M$ が境界を持たないことから\hyperref[def:linkedG]{絡みグラフ} $\mathrm{Lk}(v;\, P)$ の配位数は $2$ 以上なので，このようにして得られたストリング図式は端点を持たない．
-    i.e. ストリング図式に対応する射は $\mathbb{F}_{\Cat{C},\, \Gamma} \bigl( \mathrm{Lk}(v;\, P) \bigr)\bigl( \bigotimes_{x \in \mathsf{V} \bigl( \mathrm{Lk}(v;\, P) \bigr) } \alpha_x \bigr) \in \Hom{\Cat{C}} (1,\, 1) = \mathbb{K}$ を充たす．これを $\mathbb{K}$-線形に拡張することで
+    i.e. $\mathbb{F}_{\Cat{C},\, \Gamma} \bigl( \mathrm{Lk}(v;\, P) \bigr)\bigl( \bigotimes_{x \in \mathsf{V} \bigl( \mathrm{Lk}(v;\, P) \bigr) } \alpha_x \bigr) \in \Hom{\Cat{C}} (1,\, 1) = \mathbb{K}$ が成り立つ．これを $\mathbb{K}$-線形に拡張することで
     ，$\mathbb{K}$-線型写像
     \begin{align}
         \mathbb{F}_{\Cat{C},\, \Gamma} \bigl( \mathrm{Lk}(v;\, P) \bigr) \in \Hom{\VEC{\mathbb{K}}} \Bigl( \bigotimes_{x \in \mathsf{V} \bigl( \mathrm{Lk}(v;\, P) \bigr)} \mathcal{H}_x\bigl(\mathrm{Lk}(v;\, P) \bigr),\, \mathbb{K}\Bigr) 
@@ -5397,7 +5398,7 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
     に注意すると
     \begin{align}
         &\bigotimes_{v \in \mathsf{V}(P^{(1)})}\Hom{\VEC{\mathbb{K}}} \Bigl( \bigotimes_{x \in \mathsf{V} \bigl( \mathrm{Lk}(v;\, P) \bigr)} \mathcal{H}_x\bigl(\mathrm{Lk}(v;\, P) \bigr),\, \mathbb{K}\Bigr) \\
-        &\cong \Hom{\VEC{\mathbb{K}}} \Bigl( \bigotimes_{v \in \mathsf{V} \bigl( \mathrm{Lk}(v;\, P) \bigr)} \bigotimes_{\tilde{e}_v;\, v\, \text{を始点に持つ}} \mathcal{H}(\tilde{e}_v;\, \Gamma),\, \mathbb{K}\Bigr) \\
+        &\cong \Hom{\VEC{\mathbb{K}}} \Bigl( \bigotimes_{v \in \mathsf{V}(P^{(1)})} \bigotimes_{\tilde{e}_v;\, v\, \text{を始点に持つ}} \mathcal{H}(\tilde{e}_v;\, \Gamma),\, \mathbb{K}\Bigr) \\
         &\cong \Hom{\VEC{\mathbb{K}}} \bigl(\mathcal{H}(\Gamma),\, \mathbb{K}\bigr)
     \end{align}
     が成り立つことが分かる．よって
@@ -5434,7 +5435,7 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
     向き付けられた3次元閉多様体 $M$ および\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)})$ をとる．
     \textbf{Turaev-Viro不変量}を
     \begin{align}
-        \irm{Z}{\text{TV},\Cat{C}}(M) \coloneqq \left( \sum_{a \in \mathrm{Simp}(\Cat{C})} \dim(a)^2\right)^{-v(M)} \sum_{\Gamma \colon \mathrm{Reg} \lto \Simp(\Cat{C})} Z(\Gamma;\, P) \prod_{R \in \mathrm{Reg}(P)} \dim \bigl( \Gamma(R) \bigr)^{\chi(R)}
+        \irm{Z}{\text{TV},\Cat{C}}(M) \coloneqq \left( \sum_{a \in \mathrm{Simp}(\Cat{C})} \dim(a)^2\right)^{-v(M)} \sum_{\Gamma \colon \mathrm{Reg}(P) \lto \Simp(\Cat{C})} \left(Z(\Gamma;\, P) \prod_{R \in \mathrm{Reg}(P)} \dim \bigl( \Gamma(R) \bigr)^{\chi(R)}\right)
     \end{align}
     で定義する．ただし $v(M)$ は $M \setminus P$ の連結成分の個数で，$\chi (R)$ は\hyperref[def:polyhedron]{領域} $R \in \mathrm{Reg}(P)$ のEuler標数である．
 \end{mydef}
