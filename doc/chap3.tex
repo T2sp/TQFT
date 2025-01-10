@@ -4430,6 +4430,9 @@ $M$ の多面体分割 $(P,\, P^{(1)})$ の任意の頂点 $v \in \mathsf{V}(P^{
     \label{def:linkedG}
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
         \coordinate[bullet, label=above:$v$] (O) at (0,0,0);
+        \shade[ball color = lightgray,opacity = 0.5] (O) circle (1.6);
+        \node at (2,2,0) {$B_v$};
+        \draw[->] (2,2,0) -- ++(-1,-1,0);
         \begin{scope}[canvas is xy plane at z=0]
             % \path coordinate (dlXY) at (-2,-2)
             % +(4,0) coordinate (drXY)
