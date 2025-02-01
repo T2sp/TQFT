@@ -4,15 +4,17 @@
 
 \setcounter{chapter}{3}
 
-\chapter{位相的場の理論の展開：SPT相の分類}
+\chapter{圏論とトポロジカル相}
 
-この節で登場する多様体は特に断らない限り常に $C^\infty$ 多様体である．また，体 $\mathbb{K}$ と言ったら $\mathbb{K} = \mathbb{R},\, \mathbb{C},\, \mathbb{H}$ のいずれかを指す．
+この節で登場する多様体は特に断らない限り常に $C^\infty$ 多様体である．また，体 $\mathbb{K}$ と言ったら $\mathbb{K} = \mathbb{R},\, \mathbb{C},\, \mathbb{H}$ のいずれかを指すことにする．
 
-\section{SPT相の定義}
+\section{トポロジカル秩序の定義}
 
-この節では常に $d \coloneqq D+1$ 次元時空 $\mfdcal{M}{d} = \mfd{\Sigma}{D} \times \mathbb{R}$ または\footnote{時間方向は必要に応じてコンパクト化する} $\mfd{\Sigma}{D} \times S^1$ を考える．
+% \section{SPT相の定義}
+
+この節では常に $d \coloneqq D+1$ 次元時空 $\mfdcal{M}{d} = \mfd{\Sigma}{D} \times \mathbb{R}$ または $\mfd{\Sigma}{D} \times S^1$ を考える\footnote{i.e. 時間方向は必要に応じてコンパクト化する}．
 混乱が生じない時は時空点を $x \coloneqq (\bm{x},\, t) \in \mfd{\Sigma}{D} \times \mathbb{R}$ と書く．
-$D$ 次元多様体\footnote{closedでなくとも良い．} $\mfd{\Sigma}{D}$ はノルム $\norm*{\cdot}$ を持つ距離空間であるとする．
+境界を持たない $D$ 次元多様体\footnote{コンパクト性は仮定しない．} $\mfd{\Sigma}{D}$ はノルム $\norm*{\cdot}$ を持つ距離空間であるとする．
 
 \begin{itemize}
     \item $\mfd{\Sigma}{D}$ 上の $D$ 次元\textbf{格子} (lattice) $\Lambda \subset \mfd{\Sigma}{D}$ とは，$\mfd{\Sigma}{D}$ の有限な\footnote{空間多様体 $\mfd{\Sigma}{D}$ や局所Hilbert空間に適当な境界条件を課して有限にする．}離散部分集合のことである．
@@ -20,41 +22,138 @@ $D$ 次元多様体\footnote{closedでなくとも良い．} $\mfd{\Sigma}{D}$ �
     \item 全系のHilbert空間とは，合成系 $\irm{\mathcal{H}}{tot} \coloneqq \bigotimes_{\bm{x} \in \Lambda} \mathcal{H}_{\bm{x}}$ のことである．
 \end{itemize}
 
-\begin{mydef}[label=def:bosonic-lattice-model]{bosonicな格子模型}
+\begin{mydefph}[label=def:bosonic-lattice-model,breakable]{bosonicな格子模型}
+    $D$ 次元格子 $\Lambda \subset$ を1つ固定する．
     \begin{itemize}
         \item $\forall \bm{x} \in \Lambda$ を1つとる．別の格子点 $\bm{y} \in \Lambda$ が $\bm{x}$ についてレンジ $R > 0$ であるとは，$\norm*{\bm{x} - \bm{y}} \le R$ が成り立つことを言う．$\bm{x}$ についてレンジ $R$ な格子点全体の集合を $N_R (\bm{x}) \subset \Lambda$ と書く．
-        \item 格子 $\Lambda$ 上のレンジ $R > 0$ の（量子的）\textbf{bosonicな格子模型}とは，
-        $\forall \bm{x} \in \Lambda$ に対して，$\forall \bm{y} \in N_R(\bm{x})$ における局所的Hilbert空間 $\mathcal{H}_{\bm{y}}$ にのみ非自明に作用するエルミート演算子 $\hat{h}_{\bm{x}} \in \Hom{\HILB} (\irm{\mathcal{H}}{tot},\, \irm{\mathcal{H}}{tot})$ が存在して，
-        \begin{align}
-            \hat{H} = \sum_{\bm{x} \in \Lambda} \hat{h}_{\bm{x}}
-        \end{align}
-        と書かれるエルミート演算子 $\hat{H} \in \Hom{\HILB} (\irm{\mathcal{H}}{tot},\, \irm{\mathcal{H}}{tot})$ のこと．
+        \item \underline{格子 $\Lambda$ 上の}レンジ $R > 0$ の\textbf{bosonicな格子模型} (bosonic lattice model) とは，エルミート演算子 $\hat{H}_{\Lambda} \in \Hom{\HILB} (\irm{\mathcal{H}}{tot},\, \irm{\mathcal{H}}{tot})$ であって以下の条件を充たすもののことを言う：
+        
+        \begin{description}
+            \item[\textbf{(locality)}] $\forall \bm{x} \in \Lambda$ に対して，$\forall \bm{y} \in N_R(\bm{x})$ における局所的Hilbert空間 $\mathcal{H}_{\bm{y}}$ にのみ非自明に作用するエルミート演算子 $\hat{h}_{\bm{x}} \in \Hom{\HILB} (\irm{\mathcal{H}}{tot},\, \irm{\mathcal{H}}{tot})$ が存在して，
+            \begin{align}
+                \hat{H}_{\Lambda} = \sum_{\bm{x} \in \Lambda} \hat{h}_{\bm{x}}
+            \end{align}
+            と書ける．
+        \end{description}
+        
     \end{itemize}
     
     \tcblower
 
-    bosonicな格子模型の基底状態を\textbf{bosonicな基底状態}と呼ぶ．
-\end{mydef}
-
-\begin{mydef}[label=def:gapped]{gappedな格子模型}
-    \hyperref[def:bosonic-lattice-model]{bosonicな格子模型} $\hat{H}$ が\textbf{gapped}であるとは，熱力学極限を取った際に基底状態 $E_0$ と第一励起状態 $E_1$ の間に有限のエネルギーギャップ $\Delta \coloneqq E_1 - E_0 > 0$ が存在し，かつ\underline{基底状態が一意}であることを言う．
-\end{mydef}
-
-熱力学極限 $\abs{\Lambda} \to \infty$ をとった $\mfd{\Sigma}{D}$ 上の\hyperref[def:bosonic-lattice-model]{bosonicな格子模型}全体の集合を $\bm{\Lat{\mfd{\Sigma}{D}}} \subset \Hom{\HILB} (\irm{\mathcal{H}}{tot},\, \irm{\mathcal{H}}{tot})$ と書き，\footnote{$\irm{\mathcal{H}}{tot}$ は一般には熱力学極限の取り方に依存する．}
-$\Lat{\mfd{\Sigma}{D}}$ の元の基底状態全体の集合を $\bm{\Gnd{\mfd{\Sigma}{D}}} \subset \irm{\mathcal{H}}{tot}$ と書く．
-$\Lat{\mfd{\Sigma}{D}}$ にコンパクト開位相\footnote{operator normによる距離位相としても良い．}を入れて位相空間にする．
-~\cite[p.3]{ChenGuWen2010}に倣い，\textbf{量子相} (quantum phase) を以下のように定義する：
-
-\begin{mydef}[label=def:quantum-phase]{bosonicな量子相}
-    2つの\hyperref[def:bosonic-lattice-model]{bosonicな格子模型} $\hat{H}_0,\, \hat{H}_1 \in \Lat{\mfd{\Sigma}{D}}$ を与える．
-
     \begin{itemize}
-        \item $\hat{H}_0$ の基底状態 $\ket{\Phi_0} \in \Gnd{\mfd{\Sigma}{D}}$ と $\hat{H}_1$ の基底状態 $\ket{\Phi_1} \in \Gnd{\mfd{\Sigma}{D}}$ が同じ\textbf{量子相} (quantum phase) にあるとは，$C^\infty$ 曲線 $\hat{H} \colon [0,\, 1] \lto \Lat{\mfd{\Sigma}{D}}$ が存在して
-            $\hat{H}(0) = \hat{H}_0 \AND \hat{H}(1) = \hat{H}_1$ を充たすこと．これは $\Gnd{\mfd{\Sigma}{D}}$ 上の同値関係 $\sim$ をなす．
-        \item 商集合 $\Gnd{\mfd{\Sigma}{D}}/{\sim}$ の元のことを\textbf{量子相}と呼ぶ．
+        \item $D$ 次元の\textbf{bosonicな量子系} (bosonic quantum system) とは，
+        \begin{itemize}
+            \item 格子の増大列\footnote{i.e. $\Lambda_1 \subsetneq \Lambda_2 \subsetneq \cdots$ が成り立つ．} $\{\Lambda_i\}_{i=1}^\infty$
+            \item bosonicな格子模型の列 $\{\hat{H}_{\Lambda_i}\}_{i=1}^\infty$
+        \end{itemize}
+        の組のこと．
     \end{itemize}
     
-\end{mydef}
+\end{mydefph}
+
+\subsection{gapped quantum liquidと量子相}
+
+\begin{mydefph}[label=def:gapped,breakable]{gappedな量子系}
+    \hyperref[def:bosonic-lattice-model]{bosonicな量子系} $\bigl( \{\Lambda_i\}_i,\, \{\hat{H}_{\Lambda_i}\}_i \bigr)$ が\textbf{gapped}であるとは，
+    ある $\Delta > 0$ および $E_0$ が存在して以下の条件を充たすことを言う（図\ref{fig:gapped}）：
+    \begin{description}
+        \item[\textbf{(gap-1)}] $\forall E \in (E_0,\, E_0+\Delta)$ に対してある $M_E \in \mathbb{N}$ が存在して，
+        \begin{align}
+            i > N_E \IMP \mathrm{Spec}(\hat{H}_{\Lambda_i}) \cap (E_0,\, E_0+\Delta) = \emptyset
+        \end{align}
+        が成り立つ．
+        \item[\textbf{(gap-2)}] $\forall \varepsilon > 0$ に対してある $N_\varepsilon \in \mathbb{N}$ が存在して，
+        \begin{align}
+            i > N_\varepsilon \IMP \mathrm{diam}\bigl(\Spec (\hat{H}_{\Lambda_i}) \cap (-\infty,\, E_0] \bigr) < \varepsilon
+        \end{align}
+        が成り立つ．
+    \end{description}
+    特に，十分大きな $i \in \mathbb{N}$ について定まる
+    \begin{align}
+        \mathrm{GSD}_{\Lambda_i}\bigl(\{\hat{H}_{\Lambda_i}\}\bigr) \coloneqq \abs{\Spec (\hat{H}_{\Lambda_i}) \cap (-\infty,\, E_0]}
+    \end{align}
+    のことを\textbf{基底状態の縮退度} (ground state degeneracy) と呼ぶ．
+\end{mydefph}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \path coordinate (E_0)
+        ++(0,0.1) coordinate (E_1)
+        +(1.2,0.05) coordinate (g)
+        +(3.2,0.05) coordinate (lim)
+        ++(0,0.1) coordinate (E_2)
+        ++(0,0.1) coordinate (E_3)
+        ++(0,1) coordinate (E_4)
+        ++(0,0.2) coordinate (E_5)
+        ++(0,0.1) coordinate (E_6)
+        ++(0,0.3) coordinate (E_7)
+        ++(0,0.1) coordinate (E_8)
+        ++(0,0.1) coordinate (E_9)
+        ;
+        \foreach \i in {0,...,9} {
+            \draw (E_\i) -- ($(E_\i) + (1,0)$);
+        }
+        \draw[<->] ($(E_3)+(0.5,0)$) -- node[midway,fill=white] {$\Delta$} ($(E_4)+(0.5,0)$);
+        \node at (g) {$\}$};
+        \draw[->] ($(g)+(0.1,0)$) -- node[midway,above] {$i \to \infty$} ($(lim)-(0.2,0)$);
+        \draw[very thick] (lim) -- ++(1,0);
+    \end{tikzpicture}
+    \caption{gappedな量子系のエネルギースペクトル $\mathrm{Spec}(\hat{H}_{\Lambda_i})$}
+    \label{fig:gapped}
+\end{figure}%
+
+
+\begin{mydefph}[label=def:gappedQL]{gapped quantum liquid}
+    \hyperref[def:gapped]{gapped}かつ\hyperref[def:bosonic-lattice-model]{bosonicな量子系} $\bigl( \{\Lambda_i\}_i,\, \{\hat{H}_{\Lambda_i}\}_i \bigr)$ が\textbf{gappedな量子液体} (gapped quantum liquid) であるとは，
+    ある $N \in \mathbb{N}$ が存在して
+    \begin{align}
+        \mathrm{GSD}_{\Lambda_{N}}\bigl( \{\hat{H}_{\Lambda_i}\} \bigr) = \mathrm{GSD}_{\Lambda_{N+1}}\bigl( \{\hat{H}_{\Lambda_i}\} \bigr) = \mathrm{GSD}_{\Lambda_{N+2}}\bigl( \{\hat{H}_{\Lambda_i}\} \bigr) = \cdots < \infty
+    \end{align}
+    が成り立つことを言う．
+\end{mydefph}
+
+\begin{marker}
+    gapless quantum liquidの定義は，2025年現在でもこれといったものがない．
+\end{marker}
+
+\begin{myexample}[label=ex:Haah]{Haahコード}
+    Haahコード~\cite{Haah2011}の基底状態の縮退度は
+    \begin{align}
+        \ln(\mathrm{GSD}_{\Lambda_i}) \sim \abs{\Lambda_i}
+    \end{align}
+    と振る舞うことが知られており，\hyperref[def:gapped]{gapped}だが\hyperref[def:gappedQL]{gappedな量子液体}でない\hyperref[def:bosonic-lattice-model]{bosonicな量子系}の例である．
+\end{myexample}
+
+% 熱力学極限 $\abs{\Lambda} \to \infty$ をとった $\mfd{\Sigma}{D}$ 上の\hyperref[def:bosonic-lattice-model]{bosonicな格子模型}全体の集合を $\bm{\Lat{\mfd{\Sigma}{D}}} \subset \Hom{\HILB} (\irm{\mathcal{H}}{tot},\, \irm{\mathcal{H}}{tot})$ と書き，\footnote{$\irm{\mathcal{H}}{tot}$ は一般には熱力学極限の取り方に依存する．}
+% $\Lat{\mfd{\Sigma}{D}}$ の元の基底状態全体の集合を $\bm{\Gnd{\mfd{\Sigma}{D}}} \subset \irm{\mathcal{H}}{tot}$ と書く．
+% $\Lat{\mfd{\Sigma}{D}}$ にコンパクト開位相\footnote{operator normによる距離位相としても良い．}を入れて位相空間にする．
+
+\textbf{量子相} (quantum phase) とは，大雑把には \underline{$\Sigma^{(D)} = \mathbb{R}^{D}$ としたときの}\hyperref[def:gappedQL]{gappedな量子液体}の同値類のことである．
+この同値類の正確な定義を与えるのは大変困難だが，~\cite[p.3]{ChenGuWen2010}に倣うと以下のようになる：
+
+\begin{mydefph}[label=def:quantum-phase]{bosonicな量子相}
+    $\Sigma^{(D)} = \mathbb{R}^{D}$ における2つの\hyperref[def:gappedQL]{gappedな量子液体} $\bigl( \{\Lambda_i\}_i,\, \{\hat{H}^{(0)}_{\Lambda_i}\}_i \bigr),\; \bigl( \{\Lambda_i\}_i,\, \{\hat{H}^{(1)}_{\Lambda_i}\}_i \bigr)$ を与える．
+    熱力学極限をとった\hyperref[def:gappedQL]{gappedな量子液体}全体がなす集合を $\mathrm{gQL}(\Sigma^{(D)})$ とおく．$\mathrm{gQL}(\Sigma^{(D)})$ には適切な位相を入れて位相空間にする．
+
+    　このとき，$\hat{H}^{(0)}_{\Lambda_\infty}$ と $\hat{H}^{(1)}_{\Lambda_\infty}$ が同じ\textbf{量子相} (quantum phase) にあるとは，連続曲線 $\hat{H} \colon [0,\, 1] \lto \mathrm{gQL}(\mfd{\Sigma}{D})$ が存在して
+    $\hat{H}(0) = \hat{H}^{(0)}_{\Lambda_\infty} \AND \hat{H}(1) = \hat{H}^{(0)}_{\Lambda_\infty}$ を充たすことを言う．
+\end{mydefph}
+
+
+
+\subsection{トポロジカル秩序}
+
+% \begin{mydefph}[label=def:quantum-phase]{bosonicなトポロジカル秩序}
+%     2つの\hyperref[def:gappedQL]{gappedな量子系} $\hat{H}_0,\, \hat{H}_1$ を与える．
+
+%     \begin{itemize}
+%         \item $\hat{H}_0$ の基底状態 $\ket{\Phi_0} \in \Gnd{\mfd{\Sigma}{D}}$ と $\hat{H}_1$ の基底状態 $\ket{\Phi_1} \in \Gnd{\mfd{\Sigma}{D}}$ が同じ\textbf{量子相} (quantum phase) にあるとは，$C^\infty$ 曲線 $\hat{H} \colon [0,\, 1] \lto \Lat{\mfd{\Sigma}{D}}$ が存在して
+%             $\hat{H}(0) = \hat{H}_0 \AND \hat{H}(1) = \hat{H}_1$ を充たすこと．これは $\Gnd{\mfd{\Sigma}{D}}$ 上の同値関係 $\sim$ をなす．
+%         \item 商集合 $\Gnd{\mfd{\Sigma}{D}}/{\sim}$ の元のことを\textbf{量子相}と呼ぶ．
+%     \end{itemize}
+    
+% \end{mydefph}
 
 % \begin{marker}
 %     以下では基本的に，熱力学極限を取った際に基底状態がgappedになるような\hyperref[def:bosonic-lattice-model]{bosonicな格子模型}を考える．

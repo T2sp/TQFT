@@ -203,6 +203,10 @@
 colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,
 title=公理~\thetcbcounter: #2,#1}
 
+\newtcolorbox[auto counter,number within=chapter]{myaxiomph}[2][breakable]{%
+colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,
+title=公理${}^{\text{ph}}$~\thetcbcounter: #2,#1}
+
 \newtcolorbox[auto counter,number within=chapter]{mytheo}[2][breakable]{%
 colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,
 title=定理~\thetcbcounter: #2,#1}
@@ -219,13 +223,25 @@ title=補題~\thetcbcounter: #2,#1}
 colback=green!5!white,colframe=green!75!black,fonttitle=\bfseries,
 title=定義~\thetcbcounter: #2,#1}
 
+\newtcolorbox[auto counter,number within=chapter]{mydefph}[2][breakable]{%
+colback=green!5!white,colframe=green!75!black,fonttitle=\bfseries,
+title=定義${}^{\text{ph}}$~\thetcbcounter: #2,#1}
+
 \newtcolorbox[auto counter,number within=chapter]{myhypo}[2][breakable]{%
 colback=LightSkyBlue!5!white,colframe=Cyan!75!black,fonttitle=\bfseries,
 title=仮説~\thetcbcounter: #2,#1}
 
+\newtcolorbox[auto counter,number within=chapter]{myhypoph}[2][breakable]{%
+colback=LightSkyBlue!5!white,colframe=Cyan!75!black,fonttitle=\bfseries,
+title=仮説${}^{\text{ph}}$~\thetcbcounter: #2,#1}
+
 \newtcolorbox[auto counter,number within=chapter]{myconj}[2][breakable]{%
 colback=LightSkyBlue!5!white,colframe=Crimson!75!black,fonttitle=\bfseries,
 title=予想~\thetcbcounter: #2,#1}
+
+\newtcolorbox[auto counter,number within=chapter]{myconjph}[2][breakable]{%
+colback=LightSkyBlue!5!white,colframe=Crimson!75!black,fonttitle=\bfseries,
+title=予想${}^{\text{ph}}$~\thetcbcounter: #2,#1}
 
 \newtcolorbox[use counter from=mytheo]{mycol}[2][breakable]{%
 fonttitle=\bfseries,enhanced,
