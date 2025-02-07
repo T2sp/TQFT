@@ -2,9 +2,244 @@
 
 \begin{document}
 
-\setcounter{chapter}{3}
+\setcounter{chapter}{4}
 
-\chapter{位相的場の理論の展開：ホログラフィー}
+\chapter{SPT相}
+
+
+\section{SPT相}
+
+SPT相とは，大雑把に言うと\hyperref[def:quantum-phase]{gappedな量子相}であって，同値関係の定義においてある種の対称性を考慮しており，かつ命題\ref{prop:monoidalTO}のモノイド構造が可逆であるようなもののことである．
+対称性を考慮した最も簡単なクラスのgappedな量子相ということである．
+なお，対称性と言ったときに，\hyperref[def:p-form-sym]{0-form symmetry}のみならずnon-invertible symmetryなどの一般化対称性や，subsystem symmetry, modulated symmetryなどを考えても良い．
+
+
+\subsection{SRE状態とLRE状態}
+
+まず，~\cite[p.3]{ChenGuWen2010}に倣って\textbf{SRE状態} (Short Range Entangled states) と\textbf{LRE状態} (Long Range Entangled states) を定義する．
+~\cite[p.4]{ChenGuWen2010}
+\begin{myconjph}[label=conj:CGW]{Chen-Gu-Wenの仮説}
+    \hyperref[def:bosonic-lattice-model]{bosonic}かつ\hyperref[def:gapped]{gapped}な2つの基底状態 $\ket{\Phi_0},\, \ket{\Phi_1}$ が同じ\hyperref[def:quantum-phase]{量子相}にあるならば，以下の条件を充たす\hyperref[def:bosonic-lattice-model]{bosonicな格子模型}の族 $\Familyset[\big]{\hat{H}(t)}{t \in [0,\, 1]}$ が存在する：
+    \begin{itemize}
+        \item $\forall t \in [0,\, 1]$ に対して，$\hat{H}(t)$ の基底状態は熱力学極限を取った際に\hyperref[def:gapped]{gapped}である．
+        \item $\ket{\Phi_0},\, \ket{\Phi_1}$ はそれぞれ $\hat{H}(0),\, \hat{H}(1)$ の基底状態である．
+    \end{itemize}
+\end{myconjph}
+
+\begin{mypropph}[label=prop:LU]{LU transformation}
+    以下の2つは同値である：
+    \begin{enumerate}
+        \item \hyperref[def:bosonic-lattice-model]{bosonic}かつ\hyperref[def:gapped]{gapped}な2つの基底状態 $\ket{\Phi_0},\, \ket{\Phi_1}$ が同じ\hyperref[def:quantum-phase]{量子相}にある
+        \item \hyperref[def:bosonic-lattice-model]{bosonicな格子模型}の族 $\Familyset[\big]{\hat{\tilde{H}}(t)}{t \in [0,\, 1]}$ が存在して
+        \begin{align}
+            \label{eq:LU}
+            \ket{\Phi_1} = \mathcal{T} \bigl[ e^{-\iunit \int_0^1 \dd{t} \hat{\tilde{H}}(t)} \bigr] \ket{\Phi_0}
+        \end{align}
+        を充たす．ただし $\mathcal{T}$ は経路順序積である．
+    \end{enumerate}
+\end{mypropph}
+
+\begin{proof}
+    \begin{description}
+        \item[$\bm{(\Longrightarrow)}$]　
+        
+        仮説\ref{conj:CGW}による．
+
+        \item[$\bm{(\Longleftarrow)}$]　
+        
+
+    \end{description}
+    
+\end{proof}
+
+\eqref{eq:LU}を\textbf{局所ユニタリ発展} (local unitary evolution) と呼ぶ．
+
+\begin{mydefph}[label=def:SRE]{SRE状態}
+    \hyperref[def:bosonic-lattice-model]{bosonic}かつ\hyperref[def:gapped]{gapped}な基底状態 $\ket{\Phi} \in \Gnd{\mfd{\Sigma}{D}}$ が\textbf{SRE状態} (short range entangled state) であるとは，
+    あるseparableな状態
+    \begin{align}
+        \bigotimes_{\bm{x} \in \Lambda} \ket{\psi_{\bm{x}}} \WHERE \forall \bm{x} \in \Lambda,\, \ket{\psi_{\bm{x}}} \in \mathcal{H}_{\bm{x}}
+    \end{align}
+    と $\ket{\Psi}$ との間に\hyperref[prop:LU]{局所ユニタリ発展}が存在すること．
+    
+    \tcblower
+
+    SRE状態でない基底状態のことを\textbf{LRE状態} (long range entangled state) と呼ぶ．
+\end{mydefph}
+
+定義から明らかに，任意のSRE状態は同一の\hyperref[def:quantum-phase]{量子相}に属する．
+
+\subsection{Bosonic SPT相}
+
+\hyperref[def:SRE]{SRE状態の定義}はそのままだと面白くないが，対称性を考慮すると話は変わってくる．
+位相群 $G$ を与える．また，格子 $\Lambda$ は空間群 $S$ の対称性を持つ\footnote{$S$ の $\Lambda$ への左作用を $\btr \colon S \times \Lambda \lto \Lambda$ と書く．}とする．
+
+\begin{mydef}[label=def:semiprod-group-inner]{外部半直積}
+	$N,\, H$ を群とし，$\phi \colon H \to \Aut N,\; h \mapsto \phi_h$ を準同型写像とする\footnote{$\Aut N$ は，$N$ から $N$ 自身への同型写像全体の集合に，写像の合成を群の演算として群構造を入れたもので，\textbf{自己同型群} (automorphism group) と呼ばれる．}．
+	このとき，集合 $N \times H$ は次の二項演算 $\cdot \mathrel{} \colon N\times H \to N\times H$ に関して群を成す：
+	\begin{align}
+		(n_1,\, h_1) \cdot (n_2,\, h_2) \coloneqq \bigl( n_1 \phi_{\textcolor{red}{h_1}}(n_2),\, h_1h_2 \bigr) 
+	\end{align}
+	この群 $\bigl( N \times H,\, \cdot \mathrel{},\, (1_N,\, 1_H) \bigr)$ のことを $N,\, H$ の（外部）\textbf{半直積} (semidirect product) と呼び，$\bm{H \ltimes_\phi N}$ または $\bm{N \rtimes_\phi H}$ と書く．
+\end{mydef}
+
+
+\begin{mydef}[label=def:blat-G-equiv]{$G$-対称な格子模型}
+    \hyperref[def:bosonic-lattice-model]{bosonicな格子模型} $\hat{H}$ が\textbf{$\bm{G}$-対称}~\cite[p.12]{Xiong2019SPT}であるとは，
+    \begin{itemize}
+        \item 群準同型 $\irm{\rho}{spa} \colon G \lto S$
+        \item 群準同型 $\irm{\phi}{int} \colon G \lto \{\pm 1\}$
+        \item 群のユニタリ or 反ユニタリ表現 $\irm{\rho}{int} \colon G \ltimes_{\btr \circ \irm{\rho}{spa}} S \lto \bigl\{\, \text{unitary or antiunitary operator}\; \irm{\mathcal{H}}{tot} \to \irm{\mathcal{H}}{tot} \,\bigr\} $
+    \end{itemize}
+    が存在して以下を充たすことを言う：
+    \begin{description}
+        \item[\textbf{(Gsym-1)}]　
+        
+        $\forall g \in G$ に対し，
+        \begin{align}
+            \irm{\phi}{int} (g)
+            = 
+            \begin{cases}
+                +1, &\irm{\rho}{int}(g)\; \text{is unitary} \\
+                -1, &\irm{\rho}{int}(g)\; \text{is antiunitary}
+            \end{cases}
+        \end{align}
+        
+        \item[\textbf{(Gsym-2)}]　
+        
+        群 $G$ の $\irm{\mathcal{H}}{tot}$ への作用
+        \begin{align}
+            \rho \colon G &\lto \LGL (\irm{\mathcal{H}}{tot}), \\
+            g &\lmto \left( \bigotimes_{\bm{x} \in \Lambda} \ket{\psi_{\bm{x}}} \lmto \bigotimes_{\bm{x} \in \Lambda} \irm{\rho}{int} \bigl( g,\, \irm{\rho}{spa}(g)^{-1} \btr \bm{x} \bigr) \ket{\psi_{\irm{\rho}{spa}(g)^{-1} \btr \bm{x}}}\right) 
+        \end{align}
+        に関して，
+        \begin{align}
+            \forall g \in G,\; \comm{\hat{H}}{\rho(g)} = 0
+        \end{align}
+        が成り立つ．
+    \end{description}
+    
+\end{mydef}
+
+\hyperref[def:blat-G-equiv]{$G$-対称な格子模型}全体の集合を $\bm{\LatG{G}{\mfd{\Sigma}{D}}} \subset \Lat{\mfd{\Sigma}{D}}$ と書き\footnote{$\Lat{\mfd{\Sigma}{D}}$ からのsubspace topologyを入れる．}．
+その基底状態全体の集合を $\bm{\GndG{G}{\mfd{\Sigma}{D}}} \subset \Gnd{\mfd{\Sigma}{D}}$ と書く．
+% 簡単のため，以下では暫くの間，群準同型 $\irm{\rho}{spa} \colon G \lto S,\; g \lmto 1_S$ の場合のみを考える．
+
+\begin{mydefph}[label=def:Gequiv-bqp]{$G$-同変な量子相}
+    2つの\hyperref[def:bosonic-lattice-model]{bosonicかつ $G$-対称な格子模型} $\hat{H}_0,\, \hat{H}_1 \in \mathrm{Lat}_G(\mfd{\Sigma}{D})$ を与える．
+    \begin{itemize}
+        \item $\hat{H}_0$ の基底状態 $\ket{\Phi_0} \in \GndG{G}{\mfd{\Sigma}{D}}$ と $\hat{H}_1$ の基底状態 $\ket{\Phi_1} \in \GndG{G}{\mfd{\Sigma}{D}}$ が同じ\textbf{$\bm{G}$-同変な量子相} ($G$-equivalent quantum phase) にあるとは，$C^\infty$ 曲線 $\hat{H} \colon [0,\, 1] \lto \mathrm{Lat}_G(\mfd{\Sigma}{D})$ が存在して
+            $\hat{H}(0) = \hat{H}_0 \AND \hat{H}(1) = \hat{H}_1$ を充たすこと．これは $\GndG{G}{\mfd{\Sigma}{D}}$ 上の同値関係を成す．
+        \item 商集合 $\GndG{G}{\mfd{\Sigma}{D}}/{\sim}$ の元のことを\textbf{$\bm{G}$-同変な量子相}と呼ぶ．
+    \end{itemize}
+\end{mydefph}
+
+\begin{mydefph}[label=def:SPT-traditional]{SPT相 (Chen-Gu-Wenによる)}
+    \hyperref[def:bosonic-lattice-model]{bosonic}かつ\hyperref[def:gapped]{gapped}かつ\hyperref[def:blat-G-equiv]{$G$-同変な量子相} $[\ket{\Phi}] \in \GndG{G}{\mfd{\Sigma}{D}}$ が\textbf{SPT相} (symmetry protected topological phase\footnote{\textbf{symmetry protected trivial phase}と呼ぶこともある~\cite{Wen2014SPT}．}) であるとは，
+    $\forall \ket{\Psi} \in [\ket{\Phi}]$ が\hyperref[def:SRE]{SRE状態}であることを言う．
+\end{mydefph}
+つまり，任意の代表元が $G$-対称性を破ればseparableな状態に滑らかにつながるような\hyperref[def:Gequiv-bqp]{量子相}のことをSPT相と呼ぶ．SPT相の名前はこのことに由来する．
+
+
+\subsection{Fermionic SPT相}
+
+\section{Bosonic SPT相の分類：群コホモロジーによる方法}
+
+~\cite[p.16, VIII]{ChenGuLiuWen2013}は，\hyperref[def:Dijkgraaf-Witten]{Dijkgraaf-Witten理論}を用いて
+\footnote{彼女らの論文においてはDijkgraaf-Witten理論との関連は明示的に書かれていない．~\cite{Wen2014SPT}には顕に書かれている．}
+かなり多くの\hyperref[def:SPT-traditional]{SPT相}を書き下す系統的な方法を発明した．
+この節ではその方法を紹介する．
+
+簡単のため，\hyperref[def:Gequiv-bqp]{$G$-対称な格子模型}のうち群準同型 $\irm{\rho}{spa}$ が自明なもの\footnote{i.e. $\forall g \in G$ に対して $\irm{\rho}{spa}(g) = 1_S$}のみ考える．
+また，$G$ は局所コンパクト\footnote{任意の点がコンパクト近傍を持つ}であるとする．このとき $G$ はHaar測度を持つのでそれを $\int_G \dd{g}$ とおく．
+このとき，非ゼロな $\ket{\psi} \in \mathcal{H}_{\bm{x}}$ を1つ固定して $\forall g \in G$ に対して
+\begin{align}
+    \ket{g} \coloneqq \irm{\rho}{int}(g) \ket{\psi}
+\end{align}
+とおくと，Haar測度の左右不変性から族 $\Familyset[\big]{\ket{g}}{g \in G}$ は\href{https://en.wikipedia.org/wiki/Coherent_states_in_mathematical_physics}{一般化コヒーレント状態}を成す．
+ここで $\forall \Familyset[\big]{g_{\bm{x}}}{\bm{x} \in \Lambda} \in \prod_{\bm{x} \in \Lambda} G$ に対して
+\begin{align}
+    \ket{\Familyset[\big]{g_{\bm{x}}}{\bm{x} \in \Lambda}} \coloneqq \bigotimes_{\bm{x} \in \Lambda} \ket{g_{\bm{x}}} \in \irm{\mathcal{H}}{tot}
+\end{align}
+とおこう．さらに以下では $G$ は\underline{離散群}であるとする．
+
+\begin{myprop}[label=prop:SPT-CGLW]{SPT相の構成}
+    \begin{itemize}
+        \item 空間多様体 $\Sigma$ を境界にもつ $D+1$ 次元多様体 $\mfdcal{N}{D+1}$ 
+        \item $\mfdcal{N}{D+1}$ の三角形分割 $\abs{K} \xrightarrow{\approx} \mfdcal{N}{D+1}$ であって，その\hyperref[def:SimpSet]{0-単体}（頂点）$K_0$ が $\partial \mfdcal{N}{D+1}$ において格子 $\Lambda$ を再現するもの
+        \item $\omega \in \coGrp{D+1}{G,\, \LU(1)}$
+    \end{itemize}
+    をとる．このとき
+    \begin{align}
+        \ket{\Psi}_\omega \coloneqq \frac{1}{\abs{G}^{\abs{\Lambda}}} \sum_{\{g_{j}\}_{j \in K_0}} \prod_{\{j_0,\, \dots,\, j_{D+1}\} \in K_{D+1}} \omega (g_{j_0},\, \dots,\, g_{j_{D+1}})^{\epsilon_{\{j_0,\, \dots,\, j_{D+1}\}}} \ket{\Familyset[\big]{g_{\bm{x}}}{\bm{x} \in \Lambda}}
+    \end{align}
+    は\hyperref[def:SPT-traditional]{SPT相}の代表元である．ただし $\epsilon_{\{j_0,\, \dots,\, j_{D+1}\}}$ は $D+1$-単体 $\{j_0,\, \dots,\, j_{D+1}\} \in K_{D+1}$ の向きである．
+\end{myprop}
+
+\begin{proof}
+    まず，$\ket{\Psi}_\omega$ が\hyperref[def:blat-G-equiv]{$G$-対称}であることを示す．
+    実際 $\forall \Familyset[\big]{g_{\bm{x}}}{\bm{x} \in \Lambda} \in \prod_{\bm{x} \in \Lambda} G$ および $\forall g \in G$ に対して
+    \begin{align}
+        \mel{\Familyset[\big]{g_{\bm{x}}}{\bm{x} \in \Lambda}}{\rho(g)}{\Psi}_\omega
+        &= \mel{\Familyset[\big]{g_{\bm{x}}}{\bm{x} \in \Lambda}}{\bigotimes_{\bm{x} \in \Lambda} \irm{\rho}{int} (g)}{\Psi}_\omega \\
+        &= \braket{\Familyset[\big]{g^{-1}g_{\bm{x}}}{\bm{x} \in \Lambda}}{\Psi}_\omega \\
+        &= \frac{1}{\abs{G}^{\abs{\Lambda}}} \sum_{\{g_{j}\}_{j \in K_0 \setminus \Lambda}} \prod_{\{j_0,\, \dots,\, j_{D+1}\} \in K_{D+1}} \omega (g_{j_0},\, \dots,\, g_{j_{D+1}})^{\epsilon_{\{j_0,\, \dots,\, j_{D+1}\}}} \\
+        &= \braket{\Familyset[\big]{g_{\bm{x}}}{\bm{x} \in \Lambda}}{\Psi}_\omega
+    \end{align}
+    が成り立つ．ただし3つ目の等号でコサイクルの左不変性を使った．
+
+    次に，$\ket{\Psi}_\omega$ が\hyperref[def:SRE]{SRE状態}であることを示す．簡単のため $\Sigma = S^D,\, \mfdcal{N}{D+1} = D^{D+1}$ の場合を考える\footnote{一般の場合でも，$C^\infty$ 多様体はCW複体の構造を持つので問題ないと思われる．}．
+    このとき $K_{0} \setminus \Lambda = \{*\}$ となるような三角形分割をとることができて，
+    \begin{align}
+        \ket{\Psi}_\omega 
+        &= \left( \sum_{\{g_{\bm{x}}\}_{\bm{x} \in \Lambda}} \prod_{\{j_0,\, \dots ,\, j_{D},\, *\} \in K_{D+1}} \omega (g_{j_0},\, \dots,\, g_{j_D},\, g_{*}) \ketbra{\Familyset[\big]{g_{\bm{x}}}{\bm{x} \in \Lambda}}{\Familyset[\big]{g_{\bm{x}}}{\bm{x} \in \Lambda}} \right) \bigotimes_{\bm{x} \in \Lambda} \left( \frac{1}{\abs{G}} \sum_{g_{\bm{x}} \in G} \ket{g_{\bm{x}}}\right) \\
+        &= \left( \prod_{\{j_0,\, \dots ,\, j_{D},\, *\} \in K_{D+1}} \sum_{\{g_{j_n}\}_{n=0}^D \in G^{D+1}} \omega (g_{j_0},\, \dots,\, g_{j_D},\, g_{*}) \ketbra{\{g_{j_n}\}_{n=0}^D}{\{g_{j_n}\}_{n=0}^D} \right) \bigotimes_{\bm{x} \in \Lambda} \left( \frac{1}{\abs{G}} \sum_{g_{\bm{x}} \in G} \ket{g_{\bm{x}}}\right) 
+    \end{align}
+    と書けるので\hyperref[def:SRE]{SRE状態}である．
+
+    最後に，$\ket{\Psi}$ が属する\hyperref[def:SPT-traditional]{SPT相}が $\omega \in \coGrp{D+1}{G,\, \LU(1)}$ の代表元の取り方によらないことを示す．実際，$D$-コチェイン $\eta \in C^D_{\mathrm{Grp}}(G,\, \LU(1))$ に対して
+    $\omega \lmto \omega \cdot \delta \eta$ と取り替えると
+    \begin{align}
+        \ket{\Psi}_{\omega \cdot \delta \eta}
+        &= \left(\prod_{\{j_0,\, \dots,\, j_{D},\, *\} \in K_{D+1}} \sum_{\{g_{j_0},\, \dots,\, g_{j_D}\} \in G^{D+1}} \eta (g_{j_0},\, \dots,\, g_{j_D}) \ketbra{\{g_{j_n}\}_{n=0}^D}{\{g_{j_n}\}_{n=0}^D} \right) \ket{\Psi}_\omega
+    \end{align}
+    となるが，この変換は明らかに $\rho(g)$ と可換なので $G$-同変な\hyperref[prop:LU]{局所ユニタリ発展}である．
+\end{proof}
+
+\hyperref[def:DijkgraafWitten]{Dijkgraaf-Witten理論}との関係は，大域的 $G$-対称性をゲージ化することにより明らかになる~\cite[APPENDIX E]{Wen2014SPT}．
+ゲージ化によって，$\mfdcal{N}{D+1}$ の三角形分割の $1$-単体（辺）$e \in K_1$ 上に $G$ の元 $h_e$ が指定される．ただし，$G$ が離散群なので $h_{e}$ は\hyperref[def:flat-connection-homotopy]{平坦接続}でなくてはならない．よってもし3つの $1$-単体 $e_1,\, e_2,\, e_3$ がある $2$-単体 $d$ について $\partial_i^2 (d) = e_i$ を充たすならば
+\begin{align}
+    h_{e_1} h_{e_2} h_{e_3} = 1_G
+\end{align}
+が成り立たねばならない．また，「物質場」$g_{x}$ とゲージ場 $h_{e}$ のゲージ変換は，$\Familyset[\big]{k_x}{x \in K_0} \in G^{\abs{K_0}}$ を用いてそれぞれ
+\begin{align}
+    g_x &\lmto k_x g_x, \\
+    h_e &\lmto k_{\partial_1^1(e)}^{-1} h_e k_{\partial_0^1(e)}
+\end{align}
+のようになる．故に，命題\ref{prop:SPT-CGLW}の構成で用いた「物質場」の分配関数
+\begin{align}
+    Z(\Familyset[\big]{g_{i}}{i \in K_0};\, \mfdcal{N}{D+1}) \coloneqq \prod_{\{j_0,\, \dots,\, j_{D+1}\} \in K_{D+1}} \omega (g_{j_0},\, \dots,\, g_{j_{D+1}})^{\epsilon_{\{j_0,\, \dots,\, j_{D+1}\}}}
+\end{align}
+は $G$-対称性のゲージ化によって
+\begin{align}
+    &\irm{Z}{gauged}(\Familyset[\big]{g_{i}}{i \in K_0},\, \Familyset[\big]{h_{e}}{e \in K_1};\,\mfdcal{N}{D+1}) \\   
+    &= \frac{1}{\abs{G}^{\abs{\Lambda}}} \prod_{\{j_0,\, \dots,\, j_{D+1}\} \in K_{D+1}} \omega (g_{j_0},\, h_{j_0j_1} g_{j_1},\, h_{j_0j_1}h_{j_1j_2} g_{j_2} \dots,\, h_{j_0j_1} \cdots h_{j_D j_{D+1}}g_{j_{D+1}})^{\epsilon_{\{j_0,\, \dots,\, j_{D+1}\}}} \\
+    &= \frac{1}{\abs{G}^{\abs{\Lambda}}} \prod_{\{j_0,\, \dots,\, j_{D+1}\} \in K_{D+1}} \alpha (g_{j_0}^{-1}h_{j_0j_1} g_{j_1},\, g_{j_1}^{-1} h_{j_1j_2} g_{j_2},\, \dots,\,g_{j_D}^{-1} h_{j_D j_{D+1}}g_{j_{D+1}})^{\epsilon_{\{j_0,\, \dots,\, j_{D+1}\}}}
+\end{align}
+になる\footnote{このゲージ化の方法は，理論のゲージ不変性を要請することによって得られる．}．ゲージ場を外場と見做すことにより\hyperref[def:DijkgraafWitten]{Dijkgraaf-Witten理論}の作用が得られる：
+\begin{align}
+    &\sum_{\{g_{j}\}_{j \in K_1}} \irm{Z}{gauged}(\Familyset[\big]{g_{i}}{i \in K_0},\, \Familyset[\big]{h_{e}}{e \in K_1};\,\mfdcal{N}{D+1}) \\
+    &= \prod_{\{j_0,\, \dots,\, j_{D+1}\} \in K_{D+1}} \alpha (h_{j_0j_1},\, h_{j_1j_2},\, \dots,\, h_{j_D j_{D+1}})^{\epsilon_{\{j_0,\, \dots,\, j_{D+1}\}}} \\
+    &= e^{2\pi \iunit \expval{\gamma^* \alpha,\, []}}
+\end{align}
+以上の議論により，$D$ 次元のbosonicな\footnote{より正確には $G$ が離散群でかつon site symmetryのとき}\hyperref[def:SPT-traditional]{SPT相}の分類は $\coGrp{D+1}{G,\, \LU(1)}$ によって成される，などと言う~\cite{ChenGuLiuWen2013}．
+
+\section{Bosonic SPT相の分類：$\Omega$-スペクトラムによる方法}
+
+上述の群コホモロジーによるbosonicなSPT相の分類は低次元においては十分有効だが，高次元だと不十分になったり，逆に細かくなり過ぎることが知られている~\cite{Kapustin2014SPT}．現代的には一般コホモロジー理論によって分類することが多い~\cite{Xiong2019SPT}．
+その際には，そもそも\hyperref[prop:LU]{局所ユニタリ発展}は使わずにSPT相を定義する．
+
+
 
 
 

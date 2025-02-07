@@ -215,6 +215,10 @@ title=定理~\thetcbcounter: #2,#1}
 colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,
 title=命題~\thetcbcounter: #2,#1}
 
+\newtcolorbox[auto counter,number within=chapter]{mypropph}[2][breakable]{%
+colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,
+title=命題${}^{\text{ph}}$~\thetcbcounter: #2,#1}
+
 \newtcolorbox[auto counter,number within=chapter]{mylem}[2][breakable]{%
 colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,
 title=補題~\thetcbcounter: #2,#1}
@@ -384,7 +388,7 @@ title=系~\thetcbcounter: #2,#1}
 
 \subfile{chap4}
 
-% \subfile{chap5}
+\subfile{chap5}
 
 % \subfile{chap6}
 

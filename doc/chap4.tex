@@ -4,11 +4,11 @@
 
 \setcounter{chapter}{3}
 
-\chapter{圏論とトポロジカル相}
+\chapter{圏論とトポロジカル秩序}
 
 この節で登場する多様体は特に断らない限り常に $C^\infty$ 多様体である．また，体 $\mathbb{K}$ と言ったら $\mathbb{K} = \mathbb{R},\, \mathbb{C},\, \mathbb{H}$ のいずれかを指すことにする．
 
-\section{トポロジカル秩序の定義}
+\section{トポロジカル秩序のミクロな定義}
 
 % \section{SPT相の定義}
 
@@ -23,13 +23,16 @@
 \end{itemize}
 
 \begin{mydefph}[label=def:bosonic-lattice-model,breakable]{bosonicな格子模型}
-    $D$ 次元格子 $\Lambda \subset$ を1つ固定する．
+    $D$ 次元格子 $\Lambda \subset \mfd{\Sigma}{D}$ を1つ固定する．
     \begin{itemize}
         \item $\forall \bm{x} \in \Lambda$ を1つとる．別の格子点 $\bm{y} \in \Lambda$ が $\bm{x}$ についてレンジ $R > 0$ であるとは，$\norm*{\bm{x} - \bm{y}} \le R$ が成り立つことを言う．$\bm{x}$ についてレンジ $R$ な格子点全体の集合を $N_R (\bm{x}) \subset \Lambda$ と書く．
-        \item \underline{格子 $\Lambda$ 上の}レンジ $R > 0$ の\textbf{bosonicな格子模型} (bosonic lattice model) とは，エルミート演算子 $\hat{H}_{\Lambda} \in \Hom{\HILB} (\irm{\mathcal{H}}{tot},\, \irm{\mathcal{H}}{tot})$ であって以下の条件を充たすもののことを言う：
-        
+        \item \underline{格子 $\Lambda$ 上の}\textbf{bosonicな格子模型} (bosonic lattice model) とは，エルミート演算子 $\hat{H}_{\Lambda} \in \Hom{\HILB} (\irm{\mathcal{H}}{tot},\, \irm{\mathcal{H}}{tot})$ のこと．
+        bosonicな格子模型 $\hat{H}_\Lambda$ が\textbf{局所的} (local) であるとは，
+        ある有限の $R > 0$ が存在して以下の条件を充たすもののことを言う：
         \begin{description}
-            \item[\textbf{(locality)}] $\forall \bm{x} \in \Lambda$ に対して，$\forall \bm{y} \in N_R(\bm{x})$ における局所的Hilbert空間 $\mathcal{H}_{\bm{y}}$ にのみ非自明に作用するエルミート演算子 $\hat{h}_{\bm{x}} \in \Hom{\HILB} (\irm{\mathcal{H}}{tot},\, \irm{\mathcal{H}}{tot})$ が存在して，
+            \item[\textbf{(locality)}]　
+            
+            $\forall \bm{x} \in \Lambda$ に対して，$\forall \bm{y} \in N_R(\bm{x})$ における局所的Hilbert空間 $\mathcal{H}_{\bm{y}}$ にのみ非自明に作用するエルミート演算子 $\hat{h}_{\bm{x}} \in \Hom{\HILB} (\irm{\mathcal{H}}{tot},\, \irm{\mathcal{H}}{tot})$ が存在して，
             \begin{align}
                 \hat{H}_{\Lambda} = \sum_{\bm{x} \in \Lambda} \hat{h}_{\bm{x}}
             \end{align}
@@ -47,11 +50,17 @@
             \item bosonicな格子模型の列 $\{\hat{H}_{\Lambda_i}\}_{i=1}^\infty$
         \end{itemize}
         の組のこと．
+        \item bosonicな量子系 $\bigl( \{\Lambda_i\}_i,\, \{\hat{H}_{\Lambda_i}\}_i \bigr)$ の\textbf{熱力学極限} (thermodynamic limit) とは\footnote{厳密に言うと，極限 $\lim_{i \to \infty}$ は，格子の形状などの追加のデータを与えない限りill-definedである．}，
+        $D$ 次元格子 $\Lambda_\infty \coloneqq \lim_{i \to \infty} \Lambda_i \subset \mfd{\Sigma}{D}$ 上のbosonicな格子模型
+        $\hat{H}_{\Lambda_\infty} \coloneqq \lim_{i \to \infty} \hat{H}_{\Lambda_i}$ のこと．
     \end{itemize}
     
 \end{mydefph}
 
-\subsection{gapped quantum liquidと量子相}
+\subsection{ミクロな視点から量子相を定義する試み}
+
+この小節では，\hyperref[def:bosonic-lattice-model]{格子模型の列}を直接用いて量子相を定義する試みを，~\cite{ChenGuWen2010}に倣って簡単に紹介する\footnote{ミクロな視点というのは，格子模型を用いるという意味である．}．
+ここで紹介する定義は物理学者の直観に基づくものであり，数学的には大部分が未完成であることを先に断っておく．
 
 \begin{mydefph}[label=def:gapped,breakable]{gappedな量子系}
     \hyperref[def:bosonic-lattice-model]{bosonicな量子系} $\bigl( \{\Lambda_i\}_i,\, \{\hat{H}_{\Lambda_i}\}_i \bigr)$ が\textbf{gapped}であるとは，
@@ -114,7 +123,7 @@
 \end{mydefph}
 
 \begin{marker}
-    gapless quantum liquidの定義は，2025年現在でもこれといったものがない．
+    gapless quantum liquidの厳密な定義は，2025年現在でもこれといったものがない．
 \end{marker}
 
 \begin{myexample}[label=ex:Haah]{Haahコード}
@@ -129,263 +138,598 @@
 % $\Lat{\mfd{\Sigma}{D}}$ の元の基底状態全体の集合を $\bm{\Gnd{\mfd{\Sigma}{D}}} \subset \irm{\mathcal{H}}{tot}$ と書く．
 % $\Lat{\mfd{\Sigma}{D}}$ にコンパクト開位相\footnote{operator normによる距離位相としても良い．}を入れて位相空間にする．
 
-\textbf{量子相} (quantum phase) とは，大雑把には \underline{$\Sigma^{(D)} = \mathbb{R}^{D}$ としたときの}\hyperref[def:gappedQL]{gappedな量子液体}の同値類のことである．
-この同値類の正確な定義を与える仕事は2025年時点で未達成だと思われるが，例えば~\cite[p.3]{ChenGuWen2010}に倣うと以下のようになる：
+\textbf{gappedな量子相} (gapped quantum phase) とは，大雑把には\underline{$\Sigma^{(D)} = \mathbb{R}^{D}$ としたときの}\footnote{最初から\hyperref[def:bosonic-lattice-model]{熱力学極限}により得られる無限系を念頭においている．} \hyperref[def:gappedQL]{gappedな量子液体}の同値類のことである．特に，同値関係の定義で対称性を考慮しないもののことを\textbf{トポロジカル秩序} (topological order) と呼ぶ．
+この同値類の，物理的に妥当かつ数学的にも正確な定義を与える仕事は大変困難で，2025年時点で未達成である．
+そのため，実際の量子相の研究の文脈では，物理的考察から等価であることが期待される別の（より扱いやすい）定義を用いて議論することが常である．
 
-\begin{mydefph}[label=def:quantum-phase]{bosonicな量子相}
-    $\Sigma^{(D)} = \mathbb{R}^{D}$ における2つの\hyperref[def:gappedQL]{gappedな量子液体} $\bigl( \{\Lambda_i\}_i,\, \{\hat{H}^{(0)}_{\Lambda_i}\}_i \bigr),\; \bigl( \{\Lambda_i\}_i,\, \{\hat{H}^{(1)}_{\Lambda_i}\}_i \bigr)$ を与える．
-    熱力学極限をとった\hyperref[def:gappedQL]{gappedな量子液体}全体がなす集合を $\mathrm{gQL}(\Sigma^{(D)})$ とおく．$\mathrm{gQL}(\Sigma^{(D)})$ には適切な位相を入れて位相空間にする．
+トポロジカル秩序を与える同値類の定義は，~\cite[p.3]{ChenGuWen2010}に倣うと以下のようになる：
 
-    　このとき，$\hat{H}^{(0)}_{\Lambda_\infty}$ と $\hat{H}^{(1)}_{\Lambda_\infty}$ が同じ\textbf{量子相} (quantum phase) にあるとは，連続曲線 $\hat{H} \colon [0,\, 1] \lto \mathrm{gQL}(\mfd{\Sigma}{D})$ が存在して
+\begin{mydefph}[label=def:quantum-phase,breakable]{bosonicかつgappedなトポロジカル秩序}
+    空間多様体 $\Sigma^{(D)}$ 上の2つの\hyperref[def:gappedQL]{gappedな量子液体} $\bigl( \{\Lambda_i\}_i,\, \{\hat{H}^{(0)}_{\Lambda_i}\}_i \bigr),\; \bigl( \{\Lambda_i\}_i,\, \{\hat{H}^{(1)}_{\Lambda_i}\}_i \bigr)$ を与える．
+    \hyperref[def:bosonic-lattice-model]{熱力学極限}をとった\hyperref[def:gappedQL]{gappedな量子液体}全体がなす集合を $\mathrm{gQL}(\Sigma^{(D)})$ とおく．$\mathrm{gQL}(\Sigma^{(D)})$ には適切な位相を入れて位相空間にする．
+
+    　このとき，$\hat{H}^{(0)}_{\Lambda_\infty}$ と $\hat{H}^{(1)}_{\Lambda_\infty}$ が同じ\textbf{gappedなトポロジカル秩序} (gapped topological order) にあるとは，連続曲線 $\hat{H} \colon [0,\, 1] \lto \mathrm{gQL}(\mfd{\Sigma}{D})$ が存在して
     $\hat{H}(0) = \hat{H}^{(0)}_{\Lambda_\infty} \AND \hat{H}(1) = \hat{H}^{(0)}_{\Lambda_\infty}$ を充たすことを言う．
+
+    \tcblower
+
+    空間次元 $D$ のトポロジカル秩序全体の集まりを $\bm{\TO{D}}$ と書くことにする．
 \end{mydefph}
 
-
-
-\subsection{トポロジカル秩序}
-
-% \begin{mydefph}[label=def:quantum-phase]{bosonicなトポロジカル秩序}
-%     2つの\hyperref[def:gappedQL]{gappedな量子系} $\hat{H}_0,\, \hat{H}_1$ を与える．
-
-%     \begin{itemize}
-%         \item $\hat{H}_0$ の基底状態 $\ket{\Phi_0} \in \Gnd{\mfd{\Sigma}{D}}$ と $\hat{H}_1$ の基底状態 $\ket{\Phi_1} \in \Gnd{\mfd{\Sigma}{D}}$ が同じ\textbf{量子相} (quantum phase) にあるとは，$C^\infty$ 曲線 $\hat{H} \colon [0,\, 1] \lto \Lat{\mfd{\Sigma}{D}}$ が存在して
-%             $\hat{H}(0) = \hat{H}_0 \AND \hat{H}(1) = \hat{H}_1$ を充たすこと．これは $\Gnd{\mfd{\Sigma}{D}}$ 上の同値関係 $\sim$ をなす．
-%         \item 商集合 $\Gnd{\mfd{\Sigma}{D}}/{\sim}$ の元のことを\textbf{量子相}と呼ぶ．
-%     \end{itemize}
-    
-% \end{mydefph}
-
-% \begin{marker}
-%     以下では基本的に，熱力学極限を取った際に基底状態がgappedになるような\hyperref[def:bosonic-lattice-model]{bosonicな格子模型}を考える．
-% \end{marker}
-
-\subsection{SRE状態とLRE状態}
-
-まず，~\cite[p.3]{ChenGuWen2010}に倣って\textbf{SRE状態} (Short Range Entangled states) と\textbf{LRE状態} (Long Range Entangled states) を定義する．
-~\cite[p.4]{ChenGuWen2010}
-\begin{myconj}[label=conj:CGW]{Chen-Gu-Wenの仮説}
-    \hyperref[def:bosonic-lattice-model]{bosonic}かつ\hyperref[def:gapped]{gapped}な2つの基底状態 $\ket{\Phi_0},\, \ket{\Phi_1}$ が同じ\hyperref[def:quantum-phase]{量子相}にあるならば，以下の条件を充たす\hyperref[def:bosonic-lattice-model]{bosonicな格子模型}の族 $\Familyset[\big]{\hat{H}(t)}{t \in [0,\, 1]}$ が存在する：
+\begin{myexample}[label=def:trivialTO]{自明相}
+    $\mathcal{H}$ を有限次元Hilber空間，$\hat{P} \in \End(\mathcal{H})$ を，唯一の基底状態 $\ket{\mathrm{gnd}} \in \mathcal{H}$ を持つエルミート演算子とする．
+    このとき任意の空間次元 $D$ と格子 $\Lambda \subset \mfd{\Sigma}{D}$ に対して，\hyperref[def:bosonic-lattice-model]{bosonicな格子模型} $\hat{H}_\Lambda = \sum_{x \in \Lambda} \hat{h}_x$ を
     \begin{itemize}
-        \item $\forall t \in [0,\, 1]$ に対して，$\hat{H}(t)$ の基底状態は熱力学極限を取った際に\hyperref[def:gapped]{gapped}である．
-        \item $\ket{\Phi_0},\, \ket{\Phi_1}$ はそれぞれ $\hat{H}(0),\, \hat{H}(1)$ の基底状態である．
+        \item $\mathcal{H}_x \coloneqq V$ とする．
+        \item $\hat{h}_x \coloneqq \unity \otimes \cdots \otimes \unity \otimes \underbrace{\hat{P}}_{x} \otimes \unity \otimes \cdots \otimes \unity$ を局所的なハミルトニアンとする．
     \end{itemize}
-\end{myconj}
+    ことで定義する．この格子模型は一意的な基底状態 $\bigotimes_{x \in \Lambda} \ket{\mathrm{gnd}}$ を持ち，\hyperref[def:gappedQL]{gappedな量子液体}を成し，\textbf{自明相} (trivial phase) と呼ばれる\hyperref[def:quantum-phase]{bosonicなトポロジカル秩序}を定める．
+    空間次元 $D$ の自明相を $\bm{1_D}$ と書く．
+\end{myexample}
 
-\begin{myprop}[label=prop:LU]{LU transformation}
-    以下の2つは同値である：
-    \begin{enumerate}
-        \item \hyperref[def:bosonic-lattice-model]{bosonic}かつ\hyperref[def:gapped]{gapped}な2つの基底状態 $\ket{\Phi_0},\, \ket{\Phi_1}$ が同じ\hyperref[def:quantum-phase]{量子相}にある
-        \item \hyperref[def:bosonic-lattice-model]{bosonicな格子模型}の族 $\Familyset[\big]{\hat{\tilde{H}}(t)}{t \in [0,\, 1]}$ が存在して
-        \begin{align}
-            \label{eq:LU}
-            \ket{\Phi_1} = \mathcal{T} \bigl[ e^{-\iunit \int_0^1 \dd{t} \hat{\tilde{H}}(t)} \bigr] \ket{\Phi_0}
-        \end{align}
-        を充たす．ただし $\mathcal{T}$ は経路順序積である．
-    \end{enumerate}
-\end{myprop}
+\begin{myexample}[label=def:stacking]{トポロジカル秩序の積層}
+    空間次元 $D$ と格子 $\Lambda \subset \mfd{\Sigma}{D}$ を与え，その上の2つの\hyperref[def:bosonic-lattice-model]{bosonicな格子模型} $\hat{H}^{(0)}_\Lambda \in \End (\irm{\mathcal{H}}{tot}^{(0)}),\; \hat{H}^{(1)}_\Lambda \in \End (\irm{\mathcal{H}}{tot}^{(1)})$ を考える．
+    このとき，
+    \begin{itemize}
+        \item $\irm{\mathcal{H}}{tot} \coloneqq \irm{\mathcal{H}}{tot}^{(0)} \otimes \irm{\mathcal{H}}{tot}^{(1)}$
+        \item $\hat{H}_\Lambda \coloneqq \hat{H}_\Lambda^{(0)} \otimes \unity + \unity \otimes \hat{H}_\Lambda^{(1)}$
+    \end{itemize}
+    と定義することで，新たな\hyperref[def:bosonic-lattice-model]{bosonicな格子模型} $\hat{H}_\Lambda \in \End (\irm{\mathcal{H}}{tot})$ を得る．この操作を格子模型の\textbf{積層} (stacking) と呼ぶ．
+    格子模型の積層を用いて，\hyperref[def:gappedQL]{gappedな量子液体}及び\hyperref[def:quantum-phase]{bosonicなトポロジカル秩序}の積層を定義することができる．
+    特に，空間次元 $D$ の2つの量子相 $\mathsf{C}_D,\, \mathsf{D}_D \in \TO{D}$ に対して，その積層によって得られる新たな量子相を $\bm{\mathsf{C}_D \boxtimes \mathsf{D}_D} \in \TO{D}$ と書く．
+\end{myexample}
+
+\begin{mypropph}[label=prop:monoidalTO]{トポロジカル秩序のモノイド構造}
+    任意の空間次元 $D$ において，以下のデータの3つ組みは\underline{可換}モノイドを成す：
+    \begin{itemize}
+        \item \hyperref[def:quantum-phase]{トポロジカル秩序}全体の集合 $\TO{D}$
+        \item トポロジカル秩序の\hyperref[def:stacking]{積層} $\boxtimes \colon \TO{D} \times \TO{D} \lto \TO{D}$
+        \item \hyperref[def:trivialTO]{自明相} $1_D \in \TO{D}$
+    \end{itemize}
+\end{mypropph}
 
 \begin{proof}
-    \begin{description}
-        \item[$\bm{(\Longrightarrow)}$]　
-        
-        仮説\ref{conj:CGW}による．
-
-        \item[$\bm{(\Longleftarrow)}$]　
-        
-
-    \end{description}
     
 \end{proof}
 
-\eqref{eq:LU}を\textbf{局所ユニタリ発展} (local unitary evolution) と呼ぶ．
+\subsection{重力アノマリー}
 
-\begin{mydef}[label=def:SRE]{SRE状態}
-    \hyperref[def:bosonic-lattice-model]{bosonic}かつ\hyperref[def:gapped]{gapped}な基底状態 $\ket{\Phi} \in \Gnd{\mfd{\Sigma}{D}}$ が\textbf{SRE状態} (short range entangled state) であるとは，
-    あるseparableな状態
+トポロジカル相の文脈で\textbf{重力アノマリー} (gravitational anomaly) と呼ばれるものを導入しておこう~\cite{KongWen2014braidedfusioncategoriesgravitational}．
+これは文字通り量子重力を考えていると言うわけではなく，\hyperref[label=hypo:anomaly-inflow]{アノマリー流入}に類似の概念である．
+
+\begin{mydefph}[label=def:anomalousQP]{gappedな量子相のアノマリー}
+    空間 $D$ 次元の\hyperref[def:quantum-phase]{量子相}が\textbf{アノマリーを持たない} (anomaly-free) とは，それが\hyperref[def:bosonic-lattice-model]{局所的な格子模型}として実現できることを言う．
+\end{mydefph}
+
+\begin{myconjph}[label=conj:gravitational-anomaly]{重力アノマリーの仮説}
+    空間次元 $D$ の任意の\hyperref[def:quantum-phase]{gappedな量子相} $\mathsf{A}_D$ に対して，
+    ある空間次元 $D+1$ の\hyperref[def:anomalousQP]{アノマリー}を持たないgappedな量子相 $\Bulk{\mathsf{A}_D}$ が一意的に存在して，$\Bulk{\mathsf{A}_D}$ の境界として $\mathsf{A}_D$ が実現される．
+\end{myconjph}
+
+予想\ref{conj:gravitational-anomaly}は，$\mathsf{A}_D$ が\hyperref[def:quantum-phase]{トポロジカル秩序}の場合には物理的な証明があるらしい~\cite[Lemma 2, p.19]{KongWen2014braidedfusioncategoriesgravitational}．
+
+
+\section{トポロジカル秩序のマクロな特徴付け}
+
+零温度における\hyperref[def:quantum-phase]{量子相}を特徴付けるデータとは，くりこみ群のフローのIR側においても生き残っているような物理量だと考えられる．
+もしくは，同じことだが，低エネルギー有効理論の長距離の振る舞いが零温度における量子相を特徴付けるという物理学者の期待がある．
+
+もし量子相がgaplessならば，相関関数は典型的には長距離の振る舞い (algebraic decay) を示し，量子相を特徴付けるデータの一部であると考えらえる．
+ところが，\hyperref[def:quantum-phase]{gappedな量子相}に関してはそうはいかない．
+
+\begin{mytheo}[label=thm:gapped-decay]{gappedな格子模型における相関関数の振る舞い}
+    $D$ 次元格子 $\Lambda \subset \mfd{\Sigma}{D}$ 及びその上の\hyperref[def:gapped]{gappedな量子系} $\hat{H}_\Lambda$ を考える．
+    このとき，有限集合 $X,\, Y \subset \Lambda$ に台を持つ任意の演算子 $\hat{A}_X,\, \hat{B}_Y$ について，ある定数 $C,\, D,\, \xi_0$ が存在して以下が成り立つ：
     \begin{align}
-        \bigotimes_{\bm{x} \in \Lambda} \ket{\psi_{\bm{x}}} \WHERE \forall \bm{x} \in \Lambda,\, \ket{\psi_{\bm{x}}} \in \mathcal{H}_{\bm{x}}
+        \mel{\psi_0^a}{\hat{A}_X \hat{B}_Y}{\psi_0^a} - \mel{\psi_0^a}{\hat{A}_X \hat{P}_0 \hat{B}_Y}{\psi_0^a} 
+        &\le C  \norm{\hat{A}_X} \norm{\hat{B}_Y} \Bigl\{ e^{- \frac{\mathrm{dist} (X,\, Y)}{\xi_0}} + \min (\abs{X},\, \abs{Y}) g \bigl(\mathrm{dist} (X,\, Y) \bigr) \Bigr\} \\
+        &\qquad + D\, \mathrm{diam}\bigl(\Spec (\hat{H}_{\Lambda_i}) \cap (-\infty,\, E_0] \bigr)
     \end{align}
-    と $\ket{\Psi}$ との間に\hyperref[prop:LU]{局所ユニタリ発展}が存在すること．
+    ただし，$\ket{\psi_0^a} \in \Spec (\hat{H}_{\Lambda_i}) \cap (-\infty,\, E_0]$ であり，$\hat{P}_0 \coloneqq \sum_a \ketbra{\psi_0^a}{\psi_0^a}$ は基底状態が成す部分空間への射影演算子である．
+\end{mytheo}
+
+\begin{proof}
+    Lieb-Robinson boundを用いる．詳細は~\cite[Theorem 2, p.7]{Hastings2010localityquantumsystems}を参照．
+\end{proof}
+
+定理\ref{thm:gapped-decay}により，gappedな量子系の相関関数は熱力学極限において指数減衰するため，量子相を特徴付けるデータとなり得ない．
+gappedな量子系を特徴付けるデータは，\textbf{トポロジカル欠陥}のデータだと考えられる．
+
+\begin{mydefph}[label=def:TD]{$p$-次元のトポロジカル欠陥}
+    空間多様体 $\Sigma^{(D)}$ 上の\hyperref[def:gappedQL]{gappedな量子液体} $\bigl( \{\Lambda_i\}_i,\, \{\hat{H}_{\Lambda_i}\}_i \bigr)$ を与える．
+    $p < D$ について，\textbf{$p$ 次元の励起} ($p$-dimensional excitation) とは，
+    $\hat{H}_{\infty} + \delta \hat{H}(\mfd{M}{p})$ の\hyperref[def:gapped]{gapped}な基底状態が成す $\irm{\mathcal{H}}{tot}$ の部分空間のこと~\cite[Definition 5., p.10]{KongWen2014braidedfusioncategoriesgravitational}．
+    ただし， $\delta \hat{H}(\mfd{M}{p})$ は $\mfd{\Sigma}{D}$ の $p$ 次元部分多様体 $\mfd{M}{p} \subset \mfd{\Sigma}{D}$ の上に台を持つエルミート演算子のことである．
+
+    \tcblower
+
+    2つの $p$ 次元の励起 $\hat{H}_{\infty} + \delta \hat{H}(\mfd{M}{p}),\; \hat{H}_{\infty} + \delta \hat{H}(\mfd{N}{p})$ が同値であるとは，ある可逆な\footnote{\hyperref[def:stacking]{stacking}に関して可逆という意味．}\hyperref[def:quantum-phase]{トポロジカル秩序} $\mathsf{C}_p \in \TO{p}$ が存在して，$\mathsf{C}_p$ 及び $\mathsf{C}_p^{-1}$ を\hyperref[def:stacking]{積層}することによって互いに行き来できることを言う~\cite[Definition 6., p.10]{KongWen2014braidedfusioncategoriesgravitational}．
+    この同値関係による同値類を\textbf{トポロジカル欠陥} (topological defect) と呼ぶ．
+\end{mydefph}
+
+\begin{marker}
+    $p$ 次元の励起を特徴付けるトラップハミルトニアン $\delta \hat{H}(\mfd{M}{p})$ は，\hyperref[def:bosonic-lattice-model]{格子模型}の $p$ 次元部分多様体 $\mfd{M}{p}$ 上における境界条件を定めていると見做すことができる．
+    この意味で，$p$ 次元のトポロジカル欠陥は\textbf{トポロジカルな境界条件} (topological boundary condition) と見做すことができる．
+\end{marker}
+
+定義\ref{def:TD}より，空間次元 $D$ の\hyperref[def:quantum-phase]{トポロジカル秩序} $\mathsf{C}_D \in \TO{D}$ 内部における $p$ 次元のトポロジカル欠陥はそれ自身が $p$ 次元の\hyperref[def:quantum-phase]{トポロジカル秩序}を成す．
+
+\begin{myexample}[label=ex:toric-emf]{toric codeのトポロジカル欠陥-1}
+    2次元正方格子 $\Lambda = \bigl( \mathsf{V}(\Lambda),\, \mathsf{E}(\Lambda) \bigr)$ 上の\textbf{toric code模型}~\cite{Kitaev1997TC}は，以下のように構成されるスピン $1/2$ 模型である：
+    \begin{itemize}
+        \item $\forall e \in \mathsf{E}(\Lambda)$ の上にはHilbert空間 $\mathcal{H}_e \coloneqq \mathbb{C}^2$ をアサインする．
+        \item $\forall v \in  \mathsf{V}(\Lambda)$ に対して，$\hat{A}_v$ を次のように定義する：
+        \begin{align}
+            \hat{A}_v \coloneqq 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[bullet,label=above right:$v$] (v)
+                +(1,0) coordinate (r)
+                +(-1,0) coordinate (l)
+                +(0,1) coordinate (u)
+                +(0,-1) coordinate (d)
+                ;
+                \foreach \i in {r,l,u,d} {
+                    \draw (v) -- node[midway] {$\hat{X}$} (\i);
+                }
+            \end{tikzpicture}
+        \end{align}
+        \item 任意の面 $p$ に対して，$\hat{B}_p$ を次のように定義する：
+        \begin{align}
+            \hat{B}_p \coloneqq 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path 
+                coordinate (dl)
+                +(1,0) coordinate (dr)
+                +(1,1) coordinate (ur)
+                +(0,1) coordinate (ul)
+                ;
+                \draw[spath/save=pl] (dl) -- node[midway] {$\hat{Z}$} (dr) -- node[midway] {$\hat{Z}$} (ur) -- node[midway] {$\hat{Z}$} (ul) -- node[midway] {$\hat{Z}$} cycle;
+                \begin{scope}[on background layer]
+                    \fill[blue!10,spath/use=pl];
+                \end{scope}
+                \node at (barycentric cs:dl=1,dr=1,ul=1,ur=1) {$p$};
+            \end{tikzpicture}
+        \end{align}
+        \item ハミルトニアンを
+        \begin{align}
+            \label{def:TC}
+            \hat{H}_\Lambda \coloneqq \sum_{v}(1 - \hat{A}_v) - \sum_p (1 - \hat{B}_p)
+        \end{align}
+        で定義する．
+    \end{itemize}
+    ただし
+    \begin{align}
+        \hat{X} \coloneqq \mqty[0&1\\1&0],\quad \hat{Z} \coloneqq \mqty[1&0\\0&-1]
+    \end{align}
+    とおいた．全ての $\hat{A}_v,\, \hat{B}_p$ は可換なので同時対角化可能である．
+    そのうえ $(\hat{A}_v)^2 = (\hat{B}_p)^2 = \unity$ が成り立つ（このような模型を\textbf{commuting projector hamiltonian}と呼ぶ）ので，$\hat{A}_v,\, \hat{B}_p$ の固有値は \underline{$\abs{\Lambda}$ に関係なく}どちらも $\pm 1$ である．
+    故にこの模型は\hyperref[def:quantum-phase]{gappedなトポロジカル秩序} $\mathsf{TC}$ を示す．
+    
+    　簡単のため，2次元Euclid空間上の無限系 $\Lambda = \mathbb{Z}^2 \subset \mathbb{R}^2$ を考える．toric code模型の持つ $0$ 次元の\hyperref[def:TD]{トポロジカル欠陥}を考えよう．
+    $\irm{\mathcal{H}}{tot}$ は $\hat{A}_v,\, \hat{B}_p$ による固有空間分解を持つので，任意の状態は $\hat{A}_v,\, \hat{B}_p$ の同時固有状態で展開できる．
+    \begin{enumerate}
+        \item 基底状態が生成する\hyperref[def:TD]{トポロジカル欠陥} $\bm{1}$ が存在する．
+        \item 頂点 $v_0 \in \mathsf{V}(\Lambda)$ 上に局在した励起を特徴付けるハミルトニアンとして $\delta \hat{H}(v_0) = 2 \hat{A}_{v_0}$ を選ぶと，
+        \begin{align}
+            \hat{A}_v \ket{\psi_e} &=
+            \begin{cases}
+                -\ket{\psi_e}, &v = v_0, \\
+                \ket{\psi_e}, &v \neq v_0
+            \end{cases},
+            &
+            \hat{B}_p \ket{\psi_e} &= \ket{\psi_e}
+        \end{align}
+        なる状態 $\ket{\psi_e}$ が張る1次元部分空間 $\mathbb{C} \ket{\psi_e} \subset \irm{\mathcal{H}}{tot}$ が\hyperref[def:TD]{0次元の励起}だと分かる．
+        ここで，局所演算子
+        \begin{align}
+            \hat{Z}_1 \coloneqq 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[bullet,label=left:$v_0$] (v0)
+                ++(1,0) coordinate[bullet,label=right:$v_1$] (v1)
+                ;
+                \draw[red,thick] (v0) -- node[midway] {$\hat{Z}$} (v1);
+            \end{tikzpicture}
+        \end{align}
+        を $\ket{\psi_e}$ に作用させると，$\hat{A}_{v_0},\, \hat{A}_{v_1}$ のみが $\hat{Z}_1$ と反交換することから
+        \begin{align}
+            \hat{A}_v \hat{Z}_1\ket{\psi_e} &=
+            \begin{cases}
+                -\hat{Z}_1\ket{\psi_e}, &v = v_1, \\
+                 \hat{Z}_1\ket{\psi_e}, &v \neq v_1
+            \end{cases}
+            &
+            \hat{B}_p \hat{Z}_1\hat{Z}_1\ket{\psi_e} &= \hat{Z}_1\ket{\psi_e}
+        \end{align}
+        が成り立つ．i.e. $\delta \hat{H}(v_0),\; \delta \hat{H}(v_1)$ が特徴付ける0次元の励起は互いに\hyperref[def:TD]{同値}である．
+        同様にして任意の頂点上に局在した0次元の励起が互いに同値になるので，これらは1つの\hyperref[def:TD]{トポロジカル欠陥} $\bm{e}$ を成す．
+        \item 任意の面 $p_0$ に局在した励起を特徴付けるハミルトニアンとして $\delta \hat{H}(p_0) = 2 \hat{B}_{p_0}$ を選ぶと，
+        \begin{align}
+            \hat{A}_v \ket{\psi_m} &= \ket{\psi_m}
+            &
+            \hat{B}_p \ket{\psi_m} &= 
+            \begin{cases}
+                -\ket{\psi_m}, &p=p_0 \\
+                \ket{\psi_m}, &p\neq p_0
+            \end{cases}
+        \end{align}
+        なる状態 $\ket{\psi_m}$ が張る1次元部分空間 $\mathbb{C} \ket{\psi_m} \subset \irm{\mathcal{H}}{tot}$ が\hyperref[def:TD]{0次元の励起}だと分かる．
+        今度は
+        \begin{align}
+            \hat{X}_1 \coloneqq 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (dl)
+                ++(1,0) coordinate (a)
+                ++(1,0) coordinate (dr)
+                ++(0,1) coordinate (ur)
+                ++(-1,0) coordinate (b)
+                ++(-1,0) coordinate (ul)
+                ;
+                \draw[spath/save=pl1] (dl) -- (a) -- (b) -- (ul) -- cycle;
+                \draw[spath/save=pl2] (dr) -- (a) -- (b) -- (ur) -- cycle;
+                \begin{scope}[on background layer]
+                    \fill[blue!10,spath/use=pl1];
+                    \fill[red!10,spath/use=pl2];
+                \end{scope}
+                \node at (barycentric cs:dl=1,a=1,b=1,ul=1) {$p_0$};
+                \node at (barycentric cs:dr=1,a=1,b=1,ur=1) {$p_1$};
+                \draw[red,thick] (a) -- node[midway] {$\hat{X}$} (b);
+            \end{tikzpicture}
+        \end{align}
+        なる局所演算子を $\ket{\psi_m}$ に作用させると，$\hat{X}_1$ と反交換するのは $\hat{B}_{p_0},\, \hat{B}_{p_1}$ のみだから，
+        \begin{align}
+            \hat{A}_v \hat{X}_1\ket{\psi_m} &= \hat{X}_1\ket{\psi_m}
+            &
+            \hat{B}_p \hat{X}_1\ket{\psi_m} &= 
+            \begin{cases}
+                -\hat{X}_1\ket{\psi_m}, &p=p_1 \\
+                 \hat{X}_1\ket{\psi_m}, &p\neq p_1
+            \end{cases}
+        \end{align}
+        が成り立つ．同様にして任意の面上に局在した0次元の励起は互いに同値なので，これらは1つの\hyperref[def:TD]{トポロジカル欠陥} $\bm{m}$ を成す．
+        \item 任意の点と面の組み $(v_0,\, p_0)$ 上に局在した励起を特徴付けるハミルトニアンとして $\delta \hat{H}\bigl(\{v_0,\, p_0\}\bigr) = 2\hat{A}_{v_0} + 2 \hat{B}_{p_0}$ を選ぶと，
+        \begin{align}
+            \hat{A}_v \ket{\psi_f} &=
+            \begin{cases}
+                -\ket{\psi_f}, &v = v_0, \\
+                \ket{\psi_f}, &v \neq v_0
+            \end{cases},
+            &
+            \hat{B}_p \ket{\psi_f} &= 
+            \begin{cases}
+                -\ket{\psi_f}, &p=p_0 \\
+                \ket{\psi_f}, &p\neq p_0
+            \end{cases}
+        \end{align}
+        なる状態 $\ket{\psi_f}$ が張る1次元部分空間 $\mathbb{C} \ket{\psi_f} \subset \irm{\mathcal{H}}{tot}$ が\hyperref[def:TD]{トポロジカル欠陥} $\bm{f}$ を成すことがわかる．
+    \end{enumerate}
+    このようにして，互いに異なる4つのトポロジカル欠陥 $\{1,\, e,\, m,\, f\}$ が構成された．
+\end{myexample}
+
+可逆なトポロジカル秩序の積層を同一視すると言うことは，任意の局所演算子の作用に関して不変であることと等価である．
+従って，局所演算子が合成に関して成す結合代数 (\textbf{local operator algebra}) を $\irm{\mathcal{A}}{loc}$ と書くと，\hyperref[def:excitation]{トポロジカル欠陥}を次のように特徴付けることもできる：
+
+\begin{marker}
+    演算子の局所性の概念は，系のスケールに依存する．逆に言うと，トポロジカル欠陥は系のスケールに依存しない．
+\end{marker}
+
+
+\begin{myprop}[label=prop:TD]{トポロジカル欠陥の特徴付け}
+    \hyperref[def:excitation]{トポロジカル欠陥}とは，$\irm{\mathcal{A}}{loc}$-加群のこと．
+\end{myprop}
+
+\begin{myexample}[label=ex:toric-loc]{toric codeのトポロジカル欠陥-2}
+    \exref{ex:toric-emf}で得た4つのトポロジカル欠陥 $\{1,\, e,\, m,\, f\}$ を，$\irm{\mathcal{A}}{loc}$-加群として導出してみよう．
+    まず，演算子の局所性を次の図で定義する：
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \path coordinate (dl)
+            +(1,0) coordinate (dr)
+            +(1,1) coordinate (ur)
+            +(0,1) coordinate[bullet,label=above left:$v$] (ul)
+            ;
+            \draw[spath/save=pl] (dl) -- (dr) -- (ur) -- (ul.center) -- cycle;
+            \draw (dl) -- ++(-0.5,0);
+            \draw (dl) -- ++(0,-0.5);
+            \draw (dr) -- ++(0.5,0);
+            \draw (dr) -- ++(0,-0.5);
+            \draw (ul) -- ++(-0.5,0);
+            \draw (ul) -- ++(0,0.5);
+            \draw (ur) -- ++(0.5,0);
+            \draw (ur) -- ++(0,0.5);
+            \begin{scope}[on background layer]
+                \fill[blue!10,spath/use=pl];
+            \end{scope}
+            \node at (barycentric cs:dl=1,dr=1,ul=1,ur=1) {$p$};
+            \draw[dashed] ($(ul)+(0.2,-0.2)$) circle (0.5);
+        \end{tikzpicture}
+    \end{figure}%
+    すると，local operator algebra $\irm{\mathcal{A}}{loc}$ は生成元 $\hat{A}_v,\, \hat{B}_p$ と関係式
+    \begin{align}
+        (\hat{A}_v)^2 = (\hat{B}_p)^2 = 1,\quad \hat{A}_v \hat{B}_p = \hat{B}_p \hat{A}_v
+    \end{align}
+    で表現される．故に $\irm{\mathcal{A}}{loc} \cong \mathbb{C}^4$ であり，$\irm{\mathcal{A}}{loc}$-\hyperref[def:moduleobj]{加群が成す圏} $\MODC{\VEC{\mathbb{C}}}{\irm{\mathcal{A}}{loc}}$ は
+    \begin{align}
+        \hat{P}_{\pm\pm} \coloneqq \frac{1 \pm \hat{A}_v}{2} \frac{1 \pm \hat{B}_p}{2}
+    \end{align}
+    の4つの単純対象を持つが，これらはそれぞれ
+    \begin{enumerate}
+        \item $P_{++}$ は\hyperref[def:TD]{トポロジカル欠陥} $1$ への射影演算子
+        \item $P_{-+}$ は点 $v$ における\hyperref[def:TD]{トポロジカル欠陥} $e$ への射影演算子
+        \item $P_{+-}$ は面 $p$ における\hyperref[def:TD]{トポロジカル欠陥} $m$ への射影演算子
+        \item $P_{--}$ は組 $(v,\, p)$ における\hyperref[def:TD]{トポロジカル欠陥} $f$ への射影演算子
+    \end{enumerate}
+    に対応している．
+
+    　系のスケールを大きくするにつれて $\mathcal{A}_{\text{loc}}$ の生成元は複雑になるが，異なるスケールの $\mathcal{A}_{\text{loc}}$ 同士は\hyperref[def:Morita-equiv]{森田同値}であることが知られている~\cite{Kitaev1997TC}．
+    つまり，\hyperref[ex:toric-emf]{toric code模型}の\hyperref[def:TD]{トポロジカル欠陥}は系のスケールに依存しない．
+\end{myexample}
+
+$\mathsf{C}_D$ 内部の全ての\hyperref[def:TD]{トポロジカル欠陥}（i.e. トポロジカル秩序）の集まりを\textbf{topological skelton}と呼び，$\sk (\mathsf{C}_D)$ と書くことにする~\cite{KongZhang2022TO}．
+次に考えるべきなのは，topologial skeltonのどの構造が，親となるトポロジカル秩序 $\mathsf{C}_D$ を完全に特徴付けるのか，と言う問題である．
+2025年現在では次のように予想されている~\cite[Conjecture 2, p.11]{KongWen2014braidedfusioncategoriesgravitational}：
+
+\begin{myconjph}[label=conj:TO-BFC]{トポロジカル秩序の特徴付け}
+    \hyperref[def:quantum-phase]{トポロジカル秩序} $\mathsf{C}_D$ を完全に特徴付けるのは，$\sk (\mathsf{C}_D)$ の組紐付き（高次）フュージョン圏としての構造，及びchiral central chargeである．
+\end{myconjph}
+
+以下では，特に $\sk (\mathsf{C}_D)$ の要素のうち空間次元が $0$ であるものに焦点を当てて予想\eqref{conj:TO-BFC}を解読する．
+便宜上，$\sk (\mathsf{C}_D)$ の要素のうち $p+1$ 次元の\hyperref[def:TD]{トポロジカル欠陥}であるもの全体を $\sk_p (\mathsf{C}_D)$ と書くことにする．
+
+\begin{mydef}[label=def:anyon]{エニオン}
+    $\sk (\mathsf{C}_2)$ の要素のうち空間次元が $0$ であるものを\textbf{エニオン} (anyon) と呼ぶ．
+\end{mydef}
+
+\section{$0+1$ 次元のトポロジカル欠陥}
+
+\subsection{アーベル圏としての構造}
+
+点 $\xi \in \mfd{\Sigma}{D}$ に局在した $0+1$ 次元の\hyperref[def:TD]{トポロジカル欠陥} $\forall x,\, y \in \sk_0(\mathsf{C}_D)$ をとる．
+定義\ref{def:TD}よりこれらの代表元は全系のHilbert空間の部分空間であり，その間に作用する線形作用素 $f \colon x \lto y$ を考えることができる．
+$f$ がwell-definedであるためには，系の任意のスケールにおいて局所演算子と可換でなくてはいけない．よって $f$ は $0+0$ 次元の\hyperref[def:TD]{トポロジカル欠陥}と見做すべきである．
+このような全ての $f$ が成す集合を $\bm{\Hom{\sk_0(\mathsf{C}_D)}(x,\, y)}$ と書く．
+
+\begin{mypropph}[label=prop:sk0-category]{$\sk_0(\mathsf{C}_D)$ の圏としての構造}
+    $\sk_0(\mathsf{C}_D)$ は，
+    \begin{itemize}
+        \item $0+1$ 次元の\hyperref[def:TD]{トポロジカル欠陥}を対象
+        \item $\Hom{\sk_0(\mathsf{C}_D)}(x,\, y)$ をHom集合
+    \end{itemize}
+    とする\hyperref[def:additive-cat]{$\mathbb{C}$-線形}な\hyperref[def:category]{圏}を成す．特に，$\Id_x \in \Hom{\sk_0(\mathsf{C}_D)} (x,\, x)$ は恒等作用素に対応する\hyperref[def:trivialTO]{自明}な $0+0$ 次元の\hyperref[def:TD]{トポロジカル欠陥}である．
+\end{mypropph}
+
+\begin{proof}
+    Hom集合の $\mathbb{C}$-線形性は，$f \in \Hom{\sk_0(\mathsf{C}_D)}(x,\, y)$ がミクロには線形作用素であったことによる．
+\end{proof}
+
+命題\ref{prop:sk0-category}に合わせて，以下では $0+1$ 次元の\hyperref[def:TD]{トポロジカル欠陥}全体が成す集まりを $\Obj{\sk_0(\mathsf{C}_D)}$ と書く．
+$\forall x,\, y \in \Obj{\sk_0(\mathsf{C}_D)}$ の代表元は全系のHilbert空間の部分空間であるから，その直和 $x \oplus y \in \Obj{\sk_0(\mathsf{C}_D)}$ を考えることができる．
+
+\begin{mypropph}[label=prop:sk0-category]{$\sk_0(\mathsf{C}_D)$ は半単純}
+    $\sk_0(\mathsf{C}_D)$ は，\hyperref[def:semisimple-cat]{半単純}かつ\hyperref[def:finite-abcat]{有限}な\hyperref[def:additive-cat]{$\mathbb{C}$-線形アーベル圏}である．
+\end{mypropph}
+
+\begin{myexample}[label=ex:toric-semisimple]{toric codeのトポロジカル欠陥の直和}
+    \hyperref[ex:toric-emf]{toric code}の\hyperref[def:quantum-phase]{トポロジカル秩序} $\mathsf{TC}$ を考える．
+    プラケット $p_0$ に局在したトラップハミルトニアン $\delta \hat{H}(p_0) \coloneqq \hat{B}_{p_0}$ によって特徴付けられる\hyperref[def:TD]{トポロジカル欠陥}は
+    \begin{align}
+        \hat{A}_v \ket{\psi_{\pm}} &= \ket{\psi_{\pm}}
+        &
+        \hat{B}_p \ket{\psi_{\pm}} &= 
+        \begin{cases}
+            \pm\ket{\psi_{\pm}}, &p=p_0 \\
+            \ket{\psi_{\pm}}, &p\neq p_0
+        \end{cases}
+    \end{align}
+    を充たす，元のハミルトニアン $\hat{H}$ の2つの固有状態 $\ket{\psi_{\pm}}$ で貼られる2次元の部分空間 $\mathbb{C} \ket{\psi_+} \oplus \mathbb{C} \ket{\psi_-}$ である．特に\exref{ex:toric-emf}で得た $1,\, e,\, m,\, f \in \Obj{\sk_0(\mathsf{TC})}$ を用いると $\mathbb{C} \ket{\psi_+} = 1,\; \mathbb{C} \ket{\psi_-} = m$ と書ける．
+    同様に，トラップハミルトニアンを
+    \begin{align}
+        \delta \hat{H} \bigl( \{v_1,\, p_1\} \bigr) \coloneqq \hat{A}_{v_0} + \hat{B}_{p_0} + \hat{A}_{v_0} \hat{B}_{p_0}
+    \end{align}
+    で定義すると，対応する\hyperref[def:TD]{トポロジカル欠陥}は $v_0$ と $p_0$ において符号が逆にならねばならないので
+    \begin{align}
+        e \oplus m
+    \end{align}
+    になる．トラップハミルトニアンを
+    \begin{align}
+        \delta \hat{H} \bigl( \{v_1,\, p_1\} \bigr) \coloneqq \hat{A}_{v_0} + \hat{B}_{p_0} - \hat{A}_{v_0} \hat{B}_{p_0}
+    \end{align}
+    で定義すると，対応する\hyperref[def:TD]{トポロジカル欠陥}は $v_0$ と $p_0$ において符号が同じにならねばならないので
+    \begin{align}
+        1 \oplus f
+    \end{align}
+    になる．
+
+    　一番最初のトラップハミルトニアンに摂動を加えて $\delta \hat{H}_{\varepsilon} (p_0) \coloneqq (1+\varepsilon) \hat{B}_{p_0}$ にしてみよう．
+    このとき，実現するトポロジカル欠陥は $\varepsilon = 0$ ならば $1 \oplus m$ だが，$\varepsilon < 0$ ならば $1$ であり，$\varepsilon > 0$ ならば $m$ である．
+    このように，直和の形で書けるトポロジカル欠陥は摂動に対して不安定である．
+\end{myexample}
+
+\begin{mydefph}[label=def:stableTO]{安定なトポロジカル秩序}
+    $D+1$ 次元の\hyperref[def:quantum-phase]{トポロジカル秩序} $\mathsf{C}_D \in \TO{D}$ が\textbf{安定} (stable) であるとは，$\mfd{\Sigma}{D} = \mathbb{R}^D$ のときに\hyperref[def:gapped]{基底状態の縮退度}が $1$ になることを言う．
+    もしくは，同じことだが，$\mfd{\Sigma}{D} = \mathbb{R}^D$ のときに\hyperref[def:trivialTO]{自明なトポロジカル欠陥} $1_p \in \Obj{\sk_p (\mathsf{C}_D)}$ が\hyperref[def:semisimple-cat]{単純対象}であることを言う．
+\end{mydefph}
+
+\subsection{モノイダル圏としての構造}
+
+$\forall x,\, y \in \Obj{\sk_0(\mathsf{C}_D)}$ の代表元は全系のHilbert空間の部分空間であるから，そのテンソル積 $x \otimes y \in \Obj{\sk_0(\mathsf{C}_D)}$ を考えることができる．
+直観的には，系のスケールを変えて2つの\hyperref[def:TD]{トポロジカル欠陥}を1つの\hyperref[def:TD]{トポロジカル欠陥}と見做すと言うことである．トポロジカル欠陥を\hyperref[def:quantum-phase]{トポロジカル秩序}と見做すと，\hyperref[def:stacking]{積層}を行っていると考えても良い．
+このような操作を\textbf{フュージョン} (fusion) と呼ぶ．
+
+\begin{mypropph}[label=prop:sk0-category]{$\sk_0(\mathsf{C}_D)$ はモノイダル圏}
+    $\sk_0(\mathsf{C}_D)$ は\hyperref[redef:monoidal-category]{モノイダル圏}である．
+    % \hyperref[def:semisimple-cat]{半単純}かつ\hyperref[def:finite-abcat]{有限}な\hyperref[def:additive-cat]{$\mathbb{C}$-線形アーベル圏}であり
+\end{mypropph}
+
+ところが，実はトポロジカル欠陥のフュージョンの厳密な定義には様々な困難がつきまとう．
+$x,\, y$ がそれぞれ互いに異なる点 $\xi,\, \eta \in \mfd{\Sigma}{D}$ に局在しているとしよう．このとき，代表元の素朴なテンソル積は，トポロジカル欠陥のレベルでのテンソル積 $x \otimes_{(\xi,\, \eta)} y$ を定める．
+i.e. $x,\, y \in \Obj{\sk_0(\mathsf{C}_D)}$ のテンソル積の定義には，集合 $\bigl\{\, (\xi,\, \eta) \in \mfd{\Sigma}{D} \bigm| \xi \neq \eta \,\bigr\}$ だけの不定性が存在し得る．
+定義\ref{def:TD}直下の注の方法で $\sk_0(\mathsf{C}_D)$ を，点 $\xi \in \mfd{\Sigma}{D}$ におけるトポロジカルな境界条件が成す圏 $\sk_0(\mathsf{C}_D)_\xi$ と見做すと，$\otimes_{(\xi,\, \eta)}$ は関手
+\begin{align}
+    \otimes_{(\xi,\, \eta)} \colon \sk_0(\mathsf{C}_D)_\xi \times \sk_0(\mathsf{C}_D)_\eta \lto \sk_0(\mathsf{C}_D)
+\end{align}
+を定める．
+
+ところで，$(\xi,\, \eta) \in $ を連続曲線 $\gamma \colon [0,\, 1] \lto \Conf (\mfd{\Sigma}{D})$ に沿って $(\xi',\, \eta')$ まで断熱的に\footnote{i.e. 途中経過のトラップハミルトニアンの\hyperref[def:gapped]{ギャップ}を閉じずに}移動することで，
+いつでも同型写像 $T^\gamma_{x,\, y} \colon x \otimes_{(\xi,\, \eta)} y \lto x \otimes_{(\xi',\, \eta')} y$ を作ることができる．この同型写像を $\forall x,\, y \in \Obj{\sk_0(\mathsf{C}_D)}$ に関して集めたものは\hyperref[def:nat]{自然変換}
+\begin{align}
+    T^\gamma \colon \otimes_{(\xi,\, \eta)} \Longrightarrow \otimes_{(\xi',\, \eta')}
+\end{align}
+を定める．状況を簡略化するためにしばしば次の仮定をおく：
+
+\begin{myhypo}[label=hypo:homotopic-equal]{}
+    2つの互いにホモトピックな道 $\gamma_1,\, \gamma_2$ に対して，$T^{\gamma_1} = T^{\gamma_2}$ が成り立つ．
+\end{myhypo}
+
+然るに，2つの互いにホモトピックな道 $\gamma_1,\, \gamma_2$ をとったとしても，ギャップが有限だと $T^{\gamma_1},\, T^{\gamma_2}$ が一致してくれる保証はない．
+このようなときには，テンソル積 $\otimes_{(\xi,\, \eta)}$ は高次のホモトピーに依存し，$\sk_0(\mathsf{C}_D)$ の上に\textbf{$A_\infty$-圏}の構造を与える．
+
+このように，$\sk_0(\mathsf{C}_D)$ のテンソル積の構造は大きな不定性を持つ．\hyperref[def:quantum-phase]{トポロジカル秩序のミクロな定義}から出発し，断熱変形を利用して構成することもできるが，そうするとモノイダル圏の同型類しか定まらない~\cite{KawagoeLevin2020anyon}．
+この意味で，$\sk_0(\mathsf{C}_D)$ のモノイダル構造は「ゲージ不変でない」などと言うことがある．
+
+\subsection{ユニタリティ}
+
+$\sk_0(\mathsf{C}_D)$ における射とは，任意の局所演算子と可換な線形作用素のことであった．故に，そのエルミート共役が自然に定まる．ストリング図式で書く場合は次のようにする：
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (x)
+        ++(0,1) coordinate[bullet,label=right:$f$] (f)
+        ++(0,1) coordinate (y)
+        ;
+        \draw[->-=.25,->-=.75] (x) -- node[midway,left] {$x$} (f.center) -- node[midway,left] {$y$} (y);
+    \end{tikzpicture}
+    \lmto
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (x)
+        ++(0,1) coordinate[bullet,label=right:$f^\dagger$] (f)
+        ++(0,1) coordinate (y)
+        ;
+        \draw[->-=.25,->-=.75] (x) -- node[midway,left] {$y$} (f.center) -- node[midway,left] {$x$} (y);
+    \end{tikzpicture}
+\end{align}
+
+\begin{mydef}[label=def:unitary]{ユニタリ構造}
+    $\Cat{C}$ を $\mathbb{C}$-線形な\hyperref[def:additivecat]{アーベル圏}とする．
+    $\Cat{C}$ の\textbf{ダガー構造} (dagger structure) とは，反線形な関手
+    \begin{align}
+        \dagger \colon \OP{\Cat{C}} \lto \Cat{C}
+    \end{align}
+    であって以下を充たすもののこと：
+    \begin{description}
+        \item[\textbf{(dag-1)}] $\forall x \in \Obj{\Cat{C}}$ に対して $x^\dagger = x$
+        \item[\textbf{(dag-2)}] $\forall x,\, y \in \Obj{\Cat{C}}$，及び $\forall f \in \Hom{\Cat{C}}(x,\, y)$ に対して $(f^\dagger)^\dagger = f$
+    \end{description}
+    さらに，以下の条件を充たすダガー構造は\textbf{ユニタリ構造} (unitary structure) と呼ばれる：
+    \begin{description}
+        \item[\textbf{(dag-3)}] $f^\dagger \circ f = 0 \IFF f = 0$
+    \end{description}
     
     \tcblower
 
-    SRE状態でない基底状態のことを\textbf{LRE状態} (long range entangled state) と呼ぶ．
+    ユニタリ圏 $\Cat{C}$ の射 $f \in \Hom{\Cat{C}}(x,\, y)$ が\textbf{ユニタリ} (unitary) であるとは，$f^\dagger \circ f = \Id_x \AND f \circ f^\dagger = \Id_y$ が成り立つことを言う．
 \end{mydef}
 
-定義から明らかに，任意のSRE状態は同一の\hyperref[def:quantum-phase]{量子相}に属する．
-
-\subsection{Bosonic SPT相}
-
-\hyperref[def:SRE]{SRE状態の定義}はそのままだと面白くないが，対称性を考慮すると話は変わってくる．
-位相群 $G$ を与える．また，格子 $\Lambda$ は空間群 $S$ の対称性を持つ\footnote{$S$ の $\Lambda$ への左作用を $\btr \colon S \times \Lambda \lto \Lambda$ と書く．}とする．
-
-\begin{mydef}[label=def:semiprod-group-inner]{外部半直積}
-	$N,\, H$ を群とし，$\phi \colon H \to \Aut N,\; h \mapsto \phi_h$ を準同型写像とする\footnote{$\Aut N$ は，$N$ から $N$ 自身への同型写像全体の集合に，写像の合成を群の演算として群構造を入れたもので，\textbf{自己同型群} (automorphism group) と呼ばれる．}．
-	このとき，集合 $N \times H$ は次の二項演算 $\cdot \mathrel{} \colon N\times H \to N\times H$ に関して群を成す：
-	\begin{align}
-		(n_1,\, h_1) \cdot (n_2,\, h_2) \coloneqq \bigl( n_1 \phi_{\textcolor{red}{h_1}}(n_2),\, h_1h_2 \bigr) 
-	\end{align}
-	この群 $\bigl( N \times H,\, \cdot \mathrel{},\, (1_N,\, 1_H) \bigr)$ のことを $N,\, H$ の（外部）\textbf{半直積} (semidirect product) と呼び，$\bm{H \ltimes_\phi N}$ または $\bm{N \rtimes_\phi H}$ と書く．
-\end{mydef}
-
-
-\begin{mydef}[label=def:blat-G-equiv]{$G$-対称な格子模型}
-    \hyperref[def:bosonic-lattice-model]{bosonicな格子模型} $\hat{H}$ が\textbf{$\bm{G}$-対称}~\cite[p.12]{Xiong2019SPT}であるとは，
-    \begin{itemize}
-        \item 群準同型 $\irm{\rho}{spa} \colon G \lto S$
-        \item 群準同型 $\irm{\phi}{int} \colon G \lto \{\pm 1\}$
-        \item 群のユニタリ or 反ユニタリ表現 $\irm{\rho}{int} \colon G \ltimes_{\btr \circ \irm{\rho}{spa}} S \lto \bigl\{\, \text{unitary or antiunitary operator}\; \irm{\mathcal{H}}{tot} \to \irm{\mathcal{H}}{tot} \,\bigr\} $
-    \end{itemize}
-    が存在して以下を充たすことを言う：
-    \begin{description}
-        \item[\textbf{(Gsym-1)}]　
-        
-        $\forall g \in G$ に対し，
-        \begin{align}
-            \irm{\phi}{int} (g)
-            = 
-            \begin{cases}
-                +1, &\irm{\rho}{int}(g)\; \text{is unitary} \\
-                -1, &\irm{\rho}{int}(g)\; \text{is antiunitary}
-            \end{cases}
-        \end{align}
-        
-        \item[\textbf{(Gsym-2)}]　
-        
-        群 $G$ の $\irm{\mathcal{H}}{tot}$ への作用
-        \begin{align}
-            \rho \colon G &\lto \LGL (\irm{\mathcal{H}}{tot}), \\
-            g &\lmto \left( \bigotimes_{\bm{x} \in \Lambda} \ket{\psi_{\bm{x}}} \lmto \bigotimes_{\bm{x} \in \Lambda} \irm{\rho}{int} \bigl( g,\, \irm{\rho}{spa}(g)^{-1} \btr \bm{x} \bigr) \ket{\psi_{\irm{\rho}{spa}(g)^{-1} \btr \bm{x}}}\right) 
-        \end{align}
-        に関して，
-        \begin{align}
-            \forall g \in G,\; \comm{\hat{H}}{\rho(g)} = 0
-        \end{align}
-        が成り立つ．
-    \end{description}
-    
-\end{mydef}
-
-\hyperref[def:blat-G-equiv]{$G$-対称な格子模型}全体の集合を $\bm{\LatG{G}{\mfd{\Sigma}{D}}} \subset \Lat{\mfd{\Sigma}{D}}$ と書き\footnote{$\Lat{\mfd{\Sigma}{D}}$ からのsubspace topologyを入れる．}．
-その基底状態全体の集合を $\bm{\GndG{G}{\mfd{\Sigma}{D}}} \subset \Gnd{\mfd{\Sigma}{D}}$ と書く．
-% 簡単のため，以下では暫くの間，群準同型 $\irm{\rho}{spa} \colon G \lto S,\; g \lmto 1_S$ の場合のみを考える．
-
-\begin{mydef}[label=def:Gequiv-bqp]{$G$-同変な量子相}
-    2つの\hyperref[def:bosonic-lattice-model]{bosonicかつ $G$-対称な格子模型} $\hat{H}_0,\, \hat{H}_1 \in \mathrm{Lat}_G(\mfd{\Sigma}{D})$ を与える．
-    \begin{itemize}
-        \item $\hat{H}_0$ の基底状態 $\ket{\Phi_0} \in \GndG{G}{\mfd{\Sigma}{D}}$ と $\hat{H}_1$ の基底状態 $\ket{\Phi_1} \in \GndG{G}{\mfd{\Sigma}{D}}$ が同じ\textbf{$\bm{G}$-同変な量子相} ($G$-equivalent quantum phase) にあるとは，$C^\infty$ 曲線 $\hat{H} \colon [0,\, 1] \lto \mathrm{Lat}_G(\mfd{\Sigma}{D})$ が存在して
-            $\hat{H}(0) = \hat{H}_0 \AND \hat{H}(1) = \hat{H}_1$ を充たすこと．これは $\GndG{G}{\mfd{\Sigma}{D}}$ 上の同値関係を成す．
-        \item 商集合 $\GndG{G}{\mfd{\Sigma}{D}}/{\sim}$ の元のことを\textbf{$\bm{G}$-同変な量子相}と呼ぶ．
-    \end{itemize}
-\end{mydef}
-
-\begin{mydef}[label=def:SPT-traditional]{SPT相 (Chen-Gu-Wenによる)}
-    \hyperref[def:bosonic-lattice-model]{bosonic}かつ\hyperref[def:gapped]{gapped}かつ\hyperref[def:blat-G-equiv]{$G$-同変な量子相} $[\ket{\Phi}] \in \GndG{G}{\mfd{\Sigma}{D}}$ が\textbf{SPT相} (symmetry protected topological phase\footnote{\textbf{symmetry protected trivial phase}と呼ぶこともある~\cite{Wen2014SPT}．}) であるとは，
-    $\forall \ket{\Psi} \in [\ket{\Phi}]$ が\hyperref[def:SRE]{SRE状態}であることを言う．
-\end{mydef}
-つまり，任意の代表元が $G$-対称性を破ればseparableな状態に滑らかにつながるような\hyperref[def:Gequiv-bqp]{量子相}のことをSPT相と呼ぶ．SPT相の名前はこのことに由来する．
-
-
-\subsection{Fermionic SPT相}
-
-\section{Bosonic SPT相の分類：群コホモロジーによる方法}
-
-~\cite[p.16, VIII]{ChenGuLiuWen2013}は，\hyperref[def:Dijkgraaf-Witten]{Dijkgraaf-Witten理論}を用いて
-\footnote{彼女らの論文においてはDijkgraaf-Witten理論との関連は明示的に書かれていない．~\cite{Wen2014SPT}には顕に書かれている．}
-かなり多くの\hyperref[def:SPT-traditional]{SPT相}を書き下す系統的な方法を発明した．
-この節ではその方法を紹介する．
-
-簡単のため，\hyperref[def:Gequiv-bqp]{$G$-対称な格子模型}のうち群準同型 $\irm{\rho}{spa}$ が自明なもの\footnote{i.e. $\forall g \in G$ に対して $\irm{\rho}{spa}(g) = 1_S$}のみ考える．
-また，$G$ は局所コンパクト\footnote{任意の点がコンパクト近傍を持つ}であるとする．このとき $G$ はHaar測度を持つのでそれを $\int_G \dd{g}$ とおく．
-このとき，非ゼロな $\ket{\psi} \in \mathcal{H}_{\bm{x}}$ を1つ固定して $\forall g \in G$ に対して
-\begin{align}
-    \ket{g} \coloneqq \irm{\rho}{int}(g) \ket{\psi}
-\end{align}
-とおくと，Haar測度の左右不変性から族 $\Familyset[\big]{\ket{g}}{g \in G}$ は\href{https://en.wikipedia.org/wiki/Coherent_states_in_mathematical_physics}{一般化コヒーレント状態}を成す．
-ここで $\forall \Familyset[\big]{g_{\bm{x}}}{\bm{x} \in \Lambda} \in \prod_{\bm{x} \in \Lambda} G$ に対して
-\begin{align}
-    \ket{\Familyset[\big]{g_{\bm{x}}}{\bm{x} \in \Lambda}} \coloneqq \bigotimes_{\bm{x} \in \Lambda} \ket{g_{\bm{x}}} \in \irm{\mathcal{H}}{tot}
-\end{align}
-とおこう．さらに以下では $G$ は\underline{離散群}であるとする．
-
-\begin{myprop}[label=prop:SPT-CGLW]{SPT相の構成}
-    \begin{itemize}
-        \item 空間多様体 $\Sigma$ を境界にもつ $D+1$ 次元多様体 $\mfdcal{N}{D+1}$ 
-        \item $\mfdcal{N}{D+1}$ の三角形分割 $\abs{K} \xrightarrow{\approx} \mfdcal{N}{D+1}$ であって，その\hyperref[def:SimpSet]{0-単体}（頂点）$K_0$ が $\partial \mfdcal{N}{D+1}$ において格子 $\Lambda$ を再現するもの
-        \item $\omega \in \coGrp{D+1}{G,\, \LU(1)}$
-    \end{itemize}
-    をとる．このとき
-    \begin{align}
-        \ket{\Psi}_\omega \coloneqq \frac{1}{\abs{G}^{\abs{\Lambda}}} \sum_{\{g_{j}\}_{j \in K_0}} \prod_{\{j_0,\, \dots,\, j_{D+1}\} \in K_{D+1}} \omega (g_{j_0},\, \dots,\, g_{j_{D+1}})^{\epsilon_{\{j_0,\, \dots,\, j_{D+1}\}}} \ket{\Familyset[\big]{g_{\bm{x}}}{\bm{x} \in \Lambda}}
-    \end{align}
-    は\hyperref[def:SPT-traditional]{SPT相}の代表元である．ただし $\epsilon_{\{j_0,\, \dots,\, j_{D+1}\}}$ は $D+1$-単体 $\{j_0,\, \dots,\, j_{D+1}\} \in K_{D+1}$ の向きである．
+\begin{myprop}[label=prop:unitary-Cstar]{ユニタリ構造と $C^*$ 構造}
+    $\mathbb{C}$-線形な\hyperref[def:additivecat]{アーベル圏} $\Cat{C}$ が\hyperref[def:starcat]{$C^*$-圏}であることと，\hyperref[def:unitary]{ユニタリ圏}であることは同値である．
 \end{myprop}
 
 \begin{proof}
-    まず，$\ket{\Psi}_\omega$ が\hyperref[def:blat-G-equiv]{$G$-対称}であることを示す．
-    実際 $\forall \Familyset[\big]{g_{\bm{x}}}{\bm{x} \in \Lambda} \in \prod_{\bm{x} \in \Lambda} G$ および $\forall g \in G$ に対して
-    \begin{align}
-        \mel{\Familyset[\big]{g_{\bm{x}}}{\bm{x} \in \Lambda}}{\rho(g)}{\Psi}_\omega
-        &= \mel{\Familyset[\big]{g_{\bm{x}}}{\bm{x} \in \Lambda}}{\bigotimes_{\bm{x} \in \Lambda} \irm{\rho}{int} (g)}{\Psi}_\omega \\
-        &= \braket{\Familyset[\big]{g^{-1}g_{\bm{x}}}{\bm{x} \in \Lambda}}{\Psi}_\omega \\
-        &= \frac{1}{\abs{G}^{\abs{\Lambda}}} \sum_{\{g_{j}\}_{j \in K_0 \setminus \Lambda}} \prod_{\{j_0,\, \dots,\, j_{D+1}\} \in K_{D+1}} \omega (g_{j_0},\, \dots,\, g_{j_{D+1}})^{\epsilon_{\{j_0,\, \dots,\, j_{D+1}\}}} \\
-        &= \braket{\Familyset[\big]{g_{\bm{x}}}{\bm{x} \in \Lambda}}{\Psi}_\omega
-    \end{align}
-    が成り立つ．ただし3つ目の等号でコサイクルの左不変性を使った．
-
-    次に，$\ket{\Psi}_\omega$ が\hyperref[def:SRE]{SRE状態}であることを示す．簡単のため $\Sigma = S^D,\, \mfdcal{N}{D+1} = D^{D+1}$ の場合を考える\footnote{一般の場合でも，$C^\infty$ 多様体はCW複体の構造を持つので問題ないと思われる．}．
-    このとき $K_{0} \setminus \Lambda = \{*\}$ となるような三角形分割をとることができて，
-    \begin{align}
-        \ket{\Psi}_\omega 
-        &= \left( \sum_{\{g_{\bm{x}}\}_{\bm{x} \in \Lambda}} \prod_{\{j_0,\, \dots ,\, j_{D},\, *\} \in K_{D+1}} \omega (g_{j_0},\, \dots,\, g_{j_D},\, g_{*}) \ketbra{\Familyset[\big]{g_{\bm{x}}}{\bm{x} \in \Lambda}}{\Familyset[\big]{g_{\bm{x}}}{\bm{x} \in \Lambda}} \right) \bigotimes_{\bm{x} \in \Lambda} \left( \frac{1}{\abs{G}} \sum_{g_{\bm{x}} \in G} \ket{g_{\bm{x}}}\right) \\
-        &= \left( \prod_{\{j_0,\, \dots ,\, j_{D},\, *\} \in K_{D+1}} \sum_{\{g_{j_n}\}_{n=0}^D \in G^{D+1}} \omega (g_{j_0},\, \dots,\, g_{j_D},\, g_{*}) \ketbra{\{g_{j_n}\}_{n=0}^D}{\{g_{j_n}\}_{n=0}^D} \right) \bigotimes_{\bm{x} \in \Lambda} \left( \frac{1}{\abs{G}} \sum_{g_{\bm{x}} \in G} \ket{g_{\bm{x}}}\right) 
-    \end{align}
-    と書けるので\hyperref[def:SRE]{SRE状態}である．
-
-    最後に，$\ket{\Psi}$ が属する\hyperref[def:SPT-traditional]{SPT相}が $\omega \in \coGrp{D+1}{G,\, \LU(1)}$ の代表元の取り方によらないことを示す．実際，$D$-コチェイン $\eta \in C^D_{\mathrm{Grp}}(G,\, \LU(1))$ に対して
-    $\omega \lmto \omega \cdot \delta \eta$ と取り替えると
-    \begin{align}
-        \ket{\Psi}_{\omega \cdot \delta \eta}
-        &= \left(\prod_{\{j_0,\, \dots,\, j_{D},\, *\} \in K_{D+1}} \sum_{\{g_{j_0},\, \dots,\, g_{j_D}\} \in G^{D+1}} \eta (g_{j_0},\, \dots,\, g_{j_D}) \ketbra{\{g_{j_n}\}_{n=0}^D}{\{g_{j_n}\}_{n=0}^D} \right) \ket{\Psi}_\omega
-    \end{align}
-    となるが，この変換は明らかに $\rho(g)$ と可換なので $G$-同変な\hyperref[prop:LU]{局所ユニタリ発展}である．
+    ~\cite[Proposition 2.1, p.5]{Mueger1998}
 \end{proof}
 
-\hyperref[def:DijkgraafWitten]{Dijkgraaf-Witten理論}との関係は，大域的 $G$-対称性をゲージ化することにより明らかになる~\cite[APPENDIX E]{Wen2014SPT}．
-ゲージ化によって，$\mfdcal{N}{D+1}$ の三角形分割の $1$-単体（辺）$e \in K_1$ 上に $G$ の元 $h_e$ が指定される．ただし，$G$ が離散群なので $h_{e}$ は\hyperref[def:flat-connection-homotopy]{平坦接続}でなくてはならない．よってもし3つの $1$-単体 $e_1,\, e_2,\, e_3$ がある $2$-単体 $d$ について $\partial_i^2 (d) = e_i$ を充たすならば
-\begin{align}
-    h_{e_1} h_{e_2} h_{e_3} = 1_G
-\end{align}
-が成り立たねばならない．また，「物質場」$g_{x}$ とゲージ場 $h_{e}$ のゲージ変換は，$\Familyset[\big]{k_x}{x \in K_0} \in G^{\abs{K_0}}$ を用いてそれぞれ
-\begin{align}
-    g_x &\lmto k_x g_x, \\
-    h_e &\lmto k_{\partial_1^1(e)}^{-1} h_e k_{\partial_0^1(e)}
-\end{align}
-のようになる．故に，命題\ref{prop:SPT-CGLW}の構成で用いた「物質場」の分配関数
-\begin{align}
-    Z(\Familyset[\big]{g_{i}}{i \in K_0};\, \mfdcal{N}{D+1}) \coloneqq \prod_{\{j_0,\, \dots,\, j_{D+1}\} \in K_{D+1}} \omega (g_{j_0},\, \dots,\, g_{j_{D+1}})^{\epsilon_{\{j_0,\, \dots,\, j_{D+1}\}}}
-\end{align}
-は $G$-対称性のゲージ化によって
-\begin{align}
-    &\irm{Z}{gauged}(\Familyset[\big]{g_{i}}{i \in K_0},\, \Familyset[\big]{h_{e}}{e \in K_1};\,\mfdcal{N}{D+1}) \\   
-    &= \frac{1}{\abs{G}^{\abs{\Lambda}}} \prod_{\{j_0,\, \dots,\, j_{D+1}\} \in K_{D+1}} \omega (g_{j_0},\, h_{j_0j_1} g_{j_1},\, h_{j_0j_1}h_{j_1j_2} g_{j_2} \dots,\, h_{j_0j_1} \cdots h_{j_D j_{D+1}}g_{j_{D+1}})^{\epsilon_{\{j_0,\, \dots,\, j_{D+1}\}}} \\
-    &= \frac{1}{\abs{G}^{\abs{\Lambda}}} \prod_{\{j_0,\, \dots,\, j_{D+1}\} \in K_{D+1}} \alpha (g_{j_0}^{-1}h_{j_0j_1} g_{j_1},\, g_{j_1}^{-1} h_{j_1j_2} g_{j_2},\, \dots,\,g_{j_D}^{-1} h_{j_D j_{D+1}}g_{j_{D+1}})^{\epsilon_{\{j_0,\, \dots,\, j_{D+1}\}}}
-\end{align}
-になる\footnote{このゲージ化の方法は，理論のゲージ不変性を要請することによって得られる．}．ゲージ場を外場と見做すことにより\hyperref[def:DijkgraafWitten]{Dijkgraaf-Witten理論}の作用が得られる：
-\begin{align}
-    &\sum_{\{g_{j}\}_{j \in K_1}} \irm{Z}{gauged}(\Familyset[\big]{g_{i}}{i \in K_0},\, \Familyset[\big]{h_{e}}{e \in K_1};\,\mfdcal{N}{D+1}) \\
-    &= \prod_{\{j_0,\, \dots,\, j_{D+1}\} \in K_{D+1}} \alpha (h_{j_0j_1},\, h_{j_1j_2},\, \dots,\, h_{j_D j_{D+1}})^{\epsilon_{\{j_0,\, \dots,\, j_{D+1}\}}} \\
-    &= e^{2\pi \iunit \expval{\gamma^* \alpha,\, []}}
-\end{align}
-以上の議論により，$D$ 次元のbosonicな\footnote{より正確には $G$ が離散群でかつon site symmetryのとき}\hyperref[def:SPT-traditional]{SPT相}の分類は $\coGrp{D+1}{G,\, \LU(1)}$ によって成される，などと言う~\cite{ChenGuLiuWen2013}．
+\begin{mydef}[label=def:unitary-monoidal]{ユニタリモノイダル圏}
+    $\mathbb{C}$-線形なアーベル圏でもあるモノイダル圏 $(\Cat{C},\, \otimes ,\, a,\, l,\, r)$ が\textbf{ユニタリモノイダル圏}であるとは，
+    \hyperref[def:unitary]{ユニタリ構造} $\dagger \colon \OP{\Cat{C}} \lto \Cat{C}$ が\hyperref[redef:monidal-functor]{モノイダル関手}であることを言う．
+\end{mydef}
 
-\section{Bosonic SPT相の分類：$\Omega$-スペクトラムによる方法}
+\subsection{rigidity}
 
-上述の群コホモロジーによるbosonicなSPT相の分類は低次元においては十分有効だが，高次元だと不十分になったり，逆に細かくなり過ぎることが知られている~\cite{Kapustin2014SPT}．現代的には一般コホモロジー理論によって分類することが多い~\cite{Xiong2019SPT}．
-その際には，そもそも\hyperref[prop:LU]{局所ユニタリ発展}は使わずにSPT相を定義する．
+非自明な\hyperref[def:TD]{トポロジカル欠陥}の単体を，局所演算子によって生成・消滅させることはできない．
+トポロジカル欠陥の生成・消滅はその世界線を曲げることによって成される（図\ref{fig:creanh}）．
+この過程を， $0+0$-次元のトポロジカル欠陥を用いてそれぞれ
+\begin{align}
+    \lcoev_x &\colon 1 \lto x \otimes x^*, \\
+    \lev_x &\colon x^* \otimes x \lto 1
+\end{align}
+と表現する．
+ミクロには，このようなプロセスは\hyperref[def:trivialTO]{自明相} $1_0 \in \Obj{\sk_0(\mathsf{C}_D)}$ にストリング状の演算子を作用させることによって成される．
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.4\columnwidth}
+        \centering
+        \begin{tikzpicture}
+            \path coordinate[label=below left:$x$] (x)
+            ++(1,0) coordinate[label=below right:$x^*$] (y);
+            \LCOEV{x}{y}
+        \end{tikzpicture}
+        \caption{$\lcoev_x$ による生成}
+    \end{subfigure}
+    \hspace{5mm}
+    \begin{subfigure}{0.4\columnwidth}
+        \centering
+        \begin{tikzpicture}
+            \path coordinate[label=below left:$x$] (x)
+            ++(1,0) coordinate[label=below right:$x^*$] (y);
+            \LEV{x}{y}
+        \end{tikzpicture}
+        \caption{$\lev_x$ による消滅}
+    \end{subfigure}
+    \caption{トポロジカル欠陥 $x \in \Obj{\sk_0(\mathsf{C}_D)}$ の生成と消滅}
+    \label{fig:creanh}
+\end{figure}%
+
+\begin{mypropph}[label=prop:sk0-unitaryfusion]{$\sk_0(\mathsf{C}_D)$ はユニタリフュージョン圏}
+    $\sk_0(\mathsf{C}_D)$ は\hyperref[def:unitary-monoidal]{ユニタリ}\hyperref[def:tensorfusion-cat]{多重フュージョン圏}である．
+    特に，$\mathsf{C}_D$ が\hyperref[def:stableTO]{安定}ならばユニタリフュージョン圏である．
+\end{mypropph}
+
+\hyperref[def:unitary-monoidal]{ユニタリ構造}と\hyperref[def:pivotal]{旋回構造}の間には密接な関係がある．
+
+\begin{mylem}[label=lem:rdual-unitary]{ユニタリモノイダル圏における右双対}
+    \hyperref[def:unitary-monoidal]{ユニタリモノイダル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \dagger)$ の対象 $x \in \Obj{\Cat{C}}$ が\hyperref[def:dual]{左双対} $(x^*,\, \lcoev_x,\, \lev_x)$ を持つとする．
+    このとき，$(x^*,\, \lev_x{}^\dagger,\, \lcoev_x{}^\dagger)$ は $x$ の右双対である．
+\end{mylem}
+
+\begin{proof}
+    \hyperref[def:dual]{\textsf{\textbf{(zig-zag equations)}}}を示す．実際，
+    \begin{align}
+        (\lcoev_x{}^\dagger \otimes \Id_x) \circ (\Id_x \otimes \lev_x{}^\dagger)
+        &= (\lcoev_x{}^\dagger \otimes \Id_x^\dagger) \circ (\Id_x^\dagger \otimes \lev_x{}^\dagger) \\
+        &= (\lcoev_x \otimes \Id_x)^\dagger \circ (\Id_x \otimes \lev_x)^\dagger \\
+        &= \bigl( (\Id_x \otimes \lev_x) \circ (\lcoev_x \otimes \Id_x)\bigr)^\dagger \\
+        &= \Id_x^\dagger = \Id_x, \\
+        (\Id_{x^*} \otimes \lcoev_x{}^\dagger) \circ (\lev_x{}^\dagger \otimes \Id_{x^*})
+        &= \bigl( (\lev_x\otimes \Id_{x^*}) \circ (\Id_{x^*} \otimes \lcoev_x) \bigr)^\dagger \\
+        &= \Id_{x^*}
+    \end{align}
+    が成り立つ．
+\end{proof}
+
+\begin{mylem}[label=lem:spherical-unitary]{ユニタリテンソル圏における旋回構造}
+    \hyperref[def:unitary-monoidal]{ユニタリ}\hyperref[def:tensorfusion-cat]{テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, \dagger)$ において，
+    \begin{align}
+        p_x \coloneqq (\lcoev_x{}^\dagger \otimes \Id_{x^{**}}) \circ (\Id_x \otimes \lcoev_{x^*}) \colon x \lto x^{**}
+    \end{align}
+    は\hyperref[def:pivotal]{旋回構造}である．
+\end{mylem}
+
+\begin{proof}
+    \begin{align}
+        \dim_p(x)
+        &= \lev_{x^*} \circ (p_x \otimes \Id_{x^*}) \circ \lcoev_x \\
+        &= \lcoev_x{}^\dagger \circ \lcoev_x, \\
+        \dim_p(x^*)
+        &= \lev_{x^{**}} \circ (p_{x^*} \otimes \Id_{x^{**}}) \circ \lcoev_{x^*} \\
+        &= 
+    \end{align}
+    
+\end{proof}
+
+\subsection{組紐}
+
+
 
 \section{Levin-Wen模型}
-
 
 
 \end{document}
