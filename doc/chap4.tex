@@ -727,6 +727,28 @@ $\sk_0(\mathsf{C}_D)$ における射とは，任意の局所演算子と可換�
 
 \subsection{組紐}
 
+トポロジカル欠陥 $x,\, y \in \sk_0(\mathsf{C}_2)$ をとる．
+$x$ が $y$ の周りを断熱的に1周する過程は同型射 $x \otimes y \xrightarrow{\cong} x \otimes y$ で記述される．
+特に，反時計方向に交換する過程は\textbf{組紐} (braiding) と呼ばれる同型射 $b_{x,\, y} \colon x \otimes y \xrightarrow{\cong} y \otimes x$ で記述され，
+時計方向の過程はその逆射で与えられる．特に，組紐を全ての $x,\, y$ に関して集めたものは\hyperref[def:nat]{自然同型} $b \colon \otimes \Longrightarrow \otimes \circ P$ を成す．
+ただし $P \colon \Cat{C} \times \Cat{C} \lto \Cat{C} \times \Cat{C}$ は成分の互換である．
+
+
+\begin{mypropph}[label=prop:sk0-braided]{}
+    $\sk_0(\mathsf{C}_D)$ は\hyperref[def:braided-monoidal]{組紐付き}ユニタリ多重フュージョン圏である．
+    特に，$\mathsf{C}_D$ が\hyperref[def:stableTO]{安定}ならば組紐付きユニタリフュージョン圏である．
+\end{mypropph}
+
+\begin{mydef}[label=def:S-matrix]{$S$-行列}
+    $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, \dagger,\,  b)$ を組紐付きユニタリフュージョン圏とする．
+    $\forall x,\, y \in \Simp (\Cat{C})$ に対して，$S$-行列を
+    \begin{align}
+        S_{xy} \coloneqq \Tr (b_{y^*,\, x} \circ b_{x^*,\, y})
+    \end{align}
+    で定義する．
+\end{mydef}
+
+\subsection{リボン構造}
 
 
 \section{Levin-Wen模型}
