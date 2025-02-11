@@ -727,11 +727,57 @@ $\sk_0(\mathsf{C}_D)$ における射とは，任意の局所演算子と可換�
 
 \subsection{組紐}
 
-トポロジカル欠陥 $x,\, y \in \sk_0(\mathsf{C}_2)$ をとる．
+\hyperref[def:TD]{トポロジカル欠陥} $x,\, y \in \sk_0(\mathsf{C}_2)$ をとる．
 $x$ が $y$ の周りを断熱的に1周する過程は同型射 $x \otimes y \xrightarrow{\cong} x \otimes y$ で記述される．
 特に，反時計方向に交換する過程は\textbf{組紐} (braiding) と呼ばれる同型射 $b_{x,\, y} \colon x \otimes y \xrightarrow{\cong} y \otimes x$ で記述され，
-時計方向の過程はその逆射で与えられる．特に，組紐を全ての $x,\, y$ に関して集めたものは\hyperref[def:nat]{自然同型} $b \colon \otimes \Longrightarrow \otimes \circ P$ を成す．
-ただし $P \colon \Cat{C} \times \Cat{C} \lto \Cat{C} \times \Cat{C}$ は成分の互換である．
+時計方向の過程はその逆射で与えられる．組紐を全ての $x,\, y$ に関して集めたものは\hyperref[def:nat]{自然同型} $b \colon \otimes \Longrightarrow \otimes \circ \tau$ を成す．
+ただし $\tau \colon \Cat{C} \times \Cat{C} \lto \Cat{C} \times \Cat{C}$ は成分の互換である．
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.4\columnwidth}
+        \centering
+        \begin{tikzpicture}
+            \path coordinate[bullet, label=left:$x$] (dx)
+            +(2,0) coordinate[bullet, label=right:$y$] (dy)
+            +(0,4) coordinate (ux)
+            +(2,4) coordinate (uy)
+            +(3,1) coordinate (ctrl_1)
+            +(3,3) coordinate (ctrl_2)
+            ;
+            \begin{knot}[
+                draft mode=crossings,
+                clip width=
+            ]
+                
+            \end{knot}
+            
+            \draw[name path=y, ->-=.5] (dy.center) -- (uy);
+            \draw[name path=x, ->-=.5] (dx.center) .. controls (ctrl_1) and (ctrl_2) .. (ux);
+        \end{tikzpicture}
+        \caption{トポロジカル欠陥のfull braiding}
+        \label{fig:TD-braiding-full}
+    \end{subfigure}
+    \hspace{5mm}
+    \begin{subfigure}{0.4\columnwidth}
+        \centering
+        \begin{tikzpicture}
+            \path coordinate[bullet, label=left:$x$] (dx)
+            +(2,0) coordinate[bullet, label=right:$y$] (dy)
+            +(0,4) coordinate (ux)
+            +(2,4) coordinate (uy)
+            +(3,1) coordinate (ctrl_1)
+            +(3,3) coordinate (ctrl_2)
+            ;
+            \draw[name path=y, ->-=.5] (dy.center) -- (uy);
+            \draw[name path=x, ->-=.5] (dx.center) .. controls (ctrl_1) and (ctrl_2) .. (ux);
+        \end{tikzpicture}
+        \caption{braiding morphism}
+        \label{fig:TD-braiding-half}
+    \end{subfigure}
+    \caption{組紐}
+    \label{fig:TD-braiding}
+\end{figure}%
 
 
 \begin{mypropph}[label=prop:sk0-braided]{}
