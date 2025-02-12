@@ -728,32 +728,34 @@ $\sk_0(\mathsf{C}_D)$ における射とは，任意の局所演算子と可換�
 \subsection{組紐}
 
 \hyperref[def:TD]{トポロジカル欠陥} $x,\, y \in \sk_0(\mathsf{C}_2)$ をとる．
-$x$ が $y$ の周りを断熱的に1周する過程は同型射 $x \otimes y \xrightarrow{\cong} x \otimes y$ で記述される．
+$x$ が $y$ の周りを断熱的に1周する過程は同型射 $x \otimes y \xrightarrow{\cong} x \otimes y$ で記述される（図\ref{fig:TD-braiding-full}）．
 特に，反時計方向に交換する過程は\textbf{組紐} (braiding) と呼ばれる同型射 $b_{x,\, y} \colon x \otimes y \xrightarrow{\cong} y \otimes x$ で記述され，
-時計方向の過程はその逆射で与えられる．組紐を全ての $x,\, y$ に関して集めたものは\hyperref[def:nat]{自然同型} $b \colon \otimes \Longrightarrow \otimes \circ \tau$ を成す．
+時計方向の過程はその逆射 (anti-braiding) で与えられる（図\ref{fig:TD-braiding-half}）．組紐を全ての $x,\, y$ に関して集めたものは\hyperref[def:nat]{自然同型} $b \colon \otimes \Longrightarrow \otimes \circ \tau$ を成す．
 ただし $\tau \colon \Cat{C} \times \Cat{C} \lto \Cat{C} \times \Cat{C}$ は成分の互換である．
 
 \begin{figure}[H]
     \centering
     \begin{subfigure}{0.4\columnwidth}
         \centering
-        \begin{tikzpicture}
+        \begin{tikzpicture}[use Hobby shortcut]
             \path coordinate[bullet, label=left:$x$] (dx)
-            +(2,0) coordinate[bullet, label=right:$y$] (dy)
-            +(0,4) coordinate (ux)
-            +(2,4) coordinate (uy)
-            +(3,1) coordinate (ctrl_1)
-            +(3,3) coordinate (ctrl_2)
+                  ++(1,0) coordinate[bullet, label=right:$y$] (dy)
+                  ++(0,2) coordinate (my)
+                  ++(1,0) coordinate (mx)
+                  ++(-1,2) coordinate (uy)
+                  ++(-1,0) coordinate (ux)
             ;
-            \begin{knot}[
-                draft mode=crossings,
-                clip width=
-            ]
-                
-            \end{knot}
-            
-            \draw[name path=y, ->-=.5] (dy.center) -- (uy);
-            \draw[name path=x, ->-=.5] (dx.center) .. controls (ctrl_1) and (ctrl_2) .. (ux);
+            \draw[->-=.5,name path=y,spath/save=y] (dy) -- (uy);
+            \draw[->-=.5,name path=x,spath/save=x] (dx.center) .. controls +(0,1) and +(0,-1) .. ++(2,2)
+                .. controls +(0,1) and +(0,-1) .. (ux);
+            \begin{scope}
+                \clip[name intersections={of=x and y}] (intersection-1) circle (5pt);
+                \draw[spath/use=x,white,ultra thick,double=black,double distance=0.4pt];
+            \end{scope}
+            \begin{scope}
+                \clip[name intersections={of=x and y}] (intersection-2) circle (5pt);
+                \draw[spath/use=y,white,ultra thick,double=black,double distance=0.4pt];
+            \end{scope}
         \end{tikzpicture}
         \caption{トポロジカル欠陥のfull braiding}
         \label{fig:TD-braiding-full}
@@ -762,15 +764,20 @@ $x$ が $y$ の周りを断熱的に1周する過程は同型射 $x \otimes y \x
     \begin{subfigure}{0.4\columnwidth}
         \centering
         \begin{tikzpicture}
-            \path coordinate[bullet, label=left:$x$] (dx)
-            +(2,0) coordinate[bullet, label=right:$y$] (dy)
-            +(0,4) coordinate (ux)
-            +(2,4) coordinate (uy)
-            +(3,1) coordinate (ctrl_1)
-            +(3,3) coordinate (ctrl_2)
+            \path coordinate[bullet,label=left:$x$] (dx) at (0,0)
+                +(2,0) coordinate[bullet,label=right:$y$] (dy)
+                +(0,4) coordinate (uy)
+                +(2,4) coordinate (ux)
             ;
-            \draw[name path=y, ->-=.5] (dy.center) -- (uy);
-            \draw[name path=x, ->-=.5] (dx.center) .. controls (ctrl_1) and (ctrl_2) .. (ux);
+            \coordinate (CENTER_1) at ($0.5*(dx) + 0.5*(ux)$);
+            \coordinate (CENTER_2) at ($0.5*(dy) + 0.5*(uy)$);
+        
+            \draw[->-=.75,name path=BRAID_1,spath/save=BRAID_1] (dx) .. controls (dx |- CENTER_1) and (ux |- CENTER_1) .. (ux);
+            \draw[->-=.75,name path=BRAID_2,spath/save=BRAID_2] (dy) .. controls (dy |- CENTER_2) and (uy |- CENTER_2) .. (uy);
+            \begin{scope}
+                \clip[name intersections={of=BRAID_1 and BRAID_2}] (intersection-1) circle (5pt);
+                \draw[spath/use=BRAID_1,white,ultra thick,double=black,double distance=0.4pt];
+            \end{scope}
         \end{tikzpicture}
         \caption{braiding morphism}
         \label{fig:TD-braiding-half}

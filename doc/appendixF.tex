@@ -351,25 +351,25 @@
 \end{mydef}
 ストリング図式で書くときは
 \begin{align}
-    \lcoev_X &\coloneqq
+    \lcoev_X &\eqqcolon
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
         \coordinate (A) at (0,0);
         \coordinate (B) at (1,0);
         \LCOEV{A}{B}
     \end{tikzpicture} &
-    \lev_X &\coloneqq 
+    \lev_X &\eqqcolon 
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
         \coordinate (A) at (0,0);
         \coordinate (B) at (1,0);
         \LEV{A}{B}
     \end{tikzpicture} &
-    \rcoev_X&\coloneqq
+    \rcoev_X&\eqqcolon
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
         \coordinate (A) at (0,0);
         \coordinate (B) at (1,0);
         \RCOEV{A}{B}
     \end{tikzpicture} &
-    \rev_X &\coloneqq 
+    \rev_X &\eqqcolon 
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
         \coordinate (A) at (0,0);
         \coordinate (B) at (1,0);
@@ -821,7 +821,7 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
                 &X \otimes (Y \otimes Z) \ar[r, "a_{X,\, Y,\, Z}^{-1}"]\ar[d, "b_{X,\, Y \otimes Z}"] &(X \otimes Y) \otimes Z \ar[r, "b_{X,\, Y} \otimes \mathrm{Id}_Z"] &(Y \otimes X) \otimes Z \ar[d, "a_{Y,\, X,\, Z}"] \\
-                &(Y \otimes Z) \otimes X &Y \otimes (Z \otimes X) \ar[l, "a_{Y,\, Z,\, X}^{-1}"] &Y \otimes (X \otimes Z) \ar[l, "\mathrm{Id}_X \otimes b_{X,\, Z}"]
+                &(Y \otimes Z) \otimes X &Y \otimes (Z \otimes X) \ar[l, "a_{Y,\, Z,\, X}^{-1}"] &Y \otimes (X \otimes Z) \ar[l, "\mathrm{Id}_Y \otimes b_{X,\, Z}"]
             \end{tikzcd}
         \end{center}
         
@@ -835,6 +835,145 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
     \tcblower
     組紐付きモノイダル圏 $\mathcal{C}$ であって，$\mathcal{C}$ の組紐が $b_{X,\, Y} = b_{Y,\, X}^{-1}$ を充たすもののことを\textbf{対称モノイダル圏} (symmetric monoidal category) と呼ぶ．
 \end{mydef}
+ストリング図式で書く場合は
+\begin{align}
+    b_{X,\, Y} &\eqqcolon
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (dx)
+        +(1,0) coordinate (dy)
+        +(0,1) coordinate (uy)
+        +(1,1) coordinate (ux);
+        \BRAID{dx}{dy}{uy}{ux}
+    \end{tikzpicture}
+    &
+    b^{-1}_{X,\, Y} &\eqqcolon
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (dx)
+        +(1,0) coordinate (dy)
+        +(0,1) coordinate (uy)
+        +(1,1) coordinate (ux);
+        \ABRAID{dx}{dy}{uy}{ux}
+    \end{tikzpicture}
+\end{align}
+とする．\hyperref[redef:braided-monoidal]{\textsf{\textbf{(hexagon diagrams)}}}をストリング図式で表すと
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path
+        coordinate[label=above left:$X$] (x_2)
+        +(1,0) coordinate[label=above right:$Y$] (y_2)
+        +(3,0) coordinate[label=above right:$Z$] (z_2)
+        ++(0,2) coordinate (y_3)
+        +(1,0) coordinate (x_3)
+        +(3,0) coordinate (z_3)
+        ++(0,1) coordinate (y_4)
+        +(2,0) coordinate (x_4)
+        +(3,0) coordinate (z_4)
+        ++(0,2) coordinate[label=below left:$Y$] (y_5)
+        +(2,0) coordinate[label=below left:$Z$] (z_5)
+        +(3,0) coordinate[label=below right:$X$] (x_5)
+        ;
+        % braiding
+        \BRAID{x_2}{y_2}{y_3}{x_3}
+        \draw[->-=.5] (z_2) -- (z_3);
+        % associator
+        \draw[->-=.5] (y_3) -- (y_4);
+        \draw[->-=.5] (x_3) .. controls +(0,1) and +(0,-1) .. (x_4);
+        \draw[->-=.5] (z_3) -- (z_4);
+        % braiding
+        \draw[->-=.5] (y_4) -- (y_5);
+        \BRAID{x_4}{z_4}{z_5}{x_5}
+    \end{tikzpicture}
+    &\quad = \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path 
+        coordinate[label=above left:$X$] (x_2)
+        +(1,0) coordinate[label=above right:$Y$] (y_2)
+        +(3,0) coordinate[label=above right:$Z$] (z_2)
+        ++(0,1) coordinate (x_3)
+        +(2.7,0) coordinate (y_3)
+        +(3,0) coordinate (z_3)
+        ++(0,3) coordinate (y_4)
+        +(0.3,0) coordinate (z_4)
+        +(3,0) coordinate (x_4)
+        ++(0,1) coordinate[label=below left:$Y$]  (y_5)
+        +(2,0) coordinate[label=below left:$Z$] (z_5)
+        +(3,0) coordinate[label=below right:$X$] (x_5)
+        ;
+        % associator
+        \draw[->-=.5] (x_2) -- (x_3);
+        \draw[->-=.5] (y_2) .. controls +(0,1) and +(0,-1) .. (y_3);
+        \draw[->-=.5] (z_2) -- (z_3);
+        % braiding
+        \BRAID{x_3}{y_3}{y_4}{x_4}
+        \BRAID{x_3}{z_3}{z_4}{x_4}
+        % associator
+        \draw[->-=.5] (y_4) -- (y_5);
+        \draw[->-=.5] (z_4) .. controls +(0,1) and +(0,-1) .. (z_5);
+        \draw[->-=.5] (x_4) -- (x_5);
+    \end{tikzpicture}
+\end{align}
+および
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path
+        coordinate[label=above left:$X$] (x_2)
+        +(2,0) coordinate[label=above right:$Y$] (y_2)
+        +(3,0) coordinate[label=above right:$Z$] (z_2)
+        ++(0,2) coordinate (x_3)
+        +(2,0) coordinate (z_3)
+        +(3,0) coordinate (y_3)
+        ++(0,1) coordinate (x_4)
+        +(1,0) coordinate (z_4)
+        +(3,0) coordinate (y_4)
+        ++(0,2) coordinate[label=below left:$Z$] (z_5)
+        +(1,0) coordinate[label=below left:$X$] (x_5)
+        +(3,0) coordinate[label=below right:$Y$] (y_5)
+        ;
+        % braiding
+        \BRAID{y_2}{z_2}{z_3}{y_3}
+        \draw[->-=.5] (x_2) -- (x_3);
+        % associator
+        \draw[->-=.5] (x_3) -- (x_4);
+        \draw[->-=.5] (z_3) .. controls +(0,1) and +(0,-1) .. (z_4);
+        \draw[->-=.5] (y_3) -- (y_4);
+        % braiding
+        \draw[->-=.5] (y_4) -- (y_5);
+        \BRAID{x_4}{z_4}{z_5}{x_5}
+    \end{tikzpicture}
+    &\quad =  \quad 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path 
+        coordinate[label=above left:$X$] (x_2)
+        +(2,0) coordinate[label=above right:$Y$] (y_2)
+        +(3,0) coordinate[label=above right:$Z$] (z_2)
+        ++(0,1) coordinate (x_3)
+        +(0.3,0) coordinate (y_3)
+        +(3,0) coordinate (z_3)
+        ++(0,3) coordinate (z_4)
+        +(2.7,0) coordinate (x_4)
+        +(3,0) coordinate (y_4)
+        ++(0,1) coordinate[label=below left:$Z$]  (z_5)
+        +(1,0) coordinate[label=below left:$X$] (x_5)
+        +(3,0) coordinate[label=below right:$Y$] (y_5)
+        ;
+        % associator
+        \draw[->-=.5] (x_2) -- (x_3);
+        \draw[->-=.5] (y_2) .. controls +(0,1) and +(0,-1) .. (y_3);
+        \draw[->-=.5] (z_2) -- (z_3);
+        % braiding
+        \BRAID{x_3}{z_3}{z_4}{x_4}
+        \BRAID{y_3}{z_3}{z_4}{y_4}
+        % associator
+        \draw[->-=.5] (z_4) -- (z_5);
+        \draw[->-=.5] (x_4) .. controls +(0,1) and +(0,-1) .. (x_5);
+        \draw[->-=.5] (y_4) -- (y_5);
+    \end{tikzpicture}
+\end{align}
+のようになる．ただし，\hyperref[redef:monoidal-category]{associator}を明示的に描いた．この図式から，\hyperref[redef:braided-monoidal]{組紐}を含むストリング図式がアイソトピーに関して不変であることが分かる．
+
+\begin{marker}
+    以降，原則としてストリング図式においては\hyperref[redef:monoidal-category]{associator}を描画しない．
+\end{marker}
 
 \section{テンソル圏・フュージョン圏}
 

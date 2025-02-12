@@ -48,7 +48,9 @@
     cd,
     spath3,
     3d,
-    knots
+    knots,
+    celtic,
+    hobby
 }
 \tikzset{%
     symbol/.style={%
@@ -58,11 +60,11 @@
         }
     },
     ->-/.style={
+        postaction={decorate},
         decoration={
             markings,
             mark=at position #1 with {\arrow{>}}
-        },
-        postaction={decorate}
+        }
     },
     -<-/.style={
         decoration={
