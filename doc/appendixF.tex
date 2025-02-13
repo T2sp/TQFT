@@ -833,14 +833,14 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
         \end{center}
     \end{description}
     \tcblower
-    組紐付きモノイダル圏 $\mathcal{C}$ であって，$\mathcal{C}$ の組紐が $b_{X,\, Y} = b_{Y,\, X}^{-1}$ を充たすもののことを\textbf{対称モノイダル圏} (symmetric monoidal category) と呼ぶ．
+    組紐付きモノイダル圏 $\mathcal{C}$ であって，$\mathcal{C}$ の組紐が $b_{Y,\, X} \circ b_{X,\, Y} = \Id_{X \otimes Y}$ を充たすもののことを\textbf{対称モノイダル圏} (symmetric monoidal category) と呼ぶ．
 \end{mydef}
 ストリング図式で書く場合は
 \begin{align}
     b_{X,\, Y} &\eqqcolon
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \path coordinate (dx)
-        +(1,0) coordinate (dy)
+        \path coordinate[label=above left:$X$] (dx)
+        +(1,0) coordinate[label=above right:$Y$] (dy)
         +(0,1) coordinate (uy)
         +(1,1) coordinate (ux);
         \BRAID{dx}{dy}{uy}{ux}
@@ -848,8 +848,8 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
     &
     b^{-1}_{X,\, Y} &\eqqcolon
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \path coordinate (dx)
-        +(1,0) coordinate (dy)
+        \path coordinate[label=above left:$X$] (dx)
+        +(1,0) coordinate[label=above right:$Y$] (dy)
         +(0,1) coordinate (uy)
         +(1,1) coordinate (ux);
         \ABRAID{dx}{dy}{uy}{ux}
@@ -971,9 +971,219 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
 \end{align}
 のようになる．ただし，\hyperref[redef:monoidal-category]{associator}を明示的に描いた．この図式から，\hyperref[redef:braided-monoidal]{組紐}を含むストリング図式がアイソトピーに関して不変であることが分かる．
 
+\hyperref[redef:braided-monoidal]{組紐付きモノイダル圏} $(\Cat{C},\, \otimes,\, I,\, a,\, l,\, r,\, b)$ が\hyperref[redef:braided-monoidal]{対称}であるとき，ストリング図式において
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path 
+            coordinate (x_1)
+            +(1,0) coordinate (y_1)
+            ++(0,1) coordinate (y_2)
+            +(1,0) coordinate (x_2)
+            ++(0,1) coordinate (x_3)
+            +(1,0) coordinate (y_3)
+        ;
+        \BRAID{x_1}{y_1}{y_2}{x_2}
+        \BRAID{y_2}{x_2}{x_3}{y_3}
+    \end{tikzpicture}
+    \quad &= \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (x)
+        +(1,0) coordinate (y)
+        ;
+        \draw[->-=.5] (x) -- +(0,2);
+        \draw[->-=.5] (y) -- +(0,2);
+    \end{tikzpicture}
+\end{align}
+が成り立つ．
+
+\begin{mydef}[label=def:braided-monoidal-functor]{組紐付きモノイダル関手}
+    2つの\hyperref[redef:braided-monoidal]{組紐付きモノイダル圏} 
+    $(\Cat{C},\, \otimes_{\Cat{C}},\, I_{\Cat{C}},\, a^{\Cat{C}},\, l^{\Cat{C}},\, r^{\Cat{C}},\, b^{\Cat{C}}),\, (\Cat{D},\, \otimes_{\Cat{D}},\, I_{\Cat{D}},\, a^{\Cat{D}},\, l^{\Cat{D}},\, r^{\Cat{D}},\, b^{\Cat{D}})$ の間の\hyperref[def:monidal-functor]{弱いモノイダル関手}
+    $(F \colon \Cat{C} \lto \Cat{D},\; \varepsilon,\, \mu)$ が\textbf{弱い組紐付きモノイダル関手} (lax braided monoidal functor) であるとは，
+    $\forall X,\, Y \in \Obj{\Cat{C}}$ に対して以下の図式が可換になること：
+
+    \begin{center}
+        \begin{tikzcd}[row sep=large, column sep=large]
+            &F(X) \otimes_{\Cat{D}} F(Y) \ar[d, "\mu_{X,\, Y}"']\ar[rr, "b^{\Cat{D}}_{F(X),F(Y)}"] & &F(Y)\otimes_{\Cat{D}} F(X) \ar[d, "\mu_{Y,\, X}"] \\
+            &F(X \otimes_{\Cat{C}} Y) \ar[rr, "F(b^{\Cat{C}}_{X,\, Y})"] & &F(Y \otimes_{\Cat{C}}X)
+        \end{tikzcd}
+    \end{center}
+\end{mydef}
+
+\begin{myprop}[label=prop:YBeq]{Yang-Baxter方程式}
+    \hyperref[redef:braided-monoidal]{組紐付きモノイダル圏} $(\Cat{C},\, I,\, a,\, l,\, r,\, b)$ を与える．
+    このとき，$\forall X,\, Y,\, Z \in \Obj{\Cat{C}}$ に対して以下が成り立つ：
+    \begin{align}
+        &a_{Y,\, Z,\, X} \circ (b_{Y,\, Z} \otimes \Id_X) \circ a_{Y,\, Z,\, X}^{-1} \circ (\Id_Y \otimes b_{X,\, Z}) \circ a_{Y,\, X,\, Z} \circ (b_{X,\, Y} \otimes \Id_Z) \\
+        &= (\Id_{Z} \otimes b_{X,\, Y}) \circ a_{Z,\, X,\, Y} \circ (b_{X,\, Z} \otimes \Id_{Y}) \circ a_{X,\, Z,\, Y}^{-1} \circ (\Id_{X} \otimes b_{Y,\, Z}) \circ a_{X,\, Y,\, Z}
+    \end{align}
+\end{myprop}
+
+\begin{proof}
+    圏 $\Cat{C}$ における図式
+    \begin{center}
+        \begin{tikzcd}[column sep=large]
+            % 行1：7セル（最初と最後は空セル）
+            &X \otimes (Y \otimes Z) \ar[d, red, "\Id_X \otimes b_{Y,Z}"'] 
+              & (X \otimes Y) \otimes Z \ar[l, red, "\cong"'] \ar[ddd, "b_{(X \otimes Y),Z}"] \ar[r, "b_{X,Y} \otimes \Id_{Z}"] 
+              & (Y \otimes X) \otimes Z \ar[ddd, "b_{(Y \otimes X),Z}"] \ar[r, red, "\cong"] 
+              & Y \otimes (X \otimes Z) \ar[d, red, "\Id_X \otimes b_{X,Z}"] 
+            \\
+            % 行2：7セル（1列目、7列目が空）
+            &X \otimes (Z \otimes Y) \ar[d, red, "\cong"'] 
+             & &
+            &Y \otimes (Z \otimes X) \ar[d, red, "\cong"] 
+            \\
+            % 行3：7セル（2,3,4,6,7列目が空）
+            &(X \otimes Z) \otimes Y \ar[d, red, "b_{X,Z} \otimes \Id_Y"'] 
+              & &
+            &(Y \otimes Z) \otimes X \ar[d, red, "b_{Y,Z} \otimes \Id_X"] 
+            \\
+            % 行4：7セル（1,2,6,7列目が空）
+            &(Z \otimes X) \otimes Y \ar[r, red, "\cong"'] 
+              & Z \otimes (X \otimes Y) \ar[r, "\Id_Z \otimes b_{X, Y}"']
+              & Z \otimes (Y \otimes X)
+              & (Z \otimes Y) \otimes X \ar[l, red, "\cong"] 
+          \end{tikzcd}
+        % \begin{tikzcd}
+        %     & &X \otimes (Y \otimes Z) \ar[dl, red, "\Id_X \otimes b_{Y,Z}"'] &(X \otimes Y) \otimes Z \ar[l,red,"\cong"']\ar[ddd, "b_{(X \otimes Y),Z}"]\ar[r, "b_{X,Y} \otimes \Id_{Z}"] &(Y \otimes X) \otimes Z \ar[ddd,"b_{(Y \otimes X),Z}"] \ar[r,red, "\cong"] &Y \otimes (X \otimes Z) \ar[dr,red, "\Id_X \otimes b_{X,Z}"] & \\
+        %     &X \otimes (Z \otimes Y) \ar[d, red, "\cong"'] & & & &Y \otimes (Z \otimes X) \ar[d,red,"\cong"] \\
+        %     &(X \otimes Z) \otimes Y \ar[dr, red, "b_{X,\, Z} \otimes \Id_Y"'] & & & &(Y \otimes Z) \otimes X \ar[dl,red,"b_{Y,Z} \otimes \Id_X"] \\
+        %     & &Z \otimes (X \otimes Y) \ar[r,red,"\cong"'] &(Y \otimes Z) \otimes X &(Z \otimes Y) \otimes X \ar[l,red,"\cong"] &
+        % \end{tikzcd}
+    \end{center}
+    を考える．ただし $\cong$ はassociatorを表す．
+    赤色の部分は\hyperref[redef:braided-monoidal]{\textsf{\textbf{(hexagon diagrams)}}}そのものなので可換である．
+    また，中央の四角形は $b$ が\hyperref[def:nat]{自然変換}であることから可換である．
+    故に図式の外周部は可換であり，示された．
+\end{proof}
+
 \begin{marker}
     以降，原則としてストリング図式においては\hyperref[redef:monoidal-category]{associator}を描画しない．
 \end{marker}
+
+命題\ref{prop:YBeq}をストリング図式で書くと次のようになる：
+
+\begin{align}
+    \label{eq:YB}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path 
+            coordinate (O)
+            foreach \i in {1,...,4} {
+                ++(0,1) coordinate (x_\i)
+                +(1,0) coordinate (y_\i)
+                +(2,0) coordinate (z_\i)
+            }
+        ;
+        \node[above left] at (x_1) {$X$};
+        \node[above right] at (y_1) {$Y$};
+        \node[above right] at (z_1) {$Z$};
+        \node[above left] at (x_4) {$Z$};
+        \node[above right] at (y_4) {$Y$};
+        \node[above right] at (z_4) {$X$};
+        \BRAID{x_1}{y_1}{x_2}{y_2}
+        \BRAID{y_2}{z_2}{y_3}{z_3}
+        \BRAID{x_3}{y_3}{x_4}{y_4}
+        \draw[->-=.5] (z_1) -- (z_2);
+        \draw[->-=.5] (x_2) -- (x_3);
+        \draw[->-=.5] (z_3) -- (z_4);
+    \end{tikzpicture}
+    \quad &=\quad 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path 
+            coordinate (O)
+            foreach \i in {1,...,4} {
+                ++(0,1) coordinate (x_\i)
+                +(1,0) coordinate (y_\i)
+                +(2,0) coordinate (z_\i)
+            }
+        ;
+        \node[above left] at (x_1) {$X$};
+        \node[above right] at (y_1) {$Y$};
+        \node[above right] at (z_1) {$Z$};
+        \node[above left] at (x_4) {$Z$};
+        \node[above right] at (y_4) {$Y$};
+        \node[above right] at (z_4) {$X$};
+        \BRAID{y_1}{z_1}{y_2}{z_2}
+        \BRAID{x_2}{y_2}{x_3}{y_3}
+        \BRAID{y_3}{z_3}{y_4}{z_4}
+        \draw[->-=.5] (x_1) -- (x_2);
+        \draw[->-=.5] (z_2) -- (z_3);
+        \draw[->-=.5] (x_3) -- (x_4);
+    \end{tikzpicture}
+\end{align}
+
+\subsection{リボン構造}
+
+\begin{mydef}[label=def:ribbon]{リボン構造}
+    \hyperref[redef:braided-monoidal]{組紐}付き\hyperref[redef:rigid]{rigidモノイダル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev,\, b)$ の
+    \textbf{リボン構造} (ribbon structure) とは，
+    \hyperref[def:nat]{自然同型} $\theta \colon \Id_{\Cat{C}} \Longrightarrow \Id_{\Cat{C}}$ であって以下を充たすもののこと：
+    \begin{description}
+        \item[\textbf{(Rib-1)}] $\forall X,\, Y \in \Obj{\Cat{C}}$ に対して $\theta_{X \otimes Y} = (\theta_{X} \otimes \theta_{Y}) \circ b_{Y,\, X} \circ b_{X,\, Y}$ が成り立つ．
+        \item[\textbf{(Rib-2)}] $\forall X \in \Obj{\Cat{C}}$ に対して $(\theta_X)^* = \theta_{X^*}$
+    \end{description}
+\end{mydef}
+
+ストリング図式で \textsf{\textbf{(Rib-1)}} を書くと
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (x_1)
+            +(1,0) coordinate (y_1)
+            ++(0.5,2) coordinate (q)
+            ++(-0.5,2) coordinate (x_2)
+            +(1,0) coordinate (y_2)
+        ;
+        \draw[->-=.2,->-=.8] (x_1) to[out=90,in=-120] node[midway,below left] {$X$} (q.center) to[out=120,in=-90] node[midway,above left]{$X$} (x_2);
+        \draw[->-=.2,->-=.8] (y_1) to[out=90,in=-60] node[midway,below right] {$Y$} (q.center) to[out=60,in=-90] node[midway,above right] {$Y$} (y_2);
+        \node[circlenode] at (q) {$\theta_{X \otimes Y}$};
+    \end{tikzpicture}
+    \quad &= \quad 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path 
+            coordinate (O)
+            foreach \i in {1,...,5} {
+                ++(0,1) coordinate (x_\i)
+                +(1,0) coordinate (y_\i)
+            }
+        ;
+        \BRAID{x_1}{y_1}{x_2}{y_2}
+        \BRAID{x_2}{y_2}{x_3}{y_3}
+        \draw[->-=.2,->-=.8] (x_3) -- (x_4) -- (x_5);
+        \draw[->-=.2,->-=.8] (y_3) -- (y_4) -- (y_5);
+        \node[circlenode,fill=white] at (x_4) {$\theta_X$};
+        \node[circlenode,fill=white] at (y_4) {$\theta_Y$};
+    \end{tikzpicture}
+\end{align}
+となり，\textsf{\textbf{(Rib-2)}} は
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (x_1)
+            ++(1,0) coordinate (x_2)
+            ++(0,-1) coordinate (q)
+            ++(0,-1) coordinate (x_3)
+            ++(1,0) coordinate (x_4)
+        ;
+        \LEV{x_1}{x_2}
+        \LCOEV{x_3}{x_4}
+        \draw[->-=.5] (x_1) -- +(0,-3);
+        \draw[-<-=.5] (x_4) -- +(0,3);
+        \draw[->-=.2,->-=.8] (x_3) -- (x_2);
+        \node[circlenode] at (q) {$\theta_X$};
+    \end{tikzpicture}
+    \quad &= \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (x_1)
+            ++(0,1.5) coordinate (q)
+            ++(0,1.5) coordinate (x_2)
+        ;
+        \draw[->-=.2,->-=.8] (x_2) -- (q) -- (x_1);
+        \node[circlenode] at (q) {$\theta_{X^*}$};
+    \end{tikzpicture}
+\end{align}
+となる．
+
+
 
 \section{テンソル圏・フュージョン圏}
 
@@ -1475,7 +1685,7 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
 \end{proof}
 
 
-\subsection{フュージョン環・$F$-シンボル}
+\subsection{フュージョン環・Frobenius-Perron次元}
 
 $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, \rcoev,\, \rev)$ を体 $\mathbb{K}$ 上の\hyperref[def:tensorfusion-cat]{多重フュージョン圏}とする．
 $\Cat{C}$ の\hyperref[def:semisimple-cat]{単純対象}の同型類が成す有限集合を $\bm{\Simp (\Cat{C})}$ と書く．
@@ -1499,6 +1709,8 @@ $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 上の積\eqref{eq:fusionring}は明らか�
     $x \in \Simp(\Cat{C})$ の\textbf{Frobenius-Perron次元} (Frobenius-Perron dimension) とは，非負整数値行列 $\bigl[\, N^{\textcolor{red}{c}}_{x \textcolor{red}{b}} \bigr]_{1 \le \textcolor{red}{b},\, \textcolor{red}{c} \le \abs{\Simp(\Cat{C})}}$ の最大の非負固有値 $\bm{\FPdim_{\Cat{C}} (x)} \in \mathbb{C}$ のこと．
 \end{mydef}
 
+\subsection{$F$-シンボル}
+
 \hyperref[def:tensorfusion-cat]{多重フュージョン圏}は\hyperref[def:semisimple-cat]{半単純}かつ\hyperref[def:finite-abcat]{有限}なので，補題\ref{lem:simple-hom}-(1) および\hyperref[prop:lim-colim-basic]{極限・余極限とHomの交換}，フュージョン則\eqref{eq:fusionrule}から
 \begin{align}
     \Hom{\Cat{C}} (x \otimes y,\, z) \cong \bigoplus_{w \in \Simp(\Cat{C})} N^w_{xy} \Hom{\Cat{C}}(w,\, z) \cong \mathbb{K}^{\oplus N^w_{xy}}
@@ -1513,18 +1725,18 @@ $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 上の積\eqref{eq:fusionring}は明らか�
 \end{align}
 が成り立つが，\hyperref[redef:monoidal-category]{associator}による自然同型 $(x \otimes y) \otimes z \cong x \otimes (y \otimes z)$ により
 \begin{align}
-    &\bigoplus_{w \in \Simp{\Cat{C}}} \dim_{\mathbb{K}}\Hom{\Cat{C}} (x \otimes y,\, w) \dim_{\mathbb{K}}\Hom{\Cat{C}} (w \otimes z,\, u) \\
-    &= \bigoplus_{w \in \Simp{\Cat{C}}} \dim_{\mathbb{K}}\Hom{\Cat{C}} (w \otimes x,\, u) \dim_{\mathbb{K}}\Hom{\Cat{C}} (y \otimes z,\, w)
+    &\sum_{w \in \Simp{\Cat{C}}} \dim_{\mathbb{K}}\Hom{\Cat{C}} (x \otimes y,\, w) \dim_{\mathbb{K}}\Hom{\Cat{C}} (w \otimes z,\, u) \\
+    &= \sum_{w \in \Simp{\Cat{C}}} \dim_{\mathbb{K}}\Hom{\Cat{C}} (w \otimes x,\, u) \dim_{\mathbb{K}}\Hom{\Cat{C}} (y \otimes z,\, w)
 \end{align}
 が言える．ここから $\mathbb{K}$-ベクトル空間としての同型
 \begin{align}
     \label{eq:6j}
-    \Phi^{xyz}_{u} \colon \bigoplus_{w} \Hom{\Cat{C}} (x \otimes y,\, w) \otimes \Hom{\Cat{C}} (w \otimes z,\, u) \xrightarrow{\cong} \bigoplus_{w} \Hom{\Cat{C}} (w \otimes x,\, u) \otimes \Hom{\Cat{C}} (y \otimes z,\, w)
+    \Phi^{xyz}_{u} \colon \bigoplus_{w} \Hom{\Cat{C}} (x \otimes y,\, w) \otimes_{\mathbb{K}} \Hom{\Cat{C}} (w \otimes z,\, u) \xrightarrow{\cong} \bigoplus_{w} \Hom{\Cat{C}} (w \otimes x,\, u) \otimes_{\mathbb{K}} \Hom{\Cat{C}} (y \otimes z,\, w)
 \end{align}
 が存在することが分かる．この同型写像の第 $(a,\, b)$ 成分
 \begin{align}
     \label{def:6j-symbol}
-    (\Phi^{xyz}_u)_{ab} \colon \Hom{\Cat{C}} (x \otimes y,\, a) \otimes \Hom{\Cat{C}} (a \otimes z,\, u) \lto \Hom{\Cat{C}} (b\otimes x,\, u) \otimes \Hom{\Cat{C}} (y \otimes z,\, b)
+    (\Phi^{xyz}_u)_{ab} \colon \Hom{\Cat{C}} (x \otimes y,\, a) \otimes_{\mathbb{K}} \Hom{\Cat{C}} (a \otimes z,\, u) \lto \Hom{\Cat{C}} (b\otimes x,\, u) \otimes_{\mathbb{K}} \Hom{\Cat{C}} (y \otimes z,\, b)
 \end{align}
 のことを\textbf{6j-シンボル} (6j-symbol) と呼ぶ．
 
@@ -1565,9 +1777,6 @@ $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 上の積\eqref{eq:fusionring}は明らか�
     \end{tikzpicture}
 \end{align}
 ただし，$\forall x,\, y,\, z \in \Simp(\Cat{C})$ に対して定まる $\mathbb{K}$-ベクトル空間 $\Hom{\Cat{C}}(x \otimes y,\, z)$ の基底を $\mathrm{Basis}(x \otimes y,\, z)$ と書いた．
-
-
-
 
 \subsection{$C^*$ 圏・ユニタリフュージョン圏}
 
@@ -2557,6 +2766,62 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
     \end{itemize}    
 \end{mydef}
 
+\section{組紐付きテンソル圏}
+
+\subsection{組紐とリボンの関係}
+
+\begin{myprop}[label=prop:braid-ribbon]{テンソル圏における組紐とリボン}
+    \hyperref[redef:braided-monoidal]{組紐付きモノイダル圏} $(\Cat{C},\, I,\, a,\, l,\, r,\, b)$ を与え，
+    $\forall x \in \Obj{\Cat{C}}$ に対して射 $u_x \colon x \lto x^{**}$ を以下で定義する：
+    \begin{align}
+        x \xrightarrow{\Id_x \otimes \lcoev_{x^*}} x \otimes x^* \otimes x^{**} \xrightarrow{b_{x,x^*} \otimes \Id_{x^{**}}} x^* \otimes x \otimes x^{**} \xrightarrow{\lev_x \otimes \Id_{x^{**}}} x^{**}
+    \end{align}
+
+    \begin{enumerate}
+        \item $u \coloneqq \Familyset[\big]{u_x \colon x \lto x^{**}}{x \in \Obj{\Cat{C}}}$ は自然変換 $u \colon \Id_{\Cat{C}} \Longrightarrow (\mhyphen)^{**}$ を成し，\hyperref[def:ribbon]{\textsf{\textbf{(Rb-1)}}}を充たす．
+        \item $\Cat{C}$ が\hyperref[def:tensorfusion-cat]{テンソル圏}ならば $u$ は\hyperref[def:nat]{自然同型}になる．
+    \end{enumerate}
+\end{myprop}
+
+ストリング図式では
+\begin{align}
+    u_x =\quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (x_1)
+            foreach \i in {2,3} {
+                ++(0,1) coordinate (x_\i)
+                +(1,0) coordinate (y_\i)
+                +(2,0) coordinate (z_\i)
+            }
+            ++(2,1) coordinate (z_4)
+        ;
+        \draw[->-=.5] (x_1) --node[midway,left] {$x$} (x_2);
+        \begin{scope}
+            \coordinate (CENTER_1) at ($0.5*(x_2) + 0.5*(y_3)$);
+            \coordinate (CENTER_2) at ($0.5*(y_2) + 0.5*(x_3)$);
+            \draw[->-=.75,name path=BRAID_1,spath/save=BRAID_1] (x_2) .. controls (x_2 |- CENTER_1) and (y_3 |- CENTER_1) .. (y_3);
+            \draw[-<-=.75,name path=BRAID_2] (y_2) .. controls (y_2 |- CENTER_2) and (x_3 |- CENTER_2) .. (x_3);
+            \clip[name intersections={of=BRAID_1 and BRAID_2}] (intersection-1) circle (5pt);
+            \draw[spath/use=BRAID_1,white,ultra thick,double=black,double distance=0.4pt];
+        \end{scope}
+        \RCOEV{y_2}{z_2}
+        \draw[->-=.5] (z_2) --node[midway,right] {$x^{**}$} (z_4);
+        \LEV{x_3}{y_3}
+    \end{tikzpicture}
+\end{align}
+と書ける．
+
+\begin{proof}
+    \begin{enumerate}
+        \item $u$ が自然変換であることは明らか．
+        \begin{align}
+            u_{x \otimes y}
+            &= 
+        \end{align}
+    \end{enumerate}
+
+    
+\end{proof}
 
 \section{2-群}
 
