@@ -2678,7 +2678,7 @@ $\Cat{C}$ は\hyperref[redef:rigid]{rigidなモノイダル圏}でもあり，as
 
 $(1+1)$-次元系における有限の\hyperref[def:p-form-sym]{$0$-form symmetry}を公理\ref{ax:symcat-2d-0form}により\hyperref[def:tensorfusion-cat]{ユニタリフュージョン圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ と見做す．
 
-\begin{mydef}[label=def:gauging]{ゲージ化}
+\begin{mydefph}[label=def:gauging]{ゲージ化}
     $(1+1)$-次元時空 $\mfd{M}{2}$ 上の場の理論 $T$ が\hyperref[def:p-form-sym]{$0$-form symmetry} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を持つとする．
 
     　$T$ の\textbf{ゲージ化} (gauging) とは，圏 $\Cat{C}$ における\hyperref[def:separable-alg]{分離可能}な\hyperref[def:sym-Frobenius]{対称Frobenius代数} $(A,\, \mu,\, \upsilon,\, \Delta,\, \epsilon)$ を1つ指定することを言う．
@@ -2687,7 +2687,7 @@ $(1+1)$-次元系における有限の\hyperref[def:p-form-sym]{$0$-form symmetr
     %     \item $\mfd{M}{2}$ の\underline{十分細かい}三角形分割\footnote{より正確には，Poincar\'{e}双対をとることで $K$ を再現するような，trivalent junctionからなるメッシュのことを指す．} $K \in \Obj{\SimpSet}$
     % \end{itemize}
     ゲージ化された理論のことを $\bm{T/A}$ と書く．
-\end{mydef}
+\end{mydefph}
 
 定義\ref{def:gauging}を解読する．
 まず $(1+1)$-次元時空 $\mfd{M}{2}$ の任意の三角形分割 $K \in \Obj{\SimpSet}$ 
@@ -2846,8 +2846,8 @@ $(1+1)$-次元系における有限の\hyperref[def:p-form-sym]{$0$-form symmetr
 \end{proof}
 % 以下では，トポロジカル演算子は常に 
 
-従来のゲージ化の定義との対応は，次の例によって分かる．
-逆に言うと，定義\ref{def:gauging}は次の例を一般化したものである．
+従来のゲージ化の定義との対応は，次の\exref{ex:gauging-VecG}によって分かる．
+逆に言うと，定義\ref{def:gauging}は\exref{ex:gauging-VecG}を一般化したものである．
 
 \begin{myexample}[label=ex:gaiging-VecG]{$\VEC{G}$ におけるゲージ化}
 $G$ を可換とは限らない有限群とし，\exref{def:CG}で定義したユニタリフュージョン圏 $\Cat{C} = \VEC{G}$ を考える．
@@ -2931,7 +2931,7 @@ $G$ を可換とは限らない有限群とし，\exref{def:CG}で定義した�
 
     　従来の意味のゲージ化とは，\hyperref[def:p-form-sym]{0-form symmetry}の全てのトポロジカル演算子のあらゆる可能な配位に関する足し上げであった．
     定義\ref{def:gauging}の意味のゲージ化は，今回の場合は時空の三角形分割から得られる双対グラフの全ての辺上に，全てのトポロジカル演算子を足し上げることで構成されるトポロジカル演算子 $A = \bigoplus_{g \in G} \mathbb{K} g$ をアサインしているため，
-    まさにトポロジカル演算子のあらゆる可能な配位に関する足し上げを実行したことに他ならない．
+    まさにトポロジカル演算子のあらゆる可能な配位に関する足し上げを実行したことに他ならない\footnote{暗に和をとる順序を変えている．単純対象が有限個で，三角形分割も有限であるから，有限和の順序交換となってwell-definedである．}．
 \end{myexample}
 
 
@@ -2941,9 +2941,9 @@ $G$ を可換とは限らない有限群とし，\exref{def:CG}で定義した�
 定義\ref{def:gauging}に倣い，\hyperref[def:tensorfusion-cat]{ユニタリフュージョン圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ の\hyperref[def:sym-Frobenius]{対称Frobenius代数} $(A,\, \mu,\, \upsilon,\, \Delta,\, \epsilon)$ を1つ固定する．
 このとき，\hyperref[def:gauging]{ゲージ化}された理論 $T/A$ の持つ\hyperref[ax:symcat-2d-0form]{$0$-form symmetry}はどのようなユニタリフュージョン圏で特徴づけられるのだろうか？
 
-\begin{myprop}[label=prop:symcat-2d-gauged]{ゲージ化された理論の持つ対称性}
+\begin{mypropph}[label=prop:symcat-2d-gauged]{ゲージ化された理論の持つ対称性}
     $T/A$ の持つ対称性は，$\Cat{C}$ における\hyperref[def:bimodobj]{$(A,\, A)$-両側加群対象}がなす圏 $\BIMODC{\Cat{C}}{A}{A}$ である．
-\end{myprop}
+\end{mypropph}
 
 命題\ref{prop:symcat-2d-gauged}を理解しよう．まず，$T/A$ の分配関数は，$T$ の分配関数に $\textcolor{red}{A}$ でラベルされたトポロジカル演算子を，時空多様体 $\mfd{M}{2}$ 上のメッシュに沿って挿入したものである：
 \begin{align}
@@ -3019,10 +3019,48 @@ $\BIMODC{\Cat{C}}{\textcolor{red}{A}}{\textcolor{red}{A}}$ のassociatorとunito
 \end{align}
 のように定義する．こうして $(\BIMODC{\Cat{C}}{\textcolor{red}{A}}{\textcolor{red}{A}},\, \otimes_{\textcolor{red}{A}},\, 1,\, \bar{a},\, \bar{l},\, \bar{r},\, \bar{\lev},\, \bar{\lcoev},\, \bar{\rev},\, \bar{\rcoev})$ が\hyperref[def:tensorfusion-cat]{ユニタリフュージョン圏}になり，公理\ref{ax:symcat-2d-0form}の意味で $T/A$ の $0$-form symmetryを特徴付ける．
 
-\begin{myprop}[label=prop:domainwall-gauged]{ゲージ化前後のドメインウォールの持つ対称性}
-    時空多様体 $M$ が1次元部分多様体 $D$ によって2つの領域 $M_1,\, M_2$ に分割されているとする．左側の $M_1$ には理論 $T$ を，右側の $M_2$ には\hyperref[def:gauging]{ゲージ化}された理論 $T/\textcolor{red}{A}$ を置く．
-    このとき $D$ の持つ対称性は $\MODCR{\Cat{C}}{\textcolor{red}{A}}$ であり，\hyperref[def:modulecat]{$(\Cat{C},\, \BIMODC{\Cat{C}}{\textcolor{red}{A}}{\textcolor{red}{A}})$-両側加群圏}の構造を持つ．
-\end{myprop}
+\begin{mypropph}[label=prop:domainwall-gauged]{half-space gauging}
+    時空多様体 $M$ が1次元部分多様体 $D$ によって2つの領域 $M_1,\, M_2$ に分割されているとする．左側の $M_1$ には理論 $T$ を，右側の $M_2$ には\hyperref[def:gauging]{ゲージ化}された理論 $T/\textcolor{red}{A}$ を置く（図\ref{fig:half-spage-gauging}）\footnote{この設定を\textbf{half-space gauging}と呼ぶ．}．
+    
+    このとき，ドメインウォール $D$ が成す圏は $\MODCR{\Cat{C}}{\textcolor{red}{A}}$ であり，\hyperref[def:modulecat]{$(\Cat{C},\, \BIMODC{\Cat{C}}{\textcolor{red}{A}}{\textcolor{red}{A}})$-両側加群圏}の構造を持つ．
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \pgfmathsetmacro{\fac}{0.3}
+            \pgfmathsetmacro{\dx}{cos(60)}
+            \pgfmathsetmacro{\dy}{sin(60)}
+            \pgfmathsetmacro{\dr}{1/sqrt(3)}
+        
+            \path coordinate (d)
+                ++ (0,4) coordinate[label=above:$D$] (u)
+            ;
+            \draw[thick] (d) -- (u);
+            \begin{scope}[on background layer]
+                \fill[white] (d) rectangle (u -| -4,0);
+                \fill[white] (d) rectangle (u -| 4,0);
+                \clip (d) rectangle (u -| 4,0);
+                \foreach \x in {0,1,...,15}
+                    \foreach \y in {0,1,...,10}
+                {
+                    \foreach \a in {30,150,-90} {
+                        \draw[red] ($\fac*(d) + \fac*(-1,-3*\dr) + \fac*(\x, 3*\dr*\y)$) -- +(\a:\fac*\dr);
+                    }
+                }
+                \foreach \x in {0,1,...,15}
+                    \foreach \y in {0,1,...,10}
+                {
+                    \foreach \a in {30,150,-90} {
+                        \draw[red] ($\fac*(d) + \fac*(-\dr*\dy,\dr*\dx) + \fac*(-1,-2*\dr) + \fac*(\x, 3*\dr*\y)$) -- +(\a:\fac*\dr);
+                    }
+                }
+            \end{scope}
+            \node[fill=white] at ($(u) + (-2,-0.2)$) {$T$};
+            \node[fill=white] at ($(u) + (2,-0.2)$) {$T/\textcolor{red}{A}$};
+        \end{tikzpicture}
+        \caption{half-space gauging．ドメインウォール $D$ には右から $\textcolor{red}{A}$ が作用するので右 $\textcolor{red}{A}$-加群である．さらに，左からは $T$ のトポロジカル演算子が，右からは $T/\textcolor{red}{A}$ のトポロジカル演算子が作用するため，$(\Cat{C},\, \BIMODC{\Cat{C}}{\textcolor{red}{A}}{\textcolor{red}{A}})$-両側加群でもある．}
+        \label{fig:half-spage-gauging}
+    \end{figure}%
+\end{mypropph}
 
 \begin{myexample}[label=ex:gauging-VecG]{$\VecG{G}$ のゲージ化}
     $G$ を有限群とする．前小節と同様に，$\VecG{G}$ の\hyperref[def:sym-Frobenius]{対象Frobenius代数}として
@@ -3100,9 +3138,9 @@ $\BIMODC{\Cat{C}}{\textcolor{red}{A}}{\textcolor{red}{A}}$ のassociatorとunito
 時空多様体 $\mfd{M}{2}$ のメッシュが同一だとすると，異なる\hyperref[def:sym-Frobenius]{対称Frobenius代数} $(A,\, \mu,\, \upsilon,\, \Delta,\, \epsilon),\; (A',\, \mu',\, \upsilon',\, \Delta',\, \epsilon')$ はいつ同じ\hyperref[def:gauging]{ゲージ化}された理論 $T/A \cong T/A'$ を与えるのだろうか？
 この $\cong$ は，ゲージ化された理論の持つ\hyperref[ax:symcat-2d-0form]{対称性}および\hyperref[prop:domainwall-gauged]{ドメインウォール}が等価であることを意味する．
 
-\begin{mydef}[label=def:gauged-isom]{等価なゲージ化}
-    $T/A \cong T/A'$ であるとは，\hyperref[def:tensor-functor]{左 $\Cat{C}$-加群圏の同値} $\MODCR{\Cat{C}}{A} \cong \MODCR{\Cat{C}}{A}$ が成り立つこと，i.e. $A$ と $A'$ が\hyperref[def:Morita-equiv]{森田同値}であることを言う．
-\end{mydef}
+\begin{mydefph}[label=def:gauged-isom]{等価なゲージ化}
+    $T/A \cong T/A'$ であるとは，\hyperref[def:tensor-functor]{左 $\Cat{C}$-加群圏の同値} $\MODCR{\Cat{C}}{A} \cong \MODCR{\Cat{C}}{A'}$ が成り立つこと，i.e. $A$ と $A'$ が\hyperref[def:Morita-equiv]{森田同値}であることを言う．
+\end{mydefph}
 
 \begin{mytheo}[label=thm:modulecat]{加群圏の特徴付け}
     \begin{itemize}
@@ -3125,7 +3163,7 @@ $\BIMODC{\Cat{C}}{\textcolor{red}{A}}{\textcolor{red}{A}}$ のassociatorとunito
 
 定理\ref{thm:modulecat}および定義\ref{def:gauged-isom}より，ゲージ化の同値類は既約かつ\hyperref[def:modulecat-exact]{完全}な\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏} $(\Cat{M},\, \btr,\, \alpha,\, \lambda)$\footnote{~\cite[p.152]{etingof2015tensor}}と一対一対応する．
 このことから，ゲージ化された理論を $T/A$ と書く代わりに $T/\Cat{M}$ と書く．
-さらに命題\ref{prop:domainwall-gauged}より，その $\Cat{M}$ は元の理論 $T$ とゲージ化された理論 $T/\Cat{M}$ の接触境界が持つ対称性を記述する．
+さらに命題\ref{prop:domainwall-gauged}より，その $\Cat{M}$ は元の理論 $T$ とゲージ化された理論 $T/\Cat{M}$ の間のドメインウォールを記述する．
 
 \subsection{再ゲージ化}
 
@@ -3136,13 +3174,13 @@ $\BIMODC{\Cat{C}}{\textcolor{red}{A}}{\textcolor{red}{A}}$ のassociatorとunito
 \hyperref[def:bimodule-cat]{$(\Cat{C},\, \Cat{C}'')$-両側加群圏}の構造を持つ\hyperref[def:DeligneProduct]{Deligneのテンソル積} $\Cat{M} \boxtimes_{\Cat{C}'} \Cat{M}'$ によって $T/(\Cat{M} \boxtimes_{\Cat{C}'} \Cat{M}')$ とゲージ化することに等しい．
 特に，$\Cat{M}$ の反対加群\footnote{反対圏は op を上付きに書くことで区別する．} $\irm{\Cat{M}}{op}$ を加群積の順序を逆にすることで定義する\footnote{より正確には，さらにleft/right actorの逆写像をとる}と，$\irm{\Cat{M}}{op}$ は $(\Cat{C}',\, \Cat{C})$-両側加群圏となり，$\Cat{M} \boxtimes_{\Cat{C}'} \irm{\Cat{M}}{op}$ によるゲージ化は対称性を元に戻す．i.e. 定義\ref{def:gauged-isom}の意味で $T \cong T/\Cat{M}/\irm{\Cat{M}}{op}$ が成り立つ．
 
-\subsection{ゲージ化で移り合える対称性・anyon condensation}
+\subsection{ゲージ化で移り合える対称性}
 
-\begin{myprop}[label=prop:symtrans-gauging]{ゲージ化で互いに移り合える対称性}
+\begin{mypropph}[label=prop:symtrans-gauging]{ゲージ化で互いに移り合える対称性}
     $(1+1)$-次元の理論の\hyperref[ax:symcat-2d-0form]{対称性} $\Cat{C},\, \Cat{C}'$ が適切な\hyperref[def:gauging]{ゲージ化}によって互いに移り合える必要十分条件は，そのDrinfeldセンターが一致することである．
-\end{myprop}
+\end{mypropph}
 
-命題\ref{prop:symtrans-gauging}の操作をモジュラーテンソル圏に対して行うことを\textbf{エニオン凝縮} (anyon condensation) と呼ぶ．
+% 命題\ref{prop:symtrans-gauging}の操作をモジュラーテンソル圏に対して行うことを\textbf{エニオン凝縮} (anyon condensation) と呼ぶ．
 
 
 \section{Turaev-Viro理論}
