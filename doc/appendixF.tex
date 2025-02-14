@@ -1113,6 +1113,16 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
     \end{tikzpicture}
 \end{align}
 
+\begin{myprop}[label=prop:dual-braid]{dualと組紐}
+    \hyperref[redef:braided-monoidal]{組紐}付き\hyperref[redef:rigid]{rigidモノイダル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev,\, b)$ を与える．
+    このとき，$\forall X,\, Y,\, Z \in \Obj{\Cat{C}}$ に対して以下が成り立つ：
+    \begin{align}
+        &a_{Y,\, Z,\, X} \circ (b_{Y,\, Z} \otimes \Id_X) \circ a_{Y,\, Z,\, X}^{-1} \circ (\Id_Y \otimes b_{X,\, Z}) \circ a_{Y,\, X,\, Z} \circ (b_{X,\, Y} \otimes \Id_Z) \\
+        &= (\Id_{Z} \otimes b_{X,\, Y}) \circ a_{Z,\, X,\, Y} \circ (b_{X,\, Z} \otimes \Id_{Y}) \circ a_{X,\, Z,\, Y}^{-1} \circ (\Id_{X} \otimes b_{Y,\, Z}) \circ a_{X,\, Y,\, Z}
+    \end{align}
+\end{myprop}
+
+
 \subsection{リボン構造}
 
 \begin{mydef}[label=def:ribbon]{リボン構造}
@@ -2770,7 +2780,7 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
 
 \subsection{組紐とリボンの関係}
 
-\begin{myprop}[label=prop:braid-ribbon]{テンソル圏における組紐とリボン}
+\begin{mylem}[label=prop:braid-ribbon]{テンソル圏における組紐とリボン}
     \hyperref[redef:braided-monoidal]{組紐付きモノイダル圏} $(\Cat{C},\, I,\, a,\, l,\, r,\, b)$ を与え，
     $\forall x \in \Obj{\Cat{C}}$ に対して射 $u_x \colon x \lto x^{**}$ を以下で定義する：
     \begin{align}
@@ -2781,7 +2791,7 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
         \item $u \coloneqq \Familyset[\big]{u_x \colon x \lto x^{**}}{x \in \Obj{\Cat{C}}}$ は自然変換 $u \colon \Id_{\Cat{C}} \Longrightarrow (\mhyphen)^{**}$ を成し，\hyperref[def:ribbon]{\textsf{\textbf{(Rb-1)}}}を充たす．
         \item $\Cat{C}$ が\hyperref[def:tensorfusion-cat]{テンソル圏}ならば $u$ は\hyperref[def:nat]{自然同型}になる．
     \end{enumerate}
-\end{myprop}
+\end{mylem}
 
 ストリング図式では
 \begin{align}

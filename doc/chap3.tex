@@ -2623,7 +2623,7 @@ $p$ 単体の\textbf{向き}は常に $l_0 < \cdots < l_p$ を充たすように
 \subsection{ユニタリフュージョン圏としての $0$-form対称性}
 
 \begin{myaxiom}[label=ax:symcat-2d-0form]{$(1+1)$-次元の有限群 $0$-form対称性}
-    $(1+1)$-次元系における有限群 $G$ の\hyperref[def:p-form-sym]{0-form symmetry}は，\hyperref[def:tensorfusion-cat]{ユニタリフュージョン圏}として特徴付けられる．
+    $(1+1)$-次元系における有限の\footnote{単純対象が有限個}\hyperref[def:p-form-sym]{0-form symmetry}は，\hyperref[def:tensorfusion-cat]{ユニタリフュージョン圏}として特徴付けられる．
 \end{myaxiom}
 
 公理\ref{ax:symcat-2d-0form}を解読する．ユニタリフュージョン圏 $\Cat{C}$ を1つ固定する．
@@ -2650,7 +2650,7 @@ $f \in \Hom{\Cat{C}}(a,\, b)$ は，トポロジカルな点状の演算子を�
     \end{tikzpicture}
 \end{center}
 
-$\forall a,\, b \in \Obj{\Cat{C}}$ に対し，和
+$\forall a,\, b \in \Obj{\Cat{C}}$ に対し，その直和
 \begin{align}
     \expval{\cdots U_{a \oplus b} (C) \cdots} = \expval{\cdots U_a (C) \cdots} + \expval{\cdots U_b(C) \cdots}
 \end{align}
@@ -2660,7 +2660,7 @@ $\forall a,\, b \in \Obj{\Cat{C}}$ に対し，和
 \end{align}
 特に $\Cat{C}$ が\hyperref[def:tensorfusion-cat]{フュージョン圏}であることから，$\mathrm{Simp}(\Cat{C})$ にはある種の\hyperref[def:finite-abcat]{有限性}を要請していることになる．
 
-$\Cat{C}$ は\hyperref[redef:rigid]{rigidなモノイダル圏}でもあり，associator，evaluation, coevaluationに対応するデータも持つ．associatorに対応するデータはしばしば\textbf{$F$-symbol}\footnote{$F$-symbolは，厳密にはassociatorそのものではない．}と呼ばれる．
+$\Cat{C}$ は\hyperref[redef:rigid]{rigidなモノイダル圏}でもあり，associator，evaluation, coevaluationに対応するデータも持つ．associatorに対応するデータはしばしば\hyperref[def:F-symbol]{$F$-symbol}\footnote{$F$-symbolは，厳密にはassociatorそのものではない．}と呼ばれる．
 
 \begin{myexample}[label=ex:CGa]{圏 $\VecG{G}^\alpha$ とアノマリー}
     $\Cat{C} = \VecG{G}^\alpha$ とする．\exref{def:CG-functor}により
@@ -2681,15 +2681,179 @@ $(1+1)$-次元系における有限の\hyperref[def:p-form-sym]{$0$-form symmetr
 \begin{mydef}[label=def:gauging]{ゲージ化}
     $(1+1)$-次元時空 $\mfd{M}{2}$ 上の場の理論 $T$ が\hyperref[def:p-form-sym]{$0$-form symmetry} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を持つとする．
 
-    $T$ の\textbf{ゲージ化} (gauging) とは，
-    \begin{itemize}
-        \item 圏 $\Cat{C}$ における\hyperref[def:sym-Frobenius]{対称Frobenius代数} $(A,\, \mu,\, \upsilon,\, \Delta,\, \epsilon)$
-        \item $\mfd{M}{2}$ の\underline{十分細かい}三角形分割\footnote{より正確には，Poincar\'{e}双対をとることで $K$ を再現するような，trivalent junctionからなるメッシュのことを指す．} $K \in \Obj{\SimpSet}$
-    \end{itemize}
-    の組のこと．ゲージ化された理論のことを $T/A$ と書く．
+    　$T$ の\textbf{ゲージ化} (gauging) とは，圏 $\Cat{C}$ における\hyperref[def:separable-alg]{分離可能}な\hyperref[def:sym-Frobenius]{対称Frobenius代数} $(A,\, \mu,\, \upsilon,\, \Delta,\, \epsilon)$ を1つ指定することを言う．
+    % \begin{itemize}
+    %     \item 
+    %     \item $\mfd{M}{2}$ の\underline{十分細かい}三角形分割\footnote{より正確には，Poincar\'{e}双対をとることで $K$ を再現するような，trivalent junctionからなるメッシュのことを指す．} $K \in \Obj{\SimpSet}$
+    % \end{itemize}
+    ゲージ化された理論のことを $\bm{T/A}$ と書く．
 \end{mydef}
 
-定義\ref{def:gauging}を解読する．簡単のため $G$ を可換とは限らない有限群，$\Cat{C} = \VecG{G}$ とし，$A \coloneqq \bigoplus_{g \in G} \mathbb{K} g$ とおく．ただし $\forall g \in G$ に対して $\mathbb{K} g$ は1次元 $\mathbb{K}$-ベクトル空間であり，その基底を $e_g$ と書く．
+定義\ref{def:gauging}を解読する．
+まず $(1+1)$-次元時空 $\mfd{M}{2}$ の任意の三角形分割 $K \in \Obj{\SimpSet}$ 
+をとり，そのPoincar\'{e}双対をとることで得られるグラフ $P^{(1)}(K)$ を考える（図\ref{fig:gauging-graph}）\footnote{グラフ $P^{(1)}$ は，後述する\hyperref[def:polytope-decomp]{多面体分割}の一例となっている．}．
+% グラフ $P^{(1)}$ の辺には向きを勝手に与えて有向グラフにする．
+グラフ $P^{(1)}(K)$ の全ての辺にトポロジカル演算子 $A \in \Obj{\Cat{C}}$ を置き，頂点には射 $\mu \colon A \otimes A \lto A$ または $\Delta \colon A \lto A \otimes A$ を置くことで，
+グラフ $P^{(1)}(K)$ はストリング図式 $\mathbb{F}_A (K)$ を与える．
+次の命題\ref{prop:gaiging-graph-invariance}より，$A$ の\hyperref[def:separable-alg]{分離可能性}と\hyperref[def:sym-Frobenius]{対称Frobenius代数}は，このストリング図式 $\mathbb{F}_A (K)$ が位相不変量であること（i.e. ゲージ不変性）を保証するものだと分かる．
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \path coordinate (x_1)
+        +(2,0) coordinate (x_2)
+        +(1,1) coordinate (y_2)
+        +(1,-1) coordinate (y_1)
+        coordinate[bullet,red] (g_1) at (barycentric cs:x_1=1,x_2=1,y_1=1)
+        coordinate[bullet,red] (g_2) at (barycentric cs:x_1=1,x_2=1,y_2=1)
+        ;
+        \draw (x_1) -- (y_1) -- (x_2) -- (y_2) -- cycle;
+        \draw (x_1) -- (x_2);   
+        \draw[red,thick] (g_1.center) -- (g_2.center);
+        \draw[red,thick] (g_1.center) -- +(-45:1);
+        \draw[red,thick] (g_1.center) -- +(-135:1);
+        \draw[red,thick] (g_2.center) -- +(45:1);
+        \draw[red,thick] (g_2.center) -- +(135:1);
+    \end{tikzpicture}
+    \caption{2次元多様体 $\mfd{M}{2}$ の三角形分割 $K$ の一部と，そのPoincar\'{e}双対グラフ $\textcolor{red}{P^{(1)}}$．}
+    \label{fig:gauging-graph}
+\end{figure}%
+
+\begin{myprop}[label=prop:gaiging-graph-invariance]{ゲージ化は三角形分割の取り方によらない}
+    ストリング図式 $\mathbb{F}_A (K)$ は，時空多様体 $\mfd{M}{2}$ の三角形分割 $K$ の取り方によらない．
+\end{myprop}
+
+\begin{proof}
+    $\mathbb{F}_A (K)$ が\hyperref[def:Pachner]{双星状移動}に関して不変であることを示せば良い．
+    2次元\hyperref[def:PLmfd]{PL多様体}の双星状移動は以下の2つである：
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}{0.4\columnwidth}
+            \centering
+            \begin{tikzpicture}
+                \path coordinate (x_1)
+                    +(1,0) coordinate (y_1)
+                    +(1,1) coordinate (z_1)
+                    +(0,1) coordinate (w_1)
+                    ++(3,0) coordinate (x_2)
+                    +(1,0) coordinate (y_2)
+                    +(1,1) coordinate (z_2)
+                    +(0,1) coordinate (w_2)
+                    coordinate[bullet,red] (v_1) at (barycentric cs:x_1=1,y_1=1,w_1=1)
+                    coordinate[bullet,red] (v_2) at (barycentric cs:z_1=1,y_1=1,w_1=1)
+                    coordinate[bullet,red] (u_1) at (barycentric cs:x_2=1,y_2=1,z_2=1)
+                    coordinate[bullet,red] (u_2) at (barycentric cs:x_2=1,w_2=1,z_2=1)
+                ;
+                \draw (x_1) -- (y_1) -- (z_1) -- (w_1) --cycle;
+                \draw (y_1) -- (w_1);
+                \node at (barycentric cs:y_1=1,w_2=1) {$\lmto$};
+                \draw (x_2) -- (y_2) -- (z_2) -- (w_2) --cycle;
+                \draw (x_2) -- (z_2);
+                \draw[red,thick] (v_1.center) -- (v_2.center);
+                \draw[red,thick] (v_1.center) -- ++(180:1);
+                \draw[red,thick] (v_1.center) -- ++(-90:1);
+                \draw[red,thick] (v_2.center) -- ++(90:1);
+                \draw[red,thick] (v_2.center) -- ++(0:1);
+                \draw[red,thick] (u_1.center) -- (u_2.center);
+                \draw[red,thick] (u_1.center) -- ++(0:1);
+                \draw[red,thick] (u_1.center) -- ++(-90:1);
+                \draw[red,thick] (u_2.center) -- ++(90:1);
+                \draw[red,thick] (u_2.center) -- ++(180:1);
+            \end{tikzpicture}
+            \caption{2-4型のPachner移動}
+            \label{fig:type2-4Pachner}
+        \end{subfigure}
+        \hspace{5mm}
+        \begin{subfigure}{0.4\columnwidth}
+            \centering
+            \begin{tikzpicture}
+                \path coordinate (g_1)
+                    +(-150:1) coordinate (x_1)
+                    +(-30:1) coordinate (y_1)
+                    +(90:1) coordinate (z_1)
+                    ++(3,0) coordinate (g_2)
+                    +(-150:1) coordinate (x_2)
+                    +(-30:1) coordinate (y_2)
+                    +(90:1) coordinate (z_2)
+                    coordinate[bullet,red] (v_1) at (barycentric cs:x_1=1,y_1=1,g_1=1)
+                    coordinate[bullet,red] (v_2) at (barycentric cs:z_1=1,y_1=1,g_1=1)
+                    coordinate[bullet,red] (v_3) at (barycentric cs:x_1=1,z_1=1,g_1=1)
+                    coordinate[bullet,red] (u) at (barycentric cs:x_2=1,y_2=1,z_2=1)
+                ;
+                \foreach \i in {1,2} {
+                    \draw (x_\i) -- (y_\i) -- (z_\i) -- cycle;
+                }
+                \foreach \v in {x,y,z} {
+                    \draw (g_1) -- (\v_1);
+                }
+                \node at (barycentric cs:g_1=1,g_2=1) {$\lmto$};
+                \draw[red,thick] (v_1.center) -- (v_2.center) -- (v_3.center) -- cycle;
+                \foreach \i in {1,...,3} {
+                    \draw[red,thick] (v_\i.center) -- +({150+120*\i}:.5);
+                }
+                \foreach \q in {30,150,-90} {
+                    \draw[red,thick] (g_2) -- +(\q:1);
+                }
+            \end{tikzpicture}
+            \caption{1-3型のPachner移動}
+            \label{fig:type1-3Pachner}
+        \end{subfigure}
+        \caption{2次元PL多様体の双星状移動 (Pachner移動)}
+        \label{fig:Pachner2d}
+    \end{figure}%
+    \hyperref[def:Frobenius-alg]{Frobenius代数}の定義\textsf{\textbf{(Frob-2)}}より，\hyperref[fig:type2-4Pachner]{2-4型の双星状移動}の下で $\mathbb{F}_A (K)$ は不変である．
+    \hyperref[fig:type1-3Pachner]{1-3型の双星状移動}に関しては，
+    \begin{align}
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (g)
+                +(-90:1) coordinate[bullet,label=below left:$\Delta$] (x)
+                +(30:1) coordinate[bullet,label=below:$\mu$] (y)
+                +(150:1) coordinate[bullet,label=below:$\mu$] (z)
+                coordinate (a) at ($0.5*(x) + 0.5*(y)$)
+                coordinate (b) at ($0.5*(y) + 0.5*(z)$)
+                coordinate (c) at ($(z) + (150:.5)$)
+            ;
+            \tkzDefCircle[circum](a,b,c)
+            \tkzGetPoint{O}
+            \draw[dashed] (O) circle[radius=1.3];
+            \draw[->-=.5] (x) -- (y);
+            \draw[-<-=.5] (y) -- (z);
+            \draw[-<-=.5] (z) -- (x);
+            \draw[-<-=.5] (x) -- +(-90:1);
+            \draw[->-=.5] (y) -- +(30:1);
+            \draw[->-=.5] (z) -- +(150:1);
+        \end{tikzpicture}
+        &= \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate[bullet] (a)
+                ++ (1,1) coordinate[bullet] (b)
+                ++ (1,1) coordinate[bullet] (c)
+            ;
+            \draw[->-=.5] (a) -- (b);
+            \draw[->-=.5] (b) to[out=90,in=120] (c);
+            \draw[->-=.5] (b) to[out=-30,in=-90] (c);
+            \draw[->-=.5] (c) -- +(1,1);
+            \draw[-<-=.5] (a) -- +(180:1);
+            \draw[-<-=.5] (a) -- +(-90:1);
+        \end{tikzpicture} & &\because\quad \text{\hyperref[def:Frobenius-alg]{\textsf{\textbf{(Frob-2)}}}} \\
+        &= \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate[bullet] (g)
+            ;
+            \draw[->-=.5] (g) -- +(30:1);
+            \draw[-<-=.5] (g) -- +(150:1);
+            \draw[-<-=.5] (g) -- +(-90:1);
+        \end{tikzpicture} &&\because\quad \text{\hyperref[def:separable-alg]{分離可能性}}
+    \end{align}
+    により不変であることがわかった．
+\end{proof}
+% 以下では，トポロジカル演算子は常に 
+
+従来のゲージ化の定義との対応は，次の例によって分かる．
+逆に言うと，定義\ref{def:gauging}は次の例を一般化したものである．
+
+\begin{myexample}[label=ex:gaiging-VecG]{$\VEC{G}$ におけるゲージ化}
+$G$ を可換とは限らない有限群とし，\exref{def:CG}で定義したユニタリフュージョン圏 $\Cat{C} = \VEC{G}$ を考える．
+
+　$A \coloneqq \bigoplus_{g \in G} \mathbb{K} g$ とおこう．
+ただし $\forall g \in G$ に対して $\mathbb{K} g$ は1次元 $\mathbb{K}$-ベクトル空間であり，その基底を $e_g$ と書く．
 このとき
 \begin{itemize}
     \item $\VecG{G}$ の射
@@ -2701,7 +2865,7 @@ $(1+1)$-次元系における有限の\hyperref[def:p-form-sym]{$0$-form symmetr
         \upsilon \colon 1 \lto A,\; 1_G \lmto \sum_{g \in G} \delta_{1_G,g} e_g
     \end{align}
 \end{itemize}
-は明らかに $\VecG{G}$ の\hyperref[def:algobj]{代数対称}である．さらに
+は明らかに $\VecG{G}$ の\hyperref[def:algobj]{代数対象}を成す．さらに
 \begin{itemize}
     \item $\VecG{G}$ の射
     \begin{align}
@@ -2731,14 +2895,14 @@ $(1+1)$-次元系における有限の\hyperref[def:p-form-sym]{$0$-form symmetr
     &= e_{g} \otimes e_{1_G} \\
     &= r_A (e_g)
 \end{align}
-が成り立つので組 $(A,\, \Delta,\, \epsilon)$ は\hyperref[def:algobj]{余代数対称}である．その上
+を充たすので組 $(A,\, \Delta,\, \epsilon)$ は\hyperref[def:algobj]{余代数対称}である．その上
 \begin{align}
     \mu \circ \Delta (e_g) 
     &= \mu \left(\sum_{h \in G} e_h \otimes e_{h^{-1} g}\right) \\
     &= \sum_{h \in G} e_{g} \\
     &= \abs{G} \Id_A (e_g)
 \end{align}
-が成り立つので\hyperref[def:separable-alg]{分離可能}であり，
+が成り立つので組 $(A,\, \mu,\, \upsilon,\, \Delta,\, \epsilon)$ は\hyperref[def:separable-alg]{分離可能}であり，
 \begin{align}
     (\Id_A \otimes \mu) \circ (\Delta \otimes \Id_A) (e_g \otimes e_h) 
     &= (\Id_A \otimes \mu) \left(\sum_{k \in G} e_k \otimes e_{k^{-1}g} \otimes e_h \right) \\
@@ -2762,9 +2926,15 @@ $(1+1)$-次元系における有限の\hyperref[def:p-form-sym]{$0$-form symmetr
     &= \sum_{h \in G} \delta_{1_G,hg} e_{h^{-1}} \\
     &= e_g
 \end{align}
-が成り立つので\hyperref[def:sym-Frobenius]{対称Frobenius代数}であることがわかる．
+が成り立つので\hyperref[def:sym-Frobenius]{対称Frobenius代数}であることがわかった．
+以上の考察から，組 $(A,\, \mu,\, \upsilon,\, \Delta,\, \epsilon)$ は定義\ref{def:gauging}の意味で対称性 $\VEC{G}$ のゲージ化である．
 
-これらの関係式のストリング図式のPoincar\'{e}双対をとることにより，従来のゲージ化の定義との対応が明らかになる．
+    　従来の意味のゲージ化とは，\hyperref[def:p-form-sym]{0-form symmetry}の全てのトポロジカル演算子のあらゆる可能な配位に関する足し上げであった．
+    定義\ref{def:gauging}の意味のゲージ化は，今回の場合は時空の三角形分割から得られる双対グラフの全ての辺上に，全てのトポロジカル演算子を足し上げることで構成されるトポロジカル演算子 $A = \bigoplus_{g \in G} \mathbb{K} g$ をアサインしているため，
+    まさにトポロジカル演算子のあらゆる可能な配位に関する足し上げを実行したことに他ならない．
+\end{myexample}
+
+
 
 \subsection{ゲージ化された理論の持つ対称性}
 
@@ -4232,7 +4402,7 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
 と定義する．
 
 単体的複体 $K$ の\textbf{双星状移動} (bistellar move)\footnote{\textbf{Pachner move}とも言う．} とは，次のような操作のことを言う：
-\begin{enumerate}
+\begin{enumerate} \label{def:Pachner}
     \item まず，$\sigma \in K,\; \tau \notin K$ であって $\mathrm{Lk}_K (\sigma) = \partial \bar{\tau},\; \mathrm{St}_K (\sigma) = \bar{\sigma} * \bar{\tau}$ を充たすものを持ってくる．
     \item 次に，
     \begin{align}
