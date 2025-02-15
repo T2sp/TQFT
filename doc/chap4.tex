@@ -792,16 +792,107 @@ $x$ が $y$ の周りを断熱的に1周する過程は同型射 $x \otimes y \x
     特に，$\mathsf{C}_D$ が\hyperref[def:stableTO]{安定}ならば組紐付きユニタリフュージョン圏である．
 \end{mypropph}
 
-\begin{mydef}[label=def:S-matrix]{$S$-行列}
-    $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, \dagger,\,  b)$ を組紐付きユニタリフュージョン圏とする．
-    $\forall x,\, y \in \Simp (\Cat{C})$ に対して，$S$-行列を
-    \begin{align}
-        S_{xy} \coloneqq \Tr (b_{y^*,\, x} \circ b_{x^*,\, y})
-    \end{align}
-    で定義する．
-\end{mydef}
+% \begin{mydef}[label=def:S-matrix]{$S$-行列}
+%     $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, \dagger,\,  b)$ を組紐付きユニタリフュージョン圏とする．
+%     $\forall x,\, y \in \Simp (\Cat{C})$ に対して，$S$-行列を
+%     \begin{align}
+%         S_{xy} \coloneqq \Tr (b_{y^*,\, x} \circ b_{x^*,\, y})
+%     \end{align}
+%     で定義する．
+% \end{mydef}
 
 \subsection{リボン構造}
+
+
+
+\subsection{UMTC}
+
+トポロジカル秩序のアノマリーの有無と $\mathsf{C}_D$ の\hyperref[redef:braided-monoidal]{組紐構造}の間には重要な関係があると考えられている~\cite{KongWen2014braidedfusioncategoriesgravitational}：
+
+\begin{myconjph}[label=conj:remote-detectable]{remote-detectable}
+    トポロジカル秩序が\hyperref[def:anomalousQP]{アノマリーを持たない}ことと，
+    余次元 $2$ 以上のトポロジカル欠陥が\hyperref[redef:braided-monoidal]{braiding}によって検出できることは等価である．
+\end{myconjph}
+
+簡単のため $D=2$ として考える．$D=2$ 次元における余次元2のトポロジカル欠陥とは，$D-2+1 = 1$ 次元の線状欠陥のことである．
+非自明なトポロジカル欠陥 $x \in \Obj{\sk_0(\mathsf{C}_D)}$ が検出できるというのは，他の全てのトポロジカル欠陥 $y \in \Obj{\sk_0(\mathsf{C}_D)}$ を $x$ の周りに1周させたときに，非自明な位相を吐き出すような $y$ が少なくとも1つは存在するという意味である．
+
+\begin{mydef}[label=def:Muger-center]{M\"{u}ger中心}
+    $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev,\, b)$ を\hyperref[redef:braided-monoidal]{組紐}付き\hyperref[def:tensorfusion-cat]{フュージョン圏}とする．
+    $\Cat{C}$ の\textbf{M\"{u}ger中心} (M\"{u}ger center) とは，
+    \begin{align}
+        \mathfrak{Z}_2 (\Cat{C}) \coloneqq \bigl\{\, x \in \Obj{\Cat{C}} \bigm| \forall y \in \Obj{\Cat{C}},\; b_{y,\, x} \circ b_{x,\, y} = \Id_{x \otimes y} \,\bigr\} 
+    \end{align}
+    を対象とする $\Cat{C}$ の充満部分圏 $\mathfrak{Z}_2 (\Cat{C})$ のこと．
+\end{mydef}
+$\mathfrak{Z}_2 (\Cat{C})$ は $\Cat{C}$ から\hyperref[redef:braided-monoidal]{組紐}付き\hyperref[def:tensorfusion-cat]{フュージョン圏}の構造を引き継ぐが，定義から組紐構造は\hyperref[redef:braided-monoidal]{対称}になる．
+
+\begin{mydef}[label=def:nondegen-BFC]{非退化な組紐付きフュージョン圏}
+    \hyperref[redef:braided-monoidal]{組紐}付き\hyperref[def:tensorfusion-cat]{フュージョン圏}が\textbf{非退化} (non-degenerate) であるとは，
+    \hyperref[def:Muger-center]{M\"{u}ger中心}の単純対象が唯一であることを言う．
+\end{mydef}
+
+\begin{mypropph}[label=prop:remote-detectable]{}
+    \hyperref[def:stable]{安定な} $2+1$ 次元のトポロジカル秩序 $\mathsf{C}_2$ が\hyperref[def:anomalyQP]{アノマリー}を持たないことと，
+    組紐付きユニタリフュージョン圏 $\sk_0(\mathsf{C}_2)$ が\hyperref[def:nondegen-BFC]{非退化}であることは同値である．
+\end{mypropph}
+
+\begin{mydef}[label=def:MTC]{MTC}
+    \textbf{モジュラーテンソル圏} (modular tensor category; MTC) とは，\hyperref[def:nondegen-BFC]{非退化}な\hyperref[def:premodular-cat]{前モジュラー圏}のこと．
+\end{mydef}
+
+\begin{mypropph}[label=prop:sk0-braided]{$\sk_0(\mathsf{C}_2)$ はMTC}
+    空間多様体 $\mathbb{R}^2$ 上に置かれた\hyperref[def:stable]{安定}かつ\hyperref[def:anomalyQP]{アノマリーを持たない} 2+1次元のトポロジカル秩序 $\mathsf{C}_2$ が持つ点状のトポロジカル欠陥全体
+    $\sk_0(\mathsf{C}_2)$ はユニタリ\hyperref[def:MTC]{モジュラーテンソル圏}を成す．
+\end{mypropph}
+
+なお，$2+1$ 次元のトポロジカル欠陥 $\mathsf{C}_2$ が\hyperref[def:anomaly-QP]{アノマリー}を持たないことと，$\mathsf{C}_2$ の低エネルギー有効理論であるTQFTがアノマリーを持たないことは等価\underline{ではない}．
+両者の間には\textbf{フレーミングアノマリー} (framing anomaly) の分だけ差異がある~\cite{turaev2010quantum}．
+
+\begin{myprop}[label=prop:MTC]{MTCの性質}
+    $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev,\, b,\, \theta)$ が\hyperref[def:MTC]{MTC}ならば以下が成り立つ：
+    \begin{enumerate}
+        \item $S_{xy} = S_{yx} = S_{x^*y^*} = \bar{S}_{xy^*},\quad S_{1x} = S_{x1} = \dim (x)$
+        \item $S_{xy} S_{xz} = \dim(x) \sum_{w \in \Simp(\Cat{C})} N^w_{yz} S_{xw}$
+        \item 行列 $C$ を $C_{xy} = \delta_{x^*,y}$ で定義すると，$S^2 = \dim(\Cat{C}) C$
+        \item \textbf{Verlinde formula}
+        \begin{align}
+            \sum_{x \in \Simp(\Cat{C})} \frac{S_{xy} S_{xz} S_{xw^*}}{S_{x1}} = \dim(\Cat{C}) N^w_{yz}
+        \end{align}
+        \item \textbf{Gauss sum}を
+        \begin{align}
+            \tau^{\pm} (\Cat{C}) \coloneqq \sum_{x \in \Simp(\Cat{C})} \theta_x^{\pm 1} \dim (x)^2
+        \end{align}
+        で定義すると，$\tau^+(\Cat{C}) \tau^-(\Cat{C}) = \dim (\Cat{C})$ が成り立つ．
+        \item \textbf{加法的中心電荷} (additive central charge) を
+        \begin{align}
+            e^{2\pi \iunit c(\Cat{C})/8} \coloneqq \frac{\tau^+(\Cat{C})}{\sqrt{\dim (\Cat{C})}}
+        \end{align}
+        で定義すると，$c(\Cat{C}) \in \mathbb{Q} / 8 \mathbb{Z}$ が成り立つ．
+        \item \textbf{$\bm{T}$-行列} ($T$-matrix) を
+        \begin{align}
+            T_{xy} \coloneqq \theta_x \delta_{x,\, y}
+        \end{align}
+        で定義すると，$(ST)^3 = \tau^+(\Cat{C}) S^2$ が成り立つ．
+        従って $\LSL(2,\, \mathbb{Z})$ の生成元と関係式
+        \begin{align}
+            \langle\, \mathfrak{s},\, \mathfrak{t} \mid (\mathfrak{s}\mathfrak{t})^3 = \mathfrak{s}^2,\; \mathfrak{s}^4 = 1 \,\rangle
+        \end{align}
+        を思い出すと，群準同型
+        \begin{align}
+            \mathfrak{s} \lmto \frac{S}{\sqrt{\dim (\Cat{C})}},\; \mathfrak{t} \lmto T
+        \end{align}
+        は $\LSL(2,\, \mathbb{Z})$ のユニタリな射影表現を与える．特に，この射影表現が表現になるための障害は $c(\Cat{C}) \notin 8 \mathbb{Z}$ となることである．
+    \end{enumerate}
+    
+\end{myprop}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+    
+\end{proof}
 
 
 \section{Levin-Wen模型}
