@@ -2008,15 +2008,15 @@ $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 上の積\eqref{eq:fusionring}は明らか�
 とおく．
 
 \begin{mydef}[label=def:pseudo-unitary]{擬フュージョン圏}
-    $\mathbb{K} = \mathbb{C}$ とする．このときフュージョン圏 $\Cat{C}$ が\textbf{擬フュージョン圏} (pseudo-fusion category) であるとは，
+    $\mathbb{K} = \mathbb{C}$ とする．このときフュージョン圏 $\Cat{C}$ が\textbf{擬ユニタリ} (pseudo-unitary) であるとは，
     \begin{align}
         \dim (\Cat{C}) = \FPdim (\Cat{C})
     \end{align}
-    が成り立つことを言う．
+    が成り立つことを言う~\cite[DEFINITION 9.4.4., p.283]{etingof2015tensor}．
 \end{mydef}
 
-\begin{myprop}[label=prop:pseudo-unitary]{擬フュージョン圏における球状構造}
-    \hyperref[def:pseudo-unitary]{擬フュージョン圏} $\Cat{C}$ は一意的な\hyperref[def:spherical]{球状構造} $p$ を持つ．
+\begin{myprop}[label=prop:pseudo-unitary]{擬ユニタリフュージョン圏における球状構造}
+    \hyperref[def:pseudo-unitary]{擬ユニタリフュージョン圏} $\Cat{C}$ は一意的な\hyperref[def:spherical]{球状構造} $p$ を持つ．
     
     さらに，その球状構造 $p$ は $\forall x \in \Simp(\Cat{C})$ に対して $\dim_p (x) = \FPdim_{\Cat{C}} (x)$ を充たす．
 \end{myprop}
@@ -2520,7 +2520,7 @@ $\Cat{C}$ が\hyperref[def:tensorfusion-cat]{多重テンソル圏}である場�
     $\Cat{C}$ における，\textbf{左 $\bm{x}$-加群対象} (right $x$-module object) $m$ とは，以下のデータからなる：
     \begin{itemize}
         \item $\Cat{C}$ の対象 $m \in \Obj{\Cat{C}}$ 
-        \item \textbf{左作用} (right action) と呼ばれる $\Cat{C}$ の射 $\lambda \colon m \otimes x \lto m$
+        \item \textbf{左作用} (right action) と呼ばれる $\Cat{C}$ の射 $\lambda \colon x \otimes m \lto m$
     \end{itemize}
     これらは以下の条件を充たさねばならない：
     \begin{description}
@@ -3588,7 +3588,7 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
             \coordinate (D) at (3,0);
             \coordinate (E) at (2,1);
             \coordinate (F) at (-1,1);
-            \LCOEV{A}{D}
+            \LEV{A}{D}
             \RCOEV{B}{C}
             \REV{A}{B}
             \draw[->-=.5] (3,2) -- (D);

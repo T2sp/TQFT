@@ -6,12 +6,12 @@
 
 \chapter{位相的場の理論}
 
-この章は~\cite[Chapter7]{Simon2021}および~\cite{Baez2011physics}に相当する．この節で登場する多様体は特に断らない限り常に $C^\infty$ 多様体である．また，体 $\mathbb{K}$ と言ったら $\mathbb{K} = \mathbb{R},\, \mathbb{C},\, \mathbb{H}$ のいずれかを指すことにしよう．
+この章で登場する多様体は特に断らない限り常に $C^\infty$ 多様体である．また，体 $\mathbb{K}$ と言ったら $\mathbb{K} = \mathbb{R},\, \mathbb{C},\, \mathbb{H}$ のいずれかを指すことにしよう．
 
 \section{モノイダル圏}
 
 まず手始めに，モノイダル圏とストリング図式の準備をする．
-特に，コボルディズム圏と有限次元Hilbert空間の圏が\hyperref[def:compact]{コンパクト}\hyperref[def:braided-monoidal]{対称モノイダル圏}であることの直感的な説明をする．
+特に，コボルディズム圏と有限次元Hilbert空間の圏が\hyperref[def:compact]{rigid}な\hyperref[def:braided-monoidal]{対称モノイダル圏}であることの直感的な説明をする．
 
 \subsection{モノイダル圏の定義}
 
@@ -59,25 +59,210 @@
 
 \end{mydef}
 
-定義\ref{def:monoidal-category}は，ストリング図式 (string diagram) で理解するのが良い．
-\hyperref[def:monoidal-category]{モノイダル圏}の射 $f \colon X \lto Y,\; f' \colon X' \lto Y'$ があったら，そのテンソル積 $f \otimes f' \colon X \otimes X' \lto Y \otimes Y'$ は，ストリング図式上では次のようになる．
+定義\ref{def:monoidal-category}は，\textbf{ストリング図式} (string diagram) で理解すると分かりやすい．
+\hyperref[def:monoidal-category]{モノイダル圏}の射 $f \colon X \lto Y,\; f' \colon X' \lto Y'$ があったら，そのテンソル積 $f \otimes f' \colon X \otimes X' \lto Y \otimes Y'$ はストリング図式上では次のようになる\footnote{このように，ストリング図式におけるテンソル積とはただ図式を横に並べることであるから，\hyperref[def:monoidal-category]{\textsf{\textbf{(triangle diagram)}}, \textsf{\textbf{(pentagon diagram)}}} などが自明な等式であるように見えてしまうという欠点がある．}．
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (x)
+        ++(0,1) coordinate[bullet, label=left:$f \otimes f'$] (f)
+        ++(0,1) coordinate (y)
+        ;
+        \draw[->-=.5] (x) -- node[midway,right]{$X \otimes X'$} (f);
+        \draw[->-=.5] (f) -- node[midway,right]{$Y \otimes Y'$} (y);
+    \end{tikzpicture}
+    &\quad\eqqcolon\quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (x_1)
+        +(1,0) coordinate (x_2)
+        ++(0,1) coordinate[bullet, label=left:$f$] (f_1)
+        +(1,0) coordinate[bullet, label=left:$f'$] (f_2)
+        ++(0,1) coordinate (y_1)
+        +(1,0) coordinate (y_2)
+        ;
+        \draw[->-=.5] (x_1) -- node[midway,right]{$X$} (f_1);
+        \draw[->-=.5] (x_2) -- node[midway,right]{$X'$} (f_2);
+        \draw[->-=.5] (f_1) -- node[midway,right]{$Y$} (y_1);
+        \draw[->-=.5] (f_2) -- node[midway,right]{$Y'$} (y_2);
+    \end{tikzpicture}
+\end{align}
 
 また，単位対象 $I \in \Obj{\mathcal{C}}$ は空白として表す．従って例えば射 $f \colon I \lto X$ は次のようになる：
 
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate[bullet,label=left:$f$] (f)
+        ;
+        \draw[->-=.5] (f) -- node[midway,right] {$X$} +(0,1);
+        \draw[-<-=.5, dashed] (f) -- node[midway,right] {$I$} +(0,-1);
+    \end{tikzpicture}
+    \quad &\eqqcolon \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate[bullet,label=left:$f$] (f)
+        ++(0,-1) coordinate (I)
+        ;
+        \draw[->-=.5] (f) -- node[midway,right] {$X$} +(0,1);
+    \end{tikzpicture}
+\end{align}
 
-\begin{myexample}[label=Cob-string]{コボルディズム圏}
+
+\begin{myexample}[label=ex:Bord]{コボルディズム圏}
     厳密な構成\footnote{例えば，$(B,\, f)$-structureの定義から始めるコボルディズムの統一的な扱いは~\cite[CHAPTER 1]{Kochman1996bordism}などを参照．}は後回しにして，\textbf{コボルディズム圏} (cobordism category) を直感的に導入しよう．
-    圏 $\COB_{D+1}$ は，
+    圏\footnote{記号は~\cite{FreedHopkins_2021}に合わせた．\textbf{ボルディズム圏} (bordism category) と呼ぶこともある．} $\BORD{D}{D+1}$ は，
     \begin{itemize}
         \item $D$ 次元多様体を対象
         \item $D+1$ 次元の\textbf{コボルディズム} (cobordism) を射
     \end{itemize}
     とするような圏のことを言う．
-    $D+1$ 次元のコボルディズム $\mathcal{M} \colon X \lto Y$ と言うのは，$D+1$ 次元多様体 $\mathcal{M}$ であって，$\partial \mathcal{M} = X \amalg Y$ となっているようなもの（の微分同相類）のことである：
-
-    射 $\mathcal{M} \colon X \lto Y,\; \mathcal{N} \colon Y \lto Z$ の合成 $\mathcal{N} \circ \mathcal{M} \colon X \lto Y \lto Z$ は次の図式が物語る：
-
-    圏 $\COB_{D+1}$ は，disjoint unionに関して\hyperref[def:monoidal-category]{モノイダル圏}になる：
+    $D+1$ 次元のコボルディズム $\mathcal{M} \colon X \lto Y$ と言うのは，$D+1$ 次元多様体 $\mathcal{M}$ であって，$\partial \mathcal{M} = X \amalg Y$ となっているようなもの（の微分同相類）のことである．
+    $D=2$ の場合に直感的に\footnote{この図だと $\mathcal{M}$ の「側面」が $\mathcal{M}$ の境界になってしまっていて正確ではない．}図示すると次のようになる：
+    \begin{align}
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (x)
+            ++(0,1) coordinate[bullet,label=left:$\mathcal{M}$] (M)
+            ++(0,1) coordinate (y)
+            ;
+            \draw[->-=.5] (x) -- node[midway,right] {$X$} (M);
+            \draw[->-=.5] (M) -- node[midway,right] {$Y$} (y);
+        \end{tikzpicture}
+        \quad \coloneqq \quad
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (x_1)
+            +(3,0) coordinate (x_2)
+            ++(0.2,2) coordinate (y_1)
+            +(2,0) coordinate (y_2)
+            ;
+            \draw (x_1) .. controls +(0,1) and +(0,-1) .. (y_1);
+            \draw (x_2) .. controls +(0,1) and +(0,-1) .. (y_2);
+            \draw (x_1) to[out=-90,in=-90,looseness=0.6] (x_2);
+            \draw[dashed] (x_1) to[out=90,in=90,looseness=0.6] (x_2);
+            \draw (y_1) to[out=-90,in=-90,looseness=0.6] (y_2);
+            \draw (y_1) to[out=90,in=90,looseness=0.6] (y_2);
+            \coordinate (g) at (barycentric cs:x_1=1,x_2=1,y_1=1,y_2=1);
+            \draw ($(g) + (-0.4,0.15)$) to[out=30,in=150] ($(g) + (0.4,0.15)$);
+            \draw[white,ultra thick] ($(g) + (-0.5,0.2)$) to[out=-30,in=-150] ($(g) + (0.5,0.2)$);
+            \draw ($(g) + (-0.5,0.2)$) to[out=-30,in=-150] ($(g) + (0.5,0.2)$);
+            \node at ($(g) + (0,-0.2)$) {$\mathcal{M}$};
+            \node at ($0.5*(x_1)+0.5*(x_2)$) {$\textcolor{red}{X}$};
+            \node at ($0.5*(y_1)+0.5*(y_2)$) {$\textcolor{red}{Y}$};
+            \begin{scope}[on background layer]
+                \fill[top color=red!50] (x_1) to[out=-90,in=-90,looseness=0.6] (x_2) to[out=90,in=90,looseness=0.6] (x_1) -- cycle;
+                \fill[top color=red!50] (y_1) to[out=-90,in=-90,looseness=0.6] (y_2) to[out=90,in=90,looseness=0.6] (y_1) -- cycle;
+            \end{scope}
+        \end{tikzpicture}
+    \end{align}
+    
+    射 $\mathcal{M} \colon X \lto Y,\; \mathcal{N} \colon Y \lto Z$ の合成 $\mathcal{N} \circ \mathcal{M} \colon X \lto Y \lto Z$ とは，$Y$ に沿った貼り合わせ多様体 $\mathcal{M} \cup_Y \mathcal{N}$ である：
+    \begin{align}
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (x_1)
+            +(3,0) coordinate (x_2)
+            ++(0.2,2) coordinate (y_1)
+            +(2,0) coordinate (y_2)
+            +(1.1,0.5) coordinate[label=$\circ$] (c)
+            ++(0,1.5) coordinate (y_3)
+            +(2,0) coordinate (y_4)
+            ++(-1,2) coordinate (z_1)
+            +(2,0) coordinate (z_2)
+            +(3,0) coordinate (z_3)
+            +(4.5,0) coordinate (z_4)
+            ;
+            \draw (x_1) .. controls +(0,1) and +(0,-1) .. (y_1);
+            \draw (x_2) .. controls +(0,1) and +(0,-1) .. (y_2);
+            \draw (x_1) to[out=-90,in=-90,looseness=0.6] (x_2);
+            \draw[dashed] (x_1) to[out=90,in=90,looseness=0.6] (x_2);
+            \draw (y_1) to[out=-90,in=-90,looseness=0.6] (y_2);
+            \draw (y_1) to[out=90,in=90,looseness=0.6] (y_2);        
+            \draw (y_3) to[out=-90,in=-90,looseness=0.6] (y_4);
+            \draw[dashed] (y_3) to[out=90,in=90,looseness=0.6] (y_4);
+            \draw[spath/save=Z_1] (z_1) to[out=-90,in=-90,looseness=0.6] (z_2) to[out=90,in=90,looseness=0.6] (z_1);
+            \draw[spath/save=Z_2] (z_3) to[out=-90,in=-90,looseness=0.6] (z_4) to[out=90,in=90,looseness=0.6] (z_3);
+            \draw (y_3) .. controls +(0,1) and +(0,-1) .. (z_1);
+            \draw (y_4) .. controls +(0,1) and +(0,-1) .. (z_4);
+            \draw (z_2) to[out=-90,in=-90,looseness=2] (z_3);
+            \coordinate (g) at (barycentric cs:x_1=1,x_2=1,y_1=1,y_2=1);
+            \coordinate (h) at (barycentric cs:y_3=1,y_4=1,z_1=1,z_4=1);
+            \draw ($(g) + (-0.4,0.15)$) to[out=30,in=150] ($(g) + (0.4,0.15)$);
+            \draw[white,ultra thick] ($(g) + (-0.5,0.2)$) to[out=-30,in=-150] ($(g) + (0.5,0.2)$);
+            \draw ($(g) + (-0.5,0.2)$) to[out=-30,in=-150] ($(g) + (0.5,0.2)$);
+            \node at ($(g) + (0,-0.2)$) {$\mathcal{M}$};
+            \node at (h) {$\mathcal{N}$};
+            \node at ($0.5*(x_1)+0.5*(x_2)$) {$\textcolor{red}{X}$};
+            \node at ($0.5*(y_1)+0.5*(y_2)$) {$\textcolor{red}{Y}$};
+            \node at ($0.5*(y_3)+0.5*(y_4)$) {$\textcolor{red}{Y}$};
+            \node (Z) at ($0.5*(z_2)+0.5*(z_3)+(0,0.5)$) {$\textcolor{red}{Z}$};
+            \draw[->,red] (Z) to[bend right] +(-1,-0.5);
+            \draw[->,red] (Z) to[bend left] +(1,-0.5);
+            \begin{scope}[on background layer]
+                \fill[top color=red!50] (x_1) to[out=-90,in=-90,looseness=0.6] (x_2) to[out=90,in=90,looseness=0.6] (x_1) -- cycle;
+                \fill[top color=red!50] (y_1) to[out=-90,in=-90,looseness=0.6] (y_2) to[out=90,in=90,looseness=0.6] (y_1) -- cycle;
+                \fill[top color=red!50] (y_3) to[out=-90,in=-90,looseness=0.6] (y_4) to[out=90,in=90,looseness=0.6] (y_3) -- cycle;
+                \fill[top color=red!50,spath/use=Z_1];
+                \fill[top color=red!50,spath/use=Z_2];
+            \end{scope}
+        \end{tikzpicture}
+        \quad &\coloneqq \quad
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (x_1)
+            +(3,0) coordinate (x_2)
+            ++(0.2,2) coordinate (y_1)
+            +(2,0) coordinate (y_2)
+            ++(-1,2) coordinate (z_1)
+            +(2,0) coordinate (z_2)
+            +(3,0) coordinate (z_3)
+            +(4.5,0) coordinate (z_4)
+            ;
+            \draw (x_1) .. controls +(0,1) and +(0,-1) .. (y_1);
+            \draw (x_2) .. controls +(0,1) and +(0,-1) .. (y_2);
+            \draw (x_1) to[out=-90,in=-90,looseness=0.6] (x_2);
+            \draw[dashed] (x_1) to[out=90,in=90,looseness=0.6] (x_2);
+            % \draw (y_1) to[out=-90,in=-90,looseness=0.6] (y_2);
+            % \draw (y_1) to[out=90,in=90,looseness=0.6] (y_2);
+            \draw[spath/save=Z_1] (z_1) to[out=-90,in=-90,looseness=0.6] (z_2) to[out=90,in=90,looseness=0.6] (z_1);
+            \draw[spath/save=Z_2] (z_3) to[out=-90,in=-90,looseness=0.6] (z_4) to[out=90,in=90,looseness=0.6] (z_3);
+            \draw (y_1) .. controls +(0,1) and +(0,-1) .. (z_1);
+            \draw (y_2) .. controls +(0,1) and +(0,-1) .. (z_4);
+            \draw (z_2) to[out=-90,in=-90,looseness=2] (z_3);
+            \coordinate (g) at (barycentric cs:x_1=1,x_2=1,y_1=1,y_2=1);
+            \coordinate (h) at (barycentric cs:x_1=1,x_2=1,z_1=1,z_4=1);
+            \draw ($(g) + (-0.4,0.15)$) to[out=30,in=150] ($(g) + (0.4,0.15)$);
+            \draw[white,ultra thick] ($(g) + (-0.5,0.2)$) to[out=-30,in=-150] ($(g) + (0.5,0.2)$);
+            \draw ($(g) + (-0.5,0.2)$) to[out=-30,in=-150] ($(g) + (0.5,0.2)$);        
+            \node at (h) {$\mathcal{N} \circ \mathcal{M}$};
+            \node at ($0.5*(x_1)+0.5*(x_2)$) {$\textcolor{red}{X}$};
+            \node (Z) at ($0.5*(z_2)+0.5*(z_3)+(0,0.5)$) {$\textcolor{red}{Z}$};
+            \draw[->,red] (Z) to[bend right] +(-1,-0.5);
+            \draw[->,red] (Z) to[bend left] +(1,-0.5);
+            \begin{scope}[on background layer]
+                \fill[top color=red!50] (x_1) to[out=-90,in=-90,looseness=0.6] (x_2) to[out=90,in=90,looseness=0.6] (x_1) -- cycle;
+                % \fill[top color=red!50] (y_1) to[out=-90,in=-90,looseness=0.6] (y_2) to[out=90,in=90,looseness=0.6] (y_1) -- cycle;
+                % \fill[top color=red!50] (y_3) to[out=-90,in=-90,looseness=0.6] (y_4) to[out=90,in=90,looseness=0.6] (y_3) -- cycle;
+                \fill[top color=red!50,spath/use=Z_1];
+                \fill[top color=red!50,spath/use=Z_2];
+            \end{scope}
+        \end{tikzpicture}
+    \end{align}
+    
+    圏 $\BORD{D}{D+1}$ は，disjoint unionに関して\hyperref[def:monoidal-category]{モノイダル圏}になる：
+    \begin{align}
+        X \otimes Y \coloneqq \quad
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path 
+            coordinate (z_1)
+            +(2,0) coordinate (z_2)
+            +(3,0) coordinate (z_3)
+            +(4.5,0) coordinate (z_4)
+            ;
+            \node (Z_1) at ($0.5*(z_1)+0.5*(z_2)$) {$\textcolor{red}{X}$};
+            \node (Z_2) at ($0.5*(z_3)+0.5*(z_4)$) {$\textcolor{red}{Y}$};
+            \draw[spath/save=Z_1] (z_1) to[out=-90,in=-90,looseness=0.6] (z_2) to[out=90,in=90,looseness=0.6] (z_1);
+            \draw[spath/save=Z_2] (z_3) to[out=-90,in=-90,looseness=0.6] (z_4) to[out=90,in=90,looseness=0.6] (z_3);
+            \begin{scope}[on background layer]
+                \fill[top color=red!50,spath/use=Z_1];
+                \fill[top color=red!50,spath/use=Z_2];
+            \end{scope}
+        \end{tikzpicture}, \\
+        I &\coloneqq \emptyset
+    \end{align}
 \end{myexample}
 
 \begin{myexample}[label=Hilb]{有限次元Hilbert空間の圏}
@@ -128,15 +313,204 @@
 \end{mydef}
 
 ストリング図式で組紐を書く場合は次のようにする：
-
-このとき\hyperref[def:braided-monoidal]{hexagon diagrams}はとてもわかりやすくなる：
+\begin{align}
+    b_{X,\, Y} &\eqqcolon
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate[label=above left:$X$] (dx)
+        +(1,0) coordinate[label=above right:$Y$] (dy)
+        +(0,1) coordinate (uy)
+        +(1,1) coordinate (ux);
+        \BRAID{dx}{dy}{uy}{ux}
+    \end{tikzpicture}
+    &
+    b^{-1}_{X,\, Y} &\eqqcolon
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate[label=above left:$X$] (dx)
+        +(1,0) coordinate[label=above right:$Y$] (dy)
+        +(0,1) coordinate (uy)
+        +(1,1) coordinate (ux);
+        \ABRAID{dx}{dy}{uy}{ux}
+    \end{tikzpicture}
+\end{align}
+このとき\hyperref[def:braided-monoidal]{\textsf{\textbf{(hexagon diagrams)}}}はとてもわかりやすくなる\footnote{\hyperref[def:monoidal-category]{associator}を明示した．}：
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path
+        coordinate[label=above left:$X$] (x_2)
+        +(1,0) coordinate[label=above right:$Y$] (y_2)
+        +(3,0) coordinate[label=above right:$Z$] (z_2)
+        ++(0,2) coordinate (y_3)
+        +(1,0) coordinate (x_3)
+        +(3,0) coordinate (z_3)
+        ++(0,1) coordinate (y_4)
+        +(2,0) coordinate (x_4)
+        +(3,0) coordinate (z_4)
+        ++(0,2) coordinate[label=below left:$Y$] (y_5)
+        +(2,0) coordinate[label=below left:$Z$] (z_5)
+        +(3,0) coordinate[label=below right:$X$] (x_5)
+        ;
+        % braiding
+        \BRAID{x_2}{y_2}{y_3}{x_3}
+        \draw[->-=.5] (z_2) -- (z_3);
+        % associator
+        \draw[->-=.5] (y_3) -- (y_4);
+        \draw[->-=.5] (x_3) .. controls +(0,1) and +(0,-1) .. (x_4);
+        \draw[->-=.5] (z_3) -- (z_4);
+        % braiding
+        \draw[->-=.5] (y_4) -- (y_5);
+        \BRAID{x_4}{z_4}{z_5}{x_5}
+    \end{tikzpicture}
+    &\quad = \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path 
+        coordinate[label=above left:$X$] (x_2)
+        +(1,0) coordinate[label=above right:$Y$] (y_2)
+        +(3,0) coordinate[label=above right:$Z$] (z_2)
+        ++(0,1) coordinate (x_3)
+        +(2.7,0) coordinate (y_3)
+        +(3,0) coordinate (z_3)
+        ++(0,3) coordinate (y_4)
+        +(0.3,0) coordinate (z_4)
+        +(3,0) coordinate (x_4)
+        ++(0,1) coordinate[label=below left:$Y$]  (y_5)
+        +(2,0) coordinate[label=below left:$Z$] (z_5)
+        +(3,0) coordinate[label=below right:$X$] (x_5)
+        ;
+        % associator
+        \draw[->-=.5] (x_2) -- (x_3);
+        \draw[->-=.5] (y_2) .. controls +(0,1) and +(0,-1) .. (y_3);
+        \draw[->-=.5] (z_2) -- (z_3);
+        % braiding
+        \BRAID{x_3}{y_3}{y_4}{x_4}
+        \BRAID{x_3}{z_3}{z_4}{x_4}
+        % associator
+        \draw[->-=.5] (y_4) -- (y_5);
+        \draw[->-=.5] (z_4) .. controls +(0,1) and +(0,-1) .. (z_5);
+        \draw[->-=.5] (x_4) -- (x_5);
+    \end{tikzpicture}
+\end{align}
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path
+        coordinate[label=above left:$X$] (x_2)
+        +(2,0) coordinate[label=above right:$Y$] (y_2)
+        +(3,0) coordinate[label=above right:$Z$] (z_2)
+        ++(0,2) coordinate (x_3)
+        +(2,0) coordinate (z_3)
+        +(3,0) coordinate (y_3)
+        ++(0,1) coordinate (x_4)
+        +(1,0) coordinate (z_4)
+        +(3,0) coordinate (y_4)
+        ++(0,2) coordinate[label=below left:$Z$] (z_5)
+        +(1,0) coordinate[label=below left:$X$] (x_5)
+        +(3,0) coordinate[label=below right:$Y$] (y_5)
+        ;
+        % braiding
+        \BRAID{y_2}{z_2}{z_3}{y_3}
+        \draw[->-=.5] (x_2) -- (x_3);
+        % associator
+        \draw[->-=.5] (x_3) -- (x_4);
+        \draw[->-=.5] (z_3) .. controls +(0,1) and +(0,-1) .. (z_4);
+        \draw[->-=.5] (y_3) -- (y_4);
+        % braiding
+        \draw[->-=.5] (y_4) -- (y_5);
+        \BRAID{x_4}{z_4}{z_5}{x_5}
+    \end{tikzpicture}
+    &\quad =  \quad 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path 
+        coordinate[label=above left:$X$] (x_2)
+        +(2,0) coordinate[label=above right:$Y$] (y_2)
+        +(3,0) coordinate[label=above right:$Z$] (z_2)
+        ++(0,1) coordinate (x_3)
+        +(0.3,0) coordinate (y_3)
+        +(3,0) coordinate (z_3)
+        ++(0,3) coordinate (z_4)
+        +(2.7,0) coordinate (x_4)
+        +(3,0) coordinate (y_4)
+        ++(0,1) coordinate[label=below left:$Z$]  (z_5)
+        +(1,0) coordinate[label=below left:$X$] (x_5)
+        +(3,0) coordinate[label=below right:$Y$] (y_5)
+        ;
+        % associator
+        \draw[->-=.5] (x_2) -- (x_3);
+        \draw[->-=.5] (y_2) .. controls +(0,1) and +(0,-1) .. (y_3);
+        \draw[->-=.5] (z_2) -- (z_3);
+        % braiding
+        \BRAID{x_3}{z_3}{z_4}{x_4}
+        \BRAID{y_3}{z_3}{z_4}{y_4}
+        % associator
+        \draw[->-=.5] (z_4) -- (z_5);
+        \draw[->-=.5] (x_4) .. controls +(0,1) and +(0,-1) .. (x_5);
+        \draw[->-=.5] (y_4) -- (y_5);
+    \end{tikzpicture}
+\end{align}
 
 \hyperref[def:braided-monoidal]{対称モノイダル圏}の条件も一目瞭然である：
 
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (O) 
+        foreach \i in {1,...,3} {
+            ++(0,1) coordinate (x_\i)
+            +(1,0) coordinate (y_\i)
+        }
+        ;
+        \BRAID{x_1}{y_1}{x_2}{y_2}
+        \BRAID{x_2}{y_2}{x_3}{y_3}
+    \end{tikzpicture}
+    \quad &=\quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (x_1)
+        +(1,0) coordinate (y_1)
+        ++(0,2) coordinate (x_2)
+        +(1,0) coordinate (y_2)
+        ;
+        \draw[->-=.5] (x_1) -- (x_2);
+        \draw[->-=.5] (y_1) -- (y_2);
+    \end{tikzpicture}
+\end{align}
 
-\begin{myexample}[label=ex:Cob-braided]{$\COB_{D+1}$ の組紐}
+
+\begin{myexample}[label=ex:Cob-braided]{$\BORD{D}{D+1}$ の組紐}
     $\COB_{D+1}$ の組紐 $b_{X,\, Y} \colon X \otimes Y \lto Y \otimes X$ は，多様体 $(X \times [0,\, 1]) \amalg (Y \times [0,\, 1])$ と微分同相であるような $D+1$ 次元多様体のことを言う：
-    図から，$\COB_{D+1}$ は対称モノイダル圏である．
+    \begin{align}
+        b_{X,\, Y}
+        \coloneqq \quad
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path 
+            coordinate (x_1)
+            +(2,0) coordinate (x_2)
+            +(3,0) coordinate (y_1)
+            +(4.5,0) coordinate (y_2)
+            ++(0,3) coordinate (y_3)
+            +(1.5,0) coordinate (y_4)
+            +(2.5,0) coordinate (x_3)
+            +(4.5,0) coordinate (x_4)
+            ;
+            \node (X_1) at ($0.5*(x_1)+0.5*(x_2)$) {$\textcolor{red}{X}$};
+            \node (X_2) at ($0.5*(x_4)+0.5*(x_3)$) {$\textcolor{red}{X}$};
+            \node (Y_1) at ($0.5*(y_1)+0.5*(y_2)$) {$\textcolor{red}{Y}$};
+            \node (Y_2) at ($0.5*(y_3)+0.5*(y_4)$) {$\textcolor{red}{Y}$};
+            \draw[spath/save=X_1] \Bordismbdy{x_1}{x_2};
+            \draw[spath/save=X_2] \Bordismbdy{y_1}{y_2};
+            \draw[spath/save=Y_1] \Bordismbdy{x_3}{x_4};
+            \draw[spath/save=Y_2] \Bordismbdy{y_3}{y_4};
+            \begin{knot}[clip width=5]
+                \strand (x_1) .. controls +(0,1) and +(0,-1) .. (x_3);
+                \strand (x_2) .. controls +(0,1) and +(0,-1) .. (x_4);
+                \strand (y_1) .. controls +(0,1) and +(0,-1) .. (y_3);
+                \strand (y_2) .. controls +(0,1) and +(0,-1) .. (y_4);
+            \end{knot}
+            \begin{scope}[on background layer]
+                \foreach \M in {X,Y} {
+                    \fill[bdymfd,spath/use=\M_1];
+                    \fill[bdymfd,spath/use=\M_2];
+                }
+            \end{scope}
+        \end{tikzpicture}
+    \end{align}
+    図から，$\BORD{D}{D+1}$ は対称モノイダル圏である．
 \end{myexample}
 
 \begin{myexample}[label=ex:Hilb-braided]{$\HILB$ の組紐}
@@ -148,7 +522,7 @@
     である．これがベクトル空間の同型写像であることが示される．明らかに $b_{X,\, Y} = b_{Y,\, X}^{-1}$ なので $\HILB$ は対称モノイダル圏である．
 \end{myexample}
 
-\subsection{閉圏・コンパクト圏・ダガー圏}
+\subsection{閉圏・rigidなモノイダル圏・ダガー圏}
 
 圏 $\mathcal{C}$ を与える．\textbf{Hom 関手} (Hom functor) とは，関手
 \begin{align}
@@ -181,19 +555,19 @@
     \end{itemize}
 \end{mydef}
 
-\hyperref[def:braided-monoidal]{対称モノイダル圏}しか考えないので，以降では右に閉じているかどうかしか気にしないことにする．
+% \hyperref[def:braided-monoidal]{対称モノイダル圏}しか考えないので，以降では右に閉じているかどうかしか気にしないことにする．
 
 \begin{mydef}[label=def:dual,breakable]{双対}
-    \hyperref[def:monoidal-category]{モノイダル圏} $\mathcal{C}$ およびその任意の対象 $X,\, X^* \in \Obj{\mathcal{C}}$ を与える．
-    $X^*$ が $X$ の\textbf{右双対} (right dual) であり，かつ $X$ が $X^*$ の\textbf{左双対} (left dual) であるとは，
+    \hyperref[def:monoidal-category]{モノイダル圏} $(\mathcal{C},\, \otimes,\, I,\, a,\, l,\, r)$ およびその任意の対象 $X,\, X^* \in \Obj{\mathcal{C}}$ を与える．
+    $X^*$ が $X$ の\textbf{左双対} (left dual) であるとは，
     \begin{itemize}
-        \item \textbf{unit}と呼ばれる射
+        \item \textbf{coevaluation}と呼ばれる射
         \begin{align}
-            i_X \colon I \lto X^* \otimes X
+            \lcoev_X \colon I \lto X \otimes X^*
         \end{align}
-        \item \textbf{counit}と呼ばれる射
+        \item \textbf{evaluation}と呼ばれる射
         \begin{align}
-            e_X \colon X \otimes X^* \lto I
+            \lev_X \colon X^* \otimes X \lto I
         \end{align}
     \end{itemize}
     が存在して以下の図式を可換にすることを言う：
@@ -202,36 +576,198 @@
         
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
-                &X \otimes I \ar[dd, "r_X"']\ar[rr, "1_X \otimes i_X"] & &X \otimes (X^* \otimes X) \ar[d, "a_{X,\, X^*,\, X}^{-1}"] \\
-                & & &(X \otimes X^*) \otimes X \ar[d, "e_X \otimes 1_X"] \\
-                &X & &I \otimes X \ar[ll, "l_X"] \\
+                &I \otimes X \ar[dd, "r_X"']\ar[rr, "\lcoev_X \otimes \mathrm{Id}_X"] & &(X \otimes X^*) \otimes X \ar[d, "a_{X,\, X^*,\, X}"] \\
+                & & &X \otimes (X^* \otimes X) \ar[d, "\mathrm{Id}_X \otimes \lev_X"] \\
+                &X & &X \otimes I\ar[ll, "r_X"] \\
             \end{tikzcd}
         \end{center}
-        
 
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
-                &I \otimes X^* \ar[dd, "l_{X^*}"']\ar[rr, "i_X \otimes 1_{X^*}"] & &(X^* \otimes X) \otimes X^* \ar[d, "a_{X^*,\, X,\, X^*}"] \\
-                & & &X^* \otimes (X \otimes X^*) \ar[d, "1_{X^*} \otimes e_X"] \\
-                &X^* & &X^* \otimes I \ar[ll, "r_{X^*}"] \\
+                &X^* \otimes I \ar[dd, "l_{X^*}"']\ar[rr, "\mathrm{Id}_{X^*} \otimes \lcoev_X"] & &X^* \otimes (X \otimes X^*) \ar[d, "a_{X^*,\, X,\, X^*}^{-1}"] \\
+                & & &(X^* \otimes X) \otimes X^* \ar[d, "\lev_X \otimes \mathrm{Id}_{X^*}"] \\
+                &X^* & &I \otimes X^* \ar[ll, "l_{X^*}"] \\
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+    \tcblower
+
+    \hyperref[def:monoidal-category]{モノイダル圏} $(\mathcal{C},\, \otimes,\, I,\, a,\, l,\, r)$ およびその任意の対象 $X,\, \rdual{X} \in \Obj{\mathcal{C}}$ を与える．
+    $\rdual{X}$ が $X$ の\textbf{右双対} (right dual) であるとは，
+    \begin{itemize}
+        \item 射 \begin{align}
+            \rcoev_X \colon I \lto \rdual{X} \otimes X
+        \end{align}
+        \item 射 \begin{align}
+            \rev_X \colon X \otimes \rdual{X} \lto I
+        \end{align}
+    \end{itemize}
+    が存在して以下の図式を可換にすることを言う：
+    \begin{description}
+        \item[\textbf{(zig-zag equations)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &X \otimes I \ar[dd, "l_X"']\ar[rr, "\Id_X \otimes \rcoev_X"] & &X \otimes (\rdual{X} \otimes X) \ar[d, "a_{X,\, \rdual{X},\, X}^{-1}"] \\
+                & & &(X \otimes \rdual{X}) \otimes X \ar[d, "\rev_X \otimes \Id_X"] \\
+                &X & &I \otimes X \ar[ll, "l_X"] \\
+            \end{tikzcd}
+        \end{center}
+
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &I \otimes \rdual{X} \ar[dd, "l_{X^*}"']\ar[rr, "\rcoev_X \otimes \mathrm{Id}_{\rdual{X}}"] & &(\rdual{X} \otimes X) \otimes \rdual{X} \ar[d, "a_{\rdual{X},\, X,\, \rdual{X}}^{-1}"] \\
+                & & &\rdual{X} \otimes (X \otimes \rdual{X}) \ar[d, "\mathrm{Id}_{\rdual{X}} \otimes \rev_{X}"] \\
+                &\rdual{X} & &\rdual{X} \otimes I \ar[ll, "r_{X^*}"] \\
             \end{tikzcd}
         \end{center}
     \end{description}
 \end{mydef}
 
-双対のストリング図式は，単に矢印を逆にすれば良い：
+双対は，単に矢印を逆にすることで表現する：
+\begin{align}
+    \lcoev_X &\eqqcolon
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (1,0);
+        \LCOEV{A}{B}
+    \end{tikzpicture} &
+    \lev_X &\eqqcolon 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (1,0);
+        \LEV{A}{B}
+    \end{tikzpicture} &
+    \rcoev_X&\eqqcolon
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (1,0);
+        \RCOEV{A}{B}
+    \end{tikzpicture} &
+    \rev_X &\eqqcolon 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (1,0);
+        \REV{A}{B}
+    \end{tikzpicture}
+\end{align}
+$\lcoev,\, \lev$ に対する\hyperref[def:dual]{\textsf{\textbf{(zig-zag equations)}}}は次のようになり，本当にジグザグしている：
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \draw[->-=.5] (0,-1) -- (0,1);
+    \end{tikzpicture}%
+    \quad
+    &=
+    \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (1,0);
+        \coordinate (C) at (2,0);
+        \LCOEV{A}{B}
+        \LEV{B}{C}
+        \draw[->-=.5] (A) -- (0,1);
+        \draw[->-=.5] (2,-1) -- (C);
+    \end{tikzpicture}% 
+    \\
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \draw[->-=.5] (0,1) -- (0,-1);
+    \end{tikzpicture}%
+    \quad
+    &=
+    \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (1,0);
+        \coordinate (C) at (2,0);
+        \LCOEV{B}{C}
+        \LEV{A}{B}
+        \draw[->-=.5] (A) -- (0,-1);
+        \draw[->-=.5] (2,1) -- (C);
+    \end{tikzpicture}% 
+\end{align}
+$\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equations)}}}は
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \draw[->-=.5] (0,-1) -- (0,1);
+    \end{tikzpicture}%
+    \quad
+    &=
+    \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (1,0);
+        \coordinate (C) at (2,0);
+        \REV{A}{B}
+        \RCOEV{B}{C}
+        \draw[->-=.5] (C) -- (2,1);
+        \draw[->-=.5] (0,-1) -- (A);
+    \end{tikzpicture}% 
+    \\
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \draw[->-=.5] (0,1) -- (0,-1);
+    \end{tikzpicture}%
+    \quad
+    &=
+    \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (1,0);
+        \coordinate (C) at (2,0);
+        \REV{B}{C}
+        \RCOEV{A}{B}
+        \draw[->-=.5] (C) -- (2,-1);
+        \draw[->-=.5] (0,1) -- (A);
+    \end{tikzpicture}% 
+\end{align}
+である．
 
-このとき\hyperref[def:dual]{zig-zag equations}が本当にジグザグしていることがわかる：
-
-\begin{mydef}[label=def:compact]{コンパクト圏}
-    \hyperref[def:monoidal-category]{モノイダル圏} $\mathcal{C}$ は，$\forall X \in \Obj{\mathcal{C}}$ が\hyperref[def:dual]{左・右双対}を持つとき\textbf{コンパクト} (compact) であると言われる．
+\begin{mydef}[label=def:compact]{rigidなモノイダル圏}
+    \hyperref[def:monoidal-category]{モノイダル圏} $\mathcal{C}$ は，$\forall X \in \Obj{\mathcal{C}}$ が\hyperref[def:dual]{左・右双対}を持つとき\textbf{rigid}であると言われる．
 \end{mydef}
 
-\begin{myexample}[label=ex:Cob-closed]{$\COB$ のunitとcounit}
-    $\COB_{D+1}$ における $X \in \Obj{\COB_{D+1}}$ の\hyperref[def:dual]{双対}とは，向き付けを逆にした $D$ 次元多様体 $X$ のことである．
-    特に $\COB_3$ における\hyperref[def:dual]{unit, counit}はそれぞれU字管とそれを逆さにしたもののような見た目をしている：
-
-    \hyperref[def:closed-monoidal]{internal hom functor}を $X \multimap Y \coloneqq X^* \otimes Y$ とすれば，図から $\COB_{3}$ が\hyperref[def:closed-monoidal]{閉圏}であることを直接確認できる．
+\begin{myexample}[label=ex:Cob-closed]{$\BORD{D}{D+1}^{\LSO}$ のunitとcounit}
+    $\BORD{D}{D+1}^{\LSO}$ と書いて，向き付け可能な多様体が成す\hyperref[ex:Bord]{コボルディズム圏}を表すことにする\footnote{一般に，$\BORD{D}{D+1}$ の右肩には注目する\textbf{接構造} (tangential structure) を指定する記号を書く．}．
+    このとき，$X \in \Obj{\BORD{D}{D+1}^{\LSO}}$ の\hyperref[def:dual]{双対}とは，向き付けを逆にした $D$ 次元多様体 $-X$ のことである．
+    \hyperref[def:dual]{unit, counit}はそれぞれU字管とそれを逆さにしたもののような見た目をしている：
+    \begin{align}
+        \lev_X &\coloneqq \quad \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (x_1)
+            +(2,0) coordinate (x_2)
+            +(3,0) coordinate (x_3)
+            +(5,0) coordinate (x_4)
+            ;
+            \draw (x_1) to[out=90,in=90,looseness=2] (x_4);
+            \draw (x_2) to[out=90,in=90,looseness=3] (x_3);
+            \node (X_1) at ($0.5*(x_1)+0.5*(x_2)$) {$\textcolor{red}{-X}$};
+            \node (X_2) at ($0.5*(x_4)+0.5*(x_3)$) {$\textcolor{red}{X}$};
+            \draw[arrows = {Stealth[harpoon]-}] ($(X_1) + (0.8,0)$) arc (0:270:0.15);
+            \draw[arrows = {-Stealth[harpoon,swap]}] ($(X_2) + (0.8,0)$) arc (0:270:0.15);
+            \begin{scope}[on background layer]
+                \fill[bdymfd,draw] \Bordismbdy{x_1}{x_2};
+                \fill[bdymfd,draw] \Bordismbdy{x_3}{x_4};
+            \end{scope}
+        \end{tikzpicture},
+        &
+        \lcoev_X &\coloneqq \quad \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (x_1)
+            +(2,0) coordinate (x_2)
+            +(3,0) coordinate (x_3)
+            +(5,0) coordinate (x_4)
+            ;
+            \draw (x_1) to[out=-90,in=-90,looseness=2] (x_4);
+            \draw (x_2) to[out=-90,in=-90,looseness=3] (x_3);
+            \node (X_1) at ($0.5*(x_1)+0.5*(x_2)$) {$\textcolor{red}{X}$};
+            \node (X_2) at ($0.5*(x_4)+0.5*(x_3)$) {$\textcolor{red}{-X}$};
+            \draw[arrows = {Stealth[harpoon]-}] ($(X_2) + (0.8,0)$) arc (0:270:0.15);
+            \draw[arrows = {-Stealth[harpoon,swap]}] ($(X_1) + (0.8,0)$) arc (0:270:0.15);
+            \begin{scope}[on background layer]
+                \fill[bdymfd,draw] \Bordismbdy{x_1}{x_2};
+                \fill[bdymfd,draw] \Bordismbdy{x_3}{x_4};
+            \end{scope}
+        \end{tikzpicture}
+    \end{align}
+    
+    \hyperref[def:closed-monoidal]{internal hom functor}を $X \multimap Y \coloneqq X^* \otimes Y$ とすれば，図から $\BORD{2}{3}^{\LSO}$ が\hyperref[def:closed-monoidal]{閉圏}であることを直接確認できる．
 \end{myexample}
 
 
@@ -241,12 +777,12 @@
     特に，自然な同型 $X^* \otimes Y \cong \Hom{\mathbb{C}} (X,\, Y)$ を使うと
     $X$ の\hyperref[def:dual]{unit}は
     \begin{align}
-        i_X \colon I &\lto X^* \otimes X, \\
+        \lcoev_X \colon I &\lto X^* \otimes X, \\
         c &\lmto c\, \mathrm{id}_X
     \end{align}
     で，\hyperref[def:dual]{counit}は
     \begin{align}
-        e_X \colon X \otimes X^* &\lto I, \\
+        \lev_X \colon X \otimes X^* &\lto I, \\
         x \otimes f &\lmto f(x)
     \end{align}
     であることがわかる．
@@ -254,7 +790,7 @@
 \end{myexample}
 % 他に，任意のLie群の有限次元表現は\hyperref[def:compact]{コンパクト}\hyperref[def:braided-monoidal]{対称モノイダル圏}を成すらしい．
 
-実は，コンパクト圏は自動的に\hyperref[def:closed-monoidal]{閉圏}になる．これは
+実は，rigidなモノイダル圏は自動的に\hyperref[def:closed-monoidal]{閉圏}になる．これは
 \begin{align}
     X \multimap Y \coloneqq X^* \otimes Y
 \end{align}
@@ -274,8 +810,8 @@
     \end{enumerate}
 \end{mydef}
 
-\begin{myexample}[label=ex:Cob-dagger]{$\COB$ のdagger}
-    $\COB_{D+1}$ における $\mathcal{M} \colon X \lto Y$ のダガーは，上下を逆にしてから $\mathcal{M}$ の連結成分毎に向きを逆にすることで得られる．
+\begin{myexample}[label=ex:Cob-dagger]{$\BORD{D}{D+1}^{\LSO}$ のdagger}
+    $\BORD{D}{D+1}^{\LSO}$ における $\mathcal{M} \colon X \lto Y$ のダガーは，上下を逆にしてから $\mathcal{M}$ の連結成分毎に向きを逆にすることで得られる．
 \end{myexample}
 
 
@@ -382,7 +918,7 @@
     % $D$ 次元の\textbf{位相的場の理論} (Topological Quantum Field Theory; TQFT) とは，
     % \hyperref[Cob-string]{コボルディズム圏}からある\hyperref[def:braided-monoidal]{対称モノイダル圏} $\mathcal{D}$ への\hyperref[def:monidal-functor]{strict monoidal functor}\footnote{strong monoidal functorとする場合もある（例えば\url{https://ncatlab.org/nlab/show/cobordism}）ようだが，原論文~\cite{Atiyah1988tqft}ではstrict monoidal functorになっていた．}
     % \begin{align}
-    %     Z \colon \COB_{D+1} \lto \mathcal{D}
+    %     Z \colon \BORD{D}{D+1}\lto \mathcal{D}
     % \end{align}
     % のこと．
 \end{myaxiom}
@@ -443,7 +979,7 @@
 $Z(M) \in V(\partial M) = Z(\Sigma_1)^* \otimes Z(\Sigma_2) \cong \Hom{\mathbb{K}} \bigl( Z(\Sigma_1),\, Z(\Sigma_2) \bigr)$ が言えるので，$Z(M)$ を線型写像 $Z(M) \colon V(\Sigma_1) \lto V(\Sigma_2)$ と同一視できるのである．
 \textsf{\textbf{(TQFT-1)}}もあわせると，結局これまで $V,\, Z$ と書いていたものは\hyperref[def:monidal-functor]{strong monoidal functor}
 \begin{align}
-    Z \colon \COB_{D+1} \lto \VEC{\mathbb{K}}
+    Z \colon \BORD{D}{D+1}\lto \VEC{\mathbb{K}}
 \end{align}
 の1つに集約することができる．
 
@@ -451,14 +987,14 @@ $Z(M) \in V(\partial M) = Z(\Sigma_1)^* \otimes Z(\Sigma_2) \cong \Hom{\mathbb{K
     $D$ 次元の\textbf{位相的場の理論} (Topological Quantum Field Theory; TQFT) とは，
     \hyperref[Cob-string]{コボルディズム圏}からある\hyperref[def:braided-monoidal]{対称モノイダル圏} $\mathcal{D}$ への\hyperref[def:monidal-functor]{strict monoidal functor}\footnote{strong monoidal functorとする場合もある（例えば\url{https://ncatlab.org/nlab/show/cobordism}）ようだが，原論文~\cite{Atiyah1988tqft}ではstrict monoidal functorになっていた．}
     \begin{align}
-        Z \colon \COB_{D+1} \lto \mathcal{D}
+        Z \colon \BORD{D}{D+1}\lto \mathcal{D}
     \end{align}
     のこと．
 \end{mydef}
 
 興味があるのは $\mathcal{D} = \VEC{\mathbb{K}},\, \HILB$ の場合なので，以下では\hyperref[ax:Atiyah-TQFT]{TQFT}と言ったら\hyperref[def:monidal-functor]{strict monoidal functor}
 \begin{align}
-    Z \colon \COB_{D+1} \lto \VEC{\mathbb{K}},\, \HILB
+    Z \colon \BORD{D}{D+1}\lto \VEC{\mathbb{K}},\, \HILB
 \end{align}
 を指すことにしよう．
 
@@ -1382,7 +1918,7 @@ Lie群 $G$ で特徴づけられる $0$-form symmetryの場合を考える．on 
 
 高次対称性に関しても全く同様にアノマリーを判定できる．つまり，$p$-form カレントを背景ゲージ場と結合させてゲージ変換を施した際の分配関数の変化が
 \begin{align}
-    Z[A_{p_i} + \dd{\Lambda_{p_i-1}}] = Z[A_{p_i}]] e^{\iunit \int_{\mfdcal{M}{D+1}} \mathcal{A}[A_{p_i},\, \Lambda_{p_i-1}]}
+    Z[A_{p_i} + \dd{\Lambda_{p_i-1}}] = Z[A_{p_i}] e^{\iunit \int_{\mfdcal{M}{D+1}} \mathcal{A}[A_{p_i},\, \Lambda_{p_i-1}]}
 \end{align}
 となり，$\mathcal{A}[A_{p_i},\, \Lambda_{p_i-1}] \neq 0$ ならば理論はアノマリーを持つと言う．特に $\mathcal{A}[A_{p_i},\, \Lambda_{p_i-1} = 0\, \forall i] = 0$ ならば\textbf{'t Hooftアノマリー}，そうでないならば\textbf{ABJ型のアノマリー}を持つと言う．
 
@@ -2616,7 +3152,7 @@ $p$ 単体の\textbf{向き}は常に $l_0 < \cdots < l_p$ を充たすように
 
 定理\ref{prop.cocycle}と同様に，主 $2$-束を変換関数によって特徴付ける．
 
-\section{(1+1)-次元の有限群 $0$-form対称性のゲージ化}
+\section{(1+1)-次元の有限 $0$-form対称性のゲージ化}
 
 ~\cite{BhardwajTachikawa2017gauging2d}に従って，$(1+1)$-次元系の，フュージョン則が有限群（非可換でも良い）$G$ であるような $0$-form symmetryをゲージ化する手続きを与える．
 
