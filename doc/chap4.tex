@@ -705,25 +705,74 @@ $\sk_0(\mathsf{C}_D)$ における射とは，任意の局所演算子と可換�
     が成り立つ．
 \end{proof}
 
-\begin{mylem}[label=lem:spherical-unitary]{ユニタリテンソル圏における旋回構造}
-    \hyperref[def:unitary-monoidal]{ユニタリ}\hyperref[def:tensorfusion-cat]{テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, \dagger)$ において，
+\begin{myprop}[label=prop:spherical-unitary]{ユニタリテンソル圏における球状構造}
+    \hyperref[def:unitary-monoidal]{ユニタリ}\hyperref[def:tensorfusion-cat]{テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, \dagger)$ における\hyperref[def:pivotal]{旋回構造}
     \begin{align}
         p_x \coloneqq (\lcoev_x{}^\dagger \otimes \Id_{x^{**}}) \circ (\Id_x \otimes \lcoev_{x^*}) \colon x \lto x^{**}
     \end{align}
-    は\hyperref[def:pivotal]{旋回構造}である．
-\end{mylem}
+    が\hyperref[def:spherical]{球状構造}になる必要十分条件は，$\forall x \in \Obj{\Cat{C}}$ に対して
+    \begin{align}
+        \lcoev_x{}^\dagger \circ \lcoev_x = \lev_x \circ \lev_x{}^\dagger
+    \end{align}
+    が成り立つことである．
+\end{myprop}
 
 \begin{proof}
     \begin{align}
         \dim_p(x)
         &= \lev_{x^*} \circ (p_x \otimes \Id_{x^*}) \circ \lcoev_x \\
-        &= \lcoev_x{}^\dagger \circ \lcoev_x, \\
-        \dim_p(x^*)
-        &= \lev_{x^{**}} \circ (p_{x^*} \otimes \Id_{x^{**}}) \circ \lcoev_{x^*} \\
-        &= 
+        &= \lcoev_x{}^\dagger \circ \lcoev_x
     \end{align}
-    
+    ところで，
+    \begin{align}
+        (p_x^*)^{-1}
+        &= \quad \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (x_1)
+            \foreach \i in {2,...,5} {
+                ++(1,0) coordinate (x_\i)
+            }
+            ;
+            \LEV{x_1}{x_4}
+            \REV{x_2}{x_3}
+            \RCOEV{x_3}{x_4}
+            \LCOEV{x_2}{x_5}
+            \draw[->-=.5] (x_1) -- +(0,-2);
+            \draw[-<-=.5] (x_5) -- +(0,2);
+            \node at ($0.5*(x_1)+0.5*(x_4)+(0,2.2)$) {$\lev_x$};
+            \node at ($0.5*(x_2)+0.5*(x_3)+(0,1)$) {$\lev_{x^*}$};
+            \node at ($0.5*(x_3)+0.5*(x_4)+(0,-1)$) {$\lev_{x}{}^\dagger$};
+            \node at ($0.5*(x_2)+0.5*(x_5)+(0,-2.2)$) {$\lcoev_{x^{**}}$};
+        \end{tikzpicture}
+    \end{align}
+    であるから，
+    \begin{align}
+        \dim_p(x^*)
+        &= \lqTr \bigl( (p^*_x)^{-1} \bigr) &&\because \quad \text{補題\ref{lem:pivotal}-(1)} \\
+        &= \lev_x \circ \lev_x{}^\dagger
+    \end{align}
+    と計算できる．よって
+    \begin{align}
+        \dim_p (x) = \dim_p (x^*) \IFF \lcoev_x{}^\dagger \circ \lcoev_x = \lev_x \circ \lev_x{}^\dagger
+    \end{align}
 \end{proof}
+
+\hyperref[redef:rigid]{coevaluation/evaluation}を適切に選ぶことで，いつでも命題\ref{prop:spherical-unitary}の条件を充たすようにできる．
+実際，$\lcoev_x,\, \lev_x$ が $x,\, x^* \in \Obj{\Cat{C}}$ に関する\hyperref[redef:dual]{(co)evaluation}ならば，$\forall \lambda \in \mathbb{C}^{\times}$ に対して $\lambda\, \lcoev_x,\; \lambda^{-1}\, \lev_x$ もまた\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equations)}}}を充たすので $x,\, x^*$ に関する\hyperref[redef:dual]{(co)evaluation}である．
+よって
+\begin{align}
+    \abs{\lambda}^2 = \sqrt{\frac{\lev_x \circ \lev_x{}^\dagger}{\lcoev_x{}^\dagger \circ \lcoev_x}}
+\end{align}
+を充たすように $\lambda$ を選べば良い~\cite[LEMMA 3.9., p.9]{yamagami2004frobenius}．
+
+\begin{mydef}[label=def:ev-coev-balanced]{balancedなユニタリテンソル圏}
+    \hyperref[def:unitary-monoidal]{ユニタリ}\hyperref[def:tensorfusion-cat]{テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, \dagger)$ 
+    が\textbf{balanced}であるとは，$\forall x \in \Obj{\Cat{C}}$ に対して
+    \begin{align}
+        \lcoev_x{}^\dagger \circ \lcoev_x = \lev_x \circ \lev_x{}^\dagger
+    \end{align}
+    が成り立つこと．このとき，命題\ref{prop:spherical-unitary}の構成によって $\Cat{C}$ は\hyperref[def:spherical]{球状圏}になる．
+\end{mydef}
+
 
 \subsection{組紐}
 

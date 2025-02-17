@@ -787,7 +787,7 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
         (\mhyphen)^{**} \colon \Cat{C} &\lto \Cat{C} \\
         {}^{**}(\mhyphen) \colon \Cat{C} &\lto \Cat{C}
     \end{align}
-    は\hyperref[redef:monidal-functor]{モノイダル関手}である．
+    は\hyperref[redef:monidal-functor]{厳密なモノイダル関手}である．
 \end{myexample}
 
 
@@ -1276,7 +1276,7 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
         \draw[-<-=.5] (z_1) -- +(0,-1);
         \ABRAID{x_1}{z_1}{x_2}{y_2}
         \ABRAID{y_1}{z_1}{x_2}{z_2}
-    \end{tikzpicture}
+    \end{tikzpicture} \\
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
         \path coordinate[label=above left:$Y$] (y_1)
             +(1,0) coordinate[label=above left:$X^*$] (x_1)
@@ -1285,7 +1285,7 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
         ;
         \draw[->-=.5] (y_1) -- (y_2);
         \LEV{x_1}{x_2}
-    \end{tikzpicture} \\
+    \end{tikzpicture}
     &\quad = \quad
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
         \path coordinate[label=above left:$Y$] (x_1)
@@ -1325,7 +1325,7 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
     \end{tikzpicture}
 \end{align}
 ただし\hyperref[redef:monoidal-category]{left/right unitor}を省略した．
-つまり，端がループになった組紐は，下を潜らせることができる．
+つまり，端で折り返している組紐は，下を潜らせることができる．
 
 \subsection{リボン構造}
 
@@ -1679,7 +1679,7 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
             \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
                 \coordinate (A1) at (0,-1);
                 \coordinate (A2) at (0,1);
-                \node[squarednode] (f) at (0,0) {$f$};
+                \coordinate[bullet,label=left:$f$] (f) at (0,0);
                 \coordinate (B1) at (1,-1);
                 \coordinate (B2) at (1,1);
                 \draw[->-=.5] (A1) -- node[midway, left]{\small $x$} (f);
@@ -1692,15 +1692,15 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
         \end{align}
         \item $g$ の\textbf{右量子トレース} (right quantum trace) を以下で定義する：
         \begin{align}
-            \rqTr(g) \colon 1 \xrightarrow{\rcoev_{\rdual{x}}} \rdual{x} \otimes x \xrightarrow{\Id_{\rdual{x}} \otimes g} \rdual{x} \otimes \rddual{x} \xrightarrow{\rev_{\rddual{x}}} 1
+            \rqTr(g) \colon 1 \xrightarrow{\rcoev_{x}} \rdual{x} \otimes x \xrightarrow{\Id_{\rdual{x}} \otimes g} \rdual{x} \otimes \rddual{x} \xrightarrow{\rcoev_{\rdual{x}}} 1
         \end{align}
-        ストリング図式で書くと次のようになる\footnote{$\rev_{\rddual{x}} = \lev_{\rdual{x}}$ を使った．}：
+        ストリング図式で書くと次のようになる：
         \begin{align}
-            \lqTr(g) \coloneqq 
+            \rqTr(g) \coloneqq 
             \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
                 \coordinate (A1) at (0,-1);
                 \coordinate (A2) at (0,1);
-                \node[squarednode] (g) at (1,0) {$g$};
+                \coordinate[bullet,label=right:$g$] (g) at (1,0);
                 \coordinate (B1) at (1,-1);
                 \coordinate (B2) at (1,1);
                 \draw[->-=.5] (B1) -- node[midway, right]{\small$x$} (g);
@@ -1714,6 +1714,63 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
     \end{itemize}
     
 \end{mydef}
+
+\begin{mylem}[label=lem:qTr-LR]{左量子トレースと右量子トレースの関係}
+    \hyperref[redef:rigid]{rigidなモノイダル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
+    このとき，$\forall f \in \Hom{\Cat{C}} (x,\, x^{**})$ について
+    \begin{align}
+        \lqTr(f) = \rqTr(f^*)
+    \end{align}
+    が成り立つ．
+\end{mylem}
+
+\begin{proof}
+    \begin{align}
+        \lqTr(f)
+        &=\quad \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate[bullet,label=left:$f$] (f)
+            ++ (1,0) coordinate (x)
+            ;
+            \RCOEV{f}{x}
+            \LEV{f}{x}
+        \end{tikzpicture} \\
+        &=\quad \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (x_1)
+            ++(1,0) coordinate (x_2)
+            ++(1,0) coordinate[bullet,label=left:$f$] (f)
+            ++(1,0) coordinate (x_3)
+            ++(1,0) coordinate (x_4)
+            ++(1,0) coordinate (x_5)
+            ;
+            \LCOEV{x_1}{x_2}
+            \LEV{x_2}{f}
+            \LCOEV{f}{x_3}
+            \LEV{x_3}{x_4}
+            \LCOEV{x_4}{x_5}
+            \REV{x_1}{x_5}
+        \end{tikzpicture} &&\because\; \text{\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equations)}}}} \\
+        &=\quad \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (x_1)
+            ++(1,0) coordinate[bullet,label=left:$f^*$] (f)
+            ++(1,0) coordinate (x_2)
+            ++(1,0) coordinate (x_3)
+            ;
+            \LCOEV{x_1}{f}
+            \LEV{f}{x_2}
+            \LCOEV{x_2}{x_3}
+            \REV{x_1}{x_3}
+        \end{tikzpicture} \\
+        &=\quad \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (x)
+            ++(1,0) coordinate[bullet,label=left:$f^*$] (f)
+            ;
+            \LCOEV{x}{f}
+            \REV{x}{f}
+        \end{tikzpicture}&&\because\; \text{\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equations)}}}}
+    \end{align}
+    ここで，補題\ref{lem:duals}より $\lev_{x^*} = \rev_{x^{**}},\; \lcoev_{x^{**}} = \rcoev_{x^{***}}$ が成り立つので，最右辺は $\rqTr(f^*)$ に等しい．
+\end{proof}
+
 
 \begin{mydef}[label=def:pivotal,breakable]{旋回構造}
     \hyperref[redef:rigid]{rigidなモノイダル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
@@ -1742,7 +1799,83 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
 \begin{proof}
     $\forall x \in \Obj{\Cat{C}}$ を1つ固定する．
     \begin{enumerate}
-        \item 
+        \item $\Id_{\Cat{C}} \colon \Cat{C} \lto \Cat{C}$ は\hyperref[redef:monidal-functor]{厳密なモノイダル関手}であり，\exref{def:dual-functor}より $(\mhyphen)^{**} \colon \Cat{C} \lto \Cat{C}$ もまた厳密なモノイダル関手であるから，
+        $p \colon \Id_{\Cat{C}} \Longrightarrow (\mhyphen)^{**}$ が\hyperref[def:monoidal-nat]{モノイダル自然同型}であることより $\forall x \in \Obj{\Cat{C}}$ について以下の図式は可換になる：
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &x^{*} \otimes x \ar[d, "="']\ar[r, "p_{x^*} \otimes p_x"] 
+                &x^{***} \otimes x^{**} \ar[d, "="]\\
+                &x^* \otimes x \ar[r, "p_{x^* \otimes x}"] 
+                &(x^* \otimes x)^{**}
+            \end{tikzcd}
+        \end{center}
+        さらに，$p$ の自然性から図式
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                 &x^* \otimes x \ar[dr, "\lev_x"'] \ar[rr, "p_{x^* \otimes x}"] 
+                 & &(x^* \otimes x^{**}) \ar[dl, "\lev_{x^{**}}"] \\
+                 & &1 &
+            \end{tikzcd}
+        \end{center}
+        も可換であるから，
+        \begin{align}
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[bullet,label=left:$p_{x^*}$] (p_1)
+                ++(1,0) coordinate[bullet,label=right:$p_{x}$] (p_2)
+                ;
+                \LEV{p_1.center}{p_2.center}
+                \draw[->-=.5] (p_1) -- node[midway,left] {$x^*$} +(0,-1);
+                \draw[-<-=.5] (p_2) -- node[midway,left] {$x$} +(0,-1);
+            \end{tikzpicture}
+            \quad &= \quad 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (x_1)
+                ++(1,0) coordinate (x_2)
+                ;
+                \LEV{x_1}{x_2}
+            \end{tikzpicture}
+        \end{align}
+        が成り立つことが分かった．よって
+        \begin{align}
+            (p_x)^* \circ p_{x^*}
+            &=\quad 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[bullet, label=left:$p_{x^*}$] (p_1)
+                ++(0,1) coordinate (x_1)
+                +(1,0) coordinate[bullet, label=left:$p_{x}$] (p_2)
+                +(2,0) coordinate (x_2)
+                ;
+                \draw[->-=.5] (p_1) -- +(0,-1);
+                \draw[-<-=.5] (p_1) -- (x_1);
+                \LEV{x_1}{p_2.center}
+                \LCOEV{p_2.center}{x_2}
+                \draw[-<-=.5] (x_2) -- +(0,1);
+            \end{tikzpicture} \\
+            &=\quad
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[bullet] (p_1)
+                +(1,0) coordinate[bullet] (p_2)
+                +(2,0) coordinate (x)
+                ;
+                \LEV{p_1.center}{p_2.center}
+                \LCOEV{p_2.center}{x}
+                \draw[->-=.5] (p_1) -- +(0,-1);
+                \draw[-<-=.5] (x) -- +(0,1);
+            \end{tikzpicture} \\
+            &=\quad 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (x_1)
+                +(1,0) coordinate (x_2)
+                +(2,0) coordinate (x_3)
+                ;
+                \LEV{x_1}{x_2}
+                \LCOEV{x_2}{x_3}
+                \draw[->-=.5] (x_1) -- +(0,-1);
+                \draw[-<-=.5] (x_3) -- +(0,1);
+            \end{tikzpicture} \\
+            &= \Id_{x^*} &&\because\quad \text{\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equations)}}}}
+        \end{align}
+        が言える． $p_{x^*} \circ (p_x)^* = \Id_{x^{***}}$ も同様．
         \item $p$ の自然性より
         \begin{align}
             (p_x)^{**} \circ p_x = p_{x^{**}} \circ p_x
@@ -1765,7 +1898,7 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
         \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
             \coordinate (A1) at (0,-1);
             \coordinate (A2) at (0,1);
-            \node[squarednode] (f) at (0,0) {$p_x$};
+            \coordinate[bullet,label=left:$p_x$] (f) at (0,0);
             \coordinate (B1) at (1,-1);
             \coordinate (B2) at (1,1);
             \draw[->-=.5] (A1) -- node[midway, left]{$x$} (f);
@@ -1895,7 +2028,7 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
 \end{mytheo}
 
 \begin{proof}
-    ~\cite[THEOREM 4.7.15]{etingof2015tensor}
+    $f = \Id_x$ の場合は補題\ref{lem:qTr-LR}および補題\ref{lem:pivotal}-(1) から従う．一般の $f$ については~\cite[THEOREM 4.7.15]{etingof2015tensor}を参照．
 \end{proof}
 
 
@@ -2007,7 +2140,7 @@ $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 上の積\eqref{eq:fusionring}は明らか�
 \end{align}
 とおく．
 
-\begin{mydef}[label=def:pseudo-unitary]{擬フュージョン圏}
+\begin{mydef}[label=def:pseudo-unitary]{擬ユニタリフュージョン圏}
     $\mathbb{K} = \mathbb{C}$ とする．このときフュージョン圏 $\Cat{C}$ が\textbf{擬ユニタリ} (pseudo-unitary) であるとは，
     \begin{align}
         \dim (\Cat{C}) = \FPdim (\Cat{C})
