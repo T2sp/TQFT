@@ -3093,6 +3093,15 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
 \end{align}
 となる．
 
+\begin{mydef}[label=def:special-Frobenius]{特殊Frobenius代数}
+    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\,r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
+
+    $\Cat{C}$ の\hyperref[def:Frobenius-alg]{Frobenius代数} $(x,\, \mu,\, \upsilon,\, \Delta,\, \epsilon)$ が\textbf{特殊} (special) であるとは，
+    $\Cat{C}$ の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$ が\hyperref[def:algobj]{余積} $\Delta \colon x \lto x \otimes x$ によって\hyperref[def:separable-alg]{分離可能}であることを言う\footnote{これは~\cite[p.17]{coecke2008quantummeasurementssums}に倣った定義である．ある $\beta_x,\, \beta_1 \in \mathbb{K}^\times$ が存在して $\mu \circ \Delta = \beta_x \Id_x,\; \epsilon \circ \upsilon = \beta_1 \Id_1$ が成り立つことを，special Frobenius algebraの定義とする場合もある~\cite[Definition 3.4-(i)]{Fuchs2002cm}}．
+    i.e. $\mu \circ \Delta = \Id_x$ が成り立つこと．
+\end{mydef}
+
+
 \subsection{加群圏におけるinternal hom}
 
 
@@ -3721,12 +3730,12 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
             \coordinate (D) at (3,0);
             \coordinate (E) at (2,1);
             \coordinate (F) at (-1,1);
-            \LEV{A}{D}
+            \LCOEV{A}{D}
             \RCOEV{B}{C}
             \REV{A}{B}
             \draw[->-=.5] (3,2) -- (D);
             \draw[->-=.5] (C) -- (E);
-            \LCOEV{E}{F}
+            \LEV{F}{E}
             \draw[->-=.5] (F) -- (-1,-1);
             % \EVinv{}
         \end{tikzpicture}

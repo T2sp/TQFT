@@ -3217,7 +3217,7 @@ $(1+1)$-次元系における有限の\hyperref[def:p-form-sym]{$0$-form symmetr
 \begin{mydefph}[label=def:gauging]{ゲージ化}
     $(1+1)$-次元時空 $\mfd{M}{2}$ 上の場の理論 $T$ が\hyperref[def:p-form-sym]{$0$-form symmetry} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を持つとする．
 
-    　$T$ の\textbf{ゲージ化} (gauging) とは，圏 $\Cat{C}$ における\hyperref[def:separable-alg]{分離可能}な\hyperref[def:sym-Frobenius]{対称Frobenius代数} $(A,\, \mu,\, \upsilon,\, \Delta,\, \epsilon)$ を1つ指定することを言う．
+    　$T$ の\textbf{ゲージ化} (gauging) とは，圏 $\Cat{C}$ における\hyperref[def:special-Frobenius]{特殊}な\hyperref[def:sym-Frobenius]{対称Frobenius代数} $(A,\, \mu,\, \upsilon,\, \Delta,\, \epsilon)$ を1つ指定することを言う．
     % \begin{itemize}
     %     \item 
     %     \item $\mfd{M}{2}$ の\underline{十分細かい}三角形分割\footnote{より正確には，Poincar\'{e}双対をとることで $K$ を再現するような，trivalent junctionからなるメッシュのことを指す．} $K \in \Obj{\SimpSet}$
@@ -3231,7 +3231,7 @@ $(1+1)$-次元系における有限の\hyperref[def:p-form-sym]{$0$-form symmetr
 % グラフ $P^{(1)}$ の辺には向きを勝手に与えて有向グラフにする．
 グラフ $P^{(1)}(K)$ の全ての辺にトポロジカル演算子 $A \in \Obj{\Cat{C}}$ を置き，頂点には射 $\mu \colon A \otimes A \lto A$ または $\Delta \colon A \lto A \otimes A$ を置くことで，
 グラフ $P^{(1)}(K)$ はストリング図式 $\mathbb{F}_A (K)$ を与える．
-次の命題\ref{prop:gaiging-graph-invariance}より，$A$ の\hyperref[def:separable-alg]{分離可能性}と\hyperref[def:sym-Frobenius]{対称Frobenius代数}は，このストリング図式 $\mathbb{F}_A (K)$ が位相不変量であること（i.e. ゲージ不変性）を保証するものだと分かる．
+次の命題\ref{prop:gaiging-graph-invariance}より，$A$ が\hyperref[def:special-Frobenius]{特殊}な\hyperref[def:sym-Frobenius]{対称Frobenius代数}であることが，このストリング図式 $\mathbb{F}_A (K)$ が位相不変量であること（i.e. ゲージ不変性）を保証しているのだと分かる．
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}
@@ -3364,8 +3364,8 @@ $(1+1)$-次元系における有限の\hyperref[def:p-form-sym]{$0$-form symmetr
                 ++ (1,1) coordinate[bullet] (c)
             ;
             \draw[->-=.5] (a) -- (b);
-            \draw[->-=.5] (b) to[out=90,in=120] (c);
-            \draw[->-=.5] (b) to[out=-30,in=-90] (c);
+            \draw[->-=.5] (b) to[out=90,in=180] (c);
+            \draw[->-=.5] (b) to[out=0,in=-90] (c);
             \draw[->-=.5] (c) -- +(1,1);
             \draw[-<-=.5] (a) -- +(180:1);
             \draw[-<-=.5] (a) -- +(-90:1);
@@ -3376,7 +3376,7 @@ $(1+1)$-次元系における有限の\hyperref[def:p-form-sym]{$0$-form symmetr
             \draw[->-=.5] (g) -- +(30:1);
             \draw[-<-=.5] (g) -- +(150:1);
             \draw[-<-=.5] (g) -- +(-90:1);
-        \end{tikzpicture} &&\because\quad \text{\hyperref[def:separable-alg]{分離可能性}}
+        \end{tikzpicture} &&\because\quad \text{\hyperref[def:special-Frobenius]{特殊}}
     \end{align}
     により不変であることがわかった．
 \end{proof}
@@ -3433,13 +3433,6 @@ $G$ を可換とは限らない有限群とし，\exref{def:CG}で定義した�
 \end{align}
 を充たすので組 $(A,\, \Delta,\, \epsilon)$ は\hyperref[def:algobj]{余代数対称}である．その上
 \begin{align}
-    \mu \circ \Delta (e_g) 
-    &= \mu \left(\sum_{h \in G} e_h \otimes e_{h^{-1} g}\right) \\
-    &= \sum_{h \in G} e_{g} \\
-    &= \abs{G} \Id_A (e_g)
-\end{align}
-が成り立つので組 $(A,\, \mu,\, \upsilon,\, \Delta,\, \epsilon)$ は\hyperref[def:separable-alg]{分離可能}であり，
-\begin{align}
     (\Id_A \otimes \mu) \circ (\Delta \otimes \Id_A) (e_g \otimes e_h) 
     &= (\Id_A \otimes \mu) \left(\sum_{k \in G} e_k \otimes e_{k^{-1}g} \otimes e_h \right) \\
     &= \sum_{k \in G} e_k \otimes e_{k^{-1}gh}, \\
@@ -3462,10 +3455,17 @@ $G$ を可換とは限らない有限群とし，\exref{def:CG}で定義した�
     &= \sum_{h \in G} \delta_{1_G,hg} e_{h^{-1}} \\
     &= e_g
 \end{align}
-が成り立つので\hyperref[def:sym-Frobenius]{対称Frobenius代数}であることがわかった．
+が成り立つので\hyperref[def:sym-Frobenius]{対称Frobenius代数}であり，
+\begin{align}
+    \mu \circ \Delta (e_g) 
+    &= \mu \left(\sum_{h \in G} e_h \otimes e_{h^{-1} g}\right) \\
+    &= \sum_{h \in G} e_{g} \\
+    &= \abs{G} \Id_A (e_g)
+\end{align}
+が成り立つので組 $(A,\, \mu,\, \upsilon,\, \Delta,\, \epsilon)$ は\hyperref[def:special-Frobenius]{特殊Frobenius代数}であることが分かった．
 以上の考察から，組 $(A,\, \mu,\, \upsilon,\, \Delta,\, \epsilon)$ は定義\ref{def:gauging}の意味で対称性 $\VEC{G}$ のゲージ化である．
 
-    　従来の意味のゲージ化とは，\hyperref[def:p-form-sym]{0-form symmetry}の全てのトポロジカル演算子のあらゆる可能な配位に関する足し上げであった．
+    　従来の意味のゲージ化とは，理論をゲージ場と結合させてゲージ場に関する経路積分を実行することであった．\hyperref[def:p-form-sym]{0-form symmetry}の全てのトポロジカル演算子のあらゆる可能な配位に関する足し上げと言っても良い．
     定義\ref{def:gauging}の意味のゲージ化は，今回の場合は時空の三角形分割から得られる双対グラフの全ての辺上に，全てのトポロジカル演算子を足し上げることで構成されるトポロジカル演算子 $A = \bigoplus_{g \in G} \mathbb{K} g$ をアサインしているため，
     まさにトポロジカル演算子のあらゆる可能な配位に関する足し上げを実行したことに他ならない\footnote{暗に和をとる順序を変えている．単純対象が有限個で，三角形分割も有限であるから，有限和の順序交換となってwell-definedである．}．
 \end{myexample}
@@ -3474,7 +3474,7 @@ $G$ を可換とは限らない有限群とし，\exref{def:CG}で定義した�
 
 \subsection{ゲージ化された理論の持つ対称性}
 
-定義\ref{def:gauging}に倣い，\hyperref[def:tensorfusion-cat]{ユニタリフュージョン圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ の\hyperref[def:sym-Frobenius]{対称Frobenius代数} $(A,\, \mu,\, \upsilon,\, \Delta,\, \epsilon)$ を1つ固定する．
+定義\ref{def:gauging}に倣い，\hyperref[def:tensorfusion-cat]{ユニタリフュージョン圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ の\hyperref[def:special-Frobenius]{特殊}な\hyperref[def:sym-Frobenius]{対称Frobenius代数} $(A,\, \mu,\, \upsilon,\, \Delta,\, \epsilon)$ を1つ固定する．
 このとき，\hyperref[def:gauging]{ゲージ化}された理論 $T/A$ の持つ\hyperref[ax:symcat-2d-0form]{$0$-form symmetry}はどのようなユニタリフュージョン圏で特徴づけられるのだろうか？
 
 \begin{mypropph}[label=prop:symcat-2d-gauged]{ゲージ化された理論の持つ対称性}
