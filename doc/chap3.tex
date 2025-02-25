@@ -5086,7 +5086,7 @@ $K$ に有限回の双星状移動を施すことで $L$ にすることがで�
         \item \hyperref[def:polyhedron]{層状化された多面体} $(P,\, P^{(1)})$ が\textbf{円筒境界を持つ}とは，
         $\forall v \in \mathsf{V}(\partial P)$ に対して $e_v \in \mathsf{E}(P^{(1)}) \setminus \mathsf{E}(\partial P)$ がただ1つ存在し，以下を充たすことを言う：
         \begin{itemize}
-            \item $d_v$ の端点のうち1つは $v$ で，もう1つは $v$ でない．
+            \item $e_v$ の端点のうち1つは $v$ で，もう1つは $v$ でない．
             \item $v$ の全ての分岐に隣接する
         \end{itemize}
         このとき，位相多様体 $\partial P \subset P$ は $\partial P \times [0,\, 1]$ と同相な近傍を持つ．
@@ -5575,7 +5575,7 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
 
 \begin{description}
     \item[\textbf{STEP1. 各辺に載せるベクトル空間の構成}]　
-
+    \label{TV:STEP1}
     まず，\underline{無向}グラフ $P^{(1)}$ に勝手な向き $\mathcal{O} \in \{\pm\}^{\abs{\mathsf{E}(P^{(1)})}}$ を与えて有向グラフ $P^{(1)}{}^{\mathcal{O}}$ にする（図\ref{subfig:STEP1-oriented}）．
     そして\underline{有向}辺 $\tilde{e} \in \mathsf{E}(P^{(1)}{}^{\mathcal{O}})$ の\hyperref[def:polyhedron]{分岐}の集合 $P^{(1)}_{\tilde{e}}$ に，右ネジの法則に従うサイクリックな順序 $<$ を与える（図\ref{subfig:STEP1-branch}）．
     さらに $\forall R \in P_{\tilde{e}}^{(1)}$ に対して，$\epsilon_R \in \{\pm\}$ を，$M$ から誘導される向きと $\tilde{e}$ の向きが整合しているならば $+$，不整合ならば $-$ となるように定義する（図\ref{subfig:STEP1-branch}）ことで，
@@ -5781,7 +5781,7 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
     
 
     \item[\textbf{STEP2. 全系のベクトル空間の構成}]　
-    
+    \label{TV:STEP2}
     全系の $\mathbb{K}$-ベクトル空間は，\underline{有向グラフとしての}テンソル積\footnote{より正確には，\textbf{unordered tensor product}を取っている~\cite[Appendix E, p.477]{Turaev2017}．}
     \begin{align}
         \mathcal{H}(\Gamma) \coloneqq \bigotimes_{\mathcal{O}} \bigotimes_{\tilde{e} \in \mathsf{E}(P^{(1)}{}^{\mathcal{O}})} \mathcal{H} (\tilde{e};\, \Gamma)
@@ -5789,7 +5789,7 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
     として構成する．
 
     \item[\textbf{STEP3. contraction vectorの構成}]　
-    
+    \label{TV:STEP3}
     \underline{無向辺} $\forall e \in \mathsf{E}(P^{(1)})$ は，丁度2通りの方法で有向辺になる．こうして得られる2つの有向辺をそれぞれ $\tilde{e}_1,\, \tilde{e}_2$ と書くと，\textsf{\textbf{STEP1.}} の構成により
     \begin{align}
         \mathcal{H} (\tilde{e}_2;\, \Gamma) = \mathcal{H} (\tilde{e}_1;\, \Gamma)^*
@@ -5951,7 +5951,7 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
     \end{figure}%
 
     \item[\textbf{STEP4. 絡みグラフをストリング図式に読み替える}]　
-    
+    \label{TV:STEP4}
     $\forall v \in \mathsf{V}(P^{(1)})$ を1つ固定し，
     頂点 $v$ の十分小さな開球近傍 $B_v$ およびその\hyperref[def:linkedG]{絡みグラフ} $\mathrm{Lk}(v;\, P) \subset \partial B_v$ をとる．
     % $\partial B_v$ には $M$ から誘導される向きを入れ，
@@ -6134,7 +6134,7 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
     \end{figure}%
 
     \item[\textbf{STEP5. アイソトピー不変量の構成}]　
-    
+    \label{TV:STEP5}
     $\mathbb{K}$-ベクトル空間としての同型
     \begin{align}
         \bigotimes_{x \in \mathsf{V} \bigl( \mathrm{Lk}(v;\, P) \bigr)} \mathcal{H}_x\bigl(\mathrm{Lk}(v;\, P) \bigr) \cong \bigotimes_{\tilde{e}_v;\, v\, \text{を始点に持つ}} \mathcal{H}(\tilde{e}_v;\, \Gamma)
@@ -6191,6 +6191,102 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
 \begin{proof}
     $\irm{Z}{\text{TV},\Cat{C}}(M)$ が定理\ref{thm:MP-polytope}の操作 \textsf{\textbf{(T0)-(T3)}} に関して不変であることを示せば良い．
 \end{proof}
+
+\subsubsection{境界付き多様体の場合}
+
+向き付けられた3次元境界付き多様体 $M$ と，その境界に埋め込まれた\underline{有向}グラフ $G \subset \partial M$ を与える．組 $(M,\, G)$ の\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)})$ を1つ固定する．
+\hyperref[def:TV-closed]{閉多様体の場合}とは異なり，境界条件を設定する必要がある．
+
+\begin{description}
+    \item[\textbf{STEP0. 境界条件の設定}]　
+    
+    　$\forall e \in \mathsf{E}(G)$ に対して勝手な $x_e \in \Simp(\Cat{C})$ をアサインする．
+
+    \begin{mydef}[label=def:coloring-bdy]{境界付き彩色}
+        \begin{itemize}
+            \item 3次元境界付き多様体 $M$
+            \item $\partial M$ に埋め込まれた\underline{有向}グラフ $G$
+            \item 組 $(M,\, G)$ の\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)})$ 
+            \item 境界条件 $\Familyset[\big]{x_e \in \Simp(\Cat{C})}{e \in \mathsf{E}(G)}$
+        \end{itemize}
+        を与える．4つ組 $(G,\, P,\, P^{(1)},\, \{x_e\})$ の\textbf{彩色} (coloring) とは，写像
+        \begin{align}
+            \Gamma \colon \mathrm{Reg} (P) \lto \Simp(\Cat{C})
+        \end{align}
+        であって，$\forall e \in \mathsf{E}(G) = \mathsf{E}(\partial P)$ に対して以下を充たすもののことを言う：
+
+        $e$ が一意的に\hyperref[def:polyhedron]{隣接}する\footnote{\hyperref[def:graph-bdy]{境界グラフ}の定義}\hyperref[def:polyhedron]{領域} $R_e \in \mathrm{Reg}(P)$ に対して，$\Gamma(R_e) = x_e$
+    \end{mydef}
+\end{description}
+
+Turaev-Viro不変量は，与えられた $(M,\, G)$ に対してあるベクトル $Z_{\text{TV},\Cat{C}} (M,\, G) \in \mathcal{H}\bigl(G;\, \{x_e\}\bigr)$ を返す．\hyperref[def:TQFT]{TQFT}と見做すときは，\hyperref[ex:Bord]{コボルディズム} $M \in \Hom{\BORD{2}{3}} (\emptyset,\, \partial M)$ に対応する線型写像 $Z_{\text{TV},\Cat{C}} (M)$ による $1 \in \mathbb{K} = Z_{\text{TV},\Cat{C}} (\emptyset)$ の行き先を構成していると考えれば良い\footnote{正確には，規格化定数の違いがある．}．
+以下では境界条件 $\Familyset[\big]{x_e \in \Simp(\Cat{C})}{e \in \mathsf{E}(G)}$ および\hyperref[def:coloring-bdy]{境界付き彩色} $\Gamma$ を1つ固定しよう．
+
+\begin{description}
+    \item[\textbf{STEP1. 境界に載せるベクトル空間の構成}]　
+    
+    　有向グラフ $G$ の辺のうち，$v \in \mathsf{V}(G)$ を端点に持つもの全体が成す集合を $E_v$ と書く．$E_v$ には，$\partial M$ の向きが定めるものとは\underline{逆向き}のサイクリックな順序 $<$ を与える．そして $\forall e \in E_v$ に対して
+    \begin{align}
+        \epsilon_e \coloneqq
+        \begin{cases}
+            +, &e\;\text{が}\; v\; \text{へ向かう向き} \\
+            -, &e\;\text{が}\; v\; \text{から離れる向き}
+        \end{cases}
+    \end{align}
+    と定義し，頂点 $v \in \mathsf{V}(G) = \mathsf{V}(\partial P)$ 上の $\mathbb{K}$-ベクトル空間を
+    \begin{align}
+        \mathcal{H}_v\bigl(G;\, \{x_e\}\bigr) \coloneqq \expval{x_{e_1}^{\epsilon_{e_1}},\, \dots,\, x_{e_n}^{\epsilon_{e_n}}} \WHERE E_v = \{e_1 < \cdots < e_n\}
+    \end{align}
+    と構成する．
+    $\partial M$ 全体のベクトル空間は
+    \begin{align}
+        \mathcal{H}\bigl(G;\, \{x_e\}\bigr) \coloneqq \bigotimes_{v \in \mathsf{V}(G)} \mathcal{H}_v(G;\, \{x_e\})
+    \end{align}
+    とする\footnote{より正確には，\textbf{unordered tensor product} を取っている~\cite[Appendix E, p.477]{Turaev2017}}．
+
+    \item[\textbf{STEP2. 内部グラフの向き付け}]　
+    
+    　\underline{無向}グラフ\footnote{\hyperref[def:polytope-decomp]{多面体分割の定義}から，\hyperref[def:graph-bdy]{境界グラフ} $\partial P$ は有向グラフとして常に $G$ と等しい．} $P^{(1)} \setminus \partial P$ に勝手な向き $\mathcal{O} \in \{\pm\}^{\abs{\mathsf{E} (P^{(1)} \setminus \partial P)}}$ を与えることで，$P^{(1)}$ を有向グラフ $P^{(1)}{}^{\mathcal{O}}$ にする．
+    そして
+    \begin{align}
+        \mathsf{E}_{\text{Int}}^{\mathcal{O}} &\coloneqq \bigl\{\, e \in \mathsf{E} (P^{(1)}{}^{\mathcal{O}} \setminus \partial P) \bigm| \text{始点} \notin G \,\bigr\} \\
+        \mathsf{E}_{\partial}^{\mathcal{O}} &\coloneqq \bigl\{\, e \in \mathsf{E} (P^{(1)}{}^{\mathcal{O}} \setminus \partial P) \bigm| \text{始点} \in G \,\bigr\}
+    \end{align}
+    とおくと，与えられた有向辺の始点を返す関数 $\mathrm{s} \colon e \lmto \mathrm{s}(e)$ によって集合 $\bigcup_{\mathcal{O}} \mathsf{E}_{\partial}^{\mathcal{O}}$ と集合 $\mathsf{V}(G)$ は1対1対応する．
+    さらに，$v \in \mathsf{V}(G)$ に対して，集合 $E_v$ が持つサイクリックな順序の定義は $\partial M$ の内向き法線ベクトルに関して右ネジの法則を適用して得られるものであったから，\hyperref[TV:STEP1]{閉多様体の場合の \textsf{\textbf{STEP1.}}}より
+    $\forall e \in \bigcup_{\mathcal{O}} \mathsf{E}_{\partial}^{\mathcal{O}}$ に対して
+    \begin{align}
+        \mathcal{H}_{\mathrm{s}(e)}\bigl(G;\, \{x_e\}\bigr) = \mathcal{H} (e;\, \Gamma)
+    \end{align}
+    が成り立つ．ただし，$\mathcal{H} (e;\, \Gamma)$ は\hyperref[TV:STEP1]{閉多様体の場合の \textsf{\textbf{STEP1.}}}で構成したベクトル空間である．
+    以上の考察から，
+    \begin{align}
+        \mathcal{H} \bigl(G;\, \{x_e\}\bigr)=\bigotimes_{\mathcal{O}} \bigotimes_{e \in \mathsf{E}^{\mathcal{O}}_\partial} \mathcal{H} (e;\, \Gamma)
+    \end{align}
+    が分かった．便宜上，以下では
+    \begin{align}
+        \mathcal{H} (\Gamma) &\coloneqq \bigotimes_{\mathcal{O}} \bigotimes_{e \in \mathsf{E}(P^{(1)}{}^{\mathcal{O}} \setminus \partial P)} \mathcal{H} (e;\, \Gamma), \\
+        \mathcal{H}_{\text{Int}} (\Gamma) &\coloneqq \bigotimes_{\mathcal{O}} \bigotimes_{e \in \mathsf{E}^{\mathcal{O}}_{\text{Int}}} \mathcal{H} (e;\, \Gamma), \\
+        \mathcal{H}_{\partial} (\Gamma) &\coloneqq \bigotimes_{\mathcal{O}} \bigotimes_{e \in \mathsf{E}^{\mathcal{O}}_{\partial}} \mathcal{H} (e;\, \Gamma)
+    \end{align}
+    とおく．このとき
+    \begin{align}
+        \mathcal{H} (\Gamma) = \mathcal{H}_{\text{Int}} (\Gamma) \otimes_{\mathbb{K}} \mathcal{H}_{\partial} (\Gamma) = \mathcal{H}_{\text{Int}} (\Gamma) \otimes_{\mathbb{K}} \mathcal{H} \bigl(G;\, \{x_e\}\bigr)
+    \end{align}
+    が成り立つ．
+
+    \item[\textbf{STEP3. contraction vectorの構成}]　
+    
+    部分グラフ $P^{(1)} \setminus \partial P$ に対して，\hyperref[TV:STEP3]{閉多様体の場合の \textsf{\textbf{STEP3.}}}と全く同様の構成によって\textbf{contraction vector}
+    \begin{align}
+        \Omega_\Gamma (1_{\mathbb{K}}) \in \mathcal{H} (\Gamma) = \mathcal{H}_{\text{Int}} (\Gamma) \otimes_{\mathbb{K}} \mathcal{H} \bigl(G;\, \{x_e\}\bigr)
+    \end{align}
+    を得る．
+
+    \item[\textbf{STEP4. 絡みグラフをストリング図式に読み替える}]　
+    
+
+\end{description}
 
 
 \section{離散的高次対称性}
