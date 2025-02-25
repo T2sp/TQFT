@@ -5000,7 +5000,7 @@ $K$ に有限回の双星状移動を施すことで $L$ にすることがで�
 \begin{mydef}[label=def:polyhedron,breakable]{2-多面体}
     \begin{itemize}
         \item 2次元コンパクト多様体\footnote{位相多様体．境界はついていてもいなくても良い．} $P$ が\textbf{2-多面体} (2-polyhedra) であるとは，$P$ の三角形分割 $\psi \colon \abs{K} \xrightarrow{\approx} P$ であって，任意の0-単体および1単体がある2-単体の面になっているものが存在することを言う．
-        \item 2-多面体の\textbf{層状化} (stratification) とは，$P$ に埋め込まれた\underline{無向グラフ}\footnote{ここでは，位相空間としてのグラフを考えている．} $P^{(1)} \subset P$ であって $P \setminus \Int(P) \subset P^{(1)}$
+        \item 2-多面体の\textbf{層状化} (stratification) とは，$P$ に埋め込まれた\underline{無向グラフ}\footnote{ここでは，位相空間としてのグラフを考えている．} $P^{(1)} \subset P$ であって $P \setminus \Int(P) \subset P^{(1)}$ を充たすもののこと．
         \textbf{層状化された多面体} (stratified polyhedra) とは，2-多面体 $P$ とその層状化 $P^{(1)} \subset P$ の組み $(P,\, P^{(1)})$ のこと．
         \begin{figure}[H]
             \centering
@@ -5576,6 +5576,7 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
 \begin{description}
     \item[\textbf{STEP1. 各辺に載せるベクトル空間の構成}]　
     \label{TV:STEP1}
+    
     まず，\underline{無向}グラフ $P^{(1)}$ に勝手な向き $\mathcal{O} \in \{\pm\}^{\abs{\mathsf{E}(P^{(1)})}}$ を与えて有向グラフ $P^{(1)}{}^{\mathcal{O}}$ にする（図\ref{subfig:STEP1-oriented}）．
     そして\underline{有向}辺 $\tilde{e} \in \mathsf{E}(P^{(1)}{}^{\mathcal{O}})$ の\hyperref[def:polyhedron]{分岐}の集合 $P^{(1)}_{\tilde{e}}$ に，右ネジの法則に従うサイクリックな順序 $<$ を与える（図\ref{subfig:STEP1-branch}）．
     さらに $\forall R \in P_{\tilde{e}}^{(1)}$ に対して，$\epsilon_R \in \{\pm\}$ を，$M$ から誘導される向きと $\tilde{e}$ の向きが整合しているならば $+$，不整合ならば $-$ となるように定義する（図\ref{subfig:STEP1-branch}）ことで，
@@ -5782,6 +5783,7 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
 
     \item[\textbf{STEP2. 全系のベクトル空間の構成}]　
     \label{TV:STEP2}
+    
     全系の $\mathbb{K}$-ベクトル空間は，\underline{有向グラフとしての}テンソル積\footnote{より正確には，\textbf{unordered tensor product}を取っている~\cite[Appendix E, p.477]{Turaev2017}．}
     \begin{align}
         \mathcal{H}(\Gamma) \coloneqq \bigotimes_{\mathcal{O}} \bigotimes_{\tilde{e} \in \mathsf{E}(P^{(1)}{}^{\mathcal{O}})} \mathcal{H} (\tilde{e};\, \Gamma)
@@ -5790,6 +5792,7 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
 
     \item[\textbf{STEP3. contraction vectorの構成}]　
     \label{TV:STEP3}
+    
     \underline{無向辺} $\forall e \in \mathsf{E}(P^{(1)})$ は，丁度2通りの方法で有向辺になる．こうして得られる2つの有向辺をそれぞれ $\tilde{e}_1,\, \tilde{e}_2$ と書くと，\textsf{\textbf{STEP1.}} の構成により
     \begin{align}
         \mathcal{H} (\tilde{e}_2;\, \Gamma) = \mathcal{H} (\tilde{e}_1;\, \Gamma)^*
@@ -5952,6 +5955,7 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
 
     \item[\textbf{STEP4. 絡みグラフをストリング図式に読み替える}]　
     \label{TV:STEP4}
+    
     $\forall v \in \mathsf{V}(P^{(1)})$ を1つ固定し，
     頂点 $v$ の十分小さな開球近傍 $B_v$ およびその\hyperref[def:linkedG]{絡みグラフ} $\mathrm{Lk}(v;\, P) \subset \partial B_v$ をとる．
     % $\partial B_v$ には $M$ から誘導される向きを入れ，
@@ -6135,6 +6139,7 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
 
     \item[\textbf{STEP5. アイソトピー不変量の構成}]　
     \label{TV:STEP5}
+    
     $\mathbb{K}$-ベクトル空間としての同型
     \begin{align}
         \bigotimes_{x \in \mathsf{V} \bigl( \mathrm{Lk}(v;\, P) \bigr)} \mathcal{H}_x\bigl(\mathrm{Lk}(v;\, P) \bigr) \cong \bigotimes_{\tilde{e}_v;\, v\, \text{を始点に持つ}} \mathcal{H}(\tilde{e}_v;\, \Gamma)
@@ -6179,9 +6184,9 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
     向き付けられた3次元閉多様体 $M$ および\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)})$ をとる．
     \textbf{Turaev-Viro不変量}を
     \begin{align}
-        \irm{Z}{\text{TV},\Cat{C}}(M) \coloneqq \left( \sum_{a \in \mathrm{Simp}(\Cat{C})} \dim(a)^2\right)^{-v(M)} \sum_{\Gamma \colon \mathrm{Reg}(P) \lto \Simp(\Cat{C})} \left(Z(\Gamma;\, P) \prod_{R \in \mathrm{Reg}(P)} \dim \bigl( \Gamma(R) \bigr)^{\chi(R)}\right)
+        \irm{Z}{\text{TV},\Cat{C}}(M) \coloneqq \dim(\Cat{C})^{-\abs{M \setminus P}} \sum_{\Gamma \colon \mathrm{Reg}(P) \lto \Simp(\Cat{C})} \left(Z(\Gamma;\, P) \prod_{R \in \mathrm{Reg}(P)} \dim \bigl( \Gamma(R) \bigr)^{\chi(R)}\right)
     \end{align}
-    で定義する．ただし $v(M)$ は $M \setminus P$ の連結成分の個数で，$\chi (R)$ は\hyperref[def:polyhedron]{領域} $R \in \mathrm{Reg}(P)$ のEuler標数である．
+    で定義する．ただし $M\setminus P$ は $M \setminus P$ の連結成分の個数で，$\chi (R)$ は\hyperref[def:polyhedron]{領域} $R \in \mathrm{Reg}(P)$ のEuler標数である．
 \end{mydef}
 
 \begin{mytheo}[label=thm:TV-closed]{}
@@ -6200,7 +6205,7 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
 \begin{description}
     \item[\textbf{STEP0. 境界条件の設定}]　
     
-    　$\forall e \in \mathsf{E}(G)$ に対して勝手な $x_e \in \Simp(\Cat{C})$ をアサインする．
+    　$e \in \mathsf{E}(G)$ に対して勝手な $x_e \in \Simp(\Cat{C})$ をアサインする．
 
     \begin{mydef}[label=def:coloring-bdy]{境界付き彩色}
         \begin{itemize}
@@ -6215,11 +6220,16 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
         \end{align}
         であって，$\forall e \in \mathsf{E}(G) = \mathsf{E}(\partial P)$ に対して以下を充たすもののことを言う：
 
-        $e$ が一意的に\hyperref[def:polyhedron]{隣接}する\footnote{\hyperref[def:graph-bdy]{境界グラフ}の定義}\hyperref[def:polyhedron]{領域} $R_e \in \mathrm{Reg}(P)$ に対して，$\Gamma(R_e) = x_e$
+        \begin{description}
+            \item[\textbf{(彩色の境界条件)}]　
+            
+            $e$ が一意的に\hyperref[def:polyhedron]{隣接}する\footnote{\hyperref[def:graph-bdy]{境界グラフ}の定義}\hyperref[def:polyhedron]{領域} $R_e \in \mathrm{Reg}(P)$ に対して，$\Gamma(R_e) = x_e$
+        \end{description}
+        
     \end{mydef}
 \end{description}
 
-Turaev-Viro不変量は，与えられた $(M,\, G)$ に対してあるベクトル $Z_{\text{TV},\Cat{C}} (M,\, G) \in \mathcal{H}\bigl(G;\, \{x_e\}\bigr)$ を返す．\hyperref[def:TQFT]{TQFT}と見做すときは，\hyperref[ex:Bord]{コボルディズム} $M \in \Hom{\BORD{2}{3}} (\emptyset,\, \partial M)$ に対応する線型写像 $Z_{\text{TV},\Cat{C}} (M)$ による $1 \in \mathbb{K} = Z_{\text{TV},\Cat{C}} (\emptyset)$ の行き先を構成していると考えれば良い\footnote{正確には，規格化定数の違いがある．}．
+Turaev-Viro不変量は，与えられた $(M,\, G,\, \{x_e\})$ に対してあるベクトル $Z_{\text{TV},\Cat{C}} (M,\, G;\, \{x_e\}) \in \mathcal{H}\bigl(G;\, \{x_e\}\bigr)$ を返す．\hyperref[def:TQFT]{TQFT}と見做すときは，\hyperref[ex:Bord]{コボルディズム} $M \in \Hom{\BORD{2}{3}^{\LSO}} (\emptyset,\, \partial M)$ に対応する線型写像 $Z_{\text{TV},\Cat{C}} (M)$ による $1 \in \mathbb{K} = Z_{\text{TV},\Cat{C}} (\emptyset)$ の行き先を構成していると考えれば良い\footnote{正確には，規格化定数の違いがある．}．
 以下では境界条件 $\Familyset[\big]{x_e \in \Simp(\Cat{C})}{e \in \mathsf{E}(G)}$ および\hyperref[def:coloring-bdy]{境界付き彩色} $\Gamma$ を1つ固定しよう．
 
 \begin{description}
@@ -6279,14 +6289,287 @@ Turaev-Viro不変量は，与えられた $(M,\, G)$ に対してあるベクト
     
     部分グラフ $P^{(1)} \setminus \partial P$ に対して，\hyperref[TV:STEP3]{閉多様体の場合の \textsf{\textbf{STEP3.}}}と全く同様の構成によって\textbf{contraction vector}
     \begin{align}
+        \label{eq:contraction-bdy}
         \Omega_\Gamma (1_{\mathbb{K}}) \in \mathcal{H} (\Gamma) = \mathcal{H}_{\text{Int}} (\Gamma) \otimes_{\mathbb{K}} \mathcal{H} \bigl(G;\, \{x_e\}\bigr)
     \end{align}
     を得る．
 
     \item[\textbf{STEP4. 絡みグラフをストリング図式に読み替える}]　
     
+    \hyperref[TV:STEP4]{閉多様体の場合の \textsf{\textbf{STEP4.}}}と全く同様の構成によって， $\forall v  \in \mathsf{V}(P^{(1)} \setminus \partial P)$ における\hyperref[def:linkedG]{絡みグラフ} $\mathrm{Lk} (v;\, P)$ をストリング図式に読み替えることができ，
+    $\mathbb{K}$-線型写像
+    \begin{align}
+        \mathbb{F}_{\Cat{C},\, \Gamma} \bigl( \mathrm{Lk}(v;\, P) \bigr) \in \Hom{\VEC{\mathbb{K}}} \Bigl( \bigotimes_{x \in \mathsf{V} \bigl( \mathrm{Lk}(v;\, P) \bigr) } \mathcal{H}_x \bigl( \mathrm{Lk}(v;\, P) \bigr),\, \mathbb{K} \Bigr) 
+    \end{align}
+    を得る．
 
+    \item[\textbf{STEP5. アイソトピー不変量の構成}]　
+    
+    \hyperref[TV:STEP4]{閉多様体の場合の \textsf{\textbf{STEP4.}}}と全く同様に，$\mathbb{K}$-ベクトル空間の同型
+    \begin{align}
+        &\bigotimes_{v \in \mathsf{V}(P^{(1)} \setminus \partial P)} \Hom{\VEC{\mathbb{K}}} \Bigl( \bigotimes_{x \in \mathsf{V} \bigl( \mathrm{Lk}(v;\, P) \bigr) } \mathcal{H}_x \bigl( \mathrm{Lk}(v;\, P) \bigr),\, \mathbb{K} \Bigr) \\
+        &\cong \Hom{\VEC{\mathbb{K}}} \Bigl( \bigotimes_{v \in \mathsf{V}(P^{(1)} \setminus \partial P)} \bigotimes_{\substack{\tilde{e}_v; \\ v\, \text{を始点に持つ}}} \mathcal{H} (\tilde{e}_v;\, \Gamma),\, \mathbb{K}\Bigr) \\
+        &\cong \Hom{\VEC{\mathbb{K}}} \bigl( \mathcal{H}_{\text{Int}}(\Gamma),\, \mathbb{K} \bigr) 
+    \end{align}
+    がある．よって
+    \begin{align}
+        z(\Gamma;\, P) \coloneqq \left(\bigotimes_{v \in \mathsf{V}(P^{(1)} \setminus \partial P)} \mathbb{F}_{\Cat{C},\, \Gamma} \bigl( \mathrm{Lk}(v;\, P) \bigr) \right) \otimes_{\mathbb{K}} \unity_{\mathcal{H}_{\partial}(\Gamma)}
+    \end{align}
+    と定義すると
+    \begin{align}
+        z(\Gamma;\, P) \in \Hom{\VEC{\mathbb{K}}} \bigl( \mathcal{H}_{\text{Int}}(\Gamma),\, \mathbb{K} \bigr) \otimes_{\mathbb{K}} \Hom{\VEC{\mathbb{K}}} \bigl( \mathcal{H}_{\partial}(\Gamma),\, \mathcal{H}_{\partial}(\Gamma) \bigr) 
+        \cong \Hom{\VEC{\mathbb{K}}} \bigl( \mathcal{H}(\Gamma),\, \mathcal{H}_{\partial}(\Gamma)\bigr) 
+    \end{align}
+    だと分かった．これで\eqref{eq:contraction-bdy}を写像することで，アイソトピー不変量
+    \begin{align}
+        Z(\Gamma;\, P) \coloneqq z(\Gamma;\, P) \circ \Omega_{\Gamma} (1_{\mathbb{K}}) \in \mathcal{H}_{\partial}(\Gamma) = \mathcal{H} \bigl( G;\, \{x_e\} \bigr) 
+    \end{align}
+    を得る．
 \end{description}
+
+\begin{mydef}[label=def:TV-bdy]{境界付き多様体におけるTV不変量}
+    \begin{itemize}
+        \item 3次元境界付き多様体 $M$
+        \item $\partial M$ に埋め込まれた\underline{有向}グラフ $G$
+        \item 組 $(M,\, G)$ の\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)})$ 
+        \item 境界条件 $\Familyset[\big]{x_e \in \Simp(\Cat{C})}{e \in \mathsf{E}(G)}$
+    \end{itemize}
+    を与える．このとき，
+    \textbf{Turaev-Viro不変量}を
+    \begin{align}
+        Z_{\text{TV},\Cat{C}}(M,\, G) 
+        &\coloneqq \dim(\Cat{C})^{-\abs{M\setminus P}} \sum_{\substack{\Gamma \colon \mathrm{Reg}(P) \lto \Simp(\Cat{C}), \\ \Gamma|_{\partial P} = \{x_e\}}} \left(Z(\Gamma;\, P) \prod_{R \in \mathrm{Reg}(P)} \dim \bigl( \Gamma(R) \bigr)^{\chi(R)}\right) \\
+        &\in \mathcal{H} \bigl( G;\, \{x_e\} \bigr) 
+    \end{align}
+    で定義する．ただし $\abs{M\setminus P}$ は $M \setminus P$ の連結成分の個数で，$\chi (R)$ は\hyperref[def:polyhedron]{領域} $R \in \mathrm{Reg}(P)$ のEuler標数である．
+\end{mydef}
+
+\begin{mytheo}[label=thm:TV-bdy]{}
+    \begin{itemize}
+        \item 3次元境界付き多様体 $M$
+        \item $\partial M$ に埋め込まれた\underline{有向}グラフ $G$
+        \item 組 $(M,\, G)$ の\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)})$ 
+        \item 境界条件 $\Familyset[\big]{x_e \in \Simp(\Cat{C})}{e \in \mathsf{E}(G)}$
+    \end{itemize}
+    を与える．このとき，以下が成り立つ：
+    \begin{enumerate}
+        \item Turaev-Viro不変量 $\irm{Z}{\text{TV},\Cat{C}}(M,\, G)$ は\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)})$ の取り方によらない．
+        \item 任意の向き付けを保つ同相写像 $f \colon M \lto N$ に対して
+        \begin{align}
+            Z_{\text{TV},\Cat{C}}\bigl(N,\, f(G)\bigr) = f_* \bigl( Z_{\text{TV},\Cat{C}}(M,\, G) \bigr) 
+        \end{align}
+        ただし $f_* \colon \mathcal{H} \bigl(G;\, \{x_e\}\bigr) \lto \mathcal{H} \bigl( f(G);\, \{x_{f(e)}\} \bigr)$ は $f$ によって誘導される $\mathbb{K}$-ベクトル空間の同型写像である．
+    \end{enumerate}
+\end{mytheo}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 定理\ref{thm:TV-closed}と同様．
+        \item (1) および定理\ref{thm:Pachner}より明らか．
+    \end{enumerate}
+\end{proof}
+
+\subsection{state sum TQFT}
+
+\begin{mydef}[label=def:skeleton-2mfd]{2次元閉多様体の多面体分割}
+    向きづけられた2次元閉多様体 $\Sigma \in \Obj{\BORD{2}{3}^{\LSO}}$ に埋め込まれたグラフ $G \subset \Sigma$ が\textbf{多面体分割}であるとは，$\forall v \in \mathsf{V}(G)$ の\hyperref[def:polyhedron]{配位数}が $2$ 以上であり，かつ $\Sigma \setminus G$ が2-開球のdisjoint unionであることを言う．
+\end{mydef}
+
+\begin{itemize}
+    \item 2次元閉多様体$\Sigma_0,\,\Sigma_1 \in \Obj{\BORD{2}{3}^{\LSO}}$ 
+    \item 3次元境界付き多様体 $M \in \Hom{\BORD{2}{3}^{\LSO}}(\Sigma_0,\, \Sigma_1)$
+    \item \hyperref[def:skeleton-2mfd]{2次元閉多様体の多面体分割} $G_0 \subset \Sigma_0,\, G_1 \subset \Sigma_1$
+    \item 境界条件 $\Familyset[\big]{x^0_e \in \Simp(\Cat{C})}{e \in \mathsf{E}(G_0)},\, \Familyset[\big]{x^1_e \in \Simp(\Cat{C})}{e \in \mathsf{E}(G_1)}$
+\end{itemize}
+を与えたとき，$M$ のマッピングトーラスを考えて
+\begin{align}
+    \label{eq:preTV-cob}
+    \abs{M;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}} &\coloneqq \frac{\dim(\Cat{C})^{\abs{\Sigma_1 \setminus G_1}}}{\displaystyle\prod_{e \in \mathsf{E} (G_1)} \dim (x_e)} Z_{\text{TV},\, \Cat{C}} (M,\, \OP{G_0} \cup G_1)
+\end{align}
+とおく．ただし $\abs{\Sigma_1 \setminus G_1}$ は $\Sigma_1 \setminus G_1$ の連結成分の個数である．
+$\abs{M;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}}$ は
+\begin{align}
+    \mathcal{H} \bigl( G_0;\, \{x^0_e\} \bigr)^{*} \otimes_{\mathbb{K}} \mathcal{H} \bigl( G_1;\, \{x^1_e\} \bigr) \cong \Hom{\VEC{\mathbb{K}}} \Bigl( \mathcal{H} \bigl( G_0;\, \{x^0_e\} \bigr),\, \mathcal{H} \bigl( G_1;\, \{x^1_e\} \bigr) \Bigr) 
+\end{align}
+の元である．
+
+\begin{mylem}[label=lem:statesum-preTQFT]{state sum TQFTの雛形}
+    \begin{itemize}
+        \item 2次元閉多様体$\Sigma_0,\, \Sigma,\, \Sigma_1 \in \Obj{\BORD{2}{3}^{\LSO}}$ 
+        \item 3次元境界付き多様体 $M_0 \in \Hom{\BORD{2}{3}^{\LSO}}(\Sigma_0,\, \Sigma),\; M_1 \in \Hom{\BORD{2}{3}^{\LSO}} (\Sigma,\, \Sigma_1)$
+        \item \hyperref[def:skeleton-2mfd]{2次元閉多様体の多面体分割} $G_0 \subset \Sigma_0,\, G \subset \Sigma,\, G_1 \subset \Sigma_1$
+        \item 境界条件 $\Familyset[\big]{x^0_e \in \Simp(\Cat{C})}{e \in \mathsf{E}(G_0)},\, \Familyset[\big]{x^1_e \in \Simp(\Cat{C})}{e \in \mathsf{E}(G_1)}$
+    \end{itemize}
+    を与える．このとき，
+    \begin{align}
+        \abs{M_1 \circ M_0;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}}
+        &= \sum_{\{x_e\}_{e \in \mathsf{E}(G)}} \abs{M_1;\, G,\, G_1;\, \{x_e\},\, \{x^1_e\}} \circ \abs{M_0;\, G_0,\, G;\, \{x^0_e\},\, \{x_e\}}
+    \end{align}
+    が成り立つ．
+\end{mylem}
+
+\begin{proof}
+
+    \begin{itemize}
+        \item 組 $(M_0,\, \OP{G_0} \cup G)$ の\hyperref[def:polytope-decomp]{多面体分割} $(P_0,\, P_0^{(1)})$
+        \item 組 $(M_1,\, \OP{G} \cup G_1)$ の\hyperref[def:polytope-decomp]{多面体分割} $(P_1,\, P_1^{(1)})$
+    \end{itemize}
+    を1つ固定する．このとき，組 $(M,\, \OP{G_0} \cup G_1)$ の多面体分割 $(P,\, P^{(1)})$ を次のように構成する：
+    \begin{description}
+        \item[\textbf{頂点}] グラフ $P^{(1)}$ の頂点集合は
+        \begin{align}
+            \mathsf{V}(P^{(1)}) \coloneqq \bigl(\mathsf{V} (P_0^{(1)}) \setminus \mathsf{V} (G)\bigr) \cup \bigl(\mathsf{V} (P_1^{(1)}) \setminus \mathsf{V} (\OP{G})\bigr)
+        \end{align}
+        とする．
+        \item[\textbf{辺}] 
+        \hyperref[def:polyhedron]{多面体分割の定義}より $(P_i,\, P_i^{(1)})$ は\hyperref[def:graph-bdy]{円筒境界}を持つから，$\forall v \in \mathsf{V}(G)$ に対して，$v$ を1つの端点に持つ $e_v^i \in \mathsf{E} (P_i^{(1)}) \setminus \mathsf{E} (\partial P)$ がただ1つ存在する．
+        このとき，$P^{(1)}$ の辺集合を
+        \begin{align}
+            \mathsf{E}(P^{(1)}) \coloneqq \bigl(\mathsf{E} (P_0^{(1)}) \setminus \mathsf{E} (G)\bigr) \cup \bigl(\mathsf{E} (P_1^{(1)}) \setminus \mathsf{E} (\OP{G})\bigr) \cup \{e_v^0 \cup e_v^1\}_{v \in \mathsf{V}(G)}
+        \end{align}
+        とする．
+        \item[\textbf{面}]
+        \hyperref[def:polyhedron]{多面体分割の定義}より $\partial P_0^{\mathcal{O}_{\partial P_0}} = G,\; \partial P_1^{\mathcal{O}_{\partial P_1}} = \OP{G}$ が成り立つから，$\forall e \in \mathsf{E} (G)$ に対して，$e$ の\hyperref[def:polyhedron]{分岐} $R_e^i$ がただ1つ存在する．
+        このとき，\hyperref[def:polyhedron]{層状化された多面体} $(P,\, P^{(1)})$ の領域を
+        \begin{align}
+            \mathrm{Reg} (P) \coloneqq \bigl( \mathrm{Reg} (P_0) \setminus \mathrm{Reg} (G) \bigr) \cup \bigl( \mathrm{Reg} (P_1) \setminus \mathrm{Reg} (\OP{G}) \bigr) \cup \{R_e \coloneqq R_e^0 \cup R_e^1\}_{e \in \mathsf{G}}
+        \end{align}
+    \end{description}
+    \hyperref[def:polyhedron]{層状化された多面体} $P_0,\, P_1$ の向きは $G$ 上で整合的だから，$P$ の向きを一意的に誘導する．
+    このように構成された多面体分割 $(P,\, P^{(1)})$ について
+    \begin{align}
+        \abs{M \setminus P} 
+        &= \bigl(\abs{M_0 \setminus P_0} - \abs{\Sigma \setminus G}\bigr) + \bigl(\abs{M_1 \setminus P_1} -  \abs{\Sigma \setminus \OP{G}}\bigr) + \abs{\Sigma \setminus G} \\
+        &= \abs{M_0 \setminus P_0}  + \abs{M_1 \setminus P_1}  - \abs{\Sigma \setminus G} \label{eq:number-of-balls}
+    \end{align}
+    が成り立つ．さらに，勝手な\hyperref[def:coloring-bdy]{境界付き彩色} $\Gamma \colon \mathrm{Reg} (P) \lto \Simp (\Cat{C})$ は
+    \begin{itemize}
+        \item $G,\, \OP{G}$ 上の境界条件 $\{\Gamma (R_e)\}_{e \in \mathsf{E}(G)}$
+        \item 4つ組 $(\OP{G_0} \cup G,\, P_0,\, P_0^{(1)},\, \{x_e^0\} \cup \{\Gamma (R_e)\})$ の境界付き彩色
+        \begin{align}
+            \Gamma_0 \coloneqq \Gamma|_{\bigl( \mathrm{Reg} (P_0) \setminus \mathrm{Reg} (G) \bigr) \cup \{R_e\}} \colon \mathrm{Reg} (P_0) \lto\Simp (\Cat{C})
+        \end{align}
+        
+        \item 4つ組 $(\OP{G} \cup G_1,\, P_1,\, P_1^{(1)},\, \{\Gamma (R_e)\} \cup \{x_e^1\})$ の境界付き彩色
+        \begin{align}
+            \Gamma_1 \coloneqq \Gamma|_{\bigl( \mathrm{Reg} (P_1) \setminus \mathrm{Reg} (\OP{G}) \bigr) \cup \{R_e\}} \colon \mathrm{Reg} (P_1) \lto\Simp (\Cat{C})
+        \end{align}
+        
+    \end{itemize}
+    を定め，
+    \begin{align}
+        \prod_{R \in \mathrm{Reg}(P)} \dim \bigl( \Gamma(R) \bigr) 
+        &= \frac{\displaystyle\prod_{R_0 \in \mathrm{Reg}(P_0)} \dim \bigl( \Gamma_0(R_0) \bigr)  \prod_{R_1 \in \mathrm{Reg}(P_1)} \dim \bigl( \Gamma_1(R_1) \bigr) }{\displaystyle\prod_{e \in \mathsf{E}(G)} \dim \bigl( \Gamma (R_e) \bigr) } \label{eq:change-of-dims}
+    \end{align}
+    が成り立つ．$\chi (R_e) = \chi (R_e^0) + \chi (R_e^1) - 1$ に注意すると，
+    \eqref{eq:preTV-cob}, \eqref{eq:number-of-balls}, \eqref{eq:change-of-dims}および\hyperref[def:TV-bdy]{Turaev-Viro不変量の定義}より
+    \begin{align}
+        &\abs{M_1 \circ M_0;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}} \\
+        &= \frac{\dim(\Cat{C})^{\abs{\Sigma_1 \setminus G_1}}}{\displaystyle\prod_{e \in \mathsf{E} (G_1)} \dim (x_e)} \dim(\Cat{C})^{-\abs{M_1 \circ M_0 \setminus P}}  \\
+        &\qquad \times \sum_{\substack{\Gamma \colon \mathrm{Reg}(P) \lto \Simp(\Cat{C}), \\ \Gamma|_{\partial P} = \{x^0_e\} \cup \{x^1_e\}}} \left(Z(\Gamma;\, P) \prod_{R \in \mathrm{Reg}(P)} \dim \bigl( \Gamma(R) \bigr)^{\chi(R)}\right) \\
+        &= \frac{\dim(\Cat{C})^{\abs{\Sigma_1 \setminus G_1}}}{\displaystyle\prod_{e \in \mathsf{E} (G_1)} \dim (x_e)} \dim(\Cat{C})^{-\abs{M_0 \setminus P_0} - \abs{M_1 \setminus P_1} + \abs{\Sigma \setminus G}}  \\
+        &\qquad \times \sum_{\{\Gamma(R_e)\}}\sum_{\substack{\Gamma_0 \colon \mathrm{Reg}(P_0) \lto \Simp(\Cat{C}), \\ \Gamma|_{\partial P_0} = \{x^0_e\} \cup \{\Gamma(R_e)\}}}  \sum_{\substack{\Gamma_1 \colon \mathrm{Reg}(P_1) \lto \Simp(\Cat{C}), \\ \Gamma|_{\partial P_1} =  \{\Gamma(R_e)\} \cup \{x^1_e\}}} \\
+        &\qquad \times \left(Z(\Gamma_1;\, P_1) \circ Z(\Gamma_0;\, P_0) \frac{\prod_{R_0 \in \mathrm{Reg}(P_0)} \dim \bigl( \Gamma_0(R) \bigr)^{\chi(R_0)} \prod_{R_1 \in \mathrm{Reg}(P_1)} \dim \bigl( \Gamma_1(R) \bigr)^{\chi(R_1)}}{\prod_{e \in \mathsf{E}(G)} \dim \bigl( \Gamma(R_e) \bigr)}\right) \\ 
+        &= \sum_{\{\Gamma (R_e)\}} \left( \frac{\dim(\Cat{C})^{\abs{\Sigma_1 \setminus G_1}}}{\prod_{e \in \mathsf{E} (G_1)} \dim (x_e)} \dim(\Cat{C})^{-\abs{M_1 \setminus P_1}}\sum_{\Gamma_1} Z (\Gamma_1;\, P_1) \prod_{R_1 \in \mathrm{Reg}(P_1)} \dim \bigl( \Gamma_1(R) \bigr)^{\chi(R_1)} \right) \\
+        &\qquad \circ \left( \frac{\dim(\Cat{C})^{\abs{\Sigma \setminus G}}}{\prod_{e \in \mathsf{E} (G)} \dim \bigl( \Gamma (R_e) \bigr) } \dim(\Cat{C})^{-\abs{M_0 \setminus P_0}} \sum_{\Gamma_0} Z (\Gamma_0;\, P_0) \prod_{R_0 \in \mathrm{Reg}(P_0)} \dim \bigl( \Gamma_0(R) \bigr)^{\chi(R_0)} \right) \\
+        &= \sum_{\{x_e\}_{e \in \mathsf{E}(G)}} \abs{M_1;\, G,\, G_1;\, \{x_e\},\, \{x^1_e\}} \circ \abs{M_0;\, G_0,\, G;\, \{x^0_e\},\, \{x_e\}}
+    \end{align}
+    が言えた．
+\end{proof}
+
+\begin{mylem}[label=lem:statesum-premon]{state sum TQFTの雛形}
+    \begin{itemize}
+        \item 2次元閉多様体$\Sigma_0,\, \Sigma_1,\, \Sigma'_0,\, \Sigma'_1 \in \Obj{\BORD{2}{3}^{\LSO}}$ 
+        \item 3次元境界付き多様体 $M \in \Hom{\BORD{2}{3}^{\LSO}}(\Sigma_0,\, \Sigma_1),\; M' \in \Hom{\BORD{2}{3}^{\LSO}} (\Sigma'_0,\, \Sigma'_1)$
+        \item \hyperref[def:skeleton-2mfd]{2次元閉多様体の多面体分割} $G \subset -\Sigma_0 \sqcup \Sigma_1,\, G' \subset -\Sigma'_0 \sqcup \Sigma'_1$
+        \item 境界条件 $\Familyset[\big]{x_e \in \Simp(\Cat{C})}{e \in \mathsf{E}(G)},\, \Familyset[\big]{x'_e \in \Simp(\Cat{C})}{e \in \mathsf{E}(G')}$
+    \end{itemize}
+    を与える．このとき，
+    \begin{align}
+        \abs{M \sqcup M';\, G_0 \sqcup G'_0,\, G_1 \sqcup G'_1} = \abs{M;\, G_0,\, G_1} \otimes_{\mathbb{K}} \abs{M';\, G'_0,\, G'_1}
+    \end{align}
+    が成り立つ\footnote{境界条件を略記した．}．
+\end{mylem}
+
+\begin{proof}
+    \hyperref[def:TV-bdy]{Turaev-Viro不変量}の構成より明らか．
+\end{proof}
+
+さて，\hyperref[def:TV-bdy]{Turaev-Viro不変量}から作った\eqref{eq:preTV-cob}を\hyperref[def:TQFT]{TQFT}
+\begin{align}
+    Z_{\text{TV},\, \Cat{C}} \colon \BORD{2}{3}^{\LSO} \lto \VEC{\mathbb{K}}
+\end{align}
+に昇華しよう．そのためには境界条件への依存性を無くす必要がある．
+素朴な方法は，$\forall \Sigma \in \Obj{\BORD{2}{3}^{\LSO}}$ およびその\hyperref[def:skeleton-2mfd]{多面体分割} $G \subset \Sigma$ に対して
+\begin{align}
+    \tilde{Z}_{\text{TV},\, \Cat{C}} (\Sigma,\, G) \coloneqq \bigoplus_{\{x_e\}} \mathcal{H} \bigl( G;\, \{x_e\} \bigr) 
+\end{align}
+と定義することである．物理的には境界のゲージ場（トポロジカル演算子）に関する経路積分を実行することに相当する．
+このとき， $\forall M \in \Hom{\BORD{2}{3}^{\LSO}}(\Sigma_0,\, \Sigma_1)$ およびその\hyperref[def:skeleton-2mfd]{多面体分割} $G_i \subset \Sigma_i$ に対して，
+\hyperref[def:lim-colim]{直和の普遍性}を利用して $\mathbb{K}$-線型写像\eqref{eq:preTV-cob}を拡張した
+\begin{align}
+    \tilde{Z}_{\text{TV},\, \Cat{C}} (M;\, G_0,\, G_1) \colon \tilde{Z}_{\text{TV},\, \Cat{C}} (\Sigma_0,\, G_0) \lto \tilde{Z}_{\text{TV},\, \Cat{C}} (\Sigma_1,\, G_1)
+\end{align}
+を考える．具体的には，直和の普遍性により $\forall \{x^0_e\}_{e \in \mathsf{E} (G_0)} \in \Simp(\Cat{C})^{\times \abs{\mathsf{E} (G_0)}}$ および標準的包含 $\iota_{\{x^0_e\}} \colon \mathcal{H} \bigl( G_0;\, \{x_e\} \bigr)$ について
+\begin{align}
+    \sum_{\{x^1_e\}_{e \in \mathsf{E} (G_1)}} \abs{M;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}} = \textcolor{red}{\tilde{Z}_{\text{TV},\, \Cat{C}} (M;\, G_0,\, G_1)} \circ \iota_{\{x^0_e\}}
+\end{align}
+を充たす $\textcolor{red}{\tilde{Z}_{\text{TV},\, \Cat{C}} (M;\, G_0,\, G_1)}$ が唯一存在することが分かるのである．
+このとき，補題\ref{lem:statesum-preTQFT}より
+\begin{align}
+    \tilde{Z}_{\text{TV},\, \Cat{C}} (M_1 \circ M_0;\, G_0,\, G_1) = \tilde{Z}_{\text{TV},\, \Cat{C}} (M_1;\, G,\, G_1) \circ \tilde{Z}_{\text{TV},\, \Cat{C}} (M_0;\, G_0,\, G)
+\end{align}
+が成り立つこともわかる．
+% 成り立つ，圏 $\VEC{\mathbb{K}}$ における可換図式
+% \begin{center}
+%     \begin{tikzcd}[row sep=large, column sep=large]
+%          &Z_{\text{TV}, \Cat{C}} (\Sigma_0,\, G_0) \ar[r, red, dashed, "\exists ! Z_{\text{TV}, \Cat{C}} (M; G_0, G_1)"] &Z_{\text{TV},\Cat{C}} (\Sigma_1, G_1) \\
+%          &\mathcal{H} \bigl( G_0; \{x_e\} \bigr) \ar[ur, "\sum_{\{x^1_e\}} \abs{M;G_0,G_1;\{x^0_e\},\{x^1_e\}}"']\ar[u, "\iota_{\{x^0_e\}}"] &
+%     \end{tikzcd}
+% \end{center}
+% によって定義する．
+
+
+ところが，このままでは $\Id_\Sigma \in \Hom{\BORD{2}{3}^{\LSO}} (\Sigma,\, \Sigma)$ に対応する線型写像が恒等写像になってくれるとは限らず，関手になっていない．
+この問題を解決するためには，境界の多面体分割依存性も無くす必要がある．
+そこで，2次元閉多様体 $\Sigma \in \Obj{\BORD{2}{3}^{\LSO}}$ の任意の多面体分割 $G,\, G' \subset \Sigma$ に対して
+\begin{align}
+    p(G,\, G') &\coloneqq \tilde{Z}_{\text{TV},\, \Cat{C}} (\Id_{\Sigma};\, G,\, G') \colon \tilde{Z}_{\text{TV},\, \Cat{C}} (\Sigma,\, G) \lto \tilde{Z}_{\text{TV},\, \Cat{C}} (\Sigma,\, G'), \\
+    Z_{\text{TV},\, \Cat{C}} (\Sigma,\, G) &\coloneqq \Im \bigl( p(G,\, G) \bigr)
+\end{align}
+と定義する．すると $\bigl( \{Z_{\text{TV},\, \Cat{C}}(\Sigma,\, G)\}_{G \subset \Sigma},\, \{p(G,\, G')\}_{G,\, G' \subset \Sigma} \bigr)$ は射影系を成し，射影極限
+\begin{align}
+    \label{eq:TV-oo}
+    Z_{\text{TV},\, \Cat{C}} (\Sigma) \coloneqq \varprojlim Z_{\text{TV},\, \Cat{C}}(\Sigma,\, G)
+\end{align}
+をとることができる．物理的には，境界の理論の熱力学極限を取ることに対応する．射影極限は\hyperref[def:lim]{極限}なので，錐 $\bigl(Z_{\text{TV},\, \Cat{C}} (\Sigma),\, \{\tau_G \colon Z_{\text{TV},\, \Cat{C}} (\Sigma) \xrightarrow{\cong} Z_{\text{TV},\, \Cat{C}} (\Sigma,\, G)\}_{G \subset \Sigma}\bigr)$ が存在する．
+これを用いて $\forall M \in \Hom{\BORD{2}{3}^{\LSO}}) (\Sigma_0,\, \Sigma_1)$ に対して
+\begin{align}
+    \label{eq:TV-mm}
+    Z_{\text{TV},\, \Cat{C}} (M) \coloneqq \tau_{G_1}^{-1} \circ \tilde{Z}_{\text{TV},\, \Cat{C}} (M;\, G_0,\, G_1) \circ \tau_{G_0} \colon Z_{\text{TV},\, \Cat{C}} (\Sigma_0) \lto Z_{\text{TV},\, \Cat{C}} (\Sigma_1)
+\end{align}
+と定義する．
+
+\begin{mydef}[label=def:TV-TQFT]{Turaev-Viro TQFT}
+    \textbf{Turaev-Viro TQFT}を，以下のように定義する：
+    \begin{itemize}
+        \item $\forall \Sigma \in \Obj{\BORD{2}{3}^{\LSO}}$ に対して\eqref{eq:TV-oo}で構成した $\mathbb{K}$-ベクトル空間 $Z_{\text{TV},\, \Cat{C}}(\Sigma)$ を対応づける．
+        \item $\forall M \in \Hom{\BORD{2}{3}^{\LSO}}(\Sigma_0,\, \Sigma_1)$ に対して\eqref{eq:TV-mm}で構成した $\mathbb{K}$-線型写像 $Z_{\text{TV},\, \Cat{C}}(M)$ を対応づける．
+    \end{itemize}
+    
+\end{mydef}
+
+\begin{myprop}[label=prop:TV-TQFT]{}
+    \hyperref[def:TV-TQFT]{Turaev-Viro TQFT}は\hyperref[def:TQFT]{TQFT}
+    \begin{align}
+        Z_{\text{TV},\, \Cat{C}} \colon \BORD{2}{3}^{\LSO} \lto \VEC{\mathbb{K}}
+    \end{align}
+    である．
+\end{myprop}
+
+\begin{proof}
+    関手性は補題\ref{lem:statesum-preTQFT}から，\hyperref[def:monidal-functor]{強いモノイダル関手}であることは補題\ref{lem:statesum-premon}より従う．
+\end{proof}
 
 
 \section{離散的高次対称性}
