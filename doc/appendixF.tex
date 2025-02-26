@@ -5,6 +5,127 @@
     \chapter{モノイダル圏・フュージョン圏・高次群}
 
     この章では\underline{標数 $0$ の}体 $\mathbb{K}$ のみを考える．
+    \begin{figure}[H]
+        \centering
+        \resizebox{\linewidth}{!}{
+        \begin{tikzpicture}
+            \pgfmathsetmacro{\dy}{2}
+            \pgfmathsetmacro{\dx}{4}
+            \path coordinate (cat)
+            ++(0,-\dy) coordinate (moncat)
+            +({2*\dx},0) coordinate (abelian)
+            +({5*\dx},0) coordinate (dagger)
+            ++(0,-\dy) coordinate (braided)
+            +(\dx,0) coordinate (rigid)
+            +({2*\dx},0) coordinate (locfin)
+            +({4*\dx},0) coordinate (semisimple)
+            +({5*\dx},0) coordinate (daglin)
+            ++(0,-\dy) coordinate (sym)
+            +(\dx,0) coordinate (ribbon)
+            +({2*\dx},0) coordinate (multitensor)
+            +({3*\dx},0) coordinate (finite)
+            +({5*\dx},0) coordinate (unitary)
+            +({5.5*\dx},0) coordinate (Cstar)
+            ++(0,-\dy) coordinate (A)
+            +({2*\dx},0) coordinate (tensor)
+            +({3.5*\dx},0) coordinate (multifusion)
+            ++(0,-\dy) coordinate (B)
+            +({2.5*\dx},0) coordinate (sphericaltensor)
+            +({3.5*\dx},0) coordinate (fusion)
+            ++(0,-\dy) coordinate (C)
+            +({2*\dx},0) coordinate (ribbontensor)
+            +({3.5*\dx},0) coordinate (sphericalfusion)
+            ++(0,-\dy) coordinate (D)
+            +({3.5*\dx},0) coordinate (ribbonfusion)
+            +({5*\dx},0) coordinate (unitaryfusion)
+            ++(0,-\dy) coordinate (E)
+            +({3.5*\dx},0) coordinate (MTC)
+            ++(0,-\dy) coordinate (F)
+            ++({5*\dx},0) coordinate (UMTC)
+            ;
+            \node[process,fill=white] at (cat) {category};
+            
+            \node[process,fill=white] at (moncat) {\hyperref[redef:monoidal-category]{monoidal}};
+            \node[process,fill=white] at (abelian) {\hyperref[def:additive-cat]{$\mathbb{C}$-linear abelian}};
+            \node[process,fill=white] at (dagger) {\hyperref[def:dagger-monoidal]{dagger}};
+        
+            \node[process,fill=white] at (braided) {\hyperref[redef:braided-monoidal]{braided monoidal}};
+            \node[process,fill=white] at (rigid) {\hyperref[redef:rigid]{rigid monoidal}};
+            \node[process,fill=white] at (locfin) {\hyperref[def:finite-abcat]{locally finite} \\ $\mathbb{C}$-linear abelian};
+            \node[process,fill=white] at (semisimple) {\hyperref[def:semisimple-cat]{semisimple}\footnote{定義\ref{def:semisimple-Muger}も参照．} \\ $\mathbb{C}$-linear abelian};
+            \node[process,fill=white] at (daglin) {\hyperref[def:unitary]{dagger} \\ $\mathbb{C}$-linear abelian};
+            
+            \node[process,fill=white] at (sym) {\hyperref[redef:braided-monoidal]{symmetric} \\ braided monoidal};
+            \node[process,fill=white] at (ribbon) {\hyperref[def:ribbon]{ribbon}};
+            \node[process,fill=white] at (multitensor) {\hyperref[def:tensorfusion-cat]{multitensor}};
+            \node[process,fill=white] at (finite) {\hyperref[def:finite-abcat]{finite} \\ $\mathbb{C}$-linear abelian};
+            \node[process,fill=white] at (unitary) {\hyperref[def:unitary]{unitary}};
+            \node[process,fill=white] at (Cstar) {\hyperref[def:starcat]{$C^*$}};
+        
+            \node[process,fill=white] at (tensor) {\hyperref[def:tensorfusion-cat]{tensor}};
+            \node[process,fill=white] at (multifusion) {\hyperref[def:tensorfusion-cat]{multifusion}};
+            
+            \node[process,fill=white] at (sphericaltensor) {\hyperref[def:spherical]{spherical} tensor};
+            \node[process,fill=white] at (fusion) {\hyperref[def:tensorfusion-cat]{fusion}};
+        
+            \node[process,fill=white] at (ribbontensor) {ribbon tensor};
+            \node[process,fill=white] at (sphericalfusion) {spherical fusion};
+        
+            \node[process,fill=white] at (ribbonfusion) {ribbon fusion \\ (\hyperref[def:premodular-cat]{pre-modular})};
+            \node[process,fill=white] at (unitaryfusion) {unitary fusion};
+        
+            \node[process,fill=white] at (MTC) {\hyperref[def:MTC]{modular tensor}};
+            \node[process,fill=white] at (UMTC) {unitary modular tensor};
+        
+            \begin{scope}[on background layer]
+                \draw (cat) -- (moncat);
+                \draw (cat) -- (abelian);
+                \draw (cat) -- (dagger);
+        
+                \draw (moncat) -- (braided);
+                \draw (moncat) -- (rigid);
+                \draw (abelian) -- (locfin);
+                \draw (abelian) -- (semisimple);
+                \draw (dagger) -- (daglin);
+        
+                \draw (braided) -- (sym);
+                \draw (braided) -- (ribbon);
+                \draw (rigid) -- (ribbon);
+                \draw (rigid) -- (multitensor);
+                \draw (locfin) -- (multitensor);
+                \draw (locfin) -- (finite);
+                \draw (semisimple) -- (multifusion);
+                \draw (daglin) -- (unitary);
+                \draw[red] (Cstar) -- node[midway,above] {$=$} node[midway,below] {命題\ref{prop:unitary-Cstar}} (unitary);
+        
+                \draw (ribbon) -- (ribbontensor);
+                \draw (multitensor) -- (tensor);
+                \draw (multitensor) -- (multifusion);
+                \draw (finite) -- (multifusion);
+                \draw (unitary) -- (unitaryfusion);
+        
+                \draw (tensor) -- (sphericaltensor);
+                \draw (tensor) -- (fusion);
+                \draw (tensor) -- (ribbontensor);
+                \draw (multifusion) -- (fusion);
+        
+                \draw (sphericaltensor) -- (sphericalfusion);
+                \draw (fusion) -- (sphericalfusion);
+        
+                \draw (ribbontensor) -- (ribbonfusion);
+                \draw[red] (sphericalfusion) -- node[midway,right] {定理\ref{thm:spherical-ribbon}} (ribbonfusion);
+                \draw[red] (sphericalfusion) -- node[midway,above] {命題\ref{prop:spherical-unitary}} (unitaryfusion);
+        
+                \draw (ribbonfusion) -- (MTC);
+                \draw (unitaryfusion) -- (UMTC);
+        
+                \draw (MTC) -- (UMTC);
+            \end{scope}
+        \end{tikzpicture}
+        }
+        \caption{フュージョン圏の構造ガイドマップ．定義でない部分は赤色で示した．}
+        \label{fig:tensorcat}
+    \end{figure}%
 
     \section{加法圏}
 
