@@ -90,10 +90,12 @@
         \path coordinate (E_0)
         ++(0,0.1) coordinate (E_1)
         +(1.2,0.05) coordinate (g)
-        +(3.2,0.05) coordinate (lim)
+        % +(3.2,0.05) coordinate (lim)
         ++(0,0.1) coordinate (E_2)
         ++(0,0.1) coordinate (E_3)
+        +(3.2,0) coordinate (lim)
         ++(0,1) coordinate (E_4)
+        +(3.2,0) coordinate (lim_exc)
         ++(0,0.2) coordinate (E_5)
         ++(0,0.1) coordinate (E_6)
         ++(0,0.3) coordinate (E_7)
@@ -103,10 +105,14 @@
         \foreach \i in {0,...,9} {
             \draw (E_\i) -- ($(E_\i) + (1,0)$);
         }
+        \node at ($(E_9)+(0.5,0.5)$) {$\vdots$};
         \draw[<->] ($(E_3)+(0.5,0)$) -- node[midway,fill=white] {$\Delta$} ($(E_4)+(0.5,0)$);
         \node at (g) {$\}$};
-        \draw[->] ($(g)+(0.1,0)$) -- node[midway,above] {$i \to \infty$} ($(lim)-(0.2,0)$);
-        \draw[very thick] (lim) -- ++(1,0);
+        \draw[->] ($(g)+(0.1,0)$) -- node[midway,above] {$L \to \infty$} ($(lim)-(0.2,0)$);
+        \draw[red,very thick] (lim) -- ++(1,0);
+        \draw[<->] ($(lim)+(0.5,0)$) -- node[midway,fill=white] {$\Delta$} ($(lim_exc)+(0.5,0)$);
+        \draw[] (lim_exc) -- ++(1,0);
+        \fill[gray!20] (lim_exc) rectangle +(1,1.8);
     \end{tikzpicture}
     \caption{gappedな量子系のエネルギースペクトル $\mathrm{Spec}(\hat{H}_{\Lambda_i})$}
     \label{fig:gapped}
