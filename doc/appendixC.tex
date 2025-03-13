@@ -390,8 +390,8 @@
     \hyperref[def:diagram]{図式}
     \begin{align}
         D \colon \boxdiagram{
-            \& \&\overset{3}{\bullet} \ar[d, "p"] \\
-            \&\overset{1}{\bullet} \ar[r, "f"'] \&\overset{2}{\bullet} 
+            \&\overset{3}{\bullet} \ar[d, "p"] \\
+            \overset{1}{\bullet} \ar[r, "f"'] \&\overset{2}{\bullet} 
         } \lto \Cat{C}
     \end{align}
     の\hyperref[def:lim]{極限}を（存在すれば）\textbf{引き戻し}\footnote{\textbf{ファイバー積} (fiber product) と呼ぶこともある．} (pullback) と呼び，$\bm{D(1) \times_{D(3)} D(2)}$ と書く．
@@ -399,8 +399,8 @@
     \hyperref[def:diagram]{図式}
     \begin{align}
         D \colon \boxdiagram{
-            \& \&\overset{3}{\bullet} \\
-            \&\overset{1}{\bullet} \&\overset{2}{\bullet} \ar[l, "f"] \ar[u, "i"']
+            \&\overset{3}{\bullet} \\
+            \overset{1}{\bullet}  \ar[from=r, "f"'] \&\overset{2}{\bullet} \ar[u, "i"']
         } \lto \Cat{C}
     \end{align}
     の\hyperref[def:colim]{余極限}を（存在すれば）\textbf{押し出し}と呼び，$\bm{D(1) \amalg_{D(3)} D(2)}$ と書く．
@@ -1901,4 +1901,14 @@ $a,\, b \in Z_n (X,\, *)$ に対して，系\ref{col:horn-coeq}，命題\ref{pro
 \end{mydef}
 
 ~\cite{alfonsi2023higher}は命題\ref{prop:nerve-Psh}を使って $\infty$-トポスを定義している．
+
+\section{$(\infty,\, n)$-圏}
+
+\subsection{因子化ホモロジー}
+
+\subsection{Complete Segal space}
+
+\subsection{Theta space}
+
+
 \end{document}
