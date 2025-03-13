@@ -1,6 +1,7 @@
 # TQFT
 
 各章のpdfファイルは `doc/out/` にあります．
+コンパイル時に必要となる自作スタイルファイルは `https://github.com/T2sp/texmf` に置いてあります．
 
 ## ゼミの記録
 
