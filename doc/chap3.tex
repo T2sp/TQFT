@@ -3768,7 +3768,20 @@ $\Cat{C}$ の\hyperref[def:semisimple-cat]{単純対象}の同型類が成す有
         \begin{align}
             x \cong \bigoplus_{b \in \Simp(\Cat{C})} N_b b
         \end{align}
-        を持つ．ここで $\Lambda \coloneqq \{1,\, \dots,\, N_a\}$ とおき，直和を特徴付ける射の族のうち\footnote{直和分解が有限個の直和因子しか持たないので，直和と直積は同型である．} $a \in \Simp(\Cat{C})$ を定義域・値域に持つものを $\Familyset[\big]{p_\alpha \colon x \lto a,\; i_\alpha \colon a \lto x}{\alpha \in \Lambda}$ に選ぶことで \textsf{\textbf{(part-4)}} が充たされる．
+        を持つ．\hyperref[def:product-coproduct]{直和を特徴付ける射の族}\footnote{つまり，\hyperref[def:coCone]{余錐}のデータである．}を $\Familyset[\big]{i^{(b)}_\beta \colon b \lto x}{b \in \Simp(\Cat{C}),\, 1 \le \beta \le N_b}$ と書こう． 
+        
+        　ここで $\forall a \in \Simp (\Cat{C})$ を1つ固定し，$\Lambda \coloneqq \{1,\, \dots,\, N_a\}$ とおく．
+        このとき\hyperref[def:product-coproduct]{直和の普遍性}により，$\forall \alpha \in \Lambda$ に対して射 $\textcolor{red}{p^{(a)}_\alpha} \colon x \lto a$ が一意的に存在して以下の図式を可換にする
+        \footnote{
+            より正確には，$\forall \alpha \in \Lambda$ を1つ固定したとき，組 $\bigl(a,\, \Familyset[\big]{\delta_{\alpha\beta} \delta_{ab} \Id_a \colon b \lto a}{b \in \Simp(\Cat{C}),\, 1 \le \beta \le N_b} \bigr)$ が $\prod_{b \in \Simp(\Cat{C})} N_b$ 個の頂点だけから構成される\hyperref[def:diagram]{図式}（i.e. 直和の図式）の\hyperref[def:coCone]{余錐}であることを使っている．
+        }：
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &a \ar[r, "i^{(a)}_\beta"] \ar[dr, "\delta_{\alpha\beta}\Id_a"'] &x \ar[d, red, "p^{(a)}_\alpha"] \\
+                & &a
+            \end{tikzcd}
+        \end{center}
+        i.e. $p_\alpha \coloneqq p^{(a)}_\alpha,\; i_\alpha \coloneqq i^{(a)}_\alpha$ と選ぶことで \textsf{\textbf{(part-4)}} が充たされる．
         さらに，\hyperref[prop:lim-colim-basic]{極限・余極限とHomの交換}および (1) から $\mathbb{K}$-ベクトル空間としての同型
         \begin{align}
             \Hom{\Cat{C}}(x,\, a) &\cong \bigoplus_{b \in \Simp(\Cat{C})} N_b \Hom{\Cat{C}}(b,\, a) = \mathbb{K}^{\oplus N_a}, \\
@@ -4377,11 +4390,29 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
             \end{tikzpicture}
             = \dim_{\mathbb{K}} \bigl( \Hom{\Cat{C}} (a,\, x) \bigr) \Id_a
         \end{align}
-        \item 直和の特徴付けより
+        \item $m \coloneqq \sum_{\beta \in \Lambda} i_\beta \circ p_\beta \in \Hom{\Cat{C}}(x,\, x)$ とおく．このとき補題\ref{lem:simple-hom}-(2) より $\forall \alpha  \in \Lambda$ に対して
         \begin{align}
-            \sum_{\alpha \in \Lambda} i_\alpha \circ p_\alpha = \Id_x
+            m \circ i_\alpha = i_\alpha
         \end{align}
-        が成り立つ．
+        が成り立つ．i.e. 以下の図式が可換になる：
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &a \ar[r, "i_\alpha"]\ar[dr, "i_\alpha"'] &x \ar[d,red, "m"] \\
+                & &x
+            \end{tikzcd}
+        \end{center}
+        一方で，$\Id_x \in \Hom{\Cat{C}}(x,\, x)$ もまた同じ図式を可換にする：
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &a \ar[r, "i_\alpha"]\ar[dr, "i_\alpha"'] &x \ar[d,red, "\Id_x"] \\
+                & &x
+            \end{tikzcd}
+        \end{center}
+        然るに\hyperref[def:product-coproduct]{直和の普遍性}より赤色の射は一意であるから，$m = \Id_x$ である．
+        % \begin{align}
+        %     m \coloneqq \sum_{\alpha \in \Lambda} i_\alpha \circ p_\alpha \colon x \lto x
+        % \end{align}
+        % が成り立つ．
         \item 補題\ref{lem:simple-hom}-(1) より $\Hom{\Cat{C}} (1,\, a) = \Hom{\Cat{C}} (a,\, 1) = \delta_{a,\, 1}\mathbb{K}$ なので，(2) において 
         \begin{align}
             \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
