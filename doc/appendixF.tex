@@ -487,7 +487,7 @@
         
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
-                &I \otimes X \ar[dd, "r_X"']\ar[rr, "\lcoev_X \otimes \mathrm{Id}_X"] & &(X \otimes X^*) \otimes X \ar[d, "a_{X,\, X^*,\, X}"] \\
+                &I \otimes X \ar[dd, "l_X"']\ar[rr, "\lcoev_X \otimes \mathrm{Id}_X"] & &(X \otimes X^*) \otimes X \ar[d, "a_{X,\, X^*,\, X}"] \\
                 & & &X \otimes (X^* \otimes X) \ar[d, "\mathrm{Id}_X \otimes \lev_X"] \\
                 &X & &X \otimes I\ar[ll, "r_X"] \\
             \end{tikzcd}
@@ -495,7 +495,7 @@
 
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
-                &X^* \otimes I \ar[dd, "l_{X^*}"']\ar[rr, "\mathrm{Id}_{X^*} \otimes \lcoev_X"] & &X^* \otimes (X \otimes X^*) \ar[d, "a_{X^*,\, X,\, X^*}^{-1}"] \\
+                &X^* \otimes I \ar[dd, "r_{X^*}"']\ar[rr, "\mathrm{Id}_{X^*} \otimes \lcoev_X"] & &X^* \otimes (X \otimes X^*) \ar[d, "a_{X^*,\, X,\, X^*}^{-1}"] \\
                 & & &(X^* \otimes X) \otimes X^* \ar[d, "\lev_X \otimes \mathrm{Id}_{X^*}"] \\
                 &X^* & &I \otimes X^* \ar[ll, "l_{X^*}"] \\
             \end{tikzcd}
@@ -519,7 +519,7 @@
         
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
-                &X \otimes I \ar[dd, "l_X"']\ar[rr, "\Id_X \otimes \rcoev_X"] & &X \otimes (\rdual{X} \otimes X) \ar[d, "a_{X,\, \rdual{X},\, X}^{-1}"] \\
+                &X \otimes I \ar[dd, "r_X"']\ar[rr, "\Id_X \otimes \rcoev_X"] & &X \otimes (\rdual{X} \otimes X) \ar[d, "a_{X,\, \rdual{X},\, X}^{-1}"] \\
                 & & &(X \otimes \rdual{X}) \otimes X \ar[d, "\rev_X \otimes \Id_X"] \\
                 &X & &I \otimes X \ar[ll, "l_X"] \\
             \end{tikzcd}
