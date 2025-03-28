@@ -53,13 +53,13 @@
                 \node[process,fill=white] at (rigid) {\hyperref[redef:rigid]{rigid monoidal}};
                 \node[process,fill=white] at (locfin) {\hyperref[def:finite-abcat]{locally finite} \\ $\mathbb{C}$-linear abelian};
                 \node[process,fill=white] at (semisimple) {\hyperref[def:semisimple-cat]{semisimple} \\ $\mathbb{C}$-linear abelian};
-                \node[process,fill=white] at (daglin) {\hyperref[def:unitary]{dagger} \\ $\mathbb{C}$-linear abelian};
+                \node[process,fill=white] at (daglin) {\hyperref[redef:unitary]{dagger} \\ $\mathbb{C}$-linear abelian};
                 
                 \node[process,fill=white] at (sym) {\hyperref[redef:braided-monoidal]{symmetric} \\ braided monoidal};
                 \node[process,fill=white] at (ribbon) {\hyperref[def:ribbon]{ribbon}};
                 \node[process,fill=white] at (multitensor) {\hyperref[def:tensorfusion-cat]{multitensor}};
                 \node[process,fill=white] at (finite) {\hyperref[def:finite-abcat]{finite} \\ $\mathbb{C}$-linear abelian};
-                \node[process,fill=white] at ($(unitary)+(-0.25*\dx,0)$) {\hyperref[def:unitary]{unitary} \\ $\mathbb{C}$-linear abelian};
+                \node[process,fill=white] at ($(unitary)+(-0.25*\dx,0)$) {\hyperref[redef:unitary]{unitary} \\ $\mathbb{C}$-linear abelian};
                 \node[process,fill=white] at (Cstar) {\hyperref[def:starcat]{$C^*$}};
             
                 \node[process,fill=white] at (tensor) {\hyperref[def:tensorfusion-cat]{tensor}};
@@ -97,7 +97,7 @@
                     \draw (locfin) -- (finite);
                     \draw (semisimple) -- (multifusion);
                     \draw (daglin) -- (unitary);
-                    \draw[red] (Cstar) -- node[midway,above] {$=$} node[midway,below] {命題\ref{prop:unitary-Cstar}} (unitary);
+                    \draw[red] (Cstar) -- node[midway,above] {$=$} node[midway,below] {命題\ref{reprop:unitary-Cstar}} (unitary);
             
                     \draw (ribbon) -- (ribbontensor);
                     \draw (multitensor) -- (tensor);
@@ -115,7 +115,7 @@
             
                     \draw (ribbontensor) -- (ribbonfusion);
                     \draw[red] (sphericalfusion) -- node[midway,right] {定理\ref{thm:spherical-ribbon}} (ribbonfusion);
-                    \draw[red] (sphericalfusion) -- node[midway,above] {命題\ref{prop:spherical-unitary}} (unitaryfusion);
+                    \draw[red] (sphericalfusion) -- node[midway,above] {命題\ref{reprop:spherical-unitary}} (unitaryfusion);
             
                     \draw (ribbonfusion) -- (MTC);
                     \draw (unitaryfusion) -- (UMTC);
@@ -249,7 +249,7 @@
 
     \subsection{ダガー構造・ユニタリ構造・$C^*$-構造}
 
-    \begin{mydef}[label=def:unitary]{ダガー構造・ユニタリ構造}
+    \begin{mydef}[label=redef:unitary]{ダガー構造・ユニタリ構造}
         圏 $\Cat{C}$ の\textbf{ダガー構造} (dagger structure) とは，関手
         \begin{align}
             \dagger \colon \OP{\Cat{C}} \lto \Cat{C}
@@ -291,7 +291,7 @@
         
         % \tcblower
     
-        以下の条件を充たす\hyperref[def:unitary]{ダガー圏} $(\Cat{C},\, \dagger)$ が $\bm{C^*}$\textbf{-圏}と呼ぶ~\cite[p.5]{Reutter2020fusion}：
+        以下の条件を充たす\hyperref[redef:unitary]{ダガー圏} $(\Cat{C},\, \dagger)$ が $\bm{C^*}$\textbf{-圏}と呼ぶ~\cite[p.5]{Reutter2020fusion}：
         \begin{description}
             \item[\textbf{(Cstar-1)}] $\dagger$ は反線形である．
             \item[\textbf{(Cstar-2)}] $\forall f \in \Hom{\Cat{C}}(x,\, y)$ に対して，ある $g \in \Hom{\Cat{C}}(x,\, x)$ が存在して $f^\dagger \circ f = g^\dagger \circ g$ と書ける．
@@ -302,8 +302,8 @@
         \end{description}
     \end{mydef}
 
-    \begin{myprop}[label=prop:unitary-Cstar]{ユニタリ構造と $C^*$ 構造}
-        \hyperref[def:additivecat]{$\mathbb{C}$-線形なアーベル圏} $\Cat{C}$ が\hyperref[def:starcat]{$C^*$-圏}であることと，\hyperref[def:unitary]{ユニタリ圏}であることは同値である．
+    \begin{myprop}[label=reprop:unitary-Cstar]{ユニタリ構造と $C^*$ 構造}
+        \hyperref[def:additivecat]{$\mathbb{C}$-線形なアーベル圏} $\Cat{C}$ が\hyperref[def:starcat]{$C^*$-圏}であることと，\hyperref[redef:unitary]{ユニタリ圏}であることは同値である．
     \end{myprop}
     
     \begin{proof}
@@ -529,9 +529,9 @@
     
 \end{proof}
 
-\begin{mydef}[label=def:unitary-monoidal]{ユニタリモノイダル圏}
+\begin{mydef}[label=reredef:unitary-monoidal]{ユニタリモノイダル圏}
     \hyperref[def:additive-cat]{$\mathbb{C}$-線形なアーベル圏}でもあるモノイダル圏 $(\Cat{C},\, \otimes ,\, a,\, l,\, r)$ が\textbf{ユニタリモノイダル圏}であるとは，
-    \hyperref[def:unitary]{ユニタリ構造} $\dagger \colon \OP{\Cat{C}} \lto \Cat{C}$ が\hyperref[redef:monidal-functor]{モノイダル関手}であることを言う．
+    \hyperref[redef:unitary]{ユニタリ構造} $\dagger \colon \OP{\Cat{C}} \lto \Cat{C}$ が\hyperref[redef:monidal-functor]{モノイダル関手}であることを言う．
 \end{mydef}
 
 \subsection{rigidなモノイダル圏}
@@ -1975,6 +1975,17 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
     のこと．ただし $(\mhyphen)^{**}$ は\exref{def:dual-functor}で構成したモノイダル関手である．
 \end{mydef}
 
+\hyperref[def:qtrace]{左量子トレース}は $f \in \Hom{\Cat{C}}(x,\, x^{**})$ に対してしか定義されておらず，不便なことがある．
+$f \in \End_{\mathbb{C}} (x)$ に対してトレースを定義するためには旋回構造が必要である．
+
+\begin{mydef}[label=def:trace]{トレース}
+    \hyperref[redef:rigid]{rigidなモノイダル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ の\hyperref[def:pivotal]{旋回構造} $p$ を与える．
+    このとき，$f \in \Hom{\Cat{C}}(x,\, x)$ の\textbf{トレース} (trace) を以下で定義する：
+    \begin{align}
+        \Tr (f) \colon 1 \xrightarrow{\lcoev_x} x \otimes x^* \xrightarrow{(\textcolor{red}{p}\circ f) \otimes \Id_{x^*}} x^{**} \otimes x^* \xrightarrow{\lev_{x^*}} 1
+    \end{align}
+\end{mydef}
+
 \begin{mylem}[label=lem:pivotal]{旋回構造と双対}
     \hyperref[redef:rigid]{rigidなモノイダル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ の\hyperref[def:pivotal]{旋回構造} $p$ を与える．
     このとき $\forall x \in \Obj{\Cat{C}}$ に対して以下が成り立つ：
@@ -2316,35 +2327,24 @@ $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 上の積\eqref{eq:fusionring}は明らか�
 \subsection{ユニタリフュージョン圏}
 
 % この小節では $\mathbb{K} = \mathbb{C}$ とする．
-標数 $0$ の代数閉体 $\mathbb{K}$ 上の\hyperref[def:tensorfusion-cat]{フュージョン圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, \rcoev,\, \rev)$ とその上の\hyperref[def:pivotal]{旋回構造} $p$ を考える．
-圏 $\Cat{C}$ の\textbf{圏論的次元} (categorical dimension) を
-\begin{align}
-    \label{def:categorialTr}
-    \bm{\dim (\Cat{C})} &\coloneqq \sum_{x \in \Simp(\Cat{C})} \Tr^{\mathrm{L}} (p_x) \circ \Tr^{\mathrm{L}} \bigl( (p_x^{-1})^* \bigr) \in \Hom{\Cat{C}}(1,\, 1) = \mathbb{K}
-\end{align}
-で定義し\footnote{右辺は旋回構造の取り方に依存しない~\cite[p.179]{etingof2015tensor}．}，\hyperref[def:FPdim]{Frobenius-Perron次元}について
-\begin{align}
-    \bm{\FPdim (\Cat{C})} \coloneqq \sum_{x \in \Simp(\Cat{C})} \FPdim (x)^2
-\end{align}
-とおく．
 
-\begin{mydef}[label=def:pseudo-unitary]{擬ユニタリフュージョン圏}
-    $\mathbb{K} = \mathbb{C}$ とする．このときフュージョン圏 $\Cat{C}$ が\textbf{擬ユニタリ} (pseudo-unitary) であるとは，
-    \begin{align}
-        \dim (\Cat{C}) = \FPdim (\Cat{C})
-    \end{align}
-    が成り立つことを言う~\cite[DEFINITION 9.4.4., p.283]{etingof2015tensor}．
-\end{mydef}
+% \begin{mydef}[label=def:pseudo-unitary]{擬ユニタリフュージョン圏}
+%     $\mathbb{K} = \mathbb{C}$ とする．このときフュージョン圏 $\Cat{C}$ が\textbf{擬ユニタリ} (pseudo-unitary) であるとは，
+%     \begin{align}
+%         \dim (\Cat{C}) = \FPdim (\Cat{C})
+%     \end{align}
+%     が成り立つことを言う~\cite[DEFINITION 9.4.4., p.283]{etingof2015tensor}．
+% \end{mydef}
 
-\begin{myprop}[label=prop:pseudo-unitary]{擬ユニタリフュージョン圏における球状構造}
-    \hyperref[def:pseudo-unitary]{擬ユニタリフュージョン圏} $\Cat{C}$ は一意的な\hyperref[def:spherical]{球状構造} $p$ を持つ．
+% \begin{myprop}[label=prop:pseudo-unitary]{擬ユニタリフュージョン圏における球状構造}
+%     \hyperref[def:pseudo-unitary]{擬ユニタリフュージョン圏} $\Cat{C}$ は一意的な\hyperref[def:spherical]{球状構造} $p$ を持つ．
     
-    さらに，その球状構造 $p$ は $\forall x \in \Simp(\Cat{C})$ に対して $\dim_p (x) = \FPdim_{\Cat{C}} (x)$ を充たす．
-\end{myprop}
+%     さらに，その球状構造 $p$ は $\forall x \in \Simp(\Cat{C})$ に対して $\dim_p (x) = \FPdim_{\Cat{C}} (x)$ を充たす．
+% \end{myprop}
 
-\begin{proof}
-    ~\cite[PROPOSITION 9.5.1., p.284]{etingof2015tensor}
-\end{proof}
+% \begin{proof}
+%     ~\cite[PROPOSITION 9.5.1., p.284]{etingof2015tensor}
+% \end{proof}
 
 % \begin{mydef}[label=def:starcat]{$C^*$-圏}
 %     \textbf{$\bm{*}$-圏}は\footnote{\hyperref[redef:dual]{双対}の記号に $(\mhyphen)^*$ を使用してしまったので，$(\mhyphen)^\dagger$ と書くことにする．}，以下のデータからなる：
@@ -2371,23 +2371,15 @@ $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 上の積\eqref{eq:fusionring}は明らか�
 
 
 \begin{mydef}[label=def:UFC]{ユニタリフュージョン圏}
-    \textbf{ユニタリフュージョン圏} (unitary fusion category) とは，\hyperref[def:tensorfusion-cat]{フュージョン圏}であって\hyperref[def:unitary-monoidal]{ユニタリモノイダル圏}でもあるもののことを言う．
+    \textbf{ユニタリフュージョン圏} (unitary fusion category) とは，\hyperref[def:tensorfusion-cat]{フュージョン圏}であって\hyperref[reredef:unitary-monoidal]{ユニタリモノイダル圏}でもあるもののことを言う．
     % $(f \otimes g)^\dagger = f^\dagger \otimes g^\dagger$ を充たすもののこと．
 \end{mydef}
 
-\begin{myprop}[label=prop:unitaryfusion]{ユニタリフュージョン圏は擬ユニタリ}
-    \hyperref[def:UFC]{ユニタリフュージョン圏}は\hyperref[def:pseudo-unitary]{擬ユニタリ}である．
-\end{myprop}
+\hyperref[redef:unitary]{ユニタリ構造の定義}と\hyperref[redef:monoidal-category]{モノイダル圏}のテンソル積 $\otimes$ は定義のレベルでは全く別のものであるが，\hyperref[redef:rigid]{左/右双対}に関して強く相互作用する．
+特に，以下で示す命題\ref{reprop:spherical-unitary}により，\hyperref[reredef:unitary-monoidal]{ユニタリ}\hyperref[def:tensorfusion-cat]{テンソル圏}は自動的に\hyperref[def:spherical]{球状テンソル圏}になる．
 
-\begin{proof}
-    
-\end{proof}
-
-\hyperref[def:unitary]{ユニタリ構造の定義}と\hyperref[redef:monoidal-category]{モノイダル圏}のテンソル積 $\otimes$ は定義のレベルでは全く別のものであるが，\hyperref[redef:rigid]{左/右双対}に関して強く相互作用する．
-特に，以下で示す命題\ref{prop:spherical-unitary}により，\hyperref[def:unitary-monoidal]{ユニタリ}\hyperref[def:tensorfusion-cat]{テンソル圏}は自動的に\hyperref[def:spherical]{球状テンソル圏}になる．
-
-\begin{mylem}[label=lem:rdual-unitary]{ユニタリモノイダル圏における右双対}
-    \hyperref[redef:rigid]{rigid}な\hyperref[def:unitary-monoidal]{ユニタリモノイダル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \dagger)$ の対象 $x \in \Obj{\Cat{C}}$ が\hyperref[def:dual]{左双対} $(x^*,\, \lcoev_x,\, \lev_x)$ を持つとする．
+\begin{mylem}[label=relem:rdual-unitary]{ユニタリモノイダル圏における右双対}
+    \hyperref[redef:rigid]{rigid}な\hyperref[reredef:unitary-monoidal]{ユニタリモノイダル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \dagger)$ の対象 $x \in \Obj{\Cat{C}}$ が\hyperref[def:dual]{左双対} $(x^*,\, \lcoev_x,\, \lev_x)$ を持つとする．
     このとき，$(x^*,\, \lev_x{}^\dagger,\, \lcoev_x{}^\dagger)$ は $x$ の右双対である．
 \end{mylem}
 
@@ -2406,8 +2398,8 @@ $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 上の積\eqref{eq:fusionring}は明らか�
     が成り立つ．
 \end{proof}
 
-\begin{myprop}[label=prop:spherical-unitary]{ユニタリテンソル圏における球状構造}
-    \hyperref[def:unitary-monoidal]{ユニタリ}\hyperref[def:tensorfusion-cat]{テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, \dagger)$ における\hyperref[def:pivotal]{旋回構造}
+\begin{myprop}[label=reprop:spherical-unitary]{ユニタリテンソル圏における球状構造}
+    \hyperref[reredef:unitary-monoidal]{ユニタリ}\hyperref[def:tensorfusion-cat]{テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, \dagger)$ における\hyperref[def:pivotal]{旋回構造}
     \begin{align}
         p_x \coloneqq (\lcoev_x{}^\dagger \otimes \Id_{x^{**}}) \circ (\Id_x \otimes \lcoev_{x^*}) \colon x \lto x^{**}
     \end{align}
@@ -2457,7 +2449,7 @@ $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 上の積\eqref{eq:fusionring}は明らか�
     \end{align}
 \end{proof}
 
-\hyperref[redef:rigid]{coevaluation/evaluation}を適切に選ぶことで，いつでも命題\ref{prop:spherical-unitary}の条件を充たすようにできる．
+\hyperref[redef:rigid]{coevaluation/evaluation}を適切に選ぶことで，いつでも命題\ref{reprop:spherical-unitary}の条件を充たすようにできる．
 実際，$\lcoev_x,\, \lev_x$ が $x,\, x^* \in \Obj{\Cat{C}}$ に関する\hyperref[redef:dual]{(co)evaluation}ならば，$\forall \lambda \in \mathbb{C}^{\times}$ に対して $\lambda\, \lcoev_x,\; \lambda^{-1}\, \lev_x$ もまた\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equations)}}}を充たすので $x,\, x^*$ に関する\hyperref[redef:dual]{(co)evaluation}である．
 よって
 \begin{align}
@@ -2465,15 +2457,59 @@ $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 上の積\eqref{eq:fusionring}は明らか�
 \end{align}
 を充たすように $\lambda$ を選べば良い~\cite[LEMMA 3.9., p.9]{yamagami2004frobenius}．
 
-\begin{mydef}[label=def:ev-coev-balanced]{balancedなユニタリテンソル圏}
-    \hyperref[def:unitary-monoidal]{ユニタリ}\hyperref[def:tensorfusion-cat]{テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, \dagger)$ 
+\begin{mydef}[label=redef:ev-coev-balanced]{balancedなユニタリテンソル圏}
+    \hyperref[reredef:unitary-monoidal]{ユニタリ}\hyperref[def:tensorfusion-cat]{テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, \dagger)$ 
     が\textbf{balanced}であるとは，$\forall x \in \Obj{\Cat{C}}$ に対して
     \begin{align}
         \lcoev_x{}^\dagger \circ \lcoev_x = \lev_x \circ \lev_x{}^\dagger
     \end{align}
-    が成り立つこと．このとき，命題\ref{prop:spherical-unitary}の構成によって $\Cat{C}$ は\hyperref[def:spherical]{球状圏}になる．
+    が成り立つこと．このとき，命題\ref{reprop:spherical-unitary}の構成によって $\Cat{C}$ は\hyperref[def:spherical]{球状圏}になる．
 \end{mydef}
 
+\subsection{ユニタリフュージョン圏におけるFrobenius-Perron次元}
+
+標数 $0$ の代数閉体 $\mathbb{K}$ 上の\hyperref[def:tensorfusion-cat]{フュージョン圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, \rcoev,\, \rev)$ とその上の\hyperref[def:pivotal]{旋回構造} $p$ を考える．
+圏 $\Cat{C}$ の\textbf{圏論的次元} (categorical dimension) を
+\begin{align}
+    \label{def:categorialTr}
+    \bm{\dim (\Cat{C})} &\coloneqq \sum_{x \in \Simp(\Cat{C})} \Tr^{\mathrm{L}} (p_x) \circ \Tr^{\mathrm{L}} \bigl( (p_x^{-1})^* \bigr) \in \Hom{\Cat{C}}(1,\, 1) = \mathbb{K}
+\end{align}
+で定義し\footnote{右辺は旋回構造の取り方に依存しない~\cite[p.179]{etingof2015tensor}．}，\hyperref[def:FPdim]{Frobenius-Perron次元}について
+\begin{align}
+    \bm{\FPdim (\Cat{C})} \coloneqq \sum_{x \in \Simp(\Cat{C})} \FPdim (x)^2
+\end{align}
+とおく．
+
+\begin{mydef}[label=def:pseudo-unitary]{擬ユニタリフュージョン圏}
+    $\mathbb{K} = \mathbb{C}$ とする．このときフュージョン圏 $\Cat{C}$ が\textbf{擬ユニタリ} (pseudo-unitary) であるとは，
+    \begin{align}
+        \dim (\Cat{C}) = \FPdim (\Cat{C})
+    \end{align}
+    が成り立つことを言う~\cite[DEFINITION 9.4.4., p.283]{etingof2015tensor}．
+\end{mydef}
+
+\begin{myprop}[label=prop:pseudo-unitary]{擬ユニタリフュージョン圏における球状構造}
+    \hyperref[def:pseudo-unitary]{擬ユニタリフュージョン圏} $\Cat{C}$ は一意的な\hyperref[def:spherical]{球状構造} $p$ を持つ．
+    
+    さらに，その球状構造 $p$ は $\forall x \in \Simp(\Cat{C})$ に対して $\dim_p (x) = \FPdim_{\Cat{C}} (x)$ を充たす．
+\end{myprop}
+
+\begin{proof}
+    ~\cite[PROPOSITION 9.5.1., p.284]{etingof2015tensor}
+\end{proof}
+
+\begin{myprop}[label=prop:unitaryfusion]{ユニタリフュージョン圏は擬ユニタリ}
+    \hyperref[def:UFC]{ユニタリフュージョン圏}は\hyperref[def:pseudo-unitary]{擬ユニタリ}である．
+\end{myprop}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{marker}
+    一般の\hyperref[def:tensorfusion-cat]{フュージョン圏}においては，\hyperref[def:qdim]{量子次元}と\hyperref[def:FPdim]{Frobenius-Perron次元}が一致するとは限らない．
+    命題\ref{prop:pseudo-unitary}および\ref{prop:unitaryfusion}によって，\hyperref[def:UFC]{ユニタリフュージョン圏}においては一致することが保証されている．
+\end{marker}
 
 \subsection{Deligneのテンソル積}
 
@@ -3510,61 +3546,120 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
     ~\cite[PROPOSITION 8.10.12, p.220]{etingof2015tensor}
 \end{proof}
 
+\begin{marker}
+    以下では，特に断らない限り\hyperref[def:ribbon]{リボン}付き\hyperref[redef:braided-monoidal]{組紐}付き\hyperref[def:tensorfusion-cat]{フュージョン圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev,\, b,\, \theta)$ の\hyperref[def:pivotal]{球状構造} $p$ は定理\ref{thm:spherical-ribbon}によって定まる $p \coloneqq u \circ \theta$ を選び，明示しない．
+\end{marker}
+
+
 \subsection{リボン構造と量子次元・$S$-行列}
 
 \begin{mylem}[label=lem:ribbon-dim]{リボン構造と量子次元}
     \hyperref[def:ribbon]{リボン構造}付き\hyperref[redef:braided-monoidal]{組紐}付き\hyperref[def:tensorfusion-cat]{テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev,\, b,\, \theta)$ を与える．
-    $\Cat{C}$ の\hyperref[def:pivotal]{旋回構造} $p$ は定理\ref{thm:spherical-ribbon}により定める．
+    % $\Cat{C}$ の\hyperref[def:pivotal]{旋回構造} $p$ は定理\ref{thm:spherical-ribbon}により定める．
     このとき，$\forall x \in \Obj{\Cat{C}}$ に対して以下が成り立つ：
     \begin{align}
-        \dim_p (x) = \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \dim_{u \circ \theta} (x) &= \lev_x \circ b_{x,\, x^*} \circ (\theta_x \otimes \Id_{x^*}) \circ \lcoev_x \\
+        &=\quad 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
             \path coordinate (x_1)
             +(1,0) coordinate (y_1)
-            ++(0,1) coordinate (x_2)
+            ++(0,1.5) coordinate (x_2)
             +(1,0) coordinate (y_2)
             ++(0,1) coordinate (x_3)
             +(1,0) coordinate (y_3)
             ;
+            \draw (x_1) -- (x_2);
+            \node[circlenode] at (barycentric cs:x_1=1,x_2=1) {$\theta_x$};
             \LCOEV{x_1}{y_1}
-            \draw (x_1) -- node[midway,bullet] {} (x_2);
-            \draw (y_1) -- (y_2);
-            \BRAID{x_2}{y_2}{x_3}{y_3}
+            \draw[-<-=.5] (y_1) -- (y_2);
+            \rdBRAID{x_2}{y_2}{x_3}{y_3}
             \LEV{x_3}{y_3}
-        \end{tikzpicture}
+        \end{tikzpicture}        
     \end{align}
 \end{mylem}
 
 \begin{proof}
-    $x \in \Simp(\Cat{C})$ の場合に示せば十分である．このとき\hyperref[lem:simple-hom]{Schurの補題}より $\theta_x \in \Hom{\Cat{C}}(x,\, x) = \mathbb{K}$ なので，$\theta_x = \theta_x \Id_x$ と書ける．
+    $x \in \Simp(\Cat{C})$ の場合に示せば十分である．このとき\hyperref[lem:simple-hom]{Schurの補題}より $\theta_x \in \Hom{\Cat{C}}(x,\, x) = \mathbb{K}$ なので，ある $\theta_x \in \mathbb{K}$ が存在して $\theta_x = \theta_x \Id_x$ と書ける．
     故に
     \begin{align}
         \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
             \path coordinate (x_1)
             +(1,0) coordinate (y_1)
-            ++(0,1) coordinate (x_2)
+            ++(0,1.5) coordinate (x_2)
             +(1,0) coordinate (y_2)
             ++(0,1) coordinate (x_3)
             +(1,0) coordinate (y_3)
             ;
+            \draw (x_1) -- (x_2);
+            \node[circlenode] at (barycentric cs:x_1=1,x_2=1) {$\theta_x$};
             \LCOEV{x_1}{y_1}
-            \draw (x_1) -- node[midway,bullet] {} (x_2);
-            \draw (y_1) -- (y_2);
-            \BRAID{x_2}{y_2}{x_3}{y_3}
+            \draw[-<-=.5] (y_1) -- (y_2);
+            \rdBRAID{x_2}{y_2}{x_3}{y_3}
+            \LEV{x_3}{y_3}
+        \end{tikzpicture}        
+        \quad &= \quad \theta_x 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (x_1)
+            +(1,0) coordinate (y_1)
+            ++(0,1.5) coordinate (x_2)
+            +(1,0) coordinate (y_2)
+            ++(0,1) coordinate (x_3)
+            +(1,0) coordinate (y_3)
+            ;
+            \draw[->-=.5] (x_1) -- (x_2);
+            \LCOEV{x_1}{y_1}
+            \draw[-<-=.5] (y_1) -- (y_2);
+            \rdBRAID{x_2}{y_2}{x_3}{y_3}
+            \LEV{x_3}{y_3}
+        \end{tikzpicture}  
+        \quad = \quad \theta_x
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (x_1)
+            +(2,0) coordinate (y_1)
+            +(1,0.75) coordinate (z_1)
+            +(1.5,0.75) coordinate (z_2)
+            +(2,0.75) coordinate (z_3)
+            ++(0,1.5) coordinate (x_2)
+            +(1,0) coordinate (y_2)
+            ++(0,1) coordinate (x_3)
+            +(1,0) coordinate (y_3)
+            ;
+            \draw[->-=.5] (x_1) -- (x_2);
+            \LCOEV{x_1}{y_1}
+            \draw (y_1) -- (z_3);
+            \draw (z_1) -- (y_2);
+            \RCOEV{z_1}{z_2}
+            \REV{z_2}{z_3}
+            \rdBRAID{x_2}{y_2}{x_3}{y_3}
             \LEV{x_3}{y_3}
         \end{tikzpicture}
-        &= \theta_x \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        &&\because\quad \text{\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equations)}}}}
+        \\
+        &= \quad \theta_x
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
             \path 
-            coordinate (x_2)
+            coordinate (x_1)
+            +(3,0) coordinate (w_1)
+            ++(0,1.5) coordinate (x_2)
             +(1,0) coordinate (y_2)
+            +(2,0) coordinate (z_2)
+            % +(3,0) coordinate (w_2)
             ++(0,1) coordinate (x_3)
             +(1,0) coordinate (y_3)
+            ++(2,1) coordinate (z_4)
+            +(1,0) coordinate (w_4)
             ;
-            \LCOEV{x_2}{y_2}
-            % \draw (x_1) -- node[midway,right,bullet] {$\theta_x$} (x_2);
-            \BRAID{x_2}{y_2}{x_3}{y_3}
+            \draw[->-=.5] (x_1) -- (x_2);
+            \LCOEV{x_1}{w_1}
+            \draw[-<-=.5] (w_1) -- (w_4);
+            \RCOEV{y_2}{z_2}
+            \rdBRAID{x_2}{y_2}{x_3}{y_3}
             \LEV{x_3}{y_3}
-        \end{tikzpicture} \\
-        &= \theta_x \Tr^{\text{L}} (u_x) &&\because\quad \text{\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equations)}}}}\\
+            \draw[->-=.5] (z_2) -- (z_4);
+            \REV{z_4}{w_4}
+        \end{tikzpicture} 
+        \\
+        &= \theta_x \Tr^{\text{L}} (u_x) \\
         &= \Tr^{\text{L}} (u_x \circ \theta_x) \\
         &= \dim_p (x)
     \end{align}
@@ -3576,41 +3671,53 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
 \end{mydef}
 
 \begin{mydef}[label=def:S-matrix]{$S$-行列}
-    $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, \dagger,\,  b)$ を\hyperref[def:premodular-cat]{前モジュラー圏}とする．
+    $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, b,\, \theta)$ を\hyperref[def:premodular-cat]{前モジュラー圏}とする．
     $\forall x,\, y \in \Simp (\Cat{C})$ に対して，\textbf{$\bm{S}$-行列} ($S$-matrix) 要素を
     \begin{align}
         S_{xy} \coloneqq \Tr (b_{y,\, x} \circ b_{x,\, y})
     \end{align}
-    で定義する．
-    % ストリング図式で書くと
-    % \begin{align}
-    %     S_{xy} \coloneqq 
-    %     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-    %         \path coordinate (x_1)
-    %         +(1,0) coordinate (y_1)
-    %         ++(0,1) coordinate (x_2)
-    %         +(1,0) coordinate (y_2)
-    %         ++(0,1) coordinate (x_3)
-    %         +(1,0) coordinate (y_3)
-    %         ;
-    %         \LCOEV{x_1}{y_1}
-    %         \BRAID{x_1}{y_1}{x_2}{y_2}
-    %         \BRAID{x_2}{y_2}{x_3}{y_3}
-    %         \LEV{x_3}{y_3}
-    %     \end{tikzpicture}
-    % \end{align}
-    % となる．
+    で定義する\footnote{\hyperref[def:qtrace]{左量子トレース}\underline{ではなく}\hyperref[def:trace]{トレース}である！定理\ref{thm:spherical-ribbon}の\hyperref[def:spherical]{球状構造}を使っている．}．
 \end{mydef}
+
+\hyperref[def:S-matrix]{$S$-行列の定義}をストリング図式で書くと次のようになる：
+\begin{align}
+    S_{xy} \coloneqq 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path 
+        foreach \x in {0, ..., 3} {
+            foreach \y in {0,1,2} {
+                coordinate (x_\x\y) at (\x, \y)
+            }
+        }
+        ;
+        \LCOEV{x_00}{x_30}
+        \LCOEV{x_10}{x_20}
+        \BRAID{x_00}{x_10}{x_01}{x_11}
+        \draw[-<-=.5] (x_20) -- (x_22);
+        \draw[-<-=.5] (x_30) -- (x_32);
+        \BRAID{x_01}{x_11}{x_02}{x_12}
+        \REV{x_02}{x_32}
+        \REV{x_12}{x_22}
+        \node[left] at (x_00) {$x$};
+        \node[right] at (x_10) {$y$};
+    \end{tikzpicture}
+\end{align}
 
 \begin{myprop}[label=prop:S-matrix]{$S$-行列の性質}
     \hyperref[def:S-matrix]{$S$ 行列}は $\forall x,\, y,\, z \in \Simp(\Cat{C})$ について以下を充たす：
     \begin{enumerate}
         \item \begin{align}
-            S_{xy} = \theta^{-1}_x \theta^{-1}_y \sum_{z \in \Simp(\Cat{C})} N^z_{xy} \theta_z \dim (z)
+            S_{xy} = \theta^{-1}_x \theta^{-1}_y \sum_{z \in \Simp(\Cat{C})} N^z_{xy} \theta_z \dim_{u \circ \theta} (z)
         \end{align}
         \item \begin{align}
-            S_{xy} S_{xz} = \dim (x) \sum_{w \in \Simp (\Cat{C})} N^w_{yz} S_{xw}
+            S_{xy} S_{xz} = \dim_{u \circ \theta} (x) \sum_{w \in \Simp (\Cat{C})} N^w_{yz} S_{xw}
         \end{align}
+        \item $\forall x \in \Simp(\Cat{C})$ に対して定まる写像
+        \begin{align}
+            h_x \colon \Simp(\Cat{C}) &\lto \mathbb{K}, \\
+            y &\lmto \frac{S_{xy}}{\dim_{u\circ \theta} (x)}
+        \end{align}
+        は，\hyperref[eq:fusionring]{フュージョン環}から $\mathbb{K}$ への環準同型を定める．
     \end{enumerate}
 \end{myprop}
 
@@ -3621,7 +3728,268 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
             \Tr (\theta_{x \otimes y}) &= \sum_{z \in \Simp(\Cat{C})} N^z_{xy} \Tr(\theta_z) = \sum_{z \in \Simp(\Cat{C})} N^z_{xy} \theta_z \dim(z) \\
             &= \theta_x \theta_y\Tr (b_{y,\, x} \circ b_{x,\, y}) = \theta_x \theta_y S_{xy}
         \end{align}
+        \item \hyperref[redef:braided-monoidal]{\textsf{\textbf{(hexagon diagrams)}}}から従う等式
+        \begin{align}
+            \label{eq:thm-S-matrix}
+            (b_{y,\, x} \otimes \Id_z) \circ \bigl(\Id_y \otimes (b_{z,\, x} \circ b_{x,\, z})\bigr) \circ (b_{x,\, y} \otimes \Id_z)
+            &=\quad 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path 
+                foreach \x in {0, ..., 2} {
+                    foreach \y in {0, ..., 4} {
+                        coordinate (x_\x\y) at (\x, \y)
+                    }
+                }
+                ;
+                \node[left] at (x_00) {$x$};
+                \node[left] at (x_10) {$y$};
+                \node[right] at (x_20) {$z$};
+                \BRAID{x_00}{x_10}{x_01}{x_11}
+                \draw[->-=.5] (x_20) -- (x_21);
+                \draw[->-=.5] (x_01) -- (x_03);
+                \BRAID{x_11}{x_21}{x_12}{x_22}
+                \BRAID{x_12}{x_22}{x_13}{x_23}
+                \BRAID{x_03}{x_13}{x_04}{x_14}
+                \draw[->-=.5] (x_23) -- (x_24);
+            \end{tikzpicture}
+            \\
+            &= b_{y \otimes z,\, x} \circ b_{x,\, y \otimes z}
+        \end{align}
+        に注目し，この式の両辺の\hyperref[def:trace]{トレース}を計算する．
+        
+        　まず左辺の $z$ についてのみトレースをとると，
+        \begin{align}
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path 
+                foreach \x in {0, ..., 3} {
+                    foreach \y in {0, ..., 5} {
+                        coordinate (x_\x\y) at (\x, \y)
+                    }
+                }
+                ;
+                \node[left] at (x_00) {$x$};
+                \node[left] at (x_10) {$y$};
+                \node[right] at (x_20) {$z$};
+                \draw[-<-=.5] (x_00) -- ++(0,-1);
+                \draw[-<-=.5] (x_10) -- ++(0,-1);
+                \LCOEV{x_20}{x_30}
+                \BRAID{x_00}{x_10}{x_01}{x_11}
+                \draw[->-=.5] (x_20) -- (x_21);
+                \draw[-<-=.5] (x_30) -- (x_34);
+                \draw[->-=.5] (x_01) -- (x_03);
+                \BRAID{x_11}{x_21}{x_12}{x_22}
+                \BRAID{x_12}{x_22}{x_13}{x_23}
+                \BRAID{x_03}{x_13}{x_04}{x_14}
+                \draw[->-=.5] (x_23) -- (x_24);
+                \draw[->-=.5] (x_04) -- (x_05);
+                \draw[->-=.5] (x_14) -- (x_15);
+                \REV{x_24}{x_34}
+            \end{tikzpicture}
+            \quad
+            &= \quad \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path 
+                foreach \x in {0, ..., 3} {
+                    foreach \y in {0, ..., 7} {
+                        coordinate (x_\x\y) at (\x, \y)
+                    }
+                }
+                ;
+                \draw[-<-=.5] (x_00) -- ++(0,-1);
+                \draw[-<-=.5] (x_10) -- ++(0,-1);
+                \LCOEV{x_20}{x_30}
+                \BRAID{x_00}{x_10}{x_01}{x_11}
+                \draw[->-=.5] (x_20) -- (x_21);
+                \draw[-<-=.5] (x_30) -- (x_34);
+                \draw[->-=.5] (x_01) -- (x_03);
+                \BRAID{x_11}{x_21}{x_12}{x_22}
+                \BRAID{x_12}{x_22}{x_13}{x_23}
+                \BRAID{x_03}{x_13}{x_04}{x_14}
+                \draw[->-=.5] (x_23) -- (x_24);
+                \draw[->-=.5] (x_04) -- (x_07);
+                \BRAID{x_14}{x_24}{x_15}{x_25}
+                \draw[-<-=.5] (x_34) -- (x_35);
+                \draw[->-=.5] (x_15) -- (x_16);
+                \rdBRAID{x_25}{x_35}{x_26}{x_36}
+                \REV{x_16}{x_26}
+                \draw[->-=.5] (x_36) -- (x_37);
+            \end{tikzpicture}
+            &&\because\; \text{補題\ref{lem:dual-braid}-(3)} \\
+            &= \quad 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path 
+                foreach \x in {0, ..., 3} {
+                    foreach \y in {0, ..., 7} {
+                        coordinate (x_\x\y) at (\x, \y)
+                    }
+                }
+                ;
+                \draw[-<-=.5] (x_00) -- ++(0,-1);
+                \draw[-<-=.5] (x_10) -- ++(0,-1);
+                \LCOEV{x_20}{x_30}
+                \BRAID{x_00}{x_10}{x_01}{x_11}
+                \draw[->-=.5] (x_20) -- (x_21);
+                \draw[-<-=.5] (x_30) -- (x_34);
+                \draw[->-=.5] (x_01) -- (x_02);
+                \BRAID{x_11}{x_21}{x_12}{x_22}
+                \BRAID{x_02}{x_12}{x_03}{x_13}
+                \draw[->-=.5] (x_22) -- (x_23);
+                \draw[->-=5] (x_03) -- (x_04);
+                \BRAID{x_13}{x_23}{x_14}{x_24}
+                \BRAID{x_04}{x_14}{x_05}{x_15}
+                \draw[->-=.5] (x_24) -- (x_25);
+                \draw[->-=.5] (x_05) -- (x_07);
+                \draw[-<-=.5] (x_34) -- (x_35);
+                \draw[->-=.5] (x_15) -- (x_16);
+                \rdBRAID{x_25}{x_35}{x_26}{x_36}
+                \REV{x_16}{x_26}
+                \draw[->-=.5] (x_36) -- (x_37);
+            \end{tikzpicture}
+            &&\because\; \text{命題\ref{prop:YBeq}} \\
+            &= \quad 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path 
+                foreach \x in {0, ..., 3} {
+                    foreach \y in {0, ..., 7} {
+                        coordinate (x_\x\y) at (\x, \y)
+                    }
+                }
+                ;
+                \draw[-<-=.5] (x_00) -- ++(0,-1);
+                \draw[-<-=.5] (x_10) -- ++(0,-1);
+                \LCOEV{x_20}{x_30}
+                \BRAID{x_00}{x_10}{x_01}{x_11}
+                \draw[->-=.5] (x_20) -- (x_21);
+                \draw[-<-=.5] (x_30) -- (x_34);
+                \BRAID{x_01}{x_11}{x_02}{x_12}
+                \draw[->-=.5] (x_21) -- (x_22);
+                \draw[->-=.5] (x_02) -- (x_03);
+                \BRAID{x_12}{x_22}{x_13}{x_23}
+                \BRAID{x_03}{x_13}{x_04}{x_14}
+                \draw[->-=.5] (x_23) -- (x_24);
+                \BRAID{x_04}{x_14}{x_05}{x_15}
+                \draw[->-=.5] (x_24) -- (x_25);
+                \draw[->-=.5] (x_05) -- (x_07);
+                \draw[-<-=.5] (x_34) -- (x_35);
+                \draw[->-=.5] (x_15) -- (x_16);
+                \rdBRAID{x_25}{x_35}{x_26}{x_36}
+                \REV{x_16}{x_26}
+                \draw[->-=.5] (x_36) -- (x_37);
+            \end{tikzpicture}
+            &&\because\; \text{命題\ref{prop:YBeq}} \\
+            &=\quad 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path 
+                foreach \x in {0, ..., 3} {
+                    foreach \y in {0, ..., 7} {
+                        coordinate (x_\x\y) at (\x, \y)
+                    }
+                }
+                ;
+                \BRAID{x_00}{x_10}{x_01}{x_11}
+                \BRAID{x_01}{x_11}{x_02}{x_12}
+                \draw[->-=.5] (x_02) -- (x_04);
+                \draw[->-=.5] (x_12) .. controls +(0,1) and +(0,-1) .. (x_34);
+                \BRAID{x_04}{x_14}{x_05}{x_15}
+                \LCOEV{x_14}{x_24}
+                \draw[-<-=.5] (x_24) -- (x_26);
+                \draw[->-=.5] (x_34) -- (x_37);
+                \BRAID{x_05}{x_15}{x_06}{x_16}
+                \draw[->-=.5] (x_06) -- (x_07);
+                \REV{x_16}{x_26}
+            \end{tikzpicture}
+            &&\because\; \text{補題\ref{lem:dual-braid}-(2)}
+        \end{align}
+        ここで，補題\ref{lem:simple-hom}より $\Hom{\Cat{C}} (x,\, x) = \mathbb{K}$ であることに注意すると，ある $A \in \mathbb{K}$ が存在して
+        \begin{align}
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path 
+                foreach \x in {0, ..., 2} {
+                    foreach \y in {3, ..., 7} {
+                        coordinate (x_\x\y) at (\x, \y -3)
+                    }
+                }
+                ;
+                \node[left] at (x_03) {$x$};
+                \node[left] at (x_07) {$x$};
+                \draw[->-=.5] (x_03) -- (x_04);
+                \BRAID{x_04}{x_14}{x_05}{x_15}
+                \LCOEV{x_14}{x_24}
+                \draw[-<-=.5] (x_24) -- (x_26);
+                \BRAID{x_05}{x_15}{x_06}{x_16}
+                \draw[->-=.5] (x_06) -- (x_07);
+                \REV{x_16}{x_26}
+            \end{tikzpicture}
+            &\quad = A \quad 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \draw[->-=.5] (0,0) -- node[midway,right] {$x$} (0,4);
+            \end{tikzpicture}
+        \end{align}
+        が成り立つ．両辺の\hyperref[def:trace]{トレース}をとることで $A = S_{xz} / \dim_{u \circ \theta} (x)$ と求まる．
+        以上の考察から，
+        \begin{align}
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path 
+                foreach \x in {0, ..., 3} {
+                    foreach \y in {0, ..., 5} {
+                        coordinate (x_\x\y) at (\x, \y)
+                    }
+                }
+                ;
+                \node[left] at (x_00) {$x$};
+                \node[left] at (x_10) {$y$};
+                \node[right] at (x_20) {$z$};
+                \draw[-<-=.5] (x_00) -- ++(0,-1);
+                \draw[-<-=.5] (x_10) -- ++(0,-1);
+                \LCOEV{x_20}{x_30}
+                \BRAID{x_00}{x_10}{x_01}{x_11}
+                \draw[->-=.5] (x_20) -- (x_21);
+                \draw[-<-=.5] (x_30) -- (x_34);
+                \draw[->-=.5] (x_01) -- (x_03);
+                \BRAID{x_11}{x_21}{x_12}{x_22}
+                \BRAID{x_12}{x_22}{x_13}{x_23}
+                \BRAID{x_03}{x_13}{x_04}{x_14}
+                \draw[->-=.5] (x_23) -- (x_24);
+                \draw[->-=.5] (x_04) -- (x_05);
+                \draw[->-=.5] (x_14) -- (x_15);
+                \REV{x_24}{x_34}
+            \end{tikzpicture}
+            \quad
+            &= \frac{S_{xz}}{\dim_{u\circ \theta} (x)} 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path 
+                foreach \x in {0,1} {
+                    foreach \y in {0, ..., 2} {
+                        coordinate (x_\x\y) at (\x, \y)
+                    }
+                }
+                ;
+                \BRAID{x_00}{x_10}{x_01}{x_11}
+                \BRAID{x_01}{x_11}{x_02}{x_12}
+            \end{tikzpicture}
+        \end{align}
+        が分かった．両辺のトレースをとることで，\eqref{eq:thm-S-matrix}の左辺のトレースが $S_{xy} S_{xz} / \dim_{u\circ \theta} (x)$ と求まった．
+
+        　次に，\eqref{eq:thm-S-matrix}の右辺のトレースを計算すると
+        \begin{align}
+            \Tr (b_{y \otimes z} \circ c_{x,\, y \otimes z})
+            &= \sum_{w \in \Simp(\Cat{C})} N^w_{yz} \Tr (b_{w,\, x} \circ c_{x,\, w}) \\
+            &= \sum_{w \in \Simp(\Cat{C})} N^w_{yz} S_{xw}
+        \end{align}
+        となる．よって示された．
         \item 
+        \begin{align}
+            h_x ( y \star z )
+            &= h_x \left( \sum_{w \in \Simp(\Cat{C})} N^w_{yz} w\right) \coloneqq \sum_{w \in \Simp(\Cat{C})} N^w_{yz} h_x (w) 
+        \end{align}
+        として $h_x$ を\hyperref[eq:fusionring]{フュージョン環} $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 全体へ拡張する．このとき，(2) より
+        \begin{align}
+            h_x (y \star z)
+            &= \sum_{w \in \Simp(\Cat{C})} N^w_{yz} h_x (w) \\
+            &= \sum_{w \in \Simp(\Cat{C})} N^w_{yz} \frac{S_{xw}}{\dim_{u\circ\theta} (x)} \\
+            &= \frac{S_{xy} S_{xz}}{\dim_{u\circ \theta} (x)^2} \\
+            &= h_x (y) h_x(z)
+        \end{align}
+        が成り立つ．
     \end{enumerate}
     
 \end{proof}
