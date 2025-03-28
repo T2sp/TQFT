@@ -8,126 +8,127 @@
     \begin{figure}[H]
         \centering
         \resizebox{\linewidth}{!}{
-        \begin{tikzpicture}
-            \pgfmathsetmacro{\dy}{2}
-            \pgfmathsetmacro{\dx}{4}
-            \path coordinate (cat)
-            ++(0,-\dy) coordinate (moncat)
-            +({2*\dx},0) coordinate (abelian)
-            +({5*\dx},0) coordinate (dagger)
-            ++(0,-\dy) coordinate (braided)
-            +(\dx,0) coordinate (rigid)
-            +({2*\dx},0) coordinate (locfin)
-            +({4*\dx},0) coordinate (semisimple)
-            +({5*\dx},0) coordinate (daglin)
-            ++(0,-\dy) coordinate (sym)
-            +(\dx,0) coordinate (ribbon)
-            +({2*\dx},0) coordinate (multitensor)
-            +({3*\dx},0) coordinate (finite)
-            +({5*\dx},0) coordinate (unitary)
-            +({5.5*\dx},0) coordinate (Cstar)
-            ++(0,-\dy) coordinate (A)
-            +({2*\dx},0) coordinate (tensor)
-            +({3.5*\dx},0) coordinate (multifusion)
-            ++(0,-\dy) coordinate (B)
-            +({2.5*\dx},0) coordinate (sphericaltensor)
-            +({3.5*\dx},0) coordinate (fusion)
-            ++(0,-\dy) coordinate (C)
-            +({2*\dx},0) coordinate (ribbontensor)
-            +({3.5*\dx},0) coordinate (sphericalfusion)
-            ++(0,-\dy) coordinate (D)
-            +({3.5*\dx},0) coordinate (ribbonfusion)
-            +({5*\dx},0) coordinate (unitaryfusion)
-            ++(0,-\dy) coordinate (E)
-            +({3.5*\dx},0) coordinate (MTC)
-            ++(0,-\dy) coordinate (F)
-            ++({5*\dx},0) coordinate (UMTC)
-            ;
-            \node[process,fill=white] at (cat) {category};
+            \begin{tikzpicture}
+                \pgfmathsetmacro{\dy}{2}
+                \pgfmathsetmacro{\dx}{4}
+                \path coordinate (cat)
+                ++(0,-\dy) coordinate (moncat)
+                +({2*\dx},0) coordinate (abelian)
+                +({5*\dx},0) coordinate (dagger)
+                ++(0,-\dy) coordinate (braided)
+                +(\dx,0) coordinate (rigid)
+                +({2*\dx},0) coordinate (locfin)
+                +({4*\dx},{-0.2*\dy}) coordinate (semisimple)
+                +({5*\dx},0) coordinate (daglin)
+                ++(0,-\dy) coordinate (sym)
+                +(\dx,0) coordinate (ribbon)
+                +({2*\dx},0) coordinate (multitensor)
+                +({3*\dx},0) coordinate (finite)
+                +({5*\dx},0) coordinate (unitary)
+                +({5.5*\dx},0) coordinate (Cstar)
+                ++(0,-\dy) coordinate (A)
+                +({2*\dx},0) coordinate (tensor)
+                +({3.5*\dx},0) coordinate (multifusion)
+                ++(0,-\dy) coordinate (B)
+                +({2.5*\dx},0) coordinate (sphericaltensor)
+                +({3.5*\dx},0) coordinate (fusion)
+                ++(0,-\dy) coordinate (C)
+                +({2*\dx},0) coordinate (ribbontensor)
+                +({3.5*\dx},0) coordinate (sphericalfusion)
+                ++(0,-\dy) coordinate (D)
+                +({3.5*\dx},0) coordinate (ribbonfusion)
+                +({5*\dx},0) coordinate (unitaryfusion)
+                ++(0,-\dy) coordinate (E)
+                +({3.5*\dx},0) coordinate (MTC)
+                ++(0,-\dy) coordinate (F)
+                ++({5*\dx},0) coordinate (UMTC)
+                ;
+                \node[process,fill=white] at (cat) {category};
+                
+                \node[process,fill=white] at (moncat) {\hyperref[redef:monoidal-category]{monoidal}};
+                \node[process,fill=white] at (abelian) {\hyperref[def:additive-cat]{$\mathbb{C}$-linear abelian}};
+                \node[process,fill=white] at (dagger) {\hyperref[def:dagger-monoidal]{dagger}};
             
-            \node[process,fill=white] at (moncat) {\hyperref[redef:monoidal-category]{monoidal}};
-            \node[process,fill=white] at (abelian) {\hyperref[def:additive-cat]{$\mathbb{C}$-linear abelian}};
-            \node[process,fill=white] at (dagger) {\hyperref[def:dagger-monoidal]{dagger}};
-        
-            \node[process,fill=white] at (braided) {\hyperref[redef:braided-monoidal]{braided monoidal}};
-            \node[process,fill=white] at (rigid) {\hyperref[redef:rigid]{rigid monoidal}};
-            \node[process,fill=white] at (locfin) {\hyperref[def:finite-abcat]{locally finite} \\ $\mathbb{C}$-linear abelian};
-            \node[process,fill=white] at (semisimple) {\hyperref[def:semisimple-cat]{semisimple}\footnote{定義\ref{def:semisimple-Muger}も参照．} \\ $\mathbb{C}$-linear abelian};
-            \node[process,fill=white] at (daglin) {\hyperref[def:unitary]{dagger} \\ $\mathbb{C}$-linear abelian};
+                \node[process,fill=white] at (braided) {\hyperref[redef:braided-monoidal]{braided monoidal}};
+                \node[process,fill=white] at (rigid) {\hyperref[redef:rigid]{rigid monoidal}};
+                \node[process,fill=white] at (locfin) {\hyperref[def:finite-abcat]{locally finite} \\ $\mathbb{C}$-linear abelian};
+                \node[process,fill=white] at (semisimple) {\hyperref[def:semisimple-cat]{semisimple} \\ $\mathbb{C}$-linear abelian};
+                \node[process,fill=white] at (daglin) {\hyperref[def:unitary]{dagger} \\ $\mathbb{C}$-linear abelian};
+                
+                \node[process,fill=white] at (sym) {\hyperref[redef:braided-monoidal]{symmetric} \\ braided monoidal};
+                \node[process,fill=white] at (ribbon) {\hyperref[def:ribbon]{ribbon}};
+                \node[process,fill=white] at (multitensor) {\hyperref[def:tensorfusion-cat]{multitensor}};
+                \node[process,fill=white] at (finite) {\hyperref[def:finite-abcat]{finite} \\ $\mathbb{C}$-linear abelian};
+                \node[process,fill=white] at ($(unitary)+(-0.25*\dx,0)$) {\hyperref[def:unitary]{unitary} \\ $\mathbb{C}$-linear abelian};
+                \node[process,fill=white] at (Cstar) {\hyperref[def:starcat]{$C^*$}};
             
-            \node[process,fill=white] at (sym) {\hyperref[redef:braided-monoidal]{symmetric} \\ braided monoidal};
-            \node[process,fill=white] at (ribbon) {\hyperref[def:ribbon]{ribbon}};
-            \node[process,fill=white] at (multitensor) {\hyperref[def:tensorfusion-cat]{multitensor}};
-            \node[process,fill=white] at (finite) {\hyperref[def:finite-abcat]{finite} \\ $\mathbb{C}$-linear abelian};
-            \node[process,fill=white] at (unitary) {\hyperref[def:unitary]{unitary}};
-            \node[process,fill=white] at (Cstar) {\hyperref[def:starcat]{$C^*$}};
-        
-            \node[process,fill=white] at (tensor) {\hyperref[def:tensorfusion-cat]{tensor}};
-            \node[process,fill=white] at (multifusion) {\hyperref[def:tensorfusion-cat]{multifusion}};
+                \node[process,fill=white] at (tensor) {\hyperref[def:tensorfusion-cat]{tensor}};
+                \node[process,fill=white] at (multifusion) {\hyperref[def:tensorfusion-cat]{multifusion}};
+                
+                \node[process,fill=white] at (sphericaltensor) {\hyperref[def:spherical]{spherical} tensor};
+                \node[process,fill=white] at (fusion) {\hyperref[def:tensorfusion-cat]{fusion}};
             
-            \node[process,fill=white] at (sphericaltensor) {\hyperref[def:spherical]{spherical} tensor};
-            \node[process,fill=white] at (fusion) {\hyperref[def:tensorfusion-cat]{fusion}};
-        
-            \node[process,fill=white] at (ribbontensor) {ribbon tensor};
-            \node[process,fill=white] at (sphericalfusion) {spherical fusion};
-        
-            \node[process,fill=white] at (ribbonfusion) {ribbon fusion \\ (\hyperref[def:premodular-cat]{pre-modular})};
-            \node[process,fill=white] at (unitaryfusion) {unitary fusion};
-        
-            \node[process,fill=white] at (MTC) {\hyperref[def:MTC]{modular tensor}};
-            \node[process,fill=white] at (UMTC) {unitary modular tensor};
-        
-            \begin{scope}[on background layer]
-                \draw (cat) -- (moncat);
-                \draw (cat) -- (abelian);
-                \draw (cat) -- (dagger);
-        
-                \draw (moncat) -- (braided);
-                \draw (moncat) -- (rigid);
-                \draw (abelian) -- (locfin);
-                \draw (abelian) -- (semisimple);
-                \draw (dagger) -- (daglin);
-        
-                \draw (braided) -- (sym);
-                \draw (braided) -- (ribbon);
-                \draw (rigid) -- (ribbon);
-                \draw (rigid) -- (multitensor);
-                \draw (locfin) -- (multitensor);
-                \draw (locfin) -- (finite);
-                \draw (semisimple) -- (multifusion);
-                \draw (daglin) -- (unitary);
-                \draw[red] (Cstar) -- node[midway,above] {$=$} node[midway,below] {命題\ref{prop:unitary-Cstar}} (unitary);
-        
-                \draw (ribbon) -- (ribbontensor);
-                \draw (multitensor) -- (tensor);
-                \draw (multitensor) -- (multifusion);
-                \draw (finite) -- (multifusion);
-                \draw (unitary) -- (unitaryfusion);
-        
-                \draw (tensor) -- (sphericaltensor);
-                \draw (tensor) -- (fusion);
-                \draw (tensor) -- (ribbontensor);
-                \draw (multifusion) -- (fusion);
-        
-                \draw (sphericaltensor) -- (sphericalfusion);
-                \draw (fusion) -- (sphericalfusion);
-        
-                \draw (ribbontensor) -- (ribbonfusion);
-                \draw[red] (sphericalfusion) -- node[midway,right] {定理\ref{thm:spherical-ribbon}} (ribbonfusion);
-                \draw[red] (sphericalfusion) -- node[midway,above] {命題\ref{prop:spherical-unitary}} (unitaryfusion);
-        
-                \draw (ribbonfusion) -- (MTC);
-                \draw (unitaryfusion) -- (UMTC);
-        
-                \draw (MTC) -- (UMTC);
-            \end{scope}
-        \end{tikzpicture}
+                \node[process,fill=white] at (ribbontensor) {ribbon tensor};
+                \node[process,fill=white] at (sphericalfusion) {spherical fusion};
+            
+                \node[process,fill=white] at (ribbonfusion) {ribbon fusion \\ (\hyperref[def:premodular-cat]{pre-modular})};
+                \node[process,fill=white] at (unitaryfusion) {\hyperref[def:UFC]{unitary fusion}};
+            
+                \node[process,fill=white] at (MTC) {\hyperref[def:MTC]{modular tensor}};
+                \node[process,fill=white] at (UMTC) {unitary modular tensor};
+            
+                \begin{scope}[on background layer]
+                    \draw (cat) -- (moncat);
+                    \draw (cat) -- (abelian);
+                    \draw (cat) -- (dagger);
+            
+                    \draw (moncat) -- (braided);
+                    \draw (moncat) -- (rigid);
+                    \draw (abelian) -- (locfin);
+                    \draw (abelian) -- (semisimple);
+                    \draw (abelian) -- (daglin);
+                    \draw (dagger) -- (daglin);
+            
+                    \draw (braided) -- (sym);
+                    \draw (braided) -- (ribbon);
+                    \draw (rigid) -- (ribbon);
+                    \draw (rigid) -- (multitensor);
+                    \draw (locfin) -- (multitensor);
+                    \draw (locfin) -- (finite);
+                    \draw (semisimple) -- (multifusion);
+                    \draw (daglin) -- (unitary);
+                    \draw[red] (Cstar) -- node[midway,above] {$=$} node[midway,below] {命題\ref{prop:unitary-Cstar}} (unitary);
+            
+                    \draw (ribbon) -- (ribbontensor);
+                    \draw (multitensor) -- (tensor);
+                    \draw (multitensor) -- (multifusion);
+                    \draw (finite) -- (multifusion);
+                    \draw (unitary) -- (unitaryfusion);
+            
+                    \draw (tensor) -- (sphericaltensor);
+                    \draw (tensor) -- (fusion);
+                    \draw (tensor) -- (ribbontensor);
+                    \draw (multifusion) -- (fusion);
+            
+                    \draw (sphericaltensor) -- (sphericalfusion);
+                    \draw (fusion) -- (sphericalfusion);
+            
+                    \draw (ribbontensor) -- (ribbonfusion);
+                    \draw[red] (sphericalfusion) -- node[midway,right] {定理\ref{thm:spherical-ribbon}} (ribbonfusion);
+                    \draw[red] (sphericalfusion) -- node[midway,above] {命題\ref{prop:spherical-unitary}} (unitaryfusion);
+            
+                    \draw (ribbonfusion) -- (MTC);
+                    \draw (unitaryfusion) -- (UMTC);
+            
+                    \draw (MTC) -- (UMTC);
+                \end{scope}
+            \end{tikzpicture}            
         }
         \caption{フュージョン圏の構造ガイドマップ．定義でない部分は赤色で示した．}
         \label{fig:tensorcat}
     \end{figure}%
 
-    \section{加法圏}
+    \section{アーベル圏}
 
     \begin{mydef}[label=def:additive-cat,breakable]{加法圏・アーベル圏}
         圏 $\Cat{C}$ が体 $\mathbb{K}$ 上の\textbf{加法圏} (additive category) であるとは，以下を充たすこと：
@@ -204,6 +205,8 @@
         圏を $\REP{G}$ と書く．$\REP{G}$ は\hyperref[def:additive-cat]{アーベル圏}である．
     \end{myexample}
 
+    \subsection{半単純性・有限性}
+
     \begin{mydef}[label=def:semisimple-cat]{単純・半単純}
         \begin{itemize}
             \item \hyperref[def:additive-cat]{アーベル圏} $\Cat{C}$ の対象 $X \in \Cat{C}$ が\textbf{単純} (simple) であるとは，
@@ -244,6 +247,68 @@
         
     \end{mydef}
 
+    \subsection{ダガー構造・ユニタリ構造・$C^*$-構造}
+
+    \begin{mydef}[label=def:unitary]{ダガー構造・ユニタリ構造}
+        圏 $\Cat{C}$ の\textbf{ダガー構造} (dagger structure) とは，関手
+        \begin{align}
+            \dagger \colon \OP{\Cat{C}} \lto \Cat{C}
+        \end{align}
+        であって以下を充たすもののこと：
+        \begin{description}
+            \item[\textbf{(dag-1)}] $\forall X \in \Obj{\Cat{C}}$ に対して $X^\dagger = X$
+            \item[\textbf{(dag-2)}] $\forall X,\, Y \in \Obj{\Cat{C}}$，及び $\forall f \in \Hom{\Cat{C}}(X,\, Y)$ に対して $(f^\dagger)^\dagger = f$
+        \end{description}
+        
+        \tcblower
+
+        $\Cat{C}$ を \hyperref[def:additivecat]{$\mathbb{C}$-線形なアーベル圏}とする．
+        $\Cat{C}$ の\textbf{ユニタリ構造} (unitary structure) とは，以下の条件を充たすダガー構造
+        \begin{align}
+            \dagger \colon \OP{\Cat{C}} \lto \Cat{C}
+        \end{align}
+        のこと：
+        \begin{description}
+            \item[\textbf{(uni-1)}] $\dagger$ は反線形である．
+            \item[\textbf{(uni-2)}] $f^\dagger \circ f = 0 \IFF f = 0$
+        \end{description}
+        % \tcblower
+    
+        % ユニタリ圏 $\Cat{C}$ の射 $f \in \Hom{\Cat{C}}(X,\, Y)$ が\textbf{ユニタリ} (unitary) であるとは，$f^\dagger \circ f = \Id_X \AND f \circ f^\dagger = \Id_Y$ が成り立つことを言う．
+    \end{mydef}
+    
+
+    \begin{mydef}[label=def:starcat]{$C^*$-圏}
+        % \textbf{$\bm{*}$-圏}は\footnote{\hyperref[redef:dual]{双対}の記号に $(\mhyphen)^*$ を使用してしまったので，$(\mhyphen)^\dagger$ と書くことにする．}，以下のデータからなる：
+        % \begin{itemize}
+        %     \item $\mathbb{C}$-線形な\hyperref[def:additive-cat]{アーベル圏} $\Cat{C}$
+        %     \item $\mathbb{C}$-反線形な関手 $(\mhyphen)^\dagger \colon \OP{\Cat{C}} \lto \Cat{C}$ であって，$\forall x \in \Cat{C}$ に対して $x^\dagger = x$ を見たすもの
+        % \end{itemize}
+        % これらは以下を充たす：
+        % \begin{description}
+        %     \item[\textbf{(star-1)}] $\OP{\dagger} \circ \dagger = \Id_{\Cat{C}}$
+        % \end{description}
+        
+        % \tcblower
+    
+        以下の条件を充たす\hyperref[def:unitary]{ダガー圏} $(\Cat{C},\, \dagger)$ が $\bm{C^*}$\textbf{-圏}と呼ぶ~\cite[p.5]{Reutter2020fusion}：
+        \begin{description}
+            \item[\textbf{(Cstar-1)}] $\dagger$ は反線形である．
+            \item[\textbf{(Cstar-2)}] $\forall f \in \Hom{\Cat{C}}(x,\, y)$ に対して，ある $g \in \Hom{\Cat{C}}(x,\, x)$ が存在して $f^\dagger \circ f = g^\dagger \circ g$ と書ける．
+            \item[\textbf{(Cstar-3)}] $\forall x,\, y \in \Obj{\Cat{C}}$ に対して，$\mathbb{C}$-ベクトル空間 $\Hom{\Cat{C}} (x,\, y)$ は以下のノルムによって完備なノルム空間になる：
+            \begin{align}
+                \norm{f} \coloneqq \sqrt{\sup \bigl\{\, \abs{\lambda} \bigm| \lambda \in \mathbb{C} \ST f^\dagger \circ f - \lambda \Id_x\; \text{が可逆でない} \,\bigr\}}
+            \end{align}
+        \end{description}
+    \end{mydef}
+
+    \begin{myprop}[label=prop:unitary-Cstar]{ユニタリ構造と $C^*$ 構造}
+        \hyperref[def:additivecat]{$\mathbb{C}$-線形なアーベル圏} $\Cat{C}$ が\hyperref[def:starcat]{$C^*$-圏}であることと，\hyperref[def:unitary]{ユニタリ圏}であることは同値である．
+    \end{myprop}
+    
+    \begin{proof}
+        ~\cite[Proposition 2.1, p.5]{Mueger1998}
+    \end{proof}
 
     \section{モノイダル圏}
 
@@ -464,7 +529,10 @@
     
 \end{proof}
 
-
+\begin{mydef}[label=def:unitary-monoidal]{ユニタリモノイダル圏}
+    \hyperref[def:additive-cat]{$\mathbb{C}$-線形なアーベル圏}でもあるモノイダル圏 $(\Cat{C},\, \otimes ,\, a,\, l,\, r)$ が\textbf{ユニタリモノイダル圏}であるとは，
+    \hyperref[def:unitary]{ユニタリ構造} $\dagger \colon \OP{\Cat{C}} \lto \Cat{C}$ が\hyperref[redef:monidal-functor]{モノイダル関手}であることを言う．
+\end{mydef}
 
 \subsection{rigidなモノイダル圏}
 
@@ -986,7 +1054,6 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
         である．他も同様．
         \item (1) と同様．
     \end{enumerate}
-    
 \end{proof}
 
 \subsection{組紐付きモノイダル圏}
@@ -2246,7 +2313,7 @@ $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 上の積\eqref{eq:fusionring}は明らか�
 \end{align}
 ただし，$\forall x,\, y,\, z \in \Simp(\Cat{C})$ に対して定まる $\mathbb{K}$-ベクトル空間 $\Hom{\Cat{C}}(x \otimes y,\, z)$ の基底を $\mathrm{Basis}(x \otimes y,\, z)$ と書いた．
 
-\subsection{$C^*$ 圏・ユニタリフュージョン圏}
+\subsection{ユニタリフュージョン圏}
 
 % この小節では $\mathbb{K} = \mathbb{C}$ とする．
 標数 $0$ の代数閉体 $\mathbb{K}$ 上の\hyperref[def:tensorfusion-cat]{フュージョン圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, \rcoev,\, \rev)$ とその上の\hyperref[def:pivotal]{旋回構造} $p$ を考える．
@@ -2279,32 +2346,33 @@ $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 上の積\eqref{eq:fusionring}は明らか�
     ~\cite[PROPOSITION 9.5.1., p.284]{etingof2015tensor}
 \end{proof}
 
-\begin{mydef}[label=def:starcat]{$C^*$-圏}
-    \textbf{$\bm{*}$-圏}は\footnote{\hyperref[redef:dual]{双対}の記号に $(\mhyphen)^*$ を使用してしまったので，$(\mhyphen)^\dagger$ と書くことにする．}，以下のデータからなる：
-    \begin{itemize}
-        \item $\mathbb{C}$-線形な\hyperref[def:additive-cat]{アーベル圏} $\Cat{C}$
-        \item $\mathbb{C}$-反線形な関手 $(\mhyphen)^\dagger \colon \OP{\Cat{C}} \lto \Cat{C}$ であって，$\forall x \in \Cat{C}$ に対して $x^\dagger = x$ を見たすもの
-    \end{itemize}
-    これらは以下を充たす：
-    \begin{description}
-        \item[\textbf{(star-1)}] $\OP{\dagger} \circ \dagger = \Id_{\Cat{C}}$
-    \end{description}
+% \begin{mydef}[label=def:starcat]{$C^*$-圏}
+%     \textbf{$\bm{*}$-圏}は\footnote{\hyperref[redef:dual]{双対}の記号に $(\mhyphen)^*$ を使用してしまったので，$(\mhyphen)^\dagger$ と書くことにする．}，以下のデータからなる：
+%     \begin{itemize}
+%         \item $\mathbb{C}$-線形な\hyperref[def:additive-cat]{アーベル圏} $\Cat{C}$
+%         \item $\mathbb{C}$-反線形な関手 $(\mhyphen)^\dagger \colon \OP{\Cat{C}} \lto \Cat{C}$ であって，$\forall x \in \Cat{C}$ に対して $x^\dagger = x$ を見たすもの
+%     \end{itemize}
+%     これらは以下を充たす：
+%     \begin{description}
+%         \item[\textbf{(star-1)}] $\OP{\dagger} \circ \dagger = \Id_{\Cat{C}}$
+%     \end{description}
     
-    \tcblower
+%     \tcblower
 
-    $\bm{C^*}$\textbf{-圏}とは，$*$-圏 $(\Cat{C},\, (\mhyphen)^\dagger)$ であって以下の条件を充たすもののこと~\cite[p.5]{Reutter2020fusion}：
-    \begin{description}
-        \item[\textbf{(Cstar-1)}] $\forall f \in \Hom{\Cat{C}}(x,\, y)$ に対して，ある $g \in \Hom{\Cat{C}}(x,\, x)$ が存在して $f^\dagger \circ f = g^\dagger \circ g$ と書ける．
-        \item[\textbf{(Cstar-2)}] $\forall x,\, y \in \Obj{\Cat{C}}$ に対して，$\mathbb{C}$-ベクトル空間 $\Hom{\Cat{C}} (x,\, y)$ は以下のノルムによって完備なノルム空間になる：
-        \begin{align}
-            \norm{f} \coloneqq \sqrt{\sup \bigl\{\, \abs{\lambda} \bigm| \lambda \in \mathbb{C} \ST f^\dagger \circ f - \lambda \Id_x\; \text{が可逆でない} \,\bigr\}}
-        \end{align}
-    \end{description}
-\end{mydef}
+%     $\bm{C^*}$\textbf{-圏}とは，$*$-圏 $(\Cat{C},\, (\mhyphen)^\dagger)$ であって以下の条件を充たすもののこと~\cite[p.5]{Reutter2020fusion}：
+%     \begin{description}
+%         \item[\textbf{(Cstar-1)}] $\forall f \in \Hom{\Cat{C}}(x,\, y)$ に対して，ある $g \in \Hom{\Cat{C}}(x,\, x)$ が存在して $f^\dagger \circ f = g^\dagger \circ g$ と書ける．
+%         \item[\textbf{(Cstar-2)}] $\forall x,\, y \in \Obj{\Cat{C}}$ に対して，$\mathbb{C}$-ベクトル空間 $\Hom{\Cat{C}} (x,\, y)$ は以下のノルムによって完備なノルム空間になる：
+%         \begin{align}
+%             \norm{f} \coloneqq \sqrt{\sup \bigl\{\, \abs{\lambda} \bigm| \lambda \in \mathbb{C} \ST f^\dagger \circ f - \lambda \Id_x\; \text{が可逆でない} \,\bigr\}}
+%         \end{align}
+%     \end{description}
+% \end{mydef}
 
 
 \begin{mydef}[label=def:UFC]{ユニタリフュージョン圏}
-    \textbf{ユニタリフュージョン圏} (unitary fusion category) とは，\hyperref[def:tensorfusion-cat]{フュージョン圏}であって\hyperref[def:starcat]{$C^*$-圏}でもあり，$(f \otimes g)^\dagger = f^\dagger \otimes g^\dagger$ を充たすもののこと．
+    \textbf{ユニタリフュージョン圏} (unitary fusion category) とは，\hyperref[def:tensorfusion-cat]{フュージョン圏}であって\hyperref[def:unitary-monoidal]{ユニタリモノイダル圏}でもあるもののことを言う．
+    % $(f \otimes g)^\dagger = f^\dagger \otimes g^\dagger$ を充たすもののこと．
 \end{mydef}
 
 \begin{myprop}[label=prop:unitaryfusion]{ユニタリフュージョン圏は擬ユニタリ}
@@ -2314,6 +2382,97 @@ $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 上の積\eqref{eq:fusionring}は明らか�
 \begin{proof}
     
 \end{proof}
+
+\hyperref[def:unitary]{ユニタリ構造の定義}と\hyperref[redef:monoidal-category]{モノイダル圏}のテンソル積 $\otimes$ は定義のレベルでは全く別のものであるが，\hyperref[redef:rigid]{左/右双対}に関して強く相互作用する．
+特に，以下で示す命題\ref{prop:spherical-unitary}により，\hyperref[def:unitary-monoidal]{ユニタリ}\hyperref[def:tensorfusion-cat]{テンソル圏}は自動的に\hyperref[def:spherical]{球状テンソル圏}になる．
+
+\begin{mylem}[label=lem:rdual-unitary]{ユニタリモノイダル圏における右双対}
+    \hyperref[redef:rigid]{rigid}な\hyperref[def:unitary-monoidal]{ユニタリモノイダル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \dagger)$ の対象 $x \in \Obj{\Cat{C}}$ が\hyperref[def:dual]{左双対} $(x^*,\, \lcoev_x,\, \lev_x)$ を持つとする．
+    このとき，$(x^*,\, \lev_x{}^\dagger,\, \lcoev_x{}^\dagger)$ は $x$ の右双対である．
+\end{mylem}
+
+\begin{proof}
+    \hyperref[def:dual]{\textsf{\textbf{(zig-zag equations)}}}を示す．実際，
+    \begin{align}
+        (\lcoev_x{}^\dagger \otimes \Id_x) \circ (\Id_x \otimes \lev_x{}^\dagger)
+        &= (\lcoev_x{}^\dagger \otimes \Id_x^\dagger) \circ (\Id_x^\dagger \otimes \lev_x{}^\dagger) \\
+        &= (\lcoev_x \otimes \Id_x)^\dagger \circ (\Id_x \otimes \lev_x)^\dagger \\
+        &= \bigl( (\Id_x \otimes \lev_x) \circ (\lcoev_x \otimes \Id_x)\bigr)^\dagger \\
+        &= \Id_x^\dagger = \Id_x, \\
+        (\Id_{x^*} \otimes \lcoev_x{}^\dagger) \circ (\lev_x{}^\dagger \otimes \Id_{x^*})
+        &= \bigl( (\lev_x\otimes \Id_{x^*}) \circ (\Id_{x^*} \otimes \lcoev_x) \bigr)^\dagger \\
+        &= \Id_{x^*}
+    \end{align}
+    が成り立つ．
+\end{proof}
+
+\begin{myprop}[label=prop:spherical-unitary]{ユニタリテンソル圏における球状構造}
+    \hyperref[def:unitary-monoidal]{ユニタリ}\hyperref[def:tensorfusion-cat]{テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, \dagger)$ における\hyperref[def:pivotal]{旋回構造}
+    \begin{align}
+        p_x \coloneqq (\lcoev_x{}^\dagger \otimes \Id_{x^{**}}) \circ (\Id_x \otimes \lcoev_{x^*}) \colon x \lto x^{**}
+    \end{align}
+    が\hyperref[def:spherical]{球状構造}になる必要十分条件は，$\forall x \in \Obj{\Cat{C}}$ に対して
+    \begin{align}
+        \lcoev_x{}^\dagger \circ \lcoev_x = \lev_x \circ \lev_x{}^\dagger
+    \end{align}
+    が成り立つことである．
+\end{myprop}
+
+\begin{proof}
+    \begin{align}
+        \dim_p(x)
+        &= \lev_{x^*} \circ (p_x \otimes \Id_{x^*}) \circ \lcoev_x \\
+        &= \lcoev_x{}^\dagger \circ \lcoev_x
+    \end{align}
+    ところで，
+    \begin{align}
+        (p_x^*)^{-1}
+        &= \quad \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (x_1)
+            \foreach \i in {2,...,5} {
+                ++(1,0) coordinate (x_\i)
+            }
+            ;
+            \LEV{x_1}{x_4}
+            \REV{x_2}{x_3}
+            \RCOEV{x_3}{x_4}
+            \LCOEV{x_2}{x_5}
+            \draw[->-=.5] (x_1) -- +(0,-2);
+            \draw[-<-=.5] (x_5) -- +(0,2);
+            \node at ($0.5*(x_1)+0.5*(x_4)+(0,2.2)$) {$\lev_x$};
+            \node at ($0.5*(x_2)+0.5*(x_3)+(0,1)$) {$\lev_{x^*}$};
+            \node at ($0.5*(x_3)+0.5*(x_4)+(0,-1)$) {$\lev_{x}{}^\dagger$};
+            \node at ($0.5*(x_2)+0.5*(x_5)+(0,-2.2)$) {$\lcoev_{x^{**}}$};
+        \end{tikzpicture}
+    \end{align}
+    であるから，
+    \begin{align}
+        \dim_p(x^*)
+        &= \lqTr \bigl( (p^*_x)^{-1} \bigr) &&\because \quad \text{補題\ref{lem:pivotal}-(1)} \\
+        &= \lev_x \circ \lev_x{}^\dagger
+    \end{align}
+    と計算できる．よって
+    \begin{align}
+        \dim_p (x) = \dim_p (x^*) \IFF \lcoev_x{}^\dagger \circ \lcoev_x = \lev_x \circ \lev_x{}^\dagger
+    \end{align}
+\end{proof}
+
+\hyperref[redef:rigid]{coevaluation/evaluation}を適切に選ぶことで，いつでも命題\ref{prop:spherical-unitary}の条件を充たすようにできる．
+実際，$\lcoev_x,\, \lev_x$ が $x,\, x^* \in \Obj{\Cat{C}}$ に関する\hyperref[redef:dual]{(co)evaluation}ならば，$\forall \lambda \in \mathbb{C}^{\times}$ に対して $\lambda\, \lcoev_x,\; \lambda^{-1}\, \lev_x$ もまた\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equations)}}}を充たすので $x,\, x^*$ に関する\hyperref[redef:dual]{(co)evaluation}である．
+よって
+\begin{align}
+    \abs{\lambda}^2 = \sqrt{\frac{\lev_x \circ \lev_x{}^\dagger}{\lcoev_x{}^\dagger \circ \lcoev_x}}
+\end{align}
+を充たすように $\lambda$ を選べば良い~\cite[LEMMA 3.9., p.9]{yamagami2004frobenius}．
+
+\begin{mydef}[label=def:ev-coev-balanced]{balancedなユニタリテンソル圏}
+    \hyperref[def:unitary-monoidal]{ユニタリ}\hyperref[def:tensorfusion-cat]{テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, \dagger)$ 
+    が\textbf{balanced}であるとは，$\forall x \in \Obj{\Cat{C}}$ に対して
+    \begin{align}
+        \lcoev_x{}^\dagger \circ \lcoev_x = \lev_x \circ \lev_x{}^\dagger
+    \end{align}
+    が成り立つこと．このとき，命題\ref{prop:spherical-unitary}の構成によって $\Cat{C}$ は\hyperref[def:spherical]{球状圏}になる．
+\end{mydef}
 
 
 \subsection{Deligneのテンソル積}
@@ -2926,12 +3085,6 @@ $\forall (m,\, \rho) \in \Obj{\MODCR{\Cat{C}}{x}},\; \forall y,\,z \in \Obj{\Cat
     $\forall y,\,z,\, w \in \Obj{\Cat{C}},\; \forall (m,\, \rho) \in \Obj{\MODCR{\Cat{C}}{x}}$ に対して\hyperref[def:modulecat]{\textsf{\textbf{(lMOD-1)}}, \textsf{\textbf{(lMOD-2)}}}が成り立つことを示せば良い．
 \end{proof}
 
-\begin{mydef}[label=def:Morita-equiv]{森田同値}
-    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
-    
-    $\Cat{C}$ の2つの\hyperref[def:algobj]{代数対象} $(x_i,\, \mu_i,\, \upsilon_i) \WHERE i = 1,\, 2$ が\textbf{森田同値} (Morita equivalent) であるとは，\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏}として $\MODC{\Cat{C}}{x_1}$ と $\MODC{\Cat{C}}{x_2}$ が圏同値であることを言う．
-\end{mydef}
-
 \begin{mydef}[label=def:tensor-overalg]{代数上のテンソル積}
     \begin{itemize}
         \item \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ および $\Cat{C}$ の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$
@@ -2945,7 +3098,6 @@ $\forall (m,\, \rho) \in \Obj{\MODCR{\Cat{C}}{x}},\; \forall y,\,z \in \Obj{\Cat
        \end{tikzcd}
     \end{center}
 \end{mydef}
-
 
 \subsection{両側加群}
 
@@ -3068,6 +3220,14 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
     ~\cite[PROPOSITION7.8.30, p.146]{etingof2015tensor}
 \end{proof}
 
+\subsection{森田同値}
+
+\begin{mydef}[label=def:Morita-equiv]{森田同値}
+    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
+    
+    $\Cat{C}$ の2つの\hyperref[def:algobj]{代数対象} $(x_i,\, \mu_i,\, \upsilon_i) \WHERE i = 1,\, 2$ が\textbf{森田同値} (Morita equivalent) であるとは，\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏}として $\MODC{\Cat{C}}{x_1}$ と $\MODC{\Cat{C}}{x_2}$ が圏同値であることを言う．
+\end{mydef}
+
 \subsection{Frobenius代数}
 
 \begin{mydef}[label=def:Frobenius-alg]{Frobenius代数}
@@ -3097,64 +3257,36 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
 \begin{align}
     \label{eq:Frobenius}
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \coordinate (b1) at (0,0);
-        \coordinate (b2) at (2,0);
-        \coordinate (b3) at (4,0);
-        \coordinate (a1) at (1,-2);
-        \coordinate (a2) at (b3 |- a1);
-        \coordinate (c2) at (3,2);
-        \coordinate (c1) at (b1 |- c2);
-        \node[bullet] (D) at ($(a1) + (0,1)$) {};
-        \node[left] at (D) {$\Delta$};
-        \node[bullet] (M) at ($(c2) + (0,-1)$) {};
-        \node[right] at (M) {$\mu$};
-        \draw[->-=.5] (a1) -- node[midway, left] {$x$} (D);
-        \draw[->-=.5] (a2) -- node[midway, left] {$x$} (b3);
-        \draw[->-=.5] (D) to [out=30,in=-90] node[midway, right] {$x$} (b2);
-        \draw[->-=.5] (D) to [out=150,in=-90] node[midway, left] {$x$} (b1);
-        \draw[->-=.5] (b1) -- node[midway, left] {$x$} (c1);
-        \draw[->-=.5] (b2) to [out=90,in=-150] node[midway, left] {$x$} (M);
-        \draw[->-=.5] (b3) to [out=90,in=-30] node[midway, right] {$x$} (M);
-        \draw[->-=.5] (M) -- node[midway, right] {$x$} (c2);
+        \path coordinate[bullet,label=left:$\Delta$] (delta)
+        ++(60:2) coordinate[bullet,label=right:$\mu$] (mu)
+        ;
+        \draw[-<-=.5] (delta) -- node[midway,right] {$x$} ++(-90:1);
+        \draw[->-=.5] (delta) to[out=120,in=-90] node[midway,left] {$x$} ++(-1,{1+sqrt(3)});
+        \draw[->-=.5] (delta) -- node[midway,below right] {$x$} (mu);
+        \draw[-<-=.5] (mu) to[out=-60,in=90] node[midway,right] {$x$} ++(1,{-1-sqrt(3)});
+        \draw[->-=.5] (mu) -- node[midway,left] {$x$} ++(90:1);
     \end{tikzpicture}
     &\quad = 
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \coordinate (b) at (0,0);
-        \coordinate (a1) at (-1,-2);
-        \coordinate (a2) at (1,-2);
-        \coordinate (c1) at (-1,2);
-        \coordinate (c2) at (1,2);
-        \node[bullet] (D) at ($(b) + (0,-1)$) {};
-        \node[left] at (D) {$\Delta$};
-        \node[bullet] (M) at ($(b) + (0,1)$) {};
-        \node[right] at (M) {$\mu$};
-        \draw[->-=.5] (a1) -- node[midway, left] {$x$} (D);
-        \draw[->-=.5] (a2) -- node[midway, right] {$x$} (D);
-        \draw[->-=.5] (D) -- node[midway, right] {$x$} (M);
-        \draw[->-=.5] (M) -- node[midway, left] {$x$} (c1);
-        \draw[->-=.5] (M) -- node[midway, right] {$x$} (c2);
+        \path coordinate[bullet,label=right:$\mu$] (mu)
+        ++(0,2) coordinate[bullet,label=left:$\Delta$] (delta)
+        ;
+        \draw[-<-=.5] (mu) -- node[midway, left] {$x$} ++(-120:1);
+        \draw[-<-=.5] (mu) -- node[midway, right] {$x$} ++(-60:1);
+        \draw[->-=.5] (mu) -- node[midway,right] {$x$} (delta);
+        \draw[->-=.5] (delta) -- node[midway, right] {$x$} ++(60:1);
+        \draw[->-=.5] (delta) -- node[midway, left] {$x$} ++(120:1);
     \end{tikzpicture}
     = \quad
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \coordinate (b1) at (0,0);
-        \coordinate (b2) at (2,0);
-        \coordinate (b3) at (4,0);
-        \coordinate (a2) at (3,-2);
-        \coordinate (a1) at (b1 |- a2);
-        \coordinate (c1) at (1,2);
-        \coordinate (c2) at (b3 |- c1);
-        \node[bullet] (D) at ($(a2) + (0,1)$) {};
-        \node[left] at (D) {$\Delta$};
-        \node[bullet] (M) at ($(c1) + (0,-1)$) {};
-        \node[right] at (M) {$\mu$};
-        \draw[->-=.5] (a1) -- node[midway, left] {$x$} (b1);
-        \draw[->-=.5] (a2) -- node[midway, left] {$x$} (D);
-        \draw[->-=.5] (D) to [out=30,in=-90] node[midway, right] {$x$} (b3);
-        \draw[->-=.5] (D) to [out=150,in=-90] node[midway, left] {$x$} (b2);
-        \draw[->-=.5] (b3) -- node[midway, left] {$x$} (c2);
-        \draw[->-=.5] (b1) to [out=90,in=-150] node[midway, left] {$x$} (M);
-        \draw[->-=.5] (b2) to [out=90,in=-30] node[midway, right] {$x$} (M);
-        \draw[->-=.5] (M) -- node[midway, right] {$x$} (c1);
+        \path coordinate[bullet,label=right:$\Delta$] (delta)
+        ++(120:2) coordinate[bullet,label=left:$\mu$] (mu)
+        ;
+        \draw[-<-=.5] (delta) -- node[midway,left] {$x$} ++(-90:1);
+        \draw[->-=.5] (delta) to[out=60,in=-90] node[midway,left] {$x$} ++(1,{1+sqrt(3)});
+        \draw[->-=.5] (delta) -- node[midway,above right] {$x$} (mu);
+        \draw[-<-=.5] (mu) to[out=-120,in=90] node[midway,right] {$x$} ++(-1,{-1-sqrt(3)});
+        \draw[->-=.5] (mu) -- node[midway,right] {$x$} ++(90:1);
     \end{tikzpicture}
 \end{align}
 

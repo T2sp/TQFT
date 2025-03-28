@@ -228,7 +228,7 @@
     このとき，有限集合 $X,\, Y \subset \Lambda$ に台を持つ任意の演算子 $\hat{A}_X,\, \hat{B}_Y$ について，ある定数 $C,\, D,\, \xi_0$ が存在して以下が成り立つ：
     \begin{align}
         \mel{\psi_0^a}{\hat{A}_X \hat{B}_Y}{\psi_0^a} - \mel{\psi_0^a}{\hat{A}_X \hat{P}_0 \hat{B}_Y}{\psi_0^a} 
-        &\le C  \norm{\hat{A}_X} \norm{\hat{B}_Y} \Bigl\{ e^{- \frac{\mathrm{dist} (X,\, Y)}{\xi_0}} + \min (\abs{X},\, \abs{Y}) g \bigl(\mathrm{dist} (X,\, Y) \bigr) \Bigr\} \\
+        &\le C  \norm*{\hat{A}_X} \norm*{\hat{B}_Y} \Bigl\{ e^{- \frac{\mathrm{dist} (X,\, Y)}{\xi_0}} + \min (\abs{X},\, \abs{Y}) g \bigl(\mathrm{dist} (X,\, Y) \bigr) \Bigr\} \\
         &\qquad + D\, \mathrm{diam}\bigl(\Spec (\hat{H}_{\Lambda_i}) \cap (-\infty,\, E_0] \bigr)
     \end{align}
     ただし，$\ket{\psi_0^a} \in \Spec (\hat{H}_{\Lambda_i}) \cap (-\infty,\, E_0]$ であり，$\hat{P}_0 \coloneqq \sum_a \ketbra{\psi_0^a}{\psi_0^a}$ は基底状態が成す部分空間への射影演算子である．
@@ -308,7 +308,7 @@ gappedな量子系を特徴付けるデータは，\textbf{トポロジカル欠
         \hat{X} \coloneqq \mqty[0&1\\1&0],\quad \hat{Z} \coloneqq \mqty[1&0\\0&-1]
     \end{align}
     とおいた．全ての $\hat{A}_v,\, \hat{B}_p$ は可換なので同時対角化可能である．
-    そのうえ $(\hat{A}_v)^2 = (\hat{B}_p)^2 = \unity$ が成り立つ（このような模型を\textbf{commuting projector hamiltonian}と呼ぶ）ので，$\hat{A}_v,\, \hat{B}_p$ の固有値は \underline{$\abs{\Lambda}$ に関係なく}どちらも $\pm 1$ である．
+    そのうえ $(\hat{A}_v)^2 = (\hat{B}_p)^2 = \unity$ が成り立つ（このような模型を\textbf{commuting projector hamiltonian}と呼ぶ）ので，$\hat{A}_v,\, \hat{B}_p$ の固有値は \underline{システムサイズ $\abs{\Lambda}$ に関係なく}どちらも $\pm 1$ である．
     故にこの模型は\hyperref[def:quantum-phase]{gappedなトポロジカル秩序} $\mathsf{TC}$ を示す．
     
     　簡単のため，2次元Euclid空間上の無限系 $\Lambda = \mathbb{Z}^2 \subset \mathbb{R}^2$ を考える．toric code模型の持つ $0$ 次元の\hyperref[def:TD]{トポロジカル欠陥}を考えよう．
