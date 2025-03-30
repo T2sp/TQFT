@@ -926,9 +926,13 @@ $\mathfrak{Z}_2 (\Cat{C})$ は $\Cat{C}$ から\hyperref[redef:braided-monoidal]
         で定義すると，$c(\Cat{C}) \in \mathbb{Q} / 8 \mathbb{Z}$ が成り立つ．
         \item \textbf{$\bm{T}$-行列} ($T$-matrix) を
         \begin{align}
-            T_{xy} \coloneqq \theta_x \delta_{x,\, y}
+            T_{xy} \coloneqq \theta_x^{-1} \delta_{x,\, y}
         \end{align}
-        で定義すると，$(ST)^3 = \tau^+(\Cat{C}) S^2$ が成り立つ．
+        で定義すると，
+        \begin{align}
+            S^4 &= \dim(\Cat{C})^2 \unity, & (ST)^3 &= \tau^-(\Cat{C}) S^2
+        \end{align}
+        が成り立つ．
         従って $\LSL(2,\, \mathbb{Z})$ の生成元と関係式
         \begin{align}
             \langle\, \mathfrak{s},\, \mathfrak{t} \mid (\mathfrak{s}\mathfrak{t})^3 = \mathfrak{s}^2,\; \mathfrak{s}^4 = 1 \,\rangle
@@ -979,16 +983,25 @@ $\mathfrak{Z}_2 (\Cat{C})$ は $\Cat{C}$ から\hyperref[redef:braided-monoidal]
             &= \dim (y) \dim (z)\sum_{x \in \Simp(\Cat{C})} h_y(x) h_z (x^*) \\
             &= 0
         \end{align}
-        が成り立つ．一方で，(1), (2) より
+        が成り立つ．一方で，$y = z$ のときは (1), (2) を使って
         \begin{align}
             \bigl[\, S^2 \,\bigr]_{yy^*}
             &= \sum_{x \in \Simp(\Cat{C})} S_{xy} S_{xy^{*}} \\
             &= \sum_{x \in \Simp(\Cat{C})} \dim(x) \sum_{w \in \Simp(\Cat{C})} N^w_{yy^*} S_{xw} \\
-            &= \sum_{x \in \Simp(\Cat{C})} \dim(x) N^1_{yy^*} S_{x1} \\
-            &= \sum_{x \in \Simp(\Cat{C})} \dim(x)^2 \\
-            &= \dim (\Cat{C})
+            &= \sum_{w \in \Simp(\Cat{C})} N^w_{yy^*} \sum_{x \in \Simp(\Cat{C})} \dim(x) S_{xw}
         \end{align}
-        が言える．
+        と計算できる．ここで，写像 $\dim \colon \Gr(\Cat{C}) \lto \mathbb{C},\; x \lmto \dim (x)$ は環準同型であるから，補題\ref{lem:basedring}-(2) より
+        \begin{align}
+            \sum_{x \in \Simp(\Cat{C})} \dim(x) S_{xw}
+            &= \sum_{x \in \Simp(\Cat{C})} \dim(x^*) S_{wx} \\
+            &= \dim(w)\sum_{x \in \Simp(\Cat{C})} \dim(x^*) h_w(x) \\
+            &= \delta_{w,\, 1} \dim(\Cat{C}) \label{eq:dim-S}
+        \end{align}
+        が成り立つ．よって
+        \begin{align}
+            \bigl[\, S^2 \,\bigr]_{yy^*} = N^1_{yy^*} \dim \Cat{C} = \dim (\Cat{C})
+        \end{align}
+        が分かった．
         \item (2), (3) より
         \begin{align}
             \sum_{x \in \Simp(\Cat{C})} \frac{S_{xy} S_{xz} S_{xw^*}}{S_{x1}} 
@@ -998,8 +1011,58 @@ $\mathfrak{Z}_2 (\Cat{C})$ は $\Cat{C}$ から\hyperref[redef:braided-monoidal]
             &= \dim (\Cat{C}) N^w_{yz}
         \end{align}
         \item 
+        \begin{align}
+            \tau^+(\Cat{C}) \tau^-(\Cat{C})
+            % &= \sum_{x \in \Simp(\Cat{C})} \theta^{-1}_x \dim (x)^2 \tau^+(\Cat{C}) \\
+            &= \sum_{x \in \Simp(\Cat{C})} \theta^{-1}_x \dim (x) \sum_{y \in \Simp(\Cat{C})} \dim(x)\dim(y) \theta_y \dim(y) \\
+            &= \sum_{x \in \Simp(\Cat{C})} \theta^{-1}_x \dim (x) \sum_{y \in \Simp(\Cat{C})} \dim(y^* \otimes x) \theta_y \dim(y) \\
+            &= \sum_{x \in \Simp(\Cat{C})} \theta^{-1}_x \dim (x) \sum_{y \in \Simp(\Cat{C})} \sum_{z \in \Simp(\Cat{C})} N^z_{y^* x} \dim(z) \theta_y \dim(y) \\
+            &= \sum_{x \in \Simp(\Cat{C})} \dim (x) \sum_{z \in \Simp(\Cat{C})} \dim(z) \theta_z \left(\theta^{-1}_x \theta^{-1}_z \sum_{y \in \Simp(\Cat{C})} N^y_{xz} \theta_y \dim(y)\right) \\
+            &= \sum_{z \in \Simp(\Cat{C})} \dim(z) \theta_z \sum_{x \in \Simp(\Cat{C})} \dim(x) S_{xz} &&\because\; \text{命題\ref{prop:S-matrix}-(1)} \\
+            &= \sum_{z \in \Simp(\Cat{C})} \dim(z) \theta_z \delta_{z,\, 1} \dim (\Cat{C}) && \because\; \text{\eqref{eq:dim-S}}\\ 
+            &= \dim (\Cat{C})
+        \end{align}
+        \item 
+        \item $S^4 = \dim(\Cat{C})^2 \unity$ は (3) より従う．
+        (2) より，
+        \begin{align}
+            \bigl[\, STS \,\bigr]_{xy}
+            &= \sum_{z \in \Simp(\Cat{C})} S_{xz} \theta^{-1}_z S_{zy} \\
+            &= \sum_{z \in \Simp(\Cat{C})} \theta^{-1}_z S_{zx} S_{zy} \\
+            &=  \sum_{w \i \Simp(\Cat{C})} N^w_{xy} \sum_{z \in \Simp(\Cat{C})} \theta^{-1}_z \dim (z) S_{zw}
+            % &= \sum_{w \in \Simp(\Cat{C})} N^w_{xy} \sum_{z \in \Simp(\Cat{C})} \dim (z) \theta_w^{-1} \sum_{v \in \Simp(\Cat{C})} N^v_{zw} \theta_v\dim (v) &&\because\; \text{命題\ref{prop:S-matrix}-(1)}\\
+            % &= \sum_{w \in \Simp(\Cat{C})} N^w_{xy} \theta_w^{-1} \sum_{v \in \Simp(\Cat{C})} \theta_v\dim (v) \sum_{z \in \Simp(\Cat{C})} N^z_{vw^*} \dim(z) \\
+            % &= \sum_{w \in \Simp(\Cat{C})} N^w_{xy} \theta_w^{-1} \sum_{v \in \Simp(\Cat{C})} \theta_v\dim (v) \dim (v \otimes w^*) \\
+            % &= \sum_{w \in \Simp(\Cat{C})} N^w_{xy} \theta_w^{-1}\dim(w) \sum_{v \in \Simp(\Cat{C})} \theta_v\dim (v)^2 \\
+            % &= 
+            % \sum_{v \in \Simp(\Cat{C})} \theta_v \dim (v)\sum_{w \in \Simp(\Cat{C})} N^w_{xy} \theta_w^{-1} \sum_{c \in \Simp(\Cat{C})} N^c_{vw} \dim (c) \\
+            % &= \sum_{v \in \Simp(\Cat{C})} \theta_v \dim (v)^2 \sum_{w \in \Simp(\Cat{C})} N^w_{xy} \theta_v^{-1}\theta_w^{-1} \sum_{c \in \Simp(\Cat{C})} N^c_{vw} \dim (c)
+        \end{align}
+        ところで，
+        \begin{align}
+            &\tau^+(\Cat{C}) \sum_{z \in \Simp(\Cat{C})} \theta^{-1}_z \dim (z) S_{z^*w} \\
+            &= \sum_{x \in \Simp(\Cat{C})} \theta_x \dim (x) \sum_{z \in \Simp(\Cat{C})} S_{z^* w}\theta^{-1}_z \dim (x^* \otimes z) \\
+            &= \sum_{z \in \Simp(\Cat{C})} S_{z^* w}\theta^{-1}_z \sum_{x \in \Simp(\Cat{C})} \theta_x \dim (x) \sum_{y \in \Simp(\Cat{C})} N^y_{x^*z} \dim (y) \\
+            &= \sum_{z \in \Simp(\Cat{C})} S_{z^* w} \sum_{y \in \Simp(\Cat{C})} \theta_y\dim (y) \left( \theta^{-1}_z \theta^{-1}_y\sum_{x \in \Simp(\Cat{C})} N^x_{zy} \theta_x \dim (x)\right) \\
+            &= \sum_{z \in \Simp(\Cat{C})} S_{z^* w} \sum_{y \in \Simp(\Cat{C})} \theta_y\dim (y) S_{zy} \\
+            &= \sum_{y \in \Simp(\Cat{C})} \theta_y\dim (y) \sum_{z \in \Simp(\Cat{C})} S_{yz} S_{z w^*} \\
+            &= \dim(\Cat{C}) \theta_w\dim (w) &&\because\; \text{(3)} \\
+            &= \tau^+(\Cat{C}) \tau^- (\Cat{C}) \theta_w\dim (w) &&\because\; \text{(5)}
+        \end{align}
+        であるから
+        \begin{align}
+            \label{eq:tau-}
+            \sum_{z \in \Simp(\Cat{C})} \theta^{-1}_z \dim (z) S_{zw} = \theta_w\dim (w) \tau^- (\Cat{C})
+        \end{align}
+        が分かる．故に
+        \begin{align}
+            \bigl[\, STS \,\bigr]_{xy}
+            &= \tau^- (\Cat{C}) \sum_{w \i \Simp(\Cat{C})} N^w_{xy} \theta_w\dim (w) \\
+            &= \tau^- (\Cat{C}) \theta_x \theta_y S_{xy} &&\because\; \text{命題\ref{prop:S-matrix}-(1)} \\
+            &= \tau^- (\Cat{C}) \bigl[ \, T^{-1}ST^{-1} \bigr]_{xy}
+        \end{align}
+        と計算できた．ここから $(ST)^3 = ST (STST) = ST \bigl(\tau^- (\Cat{C}) T^{-1} S \bigr) = \tau^-(\Cat{C}) S^2$ として所望の式を得る．
     \end{enumerate}
-    
 \end{proof}
 
 
