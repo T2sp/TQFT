@@ -944,6 +944,59 @@ $\mathfrak{Z}_2 (\Cat{C})$ は $\Cat{C}$ から\hyperref[redef:braided-monoidal]
 
 \begin{proof}
     \begin{enumerate}
+        \item まず，\hyperref[redef:braided-monoidal]{braiding}の存在により $x \otimes y \cong y \otimes x$ であるから，\hyperref[col:Yoneda]{米田の補題}により $\Hom{\Cat{C}}(x \otimes y,\, z) \cong \Hom{\Cat{C}}(y \otimes x,\, z)$ が言える．よって
+        \begin{align}
+            N^z_{xy} = \dim_{\mathbb{C}}\Hom{\Cat{C}}(x \otimes y,\, z) = \dim_{\mathbb{C}}\Hom{\Cat{C}}(y \otimes x,\, z) = N^z_{yx}
+        \end{align}
+        である．
+        従って命題\ref{prop:S-matrix}-(1) より
+        \begin{align}
+            S_{xy} 
+            &= \theta_x^{-1} \theta_y^{-1} \sum_{z \in \Simp(\Cat{C})} N^z_{xy} \theta_z \dim (z) \\
+            &= \theta_y^{-1}\theta_x^{-1}  \sum_{z \in \Simp(\Cat{C})} N^z_{yx} \theta_z \dim (z) \\
+            &= S_{yx}
+        \end{align}
+        さらに，
+        \begin{align}
+            N^z_{1x} = \dim_{\mathbb{C}} \Hom{\Cat{C}} (x,\, z) = \delta_{xz}
+        \end{align}
+        であるから
+        \begin{align}
+            S_{1x} 
+            &= \theta_x^{-1} \sum_{z \in \Simp(\Cat{C})} N^z_{1x} \theta_z \dim (z) \\
+            &= \dim (x)
+        \end{align}
+        が成り立つ．
+        \item 命題\ref{prop:S-matrix}-(2)
+        \item 命題\ref{prop:S-matrix}-(3) より，$\forall x \in \Simp(\Cat{C})$ に対して定まる写像 $h_x \colon \Gr(\Cat{C}) \lto \mathbb{C},\; y \lmto S_{xy} / \dim(x)$ は環準同型である．
+        特に\hyperref[def:MTC]{MTC}は\hyperref[def:nondegen-BFC]{非退化}なので $S$-行列も非退化であり，$h_y = h_z$ であるためには $y=z$ であることが必要十分である．
+
+        　$y \neq z$ のとき，(1) および補題\ref{lem:basedring}-(2) より
+        \begin{align}
+            \bigl[\, S^2 \,\bigr]_{yz^*}
+            &= \sum_{x \in \Simp(\Cat{C})} S_{yx} S_{xz^{*}} \\
+            &= \sum_{x \in \Simp(\Cat{C})} S_{yx} S_{zx^*} \\
+            &= \dim (y) \dim (z)\sum_{x \in \Simp(\Cat{C})} h_y(x) h_z (x^*) \\
+            &= 0
+        \end{align}
+        が成り立つ．一方で，(1), (2) より
+        \begin{align}
+            \bigl[\, S^2 \,\bigr]_{yy^*}
+            &= \sum_{x \in \Simp(\Cat{C})} S_{xy} S_{xy^{*}} \\
+            &= \sum_{x \in \Simp(\Cat{C})} \dim(x) \sum_{w \in \Simp(\Cat{C})} N^w_{yy^*} S_{xw} \\
+            &= \sum_{x \in \Simp(\Cat{C})} \dim(x) N^1_{yy^*} S_{x1} \\
+            &= \sum_{x \in \Simp(\Cat{C})} \dim(x)^2 \\
+            &= \dim (\Cat{C})
+        \end{align}
+        が言える．
+        \item (2), (3) より
+        \begin{align}
+            \sum_{x \in \Simp(\Cat{C})} \frac{S_{xy} S_{xz} S_{xw^*}}{S_{x1}} 
+            &= \sum_{x \in \Simp(\Cat{C})} \frac{S_{xw^*}}{\cancel{S_{x1}}} \cancel{\dim (x)} \sum_{u \in \Simp(\Cat{C})} N^u_{yz} S_{xu} \\
+            &= \sum_{u \in \Simp(\Cat{C})} N^u_{yz} \sum_{x \in \Simp(\Cat{C})} S_{ux} S_{xw^*} \\
+            &= \sum_{u \in \Simp(\Cat{C})} N^u_{yz} \bigl[\, S^2 \,\bigr]_{uw^*} \\
+            &= \dim (\Cat{C}) N^w_{yz}
+        \end{align}
         \item 
     \end{enumerate}
     

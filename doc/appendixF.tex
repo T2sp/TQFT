@@ -1847,7 +1847,7 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
 \end{myexample}
 
 
-\subsection{量子次元}
+\subsection{旋回構造・球状構造・量子次元}
 
 \begin{mydef}[label=def:qtrace,breakable]{量子トレース}
     \begin{itemize}
@@ -2085,7 +2085,7 @@ $f \in \End_{\mathbb{C}} (x)$ に対してトレースを定義するために�
 
 非常に重要な予想がある~\cite[Conjecture 2.8., p.5]{EtingofNikschychOstrik2002}：
 \begin{myconj}[label=conj:kfusion-pivotal]{フュージョン圏はpivotal}
-    任意の\hyperref[def:tensorfusion-cat]{フュージョン圏}は\hyperref[def:pivotal]{旋回構造}を持つ．
+    任意の\hyperref[def:semisimple-cat]{半単純}な\hyperref[def:tensorfusion-cat]{テンソル圏}は\hyperref[def:pivotal]{旋回構造}を持つ．
 \end{myconj}
 本資料ではこの予想を認める．
 
@@ -2233,7 +2233,7 @@ $f \in \End_{\mathbb{C}} (x)$ に対してトレースを定義するために�
 
 \subsection{フュージョン環・Frobenius-Perron次元}
 
-$(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, \rcoev,\, \rev)$ を体 $\mathbb{K}$ 上の\hyperref[def:tensorfusion-cat]{多重フュージョン圏}とする．
+$(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, \rcoev,\, \rev)$ を体 $\mathbb{K}$ 上の\hyperref[def:semisimple-cat]{半単純}な\hyperref[def:tensorfusion-cat]{多重フュージョン圏}とする．
 $\Cat{C}$ の\hyperref[def:semisimple-cat]{単純対象}の同型類が成す有限集合を $\bm{\Simp (\Cat{C})}$ と書く．
 
 このとき，$\Simp(\Cat{C})$ が生成する自由 $\mathbb{Z}$-加群 $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ の上に次のようにして積を入れることができる：
@@ -2249,7 +2249,112 @@ $\Cat{C}$ は\hyperref[def:semisimple-cat]{半単純}なので，右辺に対し
 と書ける．式\eqref{eq:fusionrule}のことを\textbf{フュージョン則} (fusion rule) と呼ぶ．
 $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 上の積\eqref{eq:fusionring}は明らかに結合則を充たし，単位元 $[1]$ を持つ
 \footnote{命題\ref{prop:1-simple}より $\Cat{C}$ がテンソル圏ならば $1 \in \Simp(\Cat{C})$ であるが，多重テンソル圏においては必ずしもそうではない．しかるに，$1 \notin \Simp{\Cat{C}}$ であったとしても $\Cat{C}$ の半単純性から $[1] \in \mathbb{Z}^{\oplus \Simp(\Cat{C})}$ は成り立つ．}．
-このようにしてできる環 $(\mathbb{Z}^{\oplus \Simp(\Cat{C})},\, \star\; ,\, [1])$ のことを\textbf{フュージョン環} (fusion ring) と呼ぶ．
+このようにしてできる環 $(\mathbb{Z}^{\oplus \Simp(\Cat{C})},\, \star\; ,\, [1])$ のことを\textbf{Grothendieck環} (Grothendieck ring) と呼び，$\bm{\Gr (\Cat{C})}$ と書く．
+次の定義は，この構成を一般化したものである：
+
+\begin{mydef}[label=def:Z+ring]{$\mathbb{Z}_+$-環・フュージョン環}
+    $(\mathbb{Z}^{\oplus I},\, \star,\, 1)$ を環とする．$A \coloneqq \mathbb{Z}^{\oplus I}$ とおく．また，部分集合 $I_0 \subset I$ を $1 \eqqcolon \sum_{i \in \textcolor{red}{I_0}} x_i b_i$ で定義する．
+    \begin{enumerate}
+        \item $A$ の基底 $\{b_i\}_{i \in I}$ が\textbf{$\bm{\mathbb{Z}_+}$-基底} ($\mathbb{Z}_+$-basis) であるとは，$\forall i,\, j \in I$ に対してある非負整数の族 $\bigl\{N^c_{ij} \in \mathbb{Z}_{+}\bigr\}_{c \in I}$ が存在して
+        \begin{align}
+            b_i \star b_j = \sum_{c \in I} N^c_{ij} b_c
+        \end{align}
+        を充たすことを言う．
+        \item 環 $(A,\, \star,\, 1)$ とその $\mathbb{Z}_+$ 基底の組 $(A,\, \star,\, 1,\, \{b_i\}_{i \in I})$ が\textbf{$\bm{\mathbb{Z}_+}$-環} ($\mathbb{Z}_+$-ring) であるとは，$1 \in A$ が $\{b_i\}_{i \in I}$ の非負係数線型結合で書けることを言う．
+        \item $\mathbb{Z}_+$-環 $(A,\, \star,\, 1,\, \{b_i\}_{i \in I})$ が\textbf{単位的} (unital) であるとは，$1 \in A$ が $\mathbb{Z}_+$-基底であることを言う．
+        \item $\mathbb{Z}_+$-環 $(A,\, \star,\, 1,\, \{b_i\}_{i \in I})$ が\textbf{底的} (based) であるとは，以下の2つの条件を充たすことを言う：
+        \begin{description}
+            \item[\textbf{(based-1)}] ある対合射\footnote{i.e. $(\mhyphen)^{**} = \Id_I$} $(\mhyphen)^* \colon I \lto I,\; i \lmto i^*$ が存在して，それに誘導される写像
+            \begin{align}
+                A &\lto A,\\
+                \sum_{i \in I} x_i b_i &\lmto \sum_{i \in I} x_i b_{i^*}
+            \end{align}
+            が環の反対合準同型になる．
+            \item[\textbf{(based-2)}] 可換群の準同型
+            \begin{align}
+                \tau \colon A &\lto \mathbb{Z}, \\
+                b_i &\lmto \begin{cases}
+                    1, &i \in I_0 \\
+                    0, &i \notin I_0
+                \end{cases}
+            \end{align}
+            が，$\forall i,\, j \in I$ に対して以下を充たす：
+            \begin{align}
+                \tau (b_i \star b_j) 
+                &= \delta_{i,\,j^*}
+            \end{align}
+        \end{description}
+        \item \textbf{多重フュージョン環} (multifusion ring) とは，底的な $\mathbb{Z}_+$-環 $(A,\, \star,\, 1,\, \{b_i\}_{i \in I})$ であって $I$ が有限集合であるもののこと．
+        \item \textbf{フュージョン環} (fusion ring) とは，単位的な多重フュージョン環のこと．
+    \end{enumerate}
+\end{mydef}
+
+\begin{mylem}[label=lem:Gr-based]{Grothendieck環は底的な $\mathbb{Z}_+$-環}
+    \begin{enumerate}
+        \item $\Cat{C}$ が\hyperref[def:semisimple-cat]{半単純}な\hyperref[def:tensorfusion-cat]{多重テンソル圏} $\IMP$ $\Gr(\Cat{C})$ は\hyperref[def:Z+ring]{底的}な\hyperref[def:Z+ring]{$\mathbb{Z}_+$-環}
+        \item $\Cat{C}$ が\hyperref[def:semisimple-cat]{半単純}な\hyperref[def:tensorfusion-cat]{テンソル圏} $\IMP$ $\Gr(\Cat{C})$ は\hyperref[def:Z+ring]{底的}な\hyperref[def:Z+ring]{単位的}\hyperref[def:Z+ring]{$\mathbb{Z}_+$-環}
+        \item $\Cat{C}$ が\hyperref[def:tensorfusion-cat]{多重フュージョン圏} $\IMP$ $\Gr(\Cat{C})$ は\hyperref[def:Z+ring]{多重フュージョン環}
+        \item $\Cat{C}$ が\hyperref[def:tensorfusion-cat]{フュージョン圏} $\IMP$ $\Gr(\Cat{C})$ は\hyperref[def:Z+ring]{フュージョン環}
+    \end{enumerate}
+\end{mylem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+\end{proof}
+
+\begin{mylem}[label=lem:basedring]{フュージョン環の性質}
+    $(A,\, \star,\, 1,\, \{b_i\}_{i \in I})$ を\hyperref[def:Z+ring]{底的な $\mathbb{Z}_+$-環}とする．また，$\mathbb{K}$ を標数0の代数閉体とする．
+    このとき，以下が成り立つ：
+    \begin{enumerate}
+        \item $\forall i,\, j,\, k \in I$ に対して，
+        \begin{align}
+            N^{k^*}_{i,\, j} = N^{j^*}_{ki} = N^{i^*}_{jk}
+        \end{align}
+        \item 2つの異なる環準同型 $\chi_1,\, \chi_2 \colon A \lto \mathbb{K}$ に対して，
+        \begin{align}
+            \sum_{i \in I} \chi_1 (b_i) \chi_2 (b_{i^*}) = 0
+        \end{align}
+    \end{enumerate}
+\end{mylem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 
+        \begin{align}
+            \tau (b_i \star b_j \star b_k)
+            &= \sum_{l \in I} N^l_{ij} \tau (b_l \star b_k) = N^{k_*}_{ij}
+        \end{align}
+        である．さらに，$(\mhyphen)^* \colon I \lto I$ が対合射であることから
+        \begin{align}
+            \tau (b_i \star b_j) = \delta_{i,\, j^*} = \delta_{j^{**},\, i^*} = \delta_{j,\, i^*} = \tau (b_j \star b_i)
+        \end{align}
+        が言えるので，示された．
+        \item $P \coloneqq \sum_{i \in I} \chi_1 (b_i) b_{i^*} \in A \otimes_{\mathbb{Z}} \mathbb{K}$ とおく．このとき $\forall j \in I$ に対して
+        \begin{align}
+            b_j \star P
+            &= \sum_{i \in I} \chi_1 (b_i) b_j \star b_{i^*} \\
+            &= \sum_{i,\, k \in I} \chi_1 (b_i) N^k_{j i^*} b_k \\
+            &= \sum_{i,\, k \in I} \chi_1 (b_i) N^i_{k^* j} b_k &&\because\; \text{(1)} \\
+            &= \sum_{k \in I} \chi_1 \left(\sum_{i \in I}  N^i_{k^* j} b_i \right) b_k \\
+            &= \sum_{k \in I} \chi_1 (b_{k^*} \star b_j) b_k \\
+            &= \chi_1 (b_j) P
+        \end{align}
+        が成り立つ．両辺に $\chi_2$ を作用させることで，$\forall j \in I$ に対して
+        \begin{align}
+            \chi_2(b_j) \left(\sum_{i \in I} \chi_1 (b_i) \chi_2(b_{i^*}) \right) 
+            = \chi_1 (b_j) \left( \sum_{i \in I} \chi_1 (b_i) \chi_2(b_{i^*}) \right) 
+        \end{align}
+        が成り立たねばならないことが分かる．ところが $\chi_1 \neq \chi_2$ なので，
+        \begin{align}
+            \sum_{i \in I} \chi_1 (b_i) \chi_2(b_{i^*}) = 0
+        \end{align}
+        である．
+    \end{enumerate}
+    
+\end{proof}
+
 
 \begin{mydef}[label=def:FPdim]{Frobenius-Perron次元}
     $x \in \Simp(\Cat{C})$ の\textbf{Frobenius-Perron次元} (Frobenius-Perron dimension) とは，非負整数値行列 $\bigl[\, N^{\textcolor{red}{c}}_{x \textcolor{red}{b}} \bigr]_{1 \le \textcolor{red}{b},\, \textcolor{red}{c} \le \abs{\Simp(\Cat{C})}}$ の最大の非負固有値 $\bm{\FPdim_{\Cat{C}} (x)} \in \mathbb{C}$ のこと．
@@ -2259,7 +2364,7 @@ $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 上の積\eqref{eq:fusionring}は明らか�
 
 \hyperref[def:tensorfusion-cat]{多重フュージョン圏}は\hyperref[def:semisimple-cat]{半単純}かつ\hyperref[def:finite-abcat]{有限}なので，補題\ref{lem:simple-hom}-(1) および\hyperref[prop:lim-colim-basic]{極限・余極限とHomの交換}，フュージョン則\eqref{eq:fusionrule}から
 \begin{align}
-    \Hom{\Cat{C}} (x \otimes y,\, z) \cong \bigoplus_{w \in \Simp(\Cat{C})} N^w_{xy} \Hom{\Cat{C}}(w,\, z) \cong \mathbb{K}^{\oplus N^w_{xy}}
+    \Hom{\Cat{C}} (x \otimes y,\, z) \cong \bigoplus_{w \in \Simp(\Cat{C})} N^w_{xy} \Hom{\Cat{C}}(w,\, z) \cong \mathbb{K}^{\oplus N^z_{xy}}
 \end{align}
 が $\forall x,\, y,\, z \in \Simp{\Cat{C}}$ に対して成り立つ．i.e. $\dim_{\mathbb{K}} \Hom{\Cat{C}} (x \otimes y,\, z) = N^z_{xy}$ である\footnote{この次元は $\mathbb{K}$-ベクトル空間としての次元である．}．
 よって
@@ -3717,7 +3822,7 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
             h_x \colon \Simp(\Cat{C}) &\lto \mathbb{K}, \\
             y &\lmto \frac{S_{xy}}{\dim_{u\circ \theta} (x)}
         \end{align}
-        は，\hyperref[eq:fusionring]{フュージョン環}から $\mathbb{K}$ への環準同型を定める．
+        は，\hyperref[eq:fusionring]{Grothendieck環} $\Gr (\Cat{C})$ から $\mathbb{K}$ への環準同型を定める．
     \end{enumerate}
 \end{myprop}
 
