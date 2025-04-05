@@ -1010,19 +1010,56 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
         \end{tikzpicture}
     \end{center}
     のように向きづけられた三角形として図示する．この図は単体的恒等式\eqref{eq:Simp1}を表している．
-    \item $K_3$ の元（i.e. $3$-単体）$t \in K_3$ を
+    \item $K_3$ の元（i.e. $3$-単体）$t \in K_3$ を，
     \begin{center}
-        \begin{tikzpicture}
-            \pgfmathsetmacro{\factor}{sqrt(3)/2};
-            \pgfmathsetmacro{\factorh}{sqrt(2/3)};
-            \node[bullet={below:$x$}] (x) at (0,0,0)  {};
-            \node[bullet={below:$y$}] (y) at (2,0,0) {};
-            \node[bullet={below:$z$}] (z) at (1,2*\factor,0)  {};
-            \node[bullet={below:$w$}] (w) at (1,2/3*\factor,2*\factorh)  {};
-            % \node (s) at ($(1,0)!0.33!(z)$) {$\sigma$};
-        \end{tikzpicture}
+        \begin{tikzpicture}[
+            3d/install view={phi=45,psi=0,theta=60},
+            declare function={
+                a=7;
+                g=0.45;
+            }
+        ]
+            \path 
+                (-a/2,0,0) coordinate (P_1)
+                (a/2,0,0) coordinate (P_2)
+                (0,{a*sqrt(3)/2},0) coordinate (P_3)
+                (0,{a/(2*sqrt(3))},{a*sqrt(2/3)}) coordinate (P_4)
+                (0,{a/(2*sqrt(3))},{a/(2*sqrt(6))}) coordinate (P_5)
+            ;
+        
+            % faces
+            \fill[fill=green,opacity=0.1,save named path=f_134] (P_1) -- (P_3) -- (P_4) -- cycle;
+            \fill[fill=red,opacity=0.1,save named path=f_123] (P_1) -- (P_2) -- (P_3) -- cycle;
+            \fill[fill=blue,opacity=0.1,save named path=f_124] (P_1) -- (P_2) -- (P_4) -- cycle;
+            \fill[fill=DarkOrange,opacity=0.1,save named path=f_234] (P_2) -- (P_3) -- (P_4) -- cycle;
+         
+            % edge
+            \draw[->-=.5,save named path=e_12] (P_1) -- (P_2);
+            \draw[-<-=.5,save named path=e_13] (P_1) -- (P_3);
+            \draw[-<-=.5,save named path=e_14] (P_1) -- (P_4);
+            \draw[-<-=.5,save named path=e_23] (P_2) -- (P_3);
+            \draw[-<-=.5,save named path=e_24] (P_2) -- (P_4);
+            \draw[-<-=.5,save named path=e_34] (P_3) -- (P_4);
+            
+            
+            % labels
+            \path[red,save named path=d_31, plane x={($(P_2)-(P_1)$)}, plane y={($(P_3)-(P_1)$)}, canvas is plane] ($(P_1) + (0.35,0.35)$) node {$\partial^3_0(t)$};
+            \path[DarkGreen,save named path=d_32, plane x={($(P_3)-(P_1)$)}, plane y={($(P_4)-(P_1)$)}, canvas is plane] ($(P_1) + (0.35,0.35)$) node {$\partial^3_3(t)$};
+            \path[blue,save named path=d_33, plane x={($(P_2)-(P_1)$)}, plane y={($(P_4)-(P_1)$)}, canvas is plane] ($(P_1) + (0.35,0.35)$) node {$\partial^3_1(t)$};
+            \path[DarkOrange,save named path=d_34, plane x={($(P_3)-(P_2)$)}, plane y={($(P_4)-(P_2)$)}, canvas is plane] ($(P_2) + (0.35,0.35)$) node {$\partial^3_2(t)$};
+        
+            \foreach \i in {1,...,4} {
+                \node[bullet] at (P_\i) {};
+            }
+            \node[left] at (P_1) {2};
+            \node[below] at (P_2) {3};
+            \node[right] at (P_3) {1};
+            \node[above] at (P_4) {0};
+            \fill[white] (P_5) circle[radius=5pt];
+            \node at (P_5) {$t$};
+        \end{tikzpicture}        
     \end{center}
-    
+    のように向き付けられた四面体として図示する．四面体の面の繋がり方が単体的恒等式\eqref{eq:Simp1}を表している．
     \item $K_n$ の元（i.e. $n$-単体）は，単体的恒等式\eqref{eq:Simp1}によって帰納的に図示する．
 \end{enumerate}
 
