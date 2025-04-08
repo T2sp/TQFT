@@ -3521,7 +3521,7 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
 \subsection{リボン構造と旋回構造の関係}
 
 \begin{mylem}[label=lem:braid-ribbon]{テンソル圏における組紐と旋回構造}
-    \hyperref[redef:braided-monoidal]{組紐付きモノイダル圏} $(\Cat{C},\, I,\, a,\, l,\, r,\, b)$ を与え，
+    \hyperref[redef:rigid]{rigid}な\hyperref[redef:braided-monoidal]{組紐付きモノイダル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev,\, b)$ を与え，
     $\forall x \in \Obj{\Cat{C}}$ に対して射 $u_x \colon x \lto x^{**}$ を以下で定義する\footnote{\textbf{Drinfeld morphism}と呼ぶ~\cite[DEFINITION 8.9.4., p.215]{etingof2015tensor}}：
     \begin{align}
         x \xrightarrow{\Id_x \otimes \lcoev_{x^*}} x \otimes x^* \otimes x^{**} \xrightarrow{b_{x,x^*} \otimes \Id_{x^{**}}} x^* \otimes x \otimes x^{**} \xrightarrow{\lev_x \otimes \Id_{x^{**}}} x^{**}
