@@ -1035,7 +1035,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
          
             % edge
             \draw[->-=.5,save named path=e_12] (P_1) -- (P_2);
-            \draw[-<-=.5,save named path=e_13] (P_1) -- (P_3);
+            \draw[-<-=.5,dashed,save named path=e_13] (P_1) -- (P_3);
             \draw[-<-=.5,save named path=e_14] (P_1) -- (P_4);
             \draw[-<-=.5,save named path=e_23] (P_2) -- (P_3);
             \draw[-<-=.5,save named path=e_24] (P_2) -- (P_4);
@@ -1105,8 +1105,9 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     
 \end{proof}
 
-定義\ref{def:SimpSet}を再現する具体的な構成をする．
+\subsection{幾何学的実現}
 
+定義\ref{def:SimpSet}を再現する具体的な構成をする．
 
 \begin{mydef}[label=def:simplicial-top,breakable]{幾何学的 $n$-単体}
     \begin{itemize}
@@ -1174,6 +1175,8 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     \end{align}
     が言える．
 \end{proof}
+
+\subsection{境界・角・背骨}
 
 \begin{mydef}[label=def:horn,breakable]{境界・角・背骨・骨格}
     \begin{itemize}
@@ -1752,7 +1755,7 @@ $[n] \in \Obj{\Delta}$ に対して，
             \end{tikzcd}
         \end{center}
         $f,\, g$ を繋ぐホモトピーが存在するとき，$f,\, g$ は互いに\textbf{ホモトピック}であるという．
-        \item $f \circ i = g circ i \eqqcolon \alpha$ とおく．ホモトピー $\eta \in \Hom{\SimpSet} (X \times \Delta^1,\, Y)$ が $f$ と $g$ の間の\textbf{$\bm{K}$ に関する相対ホモトピー} (homotopy from $f$ to $g$ (rel $K$)) であるとは，上の可換図式に加えて
+        \item $f \circ i = g \circ i \eqqcolon \alpha$ とおく．ホモトピー $\eta \in \Hom{\SimpSet} (X \times \Delta^1,\, Y)$ が $f$ と $g$ の間の\textbf{$\bm{K}$ に関する相対ホモトピー} (homotopy from $f$ to $g$ (rel $K$)) であるとは，上の可換図式に加えて
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
                  &K \times \Delta^1 \ar[r, hookrightarrow, "i \times \Id"]\ar[d, "\mathrm{pr}"'] &X \times \Delta^1 \ar[d, "\eta"] \\
