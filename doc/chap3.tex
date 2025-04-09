@@ -2047,25 +2047,25 @@ $G$ をLie群とする．
 \begin{itemize}
     \item $\forall X \in \Obj{\bm{\mathrm{hoMfd}}}$ に対して集合
     \begin{align}
-        k_G(X) &\coloneqq \bigl\{\, X\; \text{上の\hyperref[def.PFD]{主束}の\hyperref[def.bundlemap]{束同型}類} \,\bigr\}
+        \mathrm{Prin}_G(X) &\coloneqq \bigl\{\, X\; \text{上の\hyperref[def.PFD]{主束}の\hyperref[def.bundlemap]{束同型}類} \,\bigr\}
     \end{align}
     を，
     \item $\forall X,\, Y \in \Obj{\bm{\mathrm{hoMfd}}}$ の $\forall [f] \in \Hom{\bm{\mathrm{hoMfd}}} (X,\, Y)$ に対して写像
     \begin{align}
-        k_G \bigl( [f] \bigr) \colon k_G (Y) \lto k_G(X),\; [\xi] \lmto [f^* (\xi)]
+        \mathrm{Prin}_G \bigl( [f] \bigr) \colon \mathrm{Prin}_G (Y) \lto \mathrm{Prin}_G(X),\; [\xi] \lmto [f^* (\xi)]
     \end{align}
     を
 \end{itemize}
 対応づける対応
 \begin{align}
-    k_G \colon \bm{\mathrm{hoMfd}} \lto \SETS
+    \mathrm{Prin}_G \colon \bm{\mathrm{hoMfd}} \lto \SETS
 \end{align}
 は反変関手である~\cite[p.53, 10.1 Theorem]{Husemoller1994}．
 
 \begin{mydef}[label=def:universal-bundle]{普遍束}
     主束 $G \hookrightarrow P \xrightarrow{\pi} B$ が $G$ の\textbf{普遍束} (universal bundle) であるとは，$\forall X \in \Obj{\bm{\mathrm{hoMfd}}}$ について定まる写像
     \begin{align}
-        \phi_P (X) \colon \comm{X}{B} \lto k_G(X),\; [f] \lmto [f^* P]
+        \phi_P (X) \colon \comm{X}{B} \lto \mathrm{Prin}_G(X),\; [f] \lmto [f^* P]
     \end{align}
     が全単射になること．
     \tcblower
@@ -2088,7 +2088,7 @@ $G$ の普遍束の全空間を $\bm{EG}$，分類空間を $\bm{BG}$ と書く�
 \end{proof}
 
 \begin{myprop}[label=prop:universal-contractible]{普遍束の全空間の特徴付け}
-    主束 $G \hookrightarrow P \xrightarrow{\pi} B$ が\hyperref[def:universal-bundle]{普遍束}であるための必要十分条件は，$\forall n \ge 0$ に対して $\pi_n(EG) = 0$ を充たすことである．
+    主束 $G \hookrightarrow P \xrightarrow{\pi} B$ が\hyperref[def:universal-bundle]{普遍束}であるための必要十分条件は，$\forall n \ge 0$ に対して $\pi_n(P) = 0$ を充たすことである．
 \end{myprop}
 
 \begin{proof}
@@ -2469,18 +2469,18 @@ $d=D+1$ 次元時空 $\mfdcal{M}{d}$ を考える．
 大域的切断 $s \colon \mfdcal{M}{d} \lto P$ を許容する主束 $P$ およびその接続 $\omega \in \Omega^1(P;\, \mathfrak{g})$ を与え，
 2点 $x,\, y \in \mfdcal{M}{d}$ を繋ぐ曲線 $\sigma \in \Hom{\PATH{\mfdcal{M}{d}}}(x,\, y)$ であって，その\hyperref[def:horizontal-lift-curve]{水平持ち上げ} $\tilde{\sigma}$ が $\tilde{\sigma} (0) = s(x)$ を充たすものをとる．するとこのとき
 $\tilde{\sigma}(1) = s(y) \btl g_\sigma$ を充たす $g_\sigma \in G$ が一意に定まる．さらに2点 $y,\, z \in \mfdcal{M}{d}$ を繋ぐ曲線 $\sigma' \in \Hom{\PATH{\mfdcal{M}{d}}}(y,\, z)$ であって，その水平持ち上げ $\tilde{\sigma'}$ が $\tilde{\sigma'}(0) = s(y)$ を充たすものをとると，
-水平持ち上げの一意性から $\tilde{(\sigma' * \sigma)} (1) = s(z) \btl g_\sigma g_{\sigma'}$ が成り立つ．従って，$P$ が自明束ならば命題\ref{prop:connection-functor}の関手 $\Gamma_\omega \colon \PATH{\mfdcal{M}{d}} \lto \VECT$ は関手
+水平持ち上げの一意性から $\widetilde{(\sigma' * \sigma)} (1) = s(z) \btl g_\sigma g_{\sigma'}$ が成り立つ．従って，$P$ が自明束ならば命題\ref{prop:connection-functor}の関手 $\Gamma_\omega \colon \PATH{\mfdcal{M}{d}} \lto \VECT$ は関手
 \begin{align}
-    \Gamma_\omega \colon \PATH{\mfdcal{M}{d}} \lto \bm{G}
+    \Gamma_\omega \colon \PATH{\mfdcal{M}{d}} \lto \deloop{G}
 \end{align}
-と見做せる．ただし $\bm{G}$ は
+と見做せる．ただし $\deloop{G}$ は
 \begin{itemize}
-    \item $G$ のみを対象に持つ
-    \item $G$ の元を射に持つ
+    \item 一点のみを対象に持つ：$\Obj{\deloop{G}} = \{*\}$
+    \item $G$ の元を射に持つ．射の合成は $G$ の積として定める
 \end{itemize}
 ことで構成される圏である．
 % \footnote{$\Obj{\bm{G}} = \{G\},\; \Hom{\bm{G}}(G,\, G) = G$ であり，射の合成が群演算で，恒等射が $1_G \in \Hom{\bm{G}}(G,\, G) = G$ と言うこと．}．
-自明束 $P$ におけるゲージ変換とは，大域的切断の取り替えに伴う変換関数によって特徴付けられる．変換関数は，大域的切断 $s_1,\, s_2 \colon M \lto P$ に対して $s_1(x) = s_2(x) \btl g_{12}(x)$ と定義することで定まる $g_{12} \colon M \lto G$ のことであり，$\sigma \in \Hom{\PATH{\mfdcal{M}{d}}}(x,\, y)$ に対して
+自明束 $P$ におけるゲージ変換とは，大域的切断の取り替えに伴う変換関数によって特徴付けられる．変換関数とは，2つの大域的切断 $s_1,\, s_2 \colon M \lto P$ に対して $s_1(x) = s_2(x) \btl g_{12}(x)$ と定義することで定まる $g_{12} \colon M \lto G$ のことであり，$\sigma \in \Hom{\PATH{\mfdcal{M}{d}}}(x,\, y)$ に対して
 \begin{align}
     \label{eq:gauge-transform-trivial}
     \Gamma_\omega (\sigma) \lmto \Gamma'_\omega (\sigma) = g_{12}(y)^{-1} \Gamma_\omega(\sigma) g_{12}(x)
@@ -2491,7 +2491,7 @@ i.e. 変換関数 $g_{12} \colon M \lto P$ は，自然変換
     \begin{tikzcd}
         \PATH{\mfdcal{M}{d}} \arrow[r, bend left=50, ""{name=U, below}, "\Gamma_\omega"]
         \arrow[r, bend right=50, ""{name=D}, "\Gamma'_\omega"']
-        &\bm{G}
+        &\deloop{G}
         \arrow[Rightarrow, from=U, to=D, "g_{12}"]
     \end{tikzcd}
 \end{center}
@@ -2536,7 +2536,7 @@ Lie群 $G$ がコンパクトかつ単連結ならば，$\mfdcal{M}{3}$ 上の�
 \end{align}
 と定義することが考えられる．この $S[A]$ はChern指標\footnote{\hyperref[thm:Chern-Weil]{Chern-Weilの定理}からこれは大域的にwell-deifnedである．}の積分なので整数値を取り，トポロジカルなゲージ場の理論になっている．4次元多様体への拡張は一意ではないので作用は $\mod 1$ の不定性を持つが，分配関数はwell-definedになる．
 しかし，この構成が可能であるためには任意の $\mfdcal{M}{3}$ 上の主束 $G \hookrightarrow P \xrightarrow{\pi} \mfdcal{M}{3}$ に対して，$\mfdcal{N}{4}$ 上の主束 $G \hookrightarrow P' \xrightarrow{\pi'} \mfdcal{N}{4}$ であって，$\partial \mfdcal{N}{4} = \mfdcal{M}{3}$ への制限 $P'|_{\partial \mfdcal{N}{4}} = P$ を充たすようなものが存在しなくてはいけない．
-この拡張の障害となるのが，\hyperref[prop:universal-basic]{分類写像} $\gamma \colon \mfdcal{M}{3} \lto BG$ の誘導準同型による $\mfdcal{M}{3}$ の基本類 $[\mfdcal{M}{3}] \in H_3(\mfdcal{M}{3};\, \mathbb{Z})$ の像 $\gamma_* [\mfdcal{M}{3}] \in H_3(BG;\, \mathbb{Z})$ である\footnote{厳密にはボルディズム群を考えなくてはいけない．}．もし $\gamma_* [\mfdcal{M}{3}] = 0$ なら拡張が可能だが，そうでないときは不可能ということになる．
+この拡張の障害となるのが，\hyperref[prop:universal-basic]{分類写像} $\gamma \colon \mfdcal{M}{3} \lto BG$ の誘導準同型による $\mfdcal{M}{3}$ の基本類 $[\mfdcal{M}{3}] \in H_3(\mfdcal{M}{3};\, \mathbb{Z})$ の像 $\gamma_* [\mfdcal{M}{3}] \in H_3(BG;\, \mathbb{Z})$ である\footnote{厳密にはボルディズム群 $\Omega^{\LSO}_{3} (BG)$ を考えなくてはいけない．}．もし $\gamma_* [\mfdcal{M}{3}] = 0$ なら拡張が可能だが，そうでないときは不可能ということになる．
 しかしながら，命題\ref{prop:group-cohomology}-(2) よりコンパクトLie群の奇数次のホモロジーは捻れ元 (torsion element) のみから成るので，ある $n \in \mathbb{Z}_{> 0}$ が存在して
 \begin{align}
     n \cdot \gamma_* [\mfdcal{M}{3}] = 0
@@ -2577,18 +2577,25 @@ Lie群 $G$ がコンパクトかつ単連結ならば，$\mfdcal{M}{3}$ 上の�
     % よって一つの $U_\alpha$ の上で考えることにしよう．このとき，勝手な $g \in G$ に対して全空間 $U_\alpha \times G$ の上の分布
     直観的には，ファイバー方向の接空間，i.e. \hyperref[def:connection]{垂直部分空間}が $0$ 次元になると考える．
 }．
-さらにこの主束は被覆空間になるので，$\forall \sigma \in \Hom{\PATH{\mfdcal{M}{d}}}(x,\, x)$ は $x$ のファイバー内の点 $u \in \pi^{-1}(\{x\})$ について一意的に $\tilde{\sigma} \in \Hom{\PATH{P}}(u,\, \tilde{\sigma}(1))$ へ持ち上がり，$\tilde{\sigma}(1) \eqqcolon \tilde{\sigma}(0) \btl \gamma_P(\sigma)$ 
-を定める．$\mfdcal{M}{d}$ のホモトピーもまた $P$ 上に持ち上がり，結果として群準同型 $\gamma_P \colon \pi_1(\mfdcal{M}{d}) \lto G$ が定まる．
-始点 $u \in \pi^{-1}(\{x\})$ を $u \btl h$ に取り替えることは $\gamma_P(\sigma) \lmto h^{-1} \gamma_P(\sigma) h$ の変換を引き起こす．ここから
+さらにこの主束は被覆空間になるので，$\forall \sigma \in \Hom{\PATH{\mfdcal{M}{d}}}(x,\, x)$ は $x$ のファイバー内の点 $u \in \pi^{-1}(\{x\})$ について一意的に $\tilde{\sigma} \in \Hom{\PATH{P}}(u,\, \tilde{\sigma}(1))$ へ持ち上がり，
+$\tilde{\sigma}(1) \eqqcolon \tilde{\sigma}(0) \btl \gamma_P(\sigma)$ とおくことで，連続な群準同型
 \begin{align}
-    \comm{\mfdcal{M}{d}}{BG} \overset{1:1}{\longleftrightarrow} \Hom{\GRP}\bigl( \pi_1(\mfdcal{M}{d}),\, G \bigr) / G
+    \gamma_P \colon \Hom{\PATH{\mfdcal{M}{d}}} (x,\, x) &\lmto \Hom{\deloop{G}} (*,\, *) = G, \\
+    \sigma &\lmto \gamma_P(\sigma)
 \end{align}
-を示すことができる~\cite[p.4]{Freed_1993}．\eqref{eq:modulispace-of-flatconnection}と比較すると，結局
+を定める．さらに，$\mfdcal{M}{d}$ のホモトピーもまた $P$ 上に持ち上がるため，群準同型 $\gamma_{[P]} \colon \pi_1(\mfdcal{M}{d}) \lto G$ が定まった．
+始点 $u \in \pi^{-1}(\{x\})$ を $u \btl h$ に取り替えることは $\gamma_{[P]}(\sigma) \lmto h^{-1} \gamma_{[P]}(\sigma) h$ の変換を引き起こす．
+以上の議論より，写像
 \begin{align}
-    \bigl\{\,\mfdcal{M}{d}\;\text{上の主束の同型類}\,\bigr\}\overset{1:1}{\longleftrightarrow} \bigl\{\,\mfdcal{M}{d}\; \text{上の\hyperref[def:flat-connection-homotopy]{平坦接続}全体の集合}\,\bigr\}
+    \mathrm{Prin}_G(\mfdcal{M}{d}) &\lto \Hom{\GRP}\bigl( \pi_1(\mfdcal{M}{d}),\, G \bigr) / G, \\
+    [P] &\lmto \gamma_{[P]}
+\end{align}
+が全単射だと分かる~\cite[p.4]{Freed_1993}．\eqref{eq:modulispace-of-flatconnection}と比較すると，結局
+\begin{align}
+    \mathrm{Prin}_G(\mfdcal{M}{d}) \overset{1:1}{\longleftrightarrow} \bigl\{\,\mfdcal{M}{d}\; \text{上の\hyperref[def:flat-connection-homotopy]{平坦接続}全体の集合}\,\bigr\}
 \end{align}
 であることが分かった．
-% ところで，\hyperref[prop:universal-basic]{普遍束の定義}から，$\mfdcal{M}{d}$ 上の主束の同型類全体の集合 $k_G (\mfdcal{M}{d})$ とホモトピー集合 $\comm{\mfdcal{M}{d}}{BG}$ は一対一対応するのだった．
+% ところで，\hyperref[prop:universal-basic]{普遍束の定義}から，$\mfdcal{M}{d}$ 上の主束の同型類全体の集合 $\mathrm{Prin}_G (\mfdcal{M}{d})$ とホモトピー集合 $\comm{\mfdcal{M}{d}}{BG}$ は一対一対応するのだった．
 % 命題\ref{prop:classifying-space-Kpi1}およびEilenberg Mac-Lane空間の性質から $\comm{\mfdcal{M}{d}}{BG} = \comm{\mfdcal{M}{d}}{K(G,\, 1)}$ は $H^1(\mfdcal{M}{d};\, G)$ と一対一対応する．
 % 平坦\footnote{i.e. 曲率が大域的に $0$}である．このことは，$\pi_1(\mfdcal{M}{3})$ の非自明な元に対応する\hyperref[def:holonomy]{ホロノミー}のみが非自明な値をとることを意味する．
 % このとき，命題\ref{prop:classifying-space-Kpi1}から，\hyperref[prop:universal-basic]{分類写像} $\gamma \colon \mfdcal{M}{3} \lto BG$ は群準同型 $\gamma_* \colon \pi_1(\mfdcal{M}{3}) \lto G$ と1対1対応するので，分配関数は
@@ -2600,9 +2607,10 @@ Lie群 $G$ がコンパクトかつ単連結ならば，$\mfdcal{M}{3}$ 上の�
         \label{eq:DW-partition-func}
         Z(\mfdcal{M}{d}) \eqqcolon \frac{1}{\# G} \sum_{\gamma \in \comm{\mfdcal{M}{d}}{BG}} e^{2\pi \iunit S[\gamma]} \WHERE S[\gamma] \coloneqq \expval{\gamma^* \alpha,\, [\mfdcal{M}{d}]}
     \end{align}
-    と定義する．ここに $\alpha \in H^d(BG;\, \mathbb{R}/\mathbb{Z})$ である．
+    と定義する
+    \footnote{\hyperref[def:universal-bundle]{$BG$ の定義}から，主束 $P$ の同型類 $[P]$ は $\comm{\mfdcal{M}{d}}{BG}$ の元と1対1対応するので，左辺では $\mfdcal{M}{d}$ を底空間とする主束の同型類全体に渡って和（経路積分）をとっていることになる．}
+    ．ここに $\alpha \in H^d(BG;\, \mathbb{R}/\mathbb{Z})$ である．
 \end{mydef}
-
 
 このままだと実用上不便なので，計算しやすい形に書きかえよう．$H^k(BG;\, \LU (1)) \cong \coGrp{k}{G;\, \LU(1)}$ であるから，結局\hyperref[def:group-cohomology]{群コホモロジー}を具体的に計算することになる．
 
@@ -2867,7 +2875,7 @@ $\mfd{\Sigma}{p}$ の周りでは
 まずゲージ群 $G$ が\underline{一般の位相群}である場合，時空 $\mfdcal{M}{d}$ 上の主束は\hyperref[def:universal-bundle]{普遍束}により分類された：
 \begin{align}
     \label{eq:1form-univ}
-    \mathrm{Bun}_G (\mfdcal{M}{d})/\cong\; \xleftrightarrow{1:1} \comm{\mfdcal{M}{d}}{BG}
+    \mathrm{Prin}_G (\mfdcal{M}{d})/\cong\; \xleftrightarrow{1:1} \comm{\mfdcal{M}{d}}{BG}
 \end{align}
 ただし $\cong$ はファイバー束の同型である．これは圏 $\bm{\mathrm{Mfd}}$ における引き戻し\footnote{正確には全ての射がup to homotopyだとした，\textbf{homotopy pullback}（\url{https://ncatlab.org/nlab/show/homotopy+pullback}）の図式である．}
 \begin{center}
@@ -2895,7 +2903,7 @@ $\mfd{\Sigma}{p}$ の周りでは
 次にゲージ群 $G$ が離散群の場合を考える．このとき\underline{接続の定義から}自動的に平坦接続になってしまう：
 \begin{align}
     \label{eq:1form-finite-flat}
-    \irm{BG}{conn} = \irm{BG}{flat} \xleftrightarrow{1:1} \mathrm{Bun}_G (\mfdcal{M}{d})/\cong
+    \irm{BG}{conn} = \irm{BG}{flat} \xleftrightarrow{1:1} \mathrm{Prin}_G (\mfdcal{M}{d})/\cong
 \end{align}
 さらに主束が自動的に被覆空間になることから
 \begin{align}
@@ -2904,7 +2912,7 @@ $\mfd{\Sigma}{p}$ の周りでは
 が分かり，結局
 \begin{align}
     \label{eq:1form-moduli}
-    \irm{BG}{conn} = \irm{BG}{flat} \xleftrightarrow{1:1} \mathrm{Bun}_G (\mfdcal{M}{d})/\cong\; \xleftrightarrow{1:1} \comm{\mfdcal{M}{d}}{BG}
+    \irm{BG}{conn} = \irm{BG}{flat} \xleftrightarrow{1:1} \mathrm{Prin}_G (\mfdcal{M}{d})/\cong\; \xleftrightarrow{1:1} \comm{\mfdcal{M}{d}}{BG}
 \end{align}
 が言えた．i.e. ゲージ場の配位空間は $\comm{\mfdcal{M}{d}}{BG}$ と求まった．
 
@@ -2921,9 +2929,9 @@ $\mfd{\Sigma}{p}$ の周りでは
 \end{center}
 があると考えて，
 \begin{align}
-    \mathrm{Bun}_G (\mfdcal{M}{d}) \coloneqq \Hom{\mathrm{\bm{H}}} (\mfdcal{M}{d},\, \mathrm{\bm{B}}G)
+    \mathrm{Prin}_G (\mfdcal{M}{d}) \coloneqq \Hom{\mathrm{\bm{H}}} (\mfdcal{M}{d},\, \mathrm{\bm{B}}G)
 \end{align}
-とおいてみる．ただし $\mathrm{Bun}_G (\mfdcal{M}{d})$ と言うのは「主 $p$-束」とでも呼ぶべき構造であり，現時点では未定義である．
+とおいてみる．ただし $\mathrm{Prin}_G (\mfdcal{M}{d})$ と言うのは「主 $p$-束」とでも呼ぶべき構造であり，現時点では未定義である．
 次に「平坦接続」付き「主 $p$-束」のモジュライ空間 $\bm{\mathrm{B}}G_{\mathrm{flat}}$ であるが，これはpath groupoidを十分うまく拡張した「path $(p+1)$-groupoid」$\bm{\mathrm{P}}_{p+1}(\mfdcal{M}{d})$ があると考えて\eqref{eq:1form-flat}の一般化
 \begin{align}
     \bm{\mathrm{B}}G_{\mathrm{flat}} \cong \Hom{\bm{\mathrm{H}}} \bigl( \bm{\mathrm{P}}_{p+1}(\mfdcal{M}{d}),\, \mathrm{\bm{B}}G\bigr) 
@@ -2936,10 +2944,10 @@ $\mfd{\Sigma}{p}$ の周りでは
 \end{align}
 が成り立つのか不明であり，従って\eqref{eq:1form-moduli}の一般化
 \begin{align}
-    \irm{\bm{\mathrm{B}}G}{conn} = \irm{\bm{\mathrm{B}}G}{flat} \textcolor{red}{\xleftrightarrow{1:1}} \mathrm{Bun}_G (\mfdcal{M}{d}) = \Hom{\mathrm{\bm{H}}} (\mfdcal{M}{d},\, \mathrm{\bm{B}}G)
+    \irm{\bm{\mathrm{B}}G}{conn} = \irm{\bm{\mathrm{B}}G}{flat} \textcolor{red}{\xleftrightarrow{1:1}} \mathrm{Prin}_G (\mfdcal{M}{d}) = \Hom{\mathrm{\bm{H}}} (\mfdcal{M}{d},\, \mathrm{\bm{B}}G)
 \end{align}
 が成り立っているかが不明な点にある．実際，前節で行ったトリックは $\irm{\bm{\mathrm{B}}G}{conn}$ について和をとっていることになる．
-しかし，トポロジカル演算子を挿入することを考えるとむしろ $\mathrm{Bun}_G (\mfdcal{M}{d})/\cong$ の方が配位空間だと考える方が自然かもしれない．
+しかし，トポロジカル演算子を挿入することを考えるとむしろ $\mathrm{Prin}_G (\mfdcal{M}{d})/\cong$ の方が配位空間だと考える方が自然かもしれない．
 
 \subsection{高次群の構造が自明な場合：$\infty$-groupoid}
 
