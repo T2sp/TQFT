@@ -199,7 +199,7 @@
         が全射であること．
         \item $F$ が\textbf{本質的全射} (essentially surjective) であるとは， $\forall Z \in \Obj{\Cat{D}}$ に対して $X \in \Obj{\Cat{C}}$ が存在して $F(X)$ が $Y$ と同型になること．
     \end{itemize}
-    忠実充満関手のことを\textbf{埋め込み}と呼ぶことがある．
+    忠実充満関手のことを\textbf{埋め込み}と呼ぶ．
 \end{mydef}
 
 \begin{mydef}[label=def:nat]{自然変換}
@@ -257,7 +257,7 @@
 		の組 $(\bm{C},\, \bm{c}_\bullet)$ であって，
 		$\forall i,\, j \in \Obj{\Cat{I}}$ および $\forall f \in \Hom{\Cat{I}}(i,\, j)$ に対して
 		\begin{align}
-			\bm{c}_j = \bm{c}_i \circ D(f)
+			\bm{c}_j = D(f) \circ  \bm{c}_i
 		\end{align}
 		を充たす，i.e. 以下の図式を可換にするもののこと．
 		\begin{center}
@@ -274,7 +274,7 @@
 		\end{center}
 		とは，$\Cat{C}$ の射 $\textcolor{red}{u} \in \Hom{\Cat{C}} (\bm{C},\, \bm{C'})$ であって，$\forall i \in \Obj{\Cat{I}}$ に対して
 		\begin{align}
-			\bm{c}_i = \textcolor{red}{u} \circ \bm{c'}_i
+			\bm{c}_i = \bm{c'}_i \circ \textcolor{red}{u}
 		\end{align}
 		を充たす，i.e. 以下の図式を可換にするもののこと．
 		\begin{center}
@@ -383,8 +383,77 @@
     \end{align}
     の\hyperref[def:lim]{極限}を（存在すれば）\textbf{積} (product) と呼び，$\bm{D(1) \times D(2)}$ と書く．
     同じ図式の\hyperref[def:colim]{余極限}を（存在すれば）\textbf{和}\footnote{\textbf{余積}と言うこともある．} (coproduct) と呼び，$\bm{D(1) \amalg D(2)}$ と書く．
+
+    　より具体的には，圏 $\Cat{C}$ における2つの対象 $D(1),\, D(2) \in \Obj{\Cat{C}}$ の\textbf{積}とは，
+    \begin{itemize}
+        \item 圏 $\Cat{C}$ における1つの対象 $D(1) \times D(2) \in \Obj{\Cat{C}}$
+        \item 圏 $\Cat{C}$ における2つの射 $p_i \in \Hom{\Cat{C}} \bigl( D(1) \times D(2),\, D(i) \bigr) \WHERE i=1,\, 2$
+    \end{itemize}
+    の組であって，任意の組 $\Bigl( \textcolor{blue}{C} \in \Obj{\Cat{C}},\, \Familyset[big]{\textcolor{blue}{c_i} \in \Hom{\Cat{C}} \bigl( \textcolor{blue}{C},\, D(i) \bigr)}{i \in \{1,\, 2\}} \Bigr)$ に対して以下の図式を可換にする圏 $\Cat{C}$ の射 $\textcolor{red}{u} \in \Hom{\Cat{C}} \bigl(\textcolor{blue}{C},\, D(1) \times D(2) \bigr)$ が\underline{一意的}に存在するようなもののこと：
+    % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQARACnIEoQAvqXSZc+QigBMFanSat23SfyEjseAkXKlishizaJOPXgB1TeALbwABEpXCQGdeK2lJe+YZDmcMAB44AMYQjBAATsAARgYCwADCAoKyMFAA5vBEoABm4RCWSADMNDgQSGRyBuxBAPrkIDRRMGBQRcSqILn5RSVliNqVCka1kg0gjPRNjAAKohoSIOFYaQAWOGNNLUgAtIXtjl0FiNIgpeU0+kNOdWMTU7MumkZLq+uNza2Iu-s5eUcnZ36Fy87DQNVG7y2iD2HUOPVOfROjCwYG8UHocBWqTGl285gCWDgODgAEIbMxkgIgA
+    \begin{center}
+        \begin{tikzcd}
+            & D(1)\times D(2) \arrow[ld, "p_1"', bend right] \arrow[rd, "p_2", bend left]                                      &      \\
+        D(1) &                                                                                                                  & D(2) \\
+            & \textcolor{blue}{C} \arrow[lu, "c_1", blue,bend left] \arrow[ru, "c_2"', blue,bend right] \arrow[uu, "\exists! u", red, dashed] &     
+        \end{tikzcd}
+    \end{center}
+    具体的な圏における積は，例えば以下の通りである：
+    \begin{enumerate}
+        \item 集合と写像の圏 $\SETS$ における積とは，直積集合と，直積因子への射影の組のこと．
+        \item 位相空間の圏 $\TOP$ における積とは，直積位相空間と，直積因子への連続な\footnote{むしろ，直積位相とは射影という写像が連続になるような最弱の位相のことである．}射影の組みのこと．
+        \item 体 $\mathbb{K}$ 上のベクトル空間の圏 $\SETS$ における積とは，直積ベクトル空間と射影\footnote{定義から線型写像になるため，圏 $\VEC{\mathbb{K}}$ の射である．}の組みのこと．これは，特に元の図式の対象が有限個である場合は直和ベクトル空間と同型である．
+    \end{enumerate}
+    
+    　同様に，圏 $\Cat{C}$ における2つの対象 $D(1),\, D(2) \in \Obj{\Cat{C}}$ の\textbf{和}とは，
+    \begin{itemize}
+        \item 圏 $\Cat{C}$ における1つの対象 $D(1) \amalg D(2) \in \Obj{\Cat{C}}$
+        \item 圏 $\Cat{C}$ における2つの射 $i_j \in \Hom{\Cat{C}} \bigl( D(1) \amalg D(2),\, D(j) \bigr) \WHERE j=1,\, 2$
+    \end{itemize}
+    の組であって，任意の組 $\Bigl( \textcolor{blue}{C} \in \Obj{\Cat{C}},\, \Familyset[big]{\textcolor{blue}{c_i} \in \Hom{\Cat{C}} \bigl( D(i),\, \textcolor{blue}{C} \bigr)}{i \in \{1,\, 2\}} \Bigr)$ に対して以下の図式を可換にする圏 $\Cat{C}$ の射 $\textcolor{red}{u} \in \Hom{\Cat{C}} \bigl(D(1)\amalg D(2),\, \textcolor{blue}{C} \bigr)$ が\underline{一意的}に存在するようなもののこと：
+    % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQAdDnGADxwDGERhABOwAEYsYAX2ABhGSBml0mXPkIpypYtTpNW7ACIAKYgEplqkBmx4CRAEy79DaSdNOrKtfc1EZE5uhmyIIGaWXPQAtkwA5gAEZt7K+jBQ8fBEoABmohAxSGQgOBBIOgYe4QIA+sQgNIz0EjCMAArqDlogjDC5OI0grWBQSADMlXAAFlgDFb4g+YVILqXliJXuRjW1TkPNrR1dAeGiWPHTgzQjY4gAtJOLy0WIJWUTNNthIFj1By02p1-I4zhcrkNbkhHuRngVXmsPohxl9Quw-vsmoDjiCen15jcYKMJrCbC9PusKqjqpwOHwsHAcHAAISJZgAo7AjSg3r9a69LBgH5QegzDJpGRAA
+    \begin{center}
+        \begin{tikzcd}
+            & \textcolor{blue}{C}                              &                                                                  \\
+        D(1) \arrow[ru, blue,"c_1", bend left] \arrow[rd, "i_1"', bend right] &                                                  & D(2) \arrow[lu, blue,"c_2"', bend right] \arrow[ld, "i_2", bend left] \\
+            & D(1)\amalg D(2) \arrow[uu, red,"\exists! u", dashed] &                                                                 
+        \end{tikzcd}
+    \end{center}
+    具体的な圏における和は，例えば以下の通りである：
+    \begin{enumerate}
+        \item 集合と写像の圏 $\SETS$ における積とは，disjoint unionと，disjoint unionの各成分への包含写像の組のこと．
+        \item 位相空間の圏 $\TOP$ における積とは，disjoint union
+        \item 体 $\mathbb{K}$ 上のベクトル空間の圏 $\SETS$ における積とは，直積ベクトル空間のこと．これは，特に元の図式の対象が有限個である場合は直和ベクトル空間と同型である．
+    \end{enumerate}
 \end{myexample}
 
+\begin{myexample}[label=def:eq-coeq]{イコライザとコイコライザ}
+    \hyperref[def:diagram]{図式}
+    \begin{align}
+        D \colon \boxdiagram{
+            \overset{1}{\bullet} \ar[r,shift left,"f"]\ar[r,shift right,"g"'] \&\overset{2}{\bullet}
+        } \lto \Cat{C}
+    \end{align}
+    の\hyperref[def:lim]{極限}を（存在すれば）\textbf{イコライザ} (equalizer) と呼び，$\bm{\mathrm{Eq}\bigl(D(1),\, D(2)\bigr)}$ と書く．
+    同じ図式の\hyperref[def:colim]{余極限}を（存在すれば）\textbf{コイコライザ} (coequalizer) と呼び，$\bm{\mathrm{Coeq}\bigl(D(1),\, D(2)\bigr)}$ と書く．
+    具体的な圏における例は以下の通り：
+    \begin{enumerate}
+        \item 集合と写像の圏 $\SETS$ におけるイコライザとは，2つの写像 $f,\, g \in \Hom{\SETS} (X,\, Y)$ によって定まる $X$ の部分集合
+        \begin{align}
+            \mathrm{Eq}(f,\, g) \coloneqq \bigl\{\, x \in X \bigm| f(x) = g(x) \,\bigr\} 
+        \end{align}
+        と，包含写像 $i \colon \mathrm{Eq}(f,\, g) \lto X$ の組みである．直観的には方程式 $f(x) = g(x)$ の解空間のことである．
+        \item 集合と写像の圏 $\SETS$ における2つの写像 $f,\, g \in \Hom{\SETS} (X,\, Y)$ の間のコイコライザとは，$f(x) \sim g(x)\; \forall x \in X$ を充たす $Y$ の最小の同値関係 $\sim \subset Y \times Y$ による商集合 
+        \begin{align}
+            \mathrm{Coeq} (f,\, g) \coloneqq Y/{\sim}
+        \end{align}
+        および商写像 $q \colon Y \lto \mathrm{Coeq}(f,\, g)$ の組みである．直観的には，$\forall x \in X$ に対して方程式 $f(x) = g(x)$ が成立するように強引に $Y$ に同値関係を入れて得られる商集合ということになる．
+        \item 位相空間の圏 $\TOP$ におけるイコライザとは $\SETS$ におけるイコライザ $\bigl(\mathrm{Eq}(f,\, g),\, i\bigr)$ に，$i$ が連続写像になるような最弱の位相を入れて得られる位相空間のこと．
+        $\TOP$ におけるコイコライザとは，$\SETS$ におけるコイコライザ $\bigl(\mathrm{Coeq}(f,\, g),\, p\bigr)$ に，$p$ が連続写像になるような最強の位相を入れて得られる位相空間のこと．
+        \item 体 $\mathbb{K}$ 上のベクトル空間の圏 $\VEC{\mathbb{K}}$ における，線型写像 $f \in \Hom{\VEC{\mathbb{K}}}(V,\, W)$ と零射 $0 \in \Hom{\VEC{\mathbb{K}}}(V,\, W)$ の間のイコライザとは，線型写像 $f$ の核 $\Ker f$ および包含準同型 $i \colon \Ker f \hookrightarrow V$ の組みのこと．
+        $\VEC{\mathbb{K}}$ における，線型写像 $f \in \Hom{\VEC{\mathbb{K}}}(V,\, W)$ と零射 $0 \in \Hom{\VEC{\mathbb{K}}}(V,\, W)$ の間のコイコライザとは，線型写像 $f$ の余核 $\Coker f \coloneqq W / \Im f$ および標準的射影 $p \colon W \twoheadrightarrow \Coker f$ の組みのこと．
+    \end{enumerate}
+\end{myexample}
 
 \begin{myexample}[label=def:pullback-pushout]{引き戻しと押し出し}
     \hyperref[def:diagram]{図式}
@@ -461,7 +530,7 @@ $\SETS$ は\hyperref[def:complete]{双完備}である．
                 &\Hom{\Cat{C}}\bigl(X,\, D(i)\bigr) \ar[rr, "D(f)_*"] & &\Hom{\Cat{C}}\bigl(X,\, D(j)\bigr)
             \end{tikzcd}
         \end{center}
-        が\hyperref[cmtd:lim]{極限の普遍性}を充たすことである\footnote{$p_i{}_* \colon \Hom{\Cat{C}}(X,\, \lim_I D) \lto \Hom{\Cat{C}} \bigl( X,\, D(i) \bigr)  f \lmto p_i \circ f$ などと定義する．このように射に下付きの $*$ を書いた時はpost-composeを表す．上付きの $*$ はpre-composeである．}．
+        が\hyperref[cmtd:lim]{極限の普遍性}を充たすことである\footnote{$p_i{}_* \colon \Hom{\Cat{C}}(X,\, \lim_I D) \lto \Hom{\Cat{C}} \bigl( X,\, D(i) \bigr),\;  f \lmto p_i \circ f$ などと定義する．このように射に下付きの $*$ を書いた時はpost-composeを表す．上付きの $*$ はpre-composeである．}．
 
         　$\SETS$ の図式\eqref{eq:diag-post}の\hyperref[def:Cone]{錐} $(\textcolor{blue}{Y,\, c_\bullet})$ を任意にとる．すると\hyperref[def:Cone]{錐の定義}および $(\mhyphen)_*$ の定義から，$\forall y \in \textcolor{blue}{Y}$ に対して以下の図式が可換になる：
         \begin{center}
@@ -510,7 +579,6 @@ $\SETS$ は\hyperref[def:complete]{双完備}である．
     
 \end{proof}
 
-
 \subsection{米田埋め込み}
 
 \begin{mydef}[label=def:presheaf-general]{前層}
@@ -544,23 +612,23 @@ $\SETS$ は\hyperref[def:complete]{双完備}である．
             を対応づける
             \item $\OP{\Cat{C}}$ における任意の射 $g \colon Y \lto Z$\footnote{つまり，これは $\Cat{C}$ における射 $g \colon Z \lto Y$ である．} に対して，
             \begin{align}
-                \Hom{\Cat{C}}(\,\mhyphen\,,\, X)(g) \coloneqq g^* \colon \Hom{\Cat{C}} (Z,\, X) &\lto \Hom{\Cat{C}} (Y,\, X),\\ 
+                \Hom{\Cat{C}}(\,\mhyphen\,,\, X)(g) \coloneqq g^* \colon \Hom{\Cat{C}} (Y,\, X) &\lto \Hom{\Cat{C}} (Z,\, X),\\ 
                 h &\lmto h \circ g
             \end{align}
             を対応付ける
         \end{itemize}
         \item \textbf{米田埋め込み} (Yoneda embedding) とは，以下で定義する\hyperref[def:functor]{関手}
         \begin{align}
-            \mathrm{Y} \colon \Cat{C} \lto \PshSETS{\Cat{C}}
+            \yo \colon \Cat{C} \lto \PshSETS{\Cat{C}}
         \end{align}
-        のこと：
+        のこと\footnote{実際，一部の数学者は米田埋め込みの記号に平仮名の「よ」を使っている．}：
         \begin{itemize}
-            \item $\forall X \in \Obj{\OP{\Cat{C}}}$ に対して表現可能前層 $\mathrm{Y} (X) \coloneqq \Hom{\Cat{C}}(\,\mhyphen\,,\, X) \in \Obj{\PshSETS{\Cat{C}}}$ を対応付ける
-            \item $\Cat{C}$ における任意の射 $f \colon X \lto Y$ に対して，以下で定義される\hyperref[def:nat]{自然変換} $\mathrm{Y}(f) \colon \Hom{\Cat{C}}(\,\mhyphen\,,\, X) \Longrightarrow \Hom{\Cat{C}}(\,\mhyphen\,,\, Y)$ を対応付ける：
+            \item $\forall X \in \Obj{\OP{\Cat{C}}}$ に対して表現可能前層 $\yo (X) \coloneqq \Hom{\Cat{C}}(\,\mhyphen\,,\, X) \in \Obj{\PshSETS{\Cat{C}}}$ を対応付ける
+            \item $\Cat{C}$ における任意の射 $f \colon X \lto Y$ に対して，以下で定義される\hyperref[def:nat]{自然変換} $\yo(f) \colon \Hom{\Cat{C}}(\,\mhyphen\,,\, X) \Longrightarrow \Hom{\Cat{C}}(\,\mhyphen\,,\, Y)$ を対応付ける：
             \begin{itemize}
                 \item $\forall Z \in \Obj{\OP{\Cat{C}}}$ に対して，圏 $\SETS$ における射
                 \begin{align}
-                    \mathrm{Y}(f)_Z \coloneqq f_*\colon \Hom{\Cat{C}}(Z,\, X) &\lto \Hom{\Cat{C}}(Z,\, Y), \\
+                    \yo(f)_Z \coloneqq f_*\colon \Hom{\Cat{C}}(Z,\, X) &\lto \Hom{\Cat{C}}(Z,\, Y), \\
                     g &\lmto f \circ g
                 \end{align}
                 を対応付ける．
@@ -628,20 +696,20 @@ $\tau \in \Hom{\PshSETS{\Cat{C}}}\bigl( \Hom{\Cat{C}}(\, \mhyphen\,,\, X)\bigr)$
 \end{proof}
 
 \begin{myprop}[label=prop:Yoneda]{米田埋め込みは埋め込み}
-    \hyperref[def:representable]{米田埋め込み} $\mathrm{Y} \colon \Cat{C} \lto \PshSETS{\Cat{C}}$ は\hyperref[def:faithful]{埋め込み}である．
+    \hyperref[def:representable]{米田埋め込み} $\yo \colon \Cat{C} \lto \PshSETS{\Cat{C}}$ は\hyperref[def:faithful]{埋め込み}である．
 \end{myprop}
 
 \begin{proof}
     $\forall X,\, Y \in \Obj{\Cat{C}}$ を固定する．写像
     \begin{align}
         \Hom{\Cat{C}} (X,\, Y) &\lmto \Hom{\PshSETS{\Cat{C}}} \bigl( \Hom{\Cat{C}}(\, \mhyphen \, , \, X),\, \Hom{\Cat{C}}(\, \mhyphen \, , \, Y) \bigr),\\ 
-        f &\lmto \mathrm{Y}(f)
+        f &\lmto \yo(f)
     \end{align}
-    が全単射であることを示せば良い．\hyperref[def:representable]{米田埋め込みの定義}から，$\forall s \in \Hom{\Cat{C}} (X,\, Y)$ に対して
+    が全単射であることを示せば良い．\hyperref[def:representable]{米田埋め込みの定義}から，$\forall f \in \Hom{\Cat{C}} (X,\, Y)$ に対して
     \begin{align}
-        \mathrm{Y}(s) 
-        &= \Familyset[\big]{\Hom{\Cat{C}}(Z,\, X) \lto \Hom{\Cat{C}}(Z,\, Y),\; g \lmto s \circ g}{Z \in \Obj{\Cat{C}}} \\
-        &= \Familyset[\big]{\Hom{\Cat{C}}(Z,\, X) \lto \Hom{\Cat{C}}(Z,\, Y),\; g \lmto \Hom{\Cat{C}}(\, \mhyphen\, ,\, Y)(g)(s)}{Z \in \Obj{\Cat{C}}}
+        \yo(f) 
+        &= \Familyset[\big]{\Hom{\Cat{C}}(Z,\, X) \lto \Hom{\Cat{C}}(Z,\, Y),\; g \lmto f \circ g}{Z \in \Obj{\Cat{C}}} \\
+        &= \Familyset[\big]{\Hom{\Cat{C}}(Z,\, X) \lto \Hom{\Cat{C}}(Z,\, Y),\; g \lmto \Hom{\Cat{C}}(\, \mhyphen\, ,\, Y)(g)(f)}{Z \in \Obj{\Cat{C}}}
     \end{align}
     が成り立つが，これは\hyperref[lem:Yoneda]{米田の補題}において $F = \Hom{\Cat{C}}(\, \mhyphen\,,\, Y) \in \Obj{\PshSETS{\Cat{C}}}$ としたときの逆写像であり，示された．
 \end{proof}
@@ -650,7 +718,7 @@ $\tau \in \Hom{\PshSETS{\Cat{C}}}\bigl( \Hom{\Cat{C}}(\, \mhyphen\,,\, X)\bigr)$
     以下の2つは同値である：
     \begin{enumerate}
         \item $X,\, Y \in \Obj{\Cat{C}}$ は\hyperref[def:iso]{同型}
-        \item \hyperref[def:representable]{表現可能前層} $\Hom{\Cat{C}}(\mhyphen,\, X),\, \Hom{\Cat{C}}(\mhyphen,\, Y) \in \Obj{\PshSETS{\Cat{C}}}$ が\hyperref[def:nat]{自然同型}
+        \item \hyperref[def:representable]{表現可能前層} $\Hom{\Cat{C}}(\, \mhyphen \,,\, X),\, \Hom{\Cat{C}}(\, \mhyphen \,,\, Y) \in \Obj{\PshSETS{\Cat{C}}}$ が\hyperref[def:nat]{自然同型}
     \end{enumerate}
 \end{mycol}
 
@@ -666,7 +734,7 @@ $\tau \in \Hom{\PshSETS{\Cat{C}}}\bigl( \Hom{\Cat{C}}(\, \mhyphen\,,\, X)\bigr)$
         と定義するとこれは $\eta_A \colon \Hom{\Cat{C}}(A,\, Y) \lto \Hom{\Cat{C}}(A,\, X),\; h \lmto g \circ h$ を逆射に持つので
         \hyperref[def:iso]{同型射}であり，\hyperref[def:nat]{自然同値}
         \begin{align}
-            \tau \colon \Hom{\Cat{C}} (\mhyphen,\, X) \Longrightarrow \Hom{\Cat{C}} (\mhyphen,\, Y)
+            \tau \colon \Hom{\Cat{C}} (\, \mhyphen \,,\, X) \Longrightarrow \Hom{\Cat{C}} (\, \mhyphen \,,\, Y)
         \end{align}
         を定める．
 
@@ -682,7 +750,214 @@ $\tau \in \Hom{\PshSETS{\Cat{C}}}\bigl( \Hom{\Cat{C}}(\, \mhyphen\,,\, X)\bigr)$
 % \begin{mycol}[label=col:Yoneda]{Hom集合が自然に同型ならば対象が同型}
 %     $X,\, Y \in \Obj{\Cat{C}}$ に対して，
 % \end{mycol}
+後の便宜のため，\hyperref[def:lim]{極限}を捉え直そう．勝手な\hyperref[def:diagram]{図式} $D \colon \OP{I} \lto \Cat{C}$ を1つ固定する．
+また，\textbf{定数関手} (constant functor) 
+\begin{align}
+    \label{eq:constant-functor}
+    \mathrm{pt} \colon \OP{I} \lto \SETS
+\end{align}
+を以下のように定める：
+\begin{itemize}
+    \item $\forall i \in \Obj{\OP{I}}$ に対して，1点集合\footnote{圏 $\SETS$ における終対象である．} $\{\mathrm{pt}\} \in \Obj{\SETS}$ を対応付ける．
+    \item $\forall f \in \Hom{\OP{I}}(i,\, j)$ に対して，恒等写像 $\mathrm{pt} \lmto \mathrm{pt}$ を対応付ける．
+\end{itemize}
+さらに，$\forall C \in \Obj{\Cat{C}}$ に対して，$\SETS$ に値をとる\hyperref[def:presheaf-general]{前層}
+\begin{align}
+    \Hom{\Cat{C}}\bigl( C,\, D(\, \mhyphen \,) \bigr) \colon \OP{I} \lto \SETS
+\end{align}
+を，以下のように定義する：
+\begin{itemize}
+    \item $\forall i \in \Obj{\OP{I}}$ に対して $\Hom{\Cat{C}}\bigl(X, D(i)\bigr) \in \Obj{\SETS}$ を対応付ける．
+    \item $\forall f \in \Hom{\OP{I}}(i,\, j)$ に対して写像
+        \begin{align}
+            D(f)_* \colon \Hom{\Cat{C}}\bigl(X, D(i)\bigr) &\lto \Hom{\Cat{C}}\bigl(X, D(j)\bigr), \\
+            g &\lmto F(f) \circ g
+        \end{align}
+    を対応付ける．
+\end{itemize}
+これを用いて，$\SETS$ に値をとる前層
+\begin{align}
+    \Hom{\PSH{I}{\SETS}} \Bigl( \mathrm{pt},\, \Hom{\Cat{C}}\bigl(\, \mhyphen \,,\, D(\, \mhyphen \,) \bigr)  \Bigr) \colon \OP{\Cat{C}} \lto \SETS
+\end{align}
+を以下のように定義する：
+\begin{itemize}
+    \item $\forall C \in \Obj{\OP{\Cat{C}}}$ に対して，集合
+    \begin{align}
+        \Hom{\PSH{I}{\SETS}} \Bigl( \mathrm{pt},\, \Hom{\Cat{C}}\bigl(C,\, D(\, \mhyphen \,) \bigr)  \Bigr) \in \Obj{\SETS}
+    \end{align}
+    を対応付ける．
+    \item $\forall f \in \Hom{\OP{\Cat{C}}} (X,\, Y)$ に対して，写像
+    \begin{align}
+        \Hom{\PSH{I}{\SETS}} \Bigl( \mathrm{pt},\, \Hom{\Cat{C}}\bigl(X,\, D(\, \mhyphen \,) \bigr)  \Bigr) &\lto \Hom{\PSH{I}{\SETS}} \Bigl( \mathrm{pt},\, \Hom{\Cat{C}}\bigl(Y,\, D(\, \mhyphen \,) \bigr)  \Bigr), \\
+        \tau &\lmto \tau \circ f
+    \end{align}
+    を対応付ける．
+\end{itemize}
 
+\begin{myprop}[label=prop:redef-lim]{極限の特徴付け}
+    $X \in \Obj{\Cat{C}}$ が図式 $D \colon \OP{I} \lto \Cat{C}$ の極限であるための必要十分条件は，
+    $\SETS$ に値をとる前層
+    \begin{align}
+        \Hom{\PSH{I}{\SETS}} \Bigl( \mathrm{pt},\, \Hom{\Cat{C}}\bigl(\, \mhyphen \,,\, D(\, \mhyphen \,) \bigr)  \Bigr) \colon \OP{\Cat{C}} \lto \SETS
+    \end{align}
+    が\hyperref[def:representable]{表現可能前層}
+    \begin{align}
+        \Hom{\Cat{C}}(\, \mhyphen \,, X) \colon \OP{\Cat{C}} \lto \SETS
+    \end{align}
+    と\hyperref[def:nat]{自然同型}になることである．
+\end{myprop}
+
+\begin{proof}
+    \begin{description}
+        \item[\textbf{($\bm{\Longleftarrow}$)}]　
+        
+        自然同型
+        \begin{align}
+            \theta \colon \Hom{\Cat{C}}(\, \mhyphen \,, X) \Longrightarrow \Hom{\PSH{I}{\SETS}} \Bigl( \mathrm{pt},\, \Hom{\Cat{C}}\bigl(\, \mhyphen \,,\, D(\, \mhyphen \,) \bigr)  \Bigr)
+        \end{align}
+        を与える．$\forall C \in \Obj{\Cat{C}}$ を1つ固定する．
+        
+        　まず，集合 $\Hom{\PSH{I}{\SETS}} \Bigl( \mathrm{pt},\, \Hom{\Cat{C}}\bigl(C,\, D(\, \mhyphen \,) \bigr)  \Bigr)$ が図式 $D$ 上の $C$ を頂点とする\hyperref[def:Cone]{錐}全体の集合と同一視できることに注意する．
+        実際，$\forall \tau \in \Hom{\PSH{I}{\SETS}} \Bigl( \mathrm{pt},\, \Hom{\Cat{C}}\bigl(C,\, D(\, \mhyphen \,) \bigr)  \Bigr)$
+        は写像の族
+        \begin{align}
+            \Familyset[Big]{\tau_i \colon \{\mathrm{pt}\} \lto \Hom{\Cat{C}} \bigl( C,\, D(i) \bigr) }{i \in I}
+        \end{align}
+        からなるが，$\{\mathrm{pt}\}$ は1点集合なので $\tau_i$ を $\tau_i (\mathrm{pt})$ と同一視できる．i.e. $\tau_i \in \Hom{\Cat{C}} \bigl( C,\, D(i) \bigr)$ である．さらに，$\tau$ が\hyperref[def:nat]{自然変換}であることから
+        $\forall f \in \Hom{\OP{I}}(i,\, j)$ に対して以下の図式が可換になる：
+        \begin{center}
+            \begin{tikzcd}
+                & \{\mathrm{pt}\} \arrow[ld, "\tau_i"'] \arrow[rd, "\tau_j"] &                                         \\
+            {\Hom{\Cat{C}} \bigl( C,\, D(i) \bigr)} \arrow[rr, "D(f)_*"'] &                                                            & {\Hom{\Cat{C}} \bigl( C,\, D(j) \bigr)}
+            \end{tikzcd}
+        \end{center}
+        この図式における $\mathrm{pt} \in \{\mathrm{pt}\}$ の行き先を追跡することで
+        \begin{align}
+            D(f) \circ \tau_i = \tau_j
+        \end{align}
+        が分かるが，これはまさに\hyperref[def:Cone]{錐の定義}である．
+
+        　以上の考察から，自然同型 $\theta$ は，図式 $D$ の勝手な錐 $(C,\, \tau) \in \Obj{\CONE{D}}$ が与えられると，対応する $\theta_X^{-1}(\tau) \in \Hom{\Cat{C}}(C,\, X)$ を一意的に定めるが，これは\hyperref[def:lim]{極限の普遍性}に他ならない．
+        特に，\hyperref[lem:Yoneda]{米田の補題}から自然同型 $\theta$ は $\theta_X(\Id_X) \in \Hom{\PSH{I}{\SETS}} \Bigl( \mathrm{pt},\, \Hom{\Cat{C}}\bigl(X,\, D(\, \mhyphen \,) \bigr)  \Bigr)$ と対応付き，$\bigl( X,\, \theta_X(\Id_X) \bigr) \in \Obj{\CONE{D}}$ が図式 $D$ の極限である．
+
+        \item[\textbf{($\bm{\Longrightarrow}$)}]　
+        
+        上述の議論から明らか．
+    \end{description}
+\end{proof}
+
+\subsection{重み付き極限・エンド・コエンド}
+
+\textbf{重み付き極限}とは，命題\ref{prop:redef-lim}の一般化である．
+
+\begin{mydef}[label=def:weighted-lim]{重み付き極限}
+    \hyperref[def:diagram]{図式} $D \colon \OP{I} \lto \Cat{C}$ 
+    および $\SETS$ に値をとる任意の\hyperref[def:presheaf-general]{前層} $W \colon \OP{I} \lto \SETS$ を与える．
+    
+    図式 $D$ の $\bm{W}$\textbf{-重み付き極限} ($W$-weighted limit) とは，（存在すれば）圏 $\Cat{C}$ の対象 $\bm{\lim^W D} \in \Obj{\Cat{C}}$ であって，$\SETS$ に値をとる前層
+    \begin{align}
+        \Hom{\PSH{I}{\SETS}} \Bigl( W,\, \Hom{\Cat{C}}\bigl(\, \mhyphen \,,\, D(\, \mhyphen \,) \bigr)  \Bigr) \colon \OP{\Cat{C}} \lto \SETS
+    \end{align}
+    と\hyperref[def:representable]{表現可能前層}
+    \begin{align}
+        \Hom{\Cat{C}} (\, \mhyphen \,,\, \lim{}^W D) \colon \OP{\Cat{C}} \lto \SETS
+    \end{align}
+    が\hyperref[def:nat]{自然同型}となるもののこと．
+\end{mydef}
+
+\textbf{Hom関手}
+\begin{align}
+    \label{def:Hom-funct}
+    \Hom{\Cat{C}} \colon \OP{\Cat{C}} \times \Cat{C} \lto \SETS
+\end{align}
+を以下で定義する：
+\begin{itemize}
+    \item $\forall (X,\, Y) \in \Obj{\OP{\Cat{C}} \times \Cat{C}}$ に対して $\Hom{\Cat{C}} (X,\, Y) \in \Obj{\SETS}$ を対応付ける．
+    \item $\forall (f,\, g) \in \Hom{\OP{\Cat{C}} \times \Cat{C}} \bigl( (X,\, Y),\, (X',\, Y') \bigr)$ に対して，写像
+    \begin{align}
+        \Hom{\Cat{C}} (X,\, Y) &\lto \Hom{\Cat{C}} (X',\, Y'), \\
+        h &\lmto g \circ h \circ f
+    \end{align}
+    を対応付ける．
+\end{itemize}
+
+\begin{mydef}[label=def:end]{エンド}
+    関手 $F \colon \OP{\Cat{C}} \times \Cat{C} \lto \Cat{D}$ の\textbf{エンド} (end) とは，（存在すれば）
+    \hyperref[def:weighted-lim]{$\Hom{\Cat{C}}$-重み付き極限}
+    \begin{align}
+        \bm{\int_{C \in \Obj{\Cat{C}}} F(C,\, C)} \coloneqq \lim{}^{\Hom{\Cat{C}}} F \in \Obj{\Cat{D}}
+    \end{align}
+    のこと．
+\end{mydef}
+
+% まず，$\PSH{\Cat{C}}{\SETS}$ に値をとる\hyperref[def:presheaf-general]{前層}
+% \begin{align}
+%     \Hom{\Cat{C}}\bigl(\, \mhyphen \,, D(\, \mhyphen \,)\bigr) \colon \OP{I} \xrightarrow{D} \Cat{C} \xrightarrow{\yo} \PSH{\Cat{C}}{\SETS}
+% \end{align}
+% を考える．このとき $\forall X \in \Obj{\Cat{C}}$ に対して，$\SETS$ に値をとる前層
+% \begin{align}
+%     \Hom{\Cat{C}}\bigl(X, D(\, \mhyphen \,)\bigr) \colon \OP{I} \lto \SETS
+% \end{align}
+% を次のようにして作ることができる：
+% \begin{itemize}
+%     \item $\forall i \in \Obj{\OP{I}}$ に対して $\Hom{\Cat{C}}\bigl(X, D(i)\bigr) \in \Obj{\PSH{I}{\SETS}}$ を対応付ける．
+%     \item $\forall f \in \Hom{\OP{I}}(i,\, j)$ に対して写像
+%     \begin{align}
+%         D(f)_* \colon \Hom{\Cat{C}}\bigl(X, D(i)\bigr) &\lto \Hom{\Cat{C}}\bigl(X, D(j)\bigr), \\
+%         g &\lmto F(f) \circ g
+%     \end{align}
+%     を対応付ける．
+% \end{itemize}
+% 次に，\textbf{定数関手} (constant functor) 
+% \begin{align}
+%     \mathrm{pt} \colon \OP{I} \lto \SETS
+% \end{align}
+% を以下のように定める：
+% \begin{itemize}
+%     \item $\forall i \in \Obj{\OP{I}}$ に対して，1点集合 $\{\mathrm{pt}\} \in \Obj{\SETS}$ を対応付ける．
+%     \item $\forall f \in \Hom{\OP{I}}(i,\, j)$ に対して，恒等写像 $\mathrm{pt} \lmto \mathrm{pt}$ を対応付ける．
+% \end{itemize}
+
+% 以上の準備の下で，$\SETS$ に値をとる前層 $\widetilde{D} \colon \OP{\Cat{C}} \lto \SETS$ を
+% \begin{itemize}
+%     \item $\forall X \in \Obj{\Cat{C}}$ に対して，
+%     \begin{align}
+%         \widetilde{D}(X) \coloneqq \Hom{\PSH{I}{\SETS}} \Bigl( \mathrm{pt},\, \Hom{\Cat{C}}\bigl(X, D(\, \mhyphen \,)\bigr) \Bigr) \in \Obj{\SETS}
+%     \end{align}
+%     を対応付ける．
+%     \item $\forall u \in \Hom{\OP{\Cat{C}}}(X,\, Y)$ に対して，写像
+%     \begin{align}
+%         \widetilde{D}(u) \colon 
+%         \Hom{\PSH{I}{\SETS}} \Bigl( \mathrm{pt},\, \Hom{\Cat{C}}\bigl(X, D(\, \mhyphen \,)\bigr) \Bigr) &\lto \Hom{\PSH{I}{\SETS}} \Bigl( \mathrm{pt},\, \Hom{\Cat{C}}\bigl(Y, D(\, \mhyphen \,)\bigr) \Bigr), \\
+%         \tau &\lmto 
+%     \end{align}
+    
+% \end{itemize}
+
+
+% これは\hyperref[def:presheaf-general]{前層} $D \in \Obj{\PSH{I}{\SETS}}$
+
+
+% \begin{align}
+%     \label{def:const-fun}
+%     \Delta C \colon I \lto \Cat{C}
+% \end{align}
+% を次のように定める：
+% \begin{itemize}
+%     \item $\forall i \in \Obj{I}$ に対して $\Delta C (i) \coloneqq C \in \Obj{\Cat{C}}$ を対応づける
+%     \item $\forall f \in \Hom{I} (i,\, j)$ に対して $\Delta C (f) \coloneqq \Id_C \in \Hom{\Cat{C}} (C,\, C)$ を対応づける
+% \end{itemize}
+% すると，図式 $D$ 上の\hyperref[def:Cone]{錐}とはまさに\hyperref[def:nat]{自然変換}
+% \begin{align}
+%     c \colon \Delta C \Longrightarrow D
+% \end{align}
+% のことに他ならない．実際，このような $c \in \Hom{\Fun (I,\, \Cat{C})} (\Delta C,\, D)$ は $\forall f \in \Hom{I}(i,\, j)$ に対して以下の図式を可換にする：
+% \begin{center}
+%     \begin{tikzcd}[row sep=huge]
+%         \Delta C(i) \arrow[d, "c_i"'] \arrow[r, "\Delta C(f) = \Id_C"] & \Delta C(j) \arrow[d, "c_j"] \\
+%         D(i) \arrow[r, "D(f)"]                                             & D(j)                            
+%     \end{tikzcd}
+% \end{center}
 
 \subsection{随伴}
 
@@ -810,7 +1085,7 @@ $\tau \in \Hom{\PshSETS{\Cat{C}}}\bigl( \Hom{\Cat{C}}(\, \mhyphen\,,\, X)\bigr)$
 
 関手\footnote{対象の対応のみ明示した．} $\Cat{D}_{/X} \lto \Cat{D},\; (D,\, \alpha) \lmto D$ のことを\textbf{標準的忘却関手} (canonical forgetful functor) と呼ぶ．標準的関手は図式中でも記号で明記しないことが多い．
 
-関手 $F \colon \Cat{C} \lto \Cat{D}$ および\underline{圏 $\Cat{D}$ における}対象 $X \in \Cat{D}$ を与える．このとき\textbf{関手 $\bm{F}$ に関するスライス圏}を関手圏 $\bm{\mathrm{Fun}(\Cat{C},\, \Cat{D})}$ における\hyperref[def:lim]{引き戻し}
+関手 $F \colon \Cat{C} \lto \Cat{D}$ および\underline{圏 $\Cat{D}$ における}対象 $X \in \Cat{D}$ を与える．このとき\textbf{関手 $\bm{F}$ に関するスライス圏}を，圏全体がなす圏 $\CAT$ における\hyperref[def:pullback-pushout]{引き戻し}
 \begin{center}
     \begin{tikzcd}[row sep=large, column sep=large]
         &\bm{F_{/X}} \ar[r]\ar[d]&\Cat{D}_{/X}\ar[d] \\
@@ -827,11 +1102,11 @@ $\tau \in \Hom{\PshSETS{\Cat{C}}}\bigl( \Hom{\Cat{C}}(\, \mhyphen\,,\, X)\bigr)$
 を可換にするものである．
 
 \begin{mytheo}[label=thm:density-cat]{density theorem}
-    \hyperref[def:presheaf-general]{前層} $F \colon \OP{\Cat{C}} \lto \SETS$ を与える．関手 $\mathrm{Y} \colon \Cat{C} \lto \PshSETS{\Cat{C}}$ を\hyperref[def:representable]{米田埋め込み}とする．
+    \hyperref[def:presheaf-general]{前層} $F \colon \OP{\Cat{C}} \lto \SETS$ を与える．関手 $\yo \colon \Cat{C} \lto \PshSETS{\Cat{C}}$ を\hyperref[def:representable]{米田埋め込み}とする．
     
     このとき，前層の圏 $\PshSETS{\Cat{C}}$ における\hyperref[def:iso]{同型}
     \begin{align}
-        F \cong \underset{X \in \mathrm{Y}_{/F}}{\colim} \Hom{\Cat{C}} (\mhyphen,\ X)
+        F \cong \underset{X \in \yo_{/F}}{\colim} \Hom{\Cat{C}} (\, \mhyphen \,,\, X)
     \end{align}
     が成り立つ．
 \end{mytheo}
@@ -839,18 +1114,31 @@ $\tau \in \Hom{\PshSETS{\Cat{C}}}\bigl( \Hom{\Cat{C}}(\, \mhyphen\,,\, X)\bigr)$
 \begin{proof}
     \hyperref[col:Yoneda]{米田の補題の系}により，示すべきは\hyperref[def:nat]{自然同型}
     \begin{align}
-        \Hom{\PshSETS{\Cat{C}}} \bigl( \underset{X \in \mathrm{Y}_{/F}}{\colim} \Hom{\Cat{C}} (\mhyphen,\ X),\, \mhyphen \bigr) \Longrightarrow \Hom{\PshSETS{\Cat{C}}} \bigl( F,\, \mhyphen \bigr) 
+        \Hom{\PshSETS{\Cat{C}}} \bigl( \underset{X \in \yo_{/F}}{\colim} \Hom{\Cat{C}} (\, \mhyphen \,,\ X),\, \, \mhyphen \, \bigr) \Longrightarrow \Hom{\PshSETS{\Cat{C}}} \bigl( F,\, \, \mhyphen \, \bigr) 
     \end{align}
-    である．実際，$\forall G \in \Obj{\PshSETS{\Cat{C}}}$ に対して
+    である．このとき，$\forall G \in \Obj{\PshSETS{\Cat{C}}}$ に対して
     \begin{align}
-        \Hom{\PshSETS{\Cat{C}}} \bigl( \underset{X \in \mathrm{Y}_{/F}}{\colim} \Hom{\Cat{C}} (\mhyphen,\ X),\, G \bigr)
-        &\cong \lim_{X \in \mathrm{Y}_{/F}} \Hom{\PshSETS{\Cat{C}}} \bigl( \Hom{\Cat{C}}(\mhyphen,\, X),\, G \bigr) &&\because\quad \text{命題\ref{prop:lim-colim-basic}} \\
-        &\cong \lim_{X \in \mathrm{Y}_{/F}} G(X) &&\because\quad \text{\hyperref[lem:Yoneda]{米田の補題}}
+        \Hom{\PshSETS{\Cat{C}}} \bigl( \underset{X \in \yo_{/F}}{\colim} \Hom{\Cat{C}} (\, \mhyphen \,,\ X),\, G \bigr)
+        &\cong \lim_{X \in \yo_{/F}} \Hom{\PshSETS{\Cat{C}}} \bigl( \Hom{\Cat{C}}(\, \mhyphen \,,\, X),\, G \bigr) &&\because\quad \text{命題\ref{prop:lim-colim-basic}} \\
+        &\cong \lim_{X \in \yo_{/F}} G(X) &&\because\quad \text{\hyperref[lem:Yoneda]{米田の補題}}
     \end{align}
     なる自然同型がある．
-    
-    　ここで $\mathrm{pt} \in \Obj{\PshSETS{\mathrm{Y}_{/F}}}$ を $\mathrm{pt}(X) \coloneqq \{*\}$ で定義する\footnote{$\{*\}$ は一点集合．$\SETS$ における\hyperref[def:lim]{終対象}と言っても良い．}と，\hyperref[def:lim]{極限の定義}から明らかに $\lim_{X \in \mathrm{Y}_{/F}} G(X) \cong \Hom{\PshSETS{\mathrm{Y}_{/F}}} (\mathrm{pt},\, G)$ が成り立つ．
-    \hyperref[def:nat]{自然変換} $\forall \tau \in \Hom{\PshSETS{\mathrm{Y}_{/F}}} (\mathrm{pt},\, G)$ は，$\forall (X,\, \alpha) \in \Obj{\mathrm{Y}_{/F}}$ に対して写像 $\{*\} \lto G(X),\; * \lmto \tau_{(X,\, \alpha)}$ を一意的に定める．一方で\hyperref[lem:Yoneda]{米田の補題}より $\forall (X,\, \alpha) \in \Obj{\mathrm{Y}_{/F}}$ はある $\alpha_X(\Id_X) \in F(X)$ と一対一対応する．
+    さらに，命題\ref{prop:redef-lim}と同様の議論により\hyperref[eq:constant-functor]{定数関手} $\mathrm{pt} \in \Obj{\PshSETS{\yo_{/F}}}$ による自然な同型
+    \begin{align}
+        \lim_{X \in \yo_{/F}} G(X) \cong \Hom{\PshSETS{\yo_{/F}}} (\mathrm{pt},\, G)
+    \end{align}
+    があることが分かる．よって自然な同型
+    \begin{align}
+        \Hom{\PshSETS{\yo_{/F}}} (\mathrm{pt},\, G) \cong \Hom{\PshSETS{\Cat{C}}} \bigl( F,\, G \bigr)
+    \end{align}
+    を示せば十分である．
+
+    ところで，\hyperref[def:nat]{自然変換} $\tau \in \Hom{\PshSETS{\yo_{/F}}} (\mathrm{pt},\, G)$ は，写像の族
+    \begin{align}
+        \Familyset[\big]{\tau_{(X,\, \alpha)} \colon \{\mathrm{pt}\} \lto G(X)}{(X,\, \alpha) \in \Obj{\yo_{/F}}}
+    \end{align}
+    からなるが，$\{\mathrm{pt}\}$ は一点集合なので $\tau_{(X,\, \alpha)}$ と $\tau_{(X,\, \alpha)}(\mathrm{\mathrm{pt}})$ を同一視して良い．
+    一方で $\forall (X,\, \alpha) \in \Obj{\yo_{/F}}$ について $\alpha \in \Hom{\PSH{\Cat{C}}{\SETS}} \bigl( \yo (X),\, F \bigr) = \Hom{\PSH{\Cat{C}}{\SETS}} \bigl( \Hom{\Cat{C}} (\, \mhyphen \,, X),\, F \bigr)$ であるから，\hyperref[lem:Yoneda]{米田の補題}からこれは $\alpha_X(\Id_X) \in F(X)$ と一対一対応する．
     この対応により $\forall X \in \OP{\Cat{C}}$ について写像
     \begin{align}
         \eta(\tau)_X \colon F(X) \lto G(X),\; \alpha_X(\Id_X) \lmto \tau_{(X,\, \alpha)}
@@ -858,7 +1146,7 @@ $\tau \in \Hom{\PshSETS{\Cat{C}}}\bigl( \Hom{\Cat{C}}(\, \mhyphen\,,\, X)\bigr)$
     が得られる．$\alpha$ は自然変換なので $\eta(\tau)_X$ を全て集めたものは自然変換 $\eta(\tau) \colon F \Longrightarrow G$ になる．
     よって写像
     \begin{align}
-        \Hom{\PshSETS{\mathrm{Y}_{/F}}} (\mathrm{pt},\, G) \lto \Hom{\PshSETS{\Cat{C}}}(F,\, B),\; \tau \lmto \eta(\tau)
+        \Hom{\PshSETS{\yo_{/F}}} (\mathrm{pt},\, G) \lto \Hom{\PshSETS{\Cat{C}}}(F,\, G),\; \tau \lmto \eta(\tau)
     \end{align}
     は自然な同型であり，証明が完了した．
 \end{proof}
@@ -939,7 +1227,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
             K \colon \OP{\Delta} \lto \SETS
         \end{align}
         のこと．
-        特に $n$-単体 $[n] \in \Obj{\OP{\Delta}}$ の\hyperref[def:representable]{表現可能前層}を $\bm{\Delta^n} \coloneqq \Hom{\Delta} (\mhyphen,\, [n]) \in \Obj{\SimpSet}$ と書く．
+        特に $n$-単体 $[n] \in \Obj{\OP{\Delta}}$ の\hyperref[def:representable]{表現可能前層}を $\bm{\Delta^n} \coloneqq \Hom{\Delta} (\, \mhyphen \,,\, [n]) \in \Obj{\SimpSet}$ と書く．
 
         \item \textbf{余単体的集合} (cosimplicial set) とは，関手
         \begin{align}
@@ -1065,7 +1353,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
 
 
 \begin{myprop}[label=prop:SimpSet-basic]{単体的集合の圏の基本性質}
-    $\mathrm{Y} \colon \Delta \lto \SimpSet$ を\hyperref[def:representable]{米田埋め込み}とする．
+    $\yo \colon \Delta \lto \SimpSet$ を\hyperref[def:representable]{米田埋め込み}とする．
     \begin{enumerate}
         \item 任意の\hyperref[def:SimpSet]{単体的集合} $K \colon \OP{\Delta} \lto \SETS$ に対して，\hyperref[def:nat]{自然な同型}
         \begin{align}
@@ -1075,7 +1363,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
         \item 圏 \hyperref[def:SimpSet]{$\SimpSet$} は\hyperref[def:complete]{双完備}である．
         \item 任意の\hyperref[def:SimpSet]{単体的集合} $K \colon \OP{\Delta} \lto \SETS$ に対して，
         \begin{align}
-            K \cong \underset{[n] \in \mathrm{Y}_{/K}}{\colim} \Delta^n
+            K \cong \underset{[n] \in \yo_{/K}}{\colim} \Delta^n
         \end{align}
         が成り立つ．
     \end{enumerate}
@@ -1098,7 +1386,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
         \item 
         \item 定理\ref{thm:density-cat}より
         \begin{align}
-            K \cong \underset{[n] \in \mathrm{Y}_{/K}}{\colim}\Hom{\Delta}(\mhyphen,\, [n]) = \underset{[n] \in \mathrm{Y}_{/K}}{\colim} \Delta^n
+            K \cong \underset{[n] \in \yo_{/K}}{\colim}\Hom{\Delta}(\mhyphen,\, [n]) = \underset{[n] \in \yo_{/K}}{\colim} \Delta^n
         \end{align}
         
     \end{enumerate}
@@ -1142,10 +1430,10 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
 
 
 \begin{mydef}[label=def:geometric-realization]{幾何学的実現}
-    $\mathrm{Y} \colon \Delta \lto \SimpSet$ を\hyperref[def:representable]{米田埋め込み}とする．
+    $\yo \colon \Delta \lto \SimpSet$ を\hyperref[def:representable]{米田埋め込み}とする．
     \textbf{幾何学的実現} (geometric realization) とは，\hyperref[def:colim]{余極限}を保つ関手
     \begin{align}
-        \abs{\mhyphen} \colon \SimpSet \lto \TOP,\; K \lmto \underset{[n] \in \mathrm{Y}_{/K}}{\colim} \irm{\Delta}{top}([n])
+        \abs{\mhyphen} \colon \SimpSet \lto \TOP,\; K \lmto \underset{[n] \in \yo_{/K}}{\colim} \irm{\Delta}{top}([n])
     \end{align}
     のこと．
     \tcblower
@@ -1167,11 +1455,11 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     \end{align}
     が成り立つことを示せば良い．実際，命題\ref{prop:lim-colim-basic}より
     \begin{align}
-        \Hom{\TOP} (\abs{K},\, X) = \Hom{\TOP} \bigl( \underset{[n] \in \mathrm{Y}_{/K}}{\colim} \irm{\Delta}{top}^n,\, X \bigr) \cong \underset{[n] \in \mathrm{Y}_{/K}}{\lim} \Hom{\TOP}(\irm{\Delta}{top}^n,\, X)
+        \Hom{\TOP} (\abs{K},\, X) = \Hom{\TOP} \bigl( \underset{[n] \in \yo_{/K}}{\colim} \irm{\Delta}{top}^n,\, X \bigr) \cong \underset{[n] \in \yo_{/K}}{\lim} \Hom{\TOP}(\irm{\Delta}{top}^n,\, X)
     \end{align}
     が，命題\ref{prop:SimpSet-basic}-(3) より
     \begin{align}
-        \Hom{\OP{\SimpSet}} \bigl(K,\, S(X)\bigr) \cong \Hom{\OP{\SimpSet}} \bigl( \underset{[n] \in \mathrm{Y}_K}{\colim} \Delta^n,\, S(X) \bigr) \cong \underset{[n] \in \mathrm{Y}_{/K}}{\lim} \Hom{\TOP}(\Delta^n,\, X)
+        \Hom{\OP{\SimpSet}} \bigl(K,\, S(X)\bigr) \cong \Hom{\OP{\SimpSet}} \bigl( \underset{[n] \in \yo_K}{\colim} \Delta^n,\, S(X) \bigr) \cong \underset{[n] \in \yo_{/K}}{\lim} \Hom{\TOP}(\Delta^n,\, X)
     \end{align}
     が言える．
 \end{proof}
@@ -1224,7 +1512,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
 \end{mydef}
 
 \begin{myprop}[label=prop:boundary-coeq]{コイコライザとしての境界}
-    \hyperref[def:horn]{境界} $\partial \Delta^n$ は圏\hyperref[def:SimpSet]{$\SimpSet$}における\hyperref[def:colim]{コイコライザ}である：
+    \hyperref[def:horn]{境界} $\partial \Delta^n$ は圏\hyperref[def:SimpSet]{$\SimpSet$}における\hyperref[def:eq-coeq]{コイコライザ}である：
     \begin{center}
         \begin{tikzcd}[row sep=large, column sep=large]
              &\coprod_{0 \le i < j \le n} \Delta^{n-2} \ar[r, shift left, "u"]\ar[r, shift right, "v"'] &\coprod_{0 \le k \le n} \Delta^{n-1} \ar[r, "w"] &\partial \Delta^n
@@ -1355,7 +1643,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
 \end{proof}
 
 \begin{myprop}[label=prop:horn-coeq]{コイコライザとしての角}
-    \hyperref[def:horn]{角} $\Lambda^n_i$ は圏\hyperref[def:SimpSet]{$\SimpSet$}における\hyperref[def:colim]{コイコライザ}である：
+    \hyperref[def:horn]{角} $\Lambda^n_i$ は圏\hyperref[def:SimpSet]{$\SimpSet$}における\hyperref[def:eq-coeq]{コイコライザ}である：
     \begin{center}
         \begin{tikzcd}[row sep=large, column sep=large]
              &\coprod_{\substack{j,\, k \in [n] \setminus \{i\} \\ j < k}} \Delta^{n-2} \ar[r, shift left, "u"]\ar[r, shift right, "v"'] &\coprod_{l \in [n] \setminus \{i\}} \Delta^{n-1} \ar[r, "w"] &\Lambda_i^n

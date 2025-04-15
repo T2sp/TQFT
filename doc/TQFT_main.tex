@@ -377,6 +377,12 @@ title=系~\thetcbcounter: #2,#1}
 \newcommand{\LatG}[2]{\mathrm{Lat}_{#1}\left(#2\right)}
 \newcommand{\GndG}[2]{\mathrm{Gnd}_{#1}\left(#2\right)}
 
+%% Yoneda embedding
+\usepackage[utf8]{inputenc}
+\DeclareFontFamily{U}{min}{}
+\DeclareFontShape{U}{min}{m}{n}{<-> udmj30}{}
+\newcommand\yo{\!\text{\usefont{U}{min}{m}{n}\symbol{'207}}\!}
+
 %% file division
 \usepackage{subfiles}
 
