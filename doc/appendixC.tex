@@ -1673,7 +1673,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     $\abs{\Delta^n} = \irm{\Delta}{top}^n$ であることに注意する．
 \end{proof}
 
-\section{脈体・Kan複体・$(\infty,\, 1)$-圏}
+\section{脈体・単体的圏}
 
 $[n] \in \Obj{\Delta}$ に対して，
 \begin{itemize}
@@ -1697,6 +1697,8 @@ $[n] \in \Obj{\Delta}$ に対して，
 ことにより $[n]$ 自身が圏になる．
 
 \subsection{脈体}
+
+後に示す命題\ref{prop:nerve}により，通常の\hyperref[def:category]{圏}は\hyperref[def:SimpSet]{単体的集合}と同一視できる．
 
 \begin{mydef}[label=def:nerve]{脈体}
         圏 $\Cat{C}$ の\textbf{脈体} (nerve) とは，以下で定義される\hyperref[def:SimpSet]{単体的集合}
@@ -1917,7 +1919,89 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
     
 \end{proof}
 
+\subsection{豊穣圏}
 
+\begin{mydef}[label=def:enriched,breakable]{豊穣圏}
+    \hyperref[redef:monoidal-category]{モノイダル圏} $(V,\, \otimes,\, I)$ を与える．
+
+    $\bm{V}$\textbf{-豊穣圏} ($V$-enriched category) $\Cat{C}$ は，以下のデータからなる：
+    \begin{itemize}
+        \item 集合 $\Obj{\Cat{C}}$
+        \item $\forall x, y \in \Obj{\Cat{C}}$ に対して，\textbf{Hom対象}と呼ばれる\underline{$V$ の}対象 $\Hom{\Cat{C}}(x,\, y) \in \Obj{V}$ を持つ
+        \item $\forall x, y,\, z \in \Obj{\Cat{C}}$ に対して，\textbf{合成射}と呼ばれる\underline{$V$ の}射 $\circ_{x,\, y,\, z} \colon \Hom{\Cat{C}}(x,\, y) \otimes \Hom{\Cat{C}}(y,\, z) \lto \Hom{\Cat{C}} (x,\, z)$ を持つ
+        \item $\forall x \in \Obj{\Cat{C}}$ に対して，\textbf{恒等素}と呼ばれる\underline{$V$ の}射 $j_x \colon I \lto \Hom{\Cat{C}} (x,\, x)$ を持つ
+    \end{itemize}
+    これらは以下の図式を可換にしなくてはいけない：
+    \begin{description}
+        \item[\textbf{(associativity)}]　
+        
+        $\forall x,\, y,\, z,\, w \in \Obj{\Cat{C}}$ について\footnote{$\cong$ はモノイダル圏 $V$ の \hyperref[def:monoidal-category]{associator}}
+        \begin{flushleft}
+            \begin{tikzcd}[column sep=large]
+                &\bigl( \Hom{\Cat{C}}(x,\,  y) \otimes \Hom{\Cat{C}}(y,\,  z) \bigr) \otimes \Hom{\Cat{C}}(z,\,  w) \ar[dd, "\cong"']\ar[r,"\substack{\circ_{x,y,z} \otimes \Id_{\Hom{\Cat{C}}(z,\,  w)} \\ \phantom{0}}"] &\Hom{\Cat{C}} (x,\,  z) \otimes \Hom{\Cat{C}}(z,\,  w) \ar[d, "\circ_{x,z,w}"] \\
+                & &\Hom{\Cat{C}}(x,\,  w) \\
+                &\Hom{\Cat{C}}(x,\,  y) \otimes \bigl( \Hom{\Cat{C}}(y,\,  z) \otimes \Hom{\Cat{C}}(z,\,  w) \bigr) \ar[r, "\substack{\phantom{0} \\ \Id_{\Hom{\Cat{C}}(x,\,  y)} \otimes \circ_{y,z,w}}"'] &\Hom{\Cat{C}}(x,\,  y) \otimes \Hom{\Cat{C}}(y,\,  w) \ar[u,"\circ_{x,y,w}"']
+            \end{tikzcd}
+        \end{flushleft}
+        
+        \item[\textbf{(unitality)}]　
+        
+        $\forall x,\, y \in \Obj{\Cat{C}}$ について\footnote{$\cong$ はモノイダル圏 $V$ の\hyperref[def:monoidal-category]{left/right unitor}}
+        \begin{center}
+            \begin{tikzcd}
+                &\Hom{\Cat{C}}(x,\,  x) \otimes \Hom{\Cat{C}}(x,\,  y) \ar[r, "\circ_{x{,}x{,}y}"] &\Hom{\Cat{C}}(x,\,  y) &\Hom{\Cat{C}}(x,\,  y) \otimes \Hom{\Cat{C}}(y,\,  y) \ar[l, "\circ_{x{,}y{,}y}"'] \\
+                &I \otimes \Hom{\Cat{C}}(x,\,  y) \ar[u, "j_x \otimes \Id_{\Hom{\Cat{C}}(x,\,  y)}"] \ar[ur, "\cong"'] & &\Hom{\Cat{C}}(x,\,  y) \otimes I \ar[u, "\Id_{\Hom{\Cat{C}}(x,\,  y)} \otimes j_y"'] \ar[ul, "\cong"]
+            \end{tikzcd}
+        \end{center}
+        
+    \end{description}
+\end{mydef}
+
+\begin{mydef}[label=def:enriched-functor]{豊穣関手}
+    モノイダル圏 $(V,\, \otimes,\, I)$ を与える．
+
+    2つの\hyperref[def:enriched]{$V$-豊穣圏} $\Cat{C},\, \Cat{D}$ の間の $V$\textbf{-豊穣関手} ($V$-enriched functor) 
+    \begin{align}
+        F \colon \Cat{C} \lto \Cat{D}
+    \end{align}
+    は，以下のデータからなる：
+    \begin{itemize}
+        \item 写像 $F_0\colon \Obj{\Cat{C}} \lto \Obj{\Cat{D}},\; x \lmto F_0(x)$
+        \item \underline{$V$ の}射の族
+        \begin{align}
+            \Familyset[\big]{F_{x,\, y} \colon \Hom{\Cat{C}} (x,\, y) \lto \Hom{\Cat{D}} \bigl( F_0(x),\, F_0(y) \bigr) }{x,\, y \in \Obj{\Cat{C}}}
+        \end{align}
+    \end{itemize}
+    これらは以下の図式を可換にしなくてはいけない：
+    \begin{description}
+        \item[\textbf{(enriched-1)}]　
+        
+        $\forall x,\, y,\, z \in \Obj{\Cat{C}}$ に対して\footnote{これは，通常の関手において射の合成が保存されることに対応する．}
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &\Hom{\Cat{C}}(x,\,  y) \otimes \Hom{\Cat{C}}(y,\,  z) \ar[r, "\circ_{x{,}y{,}{z}}"]\ar[d, "F_{x{,}y} \otimes F_{y{,}z}"'] &\Hom{\Cat{C}}(x,\,  z) \ar[d, "F_{x{,}z}"] \\
+                &\Hom{\Cat{D}}\bigl(F_0(x),\,  F_0(y)\bigr) \otimes \Hom{\Cat{D}}\bigl(F_0(y),\,  F_0(z)\bigr) \ar[r, "\substack{\phantom{0} \\ \circ_{F_0(x){,}F_0(y){,}F_0(z)}}"'] &\Hom{\Cat{D}}\bigl(F_0(x),\,  F_0(z)\bigr)
+            \end{tikzcd}
+        \end{center}
+        \item[\textbf{(enriched-2)}]　
+        
+        $\forall x \in \Obj{\Cat{C}}$ に対して\footnote{これは，通常の関手において恒等射が保存されることに対応する．}
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &I \ar[dr,"j_{F_0(x)}"']\ar[r, "j_x"] &\Hom{\Cat{C}}(x,\,  x) \ar[d, "F_{x{,}x}"] \\
+                & &\Hom{\Cat{D}}\bigl( F_0(x),\,  F_0(x) \bigr) 
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+\end{mydef}
+
+
+
+\subsection{単体的圏}
+
+
+
+\section{Kan複体・$(\infty,\, 1)$-圏}
 
 \begin{mydef}[label=def:KanCplx,breakable]{Kan複体}
     \textbf{Kan複体} (Kan complex) とは，\hyperref[def:SimpSet]{単体的集合}
