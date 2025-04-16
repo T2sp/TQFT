@@ -189,12 +189,12 @@
     \begin{itemize}
         \item $F$ が\textbf{忠実} (faithful) であるとは， $\forall X,\,Y \in \Obj{\Cat{C}}$ に対して写像
         \begin{align}
-            F \colon \Hom{\mathcal{C}}(X,\, Y) \longrightarrow \Hom{\mathcal{D}} \bigl( F(X),\, F(Y) \bigr),\; f \longmapsto F(f)
+            F_{X,\, Y} \colon \Hom{\mathcal{C}}(X,\, Y) \longrightarrow \Hom{\mathcal{D}} \bigl( F(X),\, F(Y) \bigr),\; f \longmapsto F(f)
         \end{align}
         が単射であること．
         \item $F$ が\textbf{充満} (full) であるとは， $\forall X,\,Y \in \Obj{\Cat{C}}$ に対して写像
         \begin{align}
-            F \colon \Hom{\mathcal{C}}(X,\, Y) \longrightarrow \Hom{\mathcal{D}} \bigl( F(X),\, F(Y) \bigr),\; f \longmapsto F(f)
+            F_{X,\, Y} \colon \Hom{\mathcal{C}}(X,\, Y) \longrightarrow \Hom{\mathcal{D}} \bigl( F(X),\, F(Y) \bigr),\; f \longmapsto F(f)
         \end{align}
         が全射であること．
         \item $F$ が\textbf{本質的全射} (essentially surjective) であるとは， $\forall Z \in \Obj{\Cat{D}}$ に対して $X \in \Obj{\Cat{C}}$ が存在して $F(X)$ が $Y$ と同型になること．
@@ -598,8 +598,7 @@ $\SETS$ は\hyperref[def:complete]{双完備}である．
 
 \begin{mydef}[label=def:representable,breakable]{表現可能前層・米田埋め込み}
     圏 $\Cat{C}$ を与える．
-    \begin{itemize}
-        \item $\forall X \in \Obj{\Cat{C}}$ に対して，以下で定義する\hyperref[def:presheaf-general]{前層}
+    $\forall X \in \Obj{\Cat{C}}$ に対して，以下で定義する\hyperref[def:presheaf-general]{前層}
         \begin{align}
             \bm{\Hom{\Cat{C}}(\,\mhyphen\,,\, X)} \colon \OP{\Cat{C}} &\lto \SETS
         \end{align}
@@ -617,7 +616,8 @@ $\SETS$ は\hyperref[def:complete]{双完備}である．
             \end{align}
             を対応付ける
         \end{itemize}
-        \item \textbf{米田埋め込み} (Yoneda embedding) とは，以下で定義する\hyperref[def:functor]{関手}
+    \tcblower
+        \textbf{米田埋め込み} (Yoneda embedding) とは，以下で定義する\hyperref[def:functor]{関手}
         \begin{align}
             \yo \colon \Cat{C} \lto \PshSETS{\Cat{C}}
         \end{align}
@@ -633,11 +633,7 @@ $\SETS$ は\hyperref[def:complete]{双完備}である．
                 \end{align}
                 を対応付ける．
             \end{itemize}
-            
         \end{itemize}
-        
-    \end{itemize}
-    
 \end{mydef}
 
 \begin{mylem}[label=lem:Yoneda]{米田の補題}
@@ -1687,21 +1683,27 @@ $[n] \in \Obj{\Delta}$ に対して，
         \Hom{[n]} (i,\, j)
         \coloneqq
         \begin{cases}
-            \{*\}, &i \le j \\
+            \{\mathrm{pt}_{ij}\}, &i \le j \\
             \emptyset, &i > j
         \end{cases}
     \end{align}
-    とする
+    とする．ただし，$\mathrm{pt}_{ii} = \Id_i$ である．
+    \item 射の合成は $0 \le i \le j \le k \le n$ に対して
+    \begin{align}
+        \mathrm{pt}_{jk} \circ \mathrm{pt}_{ij} \coloneqq \mathrm{pt}_{ik}
+    \end{align}
+    と定義する．
 \end{itemize}
 ことにより $[n]$ 自身が圏になる．
 
+\subsection{脈体}
+
 \begin{mydef}[label=def:nerve]{脈体}
-    \begin{itemize}
-        \item 圏 $\Cat{C}$ の\textbf{脈体} (nerve) とは，以下で定義される\hyperref[def:SimpSet]{単体的集合}
+        圏 $\Cat{C}$ の\textbf{脈体} (nerve) とは，以下で定義される\hyperref[def:SimpSet]{単体的集合}
         \begin{align}
             \mathrm{N}(\Cat{C}) \colon \OP{\Delta} \lto \SETS
         \end{align}
-        のこと：
+        のことを言う：
         \begin{itemize}
             \item $\forall [n] \in \Obj{\OP{\Delta}}$ に対して
             \begin{align}
@@ -1710,39 +1712,86 @@ $[n] \in \Obj{\Delta}$ に対して，
             を対応付ける
             \item \hyperref[def:simplex-cat]{圏 $\OP{\Delta}$ }における任意の射 $[n] \xrightarrow{\alpha} [m]$ に対して\underline{写像}
             \begin{align}
-                \ner{\Cat{C}}(\alpha) \coloneqq \alpha^* \colon \mathrm{Fun}([n],\, \Cat{C}) \lto \mathrm{Fun}([m],\, \Cat{C}),\; G_n \lmto G_n \circ \alpha
+                \ner{\Cat{C}}(\alpha) \coloneqq \alpha^* \colon \mathrm{Fun}([n],\, \Cat{C}) &\lto \mathrm{Fun}([m],\, \Cat{C}),\\ 
+                X &\lmto X \circ \alpha
             \end{align}
             を対応付ける
         \end{itemize}
 
-        \item \textbf{脈体関手} (nerve functor) とは，以下で定義される関手
+        \tcblower
+
+        \textbf{脈体関手} (nerve functor) とは，以下で定義される関手
         \begin{align}
             \mathrm{N} \colon \CAT \lto \SimpSet
         \end{align}
-        のこと．
+        のことを言う：
         \begin{itemize}
             \item $\forall \Cat{C} \in \Obj{\Cat{C}}$ に対して $\mathrm{N}(\Cat{C}) \in \Obj{\SimpSet}$ を対応づける．
             \item 任意の関手 $\Cat{C} \xrightarrow{F} \Cat{D}$ に対して\hyperref[def:nat]{自然変換}
             \begin{align}
                 \ner{F} \colon &\ner{\Cat{C}} \Longrightarrow \ner{\Cat{D}}, \\
-                \WHERE \ner{F} &\coloneqq \Familyset[\big]{\mathrm{N}(F)_{[n]} \colon \mathrm{Fun}([n],\, \Cat{C}) \lto \mathrm{Fun}([n],\, \Cat{D}),\; G_n \lmto F \circ G_n}{[n] \in \Obj{\OP{\Delta}}}
+                \WHERE \ner{F} &\coloneqq \Familyset[\big]{\mathrm{N}(F)_{[n]} \colon \mathrm{Fun}([n],\, \Cat{C}) \lto \mathrm{Fun}([n],\, \Cat{D}),\; X \lmto F \circ X}{[n] \in \Obj{\OP{\Delta}}}
             \end{align}
             を対応付ける
         \end{itemize}
-    \end{itemize}
-    
 \end{mydef}
 
-圏 $[n]$ の射の定義を思い出すと，$\mathrm{N}(\Cat{C})_n \in \Obj{\SETS}$ の要素は $\Cat{C}$ における図式
+定義\ref{def:SimpSet}の略記に倣い，$\mathrm{N}(\Cat{C})_n \coloneqq \mathrm{N} (\Cat{C})([n]) \in \Obj{\SETS}$ と略記する．
+このとき，圏 $[n]$ の定義を思い出すと，集合の要素 $X \in \mathrm{N}(\Cat{C})_n$ は以下のデータからなる：
+\begin{itemize}
+    \item 圏 $\Cat{C}$ の対象の族
+    \begin{align}
+        \Familyset[big]{X_i \coloneqq X (i) \in \Obj{\Cat{C}} }{0 \le i \le n}
+    \end{align}
+    \item 圏 $\Cat{C}$ の射の族
+    \begin{align}
+        \Familyset[big]{f_{ij} \coloneqq X(\mathrm{pt}_{ij}) \colon X(i) \lto X(j)}{0 \le i \le j \le n}
+    \end{align}
+\end{itemize}
+$X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に対して
+\begin{align}
+    f_{ii} &= X(\Id_i) = \Id_{X_i}, \\
+    f_{ij} &= X(\mathrm{pt}_{j-1,j} \circ \cdots \mathrm{pt}_{i+1,i+2}\circ\mathrm{pt}_{i,i+1}) \\
+    &= f_{j-1,j} \circ \cdots \circ f_{i+1,i+2} \circ f_{i,i+1}
+\end{align}
+が成り立つ．故に，$X$ を特徴付けるには，$f_i \coloneqq f_{i,i-1}$ とおいて $\Cat{C}$ の図式
 \begin{align}
     \label{eq:nerve-spine}
     X_0 \xrightarrow{f_1} X_1 \xrightarrow{f_2} \cdots \xrightarrow{f_n} X_n
 \end{align}
-により同定されることがわかる．このことから，脈体のmorphism-morphism対応は図式の対応
+を指定することが必要十分である．このことから，脈体のmorphism-morphism対応は図式の対応
 \begin{align}
     (X_0 \to X_1 \to \cdots \to X_n) \lmto (X_{\alpha(0)} \to X_{\alpha(1)} \to \cdots \to X_{\alpha(m)})
 \end{align}
 と理解できる．
+
+\begin{myexample}[label=ex:nerve-face]{面写像}
+    $\forall X \in \mathrm{N}(\Cat{C})_n$ を $\Cat{C}$ の図式
+    \begin{align}
+        X_0 \xrightarrow{f_1} X_1 \xrightarrow{f_2} \cdots \xrightarrow{f_n} X_n
+    \end{align}
+    として指定する．
+    このとき\hyperref[def:simplex-cat]{面写像} $d^n_i \in \Hom{\OP{\Delta}}([n],\, [n-1])$ は，\hyperref[def:nerve]{脈体}によって写像
+    \begin{align}
+        N(\Cat{C})(d^n_i)\colon 
+        X &\lmto \bigl( X_0 \xrightarrow{f_1} \cdots \xrightarrow{f_{i-1}} X_{i-1} \xrightarrow{f_{i+1} \circ f_{i}} X_{i+1} \xrightarrow{f_{i+2}} \cdots \xrightarrow{f_n} X_n \bigr) 
+    \end{align}
+    と対応付く．
+\end{myexample}
+
+\begin{myexample}[label=ex:nerve-degen]{縮退写像}
+    $\forall X \in \mathrm{N}(\Cat{C})_n$ を $\Cat{C}$ の図式
+    \begin{align}
+        X_0 \xrightarrow{f_1} X_1 \xrightarrow{f_2} \cdots \xrightarrow{f_n} X_n
+    \end{align}
+    として指定する．
+    このとき\hyperref[def:simplex-cat]{縮退写像} $s^n_i \in \Hom{\OP{\Delta}}([n],\, [n+1])$ は，\hyperref[def:nerve]{脈体}によって写像
+    \begin{align}
+        N(\Cat{C})(s^n_i)\colon 
+        X &\lmto \bigl( X_0 \xrightarrow{f_1} \cdots \xrightarrow{f_{i}} X_{i} \xrightarrow{\Id_{X_i}} X_{i} \xrightarrow{f_{i+1}} \cdots \xrightarrow{f_n} X_{n} \bigr) 
+    \end{align}
+    と対応付く．
+\end{myexample}
 
 \begin{myprop}[label=def:nerve]{脈体関手は忠実充満}
     \hyperref[def:nerve]{脈体関手}は\hyperref[def:faithful]{忠実充満関手}である．
