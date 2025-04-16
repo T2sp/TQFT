@@ -94,7 +94,8 @@
 
 \chapter{$\infty$-圏}
 
-この付録では，~\cite{Land2021infinity}, ~\cite{alfonsi2023higher}, ~\cite{Kerodon}に従って $\infty$-圏\footnote{~\cite{lurie2008higher}が源流にある．~\cite{Kerodon}は創始者本人によって運営されているwebサイトのようだ．}，および主 $\infty$-束を導入する．
+この付録では，~\cite{Land2021infinity}, ~\cite{alfonsi2023higher}, ~\cite{Kerodon}に従って $(\infty,\, 1)$-圏\footnote{~\cite{lurie2008higher}が源流にある．~\cite{Kerodon}は創始者本人によって運営されているwebサイトのようだ．}を導入する．
+さらに，~\cite{barwick2020unicityhomotopytheoryhigher}, ~\cite{ayala2020factorizationhomologyihigher}をベースに $(\infty,\, n)$-圏の構成を試みる．
 
 \section{圏論の復習}
 
@@ -1379,7 +1380,21 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
             =\Hom{\PshSETS{\Delta}} (\Hom{\Delta}(\mhyphen,\, [n]),\, K)
             \cong K([n]) = K_n
         \end{align}
-        \item 
+        \item \hyperref[def:diagram]{図式} $D \colon I \lto \SimpSet$ を与える．
+        $\SETS$ が双完備であることから，\hyperref[def:SimpSet]{単体的集合}
+        \begin{align}
+            \lim_I D \colon \OP{\Delta} &\lto \SETS, \\
+            [n] &\lmto \lim_I D(\, \mhyphen \,)([n])
+        \end{align}
+        がwell-definedである．これがちょうど図式 $D$ の\hyperref[def:lim]{極限}を与える．
+        
+        　同様に，\hyperref[def:SimpSet]{単体的集合}
+        \begin{align}
+            \colim_I D \colon \OP{\Delta} &\lto \SETS, \\
+            [n] &\lmto \colim_I D(\, \mhyphen \,)([n])
+        \end{align} 
+        が図式 $D$ の\hyperref[def:colim]{余極限}を与える．
+        
         \item 定理\ref{thm:density-cat}より
         \begin{align}
             K \cong \underset{[n] \in \yo_{/K}}{\colim}\Hom{\Delta}(\mhyphen,\, [n]) = \underset{[n] \in \yo_{/K}}{\colim} \Delta^n
@@ -1495,7 +1510,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
         \end{align}
         であって，
         \begin{align}
-            I^n ([k]) \coloneqq \bigl\{\, f \in \Delta^n([k]) \bigm| f([k]) = \{j\}\; \mathrm{or} f([k]) = \{j,\, j+1\} \,\bigr\} \subset \Delta^n([k])
+            I^n ([k]) \coloneqq \bigl\{\, f \in \Delta^n([k]) \bigm| f([k]) = \{j\}\; \mathrm{or}\; f([k]) = \{j,\, j+1\} \,\bigr\} \subset \Delta^n([k])
         \end{align}
         を充たすもののこと．
         \item \hyperref[def:SimpSet]{単体的集合} $K \colon \OP{\Delta} \lto \SETS$ の\textbf{$\bm{n}$-骨格} ($n$-skelton) とは，
@@ -1506,6 +1521,101 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     \end{itemize}
     
 \end{mydef}
+
+\begin{myexample}[label=ex:horn]{角 $\Lambda^2_j$ の構造}
+    \hyperref[def:horn]{角} $\Lambda^2_0 \colon \OP{\Delta} \lto \SETS$ とはどのようなものだろうか．
+    まず，\hyperref[def:representable]{表現可能前層} $\Delta^2$ の定義から
+    \begin{align}
+        \Lambda^2_0([0]) = \Bigl\{\, f \in \Hom{\Delta} ([0],\, [2]) \bigm| [2] \setminus \bigl( f([0]) \cup \{0\}\bigr)  \,\Bigr\} 
+    \end{align}
+    であるが，$\forall f \in \Hom{\Delta} ([0],\, [2])$ は定数写像なので $\Lambda^2_0([0]) = \Hom{\Delta} ([0],\, [2])$ である．これらを
+    \begin{align}
+        \Lambda^2_0 ([0]) \eqqcolon \bigl\{ \underset{\{0\}}{\bullet},\, \underset{\{1\}}{\bullet},\, \underset{\{2\}}{\bullet} \bigr\}
+    \end{align}
+    と書く．次に
+    \begin{align}
+        \Lambda^2_0([1]) = \Bigl\{\, f \in \Hom{\Delta} ([1],\, [2]) \bigm| [2] \setminus \bigl( f([1]) \cup \{0\}\bigr)  \,\Bigr\} 
+    \end{align}
+    を調べる．6点集合 $\Hom{\Delta} ([1],\, [2])$ の元を全て書き出すと
+    \begin{align}
+        f_0 \colon 0 &\lmto 0,\; 1 \lmto 0 \\
+        f_1 \colon 0 &\lmto 0,\; 1 \lmto 1 \\
+        f_2 \colon 0 &\lmto 0,\; 1 \lmto 2 \\
+        f_3 \colon 0 &\lmto 1,\; 1 \lmto 1 \\
+        f_4 \colon 0 &\lmto 1,\; 1 \lmto 2 \\
+        f_5 \colon 0 &\lmto 2,\; 1 \lmto 2
+    \end{align}
+    であるから，$f_4$ のみが除外される．さらに，
+    \begin{align}
+        \partial_1^1 (f_0) &= \partial_0^1 (f_0) = \{0\}, \\
+        \partial_1^1 (f_1) &=\{0\},\; \partial_0^1 (f_1) = \{1\}, \\
+        \partial_1^1 (f_2) &=\{0\},\; \partial_0^1 (f_2) = \{2\}, \\
+        \partial_1^1 (f_3) &= \partial_0^1 (f_3) = \{1\}, \\
+        \partial_1^1 (f_4) &=\{1\},\; \partial_0^1 (f_4) = \{2\}, \\
+        \partial_1^1 (f_5) &= \partial_0^1 (f_5) = \{2\}, \\
+    \end{align}
+    と計算できるため $f_0 = \sigma^0_0(\{0\}),\; f_3 = \sigma^0_0(\{1\}),\; f_5 = \sigma^0_0(\{2\})$ であり，
+    \begin{align}
+        \Lambda^2_0([1])
+        = \sigma^0_0 \bigl( \Lambda^2_0([0]) \bigr) \cup
+        \bigl\{ 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \draw[->-=.5] (0,0) node[bullet]{} node[below]{$\{0\}$} -- node[midway,above]{$f_1$} (1,0) node[bullet]{} node[below]{$\{1\}$};
+            \end{tikzpicture},\;
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \draw[->-=.5] (0,0) node[bullet]{} node[below]{$\{0\}$} -- node[midway,above]{$f_2$} (1,0) node[bullet]{} node[below]{$\{2\}$};
+            \end{tikzpicture}
+         \bigr\} 
+    \end{align}
+    と書ける．
+    次に
+    \begin{align}
+        \Lambda^2_0([2]) = \Bigl\{\, f \in \Hom{\Delta} ([2],\, [2]) \bigm| [2] \setminus \bigl( f([2]) \cup \{0\}\bigr)  \,\Bigr\} 
+    \end{align}
+    であるが，縮退写像の像に含まれない $\Hom{\Delta} ([2],\, [2])$ の元は $\Id_{[2]}$ のみであり，明らかに $\Id_{[n]} \notin \Lambda^2_0([2])$ となっている．
+    \begin{align}
+        \partial_0^2(\Id_{[2]}) = \bigl( 0 \lmto 1,\, 1 \lmto 2 \bigr) = f_4
+    \end{align}
+    となっていることに注目すべきである．ここから，$\Lambda^n_j([n-1]) \subset \Hom{\Delta}([n-1],\, [n])$ において\textbf{除外される要素がちょうど $\partial_j^n(\Id_{[n-1]})$ なのではないかという予想}が立つのである．
+    この予想は系\ref{col:horn-coeq}および\hyperref[lem:Yoneda]{米田の補題}によって正当化される．
+
+    　$k \ge 3$ に関する $\Lambda^2_0([k])$ は必ず\hyperref[def:SimpSet]{縮退写像}の像に入ってしまう．
+    以上の考察より，$\Lambda^2_0$ を次のように図示する：
+    \begin{align}
+        \Lambda^2_0 &=\quad
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate[bullet,label=below left:$\{0\}$] (0)
+            +(0:1) coordinate[bullet,label=below right:$\{2\}$] (2)
+            +(60:1) coordinate[bullet,label=above:$\{1\}$] (1)
+            ;
+            \draw[->-=.5] (0) --node[midway,above left] {$f_1$} (1);
+            \draw[->-=.5] (0) --node[midway,below] {$f_2$} (2);
+        \end{tikzpicture}
+    \end{align}
+    同様に，$\Lambda^2_1,\, \Lambda^2_2$ も次のように図示できる：
+    \begin{align}
+        \Lambda^2_1 &=\quad 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate[bullet,label=below left:$\{0\}$] (0)
+            +(0:1) coordinate[bullet,label=below right:$\{2\}$] (2)
+            +(60:1) coordinate[bullet,label=above:$\{1\}$] (1)
+            ;
+            \draw[->-=.5] (0) -- (1);
+            \draw[->-=.5] (1) -- (2);
+        \end{tikzpicture} &
+        \Lambda^2_2 &=\quad 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate[bullet,label=below left:$\{0\}$] (0)
+            +(0:1) coordinate[bullet,label=below right:$\{2\}$] (2)
+            +(60:1) coordinate[bullet,label=above:$\{1\}$] (1)
+            ;
+            \draw[->-=.5] (0) -- (2);
+            \draw[->-=.5] (1) -- (2);
+        \end{tikzpicture}
+    \end{align}
+\end{myexample}
+
+
 
 \begin{myprop}[label=prop:boundary-coeq]{コイコライザとしての境界}
     \hyperref[def:horn]{境界} $\partial \Delta^n$ は圏\hyperref[def:SimpSet]{$\SimpSet$}における\hyperref[def:eq-coeq]{コイコライザ}である：
@@ -1608,7 +1718,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     $\forall K \in \Obj{\SimpSet}$ に対して，写像
     \begin{align}
         \Hom{\SimpSet} (\partial \Delta^n,\, K) &\lto \biggl\{\, (\sigma_0,\, \dots,\, \sigma_n) \in \prod_{0 \le k \le n} K_{n-1} \biggm| 0 \le \forall i < j \le n,\;  \partial^{n-1}_i (\sigma_j) = \partial^{n-1}_{j-1} (\sigma_i) \,\biggr\}, \\
-        f &\lmto \bigl(f \circ d^n_0,\, \dots,\, f \circ d^n_n \bigr) 
+        f &\lmto \bigl(f_{[n-1]} \circ d^n_0{}^*(\Id_{[n]}),\, \dots,\, f_{[n-1]} \circ d^n_n{}^*(\Id_{[n]}) \bigr) 
     \end{align}
     は全単射である．
 \end{mycol}
@@ -1655,13 +1765,13 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     $\forall K \in \Obj{\SimpSet}$ に対して，写像
     \begin{align}
         \Hom{\SimpSet} (\Lambda^n_i,\, K) &\lto \biggl\{\, (\sigma_0,\, \dots,\,\sigma_{i-1},\, \sigma_{i+1},\, \dots,\, \sigma_n) \in \prod_{k \in [n] \setminus \{i\}} K_{n-1} \biggm| \substack{\forall j,\, k \in [n] \setminus \{i\}\; \mathrm{s.t.}\;  j < k,\\  \partial^{n-1}_j (\sigma_k) = \partial^{n-1}_{k-1} (\sigma_j)} \,\biggr\}, \\
-        f &\lmto \bigl(f \circ d^n_0,\, \dots,\, f\circ d^n_{i-1},\, f\circ d^n_{i+1},\, \dots,\, f \circ d^n_n \bigr) 
+        f &\lmto \bigl(f_{[n-1]} \circ d^n_0{}^*(\Id_{[n]}),\, \dots,\, \widehat{f_{[n-1]}\circ d^n_{i}{}^*(\Id_{[n]})},\, \dots,\, f_{[n-1]} \circ d^n_n{}^*(\Id_{[n]}) \bigr) 
     \end{align}
-    は全単射である．
+    は全単射である．ただし，$\widehat{\cdot}$ は $\cdot$ を除外することを意味する．
 \end{mycol}
 
 \begin{proof}
-    
+    系\ref{col:coundary-coeq}と同様．
 \end{proof}
 
 
@@ -1700,7 +1810,7 @@ $[n] \in \Obj{\Delta}$ に対して，
 
 後に示す命題\ref{prop:nerve}により，通常の\hyperref[def:category]{圏}は\hyperref[def:SimpSet]{単体的集合}と同一視できる．
 
-\begin{mydef}[label=def:nerve]{脈体}
+\begin{mydef}[label=def:nerve,breakable]{脈体}
         圏 $\Cat{C}$ の\textbf{脈体} (nerve) とは，以下で定義される\hyperref[def:SimpSet]{単体的集合}
         \begin{align}
             \mathrm{N}(\Cat{C}) \colon \OP{\Delta} \lto \SETS
@@ -2001,9 +2111,9 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
 
 
 
-\section{Kan複体・$(\infty,\, 1)$-圏}
+\section{$\infty$-亜群・$(\infty,\, 1)$-圏}
 
-\begin{mydef}[label=def:KanCplx,breakable]{Kan複体}
+\begin{mydef}[label=def:KanCplx,breakable]{Kan条件}
     \textbf{Kan複体} (Kan complex) とは，\hyperref[def:SimpSet]{単体的集合}
     \begin{align}
         K \colon \OP{\Delta} \lto \SETS
@@ -2028,13 +2138,12 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
     単体的集合であって，\hyperref[def:horn]{内部角} i.e. $\forall n \ge 2,\, 0 < \forall j < n$ についてのみ \textsf{\textbf{(Kan)}} を充たすもののことを\textbf{弱Kan複体} (weak Kan complex) と呼ぶ．
 \end{mydef}
 
-\begin{mydef}[label=def:infinity-1]{$\infty$-圏}
+\begin{mydef}[label=def:infinity-1]{{$(\infty,\, 1)$}-圏}
     \begin{itemize}
-        \item $\bm{(\infty,\, 1)}$\textbf{-圏}とは，\hyperref[def:SimpSet]{単体的集合}であって\hyperref[def:KanCplx]{弱Kan複体}になっているもののことを言う．
+        \item $\bm{(\infty,\, 1)}$\textbf{-圏}\footnote{\textbf{擬圏} (quasi-category) とも言う．}とは，\hyperref[def:KanCplx]{弱Kan複体}のこと．
         $(\infty,\, 1)$-圏の関手とは，\hyperref[def:SimpSet]{$\SimpSet$}の射のこと．
-        \item $\bm{\infty}$\textbf{-groupoid}とは，\hyperref[def:SimpSet]{単体的集合}であって\hyperref[def:KanCplx]{Kan複体}になっているもののこと
+        \item $\bm{\infty}$\textbf{-groupoid}とは，\hyperref[def:KanCplx]{Kan複体}のこと．
     \end{itemize}
-    
 \end{mydef}
 
 \begin{marker}
@@ -2044,14 +2153,31 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
 \begin{mytheo}[label=thm:KanCplx]{Kan条件と脈体}
     任意の\hyperref[def:SimpSet]{単体的集合} $K \colon \OP{\Delta} \lto \SETS$ に対して以下は同値である：
     \begin{enumerate}
-        \item $K$ は\hyperref[def:KanCplx]{弱Kan条件}を充たす一意解を持つ
-        \item $K$ は\hyperref[def:horn]{背骨}の包含 $I^n \hookrightarrow \Delta^n$ を一意に持ち上げる．
+        % \item $K$ は\hyperref[def:horn]{背骨}の包含 $I^n \hookrightarrow \Delta^n$ を一意に持ち上げる．
         \item $K$ はある圏の\hyperref[def:nerve]{脈体}と\hyperref[def:iso]{同型}である．
+        \item $K$ は\hyperref[def:KanCplx]{弱Kan条件}を充たす\underline{一意解}を持つ
     \end{enumerate}
 \end{mytheo}
 
 \begin{proof}
-    ~\cite[p.20, Theorem 1.1.52]{Land2021infinity}を参照．
+    % ~\cite[p.20, Theorem 1.1.52]{Land2021infinity}を参照．
+    \begin{description}
+        \item[\textbf{(1)$\bm{\Longrightarrow}$(2)}]　
+        
+        ある圏 $\Cat{C}$ が存在して $K \cong \mathrm{N}(\Cat{C})$ だとする．
+        $\forall f \in \Hom{\SimpSet}\bigl(\Lambda^n_j,\, \mathrm{N}(\Cat{C})\bigr)$ を与える．このとき $0 < \forall j < \forall n$ に対して $f$ が $u \in \Hom{\SimpSet} \bigl( \Delta^n,\, \mathrm{N}(\Cat{C}) \bigr)$ へ一意的に拡張できることを示せば良い．
+
+        　$0 \le k \le n$ に対して $X_k \coloneqq f_{[0]}(\{k\})$ とおく\footnote{\exref{ex:horn}より，$\{k\} \in \Lambda^n_j ([0])$ である．}．
+        $n = 2$ のときは，$0 < j < 2$ なので $j=1$ となる．\exref{ex:horn}より，$0 < \forall k \le 2$ に対して $g_k \coloneqq f_{[1]}(\{k-1\} \lto \{k\})$ とおくと，
+        % \begin{align}
+            
+        % \end{align}
+        
+        \item[\textbf{(1)$\bm{\Longleftarrow}$(2)}]　
+        
+
+    \end{description}
+    
 \end{proof}
 
 \begin{myprop}[label=prop:nerve]{脈体が $\infty$-groupoidになる必要十分条件}
@@ -2062,7 +2188,7 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
     ~\cite[p.23, Lemma 1.1.54]{Land2021infinity}
 \end{proof}
 
-\subsection{単体的ホモトピー}
+\subsection{ホモトピー論との対応：単体的豊穣化}
 
 \hyperref[def:SimpSet]{単体的集合の圏} $\SimpSet$ は\hyperref[def:monoidal-category]{モノイダル圏}の構造を持つ．実際，単体的集合 $S,\, T \colon \OP{\Delta} \lto \SETS$ に対して，新たな単体的集合
 \begin{align}
@@ -2288,7 +2414,7 @@ $a,\, b \in Z_n (X,\, *)$ に対して，系\ref{col:horn-coeq}，命題\ref{pro
 
 \subsection{$\infty$-トポス}
 
-\hyperref[def:infinity-1]{$\infty$-groupoid}のなす圏を $\inftyGrpd$ と書く．
+\hyperref[def:infinity-1]{$\infty$-groupoid}のなす $(\infty,\, 1)$-圏を $\inftyGrpd$ と書く．
 
 \begin{mydef}[label=def:infinity-presheaf]{$\infty$-前層}
     $K$ を\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}とする．$K$ 上の\textbf{$(\infty,\, 1)$-前層}とは，\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
