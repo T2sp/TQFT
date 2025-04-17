@@ -94,7 +94,7 @@
 
 \chapter{$\infty$-圏}
 
-この付録では，~\cite{Land2021infinity}, ~\cite{alfonsi2023higher}, ~\cite{Kerodon}に従って $(\infty,\, 1)$-圏\footnote{~\cite{lurie2008higher}が源流にある．~\cite{Kerodon}は創始者本人によって運営されているwebサイトのようだ．}を導入する．
+この付録では，~\cite{lurie2008higher}, ~\cite{Kerodon}, ~\cite{Land2021infinity}, ~\cite{alfonsi2023higher}に従って $(\infty,\, 1)$-圏\footnote{~\cite{Kerodon}は創始者本人によって運営されているwebサイトのようだ．}を導入する．
 さらに，~\cite{barwick2020unicityhomotopytheoryhigher}, ~\cite{ayala2020factorizationhomologyihigher}をベースに $(\infty,\, n)$-圏の構成を試みる．
 
 \section{圏論の復習}
@@ -1134,7 +1134,7 @@ $\tau \in \Hom{\PshSETS{\Cat{C}}}\bigl( \Hom{\Cat{C}}(\, \mhyphen\,,\, X)\bigr)$
     \begin{align}
         \Familyset[\big]{\tau_{(X,\, \alpha)} \colon \{\mathrm{pt}\} \lto G(X)}{(X,\, \alpha) \in \Obj{\yo_{/F}}}
     \end{align}
-    からなるが，$\{\mathrm{pt}\}$ は一点集合なので $\tau_{(X,\, \alpha)}$ と $\tau_{(X,\, \alpha)}(\mathrm{\mathrm{pt}})$ を同一視して良い．
+    からなるが，$\{\mathrm{pt}\}$ は一点集合なので $\tau_{(X,\, \alpha)}$ と $\tau_{(X,\, \alpha)}(\mathrm{\mathrm{pt}}) \in G(X)$ を同一視して良い．
     一方で $\forall (X,\, \alpha) \in \Obj{\yo_{/F}}$ について $\alpha \in \Hom{\PSH{\Cat{C}}{\SETS}} \bigl( \yo (X),\, F \bigr) = \Hom{\PSH{\Cat{C}}{\SETS}} \bigl( \Hom{\Cat{C}} (\, \mhyphen \,, X),\, F \bigr)$ であるから，\hyperref[lem:Yoneda]{米田の補題}からこれは $\alpha_X(\Id_X) \in F(X)$ と一対一対応する．
     この対応により $\forall X \in \OP{\Cat{C}}$ について写像
     \begin{align}
@@ -1274,7 +1274,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
 \begin{enumerate}
     \item $K_0$ の元（i.e. $0$-単体）を点と見做し，$K_0 = \{ \bullet,\, \dots,\, \bullet\}$ のように書く．
     \item $K_1$ の元（i.e. $1$-単体） $e \in K_1$ を
-    \begin{center}
+    \begin{center}\label{fig:1-simp}
         \begin{tikzpicture}
             \node[bullet={below left:$\partial^1_1 (e)$}] (x) {};
             \node[bullet={below right:$\partial^1_0 (e)$}] (y) at ($(x) + (3,0)$) {};
@@ -1283,7 +1283,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     \end{center}
     のように有向辺として図示する．
     \item $K_2$ の元（i.e. $2$-単体） $\sigma \in K_2$ を
-    \begin{center}
+    \begin{center}\label{fig:2-simp}
         \begin{tikzpicture}
             \node[bullet={below left:$\partial^1_1 \partial^2_1(\sigma) = \partial^1_1 \partial^2_2 (\sigma)$}] (x) {};
             \node[bullet={below right:$\partial^1_0 \partial^2_1(\sigma) = \partial^1_0 \partial^2_0 (\sigma)$}] (y) at ($(x) + (2,0)$) {};
@@ -1296,7 +1296,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     \end{center}
     のように向きづけられた三角形として図示する．この図は単体的恒等式\eqref{eq:Simp1}を表している．
     \item $K_3$ の元（i.e. $3$-単体）$t \in K_3$ を，
-    \begin{center}
+    \begin{center}\label{fig:3-simp}
         \begin{tikzpicture}[
             3d/install view={phi=45,psi=0,theta=60},
             declare function={
@@ -1368,7 +1368,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
 \end{myprop}
 
 \begin{marker}
-    命題\ref{prop:SimpSet-basic}-(1) によって，\hyperref[def:SimpSet]{$n$-単体} $\sigma \in K_n$ 
+    命題\ref{prop:SimpSet-basic}-(1) によって，\hyperref[def:SimpSet]{$n$-単体} $\sigma \in K_n$ を\hyperref[def:nat]{自然変換} $\sigma \in \Hom{\SimpSet}(\Delta^n,\, K)$ と同一視できる！
 \end{marker}
 
 
@@ -1554,7 +1554,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
         \partial_1^1 (f_4) &=\{1\},\; \partial_0^1 (f_4) = \{2\}, \\
         \partial_1^1 (f_5) &= \partial_0^1 (f_5) = \{2\}, \\
     \end{align}
-    と計算できるため $f_0 = \sigma^0_0(\{0\}),\; f_3 = \sigma^0_0(\{1\}),\; f_5 = \sigma^0_0(\{2\})$ であり，
+    と計算できるため $f_0 = \sigma^0_0(\{0\}),\; f_3 = \sigma^0_0(\{1\}),\; f_5 = \sigma^0_0(\{2\})$ であり，図\ref{fig:1-simp}に則り
     \begin{align}
         \Lambda^2_0([1])
         = \sigma^0_0 \bigl( \Lambda^2_0([0]) \bigr) \cup
@@ -1580,7 +1580,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     この予想は系\ref{col:horn-coeq}および\hyperref[lem:Yoneda]{米田の補題}によって正当化される．
 
     　$k \ge 3$ に関する $\Lambda^2_0([k])$ は必ず\hyperref[def:SimpSet]{縮退写像}の像に入ってしまう．
-    以上の考察より，$\Lambda^2_0$ を次のように図示する：
+    以上の考察より，図\ref{fig:2-simp}に則り $\Lambda^2_0$ を次のように図示する：
     \begin{align}
         \Lambda^2_0 &=\quad
         \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
@@ -1783,7 +1783,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     $\abs{\Delta^n} = \irm{\Delta}{top}^n$ であることに注意する．
 \end{proof}
 
-\section{脈体・単体的圏}
+\section{脈体・$\infty$-亜群・$(\infty,\, 1)$-圏}
 
 $[n] \in \Obj{\Delta}$ に対して，
 \begin{itemize}
@@ -1808,7 +1808,7 @@ $[n] \in \Obj{\Delta}$ に対して，
 
 \subsection{脈体}
 
-後に示す命題\ref{prop:nerve}により，通常の\hyperref[def:category]{圏}は\hyperref[def:SimpSet]{単体的集合}と同一視できる．
+後に示す命題\ref{prop:nerve-grpd}により，通常の\hyperref[def:category]{圏}は\hyperref[def:SimpSet]{単体的集合}と同一視できる．
 
 \begin{mydef}[label=def:nerve,breakable]{脈体}
         圏 $\Cat{C}$ の\textbf{脈体} (nerve) とは，以下で定義される\hyperref[def:SimpSet]{単体的集合}
@@ -1905,7 +1905,7 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
     と対応付く．
 \end{myexample}
 
-\begin{myprop}[label=def:nerve]{脈体関手は忠実充満}
+\begin{myprop}[label=prop:nerve]{脈体関手は忠実充満}
     \hyperref[def:nerve]{脈体関手}は\hyperref[def:faithful]{忠実充満関手}である．
 \end{myprop}
 \begin{proof}
@@ -2029,7 +2029,325 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
     
 \end{proof}
 
-\subsection{豊穣圏}
+\subsection{$\infty$-亜群・$(\infty,\, 1)$-圏}
+
+\begin{mydef}[label=def:KanCplx,breakable]{Kan条件}
+    \textbf{Kan複体} (Kan complex) とは，\hyperref[def:SimpSet]{単体的集合}
+    \begin{align}
+        K \colon \OP{\Delta} \lto \SETS
+    \end{align}
+    であって以下の性質を充たすもののこと：
+
+    \begin{description}
+        \item[\textbf{(Kan)}]　
+        
+        $\forall n \ge 1,\; 0 \le \forall j \le n$ および $\forall \textcolor{blue}{f} \in \Hom{\SimpSet}(\Lambda^n_j,\, K)$に対して，以下の図式を可換にする\hyperref[def:nat]{自然変換} $\textcolor{red}{u} \in \Hom{\SimpSet}(\Delta^n,\, K)$ が存在する：
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &\Lambda^n_j \ar[r, blue, "f"]\ar[d, hookrightarrow] &K \\
+                &\Delta^n \ar[ur, dashed, red, "u"] &
+            \end{tikzcd}
+        \end{center}
+        
+    \end{description}
+    
+    \tcblower
+
+    単体的集合であって，\hyperref[def:horn]{内部角} i.e. $\forall n \ge 2,\, 0 < \forall j < n$ についてのみ \textsf{\textbf{(Kan)}} を充たすもののことを\textbf{弱Kan複体} (weak Kan complex) と呼ぶ．
+\end{mydef}
+
+\begin{mydef}[label=def:infinity-1]{{$(\infty,\, 1)$}-圏}
+    \begin{itemize}
+        \item $\bm{(\infty,\, 1)}$\textbf{-圏}\footnote{\textbf{擬圏} (quasi-category) と呼ばれることもある．}とは，\hyperref[def:KanCplx]{弱Kan複体}のこと．
+        $(\infty,\, 1)$-圏の関手とは，\hyperref[def:SimpSet]{$\SimpSet$}の射のこと．
+        \item $\bm{\infty}$\textbf{-groupoid}とは，\hyperref[def:KanCplx]{Kan複体}のこと．
+    \end{itemize}
+\end{mydef}
+
+\begin{marker}
+    一般に，$(\infty,\, 1)$-圏のことを単に $\bm{\infty}$\textbf{-圏}と呼ぶことが多い．
+\end{marker}
+
+\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}が通常の\hyperref[def:category]{圏}の一般化であることは，次の定理（および命題\ref{prop:nerve-grpd}）から分かる．
+
+\begin{mytheo}[label=thm:KanCplx]{Kan条件と脈体}
+    任意の\hyperref[def:SimpSet]{単体的集合} $K \colon \OP{\Delta} \lto \SETS$ に対して以下は同値である：
+    \begin{enumerate}
+        % \item $K$ は\hyperref[def:horn]{背骨}の包含 $I^n \hookrightarrow \Delta^n$ を一意に持ち上げる．
+        \item $K$ はある圏の\hyperref[def:nerve]{脈体}と\hyperref[def:iso]{同型}である．
+        \item $K$ は\hyperref[def:KanCplx]{弱Kan条件}を充たす\underline{一意解}を持つ
+    \end{enumerate}
+\end{mytheo}
+
+\begin{proof}
+    % ~\cite[p.20, Theorem 1.1.52]{Land2021infinity}を参照．
+    \begin{description}
+        \item[\textbf{(1)$\bm{\Longrightarrow}$(2)}]　
+        
+        ある圏 $\Cat{C}$ が存在して $K \cong \mathrm{N}(\Cat{C})$ だとする．
+        $\forall f \in \Hom{\SimpSet}\bigl(\Lambda^n_j,\, \mathrm{N}(\Cat{C})\bigr)$ を1つ与える．このとき $0 < \forall j < \forall n$ に対して $f$ が $u \in \Hom{\SimpSet} \bigl( \Delta^n,\, \mathrm{N}(\Cat{C}) \bigr)$ へ一意的に拡張できることを示せば良い．
+
+        　$0 \le \forall k \le n$ に対して $U_k \coloneqq f_{[0]}(\{k\})$ とおく\footnote{\exref{ex:horn}より，$\{k\} \in \Lambda^n_j ([0])$ である．}．
+        さらに $0 < \forall k \le n$ に対して
+        \begin{align}
+            g_k \coloneqq f_{[1]} \bigl( 
+                \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                    \draw[->-=.5] (0,0) node[bullet]{} node[below]{$\{k-1\}$} -- (1,0) node[bullet]{}node[below]{$\{k\}$};
+                \end{tikzpicture}
+             \bigr) \in \Hom{\Cat{C}} (U_{k-1},\, U_k)
+        \end{align}
+        とおくと，$\Cat{C}$ の図式
+        \begin{align}
+            U_0 \xrightarrow{g_1} U_1 \xrightarrow{g_2} \cdots \xrightarrow{g_{n}} U_n
+        \end{align}
+        が定まる．ここから\eqref{eq:nerve-spine}の方法で $U \in \mathrm{N}(\Cat{C})_n$ が一意的に定まり，\hyperref[lem:Yoneda]{米田の補題}により対応する $u \in \Hom{\SimpSet} \bigl(\Delta^n,\, \mathrm{N}(\Cat{C})\bigr)$ が一意的に定まるが，構成からこれが所望の $u$ である~\cite[Lemma1.3.4.2]{Kerodon}．
+        % ．この $u$ が\hyperref[def:KanCplx]{弱Kan条件}を充たすことを示す（なお，弱Kan条件を充たす $u$ の一意性は明らかである．実際，$u'|_{\Lambda^n_j} = f$ を充たすもう一つの $u'$ が存在したとすると，$u'$ もまた $U$ に対応付けられるため $u=u'$ だと分かる）．
+        % $n = 2$ のときは，$0 < j < 2$ なので $j=1$ となる．\exref{ex:horn}より，$0 < \forall k \le 2$ に対して $g_k \coloneqq f_{[1]}(\{k-1\} \lto \{k\})$ とおくと，
+        % \begin{align}
+            
+        % \end{align}
+        
+        \item[\textbf{(1)$\bm{\Longleftarrow}$(2)}]　
+        
+        圏 $\Cat{C}$ を以下のように構成する：
+        \begin{itemize}
+            \item $\Obj{\Cat{C}} \coloneqq K_0$ 
+            \item $\Hom{\Cat{C}}(C,\, D) \coloneqq \bigl\{\, f \in K_1 \bigm| \partial^1_1(f) = C,\; \partial^1_0(f) = D \,\bigr\}$
+            \item $\forall C \in \Obj{\Cat{C}} = K_0$ に対して\footnote{単体的恒等式\eqref{eq:Simp4}により $\Id_C \in \Hom{\Cat{C}}(C,\, C)$ が分かる．} $\Id_C \coloneqq \sigma^0_0(C)$
+            \item $\forall (g,\, f) \in \Hom{\Cat{C}}(D,\, E) \times \Hom{\Cat{C}}(C,\, D)$ に対して射の合成を定義するために，\hyperref[def:KanCplx]{弱Kan条件}
+            \begin{center}
+                \begin{tikzcd}[row sep=large, column sep=large]
+                    &\Lambda^2_1 \ar[r, blue, "{(g,\, f)}"]\ar[d, hookrightarrow] &K \\
+                    &\Delta^2 \ar[ur, dashed, red, "\exists u"] &
+                \end{tikzcd}
+            \end{center}
+            および系\ref{col:horn-coeq}を用いる．
+            具体的には次のようにする：
+            \begin{description}
+                \item[\textbf{(STEP1)}]　 
+                
+                $(g,\, f) \in K_1 \times K_1$ かつ $\partial^1_1(g) = \partial^1_{0}(f)$ が成り立つので系\ref{col:horn-coeq}が使えて，$(g,\, f) \in \Hom{\SimpSet}(\Lambda^2_1,\, K)$ と見做せる．
+                \item[\textbf{(STEP2)}]　 
+                
+                仮定より，$(g,\, f) \in \Hom{\SimpSet}(\Lambda^2_1,\, K)$ に対する弱Kan条件の\underline{一意解} $u \in \Hom{\SimpSet}(\Delta^2,\, K) \cong K_2$ が存在する．
+                \item[\textbf{(STEP3)}]　 
+                
+                $u|_{\Lambda^2_1}$ に対して再度系\ref{col:horn-coeq}を適用することで，弱Kan条件の図式の可換性は $\partial^2_0(u) = g,\; \partial^2_2(u) = f$ を意味していることがわかる．このことから，$f$ と $g$ の合成を $g \circ f \coloneqq \partial^2_1(u)$ と定義する\footnote{単体的恒等式\eqref{eq:Simp1}より，$g \circ f \in \Hom{\Cat{C}}(C,\, E)$ が分かる．}．
+            \end{description}
+        \end{itemize}
+        このように構成したデータの組み $(\Obj{\Cat{C}},\, \Hom{\Cat{C}}(\, \mhyphen\,,\,\mhyphen \,),\, \Id,\, \circ)$ が\hyperref[def:category]{圏}になっていることを示そう．
+        \begin{description}
+            \item[\textbf{(unitality)}]　
+            
+            $\forall f \in \Hom{\Cat{C}}(C,\, D)$ をとる．ここで $u \coloneqq s^1_1(f) \in K_2$ に対して単体的恒等式\eqref{eq:Simp2}, \eqref{eq:Simp4}を用いると
+            \begin{align}
+                \partial^2_0 (u) &= \partial^2_0 s^1_1 (f) = s^0_0 \partial^1_0(f) = \Id_D , \\
+                \partial^2_1 (u) &= \partial^2_1 s^1_1 (f) = f, \\
+                \partial^2_2 (u) &= \partial^2_2 s^1_1 (f) = f, \\
+            \end{align}
+            が分かる．i.e. $\Id_D \circ f = f$ である．$v \coloneqq s^1_0(f) \in K_2$ に対して単体的恒等式\eqref{eq:Simp3}, \eqref{eq:Simp4}を用いると
+            \begin{align}
+                \partial^2_0 (u) &= \partial^2_0 s^1_0 (f) = f, \\
+                \partial^2_1 (u) &= \partial^2_1 s^1_0 (f) = f, \\
+                \partial^2_2 (u) &= \partial^2_2 s^1_0 (f) = \Id_C
+            \end{align}
+            が分かる．i.e. $f \circ \Id_C = f$ である．
+
+            \item[\textbf{(associativity)}]　
+            
+            $\forall (h,\, g,\, f) \in \Hom{\Cat{C}}(E,\, F) \times \Hom{\Cat{C}}(D,\, E) \times \Hom{\Cat{C}}(C,\, D)$ を与える．系\ref{col:horn-coeq}を用いることで，
+            \hyperref[def:KanCplx]{弱Kan条件}の3つの一意解を得る：
+            \begin{itemize}
+                \item $h \circ g \coloneqq \partial^2_1(u_0)$ を与える $u_0 \in K_2$：
+                \begin{center}
+                    \begin{tikzcd}[row sep=large, column sep=large]
+                        &\Lambda^2_1 \ar[r, blue, "{(h,\, g)}"]\ar[d, hookrightarrow] &K \\
+                        &\Delta^2 \ar[ur, dashed, red, "\exists! u_0"] &
+                    \end{tikzcd}
+                \end{center}
+                \item $g \circ f \coloneqq \partial^2_1(u_3)$ を与える $u_3 \in K_2$：
+                \begin{center}
+                    \begin{tikzcd}[row sep=large, column sep=large]
+                        &\Lambda^2_1 \ar[r, blue, "{(g,\, f)}"]\ar[d, hookrightarrow] &K \\
+                        &\Delta^2 \ar[ur, dashed, red, "\exists! u_3"] &
+                    \end{tikzcd}
+                \end{center}
+                \item $(h \circ g) \circ f \coloneqq \partial^2_1(u_2)$ を与える $u_2 \in K_2$
+                \begin{center}
+                    \begin{tikzcd}[row sep=large, column sep=large]
+                        &\Lambda^2_1 \ar[r, blue, "{(h \circ g,\, f)}"]\ar[d, hookrightarrow] &K \\
+                        &\Delta^2 \ar[ur, dashed, red, "\exists! u_2"] &
+                    \end{tikzcd}
+                \end{center}
+            \end{itemize}
+            さらに，$(u_0,\, u_2,\, u_3) \in K_2^{\times 3}$ は
+            \begin{align}
+                \partial^2_1 (u_0) &= h \circ g = \partial^2_0 (u_2), \\
+                \partial^2_2 (u_0) &= g = \partial^2_0 (u_3), \\
+                \partial^2_2 (u_2) &= f = \partial^2_2 (u_3)
+            \end{align}
+            を充たすため系\ref{col:horn-coeq}が使えて，$(u_0,\, u_2,\, u_3) \in \Hom{\SimpSet}(\Lambda^3_1,\, K)$ と見做せる．すると，仮定より\hyperref[def:KanCplx]{弱Kan条件}の一意解
+            \begin{center}
+                \begin{tikzcd}[row sep=large, column sep=large]
+                    &\Lambda^3_1 \ar[r, blue, "{(u_0,\, u_2,\, u_3)}"]\ar[d, hookrightarrow] &K \\
+                    &\Delta^3 \ar[ur, dashed, red, "\exists! \tau"] &
+                \end{tikzcd}
+            \end{center}
+            が存在する．i.e. ある $\tau \in K_3$ が\footnote{\hyperref[lem:Yoneda]{米田の補題}より $\tau \in \Hom{\SimpSet}(\Delta^3,\, K) \cong K_3$ である．}一意的に存在して，
+            \begin{align}
+                u_0 &= \partial^3_0 (\tau), &
+                u_2 &= \partial^3_2 (\tau), &
+                u_3 &= \partial^3_3 (\tau)
+            \end{align}
+            を充たす．この3-単体 $\tau$ を図\ref{fig:3-simp}に則り図示すると次のようになる：
+            \begin{center}
+                \begin{tikzcd}[row sep=large, column sep=large]
+                    &  & C \arrow[rd, "f"] \arrow[ddd, "(h\circ g) \circ f"] \arrow[lldd, "g \circ f"'] &                                                     \\
+                    &  &                                                                                & D \arrow[ldd, "h\circ g"] \arrow[llld, "g", dashed] \\
+                 E\arrow[rrd, "h"'] &  &                                                                                &                                                     \\
+                    &  & F                                                                              &                                                    
+                \end{tikzcd}
+            \end{center}
+            ここで，$u_1 \coloneqq \partial^3_1 (\tau) \in K_2$ とおく．これは $\tau$ の図式で言うと三角形 $C,\, E,\, F$ が指定する2-単体である．
+            図式から明らかなように，
+            \begin{align}
+                \partial^2_0 (u_1) &= h, \\
+                \partial^2_1 (u_1) &= (h\circ g) \circ f, \\
+                \partial^2_2 (u_1) &= g \circ f
+            \end{align}
+            が成り立っている．i.e. $h \circ (g \circ f) = (h\circ g) \circ f$ が分かった．
+        \end{description}
+        
+        さて，$\SimpSet$ の射
+        \begin{align}
+            \theta \colon K \lto \mathrm{N}(\Cat{C})
+        \end{align}
+        を構成しよう．$\theta$ は\hyperref[def:nat]{自然変換}であるから，$\forall [n] \in $ に対して写像 $\theta_{[n]} \colon K_n \lto \mathrm{N}(\Cat{C})_n$ を定めれば良い．命題\ref{prop:SimpSet-basic}-(1) より $\forall \sigma \in K_n$ は自然に $\Hom{\SimpSet} (\Delta^n,\, K)$ の元と見做せるため，
+        \begin{align}
+            \theta_{[n]} \colon K_n &\lto \mathrm{N}(\Cat{C})_n, \\
+            \sigma &\lmto \bigl( \sigma_{[0]}(\{0\}) \xrightarrow{\sigma_{[1]}(\{0,\, 1\})} \cdots \xrightarrow{\sigma_{[1]}(\{n-1,\, n\})} \sigma_{[0]}(\{n\}) \bigr) 
+        \end{align}
+        と定義する．構成から $\theta_{[n]}$ は自然である．
+        $\forall n \ge 0$ に対して $\theta_{[n]}$ が全単射であることを，$n$ に関する数学的帰納法により示す．
+        まず，圏 $\Cat{C}$ の構成から $\theta_{[0]},\, \theta_{[1]}$ が全単射であることは明らかである．
+        $n > 1$ のとき，示すべきは命題\ref{prop:SimpSet-basic}-(1) より
+        \begin{align}
+            \theta_* \colon \Hom{\SimpSet} (\Delta^n,\, K) &\lto \Hom{\SimpSet} \bigl(\Delta^n,\, \mathrm{N}(\Cat{C})\bigr), \\
+            \sigma &\lmto \theta \circ \sigma
+        \end{align}
+        が全単射であることである．$0 < j < n$ を1つとる．$u \in \Hom{\SimpSet} (\Lambda^n_j,\, K)$ に対する\hyperref[def:KanCplx]{弱Kan条件}の解を $\overline{u} \in \Hom{\SimpSet} (\Delta^n,\, K)$ と書くと，解の一意性の仮定より写像
+        \begin{align}
+            \phi_K \colon \Hom{\SimpSet} (\Delta^n,\, K) &\lto \Hom{\SimpSet} (\Lambda^n_j,\, K), \\
+            \overline{u} &\lmto u
+        \end{align}
+        は全単射である．$\mathrm{N}(\Cat{C})$ にも同様の構成ができるため，可換図式
+        \begin{center}
+            \begin{tikzcd}
+                {\Hom{\SimpSet}(\Delta^n,\, K)} \arrow[d, "\phi_K"'] \arrow[rr, "\theta_*"] &  & {\Hom{\SimpSet}\bigl(\Delta^n,\, \mathrm{N}(\Cat{C})\bigr)} \arrow[d, "\phi_{\mathrm{N}(\Cat{C})}"] \\
+                {\Hom{\SimpSet}(\Lambda_j^n,\, K)} \arrow[rr, "\theta_*|_{\Lambda^n_j}"]    &  & {\Hom{\SimpSet}\bigl(\Lambda_j^n,\, \mathrm{N}(\Cat{C})\bigr)}                                     
+            \end{tikzcd}
+        \end{center}
+        が書ける．縦の射は全単射なので，$\theta_*|_{\Lambda^n_j}$ が全単射であることを示せば良い．これは系\ref{col:horn-coeq}および帰納法の仮定から従う．
+    \end{description}
+    
+\end{proof}
+
+\begin{mydef}[label=def:groupoid]{亜群}
+    \textbf{亜群} (groupoid) とは，\hyperref[def:category]{小圏} $\Cat{C}$ であって，任意の射が可逆であるもののこと．
+    i.e. $\forall f \in \Hom{\Cat{C}} (X,\, Y)$ に対して，ある $f^{-1} \in \Hom{\Cat{C}} (Y,\, X)$ が存在して
+    \begin{align}
+        f^{-1} \circ f &= \Id_X, \\
+        f \circ f^{-1} &= \Id_Y
+    \end{align}
+    を充たすこと．
+\end{mydef}
+
+
+\begin{myprop}[label=prop:nerve-grpd]{脈体が $\infty$-groupoidになる必要十分条件}
+    圏 $\Cat{C}$ の\hyperref[def:nerve]{脈体} $\mathrm{N}(\Cat{C})$ が\hyperref[def:infinity-1]{$\infty$-groupoid}になる必要十分条件は，$\Cat{C}$ が\hyperref[def:groupoid]{groupoid}であること．
+\end{myprop}
+
+\begin{proof}
+    % ~\cite[p.23, Lemma 1.1.54]{Land2021infinity}
+    \begin{description}
+        \item[\textbf{($\bm{\Longrightarrow}$)}]　
+        
+        $\mathrm{N}(\Cat{C})$ が\hyperref[def:infinity-1]{$\infty$-groupoid}だと仮定する．
+        このとき，\hyperref[def:KanCplx]{Kan条件}により，$\forall n \ge 1,\; 0 \le \forall j \le n$ に対して全射\footnote{定理\ref{thm:KanCplx}の状況とは異なり，\underline{単射とは限らない}！}
+        \begin{align}
+            \theta^n_j \colon \Hom{\SimpSet}\bigl(\Delta^n,\,\mathrm{N}(\Cat{C})\bigr) &\lto \Hom{\SimpSet}\bigl(\Lambda_j^n,\,\mathrm{N}(\Cat{C})\bigr)
+        \end{align}
+        が存在する．
+
+        　$\forall f \in \Hom{\Cat{C}}(X,\, Y)$ を1つ固定し，これを\eqref{eq:nerve-spine}の方法により $\mathrm{N}(\Cat{C})_1$ の元と見做す．このとき，$\bigl(f,\, \Id_Y = \sigma^0_0(Y)\bigr) \in \mathrm{N}(\Cat{C})_1^{\times 2}$ は
+        % 単体的恒等式\eqref{eq:Simp4}より
+        \begin{align}
+            \partial^1_0(f) &= Y = \partial^1_0(\Id_Y)
+        \end{align}
+        を充たすため系\ref{col:horn-coeq}が使えて，$(f,\, \Id_Y) \in \Hom{\SimpSet}\bigl(\Lambda^2_2,\, \mathrm{N}(\Cat{C})\bigr)$ と見做せる．
+        このとき $\theta^2_2$ の全射性により，$\sigma \in \mathrm{N}(\Cat{C})_2 \cong \Hom{\SimpSet} \bigl( \Delta^2,\, \mathrm{N}(\Cat{C}) \bigr)$ が存在して $(f,\, \Id_Y) = \theta^2_2(\sigma)$ を充たす．
+        $\theta^n_j$ の定義および系\ref{col:horn-coeq}から，これは
+        \begin{align}
+            \partial^2_0 (\sigma) &= f, \\
+            \partial^2_1 (\sigma) &= \Id_Y
+        \end{align}
+        を意味する．故に命題\ref{prop:nerve}の証明から，$g \coloneqq \partial^2_2 (\sigma) \in \mathrm{N}(\Cat{C})_1 = \Hom{\Cat{C}}(Y,\, X)$ とおくことで，
+        \begin{align}
+            f \circ g = \partial^2_1 (\sigma) = \Id_Y
+        \end{align}
+        が成り立つことが分かった．
+        同様に，$(\Id_X,\, f) \in \Hom{\SimpSet}\bigl(\Lambda^2_0,\, \mathrm{N}(\Cat{C})\bigr)$ と見做せること，および $\theta^2_0$ の全射性から $h \in \mathrm{N}(\Cat{C})_1 = \Hom{\Cat{C}} (Y,\, X)$ であって $h \circ f = \Id_X$ を充たすものが存在する．
+        命題\ref{prop:nerve}の証明から，
+        \begin{align}
+            g = \Id_X \circ g = (h \circ f) \circ g = h \circ (f \circ g) = h \circ \Id_Y = h
+        \end{align}
+        が言える．i.e. $f^{-1} = g = h \in \Hom{\Cat{C}}(Y,\, X)$ である．
+
+        \item[\textbf{($\bm{\Longleftarrow}$)}]　
+        
+        $\Cat{C}$ がgroupoidだとする．
+        定理\ref{thm:KanCplx}から，示すべきは $\forall n \ge 1,\, j = 0,\, n$ に対して\hyperref[def:KanCplx]{Kan条件}が成立していることである．
+        
+        　$n=1,\, j=0$ とする．このとき $\Lambda^n_0 = \bigl\{ \{0\},\, \{1\} \bigr\}$ であるから，
+        $\forall \sigma \in \Hom{\SimpSet}\bigl( \Lambda^n_0,\, \mathrm{N}(\Cat{C}) \bigr)$ は $\Obj{\Cat{C}}$ の元である．よって，$\bar{\sigma} \in \Hom{\SimpSet}\bigl(\Delta^1,\, \mathrm{N}(\Cat{C})\bigr)$ として $\bar{\sigma} \in \Hom{\Cat{C}}(X,\, \sigma)$ をとれば $\partial^1_0(\bar{\sigma}) = \sigma$ を充たす．
+        このことは系\ref{col:horn-coeq}より $\bar{\sigma}|_{\Lambda^n_0} = \sigma$ を意味する．
+
+        　次に，$n=2,\, j=0$ とする．このとき $\forall \sigma \in \Hom{\SimpSet}\bigl( \Lambda^n_0,\, \mathrm{N}(\Cat{C}) \bigr)$ は，系\ref{col:horn-coeq}より $\bigl(\sigma_1 \coloneqq \partial^2_1(\sigma),\, \sigma_2 \coloneqq \sigma^2_2(\sigma)\bigr) \in \mathrm{N}(\Cat{C})_{1}^{\times 2}$ であって以下の図式として書けるものと同一視できる：
+        \begin{center}
+            \begin{tikzcd}
+                & Z &   \\
+            X \arrow[rr, "\sigma_1"] \arrow[ru, "\sigma_2"] &   & Y
+            \end{tikzcd}
+        \end{center}
+        $\Cat{C}$ は\hyperref{groupoid}なので，この図式に $\sigma_0 \coloneqq \sigma_1 \circ \sigma_2 \in \mathrm{N}(\Cat{C})_1$ を付け足すことで所望の $\bar{\sigma} \in \mathrm{N}(\Cat{C})_2 \cong \Hom{\SimpSet} \bigl(\Delta^2,\, \mathrm{N}(\Cat{C})\bigr)$ を得る．
+
+        　次に，$n \ge 3,\, j=0$ とする．このとき定理\ref{thm:KanCplx}の (1) $\Longrightarrow$ (2) の構成によって $\bar{\sigma} \in \mathrm{N}(\Cat{C})_n$ を作ろうとする．この構成が可能なのは，勝手な $0 \le i \le j \le k \le n$ に対して $\sigma_{[1]} (\{j,\, k\}) \circ \sigma_{[1]} (\{i,\, j\}) = \sigma_{\{i,\, k\}}$ が成り立つときだが，
+        これは3頂点 $\bigl\{\{i,\}\, \{j\},\, \{k\}\bigr\}$ が作る2-単体 $\sigma_{ijk} \in \Delta^n([2])$ が $\Lambda^n_0([2])$ に含まれることと同値である．よって $n=3$ のときのみが非自明である．
+        $n=3$ のときは，$\sigma_{ij} \coloneqq \sigma_{[1]} (\{j,\, k\})$ とおくと
+        \begin{align}
+            (\sigma_{23} \circ \sigma_{12}) \circ \sigma_{01}
+            &= \sigma_{23} \circ (\sigma_{12} \circ \sigma_{01}) \\
+            &= \sigma_{23} \circ \sigma_{02} \\
+            &= \sigma_{03} \\
+            &= \sigma_{13} \circ \sigma_{01}
+        \end{align}
+        と計算できるが，$\Cat{C}$ がgroupoidなので両辺の右から $\sigma_{01}^{-1}$ をかけることで $\sigma_{23} \circ \sigma_{12} = \sigma_{13}$ が示される．
+        % $\forall \sigma \in \Hom{\SimpSet} \bigl( \Lambda^n_0,\, \mathrm{N}(\Cat{C}) \bigr)$ から次のようにして $\mathrm{N}(\Cat{C})_n$ の元を構成する：
+
+        　$j=n$ の場合も同様である．
+    \end{description}
+    
+\end{proof}
+
+\section{単体的圏とホモロピー論}
+
+\subsection{単体的圏}
+
+\hyperref[def:SimpSet]{単体的集合の圏} $\SimpSet$ は\hyperref[def:monoidal-category]{モノイダル圏}の構造を持つ．実際，単体的集合 $S,\, T \colon \OP{\Delta} \lto \SETS$ に対して，新たな単体的集合
+\begin{align}
+    S \otimes T \colon \OP{\Delta} \lto \SETS,\; [n] \lmto S_n \times T_n
+\end{align}
+がテンソル積 $\otimes \colon \SimpSet \times \SimpSet \lto \SimpSet$ を定めている．
 
 \begin{mydef}[label=def:enriched,breakable]{豊穣圏}
     \hyperref[redef:monoidal-category]{モノイダル圏} $(V,\, \otimes,\, I)$ を与える．
@@ -2107,173 +2425,9 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
 
 
 
-\subsection{単体的圏}
+% \subsection{単体的圏}
 
-
-
-\section{$\infty$-亜群・$(\infty,\, 1)$-圏}
-
-\begin{mydef}[label=def:KanCplx,breakable]{Kan条件}
-    \textbf{Kan複体} (Kan complex) とは，\hyperref[def:SimpSet]{単体的集合}
-    \begin{align}
-        K \colon \OP{\Delta} \lto \SETS
-    \end{align}
-    であって以下の性質を充たすもののこと：
-
-    \begin{description}
-        \item[\textbf{(Kan)}]　
-        
-        $\forall n \ge 1,\; 0 \le \forall j \le n$ および $\forall \textcolor{blue}{f} \in \Hom{\SimpSet}(\Lambda^n_j,\, K)$に対して，以下の図式を可換にする\hyperref[def:nat]{自然変換} $\textcolor{red}{u} \in \Hom{\SimpSet}(\Delta^n,\, K)$ が存在する：
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-                &\Lambda^n_j \ar[r, blue, "f"]\ar[d, hookrightarrow] &K \\
-                &\Delta^n \ar[ur, dashed, red, "u"] &
-            \end{tikzcd}
-        \end{center}
-        
-    \end{description}
-    
-    \tcblower
-
-    単体的集合であって，\hyperref[def:horn]{内部角} i.e. $\forall n \ge 2,\, 0 < \forall j < n$ についてのみ \textsf{\textbf{(Kan)}} を充たすもののことを\textbf{弱Kan複体} (weak Kan complex) と呼ぶ．
-\end{mydef}
-
-\begin{mydef}[label=def:infinity-1]{{$(\infty,\, 1)$}-圏}
-    \begin{itemize}
-        \item $\bm{(\infty,\, 1)}$\textbf{-圏}\footnote{\textbf{擬圏} (quasi-category) とも言う．}とは，\hyperref[def:KanCplx]{弱Kan複体}のこと．
-        $(\infty,\, 1)$-圏の関手とは，\hyperref[def:SimpSet]{$\SimpSet$}の射のこと．
-        \item $\bm{\infty}$\textbf{-groupoid}とは，\hyperref[def:KanCplx]{Kan複体}のこと．
-    \end{itemize}
-\end{mydef}
-
-\begin{marker}
-    以下では $(\infty,\, 1)$-圏のことを $\bm{\infty}$\textbf{-圏}と呼ぶ．
-\end{marker}
-
-\begin{mytheo}[label=thm:KanCplx]{Kan条件と脈体}
-    任意の\hyperref[def:SimpSet]{単体的集合} $K \colon \OP{\Delta} \lto \SETS$ に対して以下は同値である：
-    \begin{enumerate}
-        % \item $K$ は\hyperref[def:horn]{背骨}の包含 $I^n \hookrightarrow \Delta^n$ を一意に持ち上げる．
-        \item $K$ はある圏の\hyperref[def:nerve]{脈体}と\hyperref[def:iso]{同型}である．
-        \item $K$ は\hyperref[def:KanCplx]{弱Kan条件}を充たす\underline{一意解}を持つ
-    \end{enumerate}
-\end{mytheo}
-
-\begin{proof}
-    % ~\cite[p.20, Theorem 1.1.52]{Land2021infinity}を参照．
-    \begin{description}
-        \item[\textbf{(1)$\bm{\Longrightarrow}$(2)}]　
-        
-        ある圏 $\Cat{C}$ が存在して $K \cong \mathrm{N}(\Cat{C})$ だとする．
-        $\forall f \in \Hom{\SimpSet}\bigl(\Lambda^n_j,\, \mathrm{N}(\Cat{C})\bigr)$ を与える．このとき $0 < \forall j < \forall n$ に対して $f$ が $u \in \Hom{\SimpSet} \bigl( \Delta^n,\, \mathrm{N}(\Cat{C}) \bigr)$ へ一意的に拡張できることを示せば良い．
-
-        　$0 \le k \le n$ に対して $X_k \coloneqq f_{[0]}(\{k\})$ とおく\footnote{\exref{ex:horn}より，$\{k\} \in \Lambda^n_j ([0])$ である．}．
-        $n = 2$ のときは，$0 < j < 2$ なので $j=1$ となる．\exref{ex:horn}より，$0 < \forall k \le 2$ に対して $g_k \coloneqq f_{[1]}(\{k-1\} \lto \{k\})$ とおくと，
-        % \begin{align}
-            
-        % \end{align}
-        
-        \item[\textbf{(1)$\bm{\Longleftarrow}$(2)}]　
-        
-
-    \end{description}
-    
-\end{proof}
-
-\begin{myprop}[label=prop:nerve]{脈体が $\infty$-groupoidになる必要十分条件}
-    圏 $\Cat{C}$ の\hyperref[def:nerve]{脈体}が\hyperref[def:infinity-1]{$\infty$-groupoid}になる必要十分条件は，$\Cat{C}$ がgroupoidであること．
-\end{myprop}
-
-\begin{proof}
-    ~\cite[p.23, Lemma 1.1.54]{Land2021infinity}
-\end{proof}
-
-\subsection{ホモトピー論との対応：単体的豊穣化}
-
-\hyperref[def:SimpSet]{単体的集合の圏} $\SimpSet$ は\hyperref[def:monoidal-category]{モノイダル圏}の構造を持つ．実際，単体的集合 $S,\, T \colon \OP{\Delta} \lto \SETS$ に対して，新たな単体的集合
-\begin{align}
-    S \otimes T \colon \OP{\Delta} \lto \SETS,\; [n] \lmto S_n \times T_n
-\end{align}
-がテンソル積 $\otimes \colon \SimpSet \times \SimpSet \lto \SimpSet$ を定めている．
-
-% \begin{mydef}[label=def:enriched,breakable]{豊穣圏}
-%     \hyperref[def:monoidal-category]{モノイダル圏} $(V,\, \otimes,\, I)$ を与える．
-
-%     $\bm{V}$\textbf{-豊穣圏} ($V$-enriched category) $\Cat{C}$ は，以下のデータからなる：
-%     \begin{itemize}
-%         \item 集合 $\Obj{\Cat{C}}$
-%         \item $\forall x, y \in \Obj{\Cat{C}}$ に対して，\textbf{Hom対象}と呼ばれる\underline{$V$ の}対象 $\Hom{\Cat{C}}(x,\, y) \in \Obj{V}$ を持つ
-%         \item $\forall x, y,\, z \in \Obj{\Cat{C}}$ に対して，\textbf{合成射}と呼ばれる\underline{$V$ の}射 $\circ_{x,\, y,\, z} \colon \Hom{\Cat{C}}(x,\, y) \otimes \Hom{\Cat{C}}(y,\, z) \lto \Hom{\Cat{C}} (x,\, z)$ を持つ
-%         \item $\forall x \in \Obj{\Cat{C}}$ に対して，\textbf{恒等素}と呼ばれる\underline{$V$ の}射 $j_x \colon I \lto \Hom{\Cat{C}} (x,\, x)$ を持つ
-%     \end{itemize}
-%     これらは以下の図式を可換にしなくてはいけない：
-%     \begin{description}
-%         \item[\textbf{(associativity)}]　
-        
-%         $\forall x,\, y,\, z,\, w \in \Obj{\Cat{C}}$ について\footnote{$\cong$ はモノイダル圏 $V$ の \hyperref[def:monoidal-category]{associator}}
-%         \begin{flushleft}
-%             \begin{tikzcd}[column sep=large]
-%                 &\bigl( \Hom{\Cat{C}}(x,\,  y) \otimes \Hom{\Cat{C}}(y,\,  z) \bigr) \otimes \Hom{\Cat{C}}(z,\,  w) \ar[dd, "\cong"']\ar[r,"\substack{\circ_{x,y,z} \otimes \Id_{\Hom{\Cat{C}}(z,\,  w)} \\ \phantom{0}}"] &\Hom{\Cat{C}} (x,\,  z) \otimes \Hom{\Cat{C}}(z,\,  w) \ar[d, "\circ_{x,z,w}"] \\
-%                 & &\Hom{\Cat{C}}(x,\,  w) \\
-%                 &\Hom{\Cat{C}}(x,\,  y) \otimes \bigl( \Hom{\Cat{C}}(y,\,  z) \otimes \Hom{\Cat{C}}(z,\,  w) \bigr) \ar[r, "\substack{\phantom{0} \\ \Id_{\Hom{\Cat{C}}(x,\,  y)} \otimes \circ_{y,z,w}}"'] &\Hom{\Cat{C}}(x,\,  y) \otimes \Hom{\Cat{C}}(y,\,  w) \ar[u,"\circ_{x,y,w}"']
-%             \end{tikzcd}
-%         \end{flushleft}
-        
-%         \item[\textbf{(unitality)}]　
-        
-%         $\forall x,\, y \in \Obj{\Cat{C}}$ について\footnote{$\cong$ はモノイダル圏 $V$ の\hyperref[def:monoidal-category]{left/right unitor}}
-%         \begin{center}
-%             \begin{tikzcd}
-%                 &\Hom{\Cat{C}}(x,\,  x) \otimes \Hom{\Cat{C}}(x,\,  y) \ar[r, "\circ_{x{,}x{,}y}"] &\Hom{\Cat{C}}(x,\,  y) &\Hom{\Cat{C}}(x,\,  y) \otimes \Hom{\Cat{C}}(y,\,  y) \ar[l, "\circ_{x{,}y{,}y}"'] \\
-%                 &I \otimes \Hom{\Cat{C}}(x,\,  y) \ar[u, "j_x \otimes \Id_{\Hom{\Cat{C}}(x,\,  y)}"] \ar[ur, "\cong"'] & &\Hom{\Cat{C}}(x,\,  y) \otimes I \ar[u, "\Id_{\Hom{\Cat{C}}(x,\,  y)} \otimes j_y"'] \ar[ul, "\cong"]
-%             \end{tikzcd}
-%         \end{center}
-        
-%     \end{description}
-% \end{mydef}
-
-% \begin{mydef}[label=def:enriched-functor]{豊穣関手}
-%     モノイダル圏 $(V,\, \otimes,\, I)$ を与える．
-
-%     2つの\hyperref[def:enriched]{$V$-豊穣圏} $\Cat{C},\, \Cat{D}$ の間の $V$\textbf{-豊穣関手} ($V$-enriched functor) 
-%     \begin{align}
-%         F \colon \Cat{C} \lto \Cat{D}
-%     \end{align}
-%     は，以下のデータからなる：
-%     \begin{itemize}
-%         \item 写像 $F_0\colon \Obj{\Cat{C}} \lto \Obj{\Cat{D}},\; x \lmto F_0(x)$
-%         \item \underline{$V$ の}射の族
-%         \begin{align}
-%             \Familyset[\big]{F_{x,\, y} \colon \Hom{\Cat{C}} (x,\, y) \lto \Hom{\Cat{D}} \bigl( F_0(x),\, F_0(y) \bigr) }{x,\, y \in \Obj{\Cat{C}}}
-%         \end{align}
-%     \end{itemize}
-%     これらは以下の図式を可換にしなくてはいけない：
-%     \begin{description}
-%         \item[\textbf{(enriched-1)}]　
-        
-%         $\forall x,\, y,\, z \in \Obj{\Cat{C}}$ に対して\footnote{これは，通常の関手において射の合成が保存されることに対応する．}
-%         \begin{center}
-%             \begin{tikzcd}[row sep=large, column sep=large]
-%                 &\Hom{\Cat{C}}(x,\,  y) \otimes \Hom{\Cat{C}}(y,\,  z) \ar[r, "\circ_{x{,}y{,}{z}}"]\ar[d, "F_{x{,}y} \otimes F_{y{,}z}"'] &\Hom{\Cat{C}}(x,\,  z) \ar[d, "F_{x{,}z}"] \\
-%                 &\Hom{\Cat{D}}\bigl(F_0(x),\,  F_0(y)\bigr) \otimes \Hom{\Cat{D}}\bigl(F_0(y),\,  F_0(z)\bigr) \ar[r, "\substack{\phantom{0} \\ \circ_{F_0(x){,}F_0(y){,}F_0(z)}}"'] &\Hom{\Cat{D}}\bigl(F_0(x),\,  F_0(z)\bigr)
-%             \end{tikzcd}
-%         \end{center}
-%         \item[\textbf{(enriched-2)}]　
-        
-%         $\forall x \in \Obj{\Cat{C}}$ に対して\footnote{これは，通常の関手において恒等射が保存されることに対応する．}
-%         \begin{center}
-%             \begin{tikzcd}[row sep=large, column sep=large]
-%                 &I \ar[dr,"j_{F_0(x)}"']\ar[r, "j_x"] &\Hom{\Cat{C}}(x,\,  x) \ar[d, "F_{x{,}x}"] \\
-%                 & &\Hom{\Cat{D}}\bigl( F_0(x),\,  F_0(x) \bigr) 
-%             \end{tikzcd}
-%         \end{center}
-        
-%     \end{description}
-    
-% \end{mydef}
-
-
-% 与えられた\hyperref[def:monoidal-category]{モノイダル圏} $V$ に対して，\textbf{$\bm{V}$-豊穣圏のなす圏}を $V-\CAT$ と書く．
+\subsection{単体的ホモトピー}
 
 \begin{mydef}[label=def:SimpSet-homotopic,breakable]{単体的ホモトピー}
     % \begin{itemize}
@@ -2403,16 +2557,13 @@ $a,\, b \in Z_n (X,\, *)$ に対して，系\ref{col:horn-coeq}，命題\ref{pro
     ~\cite[p.64, PROPOSITION 11.1]{goerss2009simplicial}
 \end{proof}
 
-
-
-
+\subsection{ホモトピーコヒーレンス}
 
 \begin{mydef}[label=def:nerve-hc]{homotopy coherentな脈体}
     
 \end{mydef}
 
-
-\subsection{$\infty$-トポス}
+\section{$\infty$-トポス}
 
 \hyperref[def:infinity-1]{$\infty$-groupoid}のなす $(\infty,\, 1)$-圏を $\inftyGrpd$ と書く．
 
@@ -2433,7 +2584,7 @@ $a,\, b \in Z_n (X,\, *)$ に対して，系\ref{col:horn-coeq}，命題\ref{pro
 \end{marker}
 
 
-\begin{myprop}[label=prop:nerve-Psh]{$\infty$-前層の圏のモデル}
+\begin{myprop}[label=prop:nerve-grpd-Psh]{$\infty$-前層の圏のモデル}
     $\Cat{C}$ を\hyperref[def:enriched]{$\SimpSet$-豊穣圏}であって，\hyperref[def:KanCplx]{Kan複体}を\hyperref[def:enriched]{Hom対象}に持つものとする．
     
     このとき\hyperref[def:nerve-hc]{homotopy coherentな脈体} $\irm{\mathrm{N}}{hc}$ に対して
@@ -2487,7 +2638,8 @@ $a,\, b \in Z_n (X,\, *)$ に対して，系\ref{col:horn-coeq}，命題\ref{pro
     
 \end{mydef}
 
-~\cite{alfonsi2023higher}は命題\ref{prop:nerve-Psh}を使って $\infty$-トポスを定義している．
+~\cite{alfonsi2023higher}は命題\ref{prop:nerve-grpd-Psh}を使って $\infty$-トポスを定義している．
+
 
 \section{$(\infty,\, n)$-圏}
 
