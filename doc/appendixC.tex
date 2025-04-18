@@ -1668,7 +1668,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
         &= d^n_i \circ d^{n-1}_{j-1} \circ \alpha
     \end{align}
     が成り立ち，単体的恒等式\eqref{eq:Simp1}より $w \circ u = w \circ v$ が分かる．
-    よって\hyperref[def:colim]{コイコライザの普遍性}から圏 $\SimpSet$ の可換図式
+    よって\hyperref[def:eq-coeq]{コイコライザの普遍性}から圏 $\SimpSet$ の可換図式
     \begin{center}
         \begin{tikzcd}[row sep=large, column sep=large]
             &\coprod_{0 \le i < j \le n} \Delta^{n-2} \ar[r, shift left, "u"]\ar[r, shift right, "v"'] &\coprod_{0 \le k \le n} \Delta^{n-1} \ar[dr, "w"']\ar[r, "q"] &\mathrm{Coeq}(u,\, v)\ar[d, red, dashed, "\exists! \bar{w}"] \\
@@ -1694,9 +1694,8 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
 
         \item[\textbf{($\bar{w}$ はモノ射)}]　
         
-        $\forall [m] \in \Obj{\OP{\Delta}}$ を1つ固定し，写像 $\bar{w}_{[m]} \colon \mathrm{Coeq}(u,\, v) \bigl( [m] \bigr)  \lto \partial \Delta^n \bigl( [m] \bigr) $ が全射であることを示す．
-        
-        　$\bar{w}_{[m]}(x) = \bar{w}_{[m]}(y)$ を仮定する．$q \colon \coprod_{0 \le k \le n} \Delta^{n-1} \lto \mathrm{Coeq} (u,\, v)$ はエピなので，$x = q_{[m]} (i,\, \beta_i),\, y = q_{[m]} (j,\, \beta_j)$ を充たす $(i,\, \beta_i),\, (j,\, \beta_j) \in \coprod_{0 \le k \le n} \Delta^{n-1} \bigl( [m] \bigr)$ が存在する．
+        $\forall [m] \in \Obj{\OP{\Delta}}$ を1つ固定し，写像 $\bar{w}_{[m]} \colon \mathrm{Coeq}(u,\, v) \bigl( [m] \bigr)  \lto \partial \Delta^n \bigl( [m] \bigr) $ が単射であることを示す．
+        $\bar{w}_{[m]}(x) = \bar{w}_{[m]}(y)$ を仮定する．$q \colon \coprod_{0 \le k \le n} \Delta^{n-1} \lto \mathrm{Coeq} (u,\, v)$ はエピなので，$x = q_{[m]} (i,\, \beta_i),\, y = q_{[m]} (j,\, \beta_j)$ を充たす $(i,\, \beta_i),\, (j,\, \beta_j) \in \coprod_{0 \le k \le n} \Delta^{n-1} \bigl( [m] \bigr)$ が存在する．
         コイコライザの普遍性の図式の可換性から $w_{[m]} (i,\, \beta_i) = \bar{w}_{[m]}(x) = \bar{w}_{[m]}(y) = w_{[m]} (j,\, \beta_j)$ が分かる．
         
         　$i=j$ ならば $x = y$ は自明なので，$i < j$ とする．このとき，エピ射であることの証明から $\gamma \coloneqq w_{[m]} (i,\, \beta_i) = w_{[m]} (j,\, \beta_j) \in \partial \Delta^n \bigl( [m] \bigr)$ の像は $[n] \setminus \{i < j\}$ に収まっている．i.e. $\gamma$ は
