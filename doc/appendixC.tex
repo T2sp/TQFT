@@ -1224,7 +1224,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
             K \colon \OP{\Delta} \lto \SETS
         \end{align}
         のこと．
-        特に $n$-単体 $[n] \in \Obj{\OP{\Delta}}$ の\hyperref[def:representable]{表現可能前層}を $\bm{\Delta^n} \coloneqq \Hom{\Delta} (\, \mhyphen \,,\, [n]) \in \Obj{\SimpSet}$ と書く．
+        特に $n$-単体 $[n] \in \Obj{\OP{\Delta}}$ の\hyperref[def:representable]{表現可能前層}を $\bm{\Delta^n} \coloneqq \Hom{\Delta} (\, \mhyphen \,,\, [n]) \in \Obj{\sSet}$ と書く．
 
         \item \textbf{余単体的集合} (cosimplicial set) とは，関手
         \begin{align}
@@ -1237,9 +1237,9 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
             \item[\textbf{(sub-2)}] \hyperref[def:simplex-cat]{圏 $\Delta$} における任意の射 $\alpha \colon [n] \lto [m]$ に対して $K(\alpha) \bigl( S([m]) \bigr) \subset S([n])$
         \end{description}
         誤解の恐れがないときは，単体的部分集合を $\bm{S \subset K}$ と書く．
-        \item \textbf{単体的集合の圏} $\SimpSet$ とは，\hyperref[def:presheaf-general]{前層}の圏
+        \item \textbf{単体的集合の圏} $\sSet$ とは，\hyperref[def:presheaf-general]{前層}の圏
         \begin{align}
-            \SimpSet \coloneqq \PshSETS{\Delta}
+            \sSet \coloneqq \PshSETS{\Delta}
         \end{align}
         のこと．
     \end{itemize}
@@ -1350,14 +1350,14 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
 
 
 \begin{myprop}[label=prop:SimpSet-basic]{単体的集合の圏の基本性質}
-    $\yo \colon \Delta \lto \SimpSet$ を\hyperref[def:representable]{米田埋め込み}とする．
+    $\yo \colon \Delta \lto \sSet$ を\hyperref[def:representable]{米田埋め込み}とする．
     \begin{enumerate}
         \item 任意の\hyperref[def:SimpSet]{単体的集合} $K \colon \OP{\Delta} \lto \SETS$ に対して，\hyperref[def:nat]{自然な同型}
         \begin{align}
-            \Hom{\SimpSet} (\Delta^n,\, K) \cong K_n
+            \Hom{\sSet} (\Delta^n,\, K) \cong K_n
         \end{align}
         が成り立つ．
-        \item 圏 \hyperref[def:SimpSet]{$\SimpSet$} は\hyperref[def:complete]{双完備}である．
+        \item 圏 \hyperref[def:SimpSet]{$\sSet$} は\hyperref[def:complete]{双完備}である．
         \item 任意の\hyperref[def:SimpSet]{単体的集合} $K \colon \OP{\Delta} \lto \SETS$ に対して，
         \begin{align}
             K \cong \underset{[n] \in \yo_{/K}}{\colim} \Delta^n
@@ -1368,7 +1368,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
 \end{myprop}
 
 \begin{marker}
-    命題\ref{prop:SimpSet-basic}-(1) によって，\hyperref[def:SimpSet]{$n$-単体} $\sigma \in K_n$ を\hyperref[def:nat]{自然変換} $\sigma \in \Hom{\SimpSet}(\Delta^n,\, K)$ と同一視できる！
+    命題\ref{prop:SimpSet-basic}-(1) によって，\hyperref[def:SimpSet]{$n$-単体} $\sigma \in K_n$ を\hyperref[def:nat]{自然変換} $\sigma \in \Hom{\sSet}(\Delta^n,\, K)$ と同一視できる！
 \end{marker}
 
 
@@ -1376,11 +1376,11 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     \begin{enumerate}
         \item \hyperref[lem:Yoneda]{米田の補題}より
         \begin{align}
-            \Hom{\SimpSet} (\Delta^n,\, K) 
+            \Hom{\sSet} (\Delta^n,\, K) 
             =\Hom{\PshSETS{\Delta}} (\Hom{\Delta}(\mhyphen,\, [n]),\, K)
             \cong K([n]) = K_n
         \end{align}
-        \item \hyperref[def:diagram]{図式} $D \colon I \lto \SimpSet$ を与える．
+        \item \hyperref[def:diagram]{図式} $D \colon I \lto \sSet$ を与える．
         $\SETS$ が双完備であることから，\hyperref[def:SimpSet]{単体的集合}
         \begin{align}
             \lim_I D \colon \OP{\Delta} &\lto \SETS, \\
@@ -1434,17 +1434,17 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
             S(X) \colon \OP{\Delta} \lto \SETS,\; [n] \lmto \Hom{\TOP} (\irm{\Delta}{top}^n ,\, X)
         \end{align}
         のこと．
-        \item \hyperref[def:simplicial-top]{特異複体}とは，関手 $S \colon \TOP \lto \SimpSet,\; X \lmto S(X)$ のこと．
+        \item \hyperref[def:simplicial-top]{特異複体}とは，関手 $S \colon \TOP \lto \sSet,\; X \lmto S(X)$ のこと．
     \end{itemize}
     
 \end{mydef}
 
 
 \begin{mydef}[label=def:geometric-realization]{幾何学的実現}
-    $\yo \colon \Delta \lto \SimpSet$ を\hyperref[def:representable]{米田埋め込み}とする．
+    $\yo \colon \Delta \lto \sSet$ を\hyperref[def:representable]{米田埋め込み}とする．
     \textbf{幾何学的実現} (geometric realization) とは，\hyperref[def:colim]{余極限}を保つ関手
     \begin{align}
-        \abs{\mhyphen} \colon \SimpSet \lto \TOP,\; K \lmto \underset{[n] \in \yo_{/K}}{\colim} \irm{\Delta}{top}([n])
+        \abs{\mhyphen} \colon \sSet \lto \TOP,\; K \lmto \underset{[n] \in \yo_{/K}}{\colim} \irm{\Delta}{top}([n])
     \end{align}
     のこと．
     \tcblower
@@ -1456,13 +1456,13 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
 \end{mydef}
 
 \begin{myprop}[label=prop:geometry-realization]{}
-    \hyperref[def:simplicial-top]{特異複体} $S \colon \TOP \lto \SimpSet,\; X \lmto S(X)$ は\hyperref[def:geometric-realization]{幾何学的実現} $\abs{\mhyphen} \colon \SimpSet \lto \TOP$ の\hyperref[def:adjoint]{右随伴}である．
+    \hyperref[def:simplicial-top]{特異複体} $S \colon \TOP \lto \sSet,\; X \lmto S(X)$ は\hyperref[def:geometric-realization]{幾何学的実現} $\abs{\mhyphen} \colon \sSet \lto \TOP$ の\hyperref[def:adjoint]{右随伴}である．
 \end{myprop}
 
 \begin{proof}
-    \hyperref[def:adjoint]{右随伴の定義}を思い出すと，$\forall (K,\, X) \in \Obj{\OP{\SimpSet} \times \TOP}$ に対して\hyperref[def:nat]{自然同型}
+    \hyperref[def:adjoint]{右随伴の定義}を思い出すと，$\forall (K,\, X) \in \Obj{\OP{\sSet} \times \TOP}$ に対して\hyperref[def:nat]{自然同型}
     \begin{align}
-        \Hom{\TOP} (\abs{K},\, X) \cong \Hom{\OP{\SimpSet}} \bigl(K,\, S(X)\bigr)
+        \Hom{\TOP} (\abs{K},\, X) \cong \Hom{\OP{\sSet}} \bigl(K,\, S(X)\bigr)
     \end{align}
     が成り立つことを示せば良い．実際，命題\ref{prop:lim-colim-basic}より
     \begin{align}
@@ -1470,7 +1470,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     \end{align}
     が，命題\ref{prop:SimpSet-basic}-(3) より
     \begin{align}
-        \Hom{\OP{\SimpSet}} \bigl(K,\, S(X)\bigr) \cong \Hom{\OP{\SimpSet}} \bigl( \underset{[n] \in \yo_K}{\colim} \Delta^n,\, S(X) \bigr) \cong \underset{[n] \in \yo_{/K}}{\lim} \Hom{\TOP}(\Delta^n,\, X)
+        \Hom{\OP{\sSet}} \bigl(K,\, S(X)\bigr) \cong \Hom{\OP{\sSet}} \bigl( \underset{[n] \in \yo_K}{\colim} \Delta^n,\, S(X) \bigr) \cong \underset{[n] \in \yo_{/K}}{\lim} \Hom{\TOP}(\Delta^n,\, X)
     \end{align}
     が言える．
 \end{proof}
@@ -1479,7 +1479,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
 
 \begin{mydef}[label=def:horn,breakable]{境界・角・背骨・骨格}
     \begin{itemize}
-        \item $\Delta^n \in \Obj{\SimpSet}$ の\textbf{単体的境界} (simplicial boundary) $\bm{\partial \Delta^n}$ とは，$\Delta^n$ の\hyperref[def:SimpSet]{単体的部分集合}
+        \item $\Delta^n \in \Obj{\sSet}$ の\textbf{単体的境界} (simplicial boundary) $\bm{\partial \Delta^n}$ とは，$\Delta^n$ の\hyperref[def:SimpSet]{単体的部分集合}
         \begin{align}
             \partial \Delta^n \colon \OP{\Delta} \lto \SETS
         \end{align}
@@ -1526,7 +1526,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     \hyperref[def:horn]{角} $\Lambda^2_0 \colon \OP{\Delta} \lto \SETS$ とはどのようなものだろうか．
     まず，\hyperref[def:representable]{表現可能前層} $\Delta^2$ の定義から
     \begin{align}
-        \Lambda^2_0([0]) = \Bigl\{\, f \in \Hom{\Delta} ([0],\, [2]) \bigm| [2] \setminus \bigl( f([0]) \cup \{0\}\bigr)  \,\Bigr\} 
+        \Lambda^2_0([0]) = \Bigl\{\, f \in \Hom{\Delta} ([0],\, [2]) \Bigm| [2] \setminus \bigl( f([0]) \cup \{0\}\bigr)  \,\Bigr\} 
     \end{align}
     であるが，$\forall f \in \Hom{\Delta} ([0],\, [2])$ は定数写像なので $\Lambda^2_0([0]) = \Hom{\Delta} ([0],\, [2])$ である．これらを
     \begin{align}
@@ -1534,7 +1534,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     \end{align}
     と書く．次に
     \begin{align}
-        \Lambda^2_0([1]) = \Bigl\{\, f \in \Hom{\Delta} ([1],\, [2]) \bigm| [2] \setminus \bigl( f([1]) \cup \{0\}\bigr)  \,\Bigr\} 
+        \Lambda^2_0([1]) = \Bigl\{\, f \in \Hom{\Delta} ([1],\, [2]) \Bigm| [2] \setminus \bigl( f([1]) \cup \{0\}\bigr)  \,\Bigr\} 
     \end{align}
     を調べる．6点集合 $\Hom{\Delta} ([1],\, [2])$ の元を全て書き出すと
     \begin{align}
@@ -1570,7 +1570,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     と書ける．
     次に
     \begin{align}
-        \Lambda^2_0([2]) = \Bigl\{\, f \in \Hom{\Delta} ([2],\, [2]) \bigm| [2] \setminus \bigl( f([2]) \cup \{0\}\bigr)  \,\Bigr\} 
+        \Lambda^2_0([2]) = \Bigl\{\, f \in \Hom{\Delta} ([2],\, [2]) \Bigm| [2] \setminus \bigl( f([2]) \cup \{0\}\bigr)  \,\Bigr\} 
     \end{align}
     であるが，縮退写像の像に含まれない $\Hom{\Delta} ([2],\, [2])$ の元は $\Id_{[2]}$ のみであり，明らかに $\Id_{[n]} \notin \Lambda^2_0([2])$ となっている．
     \begin{align}
@@ -1618,7 +1618,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
 
 
 \begin{myprop}[label=prop:boundary-coeq]{コイコライザとしての境界}
-    \hyperref[def:horn]{境界} $\partial \Delta^n$ は圏\hyperref[def:SimpSet]{$\SimpSet$}における\hyperref[def:eq-coeq]{コイコライザ}である：
+    \hyperref[def:horn]{境界} $\partial \Delta^n$ は圏\hyperref[def:SimpSet]{$\sSet$}における\hyperref[def:eq-coeq]{コイコライザ}である：
     \begin{center}
         \begin{tikzcd}[row sep=large, column sep=large]
              &\coprod_{0 \le i < j \le n} \Delta^{n-2} \ar[r, shift left, "u"]\ar[r, shift right, "v"'] &\coprod_{0 \le k \le n} \Delta^{n-1} \ar[r, "w"] &\partial \Delta^n
@@ -1627,7 +1627,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
 \end{myprop}
 
 \begin{proof}
-    $0 \le \forall \textcolor{red}{k} \le n$ に対して，圏 $\SimpSet$ における射（i.e. \hyperref[def:nat]{自然変換}）
+    $0 \le \forall \textcolor{red}{k} \le n$ に対して，圏 $\sSet$ における射（i.e. \hyperref[def:nat]{自然変換}）
     \begin{align}
         u_{\textcolor{red}{k}} \colon \coprod_{0 \le i < \textcolor{red}{k}} \Delta^{n-2} &\lto \Delta^{n-1} \\
         v_{\textcolor{red}{k}} \colon \coprod_{\textcolor{red}{k} < j \le n} \Delta^{n-2} &\lto \Delta^{n-1}
@@ -1638,7 +1638,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
         v_{\textcolor{red}{k}} &\coloneqq \Familyset[\bigg]{u_{\textcolor{red}{k}}{}_{[m]} \colon \coprod_{\textcolor{red}{k} < j \le n} \Delta^{n-2}\bigl( [m] \bigr)  \lto \Delta^{n-2}\bigl([m]\bigr),\; (j,\, \alpha) \lmto d_{j-1}^{n-1} \circ \alpha}{[m] \in \Obj{\OP{\Delta}}}
     \end{align}
     により定義する\footnote{$\coprod_{i} \Delta^{n-2}\bigl( [m] \bigr) = \coprod_{i} \Hom{\Delta}([m],\, [n-2])$ は集合と写像の圏 $\SETS$ における余積なので，集合としては $\bigcup_{i}\bigl\{\, (i,\, \alpha) \bigm| \alpha \in \Hom{\Delta}([m],\, [n-2]) \,\bigr\}$ と1対1対応する．}．
-    そして圏 $\SimpSet$ における2つの\hyperref[def:product-coproduct]{余積}を
+    そして圏 $\sSet$ における2つの\hyperref[def:product-coproduct]{余積}を
     \begin{center}
         \begin{tikzcd}[row sep=large, column sep=large]
             &\coprod_{0 \le i < j \le n} \Delta^{n-2} = \coprod_{0 \le \textcolor{red}{k} \le n}\coprod_{0 \le i < \textcolor{red}{k}} \Delta^{n-2} \ar[r, red, dashed, "\exists! u"] &\coprod_{0 \le \textcolor{red}{k} \le n}\Delta^{n-1} \\
@@ -1668,7 +1668,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
         &= d^n_i \circ d^{n-1}_{j-1} \circ \alpha
     \end{align}
     が成り立ち，単体的恒等式\eqref{eq:Simp1}より $w \circ u = w \circ v$ が分かる．
-    よって\hyperref[def:eq-coeq]{コイコライザの普遍性}から圏 $\SimpSet$ の可換図式
+    よって\hyperref[def:eq-coeq]{コイコライザの普遍性}から圏 $\sSet$ の可換図式
     \begin{center}
         \begin{tikzcd}[row sep=large, column sep=large]
             &\coprod_{0 \le i < j \le n} \Delta^{n-2} \ar[r, shift left, "u"]\ar[r, shift right, "v"'] &\coprod_{0 \le k \le n} \Delta^{n-1} \ar[dr, "w"']\ar[r, "q"] &\mathrm{Coeq}(u,\, v)\ar[d, red, dashed, "\exists! \bar{w}"] \\
@@ -1714,9 +1714,9 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
 \end{proof}
 
 \begin{mycol}[label=col:coundary-coeq]{境界の公式}
-    $\forall K \in \Obj{\SimpSet}$ に対して，写像
+    $\forall K \in \Obj{\sSet}$ に対して，写像
     \begin{align}
-        \Hom{\SimpSet} (\partial \Delta^n,\, K) &\lto \biggl\{\, (\sigma_0,\, \dots,\, \sigma_n) \in \prod_{0 \le k \le n} K_{n-1} \biggm| 0 \le \forall i < j \le n,\;  \partial^{n-1}_i (\sigma_j) = \partial^{n-1}_{j-1} (\sigma_i) \,\biggr\}, \\
+        \Hom{\sSet} (\partial \Delta^n,\, K) &\lto \biggl\{\, (\sigma_0,\, \dots,\, \sigma_n) \in \prod_{0 \le k \le n} K_{n-1} \biggm| 0 \le \forall i < j \le n,\;  \partial^{n-1}_i (\sigma_j) = \partial^{n-1}_{j-1} (\sigma_i) \,\biggr\}, \\
         f &\lmto \bigl(f_{[n-1]} \circ d^n_0{}^*(\Id_{[n]}),\, \dots,\, f_{[n-1]} \circ d^n_n{}^*(\Id_{[n]}) \bigr) 
     \end{align}
     は全単射である．
@@ -1725,8 +1725,8 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
 \begin{proof}
     命題\ref{prop:boundary-coeq}より，集合
     \begin{align}
-        &X\coloneqq\biggl\{\, \bar{f} \in \Hom{\SimpSet}\Bigl(\coprod_{0 \le k \le n} \Delta^{n-1},\, K \Bigr) \biggm| \bar{f} \circ u = \bar{f} \circ v \,\biggr\}  \\
-        &= \biggl\{\, \bar{f} \in \Hom{\SimpSet}\Bigl(\coprod_{0 \le k \le n} \Delta^{n-1},\, K \Bigr) \biggm| \substack{\forall [m] \in \Obj{\OP{\Delta}},\, \forall \bigl((i < j),\, \alpha\bigr) \in \coprod_{0 \le k < l \le n} \Delta^{n-2} \bigl( [m] \bigr),\\ \bar{f}_{[m]} \bigl( j,\, d^{n-1}_i \circ \alpha \bigr)  = \bar{f}_{[m]} \bigl( i,\, d^{n-1}_{j-1} \circ \alpha \bigr)}  \,\biggr\}
+        &X\coloneqq\biggl\{\, \bar{f} \in \Hom{\sSet}\Bigl(\coprod_{0 \le k \le n} \Delta^{n-1},\, K \Bigr) \biggm| \bar{f} \circ u = \bar{f} \circ v \,\biggr\}  \\
+        &= \biggl\{\, \bar{f} \in \Hom{\sSet}\Bigl(\coprod_{0 \le k \le n} \Delta^{n-1},\, K \Bigr) \biggm| \substack{\forall [m] \in \Obj{\OP{\Delta}},\, \forall \bigl((i < j),\, \alpha\bigr) \in \coprod_{0 \le k < l \le n} \Delta^{n-2} \bigl( [m] \bigr),\\ \bar{f}_{[m]} \bigl( j,\, d^{n-1}_i \circ \alpha \bigr)  = \bar{f}_{[m]} \bigl( i,\, d^{n-1}_{j-1} \circ \alpha \bigr)}  \,\biggr\}
     \end{align}
     の任意の元 $\bar{f}$ に対してコイコライザの普遍性の可換図式
     \begin{center}
@@ -1737,18 +1737,18 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     \end{center}
     が成り立つ．i.e. 写像
     \begin{align}
-        \Hom{\SimpSet} (\partial \Delta^n,\, K) &\lto X, \\
+        \Hom{\sSet} (\partial \Delta^n,\, K) &\lto X, \\
         f &\lmto f \circ w = \Familyset[\bigg]{\Dpmember[\big]{(f_{[m]} \circ d^n_k)_*}{0 \le k \le n} \colon \coprod_{0 \le k \le n} \Delta^{n-1} \bigl( [m] \bigr) \lto K_m}{[m] \in \Obj{\OP{\Delta}}}
     \end{align}
     は全単射である．命題\ref{prop:lim-colim-basic}-(2) と\hyperref[lem:Yoneda]{米田の補題}から
     \begin{align}
-        \Hom{\SimpSet}\Bigl(\coprod_{0 \le k \le n} \Delta^{n-1},\, K \Bigr) \cong \prod_{0 \le k \le n} \Hom{\SimpSet} \bigl( \Delta^{n-1},\, K \bigr) \cong \prod_{0 \le k \le n} K_{n-1}
+        \Hom{\sSet}\Bigl(\coprod_{0 \le k \le n} \Delta^{n-1},\, K \Bigr) \cong \prod_{0 \le k \le n} \Hom{\sSet} \bigl( \Delta^{n-1},\, K \bigr) \cong \prod_{0 \le k \le n} K_{n-1}
     \end{align}
     が言えるので，示された．
 \end{proof}
 
 \begin{myprop}[label=prop:horn-coeq]{コイコライザとしての角}
-    \hyperref[def:horn]{角} $\Lambda^n_i$ は圏\hyperref[def:SimpSet]{$\SimpSet$}における\hyperref[def:eq-coeq]{コイコライザ}である：
+    \hyperref[def:horn]{角} $\Lambda^n_i$ は圏\hyperref[def:SimpSet]{$\sSet$}における\hyperref[def:eq-coeq]{コイコライザ}である：
     \begin{center}
         \begin{tikzcd}[row sep=large, column sep=large]
              &\coprod_{\substack{j,\, k \in [n] \setminus \{i\} \\ j < k}} \Delta^{n-2} \ar[r, shift left, "u"]\ar[r, shift right, "v"'] &\coprod_{l \in [n] \setminus \{i\}} \Delta^{n-1} \ar[r, "w"] &\Lambda_i^n
@@ -1761,9 +1761,9 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
 \end{proof}
 
 \begin{mycol}[label=col:horn-coeq]{角の公式}
-    $\forall K \in \Obj{\SimpSet}$ に対して，写像
+    $\forall K \in \Obj{\sSet}$ に対して，写像
     \begin{align}
-        \Hom{\SimpSet} (\Lambda^n_i,\, K) &\lto \biggl\{\, (\sigma_0,\, \dots,\,\sigma_{i-1},\, \sigma_{i+1},\, \dots,\, \sigma_n) \in \prod_{k \in [n] \setminus \{i\}} K_{n-1} \biggm| \substack{\forall j,\, k \in [n] \setminus \{i\}\; \mathrm{s.t.}\;  j < k,\\  \partial^{n-1}_j (\sigma_k) = \partial^{n-1}_{k-1} (\sigma_j)} \,\biggr\}, \\
+        \Hom{\sSet} (\Lambda^n_i,\, K) &\lto \biggl\{\, (\sigma_0,\, \dots,\,\sigma_{i-1},\, \sigma_{i+1},\, \dots,\, \sigma_n) \in \prod_{k \in [n] \setminus \{i\}} K_{n-1} \biggm| \substack{\forall j,\, k \in [n] \setminus \{i\}\; \mathrm{s.t.}\;  j < k,\\  \partial^{n-1}_j (\sigma_k) = \partial^{n-1}_{k-1} (\sigma_j)} \,\biggr\}, \\
         f &\lmto \bigl(f_{[n-1]} \circ d^n_0{}^*(\Id_{[n]}),\, \dots,\, \widehat{f_{[n-1]}\circ d^n_{i}{}^*(\Id_{[n]})},\, \dots,\, f_{[n-1]} \circ d^n_n{}^*(\Id_{[n]}) \bigr) 
     \end{align}
     は全単射である．ただし，$\widehat{\cdot}$ は $\cdot$ を除外することを意味する．
@@ -1833,11 +1833,11 @@ $[n] \in \Obj{\Delta}$ に対して，
 
         \textbf{脈体関手} (nerve functor) とは，以下で定義される関手
         \begin{align}
-            \mathrm{N} \colon \CAT \lto \SimpSet
+            \mathrm{N} \colon \CAT \lto \sSet
         \end{align}
         のことを言う：
         \begin{itemize}
-            \item $\forall \Cat{C} \in \Obj{\Cat{C}}$ に対して $\mathrm{N}(\Cat{C}) \in \Obj{\SimpSet}$ を対応づける．
+            \item $\forall \Cat{C} \in \Obj{\Cat{C}}$ に対して $\mathrm{N}(\Cat{C}) \in \Obj{\sSet}$ を対応づける．
             \item 任意の関手 $\Cat{C} \xrightarrow{F} \Cat{D}$ に対して\hyperref[def:nat]{自然変換}
             \begin{align}
                 \ner{F} \colon &\ner{\Cat{C}} \Longrightarrow \ner{\Cat{D}}, \\
@@ -1909,7 +1909,7 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
 \end{myprop}
 \begin{proof}
     \begin{align}
-        \theta \colon \Hom{\CAT}(\Cat{C},\, \Cat{D}) \lto \Hom{\SimpSet} \bigl( \mathrm{N}(\Cat{C}),\, \mathrm{N}(\Cat{D}) \bigr),\; F \lmto \mathrm{N}(F)
+        \theta \colon \Hom{\CAT}(\Cat{C},\, \Cat{D}) \lto \Hom{\sSet} \bigl( \mathrm{N}(\Cat{C}),\, \mathrm{N}(\Cat{D}) \bigr),\; F \lmto \mathrm{N}(F)
     \end{align}
     が全単射であることを示せば良い．
 
@@ -1929,7 +1929,7 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
         が成り立つ．i.e. $F = G$ である．
         \item[\textbf{全射}]　
         
-        $\forall f \in \Hom{\SimpSet} \bigl( \mathrm{N}(\Cat{C}),\, \mathrm{N}(\Cat{D}) \bigr)$ を1つ固定する．$f$ は\hyperref[def:nat]{自然変換}だから，$\forall n \ge 0$ に対して\hyperref[def:nat]{自然変換} $f_{[n]} \colon \mathrm{N}(\Cat{C})_n \lto \mathrm{N}(\Cat{D})_n$ が定まる．
+        $\forall f \in \Hom{\sSet} \bigl( \mathrm{N}(\Cat{C}),\, \mathrm{N}(\Cat{D}) \bigr)$ を1つ固定する．$f$ は\hyperref[def:nat]{自然変換}だから，$\forall n \ge 0$ に対して\hyperref[def:nat]{自然変換} $f_{[n]} \colon \mathrm{N}(\Cat{C})_n \lto \mathrm{N}(\Cat{D})_n$ が定まる．
         \eqref{eq:nerve-spine}より $\forall X,\, Y \in \Obj{\Cat{C}}$ を $\ner{\Cat{C}}_0$ の要素と見做し，圏 $\Cat{C}$ における任意の射 $X \xrightarrow{u} Y$ を $\ner{\Cat{C}}_1$ の要素と見做すことができる．すると自然変換 $f$ により
         \begin{align}
             f_{[0]} (X),\, f_{[0]} (Y) \in \Obj{\Cat{D}}
@@ -2040,7 +2040,7 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
     \begin{description}
         \item[\textbf{(Kan)}]　
         
-        $\forall n \ge 1,\; 0 \le \forall j \le n$ および $\forall \textcolor{blue}{f} \in \Hom{\SimpSet}(\Lambda^n_j,\, K)$に対して，以下の図式を可換にする\hyperref[def:nat]{自然変換} $\textcolor{red}{u} \in \Hom{\SimpSet}(\Delta^n,\, K)$ が存在する：
+        $\forall n \ge 1,\; 0 \le \forall j \le n$ および $\forall \textcolor{blue}{f} \in \Hom{\sSet}(\Lambda^n_j,\, K)$に対して，以下の図式を可換にする\hyperref[def:nat]{自然変換} $\textcolor{red}{u} \in \Hom{\sSet}(\Delta^n,\, K)$ が存在する：
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
                 &\Lambda^n_j \ar[r, blue, "f"]\ar[d, hookrightarrow] &K \\
@@ -2058,7 +2058,7 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
 \begin{mydef}[label=def:infinity-1]{{$(\infty,\, 1)$}-圏}
     \begin{itemize}
         \item $\bm{(\infty,\, 1)}$\textbf{-圏}\footnote{\textbf{擬圏} (quasi-category) と呼ばれることもある．}とは，\hyperref[def:KanCplx]{弱Kan複体}のこと．
-        $(\infty,\, 1)$-圏の関手とは，\hyperref[def:SimpSet]{$\SimpSet$}の射のこと．
+        $(\infty,\, 1)$-圏の関手とは，\hyperref[def:SimpSet]{$\sSet$}の射のこと．
         \item $\bm{\infty}$\textbf{-groupoid}とは，\hyperref[def:KanCplx]{Kan複体}のこと．
     \end{itemize}
 \end{mydef}
@@ -2084,7 +2084,7 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
         \item[\textbf{(1)$\bm{\Longrightarrow}$(2)}]　
         
         ある圏 $\Cat{C}$ が存在して $K \cong \mathrm{N}(\Cat{C})$ だとする．
-        $\forall f \in \Hom{\SimpSet}\bigl(\Lambda^n_j,\, \mathrm{N}(\Cat{C})\bigr)$ を1つ与える．このとき $0 < \forall j < \forall n$ に対して $f$ が $u \in \Hom{\SimpSet} \bigl( \Delta^n,\, \mathrm{N}(\Cat{C}) \bigr)$ へ一意的に拡張できることを示せば良い．
+        $\forall f \in \Hom{\sSet}\bigl(\Lambda^n_j,\, \mathrm{N}(\Cat{C})\bigr)$ を1つ与える．このとき $0 < \forall j < \forall n$ に対して $f$ が $u \in \Hom{\sSet} \bigl( \Delta^n,\, \mathrm{N}(\Cat{C}) \bigr)$ へ一意的に拡張できることを示せば良い．
 
         　$0 \le \forall k \le n$ に対して $U_k \coloneqq f_{[0]}(\{k\})$ とおく\footnote{\exref{ex:horn}より，$\{k\} \in \Lambda^n_j ([0])$ である．}．
         さらに $0 < \forall k \le n$ に対して
@@ -2099,7 +2099,7 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
         \begin{align}
             U_0 \xrightarrow{g_1} U_1 \xrightarrow{g_2} \cdots \xrightarrow{g_{n}} U_n
         \end{align}
-        が定まる．ここから\eqref{eq:nerve-spine}の方法で $U \in \mathrm{N}(\Cat{C})_n$ が一意的に定まり，\hyperref[lem:Yoneda]{米田の補題}により対応する $u \in \Hom{\SimpSet} \bigl(\Delta^n,\, \mathrm{N}(\Cat{C})\bigr)$ が一意的に定まるが，構成からこれが所望の $u$ である~\cite[Lemma1.3.4.2]{Kerodon}．
+        が定まる．ここから\eqref{eq:nerve-spine}の方法で $U \in \mathrm{N}(\Cat{C})_n$ が一意的に定まり，\hyperref[lem:Yoneda]{米田の補題}により対応する $u \in \Hom{\sSet} \bigl(\Delta^n,\, \mathrm{N}(\Cat{C})\bigr)$ が一意的に定まるが，構成からこれが所望の $u$ である~\cite[Lemma1.3.4.2]{Kerodon}．
         % ．この $u$ が\hyperref[def:KanCplx]{弱Kan条件}を充たすことを示す（なお，弱Kan条件を充たす $u$ の一意性は明らかである．実際，$u'|_{\Lambda^n_j} = f$ を充たすもう一つの $u'$ が存在したとすると，$u'$ もまた $U$ に対応付けられるため $u=u'$ だと分かる）．
         % $n = 2$ のときは，$0 < j < 2$ なので $j=1$ となる．\exref{ex:horn}より，$0 < \forall k \le 2$ に対して $g_k \coloneqq f_{[1]}(\{k-1\} \lto \{k\})$ とおくと，
         % \begin{align}
@@ -2125,10 +2125,10 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
             \begin{description}
                 \item[\textbf{(STEP1)}]　 
                 
-                $(g,\, f) \in K_1 \times K_1$ かつ $\partial^1_1(g) = \partial^1_{0}(f)$ が成り立つので系\ref{col:horn-coeq}が使えて，$(g,\, f) \in \Hom{\SimpSet}(\Lambda^2_1,\, K)$ と見做せる．
+                $(g,\, f) \in K_1 \times K_1$ かつ $\partial^1_1(g) = \partial^1_{0}(f)$ が成り立つので系\ref{col:horn-coeq}が使えて，$(g,\, f) \in \Hom{\sSet}(\Lambda^2_1,\, K)$ と見做せる．
                 \item[\textbf{(STEP2)}]　 
                 
-                仮定より，$(g,\, f) \in \Hom{\SimpSet}(\Lambda^2_1,\, K)$ に対する弱Kan条件の\underline{一意解} $u \in \Hom{\SimpSet}(\Delta^2,\, K) \cong K_2$ が存在する．
+                仮定より，$(g,\, f) \in \Hom{\sSet}(\Lambda^2_1,\, K)$ に対する弱Kan条件の\underline{一意解} $u \in \Hom{\sSet}(\Delta^2,\, K) \cong K_2$ が存在する．
                 \item[\textbf{(STEP3)}]　 
                 
                 $u|_{\Lambda^2_1}$ に対して再度系\ref{col:horn-coeq}を適用することで，弱Kan条件の図式の可換性は $\partial^2_0(u) = g,\; \partial^2_2(u) = f$ を意味していることがわかる．このことから，$f$ と $g$ の合成を $g \circ f \coloneqq \partial^2_1(u)$ と定義する\footnote{単体的恒等式\eqref{eq:Simp1}より，$g \circ f \in \Hom{\Cat{C}}(C,\, E)$ が分かる．}．
@@ -2185,14 +2185,14 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
                 \partial^2_2 (u_0) &= g = \partial^2_0 (u_3), \\
                 \partial^2_2 (u_2) &= f = \partial^2_2 (u_3)
             \end{align}
-            を充たすため系\ref{col:horn-coeq}が使えて，$(u_0,\, u_2,\, u_3) \in \Hom{\SimpSet}(\Lambda^3_1,\, K)$ と見做せる．すると，仮定より\hyperref[def:KanCplx]{弱Kan条件}の一意解
+            を充たすため系\ref{col:horn-coeq}が使えて，$(u_0,\, u_2,\, u_3) \in \Hom{\sSet}(\Lambda^3_1,\, K)$ と見做せる．すると，仮定より\hyperref[def:KanCplx]{弱Kan条件}の一意解
             \begin{center}
                 \begin{tikzcd}[row sep=large, column sep=large]
                     &\Lambda^3_1 \ar[r, blue, "{(u_0,\, u_2,\, u_3)}"]\ar[d, hookrightarrow] &K \\
                     &\Delta^3 \ar[ur, dashed, red, "\exists! \tau"] &
                 \end{tikzcd}
             \end{center}
-            が存在する．i.e. ある $\tau \in K_3$ が\footnote{\hyperref[lem:Yoneda]{米田の補題}より $\tau \in \Hom{\SimpSet}(\Delta^3,\, K) \cong K_3$ である．}一意的に存在して，
+            が存在する．i.e. ある $\tau \in K_3$ が\footnote{\hyperref[lem:Yoneda]{米田の補題}より $\tau \in \Hom{\sSet}(\Delta^3,\, K) \cong K_3$ である．}一意的に存在して，
             \begin{align}
                 u_0 &= \partial^3_0 (\tau), &
                 u_2 &= \partial^3_2 (\tau), &
@@ -2217,11 +2217,11 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
             が成り立っている．i.e. $h \circ (g \circ f) = (h\circ g) \circ f$ が分かった．
         \end{description}
         
-        さて，$\SimpSet$ の射
+        さて，$\sSet$ の射
         \begin{align}
             \theta \colon K \lto \mathrm{N}(\Cat{C})
         \end{align}
-        を構成しよう．$\theta$ は\hyperref[def:nat]{自然変換}であるから，$\forall [n] \in $ に対して写像 $\theta_{[n]} \colon K_n \lto \mathrm{N}(\Cat{C})_n$ を定めれば良い．命題\ref{prop:SimpSet-basic}-(1) より $\forall \sigma \in K_n$ は自然に $\Hom{\SimpSet} (\Delta^n,\, K)$ の元と見做せるため，
+        を構成しよう．$\theta$ は\hyperref[def:nat]{自然変換}であるから，$\forall [n] \in $ に対して写像 $\theta_{[n]} \colon K_n \lto \mathrm{N}(\Cat{C})_n$ を定めれば良い．命題\ref{prop:SimpSet-basic}-(1) より $\forall \sigma \in K_n$ は自然に $\Hom{\sSet} (\Delta^n,\, K)$ の元と見做せるため，
         \begin{align}
             \theta_{[n]} \colon K_n &\lto \mathrm{N}(\Cat{C})_n, \\
             \sigma &\lmto \bigl( \sigma_{[0]}(\{0\}) \xrightarrow{\sigma_{[1]}(\{0,\, 1\})} \cdots \xrightarrow{\sigma_{[1]}(\{n-1,\, n\})} \sigma_{[0]}(\{n\}) \bigr) 
@@ -2231,19 +2231,19 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
         まず，圏 $\Cat{C}$ の構成から $\theta_{[0]},\, \theta_{[1]}$ が全単射であることは明らかである．
         $n > 1$ のとき，示すべきは命題\ref{prop:SimpSet-basic}-(1) より
         \begin{align}
-            \theta_* \colon \Hom{\SimpSet} (\Delta^n,\, K) &\lto \Hom{\SimpSet} \bigl(\Delta^n,\, \mathrm{N}(\Cat{C})\bigr), \\
+            \theta_* \colon \Hom{\sSet} (\Delta^n,\, K) &\lto \Hom{\sSet} \bigl(\Delta^n,\, \mathrm{N}(\Cat{C})\bigr), \\
             \sigma &\lmto \theta \circ \sigma
         \end{align}
-        が全単射であることである．$0 < j < n$ を1つとる．$u \in \Hom{\SimpSet} (\Lambda^n_j,\, K)$ に対する\hyperref[def:KanCplx]{弱Kan条件}の解を $\overline{u} \in \Hom{\SimpSet} (\Delta^n,\, K)$ と書くと，解の一意性の仮定より写像
+        が全単射であることである．$0 < j < n$ を1つとる．$u \in \Hom{\sSet} (\Lambda^n_j,\, K)$ に対する\hyperref[def:KanCplx]{弱Kan条件}の解を $\overline{u} \in \Hom{\sSet} (\Delta^n,\, K)$ と書くと，解の一意性の仮定より写像
         \begin{align}
-            \phi_K \colon \Hom{\SimpSet} (\Delta^n,\, K) &\lto \Hom{\SimpSet} (\Lambda^n_j,\, K), \\
+            \phi_K \colon \Hom{\sSet} (\Delta^n,\, K) &\lto \Hom{\sSet} (\Lambda^n_j,\, K), \\
             \overline{u} &\lmto u
         \end{align}
         は全単射である．$\mathrm{N}(\Cat{C})$ にも同様の構成ができるため，可換図式
         \begin{center}
             \begin{tikzcd}
-                {\Hom{\SimpSet}(\Delta^n,\, K)} \arrow[d, "\phi_K"'] \arrow[rr, "\theta_*"] &  & {\Hom{\SimpSet}\bigl(\Delta^n,\, \mathrm{N}(\Cat{C})\bigr)} \arrow[d, "\phi_{\mathrm{N}(\Cat{C})}"] \\
-                {\Hom{\SimpSet}(\Lambda_j^n,\, K)} \arrow[rr, "\theta_*|_{\Lambda^n_j}"]    &  & {\Hom{\SimpSet}\bigl(\Lambda_j^n,\, \mathrm{N}(\Cat{C})\bigr)}                                     
+                {\Hom{\sSet}(\Delta^n,\, K)} \arrow[d, "\phi_K"'] \arrow[rr, "\theta_*"] &  & {\Hom{\sSet}\bigl(\Delta^n,\, \mathrm{N}(\Cat{C})\bigr)} \arrow[d, "\phi_{\mathrm{N}(\Cat{C})}"] \\
+                {\Hom{\sSet}(\Lambda_j^n,\, K)} \arrow[rr, "\theta_*|_{\Lambda^n_j}"]    &  & {\Hom{\sSet}\bigl(\Lambda_j^n,\, \mathrm{N}(\Cat{C})\bigr)}                                     
             \end{tikzcd}
         \end{center}
         が書ける．縦の射は全単射なので，$\theta_*|_{\Lambda^n_j}$ が全単射であることを示せば良い．これは系\ref{col:horn-coeq}および帰納法の仮定から従う．
@@ -2274,7 +2274,7 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
         $\mathrm{N}(\Cat{C})$ が\hyperref[def:infinity-1]{$\infty$-groupoid}だと仮定する．
         このとき，\hyperref[def:KanCplx]{Kan条件}により，$\forall n \ge 1,\; 0 \le \forall j \le n$ に対して全射\footnote{定理\ref{thm:KanCplx}の状況とは異なり，\underline{単射とは限らない}！}
         \begin{align}
-            \theta^n_j \colon \Hom{\SimpSet}\bigl(\Delta^n,\,\mathrm{N}(\Cat{C})\bigr) &\lto \Hom{\SimpSet}\bigl(\Lambda_j^n,\,\mathrm{N}(\Cat{C})\bigr)
+            \theta^n_j \colon \Hom{\sSet}\bigl(\Delta^n,\,\mathrm{N}(\Cat{C})\bigr) &\lto \Hom{\sSet}\bigl(\Lambda_j^n,\,\mathrm{N}(\Cat{C})\bigr)
         \end{align}
         が存在する．
 
@@ -2283,8 +2283,8 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
         \begin{align}
             \partial^1_0(f) &= Y = \partial^1_0(\Id_Y)
         \end{align}
-        を充たすため系\ref{col:horn-coeq}が使えて，$(f,\, \Id_Y) \in \Hom{\SimpSet}\bigl(\Lambda^2_2,\, \mathrm{N}(\Cat{C})\bigr)$ と見做せる．
-        このとき $\theta^2_2$ の全射性により，$\sigma \in \mathrm{N}(\Cat{C})_2 \cong \Hom{\SimpSet} \bigl( \Delta^2,\, \mathrm{N}(\Cat{C}) \bigr)$ が存在して $(f,\, \Id_Y) = \theta^2_2(\sigma)$ を充たす．
+        を充たすため系\ref{col:horn-coeq}が使えて，$(f,\, \Id_Y) \in \Hom{\sSet}\bigl(\Lambda^2_2,\, \mathrm{N}(\Cat{C})\bigr)$ と見做せる．
+        このとき $\theta^2_2$ の全射性により，$\sigma \in \mathrm{N}(\Cat{C})_2 \cong \Hom{\sSet} \bigl( \Delta^2,\, \mathrm{N}(\Cat{C}) \bigr)$ が存在して $(f,\, \Id_Y) = \theta^2_2(\sigma)$ を充たす．
         $\theta^n_j$ の定義および系\ref{col:horn-coeq}から，これは
         \begin{align}
             \partial^2_0 (\sigma) &= f, \\
@@ -2295,7 +2295,7 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
             f \circ g = \partial^2_1 (\sigma) = \Id_Y
         \end{align}
         が成り立つことが分かった．
-        同様に，$(\Id_X,\, f) \in \Hom{\SimpSet}\bigl(\Lambda^2_0,\, \mathrm{N}(\Cat{C})\bigr)$ と見做せること，および $\theta^2_0$ の全射性から $h \in \mathrm{N}(\Cat{C})_1 = \Hom{\Cat{C}} (Y,\, X)$ であって $h \circ f = \Id_X$ を充たすものが存在する．
+        同様に，$(\Id_X,\, f) \in \Hom{\sSet}\bigl(\Lambda^2_0,\, \mathrm{N}(\Cat{C})\bigr)$ と見做せること，および $\theta^2_0$ の全射性から $h \in \mathrm{N}(\Cat{C})_1 = \Hom{\Cat{C}} (Y,\, X)$ であって $h \circ f = \Id_X$ を充たすものが存在する．
         命題\ref{prop:nerve}の証明から，
         \begin{align}
             g = \Id_X \circ g = (h \circ f) \circ g = h \circ (f \circ g) = h \circ \Id_Y = h
@@ -2308,17 +2308,17 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
         定理\ref{thm:KanCplx}から，示すべきは $\forall n \ge 1,\, j = 0,\, n$ に対して\hyperref[def:KanCplx]{Kan条件}が成立していることである．
         
         　$n=1,\, j=0$ とする．このとき $\Lambda^n_0 = \bigl\{ \{0\},\, \{1\} \bigr\}$ であるから，
-        $\forall \sigma \in \Hom{\SimpSet}\bigl( \Lambda^n_0,\, \mathrm{N}(\Cat{C}) \bigr)$ は $\Obj{\Cat{C}}$ の元である．よって，$\bar{\sigma} \in \Hom{\SimpSet}\bigl(\Delta^1,\, \mathrm{N}(\Cat{C})\bigr)$ として $\bar{\sigma} \in \Hom{\Cat{C}}(X,\, \sigma)$ をとれば $\partial^1_0(\bar{\sigma}) = \sigma$ を充たす．
+        $\forall \sigma \in \Hom{\sSet}\bigl( \Lambda^n_0,\, \mathrm{N}(\Cat{C}) \bigr)$ は $\Obj{\Cat{C}}$ の元である．よって，$\bar{\sigma} \in \Hom{\sSet}\bigl(\Delta^1,\, \mathrm{N}(\Cat{C})\bigr)$ として $\bar{\sigma} \in \Hom{\Cat{C}}(X,\, \sigma)$ をとれば $\partial^1_0(\bar{\sigma}) = \sigma$ を充たす．
         このことは系\ref{col:horn-coeq}より $\bar{\sigma}|_{\Lambda^n_0} = \sigma$ を意味する．
 
-        　次に，$n=2,\, j=0$ とする．このとき $\forall \sigma \in \Hom{\SimpSet}\bigl( \Lambda^n_0,\, \mathrm{N}(\Cat{C}) \bigr)$ は，系\ref{col:horn-coeq}より $\bigl(\sigma_1 \coloneqq \partial^2_1(\sigma),\, \sigma_2 \coloneqq \sigma^2_2(\sigma)\bigr) \in \mathrm{N}(\Cat{C})_{1}^{\times 2}$ であって以下の図式として書けるものと同一視できる：
+        　次に，$n=2,\, j=0$ とする．このとき $\forall \sigma \in \Hom{\sSet}\bigl( \Lambda^n_0,\, \mathrm{N}(\Cat{C}) \bigr)$ は，系\ref{col:horn-coeq}より $\bigl(\sigma_1 \coloneqq \partial^2_1(\sigma),\, \sigma_2 \coloneqq \sigma^2_2(\sigma)\bigr) \in \mathrm{N}(\Cat{C})_{1}^{\times 2}$ であって以下の図式として書けるものと同一視できる：
         \begin{center}
             \begin{tikzcd}
                 & Z &   \\
             X \arrow[rr, "\sigma_1"] \arrow[ru, "\sigma_2"] &   & Y
             \end{tikzcd}
         \end{center}
-        $\Cat{C}$ は\hyperref[def:groupoid]{groupoid}なので，この図式に $\sigma_0 \coloneqq \sigma_1 \circ \sigma_2 \in \mathrm{N}(\Cat{C})_1$ を付け足すことで所望の $\bar{\sigma} \in \mathrm{N}(\Cat{C})_2 \cong \Hom{\SimpSet} \bigl(\Delta^2,\, \mathrm{N}(\Cat{C})\bigr)$ を得る．
+        $\Cat{C}$ は\hyperref[def:groupoid]{groupoid}なので，この図式に $\sigma_0 \coloneqq \sigma_1 \circ \sigma_2 \in \mathrm{N}(\Cat{C})_1$ を付け足すことで所望の $\bar{\sigma} \in \mathrm{N}(\Cat{C})_2 \cong \Hom{\sSet} \bigl(\Delta^2,\, \mathrm{N}(\Cat{C})\bigr)$ を得る．
 
         　次に，$n \ge 3,\, j=0$ とする．このとき定理\ref{thm:KanCplx}の (1) $\Longrightarrow$ (2) の構成によって $\bar{\sigma} \in \mathrm{N}(\Cat{C})_n$ を作ろうとする．この構成が可能なのは，勝手な $0 \le i \le j \le k \le n$ に対して $\sigma_{[1]} (\{j,\, k\}) \circ \sigma_{[1]} (\{i,\, j\}) = \sigma_{\{i,\, k\}}$ が成り立つときだが，
         これは3頂点 $\bigl\{\{i,\}\, \{j\},\, \{k\}\bigr\}$ が作る2-単体 $\sigma_{ijk} \in \Delta^n([2])$ が $\Lambda^n_0([2])$ に含まれることと同値である．よって $n=3$ のときのみが非自明である．
@@ -2331,22 +2331,16 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
             &= \sigma_{13} \circ \sigma_{01}
         \end{align}
         と計算できるが，$\Cat{C}$ がgroupoidなので両辺の右から $\sigma_{01}^{-1}$ をかけることで $\sigma_{23} \circ \sigma_{12} = \sigma_{13}$ が示される．
-        % $\forall \sigma \in \Hom{\SimpSet} \bigl( \Lambda^n_0,\, \mathrm{N}(\Cat{C}) \bigr)$ から次のようにして $\mathrm{N}(\Cat{C})_n$ の元を構成する：
+        % $\forall \sigma \in \Hom{\sSet} \bigl( \Lambda^n_0,\, \mathrm{N}(\Cat{C}) \bigr)$ から次のようにして $\mathrm{N}(\Cat{C})_n$ の元を構成する：
 
         　$j=n$ の場合も同様である．
     \end{description}
     
 \end{proof}
 
-\section{単体的圏とホモトピー論}
+\section{単体的豊穣圏とホモトピー論}
 
-\subsection{単体的圏}
-
-\hyperref[def:SimpSet]{単体的集合の圏} $\SimpSet$ は\hyperref[def:monoidal-category]{モノイダル圏}の構造を持つ．実際，単体的集合 $S,\, T \colon \OP{\Delta} \lto \SETS$ に対して，新たな単体的集合
-\begin{align}
-    S \otimes T \colon \OP{\Delta} \lto \SETS,\; [n] \lmto S_n \times T_n
-\end{align}
-がテンソル積 $\otimes \colon \SimpSet \times \SimpSet \lto \SimpSet$ を定めている．
+\subsection{単体的豊穣圏とホモトピーコヒーレントな脈体}
 
 \begin{mydef}[label=def:enriched,breakable]{豊穣圏}
     \hyperref[redef:monoidal-category]{モノイダル圏} $(V,\, \otimes,\, I)$ を与える．
@@ -2355,7 +2349,7 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
     \begin{itemize}
         \item 集合 $\Obj{\Cat{C}}$
         \item $\forall x, y \in \Obj{\Cat{C}}$ に対して，\textbf{Hom対象}と呼ばれる\underline{$V$ の}対象 $\Hom{\Cat{C}}(x,\, y) \in \Obj{V}$ を持つ
-        \item $\forall x, y,\, z \in \Obj{\Cat{C}}$ に対して，\textbf{合成射}と呼ばれる\underline{$V$ の}射 $\circ_{x,\, y,\, z} \colon \Hom{\Cat{C}}(x,\, y) \otimes \Hom{\Cat{C}}(y,\, z) \lto \Hom{\Cat{C}} (x,\, z)$ を持つ
+        \item $\forall x, y,\, z \in \Obj{\Cat{C}}$ に対して，\textbf{合成射}と呼ばれる\underline{$V$ の}射 $\circ_{x,\, y,\, z} \colon \Hom{\Cat{C}}(y,\, z) \otimes \Hom{\Cat{C}}(x,\, y) \lto \Hom{\Cat{C}} (x,\, z)$ を持つ
         \item $\forall x \in \Obj{\Cat{C}}$ に対して，\textbf{恒等素}と呼ばれる\underline{$V$ の}射 $j_x \colon I \lto \Hom{\Cat{C}} (x,\, x)$ を持つ
     \end{itemize}
     これらは以下の図式を可換にしなくてはいけない：
@@ -2384,7 +2378,7 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
     \end{description}
 \end{mydef}
 
-\begin{mydef}[label=def:enriched-functor]{豊穣関手}
+\begin{mydef}[label=def:enriched-functor,breakable]{豊穣関手}
     モノイダル圏 $(V,\, \otimes,\, I)$ を与える．
 
     2つの\hyperref[def:enriched]{$V$-豊穣圏} $\Cat{C},\, \Cat{D}$ の間の $V$\textbf{-豊穣関手} ($V$-enriched functor) 
@@ -2422,15 +2416,167 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
     \end{description}
 \end{mydef}
 
+\hyperref[def:SimpSet]{単体的集合の圏} $\sSet$ は\hyperref[def:monoidal-category]{モノイダル圏}の構造を持つ．
+実際，命題\ref{prop:SimpSet-basic}-(2) より，単体的集合 $S,\, T \colon \OP{\Delta} \lto \SETS$ に対してその\hyperref[def:product-coproduct]{直積}
+\begin{align}
+    \label{eq:sSet-tensor}
+    S \times T \colon \OP{\Delta} &\lto \SETS,\\ 
+    [n] &\lmto S_n \times T_n, \\
+    \bigl( [n] \xrightarrow{\alpha} [m] \bigr) &\lmto \bigl( S_n \times T_n \xrightarrow{\bigl(S(\alpha),\, T(\alpha)\bigr)} S_{m} \times T_{m} \bigr) 
+\end{align}
+がテンソル積 $\times \colon \sSet \times \sSet \lto \sSet$ を定めている．
 
+\begin{mydef}[label=def:SimpCat]{単体的豊穣圏}
+    \hyperref[def:SimpSet]{単体的集合の圏} $\sSet$ を\eqref{eq:sSet-tensor}により\hyperref[redef:monoidal-category]{モノイダル圏}と見做す．
+    このとき，$\sSet$-\hyperref[def:enriched]{豊穣圏}のことを\textbf{単体的豊穣圏} (simplicially enriched category) と呼ぶ．
+    \tcblower
+    単体的\hyperref[def:enriched]{豊穣圏}と $\sSet$-\hyperref[def:enriched-functor]{豊穣関手}全体が成す圏のことを $\sCat$ と書く．
+\end{mydef}
 
+つまり，単体的豊穣圏 $\Cat{C}$ とは以下のデータからなる：
+\begin{itemize}
+    \item 集合 $\Obj{\Cat{C}}$
+    \item $\forall X,\, Y \in \Obj{\Cat{C}}$ に対して，\hyperref[def:SimpSet]{単体的集合} $\Hom{\Cat{C}}(X,\, Y) \in \Obj{\sSet}$
+    \item $\forall X,\, Y,\, Z \in \Obj{\Cat{C}}$ に対して，自然変換
+    \begin{align}
+        \circ_{X,\, Y,\, Z} \in \Hom{\sSet} \bigl( \Hom{\Cat{C}}(Y,\, Z) \times \Hom{\Cat{C}}(X,\, Y),\, \Hom{\Cat{C}}(X,\, Z) \bigr) 
+    \end{align}
+    \item $\forall X \in \Obj{\Cat{C}}$ に対して，$0$-単体 $j_X \in \Hom{\Cat{C}}(X,\, X)_0 \cong \Hom{\sSet} \bigl( \Delta^0,\, \Hom{\Cat{C}}(X,\, X) \bigr)$
+\end{itemize}
+
+\begin{mydef}[label=def:PathCat]{単体的豊穣圏 {$\mathfrak{C}[Q]$}}
+$(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{単体的豊穣圏} $\bm{\mathfrak{C}}[Q] \in \Obj{\sCat}$ を以下で定義する：
+\begin{itemize}
+    \item $\Obj{\Cat{C}} \coloneqq Q$
+    \item $\forall i,\, j \in \Obj{\Cat{C}}$ に対して，
+    \begin{align}
+        \Hom{\mathfrak{C}[Q]} (i,\, j) \coloneqq 
+        \begin{cases}
+            \mathrm{N}(P_{ij}), &i \le j \\
+            \emptyset, &i > j
+        \end{cases}
+    \end{align}
+    ただし，半順序集合 $P_{ij} \coloneqq \bigl\{\, k \in Q \bigm| i \le k \le j \,\bigr\}$ を
+    \begin{itemize}
+        \item $\forall k \in P_{ij}$ を対象とする．
+        \item Hom集合は
+        \begin{align}
+            \Hom{P_{ij}} (k,\, l) \coloneqq 
+            \begin{cases}
+                \{\mathrm{pt}_{kl}\}, &k \le l \\
+                \emptyset, &k > l
+            \end{cases}
+        \end{align}
+        で定義する．
+    \end{itemize}
+    ことで圏と見做し，\hyperref[def:nerve]{脈体}を取った．
+    \item $\forall i,\, j,\, k \in \Obj{\Cat{C}},\; i \le j \le k$ に対して，自然変換
+    \begin{align}
+        \circ_{ijk} \colon \Hom{\mathfrak{C}[Q]}(j,\, k) \times \Hom{\mathfrak{C}[Q]}(i,\, j) &\lto \Hom{\mathfrak{C}[Q]}(i,\, k)
+    \end{align}
+    を次で定義する：
+    \begin{align}
+        \circ_{ijk}{}_{[n]} \colon \mathrm{N}(P_{jk})_n \times \mathrm{N}(P_{ij})_n &\lto \mathrm{N}(P_{ij})_n, \\
+        (\sigma,\, \tau) &\lmto \sigma \cup \tau
+    \end{align}
+\end{itemize}    
+\end{mydef}
+
+\begin{myexample}[label=ex:PathCat2]{単体的豊穣圏 {$\mathfrak{C}[2]$}}
+    圏 \hyperref[def:PathCat]{$\mathfrak{C}[2]$} の構造を調べよう．
+    定義\ref{def:PathCat}の記号に倣うと
+    \begin{align}
+        P_{ii} &= \{i\}, \\
+        P_{01} &= \{0 \le 1\}, \\
+        P_{02} &= \{0 \le 1 \le 2\}, \\
+        P_{12} &= \{1 \le 2\}
+    \end{align}
+    であるから，\hyperref[def:nerve]{脈体}の定義により
+    \begin{align}
+        % \mathrm{N}(P_{ii})_0 &= \mathrm{Fun}([0],\, P_{ii}) = \{\bullet_{i}\}, \\
+        % \mathrm{N}(P_{01})_0 &= \mathrm{Fun}([0],\, P_{01}) = \{\bullet_{0},\, \bullet_{1}\}, \\
+        % \mathrm{N}(P_{02})_0 &= \mathrm{Fun}([0],\, P_{02}) = \{\bullet_{0},\, \bullet_{1},\, \bullet_{2}\}, \\
+        % \mathrm{N}(P_{12})_0 &= \mathrm{Fun}([0],\, P_{12}) = \{\bullet_{1},\, \bullet_{2}\}, \\
+        \mathrm{N}(P_{ii})_1 &= \mathrm{Fun}([n],\, P_{ii}) = \{\mathrm{const}_{i} \colon k \lmto i\}, \\
+        \mathrm{N}(P_{01})_1 &= \mathrm{Fun}([n],\, P_{01}) = 
+        \Bigl\{ 
+            f_{x} \colon k \lmto
+            \begin{cases}
+                0, &k < x, \\
+                1, &k \ge x
+            \end{cases}\;
+        \Bigm|\; 0 \le x \le n+1
+        \Bigr\}, \\
+        \mathrm{N}(P_{12})_n &= \mathrm{Fun}([n],\, P_{12}) = 
+        \Bigl\{ 
+            f_{x} \colon k \lmto
+            \begin{cases}
+                1, &k < x, \\
+                2, &k \ge x
+            \end{cases}\;
+        \Bigm|\; 0 \le x \le n+1
+        \Bigr\}, \\
+        \mathrm{N}(P_{02})_n &= \mathrm{Fun}([n],\, P_{02}) = 
+        \Bigl\{ 
+            f_{xy} \colon k \lmto 
+            \begin{cases}
+                0, &k < x, \\
+                1, &x \le k < y, \\
+                2, &k \ge y
+            \end{cases}
+        \Bigm|\; 0 \le x \le y \le n+1
+         \Bigr\} 
+    \end{align}
+    だと分かる．特に，
+    \begin{align}
+        \circ_{012}{}_{[n]} \colon \mathrm{N}(P_{12})_n \times \mathrm{N}(P_{01}) \lto \mathrm{N}(P_{02})
+    \end{align}
+    である．
+\end{myexample}
+
+\begin{mydef}[label=def:nerve-hc]{homotopy coherentな脈体}
+    \hyperref[def:SimpCat]{単体的豊穣圏} $\Cat{C} \in \Obj{\sCat}$ の\textbf{homotopy coherent nerve}
+    \begin{align}
+        \mathrm{N}_{\text{hc}}(\Cat{C}) \colon \OP{\Delta} \lto \SETS
+    \end{align}
+    を以下で定義する：
+    \begin{itemize}
+        \item $\forall [n] \in \Obj{\OP{\Delta}}$ に対して
+        \begin{align}
+            \mathrm{N}_{\text{hc}}(\Cat{C})_n &\coloneqq \Hom{\sCat} \bigl( \mathfrak{C}[n],\, \Cat{C} \bigr) 
+        \end{align}
+        を対応づける．
+        \item $\forall \alpha \in \Hom{\OP{\Delta}}([n],\, [m])$ に対して，写像
+        \begin{align}
+            \mathrm{N}_{\text{hc}}(\Cat{C})(\alpha) \coloneqq \alpha^* \colon \Hom{\sCat} \bigl( \mathfrak{C}[n],\, \Cat{C} \bigr) &\lto \Hom{\sCat} \bigl( \mathfrak{C}[m],\, \Cat{C} \bigr), \\
+            X &\lmto X \circ \alpha
+        \end{align}
+        を対応付ける．
+    \end{itemize}
+    
+    \tcblower
+
+    \textbf{homotopy coherent nerve functor}
+    \begin{align}
+        \mathrm{N}_{\text{hc}} \colon \sCat \lto \sSet
+    \end{align}
+    を以下で定義する：
+    \begin{itemize}
+        \item $\forall \Cat{C} \in \Obj{\sCat}$ に対して $\mathrm{N}_{\text{hc}}(\Cat{C}) \in \Obj{\sSet}$ を対応付ける．
+        \item 任意の $\sSet$-\hyperref[def:enriched-functor]{豊穣関手} $\Cat{C} \xrightarrow{F} \Cat{D}$ に対して，\hyperref[def:nat]{自然変換}
+        \begin{align}
+            \mathrm{N}_{\text{hc}} (F) \coloneqq \Familyset[big]{\mathrm{N}_{\text{hc}}(F)_{[n]} \colon X \lmto F \circ X}{[n] \in \Obj{\OP{\Delta}}}
+        \end{align}
+        を対応付ける．
+    \end{itemize}
+\end{mydef}
 % \subsection{単体的圏}
 
 \subsection{単体的ホモトピー}
 
 \begin{mydef}[label=def:SimpSet-homotopic,breakable]{単体的ホモトピー}
     % \begin{itemize}
-    %     \item $f,\, g \in \Hom{\SimpSet} (X,\, Y)$ を繋ぐ\textbf{ホモトピー}とは，\hyperref[def:SimpSet]{$\SimpSet$ の射} $\eta \in \Hom{\SimpSet}(X \times \Delta^1,\, Y)$ であって，以下の $\SimpSet$ の図式を可換にするもののこと：
+    %     \item $f,\, g \in \Hom{\sSet} (X,\, Y)$ を繋ぐ\textbf{ホモトピー}とは，\hyperref[def:SimpSet]{$\sSet$ の射} $\eta \in \Hom{\sSet}(X \times \Delta^1,\, Y)$ であって，以下の $\sSet$ の図式を可換にするもののこと：
     %     \begin{center}
     %         \begin{tikzcd}[row sep=large, column sep=large]
     %             &X \cong X \times \Delta^0 \ar[r, "\Id \times d^1_1{}_*"]\ar[dr, "f"'] &X \times \Delta^1 \ar[d, "\eta"] &X \times \Delta^0 \ar[l, "\Id \times d^1_0{}_*"'] \ar[dl, "g"] \\
@@ -2440,14 +2586,14 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
     %     $f,\, g$ を繋ぐホモトピーが存在するとき，$f,\, g$ は互いに\textbf{ホモトピック}であるという．
     %     \item 基点付き\hyperref[def:KanCplx]{Kan複体} $(K,\, x)$ を与える．このとき $n$ 次の\textbf{単体的ホモトピー群} (simplicial homotopy group) を
     %     \begin{align}
-    %         \bm{\pi^\Delta_n (X,\, x)} \coloneqq \Hom{\SimpSet_*} \bigl( (\Delta^n,\, \partial\Delta^n),\, (X,\, x) \bigr) / \simeq
+    %         \bm{\pi^\Delta_n (X,\, x)} \coloneqq \Hom{\sSet_*} \bigl( (\Delta^n,\, \partial\Delta^n),\, (X,\, x) \bigr) / \simeq
     %     \end{align}
     %     と定義する．
     % \end{itemize}
-    $X,\, Y,\, K\in \Obj{\SimpSet}$ を，$K$ が $X$ の\hyperref[def:SimpSet]{単体的部分集合}となるようにとる．包含射 $i \colon K \hookrightarrow X$ をとる．
+    $X,\, Y,\, K\in \Obj{\sSet}$ を，$K$ が $X$ の\hyperref[def:SimpSet]{単体的部分集合}となるようにとる．包含射 $i \colon K \hookrightarrow X$ をとる．
     \begin{itemize}
         \item 
-        $f,\, g \in \Hom{\SimpSet} (X,\, Y)$ を繋ぐ\textbf{ホモトピー}とは，\hyperref[def:SimpSet]{$\SimpSet$ の射} $\eta \in \Hom{\SimpSet}(X \times \Delta^1,\, Y)$ であって，以下の $\SimpSet$ の図式を可換にするもののこと：
+        $f,\, g \in \Hom{\sSet} (X,\, Y)$ を繋ぐ\textbf{ホモトピー}とは，\hyperref[def:SimpSet]{$\sSet$ の射} $\eta \in \Hom{\sSet}(X \times \Delta^1,\, Y)$ であって，以下の $\sSet$ の図式を可換にするもののこと：
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
                 &X \cong X \times \Delta^0 \ar[r, "\Id \times d^1_1{}_*"]\ar[dr, "f"'] &X \times \Delta^1 \ar[d, "\eta"] &X \times \Delta^0 \ar[l, "\Id \times d^1_0{}_*"'] \ar[dl, "g"] \\
@@ -2455,7 +2601,7 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
             \end{tikzcd}
         \end{center}
         $f,\, g$ を繋ぐホモトピーが存在するとき，$f,\, g$ は互いに\textbf{ホモトピック}であるという．
-        \item $f \circ i = g \circ i \eqqcolon \alpha$ とおく．ホモトピー $\eta \in \Hom{\SimpSet} (X \times \Delta^1,\, Y)$ が $f$ と $g$ の間の\textbf{$\bm{K}$ に関する相対ホモトピー} (homotopy from $f$ to $g$ (rel $K$)) であるとは，上の可換図式に加えて
+        \item $f \circ i = g \circ i \eqqcolon \alpha$ とおく．ホモトピー $\eta \in \Hom{\sSet} (X \times \Delta^1,\, Y)$ が $f$ と $g$ の間の\textbf{$\bm{K}$ に関する相対ホモトピー} (homotopy from $f$ to $g$ (rel $K$)) であるとは，上の可換図式に加えて
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
                  &K \times \Delta^1 \ar[r, hookrightarrow, "i \times \Id"]\ar[d, "\mathrm{pr}"'] &X \times \Delta^1 \ar[d, "\eta"] \\
@@ -2489,16 +2635,16 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
     \end{align}
 \end{mydef}
 
-一見するとホモトピーと単体的ホモトピーは別のものに見えるが，実は同じものである．\hyperref[def:SimpSet-homotopy]{単体的ホモトピー} $\Familyset[\big]{h_i \colon X_n \lto Y_{n+1}}{i = 0,\, \dots,\, n,\, n \ge 0}$ が与えられたとする．このとき $\SimpSet$ の射 $\eta \in \Hom{\SimpSet}(X \times \Delta^1,\, Y)$ を
+一見するとホモトピーと単体的ホモトピーは別のものに見えるが，実は同じものである．\hyperref[def:SimpSet-homotopy]{単体的ホモトピー} $\Familyset[\big]{h_i \colon X_n \lto Y_{n+1}}{i = 0,\, \dots,\, n,\, n \ge 0}$ が与えられたとする．このとき $\sSet$ の射 $\eta \in \Hom{\sSet}(X \times \Delta^1,\, Y)$ を
 \begin{align}
     \eta_0 &\coloneqq \partial_0 \circ h_0, \\
     \eta_{n+1} &\coloneqq \partial_{n+1} \circ h_n, \\
     \eta_j &\coloneqq \partial_j \circ h_{j} \quad (1\le j \le n)
 \end{align}
-と定義すると，\hyperref[def:colim]{和の普遍性}の図式によって $\eta \in \Hom{\SimpSet}(X \times \Delta^1,\, Y)$ が定まる．
+と定義すると，\hyperref[def:colim]{和の普遍性}の図式によって $\eta \in \Hom{\sSet}(X \times \Delta^1,\, Y)$ が定まる．
 
 \begin{myprop}[label=prop:simphomotopy-equiv]{$\infty$-groupoidとホモトピー}
-    $X,\, Y \in \Obj{\SimpSet}$ が\hyperref[def:infinity-1]{$\infty$-groupoid}ならば，\hyperref[def:SimpSet-homotopic]{ホモトピック}は $\Hom{\SimpSet} (X,\, Y)$ の上の同値関係になる．
+    $X,\, Y \in \Obj{\sSet}$ が\hyperref[def:infinity-1]{$\infty$-groupoid}ならば，\hyperref[def:SimpSet-homotopic]{ホモトピック}は $\Hom{\sSet} (X,\, Y)$ の上の同値関係になる．
     ホモトピック (rel $K \subset X$) も同値関係である．
 \end{myprop}
 
@@ -2508,7 +2654,7 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
 
 $\infty$-groupoid $X$ を与え，$* \in X_0$ を1つ固定する．このとき集合としての同型
 \begin{align}
-    \Hom{\SimpSet} \bigl( (\Delta^n,\, \partial\Delta^n),\, (X,\, *) \bigr) \cong \bigl\{\, x \in X_n \bigm|  0 \le \forall i \le n,\; \partial^n_i(x) = \sigma^{n-2}_0 \circ \cdots \circ \sigma^0_0 (*) \,\bigr\} \eqqcolon Z_n (X,\, *)
+    \Hom{\sSet} \bigl( (\Delta^n,\, \partial\Delta^n),\, (X,\, *) \bigr) \cong \bigl\{\, x \in X_n \bigm|  0 \le \forall i \le n,\; \partial^n_i(x) = \sigma^{n-2}_0 \circ \cdots \circ \sigma^0_0 (*) \,\bigr\} \eqqcolon Z_n (X,\, *)
 \end{align}
 がある~\cite{SChen2024anomaly}．$a,\, b \in X_n$ を繋ぐ\textbf{ホモトピー}とは，この場合 $y \in X_{n+1}$ であって
 \begin{align}
@@ -2530,7 +2676,7 @@ $a,\, b \in Z_n (X,\, *)$ に対して，系\ref{col:horn-coeq}，命題\ref{pro
 \end{center}
 として $a \star b \in X_{n+1}$ をとってくる．
 \begin{align}
-    \bm{\pi^\Delta_n (X,\, *)} \coloneqq \Hom{\SimpSet} \bigl( (\Delta^n,\, \partial\Delta^n),\, (X,\, *) \bigr) / {\simeq} \cong Z_n (X,\, *) /{\sim}
+    \bm{\pi^\Delta_n (X,\, *)} \coloneqq \Hom{\sSet} \bigl( (\Delta^n,\, \partial\Delta^n),\, (X,\, *) \bigr) / {\simeq} \cong Z_n (X,\, *) /{\sim}
 \end{align}
 とおく．
 
@@ -2556,11 +2702,8 @@ $a,\, b \in Z_n (X,\, *)$ に対して，系\ref{col:horn-coeq}，命題\ref{pro
     ~\cite[p.64, PROPOSITION 11.1]{goerss2009simplicial}
 \end{proof}
 
-\subsection{ホモトピーコヒーレンス}
 
-\begin{mydef}[label=def:nerve-hc]{homotopy coherentな脈体}
-    
-\end{mydef}
+
 
 \section{$\infty$-トポス}
 
@@ -2584,11 +2727,11 @@ $a,\, b \in Z_n (X,\, *)$ に対して，系\ref{col:horn-coeq}，命題\ref{pro
 
 
 \begin{myprop}[label=prop:nerve-grpd-Psh]{$\infty$-前層の圏のモデル}
-    $\Cat{C}$ を\hyperref[def:enriched]{$\SimpSet$-豊穣圏}であって，\hyperref[def:KanCplx]{Kan複体}を\hyperref[def:enriched]{Hom対象}に持つものとする．
+    $\Cat{C}$ を\hyperref[def:enriched]{$\sSet$-豊穣圏}であって，\hyperref[def:KanCplx]{Kan複体}を\hyperref[def:enriched]{Hom対象}に持つものとする．
     
     このとき\hyperref[def:nerve-hc]{homotopy coherentな脈体} $\irm{\mathrm{N}}{hc}$ に対して
     \begin{align}
-        \inftyPsh{\irm{\mathrm{N}}{hc}(\Cat{C})} \cong \irm{\mathrm{N}}{hc} \bigl( \comm{\OP{\Cat{C}}}{\irm{\SimpSet}{Quillen}}_{\mathrm{proj}}^\circ \bigr)
+        \inftyPsh{\irm{\mathrm{N}}{hc}(\Cat{C})} \cong \irm{\mathrm{N}}{hc} \bigl( \comm{\OP{\Cat{C}}}{\irm{\sSet}{Quillen}}_{\mathrm{proj}}^\circ \bigr)
     \end{align}
     が成り立つ．
 \end{myprop}
