@@ -2965,7 +2965,7 @@ $\mfd{\Sigma}{p}$ の周りでは
     を充たすものを\textbf{拡張された群} (extended group) と呼ぶ~\cite{SChen2024anomaly}．
 \end{mydef}
 
-時空 $\mfdcal{M}{d}$ の三角形分割を与える\hyperref[def:SimpSet]{単体的集合} $T \in \Obj{\SimpSet}$ をとり，勝手な\hyperref[def:SimpSet]{$d$-単体} $\sigma \in T_d$ を1つ固定する．$\sigma$ はちょうど $d+1$ 個の $0$-単体 $\{0,\, 1,\, \dots,\, d\}$ からなる．
+時空 $\mfdcal{M}{d}$ の三角形分割を与える\hyperref[def:SimpSet]{単体的集合} $T \in \Obj{\sSet}$ をとり，勝手な\hyperref[def:SimpSet]{$d$-単体} $\sigma \in T_d$ を1つ固定する．$\sigma$ はちょうど $d+1$ 個の $0$-単体 $\{0,\, 1,\, \dots,\, d\}$ からなる．
 $\sigma$ の部分 $p$-単体は $\{0,\, 1,\, \dots,\, d\}$ から互いに相異なる $p+1$ 個を選んだ $\{l_0,\, \dots,\, l_p\} \subset \{0,\, 1,\, \dots,\, d\}$ からなる．i.e.
 \begin{align}
     \mqty(d+1 \\  p+1)
@@ -3054,15 +3054,15 @@ $p$ 単体の\textbf{向き}は常に $l_0 < \cdots < l_p$ を充たすように
 を成す．
 
 \begin{mytheo}[label=thm:inftyGrpd]{}
-    単体的集合 $X^{(\textcolor{red}{p})} \in \Obj{\SimpSet}$ は\hyperref[def:infinity-1]{$\infty$-groupoid}である．
+    単体的集合 $X^{(\textcolor{red}{p})} \in \Obj{\sSet}$ は\hyperref[def:infinity-1]{$\infty$-groupoid}である．
 \end{mytheo}
 
 \begin{proof}
-    $\forall n \ge 0$ および $0 \le \forall i \le n$ を1つ固定する．勝手な\hyperref[def:SimpSet]{圏 $\SimpSet$}の射
+    $\forall n \ge 0$ および $0 \le \forall i \le n$ を1つ固定する．勝手な\hyperref[def:SimpSet]{圏 $\sSet$}の射
     \begin{align}
         f \colon \Lambda^n_i \lto X^{(\textcolor{red}{p})}
     \end{align}
-    を1つ固定する．このとき，\hyperref[def:SimpSet]{圏 $\SimpSet$ }における可換図式
+    を1つ固定する．このとき，\hyperref[def:SimpSet]{圏 $\sSet$ }における可換図式
     \begin{center}
         \begin{tikzcd}[row sep=large, column sep=large]
             &\Lambda^n_i \ar[r, "f"]\ar[d, hookrightarrow, "\iota"] &X^{(\textcolor{red}{p})} \\
@@ -3232,13 +3232,13 @@ $(1+1)$-次元系における有限の\hyperref[def:p-form-sym]{$0$-form symmetr
     　$T$ の\textbf{ゲージ化} (gauging) とは，圏 $\Cat{C}$ における\hyperref[def:special-Frobenius]{特殊}な\hyperref[def:sym-Frobenius]{対称Frobenius代数} $(A,\, \mu,\, \upsilon,\, \Delta,\, \epsilon)$ を1つ指定することを言う．
     % \begin{itemize}
     %     \item 
-    %     \item $\mfd{M}{2}$ の\underline{十分細かい}三角形分割\footnote{より正確には，Poincar\'{e}双対をとることで $K$ を再現するような，trivalent junctionからなるメッシュのことを指す．} $K \in \Obj{\SimpSet}$
+    %     \item $\mfd{M}{2}$ の\underline{十分細かい}三角形分割\footnote{より正確には，Poincar\'{e}双対をとることで $K$ を再現するような，trivalent junctionからなるメッシュのことを指す．} $K \in \Obj{\sSet}$
     % \end{itemize}
     ゲージ化された理論のことを $\bm{T/A}$ と書く．
 \end{mydefph}
 
 定義\ref{def:gauging}を解読する．
-まず $(1+1)$-次元時空 $\mfd{M}{2}$ の任意の三角形分割 $K \in \Obj{\SimpSet}$ 
+まず $(1+1)$-次元時空 $\mfd{M}{2}$ の任意の三角形分割 $K \in \Obj{\sSet}$ 
 をとり，そのPoincar\'{e}双対をとることで得られるグラフ $P^{(1)}(K)$ を考える（図\ref{fig:gauging-graph}）\footnote{グラフ $P^{(1)}$ は，後述する\hyperref[def:polytope-decomp]{多面体分割}の一例となっている．}．
 % グラフ $P^{(1)}$ の辺には向きを勝手に与えて有向グラフにする．
 グラフ $P^{(1)}(K)$ の全ての辺にトポロジカル演算子 $A \in \Obj{\Cat{C}}$ を置き，頂点には射 $\mu \colon A \otimes A \lto A$ または $\Delta \colon A \lto A \otimes A$ を置くことで，
@@ -4985,7 +4985,7 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
     任意の座標変換が区分的線形であるようなアトラスを\textbf{PL構造} (piecewise linear structure) と呼び，区分的線形構造を持つ位相多様体を\textbf{PL多様体} (piecewise linear manifold) と呼ぶ．
 \end{mydef}
 
-2つの単体的複体 $K,\, L \in \Obj{\SimpSet}$ を取り，その幾何学的実現をそれぞれ $\abs{K},\, \abs{L}$ と書く．
+2つの単体的複体 $K,\, L \in \Obj{\sSet}$ を取り，その幾何学的実現をそれぞれ $\abs{K},\, \abs{L}$ と書く．
 \begin{itemize}
     \item 連続写像 $f \colon \abs{K} \lto \abs{L}$ が\textbf{PL写像}であるとは，$K,\, L$ の細分 $K',\, L'$ が存在して，$f$ が $K'$ の単体を $L'$ の単体に写し，各単体への制限が線型写像になっていることを言う．
     \item 同相写像 $f \colon \abs{K} \lto \abs{L}$ が\textbf{PL同相写像}であるとは，それがPL写像であることを言う．
