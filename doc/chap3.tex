@@ -6,7 +6,10 @@
 
 \chapter{位相的場の理論}
 
-この章で登場する多様体は特に断らない限り常に $C^\infty$ 多様体である．また，体 $\mathbb{K}$ と言ったら $\mathbb{K} = \mathbb{R},\, \mathbb{C},\, \mathbb{H}$ のいずれかを指すことにしよう．
+この章で登場する多様体は特に断らない限り常に $C^\infty$ 多様体である．
+また，体 $\mathbb{K}$ と言ったら $\mathbb{K} = \mathbb{R},\, \mathbb{C},\, \mathbb{H}$ のいずれかを指すことにしよう．
+
+また，グラフ $G$ の頂点集合を $\mathsf{V}(G)$，辺集合を $\mathsf{E}(G)$ と書く．
 
 \section{モノイダル圏}
 
@@ -1709,9 +1712,9 @@ $p$-form symmetryの秩序変数は荷電物体の真空期待値であり，一
 通常のColeman-Mermin-Wagnerの定理は，連続的 $0$ 次対称性が $1+1$ 次元以下では自発的に破れないことを主張する．
 これは $p$ 次対称性に拡張することができる：
 
-\begin{mytheo}[label=thm:pform-CMW]{高次対称性についてのColeman-Mermin-Wagnerの定理}
+\begin{mytheoph}[label=thm:pform-CMW]{高次対称性についてのColeman-Mermin-Wagnerの定理}
     \underline{$D+1$ 次元時空}において，Lie群 $G$ で特徴付けられる $p \ge D - 1$ 次対称性は自発的に破れない．
-\end{mytheo}
+\end{mytheoph}
 
 \begin{proof}
     より詳細な扱いは~\cite[p.23]{Lake2018SSB}を参照．ここではとても雑に示す．
@@ -6423,19 +6426,19 @@ Turaev-Viro不変量は，与えられた $(M,\, G,\, \{x_e\})$ に対してあ�
 を与えたとき，$M$ のマッピングトーラスを考えて
 \begin{align}
     \label{eq:preTV-cob}
-    \abs{M;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}} &\coloneqq \frac{\sqrt{\dim(\Cat{C})}^{\abs{\Sigma_1 \setminus G_1}} \sqrt{\dim(\Cat{C})}^{\abs{\Sigma_0 \setminus G_0}}}{\displaystyle\prod_{e \in \mathsf{E} (G_1)} \sqrt{\dim (x^1_e)} \prod_{e \in \mathsf{E} (G_0)} \sqrt{\dim (x^0_e)}} Z_{\text{TV},\, \Cat{C}} (M,\, \OP{G_0} \cup G_1)
+    Z_{\text{preTV}}\bigl(M;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}\bigr) &\coloneqq \frac{\sqrt{\dim(\Cat{C})}^{\abs{\Sigma_1 \setminus G_1}} \sqrt{\dim(\Cat{C})}^{\abs{\Sigma_0 \setminus G_0}}}{\displaystyle\prod_{e \in \mathsf{E} (G_1)} \sqrt{\dim (x^1_e)} \prod_{e \in \mathsf{E} (G_0)} \sqrt{\dim (x^0_e)}} Z_{\text{TV},\, \Cat{C}} (M,\, \OP{G_0} \cup G_1)
 \end{align}
 とおく．ただし $\abs{\Sigma_1 \setminus G_1}$ は $\Sigma_1 \setminus G_1$ の連結成分の個数である．
-$\abs{M;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}}$ は
+$Z_{\text{preTV}}\bigl(M;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}\bigr)$ は
 \begin{align}
     \mathcal{H} \bigl( G_0;\, \{x^0_e\} \bigr)^{*} \otimes_{\mathbb{K}} \mathcal{H} \bigl( G_1;\, \{x^1_e\} \bigr) \cong \Hom{\VEC{\mathbb{K}}} \Bigl( \mathcal{H} \bigl( G_0;\, \{x^0_e\} \bigr),\, \mathcal{H} \bigl( G_1;\, \{x^1_e\} \bigr) \Bigr) 
 \end{align}
 の元である．
 
 \begin{marker}
-    $\abs{M;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}}$ の規格化定数には不定性がある．例えば~\cite[p.282]{Turaev2017}では
+    $Z_{\text{preTV}}\bigl(M;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}\bigr)$ の規格化定数には不定性がある．例えば~\cite[p.282]{Turaev2017}では
     \begin{align}
-        \abs{M;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}} &\coloneqq \frac{\dim(\Cat{C})^{\abs{\Sigma_1 \setminus G_1}}}{\displaystyle\prod_{e \in \mathsf{E} (G_1)} \dim (x_e)} Z_{\text{TV},\, \Cat{C}} (M,\, \OP{G_0} \cup G_1)
+        Z_{\text{preTV}}\bigl(M;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}\bigr) &\coloneqq \frac{\dim(\Cat{C})^{\abs{\Sigma_1 \setminus G_1}}}{\displaystyle\prod_{e \in \mathsf{E} (G_1)} \dim (x_e)} Z_{\text{TV},\, \Cat{C}} (M,\, \OP{G_0} \cup G_1)
     \end{align}
     と定義されている．本資料では~\cite[Definition 4.2.]{KirillovBalsam2010TVBW}, ~\cite[p.36]{AFM2020}に合わせた．
 \end{marker}
@@ -6450,8 +6453,8 @@ $\abs{M;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}}$ は
     \end{itemize}
     を与える．このとき，
     \begin{align}
-        \abs{M_1 \circ M_0;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}}
-        &= \sum_{\{x_e\}_{e \in \mathsf{E}(G)}} \abs{M_1;\, G,\, G_1;\, \{x_e\},\, \{x^1_e\}} \circ \abs{M_0;\, G_0,\, G;\, \{x^0_e\},\, \{x_e\}}
+        &Z_{\text{preTV}}\bigl(M_1 \circ M_0;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}\bigr) \\
+        &= \sum_{\{x_e\}_{e \in \mathsf{E}(G)}} Z_{\text{preTV}}\bigl(M_1;\, G,\, G_1;\, \{x_e\},\, \{x^1_e\}\bigr) \circ Z_{\text{preTV}}\bigl(M_0;\, G_0,\, G;\, \{x^0_e\},\, \{x_e\}\bigr)
     \end{align}
     が成り立つ．
 \end{mylem}
@@ -6513,7 +6516,7 @@ $\abs{M;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}}$ は
     \eqref{eq:preTV-cob}, \eqref{eq:number-of-balls}, \eqref{eq:change-of-dims}および\hyperref[def:TV-bdy]{Turaev-Viro不変量の定義}より
     \footnotesize
     \begin{align}
-        &\abs{M_1 \circ M_0;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}} \\
+        &Z_{\text{preTV}}\bigl(M_1 \circ M_0;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}\bigr) \\
         &= \frac{\sqrt{\dim(\Cat{C})}^{\abs{\Sigma_1 \setminus G_1}} \sqrt{\dim(\Cat{C})}^{\abs{\Sigma_0 \setminus G_0}}}{\displaystyle\prod_{e \in \mathsf{E} (G_1)} \sqrt{\dim (x^1_e)} \prod_{e \in \mathsf{E} (G_0)} \sqrt{\dim (x^0_e)}} \dim(\Cat{C})^{-\abs{M_1 \circ M_0 \setminus P}}
         \sum_{\substack{\Gamma \colon \mathrm{Reg}(P) \lto \Simp(\Cat{C}), \\ \Gamma|_{\partial P} = \{x^0_e\} \cup \{x^1_e\}}} \left(Z(\Gamma;\, P) \prod_{R \in \mathrm{Reg}(P)} \dim \bigl( \Gamma(R) \bigr)^{\chi(R)}\right) \\
         &= \frac{\sqrt{\dim(\Cat{C})}^{\abs{\Sigma_1 \setminus G_1}} \sqrt{\dim(\Cat{C})}^{\abs{\Sigma_0 \setminus G_0}}}{\displaystyle\prod_{e \in \mathsf{E} (G_1)} \sqrt{\dim (x^1_e)} \prod_{e \in \mathsf{E} (G_0)} \sqrt{\dim (x^0_e)}} \dim(\Cat{C})^{-\abs{M_0 \setminus P_0} - \abs{M_1 \setminus P_1} + \abs{\Sigma \setminus G}}  \\
@@ -6521,7 +6524,7 @@ $\abs{M;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}}$ は
         &\qquad \times \left(Z(\Gamma_1;\, P_1) \circ Z(\Gamma_0;\, P_0) \frac{\prod_{R_0 \in \mathrm{Reg}(P_0)} \dim \bigl( \Gamma_0(R) \bigr)^{\chi(R_0)} \prod_{R_1 \in \mathrm{Reg}(P_1)} \dim \bigl( \Gamma_1(R) \bigr)^{\chi(R_1)}}{\prod_{e \in \mathsf{E}(G)} \sqrt{\dim \bigl( \Gamma(R_e) \bigr)} \sqrt{\dim \bigl( \Gamma(R_e) \bigr)}}\right) \\ 
         &= \sum_{\{\Gamma (R_e)\}} \left( \frac{\sqrt{\dim(\Cat{C})}^{\abs{\Sigma_1 \setminus G_1}} \sqrt{\dim(\Cat{C})}^{\abs{\Sigma\setminus G}}}{\prod_{e \in \mathsf{E} (G_1)} \sqrt{\dim (x^1_e)} \prod_{e \in \mathsf{E}(G)} \sqrt{\dim \bigl( \Gamma(R_e) \bigr) }} \dim(\Cat{C})^{-\abs{M_1 \setminus P_1}}\sum_{\Gamma_1} Z (\Gamma_1;\, P_1) \prod_{R_1 \in \mathrm{Reg}(P_1)} \dim \bigl( \Gamma_1(R) \bigr)^{\chi(R_1)} \right) \\
         &\qquad \circ \left( \frac{\sqrt{\dim(\Cat{C})}^{\abs{\Sigma \setminus G}} \sqrt{\dim(\Cat{C})}^{\abs{\Sigma_0\setminus G_0}}}{\prod_{e \in \mathsf{E} (G)} \sqrt{\dim \bigl( \Gamma (R_e) \bigr)} \prod_{e \in \mathsf{E} (G_0)} \sqrt{\dim (x^0_e)} } \dim(\Cat{C})^{-\abs{M_0 \setminus P_0}} \sum_{\Gamma_0} Z (\Gamma_0;\, P_0) \prod_{R_0 \in \mathrm{Reg}(P_0)} \dim \bigl( \Gamma_0(R) \bigr)^{\chi(R_0)} \right) \\
-        &= \sum_{\{x_e\}_{e \in \mathsf{E}(G)}} \abs{M_1;\, G,\, G_1;\, \{x_e\},\, \{x^1_e\}} \circ \abs{M_0;\, G_0,\, G;\, \{x^0_e\},\, \{x_e\}}
+        &= \sum_{\{x_e\}_{e \in \mathsf{E}(G)}} Z_{\text{preTV}}\bigl(M_1;\, G,\, G_1;\, \{x_e\},\, \{x^1_e\}\bigr) \circ Z_{\text{preTV}}\bigl(M_0;\, G_0,\, G;\, \{x^0_e\},\, \{x_e\}\bigr)
     \end{align}
     \normalsize
     が言えた．
@@ -6536,7 +6539,8 @@ $\abs{M;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}}$ は
     \end{itemize}
     を与える．このとき，
     \begin{align}
-        \abs{M \sqcup M';\, G_0 \sqcup G'_0,\, G_1 \sqcup G'_1} = \abs{M;\, G_0,\, G_1} \otimes_{\mathbb{K}} \abs{M';\, G'_0,\, G'_1}
+        Z_{\text{preTV}}\bigl(M \sqcup M';\, G_0 \sqcup G'_0,\, G_1 \sqcup G'_1\bigr) 
+        = Z_{\text{preTV}}\bigl(M;\, G_0,\, G_1\bigr) \otimes_{\mathbb{K}} Z_{\text{preTV}} \bigl(M';\, G'_0,\, G'_1\bigr)
     \end{align}
     が成り立つ\footnote{境界条件を略記した．}．
 \end{mylem}
@@ -6555,14 +6559,14 @@ $\abs{M;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}}$ は
     \tilde{Z}_{\text{TV},\, \Cat{C}} (\Sigma,\, G) \coloneqq \bigoplus_{\{x_e\}} \mathcal{H} \bigl( G;\, \{x_e\} \bigr) 
 \end{align}
 と定義することである．物理的には境界のゲージ場（トポロジカル演算子）に関する経路積分を実行することに相当する．
-このとき， $\forall M \in \Hom{\BORD{2}{3}^{\LSO}}(\Sigma_0,\, \Sigma_1)$ およびその\hyperref[def:skeleton-2mfd]{多面体分割} $G_i \subset \Sigma_i$ に対して，
-\hyperref[def:lim-colim]{直和の普遍性}を利用して $\mathbb{K}$-線型写像\eqref{eq:preTV-cob}を拡張した
+このとき， $\forall M \in \Hom{\BORD{2}{3}^{\LSO}}(\Sigma_0,\, \Sigma_1)$ およびその境界の\hyperref[def:skeleton-2mfd]{多面体分割} $G_i \subset \Sigma_i$ に対して，
+\hyperref[def:product-coproduct]{直和の普遍性}を利用して $\mathbb{K}$-線型写像\eqref{eq:preTV-cob}を拡張した
 \begin{align}
     \tilde{Z}_{\text{TV},\, \Cat{C}} (M;\, G_0,\, G_1) \colon \tilde{Z}_{\text{TV},\, \Cat{C}} (\Sigma_0,\, G_0) \lto \tilde{Z}_{\text{TV},\, \Cat{C}} (\Sigma_1,\, G_1)
 \end{align}
 を考える．具体的には，直和の普遍性により $\forall \{x^0_e\}_{e \in \mathsf{E} (G_0)} \in \Simp(\Cat{C})^{\times \abs{\mathsf{E} (G_0)}}$ および標準的包含 $\iota_{\{x^0_e\}} \colon \mathcal{H} \bigl( G_0;\, \{x_e\} \bigr)$ について
 \begin{align}
-    \sum_{\{x^1_e\}_{e \in \mathsf{E} (G_1)}} \abs{M;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}} = \textcolor{red}{\tilde{Z}_{\text{TV},\, \Cat{C}} (M;\, G_0,\, G_1)} \circ \iota_{\{x^0_e\}}
+    \sum_{\{x^1_e\}_{e \in \mathsf{E} (G_1)}} Z_{\text{preTV}}\bigl(M;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}\bigr) = \textcolor{red}{\tilde{Z}_{\text{TV},\, \Cat{C}} (M;\, G_0,\, G_1)} \circ \iota_{\{x^0_e\}}
 \end{align}
 を充たす $\textcolor{red}{\tilde{Z}_{\text{TV},\, \Cat{C}} (M;\, G_0,\, G_1)}$ が唯一存在することが分かるのである．
 このとき，補題\ref{lem:statesum-preTQFT}より
@@ -6592,7 +6596,7 @@ $\abs{M;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}}$ は
     \label{eq:TV-oo}
     Z_{\text{TV},\, \Cat{C}} (\Sigma) \coloneqq \varprojlim Z_{\text{TV},\, \Cat{C}}(\Sigma,\, G)
 \end{align}
-をとることができる．物理的には，境界の理論の熱力学極限を取ることに対応する．射影極限は\hyperref[def:lim]{極限}なので，錐 $\bigl(Z_{\text{TV},\, \Cat{C}} (\Sigma),\, \{\tau_G \colon Z_{\text{TV},\, \Cat{C}} (\Sigma) \xrightarrow{\cong} Z_{\text{TV},\, \Cat{C}} (\Sigma,\, G)\}_{G \subset \Sigma}\bigr)$ が存在する．
+をとることができる．物理的には，境界の理論の連続極限を取ることに対応する．射影極限は\hyperref[def:lim]{極限}なので，錐 $\bigl(Z_{\text{TV},\, \Cat{C}} (\Sigma),\, \{\tau_G \colon Z_{\text{TV},\, \Cat{C}} (\Sigma) \xrightarrow{\cong} Z_{\text{TV},\, \Cat{C}} (\Sigma,\, G)\}_{G \subset \Sigma}\bigr)$ が存在する．
 これを用いて $\forall M \in \Hom{\BORD{2}{3}^{\LSO}} (\Sigma_0,\, \Sigma_1)$ に対して
 \begin{align}
     \label{eq:TV-mm}

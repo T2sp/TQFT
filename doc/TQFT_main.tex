@@ -221,6 +221,10 @@ title=公理${}^{\text{ph}}$~\thetcbcounter: #2,#1}
 colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,
 title=定理~\thetcbcounter: #2,#1}
 
+\newtcolorbox[auto counter,number within=chapter]{mytheoph}[2][breakable]{%
+colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,
+title=定理${}^{\text{ph}}$~\thetcbcounter: #2,#1}
+
 \newtcolorbox[auto counter,number within=chapter]{myprop}[2][breakable]{%
 colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,
 title=命題~\thetcbcounter: #2,#1}
@@ -390,8 +394,33 @@ title=系~\thetcbcounter: #2,#1}
 
 \title{位相的場の理論 ノート}
 \author{高間俊至}
-\date{\today}
+\date{最終更新：\today}
 \maketitle
+
+\section*{前書き}
+
+% 本資料は，ゲージ理論・位相的場の理論 (Topological Quantum Field Theory; TQFT) ・トポロジカル相に関連する物理学・数学の勉強ノートである．
+% 物理学徒の視点から見た際に，数学的にある程度自己完結した内容にしようと試みた結果，かなり数学色の強い内容となっている．
+% できるだけ正確な記述を試みているが，筆者本人は大学院修士課程の学生であるため
+
+本資料の最新版 \LaTeX ソースコードは \url{https://github.com/T2sp/TQFT} から入手できます．
+2025年度現在ではかなり頻繁に更新しているため，最終更新日に注意してください．
+
+\section*{記号}
+
+\begin{mydefph}[]{}
+    
+\end{mydefph}
+
+\begin{myconjph}[]{}
+    
+\end{myconjph}
+
+\begin{mypropph}[]{}
+    
+\end{mypropph}
+
+など，囲み枠の見出しの肩に ${}^{\text{ph}}$ が付いているものは，物理学的に妥当だと考えられているが数学的に厳密な定式化・証明が完了していない主張である．
 
 \setcounter{tocdepth}{2}
 \tableofcontents
