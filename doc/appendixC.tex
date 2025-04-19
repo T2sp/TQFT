@@ -2201,10 +2201,10 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
             を充たす．この3-単体 $\tau$ を図\ref{fig:3-simp}に則り図示すると次のようになる：
             \begin{center}
                 \begin{tikzcd}[row sep=large, column sep=large]
-                    &  & C \arrow[rd, "f"] \arrow[ddd, "(h\circ g) \circ f"] \arrow[lldd, "g \circ f"'] &                                                     \\
-                    &  &                                                                                & D \arrow[ldd, "h\circ g"] \arrow[llld, "g", dashed] \\
+                    &  & C \arrow[rd, "f"] \arrow[lldd, "g \circ f"'] &                                                     \\
+                    &  &                                                                                & D \arrow[ldd, "h\circ g"] \arrow[llld, "g"] \\
                  E\arrow[rrd, "h"'] &  &                                                                                &                                                     \\
-                    &  & F                                                                              &                                                    
+                    &  & F \arrow[from=uuu, crossing over, "(h\circ g) \circ f"]                                                                         &                                                    
                 \end{tikzcd}
             \end{center}
             ここで，$u_1 \coloneqq \partial^3_1 (\tau) \in K_2$ とおく．これは $\tau$ の図式で言うと三角形 $C,\, E,\, F$ が指定する2-単体である．
