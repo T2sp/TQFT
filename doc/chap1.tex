@@ -65,8 +65,8 @@ $\mathbb{R}^D$ 内を運動する非相対論的1粒子の軌跡 $\bm{x}(t)$ を
 \begin{align}
     &\bra{\irm{\bm{x}}{f}} \hat{U}(\irm{t}{f},\, \irm{t}{i}) \ket{\irm{\bm{x}}{i}} 
     = \bra{\irm{\bm{x}}{f}} e^{-\iunit \hat{H}n\varepsilon /\hbar} \ket{\irm{\bm{x}}{i}} \\
-    &= \lim_{n\to \infty}\int \left(\prod_{k=1}^{n-1} \dd[D]{\bm{x}_k} \right) \prod_{k=1}^{n-1} \bra{\bm{x}_{k+1}} e^{-\iunit \hat{H} \varepsilon / \hbar} \ket{\bm{x}_k} \\
-    &= \lim_{\substack{n\to \infty \\ \mathrm{i.e.}\; \varepsilon \to 0}}\int \left(\prod_{k=1}^{n-1}  \frac{\dd[D]{\bm{x}_k}\dd^D \bm{p}_k}{(2\pi)^D} \right) \exp\left\{ \frac{\iunit}{\hbar} \varepsilon \sum_{k=1}^{n-1} \left(\bm{p}_k \vdot \frac{\bm{x}_{k+1} - \bm{x}_k }{\varepsilon} - H (\bm{p}_k,\, \bm{x}_k) \right)  \right\}  \label{eq:1-path1} \\ 
+    &= \lim_{n\to \infty}\int \left(\prod_{k=1}^{n-1} \dd[D]{\bm{x}_k} \right) \prod_{k=0}^{n-1} \bra{\bm{x}_{k+1}} e^{-\iunit \hat{H} \varepsilon / \hbar} \ket{\bm{x}_k} \\
+    &= \lim_{n\to \infty}\int \left(\prod_{k=0}^{n-1}  \frac{\dd[D]{\bm{x}_k}\dd^D \bm{p}_k}{(2\pi)^D} \right) \exp\left\{ \frac{\iunit}{\hbar} \varepsilon \sum_{k=1}^{n-1} \left(\bm{p}_k \vdot \frac{\bm{x}_{k+1} - \bm{x}_k }{\varepsilon} - H (\bm{p}_k,\, \bm{x}_k) \right)  \right\}  \label{eq:1-path1} \\ 
     &= \lim_{n\to \infty}\int \left(\prod_{k=1}^{n-1}  \frac{\dd[D]{\bm{x}_k}\dd^D \bm{p}_k}{(2\pi)^D} \right) \exp\left\{ \frac{\iunit}{\hbar} \int_{\irm{t}{i}}^{\irm{t}{f}} \dd{t} \bigl(\bm{p} \vdot \dot{\bm{x}} - H (\bm{p},\, \bm{x}) \bigr)  \right\} \\
     &\eqqcolon \int [\dd[D]{\bm{x}} \dd[D]{\bm{p}}] \exp\left\{ \frac{\iunit}{\hbar} \int_{\irm{t}{i}}^{\irm{t}{f}} \dd{t} \bigl(\bm{p} \vdot \dot{\bm{x}} - H (\bm{p},\, \bm{x}) \bigr)  \right\}
 \end{align}
@@ -74,10 +74,10 @@ $\mathbb{R}^D$ 内を運動する非相対論的1粒子の軌跡 $\bm{x}(t)$ を
 \begin{align}
     \bra{\irm{\bm{x}}{f}} \hat{U}(\irm{t}{f},\, \irm{t}{i}) \ket{\irm{\bm{x}}{i}} 
     &= \lim_{\substack{n\to \infty \\ \mathrm{i.e.}\; \varepsilon \to 0}}\int \left(\prod_{k=1}^{n-1}  \frac{\dd[D]{\bm{x}_k}\dd^D \bm{p}_k}{(2\pi)^D} \right) \\
-    &\qquad \exp\left\{ \frac{\iunit}{\hbar} \varepsilon \sum_{k=1}^{n-1} \left(- \frac{1}{2m} \left( \bm{p}_k - m\frac{\bm{x}_{k+1} - \bm{x}_k}{\varepsilon} \right)^2 + \frac{m}{2} \left( \frac{\bm{x}_{k+1} - \bm{x}_k}{\varepsilon} \right)^2 - V(\bm{x}_k) \right)  \right\} \\ 
-    &= \lim_{\substack{n\to \infty \\ \mathrm{i.e.}\; \varepsilon \to 0}}\int \left(\prod_{k=1}^{n-1}  \left(\frac{m\hbar}{2\pi \iunit \varepsilon}\right)^{D/2} \dd[D]{\bm{x}_k} \right) \exp\left\{ \frac{\iunit}{\hbar} \varepsilon \sum_{k=1}^{n-1} \left(\frac{m}{2} \left( \frac{\bm{x}_{k+1} - \bm{x}_k}{\varepsilon} \right)^2 - V(\bm{x}_k) \right)  \right\} \\
+    &\qquad \exp\left\{ \frac{\iunit}{\hbar} \varepsilon \sum_{k=0}^{n-1} \left(- \frac{1}{2m} \left( \bm{p}_k - m\frac{\bm{x}_{k+1} - \bm{x}_k}{\varepsilon} \right)^2 + \frac{m}{2} \left( \frac{\bm{x}_{k+1} - \bm{x}_k}{\varepsilon} \right)^2 - V(\bm{x}_k) \right)  \right\} \\ 
+    &= \lim_{\substack{n\to \infty \\ \mathrm{i.e.}\; \varepsilon \to 0}}\int \left(\prod_{k=1}^{n-1}  \left(\frac{m\hbar}{2\pi \iunit \varepsilon}\right)^{D/2} \dd[D]{\bm{x}_k} \right) \exp\left\{ \frac{\iunit}{\hbar} \varepsilon \sum_{k=0}^{n-1} \left(\frac{m}{2} \left( \frac{\bm{x}_{k+1} - \bm{x}_k}{\varepsilon} \right)^2 - V(\bm{x}_k) \right)  \right\} \\
     &= \lim_{n\to \infty}\int \left(\prod_{k=1}^{n-1}  \left(\frac{m\hbar}{2\pi \iunit \varepsilon}\right)^{D/2} \dd[D]{\bm{x}_k} \right) \exp\left\{ \frac{\iunit}{\hbar} \int_{\irm{t}{i}}^{\irm{t}{f}} \dd{t} \left(\frac{m}{2} \dot{\bm{x}}^2 - V(\bm{x}) \right)  \right\} \\
-    &\eqqcolon \int [\dd[D]{\bm{x}}] \exp \left\{ \frac{\iunit}{\hbar} \int_{\irm{t}{i}}^{\irm{t}{f}} L [\bm{x}(t),\, \dot{\bm{x}} (t)] \right\} 
+    &\eqqcolon \int [\dd[D]{\bm{x}}] \exp \left\{ \frac{\iunit}{\hbar} \int_{\irm{t}{i}}^{\irm{t}{f}} \dd{t} L [\bm{x}(t),\, \dot{\bm{x}} (t)] \right\} 
 \end{align}
 これがまさに求めたい形\eqref{eq:1-pathintegral}である．
 
@@ -161,7 +161,7 @@ $\forall \bm{x}_{\mathrm{i}},\, \irm{\bm{x}}{m},\, \bm{x}_{\mathrm{f}} \in \math
         \end{align}
     \end{enumerate}
 \end{mylem}
-つまり，始点と終点がつながっていさえすれば，集合 $\Pi \mathcal{C} \coloneqq \bigcup_{\irm{\bm{x}}{{i}},\, \irm{\bm{x}}{{f}} \in \mathcal{C}}\Pi \mathcal{C}(\irm{\bm{x}}{{i}},\, \irm{\bm{x}}{{f}})$ は積 $*$ に関して群のように振る舞う\footnote{$\Pi \mathcal{C}$ は位相空間 $\mathcal{C}$ の\textbf{基本亜群} (fundamental groupoid) と呼ばれる．}．特に $\irm{\bm{x}}{i} = \irm{\bm{x}}{f} = \bm{x}$ のとき $\Pi \mathcal{C}(\irm{\bm{x}}{i},\, \irm{\bm{x}}{f})$ は\textbf{基本群} (fundamental group) または $1$ 次の\textbf{ホモトピー群}と呼ばれ，$\pi_1 (\mathcal{C},\, \bm{x})$ と書かれる．
+つまり，始点と終点がつながっていさえすれば，集合 $\Pi \mathcal{C} \coloneqq \bigcup_{\irm{\bm{x}}{{i}},\, \irm{\bm{x}}{{f}} \in \mathcal{C}}\Pi \mathcal{C}(\irm{\bm{x}}{{i}},\, \irm{\bm{x}}{{f}})$ は積 $*$ に関して群のように振る舞う\footnote{このような代数的構造を\hyperref[def:groupoid]{亜群} (groupoid) と呼ぶ．$\Pi \mathcal{C}$ は位相空間 $\mathcal{C}$ の\textbf{基本亜群} (fundamental groupoid) と呼ばれる．}．特に $\irm{\bm{x}}{i} = \irm{\bm{x}}{f} = \bm{x}$ のとき $\Pi \mathcal{C}(\irm{\bm{x}}{i},\, \irm{\bm{x}}{f})$ は\textbf{基本群} (fundamental group) または $1$ 次の\textbf{ホモトピー群}と呼ばれ，$\pi_1 (\mathcal{C},\, \bm{x})$ と書かれる．
 
 \begin{mylem}[]{}
     基本群は群である．
@@ -170,7 +170,6 @@ $\forall \bm{x}_{\mathrm{i}},\, \irm{\bm{x}}{m},\, \bm{x}_{\mathrm{f}} \in \math
 \begin{proof}
     始点と終点が一致しているので，$\forall [l_0],\, [l_1] \in \pi_1 (\mathcal{C},\, \bm{x})$ に対して積 $[l_0] * [l_1]$ が定義されている．
 \end{proof}
-
 
 今考えている系に関して言えば，群 $\pi_1(\mathcal{C},\, \bm{x})$ の位数は $\forall \bm{x} \in \mathcal{C}$ に対して常に $2$ であり，$\mathbb{Z}_2$ と同型である．
 
@@ -183,14 +182,14 @@ $\forall \bm{x}_{\mathrm{i}},\, \irm{\bm{x}}{m},\, \bm{x}_{\mathrm{f}} \in \math
     &= \mathcal{N} \left( \sum_{l\, \ST [l] = +1} + \sum_{l\, \ST [l] = -1} \right) e^{\iunit S[l]/\hbar} \label{eq:1-propagator-b}
 \end{align}
 と計算される．これは以下の2つの性質を充たさねばならない：
-\begin{itemize}
+\begin{enumerate}
     \item $\hat{U}(\irm{t}{f},\, \irm{t}{i})$ はユニタリ演算子
     \item 時刻 $\forall \irm{t}{m} \in [\irm{t}{i},\, \irm{t}{f}]$ に対して，
     \begin{align}
         \label{eq:1-composition}
         \bra{\bm{x}_1{}_{\mathrm{f}},\, \bm{x}_2{}_{\mathrm{f}}} \hat{U}(\irm{t}{f},\, \irm{t}{i}) \ket{\bm{x}_1{}_{\mathrm{i}},\, \bm{x}_2{}_{\mathrm{i}}} = \int \dd{\irm{\bm{x}_1}{m}}\dd{\irm{\bm{x}_2}{m}} \bra{\bm{x}_1{}_{\mathrm{f}},\, \bm{x}_2{}_{\mathrm{f}}} \hat{U}(\irm{t}{f},\, \irm{t}{m}) \ket{\bm{x}_1{}_{\mathrm{m}},\, \bm{x}_2{}_{\mathrm{m}}} \bra{\bm{x}_1{}_{\mathrm{m}},\, \bm{x}_2{}_{\mathrm{m}}} \hat{U}(\irm{t}{m},\, \irm{t}{i}) \ket{\bm{x}_1{}_{\mathrm{i}},\, \bm{x}_2{}_{\mathrm{i}}}
     \end{align}
-\end{itemize}
+\end{enumerate}
 逆に (1), (2) を充たすような\eqref{eq:1-propagator}の最右辺には他の可能性がある．それは例えば
 \begin{align}
     &\bra{\bm{x}_1{}_{\mathrm{f}},\, \bm{x}_2{}_{\mathrm{f}}} \hat{U}(\irm{t}{f},\, \irm{t}{i}) \ket{\bm{x}_1{}_{\mathrm{i}},\, \bm{x}_2{}_{\mathrm{i}}}\\
@@ -241,13 +240,111 @@ $\forall \bm{x}_{\mathrm{i}},\, \irm{\bm{x}}{m},\, \bm{x}_{\mathrm{f}} \in \math
 \end{mydef}
 
 $B_N$ の代数的な定義\ref{def:braidg}と，位相幾何学的な定義 $\pi_1 (\mathcal{C},\, \bm{x})$ が同型であることは，例えば~\cite{Fadell1961braid}に証明がある．
-生成元 $\sigma_i$ を図として表示するとわかりやすい．この場合，$B_N$ の積とは単に組み紐を下から上へ\footnote{文献によって上下がまちまちである．}繋げることに他ならない．
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.75]{./figs/braidg_generator.png}
-    \caption{$B_4$ の生成元の表示．~\cite[p.29, Fig. 3.4]{Simon2021}より引用．}
-    \label{fig:1-braidg-generator}
-\end{figure}%
+生成元 $\sigma_i$ を図として表示することができる：
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.75]{./figs/braidg_generator.png}
+%     \caption{$B_4$ の生成元の表示．~\cite[p.29, Fig. 3.4]{Simon2021}より引用．}
+%     \label{fig:1-braidg-generator}
+% \end{figure}%
+\begin{align}
+    \sigma_1 &\coloneqq
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path 
+        foreach \x in {0,...,3} {
+            foreach \y in {0,1} {
+                coordinate (v_\x\y) at ({0.5*\x}, \y)
+            }
+        };
+        \begin{knot}
+            \strand[ultra thick] (v_00) .. controls +(0,0.7) and +(0,-0.7) .. (v_11);
+            \strand[ultra thick] (v_10) .. controls +(0,0.7) and +(0,-0.7) .. (v_01);
+        \end{knot}
+        \draw[ultra thick] (v_20) -- (v_21);
+        \draw[ultra thick] (v_30) -- (v_31);
+    \end{tikzpicture}
+    &
+    \sigma_2 &\coloneqq
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path 
+        foreach \x in {0,...,3} {
+            foreach \y in {0,1} {
+                coordinate (v_\x\y) at ({0.5*\x}, \y)
+            }
+        };
+        \begin{knot}
+            \strand[ultra thick] (v_10) .. controls +(0,0.7) and +(0,-0.7) .. (v_21);
+            \strand[ultra thick] (v_20) .. controls +(0,0.7) and +(0,-0.7) .. (v_11);
+        \end{knot}
+        \draw[ultra thick] (v_00) -- (v_01);
+        \draw[ultra thick] (v_30) -- (v_31);
+    \end{tikzpicture}
+    &
+    \sigma_3 &\coloneqq
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path 
+        foreach \x in {0,...,3} {
+            foreach \y in {0,1} {
+                coordinate (v_\x\y) at ({0.5*\x}, \y)
+            }
+        };
+        \begin{knot}
+            \strand[ultra thick] (v_20) .. controls +(0,0.7) and +(0,-0.7) .. (v_31);
+            \strand[ultra thick] (v_30) .. controls +(0,0.7) and +(0,-0.7) .. (v_21);
+        \end{knot}
+        \draw[ultra thick] (v_00) -- (v_01);
+        \draw[ultra thick] (v_10) -- (v_11);
+    \end{tikzpicture} \\
+    & \\
+    \sigma_1^{-1} &\coloneqq
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path 
+        foreach \x in {0,...,3} {
+            foreach \y in {0,1} {
+                coordinate (v_\x\y) at ({0.5*\x}, \y)
+            }
+        };
+        \begin{knot}[flip crossing=1]
+            \strand[ultra thick] (v_00) .. controls +(0,0.7) and +(0,-0.7) .. (v_11);
+            \strand[ultra thick] (v_10) .. controls +(0,0.7) and +(0,-0.7) .. (v_01);
+        \end{knot}
+        \draw[ultra thick] (v_20) -- (v_21);
+        \draw[ultra thick] (v_30) -- (v_31);
+    \end{tikzpicture}
+    &
+    \sigma_2^{-1} &\coloneqq
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path 
+        foreach \x in {0,...,3} {
+            foreach \y in {0,1} {
+                coordinate (v_\x\y) at ({0.5*\x}, \y)
+            }
+        };
+        \begin{knot}[flip crossing=1]
+            \strand[ultra thick] (v_10) .. controls +(0,0.7) and +(0,-0.7) .. (v_21);
+            \strand[ultra thick] (v_20) .. controls +(0,0.7) and +(0,-0.7) .. (v_11);
+        \end{knot}
+        \draw[ultra thick] (v_00) -- (v_01);
+        \draw[ultra thick] (v_30) -- (v_31);
+    \end{tikzpicture}
+    &
+    \sigma_3^{-1} &\coloneqq
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path 
+        foreach \x in {0,...,3} {
+            foreach \y in {0,1} {
+                coordinate (v_\x\y) at ({0.5*\x}, \y)
+            }
+        };
+        \begin{knot}[flip crossing=1]
+            \strand[ultra thick] (v_20) .. controls +(0,0.7) and +(0,-0.7) .. (v_31);
+            \strand[ultra thick] (v_30) .. controls +(0,0.7) and +(0,-0.7) .. (v_21);
+        \end{knot}
+        \draw[ultra thick] (v_00) -- (v_01);
+        \draw[ultra thick] (v_10) -- (v_11);
+    \end{tikzpicture}
+\end{align}
+図において，$B_N$ の積とは単に組み紐を下から上へ\footnote{文献によって上下がまちまちである．}繋げることに他ならない．
 
 組み紐不変量として特に重要なのが\textbf{巻き付き数} (winding number) である：
 \begin{align}
@@ -259,7 +356,7 @@ $B_N$ の代数的な定義\ref{def:braidg}と，位相幾何学的な定義 $\p
 空間次元が $D = 3$ の場合，$\pi_1 (\mathcal{C},\, \bm{x})$ の様子は $D=2$ の場合と大きく異なる．
 
 \begin{myprop}[label=prop:not4D-knot]{}
-    $S^1$ の $\mathbb{R}^3$ への任意の2つの埋め込みは，それらを $\mathbb{R}^4$ への埋め込みと見做すことで同位になる．
+    $S^1$ の $\mathbb{R}^3$ への任意の2つの\hyperref[def:submersion-smooth]{位相的埋め込み}は，それらを $\mathbb{R}^4$ への位相的埋め込み埋め込みと見做すことで互いにアイソトピックになる．
 \end{myprop}
 
 命題\ref{prop:not4D-knot}により，$D=3$ のとき $\pi_1 (\mathcal{C},\, \bm{x}) = \mathfrak{S}_N$ であることが分かる． 
