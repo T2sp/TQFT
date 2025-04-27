@@ -3170,7 +3170,7 @@ $p$ 単体の\textbf{向き}は常に $l_0 < \cdots < l_p$ を充たすように
 
 \subsection{ユニタリフュージョン圏としての $0$-form対称性}
 
-\begin{myaxiom}[label=ax:symcat-2d-0form]{$(1+1)$-次元の有限群 $0$-form対称性}
+\begin{myaxiom}[label=ax:symcat-2d-0form]{$(1+1)$-次元の有限 $0$-form対称性}
     $(1+1)$-次元系における有限の\footnote{単純対象が有限個}\hyperref[def:p-form-sym]{0-form symmetry}は，\hyperref[def:tensorfusion-cat]{ユニタリフュージョン圏}として特徴付けられる．
 \end{myaxiom}
 
@@ -3211,15 +3211,17 @@ $\forall a,\, b \in \Obj{\Cat{C}}$ に対し，その直和
 $\Cat{C}$ は\hyperref[redef:rigid]{rigidなモノイダル圏}でもあり，associator，evaluation, coevaluationに対応するデータも持つ．associatorに対応するデータはしばしば\hyperref[def:F-symbol]{$F$-symbol}\footnote{$F$-symbolは，厳密にはassociatorそのものではない．}と呼ばれる．
 
 \begin{myexample}[label=ex:CGa]{圏 $\VecG{G}^\alpha$ とアノマリー}
-    $\Cat{C} = \VecG{G}^\alpha$ とする．\exref{def:CG-functor}により
-    $\VecG{G}^\alpha$ と $\VecG{G}^{\alpha'}$ の間の\hyperref[def:tensor-functor]{テンソル関手}は2つ組 $(f,\, \mu) \in \Aut (G) \times \irm{H}{Grp}^3 \bigl( G;\, \LU(1) \bigr)$ によって指定される．
-    特に $f = \Id$ と選ぶと，これは2次元の理論 $T$ におけるDijkgraaf-Wittenタイプの't Hooftアノマリーを指定することに他ならない．
+    $\Cat{C} = \VecG{G}^\alpha$ とする．このとき，$\alpha \in \irm{H}{Grp}^3 \bigl( G;\, \LU(1) \bigr)$ は\hyperref[def:Dijkgraaf-Witten]{Dijkgraaf-Witten}理論を定める．
+    i.e. Dijkgraaf-Wittem理論を\hyperref[hypo:anomaly-inflow]{アノマリー流入}に持つ't Hooftアノマリーを1つ指定している．
+    % \exref{def:CG-functor}により
+    % $\VecG{G}^\alpha$ と $\VecG{G}^{\alpha'}$ の間の\hyperref[def:tensor-functor]{テンソル関手}は2つ組 $(f,\, \mu) \in \Aut (G) \times \irm{H}{Grp}^3 \bigl( G;\, \LU(1) \bigr)$ によって指定される．
+    % 特に $f = \Id$ と選ぶと，
 \end{myexample}
 
 \begin{myexample}[label=ex:CGa]{圏 $\VecG{G}^\alpha$ と $G$-SPTのスタック}
     $\Cat{C} = \VecG{G}^\alpha$ とする．
     $\VecG{G}^\alpha$ の自己同型は\hyperref[def:tensor-functor]{モノイダル自然同型}によって与えられるが，\exref{def:CG-monoidalnat}によりそれは2つ組 $(f,\, \tau) \in \Aut (G) \times \irm{H}{Grp}^2 \bigl( G;\, \LU(1) \bigr)$ を指定する．
-    これは2次元の理論 $T$ に2次元のボゾニック $G$-SPTをスタックする操作に他ならない．
+    これは2次元の理論 $T$ に2次元のボゾニック $G$-SPTを\hyperref[def:stacking]{スタック}する操作に他ならない．
 \end{myexample}
 
 \subsection{代数対象とゲージ化}

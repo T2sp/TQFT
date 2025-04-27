@@ -66,7 +66,7 @@ $\mathbb{R}^D$ 内を運動する非相対論的1粒子の軌跡 $\bm{x}(t)$ を
     &\bra{\irm{\bm{x}}{f}} \hat{U}(\irm{t}{f},\, \irm{t}{i}) \ket{\irm{\bm{x}}{i}} 
     = \bra{\irm{\bm{x}}{f}} e^{-\iunit \hat{H}n\varepsilon /\hbar} \ket{\irm{\bm{x}}{i}} \\
     &= \lim_{n\to \infty}\int \left(\prod_{k=1}^{n-1} \dd[D]{\bm{x}_k} \right) \prod_{k=0}^{n-1} \bra{\bm{x}_{k+1}} e^{-\iunit \hat{H} \varepsilon / \hbar} \ket{\bm{x}_k} \\
-    &= \lim_{n\to \infty}\int \left(\prod_{k=0}^{n-1}  \frac{\dd[D]{\bm{x}_k}\dd^D \bm{p}_k}{(2\pi)^D} \right) \exp\left\{ \frac{\iunit}{\hbar} \varepsilon \sum_{k=1}^{n-1} \left(\bm{p}_k \vdot \frac{\bm{x}_{k+1} - \bm{x}_k }{\varepsilon} - H (\bm{p}_k,\, \bm{x}_k) \right)  \right\}  \label{eq:1-path1} \\ 
+    &= \lim_{n\to \infty}\int \left(\prod_{k=0}^{n-1}  \frac{\dd[D]{\bm{x}_k}\dd^D \bm{p}_k}{(2\pi)^D} \right) \exp\left\{ \frac{\iunit}{\hbar} \varepsilon \sum_{k=0}^{n-1} \left(\bm{p}_k \vdot \frac{\bm{x}_{k+1} - \bm{x}_k }{\varepsilon} - H (\bm{p}_k,\, \bm{x}_k) \right)  \right\}  \label{eq:1-path1} \\ 
     &= \lim_{n\to \infty}\int \left(\prod_{k=1}^{n-1}  \frac{\dd[D]{\bm{x}_k}\dd^D \bm{p}_k}{(2\pi)^D} \right) \exp\left\{ \frac{\iunit}{\hbar} \int_{\irm{t}{i}}^{\irm{t}{f}} \dd{t} \bigl(\bm{p} \vdot \dot{\bm{x}} - H (\bm{p},\, \bm{x}) \bigr)  \right\} \\
     &\eqqcolon \int [\dd[D]{\bm{x}} \dd[D]{\bm{p}}] \exp\left\{ \frac{\iunit}{\hbar} \int_{\irm{t}{i}}^{\irm{t}{f}} \dd{t} \bigl(\bm{p} \vdot \dot{\bm{x}} - H (\bm{p},\, \bm{x}) \bigr)  \right\}
 \end{align}

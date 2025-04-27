@@ -1788,7 +1788,7 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
 \end{mydef}
 
 \begin{myexample}[label=def:CG-functor]{圏 $\VecG{G}^\alpha$ のテンソル関手}
-    $G_1,\, G_2$ を群，$\omega_i \in \irm{Z}{Grp}^3 \bigl(G_i;\, \LU(1) \bigr)$ を3-コサイクルとする．
+    $G_1,\, G_2$ を群，$\alpha_i \in \irm{Z}{Grp}^3 \bigl(G_i;\, \LU(1) \bigr)$ を3-コサイクルとする．
     \hyperref[def:tensor-functor]{テンソル関手} 
     \begin{align}
         F \colon \Cat{C}_{G_1}^{\alpha_1} \lto \Cat{C}_{G_2}^{\alpha_2}
@@ -1799,6 +1799,7 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
     \begin{align}
         f \colon G_1 \lto G_2
     \end{align}
+    を成す．
     このとき\hyperref[redef:monidal-functor]{強いモノイダル関手}の持つ自然変換とは，ある $\mu \in \irm{C}{Grp}^2 \bigl( G_1;\, \LU(1) \bigr) $ を用いて
     \begin{align}
         \mu_{g_1,g_2} \coloneqq \mu(g_1,\, g_2) \Id_{f(g_1 g_2)} \colon f(g_1) f(g_2) \xrightarrow{\cong} f(g_1g_2) \WHERE g_1,\, g_2 \in G_1
@@ -1812,7 +1813,7 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
         \label{eq:CG-cohomologus}
         \alpha_1 = f^* \alpha_2 \cdot \delta \mu
     \end{align}
-    である．逆に群準同型 $f \colon G_1 \lto G_2$ および $\mu \in \irm{C}{Grp}^3 \bigl( G_1;\, \LU(1) \bigr)$ の組 $(f,\, \mu)$ であって\eqref{eq:CG-cohomologus}を充たすものが与えられると，これらを素材にして\hyperref[def:tensor-functor]{テンソル関手} 
+    である．逆に群準同型 $f \colon G_1 \lto G_2$ および $\mu \in \irm{C}{Grp}^2 \bigl( G_1;\, \LU(1) \bigr)$ の組 $(f,\, \mu)$ であって\eqref{eq:CG-cohomologus}を充たすものが与えられると，これらを素材にして\hyperref[def:tensor-functor]{テンソル関手} 
     \begin{align}
         F \colon \Cat{C}_{G_1}^{\alpha_1} \lto \Cat{C}_{G_2}^{\alpha_2}
     \end{align}
