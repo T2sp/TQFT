@@ -4360,8 +4360,8 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
 要するに，\hyperref[def:str2cat]{厳密な2-圏}において合成 $\circ$ のassociativityおよびunitalityを自然同型まで弱めたものが\hyperref[def:2cat]{2-圏}である．
 
 \begin{myexample}[label=ex:moncat2cat]{2-圏としてのモノイダル圏}
-    \hyperref[redef:monoidal-category]{モノイダル圏} $\bigl(\Cat{C},\, \otimes,\, I,\, \{a_{x,y,z}\},\, \{l_x\},\, \{l_y\}\bigr)$ は\hyperref[def:2cat]{$2$-圏}である．
-    実際，2-圏 $\deloop{\Cat{C}}$ を
+    \hyperref[redef:monoidal-category]{モノイダル圏} $\bigl(\Cat{C},\, \otimes,\, I,\, \{a_{x,y,z}\},\, \{l_x\},\, \{l_y\}\bigr)$ は\hyperref[def:2cat]{$2$-圏}と見做せる．
+    実際，2-圏 $\deloop{\Cat{C}}$ を次のように構成できる：
     \begin{itemize}
         \item $\Obj{\deloop{\Cat{C}}} \coloneqq \{\bullet\}$（1点集合）
         \item $\Hom{\deloop{\Cat{C}}} (\bullet,\, \bullet) \coloneqq \Cat{C}$
@@ -4370,7 +4370,7 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
         \item $\alpha_{\bullet,\bullet,\bullet} \coloneqq \{a_{x,y,z}\}$
         \item $\lambda_{\bullet,\bullet} \coloneqq \{l_{x,y,z}\},\quad \rho_{\bullet,\bullet} \coloneqq \{r_{x,y,z}\}$
     \end{itemize}
-    により定義すると $\Cat{C} = \deloop{\Cat{C}}$ となる．
+    $\deloop{\Cat{C}}$ はモノイダル圏 $\Cat{C}$ の\textbf{delooping}と呼ばれる．
 \end{myexample}
 
 

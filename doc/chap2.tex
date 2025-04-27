@@ -249,6 +249,7 @@ $N$ が十分大きい時は $0 \le \forall i \le N-1$ に対して $\abs{\dd{x_
 
 \subsection{Chern-Simons作用}
 
+簡単のため $G = \LSU(2)$ とする\footnote{このとき $G$ がコンパクトかつ単連結なので，3次元多様体 $\mathcal{M}$ 上の任意の\hyperref[def.PFD]{主 $G$ 束}は自明束 $\mathcal{M} \times G$ は自明束と同型になり，Chern-Simons作用は大域的にこの形で定義できる．詳細は \url{https://math.stackexchange.com/questions/370313/every-principal-g-bundle-over-a-surface-is-trivial-if-g-is-compact-and-simpl} を参照．一般のLie群 $G$ の場合はこう簡単にいかず，\textbf{微分コホモロジー} (differential cohomology) ~\cite{CheegerSimons1985differential}, ~\cite{HopkinsSinger2005quadraticfunctionsgeometrytopologyand}, ~\cite{SimonsSullivan2007diff}を使わなくてはいけない．}．
 いささか天下り的だが，\textbf{Chern-Simons action}を
 \begin{align}
     \irm{S}{CS}[A_\mu] \coloneqq \frac{k}{4\pi} \int_{\mathcal{M}} \dd[3]{x} \epsilon^{\alpha\beta\gamma} \Tr \left[ A_\alpha \partial_\beta A_\gamma + \frac{2}{3} A_\alpha A_\beta A_\gamma \right] 
@@ -2765,6 +2766,21 @@ $\forall g \in G$ を1つ固定し，$\forall v \in T_p M$ をとる．すると
     \end{enumerate}
 \end{proof}
 
+\begin{mydef}[label=def:gauge-field]{ゲージ場}
+    多様体 $M$ とLie群 $G$，および
+    \begin{itemize}
+        \item $M$ の開被覆 $\Familyset[big]{U_\alpha}{\alpha \in \Lambda}$
+        \item 変換関数\footnote{i.e. コサイクル条件\eqref{eq.cocycle}を要請している．} $\Familyset[big]{t_{\alpha\beta} \colon U_\alpha \cap U_\beta \lto G}{\alpha,\, \beta \in \Lambda}$
+    \end{itemize}
+    を与える．
+    このとき，$\mathfrak{g}$ 値1-形式の族 $A \coloneqq \Familyset[big]{A_\alpha \in \Omega^1 (U_\alpha;\, \mathfrak{g})}{\alpha \in \Lambda}$ が\textbf{ゲージ場} (gauge field) であるとは，$\forall \alpha,\, \beta \in \Lambda$ について
+    \begin{align}
+        A_\beta|_x = \Adj \bigl( t_{\alpha\beta}(x)^{-1} \bigr) \bigl( A_\alpha|_x \bigr)  + (t^*_{\alpha\beta} \theta)_x, \quad \forall x \in U_\alpha \cap U_\beta
+    \end{align}
+    が成り立つことを言う．
+\end{mydef}
+
+定義\ref{def:gauge-field}のデータが与えられたとき，まず命題\ref{prop.cocycle}によって\hyperref[def.PFD]{主束} $G \hookrightarrow P \xrightarrow{\pi} M$ が構成され，さらに定理\ref{thm:local-connection}によって $P$ の\hyperref[def:connection]{接続形式} $\omega \in \Omega^1 (P;\, \mathfrak{g})$ が構成されるのである．
 % 定理\ref{thm:local-connection}の証明で行った計算は大変複雑であったが，以下で種々の局所表示を求める際に必要になる重要な部分だけまとめておく：
 
 % \begin{mylem}[label=lem:differential]{$C^\infty$ 写像の微分の便利公式}
@@ -2903,7 +2919,7 @@ $\forall g \in G$ を1つ固定し，$\forall v \in T_p M$ をとる．すると
     \end{align}
     は，$\pi \circ \tilde{\gamma} \btl g = \gamma$，$\tilde{\gamma} \btl g(0) = \tilde{\gamma}(0) \btl g$ を充たし，
     \begin{align}
-        \omega_{\tilde{\gamma} \btl g}\bigl(\dot{\tilde{\gamma} \btl g} (t)\bigr)
+        \omega_{\tilde{\gamma} \btl g}\bigl(\dot{(\tilde{\gamma} \btl g)} (t)\bigr)
         &= (R_g^*\omega)_{\tilde{\gamma}(t)} \bigl( \dot{\tilde{\gamma}}(t) \bigr) \\
         &= \Adj(g^{-1}) \Bigl(\omega_{\tilde{\gamma}(t)} \bigl( \dot{\tilde{\gamma}}(t) \bigr)\Bigr) \\
         &= 0

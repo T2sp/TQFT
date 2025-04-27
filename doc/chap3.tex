@@ -1516,7 +1516,7 @@ NGモードの存在がわかったので，次にNG粒子を記述する有効�
     \exp_G\bigl(\iunit \pi_A(x)X^A\bigr) \in G
 \end{align}
 を選ぶことができる\footnote{厳密には $\exp_G$ が全射とは限らないので，これは多様体 $G/H$ の単位元 $H$ 近傍のチャート $\bigl(U,\, (\pi_A)\bigr)$ だと考えるべきである．}．この $\dim G - \dim H$ 成分場 $\pi \colon M \lto \mathrm{Lie} (G/H)$ のことを\textbf{NGボゾン場}と呼ぶ．
-このとき，大域的な $\forall g \in G$ の作用に応じた場 $\pi$ の変換 $\pi \lmto \pi'$ は
+このとき，大域的な $g \in G$ の作用に応じた場 $\pi$ の変換 $\pi \lmto \pi'$ は
 \begin{align}
     \exp_G\bigl(\iunit \pi_A(x)X^A\bigr)\, H \lmto g \exp_G\bigl(\iunit \pi_A(x)X^A\bigr)\, H \eqqcolon \exp_G \bigl( \iunit \pi'_A(x) X^A \bigr)\, H
 \end{align}
@@ -1536,7 +1536,7 @@ NGモードの存在がわかったので，次にNG粒子を記述する有効�
 \end{align}
 なる線形変換を受けることがわかる．一方で $g \in G \setminus H$ のときは変換則\eqref{eq:NGB-transform}は $\pi(x)$ について非線形である．
 
-NGボゾン場の項を含むラグランジアンは，$G$-不変でなくてはいけない．そのためには\hyperref[def:Maurer-Cartan]{Maurer-Cartan形式} $\theta \in \Omega^1(G;\, g)$ を使う．これを $C^\infty$ 写像 $\xi \coloneqq \exp_G \bigl( \iunit \pi(\mhyphen) \bigr) \colon \mathcal{M} \lto G$ で引き戻すことで左不変な $\xi^* \theta \in \Omega^1(\mathcal{M};\, \mathfrak{g})$ を得る．
+NGボゾン場の項を含むラグランジアンは，$G$-不変でなくてはいけない．そのような項を構成するために\hyperref[def:Maurer-Cartan]{Maurer-Cartan形式} $\theta \in \Omega^1(G;\, \mathfrak{g})$ を使う．これを $C^\infty$ 写像 $\xi \coloneqq \exp_G \bigl( \iunit \pi(\mhyphen) \bigr) \colon \mathcal{M} \lto G$ で引き戻すことで左不変な $\xi^* \theta \in \Omega^1(\mathcal{M};\, \mathfrak{g})$ を得る．
 $\mathfrak{h}$ 成分と $\mathfrak{g} \setminus \mathfrak{h}$ 成分に分離して
 \begin{align}
     \xi^* \theta = \underbrace{\xi^* \theta_{\parallel}}_{\in\mathfrak{h}} + \underbrace{\xi^* \theta_{\perp}}_{\in \mathfrak{g} \setminus \mathfrak{h}}
@@ -1572,7 +1572,7 @@ $\mathfrak{h}$ 成分と $\mathfrak{g} \setminus \mathfrak{h}$ 成分に分離�
 % \end{align}
  
 
-次に物質場との結合を記述する方法を考える．物質場 $\psi$ の値域は破れていない対称性 $H$ の既約表現 $\rho_H \colon H \lto \LGL(\mathcal{H})$ の表現空間 $\mathcal{H}$ だと考えて良い．$\forall g \in G$ による変換則は\eqref{eq:NGB-transform}の $h(g,\, \pi) \in H$ を使って
+次に物質場との結合を記述する方法を考える．物質場 $\psi$ の値域は破れていない対称性 $H$ の既約表現 $\rho_0 \colon H \lto \LGL(\mathcal{H})$ の表現空間 $\mathcal{H}$ だと考えて良い．$\forall g \in G$ による変換則は\eqref{eq:NGB-transform}の $h(g,\, \pi) \in H$ を使って
 \begin{align}
     \label{eq:NGB-matter}
     \psi(x) \lmto \rho_0 \bigl( h(g,\, \pi)^{-1} \bigr) \bigl( \psi(x) \bigr) 
@@ -1590,7 +1590,7 @@ $\mathfrak{h}$ 成分と $\mathfrak{g} \setminus \mathfrak{h}$ 成分に分離�
     &=\rho(g) \bigl( \chi(x) \bigr) 
 \end{align}
 の変換を受ける．$\psi$ をそのまま扱うよりも $\chi \colon \mathcal{M} \lto \irm{\mathcal{H}}{ext}$ について $G$-不変なLagrangianを書き下す方が簡単であり，$\chi$ はNGBと物質場の相互作用も記述してくれる．
-最後に，これまで大域的対称性だと思っていた群 $G$ の作用を局所的対称性にするために背景ゲージ場を導入する（\textbf{ゲージ化}）．そのためにはMaurer-Cartan形式の $\partial_\mu$ を共変微分に置き換えれば良く，NGBと背景ゲージ場との結合はそれで決まる．
+最後に，これまで大域的対称性だと思っていた群 $G$ の作用を局所的対称性にするために背景ゲージ場を導入する．そのためにはMaurer-Cartan形式の $\partial_\mu$ を共変微分に置き換えれば良く，NGBと背景ゲージ場との結合はそれで決まる．
 あからさまには
 \begin{align}
     \xi(x)^{-1} \bigl(\partial_\mu + A_\mu(x)\bigr) \xi(x)
@@ -1608,7 +1608,6 @@ $\mathfrak{h}$ 成分と $\mathfrak{g} \setminus \mathfrak{h}$ 成分に分離�
     \partial_\mu \pi + A_\mu
 \end{align}
 と書かれる．よってゲージ変換 $A \lmto A + \dd{\lambda_0}$ はNGボゾンに $\pi + \lambda_0$ のシフトを引き起こす．
-
 
 余談だが，定理\ref{thm:NG-relativistic}のLorentz共変性の条件 (1) を外すと話はややこしくなる．
 まず，波数の小さいところにおいて分散関係が奇数冪であるようなNGモードを\textbf{Type-I}，偶数冪で書けるようなNGモードを\textbf{Type-II}と呼ぶ~\cite{nielsen1976HowCount}．
@@ -2421,12 +2420,12 @@ $\mathbb{Z}$ 係数の $G$ の\textbf{群環}とは，可換群 $\mathbb{Z}^{\op
 \subsection{関手としての接続}
 
 $d=D+1$ 次元時空 $\mfdcal{M}{d}$ を考える．
-圏 $\PATH{\mfdcal{M}{d}}$ を\footnote{これはgroupoidを成し，\textbf{path groupoid}と呼ばれる（\url{https://ncatlab.org/nlab/show/path+groupoid}）．}，
+圏 $\PATH{\mfdcal{M}{d}}$ を，
 \begin{itemize}
     \item $\mfdcal{M}{d}$ の点を対象とする．
     \item $\Hom{\PATH{\mfdcal{M}{d}}}(x,\, y) \coloneqq \bigl\{\, \sigma \colon [0,\, 1] \lto \mfdcal{M}{d} \bigm| \sigma(0) = x,\, \sigma(1) = y \,\bigr\}$ 
 \end{itemize}
-によって定義する．
+によって定義する\footnote{これのHom集合を\textbf{thin homotopy}と呼ばれる同値関係で割ることで得られる\hyperref[def:groupoid]{groupoid}のことを\textbf{path groupoid}と呼ぶ（\url{https://ncatlab.org/nlab/show/path+groupoid}）．}．
 
 \begin{myprop}[label=prop:connection-functor]{関手としての接続}
     \begin{itemize}
@@ -2437,11 +2436,11 @@ $d=D+1$ 次元時空 $\mfdcal{M}{d}$ を考える．
     このとき，任意の $P$ の\hyperref[def:connection]{接続形式} $\omega \in \Omega^1(P;\, \mathfrak{g})$ に対して
     \begin{enumerate}
         \item $\forall x \in \Obj{\PATH{\mfdcal{M}{d}}}$ に対して $\Gamma_\omega(x) \coloneqq q^{-1}(\{x\})$
-        \item $\forall x,\, y \in \Obj{\PATH{\mfdcal{M}{d}}},\; \forall \sigma \in \Hom{\PATH{\mfdcal{M}{d}}} (x,\, y)$ に対して\footnote{$\Phi_u(\sigma) \in G$ はループ $\sigma$ の\hyperref[prop:holonomy]{ホロノミー}．} $\Gamma_\omega(\sigma) \coloneqq \bigl( u \eqqcolon \tilde{\sigma}(0) \lmto \tilde{\sigma}(1) \bigr)$
+        \item $\forall x,\, y \in \Obj{\PATH{\mfdcal{M}{d}}},\; \forall \sigma \in \Hom{\PATH{\mfdcal{M}{d}}} (x,\, y)$ に対して\footnote{$\Phi_u(\sigma) \in G$ はループ $\sigma$ の\hyperref[prop:holonomy]{ホロノミー}．} $\Gamma_\omega(\sigma) \coloneqq \bigl( u \lmto u \btl \Phi_u(\sigma)\bigr)$
     \end{enumerate}
     と定義される対応
     \begin{align}
-        \Gamma_\omega \colon \PATH{\mfdcal{M}{d}} \lto \VECT
+        \Gamma_\omega \colon \PATH{\mfdcal{M}{d}} \lto \VEC{\mathbb{K}}
     \end{align}
     は関手である．
 
@@ -2449,7 +2448,7 @@ $d=D+1$ 次元時空 $\mfdcal{M}{d}$ を考える．
     
     逆に，関手
     \begin{align}
-        \Gamma \colon \PATH{\mfdcal{M}{d}} \lto \VECT
+        \Gamma \colon \PATH{\mfdcal{M}{d}} \lto \VEC{\mathbb{K}}
     \end{align}
     であって以下の条件を充たすものは $P$ の接続形式 $\omega \in \Omega^1(P;\, \mathfrak{g})$ を与える：
     \begin{enumerate}
@@ -2472,8 +2471,9 @@ $d=D+1$ 次元時空 $\mfdcal{M}{d}$ を考える．
 大域的切断 $s \colon \mfdcal{M}{d} \lto P$ を許容する主束 $P$ およびその接続 $\omega \in \Omega^1(P;\, \mathfrak{g})$ を与え，
 2点 $x,\, y \in \mfdcal{M}{d}$ を繋ぐ曲線 $\sigma \in \Hom{\PATH{\mfdcal{M}{d}}}(x,\, y)$ であって，その\hyperref[def:horizontal-lift-curve]{水平持ち上げ} $\tilde{\sigma}$ が $\tilde{\sigma} (0) = s(x)$ を充たすものをとる．するとこのとき
 $\tilde{\sigma}(1) = s(y) \btl g_\sigma$ を充たす $g_\sigma \in G$ が一意に定まる．さらに2点 $y,\, z \in \mfdcal{M}{d}$ を繋ぐ曲線 $\sigma' \in \Hom{\PATH{\mfdcal{M}{d}}}(y,\, z)$ であって，その水平持ち上げ $\tilde{\sigma'}$ が $\tilde{\sigma'}(0) = s(y)$ を充たすものをとると，
-水平持ち上げの一意性から $\widetilde{(\sigma' * \sigma)} (1) = s(z) \btl g_\sigma g_{\sigma'}$ が成り立つ．従って，$P$ が自明束ならば命題\ref{prop:connection-functor}の関手 $\Gamma_\omega \colon \PATH{\mfdcal{M}{d}} \lto \VECT$ は関手
+水平持ち上げの一意性から $\widetilde{(\sigma' * \sigma)} (1) = s(z) \btl g_\sigma g_{\sigma'}$ が成り立つ．従って，$P$ が自明束ならば命題\ref{prop:connection-functor}の関手 $\Gamma_\omega \colon \PATH{\mfdcal{M}{d}} \lto \VEC{\mathbb{K}}$ は関手
 \begin{align}
+    \label{eq:connection-Wilsonline}
     \Gamma_\omega \colon \PATH{\mfdcal{M}{d}} \lto \deloop{G}
 \end{align}
 と見做せる．ただし $\deloop{G}$ は
@@ -2481,7 +2481,13 @@ $\tilde{\sigma}(1) = s(y) \btl g_\sigma$ を充たす $g_\sigma \in G$ が一意
     \item 一点のみを対象に持つ：$\Obj{\deloop{G}} = \{*\}$
     \item $G$ の元を射に持つ．射の合成は $G$ の積として定める
 \end{itemize}
-ことで構成される圏である．
+ことで構成される圏である\footnote{この圏は\hyperref[def:groupoid]{groupoid}を成し，群 $G$ の\textbf{delooping groupoid}と呼ばれる．}．
+\hyperref[def:connection]{接続} $\omega \in \Omega^1(P;\, \mathfrak{g})$ と関手\eqref{eq:connection-Wilsonline}の同一視を物理語に翻訳すると，\hyperref[def:gauge-field]{ゲージ場} $A$ そのものと，ゲージ場の\textbf{Wilson line}
+\begin{align}
+    \mathcal{P} \exp \left( - \int_\gamma A \right) \WHERE \gamma \in \Hom{\PATH{\mfdcal{M}{d}}} \bigl( \gamma(0),\, \gamma(1) \bigr) 
+\end{align}
+を同一視することに他ならない．
+
 % \footnote{$\Obj{\bm{G}} = \{G\},\; \Hom{\bm{G}}(G,\, G) = G$ であり，射の合成が群演算で，恒等射が $1_G \in \Hom{\bm{G}}(G,\, G) = G$ と言うこと．}．
 自明束 $P$ におけるゲージ変換とは，大域的切断の取り替えに伴う変換関数によって特徴付けられる．変換関数とは，2つの大域的切断 $s_1,\, s_2 \colon M \lto P$ に対して $s_1(x) = s_2(x) \btl g_{12}(x)$ と定義することで定まる $g_{12} \colon M \lto G$ のことであり，$\sigma \in \Hom{\PATH{\mfdcal{M}{d}}}(x,\, y)$ に対して
 \begin{align}
@@ -2504,7 +2510,7 @@ i.e. 変換関数 $g_{12} \colon M \lto P$ は，自然変換
     $\mfdcal{M}{d}$ 上の主束 $G \hookrightarrow P \xrightarrow{\pi} \mfdcal{M}{d}$ を与える．
     このとき $P$ の\hyperref[prop:connection-functor]{関手としての接続}
     \begin{align}
-        \Gamma \colon \PATH{\mfdcal{M}{d}} \lto \VECT
+        \Gamma \colon \PATH{\mfdcal{M}{d}} \lto \VEC{\mathbb{K}}
     \end{align}
     が\textbf{平坦接続} (flat connection) であるとは，
     互いにホモトピックな任意の $\sigma,\, \sigma' \in \Hom{\PATH{\mfdcal{M}{d}}}$ に対して
@@ -2526,19 +2532,19 @@ i.e. 変換関数 $g_{12} \colon M \lto P$ は，自然変換
 \subsection{トポロジカルなゲージ理論：Lie群の場合}
 
 時空が $2+1$ 次元の\underline{連結な}閉多様体 $\mfdcal{M}{3}$ であるとする．
-Lie群 $G$ がコンパクトかつ単連結ならば，$\mfdcal{M}{3}$ 上の任意の主束は自明束と同型になり，Chern-Simons作用
+Lie群 $G$ がコンパクトかつ単連結ならば，$\mfdcal{M}{3}$ 上の任意の主束は自明束と同型になり\footnote{詳細は\url{https://math.stackexchange.com/questions/370313/every-principal-g-bundle-over-a-surface-is-trivial-if-g-is-compact-and-simpl}を参照．}，Chern-Simons作用
 \begin{align}
     S[A] \coloneqq \frac{k}{8\pi^2} \int_{\mfdcal{M}{3}} \Tr \left( A\wedge A + \frac{2}{3} A \wedge A \wedge A \right) 
 \end{align}
-はwell-definedである．
+は $\mfdcal{M}{3}$ 上大域的にwell-definedである．
 しかし，$G$ が一般のコンパクトLie群である場合にはそう上手くいかない．
 
-これを解決する方法としては，$\mfdcal{M}{3}$ を境界に持つ4次元多様体 $\mfdcal{N}{4}$ を持ってきて，
+この問題を解決する方法としては，$\mfdcal{M}{3}$ を境界に持つ4次元多様体 $\mfdcal{N}{4}$ を持ってきて，
 \begin{align}
     S[A] \coloneqq \int_{\mfdcal{N}{4}} \Omega(F) = \frac{k}{8\pi^2} \int_{\mfdcal{N}{4}} \Tr \bigl[ F \wedge F \bigr] 
 \end{align}
 と定義することが考えられる．この $S[A]$ はChern指標\footnote{\hyperref[thm:Chern-Weil]{Chern-Weilの定理}からこれは大域的にwell-deifnedである．}の積分なので整数値を取り，トポロジカルなゲージ場の理論になっている．4次元多様体への拡張は一意ではないので作用は $\mod 1$ の不定性を持つが，分配関数はwell-definedになる．
-しかし，この構成が可能であるためには任意の $\mfdcal{M}{3}$ 上の主束 $G \hookrightarrow P \xrightarrow{\pi} \mfdcal{M}{3}$ に対して，$\mfdcal{N}{4}$ 上の主束 $G \hookrightarrow P' \xrightarrow{\pi'} \mfdcal{N}{4}$ であって，$\partial \mfdcal{N}{4} = \mfdcal{M}{3}$ への制限 $P'|_{\partial \mfdcal{N}{4}} = P$ を充たすようなものが存在しなくてはいけない．
+しかし，この構成が可能であるためには任意の $\mfdcal{M}{3}$ 上の主束 $G \hookrightarrow P \xrightarrow{\pi} \mfdcal{M}{3}$ に対して，$\mfdcal{N}{4}$ 上の主束 $G \hookrightarrow P' \xrightarrow{\pi'} \mfdcal{N}{4}$ であって，$\partial \mfdcal{N}{4} = \mfdcal{M}{3}$ への制限が $P'|_{\partial \mfdcal{N}{4}} = P$ を充たすようなものが存在しなくてはいけない．
 この拡張の障害となるのが，\hyperref[prop:universal-basic]{分類写像} $\gamma \colon \mfdcal{M}{3} \lto BG$ の誘導準同型による $\mfdcal{M}{3}$ の基本類 $[\mfdcal{M}{3}] \in H_3(\mfdcal{M}{3};\, \mathbb{Z})$ の像 $\gamma_* [\mfdcal{M}{3}] \in H_3(BG;\, \mathbb{Z})$ である\footnote{厳密にはボルディズム群 $\Omega^{\LSO}_{3} (BG)$ を考えなくてはいけない．}．もし $\gamma_* [\mfdcal{M}{3}] = 0$ なら拡張が可能だが，そうでないときは不可能ということになる．
 しかしながら，命題\ref{prop:group-cohomology}-(2) よりコンパクトLie群の奇数次のホモロジーは捻れ元 (torsion element) のみから成るので，ある $n \in \mathbb{Z}_{> 0}$ が存在して
 \begin{align}
@@ -2563,7 +2569,7 @@ Lie群 $G$ がコンパクトかつ単連結ならば，$\mfdcal{M}{3}$ 上の�
 \end{align}
 になるのである．
 
-もしくは，\textbf{Cheegar Simons differential character}~\cite{Simons_2007} $\alpha \in \widehat{H^3} \bigl(BG,\, \LU(1)\bigr)$ を使って
+もしくは，\textbf{Cheegar Simons differential character}~\cite{CheegerSimons1985differential}, ~\cite{SimonsSullivan2007diff} $\alpha \in \widehat{H^3} \bigl(BG,\, \mathbb{R}/\mathbb{Z}\bigr)$ を使って
 \begin{align}
     S[A] = \expval{\gamma^* \alpha_A,\, [\mfdcal{M}{3}]}
 \end{align}
@@ -2643,11 +2649,12 @@ $M$ を\hyperref[ax:G-mod]{$G$ 加群}とする．\hyperref[]{Milnor構成}を�
 \end{align}
 と作用する．
 
-群コホモロジーの表式を使って分配関数を計算するには，まず $\mfdcal{M}{d}$ の三角形分割 $\abs{\mathcal{T}} \lto \mfdcal{M}{d}$ をとる．
+群コホモロジーの表式を使って分配関数を計算するには，まず $\mfdcal{M}{d}$ の三角形分割 $\abs{\mathcal{T}} \xrightarrow{\approx} \mfdcal{M}{d}$ をとる．
 簡単のため $d=3$ とする．
-$\mfdcal{M}{3}$ は連結だとしていたので，$BG$ の基点 $\mathrm{pt} \in BG$ を１つ固定することで，\hyperref[prop:universal-basic]{分類写像} $\gamma \colon M \lto BG$ をホモトピックに変形して，任意の0単体 $\sigma_0 \in \mathcal{T}$ を$\gamma[\sigma_0] = \mathrm{pt}$ に写すようにできる．
-すると，任意の1単体 $\sigma_1 \in \mathcal{T}$ は $\gamma(\sigma_1) \in \pi_1(BG,\, \mathrm{pt})$ と見做すことができるが，命題\ref{prop:classifying-space-Kpi1}より $\pi_1(BG,\, \mathrm{pt}) \cong G$ であるから，結局分類写像 $\gamma$ によって $\forall \sigma_1 \in \mathcal{T}$ と何かしらの $g_{\sigma_1} \in G$ が対応付く．この $g_{\sigma_1}$ は格子ゲージ理論におけるリンク変数（i.e. ゲージ場）と見做すと分かりやすい．
-しかるに，$G$ が有限群であることから主束の接続は平坦でなくてはいけない．そのため，もし $\sigma^{(1)}_1,\, \sigma^{(2)}_1,\, \sigma^{(3)}_1 \in \mathcal{T}$ がある2単体 $\sigma_2$ について $\partial(\sigma_2) = \sigma^{(1)}_1 \cup \sigma^{(2)}_1 \cup \sigma^{(3)}_1$ をみたすならば
+$\mfdcal{M}{3}$ は連結だとしていたので，$BG$ の基点 $\mathrm{pt} \in BG$ を１つ固定することで，\hyperref[prop:universal-basic]{分類写像} $\gamma \colon \mfdcal{M}{3} \lto BG$ をホモトピックに変形して，任意の0単体 $\sigma_0 \in \mathcal{T}$ を$\gamma[\sigma_0] = \mathrm{pt} \in BG$ に写すようにできる．
+すると，任意の1単体 $\sigma_1 \in \mathcal{T}$ は分類写像 $\gamma$ のホモトピー類によって $[\gamma \circ \sigma_1] \in \pi_1(BG,\, \mathrm{pt})$ と対応付くが，命題\ref{prop:classifying-space-Kpi1}より $\pi_1(BG,\, \mathrm{pt}) \cong G$ であるから，結局分類写像 $\gamma$ によって $\forall \sigma_1 \in \mathcal{T}$ と何かしらの $g_{\sigma_1} \in G$ が対応付くことになる．
+この $g_{\sigma_1}$ は格子ゲージ理論におけるリンク変数（i.e. ゲージ場）と見做せる．
+しかるに，$G$ が有限群であることから主束の接続は平坦でなくてはいけない．そのため，もし3つの1-単体 $\sigma^{(1)}_1,\, \sigma^{(2)}_1,\, \sigma^{(3)}_1 \in \mathcal{T}$ がある2単体 $\sigma_2$ について $\partial(\sigma_2) = \sigma^{(1)}_1 \cup \sigma^{(2)}_1 \cup \sigma^{(3)}_1$ をみたすならば
 \begin{align}
     \label{eq:cocycle-discrete}
     g_{\sigma_1^{(1)}} g_{\sigma_1^{(2)}} g_{\sigma_1^{(3)}} = \gamma(\sigma^{(1)}_1 \cup \sigma^{(2)}_1 \cup \sigma^{(3)}_1) = 1
