@@ -4994,7 +4994,7 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
     任意の座標変換が区分的線形であるようなアトラスを\textbf{PL構造} (piecewise linear structure) と呼び，区分的線形構造を持つ位相多様体を\textbf{PL多様体} (piecewise linear manifold) と呼ぶ．
 \end{mydef}
 
-2つの単体的複体 $K,\, L \in \Obj{\sSet}$ を取り，その幾何学的実現をそれぞれ $\abs{K},\, \abs{L}$ と書く．
+2つの単体的複体を取り，その幾何学的実現をそれぞれ $\abs{K},\, \abs{L}$ と書く．
 \begin{itemize}
     \item 連続写像 $f \colon \abs{K} \lto \abs{L}$ が\textbf{PL写像}であるとは，$K,\, L$ の細分 $K',\, L'$ が存在して，$f$ が $K'$ の単体を $L'$ の単体に写し，各単体への制限が線型写像になっていることを言う．
     \item 同相写像 $f \colon \abs{K} \lto \abs{L}$ が\textbf{PL同相写像}であるとは，それがPL写像であることを言う．
@@ -5296,9 +5296,10 @@ $M$ の多面体分割 $(P,\, P^{(1)})$ の任意の頂点 $v \in \mathsf{V}(P^{
 \begin{mytheo}[label=thm:MP-polytope,breakable]{多面体分割のPL不変性}
     向き付けられた境界付き $3$ 次元コンパクト多様体 $M$，およびその境界に埋め込まれた有向グラフ $G \subset \partial M$ を与える．$\forall v \in \mathsf{V}(G)$ の\hyperref[def:polyhedron]{配位数}は2以上であるとする\footnote{従って，境界の境界は考えない．}．
 
-    このとき，$(M,\, G)$ の任意の2つの\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)}),\, (P',\, P'{}^{(1)})$ は，以下の操作（\textbf{Matveev-Piergallini move}と呼ぶ）の有限回の組み合わせで互いに写り合う：
+    このとき，$(M,\, G)$ の任意の2つの\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)}),\, (P',\, P'{}^{(1)})$ は，以下の操作（\textbf{Matveev-Piergallini move}と呼ばれる）の有限回の組み合わせで互いに写り合う：
     \begin{description}
-        \item[\textbf{(T0)}] $\partial D^2 = D^2 \cap P \subset P \setminus P^{(1)}$ を充たすような2次元円板 $D^2$ を $P$ に付け足す．さらにグラフ $P^{(1)}$ に1つの頂点とループ辺 $\partial D^2$ を付け足す．
+        \item[\textbf{(T0)}] 
+        % $\partial D^2 = D^2 \cap P \subset P \setminus P^{(1)}$ を充たすような2次元円板 $D^2$ を $P$ に付け足す．さらにグラフ $P^{(1)}$ に1つの頂点とループ辺 $\partial D^2$ を付け足す．
         \begin{align}
             T_0 \colon
             \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
@@ -5320,11 +5321,12 @@ $M$ の多面体分割 $(P,\, P^{(1)})$ の任意の頂点 $v \in \mathsf{V}(P^{
                 \coordinate (g) at (barycentric cs:a=1,b=1,c=1,d=1);
                 \draw[dashed,spath/save=frame] (a) to[out=-10,in=-170] (b) to[out=30,in=-60] (c) to[out=170,in=10] (d) to[out=-150,in=120] (a);
                 \draw[spath/save=bubble] ($(g)+(-0.8,0)$) to[out=90,in=90] ($(g)+(0.8,0)$) arc (0:-180:0.8 and 0.2);
-                \draw[red,thick] ($(g)+(0.8,0)$) arc (0:360:0.8 and 0.2);
+                \draw[spath/save=R,red,thick] ($(g)+(0.8,0)$) arc (0:360:0.8 and 0.2);
                 \node[bullet,red] at ($(g) + (0,-0.2)$) {};
                 \begin{scope}[on background layer]
                     \fill[gray!20, spath/use=frame];
-                    \fill[red!20, spath/use=bubble];
+                    \fill[blue!60, spath/use=R];
+                    \fill[red!20,opacity=0.6, spath/use=bubble];
                 \end{scope}
             \end{tikzpicture}
         \end{align}
@@ -5352,6 +5354,10 @@ $M$ の多面体分割 $(P,\, P^{(1)})$ の任意の頂点 $v \in \mathsf{V}(P^{
                 \begin{scope}[on background layer]
                     \fill[gray!20, spath/use=frame];
                 \end{scope}
+                \node at ($(p) + (-0.5,-0.3)$) {$\vdots$};
+                \node at ($(p) + (-0.5,0.3)$) {$\vdots$};
+                \node at ($(q) + (0.5,-0.3)$) {$\vdots$};
+                \node at ($(q) + (0.5,0.3)$) {$\vdots$};
             \end{tikzpicture}
             \lmto 
             \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
@@ -5374,6 +5380,10 @@ $M$ の多面体分割 $(P,\, P^{(1)})$ の任意の頂点 $v \in \mathsf{V}(P^{
                 \begin{scope}[on background layer]
                     \fill[gray!20, spath/use=frame];
                 \end{scope}
+                \node at ($(p) + (-0.5,-0.3)$) {$\vdots$};
+                \node at ($(p) + (-0.5,0.3)$) {$\vdots$};
+                \node at ($(q) + (0.5,-0.3)$) {$\vdots$};
+                \node at ($(q) + (0.5,0.3)$) {$\vdots$};
             \end{tikzpicture}
         \end{align}
 
@@ -5401,6 +5411,10 @@ $M$ の多面体分割 $(P,\, P^{(1)})$ の任意の頂点 $v \in \mathsf{V}(P^{
                 \begin{scope}[on background layer]
                     \fill[gray!20, spath/use=frame];
                 \end{scope}
+                \node at ($(p) + (-0.5,-0.3)$) {$\vdots$};
+                \node at ($(p) + (-0.5,0.3)$) {$\vdots$};
+                \node at ($(q) + (0.5,-0.3)$) {$\vdots$};
+                \node at ($(q) + (0.5,0.3)$) {$\vdots$};
             \end{tikzpicture}
             \lmto 
             \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
@@ -5420,6 +5434,10 @@ $M$ の多面体分割 $(P,\, P^{(1)})$ の任意の頂点 $v \in \mathsf{V}(P^{
                 \begin{scope}[on background layer]
                     \fill[gray!20, spath/use=frame];
                 \end{scope}
+                \node at ($(g) + (-0.5,-0.3)$) {$\vdots$};
+                \node at ($(g) + (-0.5,0.4)$) {$\vdots$};
+                \node at ($(g) + (0.5,-0.3)$) {$\vdots$};
+                \node at ($(g) + (0.5,0.4)$) {$\vdots$};
             \end{tikzpicture}
         \end{align}
 
@@ -5436,13 +5454,17 @@ $M$ の多面体分割 $(P,\, P^{(1)})$ の任意の頂点 $v \in \mathsf{V}(P^{
                 \coordinate[bullet] (g) at (barycentric cs:a=1,b=1,c=1,d=1);
                 \draw[dashed,spath/save=frame] (a) to[out=-10,in=-170] (b) to[out=30,in=-60] (c) to[out=170,in=10] (d) to[out=-150,in=120] (a);
                 \clip[spath/use=frame];
-                \draw (g.center) -- ++(30:2);
+                \draw[spath/save=R] (g.center) -- +(30:2) -- +(-30:2) -- (g.center) --cycle;
                 \draw (g.center) to[out=90,in=-90] ++(150:2);
                 \draw (g.center) to[out=-120,in=90] ++(-150:2);
-                \draw (g.center) -- ++(-30:2);
+                % \draw (g.center) -- ++(-30:2);
                 \begin{scope}[on background layer]
                     \fill[gray!20, spath/use=frame];
+                    \clip[spath/use=frame];
+                    \fill[red!20, spath/use=R];
                 \end{scope}
+                \node at (barycentric cs:a=1,b=1,g=1) {$\cdots$};
+                \node at (barycentric cs:c=1,d=1,g=1) {$\cdots$};
             \end{tikzpicture}
             \lmto 
             \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
@@ -5453,17 +5475,20 @@ $M$ の多面体分割 $(P,\, P^{(1)})$ の任意の頂点 $v \in \mathsf{V}(P^{
                 \coordinate[bullet] (g) at (barycentric cs:a=1,b=1,c=1,d=1);
                 \draw[dashed,spath/save=frame] (a) to[out=-10,in=-170] (b) to[out=30,in=-60] (c) to[out=170,in=10] (d) to[out=-150,in=120] (a);
                 \clip[spath/use=frame];
-                \draw (g.center) -- ++(30:2);
+                \draw[spath/save=S] (g.center) -- +(30:2) -- +(-30:2) -- (g.center) --cycle;
                 \draw (g.center) to[out=90,in=-90] ++(150:2);
                 \draw (g.center) to[out=-120,in=90] ++(-150:2);
-                \draw (g.center) -- ++(-30:2);
                 \draw[spath/save=reg] ($(g)+(-0.8,0)$) to[out=90,in=180] ($(g) + (-0.2,0.6)$) to[out=0,in=180] ($(g) + (0.2,0.4)$) to[out=0,in=-150] ($(g) + (30:2)$);
-                \draw[red,thick] (g) arc (0:360:0.4 and 0.1);
+                \draw[spath/save=R,red,thick] (g) arc (0:360:0.4 and 0.1);
                 \begin{scope}[on background layer]
                     \fill[gray!20, spath/use=frame];
                     \clip[spath/use=frame];
-                    \fill[red!20, spath/use=reg] -- ($(g) + (-30:2)$) -- (g) arc(0:-180:0.4 and 0.1);
+                    \fill[blue!60, spath/use=R];
+                    \fill[white, spath/use=S];
+                    \fill[red!20, opacity=0.6, spath/use=reg] -- ($(g) + (-30:2)$) -- (g) arc(0:-180:0.4 and 0.1);
                 \end{scope}
+                \node at (barycentric cs:a=1,b=1,g=1) {$\cdots$};
+                \node at (barycentric cs:c=1,d=1,g=1) {$\cdots$};
             \end{tikzpicture}
         \end{align}
     \end{description}
@@ -5498,9 +5523,9 @@ $M$ の多面体分割 $(P,\, P^{(1)})$ の任意の頂点 $v \in \mathsf{V}(P^{
     
 % \end{proof}
 
-\subsection{Turaev-Viro不変量の構成}
+\subsection{Turaev-Viro不変量の構成：閉多様体}
 
-\subsubsection{閉多様体の場合}
+% \subsubsection{閉多様体の場合}
 
 向き付けられた3次元閉多様体 $M$ の\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)})$ を1つ固定する．
 
@@ -5845,7 +5870,7 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
     \item[\textbf{STEP3. contraction vectorの構成}]　
     \label{TV:STEP3}
     
-    \underline{無向辺} $\forall e \in \mathsf{E}(P^{(1)})$ は，丁度2通りの方法で有向辺になる．こうして得られる2つの有向辺をそれぞれ $\tilde{e}_1,\, \tilde{e}_2$ と書くと，\textsf{\textbf{STEP1.}} の構成により
+    \underline{無向辺} $\forall e \in \mathsf{E}(P^{(1)})$ は，丁度2通りの方法で有向辺になる．こうして得られる2つの有向辺をそれぞれ $\tilde{e}_1,\, \tilde{e}_2$ と書くと，\hyperref[TV:STEP1]{\textsf{\textbf{STEP1.}}} の構成により
     \begin{align}
         \mathcal{H} (\tilde{e}_2;\, \Gamma) = \mathcal{H} (\tilde{e}_1;\, \Gamma)^*
     \end{align}
@@ -6245,10 +6270,526 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
 \end{mytheo}
 
 \begin{proof}
-    $\irm{Z}{\text{TV},\Cat{C}}(M)$ が定理\ref{thm:MP-polytope}の操作 \textsf{\textbf{(T0)-(T3)}} に関して不変であることを示せば良い．
+    $2+1$ 次元多様体 $M$ の勝手な\hyperref[def:polyhedron]{多面体分割} $(P,\, P^{(1)})$ を1つ固定し，そこから構成した $\irm{Z}{\text{TV},\Cat{C}}(M;\, P)$ が定理\ref{thm:MP-polytope}の操作 \textsf{\textbf{(T0)-(T3)}} に関して不変であることを示せば良い．
+    \begin{description}
+    \item[\textbf{(T0)}]　
+    
+    \begin{align}
+        T_0 \colon
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)},scale=1.5]
+            \path coordinate (a)
+            ++(2,0) coordinate (b)
+            ++(0.5,1.5) coordinate (c)
+            ++(-2,0) coordinate (d);
+            \draw[dashed,spath/save=frame] (a) to[out=-10,in=-170] (b) to[out=30,in=-60] (c) to[out=170,in=10] (d) to[out=-150,in=120] (a);
+            \begin{scope}[on background layer]
+                \fill[gray!20, spath/use=frame];
+            \end{scope}
+            \node at ($0.5*(a) + 0.5*(c)$) {$R$};
+            \draw[->] ($0.1*(a) + 0.9*(b) + (0,0.3)$) arc (0:270:0.1);
+        \end{tikzpicture}
+        \lmto 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)},scale=1.5]
+            \path coordinate (a)
+            ++(2,0) coordinate (b)
+            ++(0.5,1.5) coordinate (c)
+            ++(-2,0) coordinate (d);
+            \coordinate (g) at (barycentric cs:a=1,b=1,c=1,d=1);
+            \draw[dashed,spath/save=frame] (a) to[out=-10,in=-170] (b) to[out=30,in=-60] (c) to[out=170,in=10] (d) to[out=-150,in=120] (a);
+            \draw[spath/save=bubble] ($(g)+(-0.8,0)$) to[out=90,in=90,looseness=1.5] node[red,midway,below] {$R_1$} ($(g)+(0.8,0)$) arc (0:-180:0.8 and 0.2);
+            \draw[spath/save=R,red,thick] ($(g)+(0.8,0)$) arc (0:360:0.8 and 0.2);
+            \node[bullet,red] at ($(g) + (0,-0.2)$) {};
+            \begin{scope}[on background layer]
+                \fill[gray!20, spath/use=frame];
+                \fill[blue!60, spath/use=R];
+                \fill[red!20, opacity=0.6, spath/use=bubble];
+            \end{scope}
+            \node[below,red] at ($(g) + (0,-0.2)$) {$v$};
+            \node at ($0.8*(a) + 0.2*(b) + (0,0.3)$) {$R$};
+            \node[blue] at (g) {$R_2$};
+            \draw[->] ($0.1*(a) + 0.9*(b) + (0,0.3)$) arc (0:270:0.1);
+            \draw[->,blue] ($(g) + (0.5,0)$) arc (0:270:0.1);
+            \draw[->,red] ($(g) + (0.5,0.4)$) arc (0:270:0.1);
+        \end{tikzpicture}
+    \end{align}
+    によって $M$ の多面体分割 $(P,\, P^{(1)})$ には
+    \begin{itemize}
+        \item $\mathsf{V}(P^{(1)})$ に新しく1つの頂点 $v$ が，
+        \item $\mathsf{E}(P^{(1)})$ に新しく1つの無向辺 $e$ が，
+        \item $\mathrm{Reg}(P)$ に新しく2つの\hyperref[def:polyhedron]{領域} $R_1,\, R_2$ が
+    \end{itemize}
+    追加される．\hyperref[def:coloring]{彩色}
+    \begin{align}
+        \Gamma \colon \mathrm{Reg}\bigl( T_0(P) \bigr) \lto \Simp(\Cat{C})
+    \end{align}
+    を1つ固定する．
+    すると，新たに追加された無向辺 $e \in \mathsf{E}\bigl( T_0(P^{(1)}) \bigr)$ から\hyperref[TV:STEP3]{\textsf{\textbf{STEP3.}}}によって構成されるcontraction vectorは
+    \begin{align}
+        \Omega_{\Gamma,\, e}(1_{\mathbb{K}}) \in \expval{\Gamma(R_2)^*,\, \Gamma(R),\, \Gamma(R_1)^*} \otimes_{\mathbb{K}} \expval{\Gamma(R_1),\, \Gamma(R)^*,\, \Gamma(R_2)}
+    \end{align}
+    であるが，補題\ref{lem:spherical-partition}-(5) によってこれは
+    \begin{align}
+        \Omega_{\Gamma,\, e}(1_{\mathbb{K}}) = 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \draw[-<-=.5] (0,0) -- node[midway,right] {$\Gamma(R_1)$} ++(-90:1.5);
+            \draw[-<-=.5] (0,0) -- node[midway,above] {$\Gamma(R_2)$} ++(150:1.5);
+            \draw[->-=.5] (0,0) -- node[midway,above] {$\Gamma(R)$} ++(30:1.5);
+            \node[circlenode] at (0,0) {$\varphi^\bullet$};
+        \end{tikzpicture}
+        \otimes_{\mathbb{K}}
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \draw[->-=.5] (0,0) -- node[midway,right] {$\Gamma(R_1)$} ++(-90:1.5);
+            \draw[-<-=.5] (0,0) -- node[midway,above] {$\Gamma(R)$} ++(150:1.5);
+            \draw[->-=.5] (0,0) -- node[midway,above] {$\Gamma(R_2)$} ++(30:1.5);
+            \node[circlenode] at (0,0) {$\varphi_\bullet$};
+        \end{tikzpicture}
+    \end{align}
+    と計算できる．
+    \hyperref[TV:STEP4]{\textsf{\textbf{STEP4.}}}によって\hyperref[def:linkedG]{絡みグラフ} $\mathrm{Lk} \bigl( v;\, T_0(P) \bigr)$ から得られるストリング図式は
+    \begin{align}
+        \mathbb{F}_{\Cat{C},\, \Gamma} \Bigl( \mathrm{Lk} \bigl(v;\, T_0(P) \bigr)  \Bigr) &=
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (v_1)
+            ++(3,0) coordinate (v_2)
+            ;
+            \draw[->-=.5] (v_1) -- node[midway,above]{$\Gamma(R)$}(v_2);
+            \draw[-<-=.5] (v_1) to[out=60,in=120] node[midway,above]{$\Gamma(R_2)$} (v_2);
+            \draw[-<-=.5] (v_1) to[out=-60,in=-120] node[midway,below]{$\Gamma(R_1)$} (v_2);
+            \node[circlenode] at (v_1) {};
+            \node[circlenode] at (v_2) {};
+        \end{tikzpicture} \\
+        &\in \Hom{\VEC{\mathbb{K}}} \Bigl( \expval{\Gamma(R_2)^*,\, \Gamma(R),\, \Gamma(R_1)^*} \otimes_{\mathbb{K}} \expval{\Gamma(R_1),\, \Gamma(R)^*,\, \Gamma(R_2)},\, \mathbb{K} \Bigr) 
+    \end{align}
+    であるから，結局\hyperref[TV:STEP5]{\textsf{\textbf{STEP5.}}}の計算は
+    \begin{align}
+        Z \bigl(\Gamma;\, T_0(P)\bigr)
+        &= \mathbb{F}_{\Cat{C},\, \Gamma} \Bigl( \mathrm{Lk} \bigl(v;\, T_0(P) \bigr)  \Bigr) \Bigl( \Omega_{\Gamma,\, e}(1_{\mathbb{K}}) \Bigr) \otimes_{\mathbb{K}} Z (\Gamma|_{\mathrm{Reg}(P)};\, P) \\
+        &= \quad \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (v_1)
+            ++(3,0) coordinate (v_2)
+            ;
+            \draw[-<-=.5] (v_1) -- node[midway,above]{$\Gamma(R)$}(v_2);
+            \draw[->-=.5] (v_1) to[out=60,in=120] node[midway,above]{$\Gamma(R_2)$} (v_2);
+            \draw[-<-=.5] (v_1) to[out=-60,in=-120] node[midway,below]{$\Gamma(R_1)$} (v_2);
+            \node[circlenode] at (v_1) {$\varphi^\bullet$};
+            \node[circlenode] at (v_2) {$\varphi_\bullet$};
+        \end{tikzpicture} 
+        \quad \otimes_{\mathbb{K}} Z (\Gamma|_{\mathrm{Reg}(P)};\, P) \\
+        &= \dim_{\mathbb{K}} \bigl( \expval{\Gamma(R_1),\, \Gamma(R)^*,\, \Gamma(R_2)} \bigr) Z (\Gamma|_{\mathrm{Reg}(P)};\, P)  &&\because\;\text{補題\ref{lem:TVBW-1}-(1)} \\
+        &= N^{\Gamma(R)}_{\Gamma(R_1),\, \Gamma(R_2)} Z (\Gamma|_{\mathrm{Reg}(P)};\, P)
+    \end{align}
+    と実行できる．一方で
+    \begin{align}
+        \prod_{S \in \mathrm{Reg}\bigl(T_0(P)\bigr)} \dim \bigl( \Gamma(S) \bigr)^{\chi(S)}
+        &= \frac{\dim \bigl(\Gamma(R_1)\bigr) \dim \bigl(\Gamma(R_2)\bigr)}{\dim \bigl( \Gamma(R) \bigr) }\prod_{S \in \mathrm{Reg}(P)} \dim \bigl( \Gamma(S) \bigr)^{\chi(S)}, \\
+        \abs{M \setminus T_0(P)} &= \abs{M \setminus P} + 1
+    \end{align}
+    であるから，
+    \begin{align}
+        &Z_{\text{TV},\Cat{C}} \bigl( M;\, T_0(P) \bigr)  \\
+        &= \dim(\Cat{C})^{-\abs{M \setminus P}} \sum_{\Gamma \colon \mathrm{Reg}(P) \to \Simp(\Cat{C})} Z(\Gamma;\, P) \prod_{S \in \mathrm{Reg}(P)} \dim \bigl( \Gamma(S) \bigr)^{\chi(S)} \\
+        &\qquad \times \left(\frac{1}{\dim \bigl( \Gamma(R) \bigr) \dim(\Cat{C})}\sum_{a,\, b \in \Simp(\Cat{C})} \dim (a) \dim (b) N^{\Gamma(R)}_{ab}\right) \\
+        &= Z_{\text{TV},\Cat{C}} (M;\, P) \qquad \because\; \text{補題\ref{lem:basedring}-(1) \&}\, \dim(x) = \dim (x^*)
+    \end{align}
+    が言えた\footnote{$\dim (x) = \dim(x^*)$ が成り立つのは $\Cat{C}$ が\hyperref[def:spherical]{球状テンソル圏}であるため．}．
+    
+    \item[\textbf{(T1)}] 
+    
+    \begin{align}
+        T_1 \colon
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (a)
+            ++(2,0) coordinate (b)
+            ++(0.5,1.5) coordinate (c)
+            ++(-2,0) coordinate (d);
+            \coordinate (g) at (barycentric cs:a=1,b=1,c=1,d=1);
+            \coordinate[bullet,label=above left:$u$] (p) at ($(g) + (-0.5,0)$);
+            \coordinate[bullet,label=above right:$v$] (q) at ($(g) + (0.5,0)$);
+            \draw[dashed,spath/save=frame] (a) to[out=-10,in=-170] (b) to[out=30,in=-60] (c) to[out=170,in=10] (d) to[out=-150,in=120] (a);
+            \clip[spath/use=frame];
+            \draw (p) -- ++(120:2);
+            \draw (p) -- ++(180:2);
+            \draw (p) -- ++(-120:2);
+            \draw (q) -- ++(60:2);
+            \draw (q) -- ++(0:2);
+            \draw (q) -- ++(-60:2);
+            \begin{scope}[on background layer]
+                \fill[gray!20, spath/use=frame];
+            \end{scope}
+            \node at (barycentric cs:a=1,c=1) {$R$};
+            \draw[->] ($0.5*(a) + 0.5*(b) + (0,0.3)$) arc (0:270:0.1);
+            \node at ($(p) + (-0.5,-0.3)$) {$\vdots$};
+            \node at ($(p) + (-0.5,0.3)$) {$\vdots$};
+            \node at ($(q) + (0.5,-0.3)$) {$\vdots$};
+            \node at ($(q) + (0.5,0.3)$) {$\vdots$};
+        \end{tikzpicture}
+        \lmto 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (a)
+            ++(2,0) coordinate (b)
+            ++(0.5,1.5) coordinate (c)
+            ++(-2,0) coordinate (d);
+            \coordinate (g) at (barycentric cs:a=1,b=1,c=1,d=1);
+            \coordinate[bullet,label=above left:$u$] (p) at ($(g) + (-0.5,0)$);
+            \coordinate[bullet,label=above right:$v$]  (q) at ($(g) + (0.5,0)$);
+            \draw[thick,red] (p) -- (q);
+            \draw[dashed,spath/save=frame] (a) to[out=-10,in=-170] (b) to[out=30,in=-60] (c) to[out=170,in=10] (d) to[out=-150,in=120] (a);
+            \clip[spath/use=frame];
+            \draw (p) -- ++(120:2);
+            \draw (p) -- ++(180:2);
+            \draw (p) -- ++(-120:2);
+            \draw (q) -- ++(60:2);
+            \draw (q) -- ++(0:2);
+            \draw (q) -- ++(-60:2);
+            \begin{scope}[on background layer]
+                \fill[gray!20, spath/use=frame];
+            \end{scope}
+            \node at ($(g) + (0,-0.3)$) {$R$};
+            \draw[->] ($0.6*(a) + 0.4*(b) + (0,0.3)$) arc (0:270:0.1);
+            \node[red] at ($(g) + (0,0.3)$) {$R'$};
+            \draw[->] ($0.7*(c) + 0.3*(d) + (0,-0.3)$) arc (0:270:0.1);
+            \node at ($(p) + (-0.5,-0.3)$) {$\vdots$};
+            \node at ($(p) + (-0.5,0.3)$) {$\vdots$};
+            \node at ($(q) + (0.5,-0.3)$) {$\vdots$};
+            \node at ($(q) + (0.5,0.3)$) {$\vdots$};
+        \end{tikzpicture}
+    \end{align}
+    によって $M$ の多面体分割 $(P,\, P^{(1)})$ には
+    \begin{itemize}
+        \item $\mathsf{E}(P^{(1)})$ に新しく1つの無向辺 $e$ が，
+        \item $\mathrm{Reg}(P)$ に新しく1つの領域 $R'$ が\footnote{実は $R'$ と $R$ が連結である場合もありえる．}
+    \end{itemize}
+    追加される．彩色
+    \begin{align}
+        \Gamma \colon \mathrm{Reg} \bigl( T_1(P) \bigr)  \lto \Simp(\Cat{C})
+    \end{align}
+    を1つ固定する．すると，新たに追加された無向辺 $e \in \mathsf{E}\bigl( T_0(P^{(1)}) \bigr)$ から\hyperref[TV:STEP3]{\textsf{\textbf{STEP3.}}}によって構成されるcontraction vectorはちょうど
+    \begin{align}
+        \Omega_{\Gamma,\, e} (1_{\mathbb{K}}) \in \expval{\Gamma(R)^*,\, \Gamma(R')} \otimes_{\mathbb{K}} \expval{\Gamma(R),\, \Gamma(R')^*}
+    \end{align}
+    であり，$\Gamma(R) = \Gamma(R')$ でない限り $0$ になる．
+    このことから，\hyperref[TV:STEP5]{\textsf{\textbf{STEP5.}}}の計算のうち2頂点 $u,\, v \in \mathsf{V}(P^{(1)})$ に関連する部分は
+    \begin{align}
+        &\Bigl(\mathbb{F}_{\Cat{C},\, \Gamma} \left( 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (A)
+                ++(1,0) coordinate[bullet] (x)
+                ;
+                \draw[->-=.5] (A) to[out=60,in=120,looseness=2] node[midway,above right,red] {$R'$} (x);
+                \draw[-<-=.5] (A) to[out=-60,in=-120,looseness=2] node[midway,below right] {$R$} (x);
+                \node[circle,fill=black!20,minimum size=10mm] at (A) {};
+            \end{tikzpicture}
+        \right) \otimes_{\mathbb{K}} \mathbb{F}_{\Cat{C},\, \Gamma} \left( 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (A)
+                ++(-1,0) coordinate[bullet] (x)
+                ;
+                \draw[-<-=.5] (A) to[out=120,in=60,looseness=2] node[midway,above left,red] {$R'$} (x);
+                \draw[->-=.5] (A) to[out=-120,in=-60,looseness=2] node[midway,below left] {$R$} (x);
+                \node[circle,fill=black!20,minimum size=10mm] at (A) {};
+            \end{tikzpicture}
+         \right)\Bigr) \Bigl( \Omega_{\Gamma,\, e} (1_{\mathbb{K}}) \Bigr) \\
+         &= \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (A)
+            ++(2,0) coordinate (x)
+            ++(1,0) coordinate (y)
+            ++(2,0) coordinate (B)
+            ;
+            \draw[-<-=.5] (A) to[out=60,in=120] node[midway,above right] {$\Gamma(R)$} (x);
+            \draw[->-=.5] (A) to[out=-60,in=-120] node[midway,below right] {$\Gamma(R)$} (x);
+            \draw[->-=.5] (B) to[out=120,in=60] node[midway,above left] {$\Gamma(R)$} (y);
+            \draw[-<-=.5] (B) to[out=-120,in=-60] node[midway,below left] {$\Gamma(R)$} (y);
+            \node[circlenode] at (x) {$\varphi^\bullet$};
+            \node[circlenode] at (y) {$\varphi_\bullet$};
+            \node[circle,fill=black!20,minimum size=10mm] at (A) {};
+            \node[circle,fill=black!20,minimum size=10mm] at (B) {};
+        \end{tikzpicture} &&\because\; \text{補題\ref{lem:spherical-partition}-(5)}\\
+        % &= \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        %     \path coordinate (A)
+        %     ++(2,0) coordinate (B)
+        %     ;
+        %     \draw[-<-=.5] (A) to[out=60,in=120,looseness=2] node[midway,above] {$\Gamma(R)$} (B);
+        %     \draw[->-=.5] (A) to[out=-60,in=-120,looseness=2] node[midway,below] {$\Gamma(R)$} (B);
+        %     \node[circle,fill=black!20,minimum size=10mm] at (A) {};
+        %     \node[circle,fill=black!20,minimum size=10mm] at (B) {};
+        % \end{tikzpicture} &&\because\; \text{補題\ref{lem:TVBW-1}-(3)}\\
+        % &= \frac{1}{\dim \bigl( \Gamma(R) \bigr)}
+        &= \frac{1}{\dim \bigl( \Gamma(R) \bigr) }\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (A)
+            ++(4,0) coordinate (B)
+            ;
+            \draw[->-=.5] ($(A)+(60:0.5)$) to[out=0,in=0,looseness=2] node[midway,right] {$\Gamma(R)$} ($(A)+(-60:0.5)$);
+            \draw[->-=.5] ($(B)+(-120:0.5)$) to[out=180,in=180,looseness=2] node[midway,left] {$\Gamma(R)$} ($(B)+(120:0.5)$);
+            \node[circle,fill=black!20,minimum size=10mm] at (A) {};
+            \node[circle,fill=black!20,minimum size=10mm] at (B) {};
+        \end{tikzpicture}
+    \end{align}
+    だと分かる．ただし，最後の等号で\hyperref[lem:nondegen-pairing]{非退化な双線形形式 $\omega$} に関する双対基底として具体的に
+    \begin{align}
+        \varphi^\bullet &= \frac{1}{\dim_p \bigl( \Gamma(R) \bigr)}
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate[bullet,label=left:$p_{\Gamma(R)}$] (x_1)
+            ++(1,0) coordinate (x_2)
+            ++(1,0) coordinate (x_3)
+            ++(1,0) coordinate (x_4)
+            ;
+            \REV{x_1}{x_2}
+            \RCOEV{x_2}{x_3}
+            \LCOEV{x_1}{x_4}
+            \draw[->-=.5] (x_3) -- ++(0,1);
+            \draw[-<-=.5] (x_4) -- ++(0,1);
+            \node at (0.5,1) {$\lev_{\Gamma(R)^*}$};
+            \node at (1.5,-1) {$\lcoev_{\Gamma(R)^*}$};
+            \node at (1.5,-2) {$\lcoev_{\Gamma(R)}$};
+        \end{tikzpicture}
+        \in \expval{\Gamma(R),\, \Gamma(R)^*}^*, \\ 
+        \varphi_\bullet &= \lcoev_{\Gamma(R)} \in \expval{\Gamma(R),\, \Gamma(R)^*}
+    \end{align}
+    を取れることを用いた\footnote{$\dim_{\mathbb{K}} \bigl( \expval{\Gamma(R),\, \Gamma(R)^*} \bigr) = 1$ である！なお，$p_{\Gamma(R)} \in \Hom{\Cat{C}} \bigl( \Gamma(R),\, \Gamma(R)^{**} \bigr) $ は $\Cat{C}$ の\hyperref[def:spherical]{球状構造}である．}．
+    最右辺は $\dim \bigl( \Gamma(R) \bigr)^{-1}$ 倍を除いて $T_1$ を施す前と等しい．
+
+    ところで，$\Gamma(R) = \Gamma(R')$ のとき
+    \begin{align}
+        \prod_{S \in \mathrm{Reg}\bigl(T_1(P)\bigr)} \dim \bigl( \Gamma(S) \bigr)^{\chi(S)}
+        &= \dim \bigl( \Gamma(R) \bigr) \prod_{S \in \mathrm{Reg}(P)} \dim \bigl( \Gamma(S) \bigr)^{\chi(S)}, \\
+        \abs{M \setminus T_1(P)} &= \abs{M \setminus P}
+    \end{align}
+    が成り立つので $Z_{\text{TV},\Cat{C}} \bigl( M;\, T_1(P) \bigr)  = Z_{\text{TV},\Cat{C}} (M;\, P)$ が言えた．
+
+    \item[\textbf{(T2)}]
+    
+    \begin{align}
+        T_2 \colon
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (a)
+            ++(2,0) coordinate (b)
+            ++(0.5,1.5) coordinate (c)
+            ++(-2,0) coordinate (d);
+            \coordinate (g) at (barycentric cs:a=1,b=1,c=1,d=1);
+            \coordinate[bullet] (p) at ($(g) + (-0.5,0)$);
+            \coordinate[bullet] (q) at ($(g) + (0.5,0)$);
+            \draw[dashed,spath/save=frame] (a) to[out=-10,in=-170] (b) to[out=30,in=-60] (c) to[out=170,in=10] (d) to[out=-150,in=120] (a);
+            \clip[spath/use=frame];
+            \draw (p) -- (q);
+            \draw (p) -- ++(120:2);
+            \draw (p) -- ++(180:2);
+            \draw (p) -- ++(-120:2);
+            \draw (q) -- ++(60:2);
+            \draw (q) -- ++(0:2);
+            \draw (q) -- ++(-60:2);
+            \begin{scope}[on background layer]
+                \fill[gray!20, spath/use=frame];
+            \end{scope}
+            \node at ($(g) + (0,-0.3)$) {$R$};
+            \draw[->] ($0.6*(a) + 0.4*(b) + (0,0.3)$) arc (0:270:0.1);
+            \node at ($(g) + (0,0.3)$) {$R'$};
+            \draw[->] ($0.7*(c) + 0.3*(d) + (0,-0.3)$) arc (0:270:0.1);
+            \node at ($(p) + (-0.5,-0.3)$) {$\vdots$};
+            \node at ($(p) + (-0.5,0.3)$) {$\vdots$};
+            \node at ($(q) + (0.5,-0.3)$) {$\vdots$};
+            \node at ($(q) + (0.5,0.3)$) {$\vdots$};
+        \end{tikzpicture}
+        \lmto 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (a)
+            ++(2,0) coordinate (b)
+            ++(0.5,1.5) coordinate (c)
+            ++(-2,0) coordinate (d);
+            \coordinate[bullet,label=right:$u$] (g) at (barycentric cs:a=1,b=1,c=1,d=1);
+            \draw[dashed,spath/save=frame] (a) to[out=-10,in=-170] (b) to[out=30,in=-60] (c) to[out=170,in=10] (d) to[out=-150,in=120] (a);
+            \clip[spath/use=frame];
+            \draw (g) -- ++(120:2);
+            \draw (g) -- ++(180:2);
+            \draw (g) -- ++(-120:2);
+            \draw (g) -- ++(60:2);
+            \draw (g) -- ++(0:2);
+            \draw (g) -- ++(-60:2);
+            \begin{scope}[on background layer]
+                \fill[gray!20, spath/use=frame];
+            \end{scope}
+            \node at ($(g) + (0,-0.3)$) {$R$};
+            \draw[->] ($0.4*(a) + 0.6*(b) + (0,0.15)$) arc (0:270:0.1);
+            \node at ($(g) + (0,0.3)$) {$R'$};
+            \draw[->] ($0.5*(c) + 0.5*(d) + (0,-0.15)$) arc (0:270:0.1);
+            \node at ($(g) + (-0.5,-0.3)$) {$\vdots$};
+            \node at ($(g) + (-0.5,0.4)$) {$\vdots$};
+            \node at ($(g) + (0.5,-0.3)$) {$\vdots$};
+            \node at ($(g) + (0.5,0.4)$) {$\vdots$};
+        \end{tikzpicture}
+    \end{align}
+    である．
+    \hyperref[TV:STEP5]{\textsf{\textbf{STEP5.}}}の計算のうち非自明な部分は頂点 $u \in \mathsf{V} \bigl( T_2(P^{(1)}) \bigr)$ に関連する部分のみであり，
+    \begin{align}
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (A)
+                ++(2,0) coordinate (B)
+                ;
+                \draw[-<-=.5] (A) to[out=60,in=120] node[midway,above right] {$\Gamma(R')$} (B);
+                \draw[->-=.5] (A) to[out=-60,in=-120] node[midway,below right] {$\Gamma(R)$} (B);
+                \node[circle,fill=black!20,minimum size=10mm] at (A) {};
+                \node[circle,fill=black!20,minimum size=10mm] at (B) {};
+            \end{tikzpicture}
+            &= \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (A)
+                ++(2,0) coordinate (x)
+                ++(1,0) coordinate (y)
+                ++(2,0) coordinate (B)
+                ;
+                \draw[-<-=.5] (A) to[out=60,in=120] node[midway,above right] {$\Gamma(R')$} (x);
+                \draw[->-=.5] (A) to[out=-60,in=-120] node[midway,below right] {$\Gamma(R)$} (x);
+                \draw[->-=.5] (B) to[out=120,in=60] node[midway,above left] {$\Gamma(R')$} (y);
+                \draw[-<-=.5] (B) to[out=-120,in=-60] node[midway,below left] {$\Gamma(R)$} (y);
+                \node[circlenode] at (x) {$\varphi^\bullet$};
+                \node[circlenode] at (y) {$\varphi_\bullet$};
+                \node[circle,fill=black!20,minimum size=10mm] at (A) {};
+                \node[circle,fill=black!20,minimum size=10mm] at (B) {};
+            \end{tikzpicture}  &&\because\; \text{補題\ref{lem:TVBW-1}-(3)} \\
+            &= \Bigl(\mathbb{F}_{\Cat{C},\, \Gamma} \left( 
+                \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                    \path coordinate (A)
+                    ++(1,0) coordinate[bullet] (x)
+                    ;
+                    \draw[->-=.5] (A) to[out=60,in=120,looseness=2] node[midway,above right] {$R'$} (x);
+                    \draw[-<-=.5] (A) to[out=-60,in=-120,looseness=2] node[midway,below right] {$R$} (x);
+                    \node[circle,fill=black!20,minimum size=10mm] at (A) {};
+                \end{tikzpicture}
+            \right) \otimes_{\mathbb{K}} \mathbb{F}_{\Cat{C},\, \Gamma} \left( 
+                \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                    \path coordinate (A)
+                    ++(-1,0) coordinate[bullet] (x)
+                    ;
+                    \draw[-<-=.5] (A) to[out=120,in=60,looseness=2] node[midway,above left] {$R'$} (x);
+                    \draw[->-=.5] (A) to[out=-120,in=-60,looseness=2] node[midway,below left] {$R$} (x);
+                    \node[circle,fill=black!20,minimum size=10mm] at (A) {};
+                \end{tikzpicture}
+             \right)\Bigr) \Bigl( \Omega_{\Gamma,\, e} (1_{\mathbb{K}}) \Bigr)
+             &&\because\; \text{補題\ref{lem:spherical-partition}-(5)}\\
+    \end{align}
+    と計算できるが，\textsf{\textbf{(T1)}}と同様に最右辺は $T_2$ を施す前と等しい．Euler標数の変化はないので $Z_{\text{TV},\Cat{C}} \bigl( M;\, T_2(P) \bigr)  = Z_{\text{TV},\Cat{C}} (M;\, P)$ が言えた．
+
+    \item[\textbf{(T3)}] 
+    
+    \begin{align}
+        T_3 \colon
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)},scale=1.5]
+            \path coordinate (a)
+            ++(2,0) coordinate (b)
+            ++(0.5,1.5) coordinate (c)
+            ++(-2,0) coordinate (d);
+            \coordinate[bullet] (g) at (barycentric cs:a=1,b=1,c=1,d=1);
+            \draw[dashed,spath/save=frame] (a) to[out=-10,in=-170] (b) to[out=30,in=-60] (c) to[out=170,in=10] (d) to[out=-150,in=120] (a);
+            \clip[spath/use=frame];
+            \draw[spath/save=R] (g.center) -- +(30:2) -- +(-30:2) -- (g.center) --cycle;
+            \draw (g.center) to[out=90,in=-90] ++(150:2);
+            \draw (g.center) to[out=-120,in=90] ++(-150:2);
+            % \draw (g.center) -- ++(-30:2);
+            \begin{scope}[on background layer]
+                \fill[gray!20, spath/use=frame];
+                \clip[spath/use=frame];
+                \fill[red!20, spath/use=R];
+            \end{scope}
+            \node (R1) at (barycentric cs:a=1,g=1,d=1) {$R_1$};
+            % \node (R2) at (barycentric cs:a=1,g=1,b=1) {$R_2$};
+            \node[red] (R2) at (barycentric cs:b=1,g=1,c=1) {$R_2$};
+            % \node (R4) at (barycentric cs:c=1,g=1,d=1) {$R_4$};
+            \draw[->] ($(R1) + (-0.2,0)$) arc (0:270:0.1);
+            % \draw[->] ($(R2) + (0,-0.2)$) arc (0:270:0.1);
+            \draw[->,red] ($(R2) + (0.4,0)$) arc (0:270:0.1);
+            % \draw[->] ($(R4) + (0,0.2)$) arc (0:270:0.1);
+            \node at (barycentric cs:a=1,b=1,g=1) {$\cdots$};
+            \node at (barycentric cs:c=1,d=1,g=1) {$\cdots$};
+        \end{tikzpicture}
+        \lmto 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)},scale=1.5]
+            \path coordinate (a)
+            ++(2,0) coordinate (b)
+            ++(0.5,1.5) coordinate (c)
+            ++(-2,0) coordinate (d);
+            \coordinate[bullet] (g) at (barycentric cs:a=1,b=1,c=1,d=1);
+            \draw[dashed,spath/save=frame] (a) to[out=-10,in=-170] (b) to[out=30,in=-60] (c) to[out=170,in=10] (d) to[out=-150,in=120] (a);
+            \clip[spath/use=frame];
+            \draw[spath/save=S] (g.center) -- +(30:2) -- +(-30:2) -- (g.center) --cycle;
+            \draw (g.center) to[out=90,in=-90] ++(150:2);
+            \draw (g.center) to[out=-120,in=90] ++(-150:2);
+            \draw[spath/save=reg] ($(g)+(-0.8,0)$) to[out=90,in=180] ($(g) + (-0.2,0.6)$) to[out=0,in=180] ($(g) + (0.2,0.4)$) to[out=0,in=-150] ($(g) + (30:2)$);
+            \draw[spath/save=R,red,thick] (g) arc (0:360:0.4 and 0.1) --cycle;
+            \begin{scope}[on background layer]
+                \fill[gray!20, spath/use=frame];
+                \fill[blue!60, spath/use=R];
+                \clip[spath/use=frame];
+                \fill[white, spath/use=S];
+                \fill[red!20, spath/use=reg, opacity=0.6] -- ($(g) + (-30:2)$) -- (g) arc(0:-180:0.4 and 0.1);
+            \end{scope}
+            \node[blue] (R3) at ($(g) + (-0.3,0)$) {$R_3$};
+            \draw[->,blue] ($(R3) + (-0.2,0)$) arc (0:270:0.1);
+            \node at (barycentric cs:a=1,b=1,g=1) {$\cdots$};
+            \node at (barycentric cs:c=1,d=1,g=1) {$\cdots$};
+        \end{tikzpicture}
+    \end{align}
+    \end{description}
+    によって $M$ の多面体分割 $(P,\, P^{(1)})$ には
+    \begin{itemize}
+        \item $\mathsf{E}(P^{(1)})$ に新しく1つの無向辺 $e$ が，
+        \item $\mathrm{Reg}(P)$ に新しく1つの領域 $R_5$ が
+    \end{itemize}
+    追加される．彩色
+    \begin{align}
+        \Gamma \colon \mathrm{Reg} \bigl( T_3(P) \bigr) \lto \Simp(\Cat{C})
+    \end{align}
+    を1つ固定しよう．
+    \hyperref[TV:STEP5]{\textsf{\textbf{STEP5.}}}の計算のうち非自明な部分は，
+    図中の頂点から構成される\hyperref[def:linkedG]{絡みグラフ}のうち，新しく追加された辺 $e$ と関連する部分のみであり，
+    \begin{align}
+        \mathbb{F}_{\Cat{C},\, \Gamma} \left( 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[bullet] (x)
+                +(0,2) coordinate[bullet] (y)
+                +(1.5,1) coordinate (A)
+                ;
+                \draw[->-=.5] (x) to[out=120,in=-120] node[midway,left,blue] {$R_3$} (y);
+                \draw[->-=.5] (x) to[out=60,in=-60] node[midway,right,red] {$R_2$} (y);
+                \draw[-<-=.5] (x) to[out=-90,in=-90] node[midway,below right] {$R_1$} (A);
+                \draw[->-=.5] (y) to[out=90,in=90] node[midway,above right] {$R_1$} (A);
+                \node[circle,fill=black!20,minimum size=10mm] at (A) {};
+            \end{tikzpicture}
+        \right) \bigl( \Omega_{\Gamma,\, e}(1_{\mathbb{K}}) \bigr) 
+        &= \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (x)
+            +(0,2) coordinate (y)
+            +(2,1) coordinate (A)
+            ;
+            \draw[-<-=.5] (x) to[out=120,in=-120] node[midway,left,blue] {$\Gamma(R_3)$} (y);
+            \draw[-<-=.5] (x) to[out=60,in=-60] node[midway,right,red] {$\Gamma(R_2)$} (y);
+            \draw[->-=.5] (x) to[out=-90,in=-90] node[midway,below right] {$\Gamma(R_1)$} (A);
+            \draw[-<-=.5] (y) to[out=90,in=90] node[midway,above right] {$\Gamma(R_1)$} (A);
+            \node[circle,fill=black!20,minimum size=10mm] at (A) {};
+            \node[circlenode] at (x) {$\varphi^\bullet$};
+            \node[circlenode] at (y) {$\varphi_\bullet$};
+        \end{tikzpicture} &&\because\; \text{補題\ref{lem:spherical-partition}-(5)} \\ 
+        &= \frac{N^{\Gamma(R_1)}_{\Gamma(\textcolor{blue}{R_3}) \Gamma(\textcolor{red}{R_2})}}{\dim \bigl( \Gamma(R_1) \bigr)} \quad
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \draw[->-=.5] (90:0.5) to[out=120,in=-120,looseness=5] node[midway,left] {$\Gamma(R_1)$} (-90:0.5);
+            \node[circle,fill=black!20,minimum size=10mm] at (0,0) {};
+        \end{tikzpicture} &&\because\; \text{補題\ref{lem:TVBW-1}-(1)}
+    \end{align}
+    と計算できる．
+    ところで，
+    \begin{align}
+        \prod_{S \in \mathrm{Reg}\bigl(T_3(P)\bigr)} \dim \bigl( \Gamma(S) \bigr)^{\chi(S)}
+        &= \frac{\dim \bigl( \Gamma(\textcolor{blue}{R_3}) \bigr)}{\dim \bigl( \Gamma(R_1) \bigr)^2 \dim \bigl( \Gamma(\textcolor{red}{R_2}) \bigr) } \prod_{S \in \mathrm{Reg}(P)} \dim \bigl( \Gamma(S) \bigr)^{\chi(S)}, \\
+        \abs{M \setminus T_3(P)} &= \abs{M \setminus P}
+    \end{align}
+    が成り立つので，
+    \begin{align}
+        &Z_{\text{TV},\Cat{C}} \bigl( M;\, T_3(P) \bigr)  \\
+        &= \dim (\Cat{C})^{-\abs{M \setminus P}} \sum_{\Gamma \colon \mathrm{Reg}(P) \to \Simp(\Cat{C})} Z(\Gamma;\, P) \prod_{S \in \mathrm{Reg}(P)} \dim \bigl( \Gamma(S) \bigr)^{\chi(S)} \\ 
+        &\qquad \times \left(\frac{1}{\dim \bigl( \Gamma(R_1) \bigr) \dim \bigl( \Gamma(\textcolor{red}{R_2}) \bigr)} \sum_{\textcolor{blue}{a} \in \Simp(\Cat{C})} N^{\Gamma(R_1)}_{\textcolor{blue}{a} \Gamma(\textcolor{red}{R_2})} \dim (\textcolor{blue}{a})\right) \\
+        &= Z_{\text{TV},\Cat{C}} \bigl( M;\, P \bigr) \qquad\because\; \text{補題\ref{lem:basedring}-(1) \&}\, \dim(x) = \dim (x^*)
+    \end{align}
+    が言えた．
 \end{proof}
 
-\subsubsection{境界付き多様体の場合}
+\subsection{Turaev-Viro不変量の構成：境界付き多様体}
 
 向き付けられた3次元境界付き多様体 $M$ と，その境界に埋め込まれた\underline{有向}グラフ $G \subset \partial M$ を与える．組 $(M,\, G)$ の\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)})$ を1つ固定する．
 \hyperref[def:TV-closed]{閉多様体の場合}とは異なり，境界条件を設定する必要がある．
@@ -6274,11 +6815,48 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
         \begin{description}
             \item[\textbf{(彩色の境界条件)}]　
             
-            $e$ が一意的に\hyperref[def:polyhedron]{隣接}する\footnote{\hyperref[def:graph-bdy]{境界グラフ}の定義}\hyperref[def:polyhedron]{領域} $R_e \in \mathrm{Reg}(P)$ に対して，$\Gamma(R_e) = x_e$
+            $e$ が一意的に\hyperref[def:polyhedron]{隣接}する\footnote{\hyperref[def:graph-bdy]{境界グラフ}の定義}\hyperref[def:polyhedron]{領域} $R_e \in \mathrm{Reg}(P)$ に対して，$\Gamma(R_e) = x_e$ （図\ref{fig:bdy-coloring}）
         \end{description}
         
     \end{mydef}
 \end{description}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \path coordinate[bullet,label=above right:$v$] (v)
+        +(0:3) coordinate (v_1)
+        +(-130:3) coordinate (v_2)
+        +(120:2) coordinate (v_3)
+        ++(0,-5) coordinate (vint)
+        +(0:3) coordinate (vint_1)
+        +(-130:3) coordinate (vint_2)
+        +(120:2) coordinate (vint_3)
+        ;
+        % \draw[->-=.5] (v.center) -- (v_1);
+        % \draw[->-=.5] (v.center) -- (v_2);
+        % \draw[-<-=.5] (v.center) -- (v_3);
+        \foreach \i in {1,...,3} {
+            \draw[spath/save=R_\i, red] (vint) -- (vint_\i) -- (v_\i) -- (v.center) -- cycle;
+        }
+        \draw[name path=e_1, ->-=.5] (v.center) -- (v_1);
+        \draw[name path=e_2, ->-=.5] (v.center) -- (v_2);
+        \draw[name path=e_3, -<-=.5] (v.center) -- (v_3);
+        \draw[name path=eint_3,red] (v_3) -- (vint_3);
+    
+        \begin{scope}
+            \fill[white,name intersections={of=e_2 and eint_3}] (intersection-1) circle (5pt);
+            \draw[->-=.5] (v.center) -- (v_2);
+        \end{scope}
+        
+        \foreach \i in {1,...,3} {
+            \node[red] at ($0.5*(vint) + 0.5*(vint_\i) + (0,1)$) {$\Gamma (R_\i)$};
+            \node[below] at ($0.4*(v) + 0.6*(v_\i)$) {$x_{e_\i} = \Gamma (R_\i)$};
+        }
+    \end{tikzpicture}
+    \caption{彩色の境界条件}
+    \label{fig:bdy-coloring}
+\end{figure}%
 
 Turaev-Viro不変量は，与えられた $(M,\, G,\, \{x_e\})$ に対してあるベクトル $Z_{\text{TV},\Cat{C}} (M,\, G;\, \{x_e\}) \in \mathcal{H}\bigl(G;\, \{x_e\}\bigr)$ を返す．\hyperref[def:TQFT]{TQFT}と見做すときは，\hyperref[ex:Bord]{コボルディズム} $M \in \Hom{\BORD{2}{3}^{\LSO}} (\emptyset,\, \partial M)$ に対応する線型写像 $Z_{\text{TV},\Cat{C}} (M)$ による $1 \in \mathbb{K} = Z_{\text{TV},\Cat{C}} (\emptyset)$ の行き先を構成していると考えれば良い\footnote{正確には，規格化定数の違いがある．}．
 以下では境界条件 $\Familyset[\big]{x_e \in \Simp(\Cat{C})}{e \in \mathsf{E}(G)}$ および\hyperref[def:coloring-bdy]{境界付き彩色} $\Gamma$ を1つ固定しよう．
@@ -6286,7 +6864,8 @@ Turaev-Viro不変量は，与えられた $(M,\, G,\, \{x_e\})$ に対してあ�
 \begin{description}
     \item[\textbf{STEP1. 境界に載せるベクトル空間の構成}]　
     
-    　有向グラフ $G$ の辺のうち，$v \in \mathsf{V}(G)$ を端点に持つもの全体が成す集合を $E_v$ と書く．$E_v$ には，$\partial M$ の向きが定めるものとは\underline{逆向き}のサイクリックな順序 $<$ を与える．そして $\forall e \in E_v$ に対して
+    　有向グラフ $G$ の辺のうち，$v \in \mathsf{V}(G)$ を端点に持つもの全体が成す集合を $E_v$ と書く．
+    $E_v$ には，\underline{内向き}法線ベクトルが定める\footnote{つまり，$\partial M$ の向きが定めるものとは逆向きである．}サイクリックな順序 $<$ を与える．そして $\forall e \in E_v$ に対して
     \begin{align}
         \epsilon_e \coloneqq
         \begin{cases}
@@ -6298,22 +6877,65 @@ Turaev-Viro不変量は，与えられた $(M,\, G,\, \{x_e\})$ に対してあ�
     \begin{align}
         \mathcal{H}_v\bigl(G;\, \{x_e\}\bigr) \coloneqq \expval{x_{e_1}^{\epsilon_{e_1}},\, \dots,\, x_{e_n}^{\epsilon_{e_n}}} \WHERE E_v = \{e_1 < \cdots < e_n\}
     \end{align}
-    と構成する．
+    と構成する（図\ref{fig:TVbdy-STEP1}）．
     $\partial M$ 全体のベクトル空間は
     \begin{align}
         \mathcal{H}\bigl(G;\, \{x_e\}\bigr) \coloneqq \bigotimes_{v \in \mathsf{V}(G)} \mathcal{H}_v(G;\, \{x_e\})
     \end{align}
     とする\footnote{より正確には，\textbf{unordered tensor product} を取っている~\cite[Appendix E, p.477]{Turaev2017}}．
 
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \path coordinate[bullet,label=above right:$v$] (v)
+            +(0:3) coordinate (v_1)
+            +(-130:3) coordinate (v_2)
+            +(120:2) coordinate (v_3)
+            ++(0,-4) coordinate (vint)
+            +(0:3) coordinate (vint_1)
+            +(-130:3) coordinate (vint_2)
+            +(120:2) coordinate (vint_3)
+            ;
+        
+            % internal regions
+            \foreach \i in {1,...,3} {
+                \draw[spath/save=R_\i, red] (vint) -- (vint_\i) -- (v_\i) -- (v.center) -- cycle;
+            }
+            % boundary graphs
+            \draw[name path=e_1, ->-=.5] (v.center) -- (v_1);
+            \draw[name path=e_2, ->-=.5] (v.center) -- (v_2);
+            \draw[name path=e_3, -<-=.5] (v.center) -- (v_3);
+            \draw[name path=eint_3,red] (v_3) -- (vint_3);
+        
+            \begin{scope}
+                \fill[white,name intersections={of=e_2 and eint_3}] (intersection-1) circle (5pt);
+                \draw[->-=.5] (v.center) -- (v_2);
+            \end{scope}
+            
+            % label of coloring
+            \foreach \i in {1,...,3} {
+                \node[red] at ($0.5*(vint) + 0.5*(vint_\i) + (0,1)$) {$\Gamma (R_\i)$};
+                \node[below] at ($0.4*(v) + 0.6*(v_\i)$) {$x_{e_\i}$};
+            }
+        
+            % normal vector
+            \draw[ultra thick, blue,->] (v) -- ++(0,-1);
+
+            \node at ($(vint_1) + (-1,-2)$) {$\mathcal{H}_v \bigl( G;\, \{x_e\} \bigr) = \expval{x_{e_1}^{*},\, x_{e_2}^*,\, x_{e_3}}$};
+        \end{tikzpicture}
+        \caption{境界のベクトル空間．内向き法線ベクトルを青色で描いた．このとき $e_1 < e_2 < e_3$ である．}
+        \label{fig:TVbdy-STEP1}
+    \end{figure}%
+
     \item[\textbf{STEP2. 内部グラフの向き付け}]　
     
-    　\underline{無向}グラフ\footnote{\hyperref[def:polytope-decomp]{多面体分割の定義}から，\hyperref[def:graph-bdy]{境界グラフ} $\partial P$ は有向グラフとして常に $G$ と等しい．} $P^{(1)} \setminus \partial P$ に勝手な向き $\mathcal{O} \in \{\pm\}^{\abs{\mathsf{E} (P^{(1)} \setminus \partial P)}}$ を与えることで，$P^{(1)}$ を有向グラフ $P^{(1)}{}^{\mathcal{O}}$ にする．
+    　\underline{無向}グラフ\footnote{\hyperref[def:polytope-decomp]{多面体分割の定義}から，\hyperref[def:graph-bdy]{境界グラフ} $\partial P$ は有向グラフとして常に $G$ と等しい．} $P^{(1)} \setminus \partial P$ に勝手な向き $\mathcal{O} \in \{\pm\}^{\abs{\mathsf{E} (P^{(1)} \setminus \partial P)}}$ を与えることで，$P^{(1)} \setminus \partial P$ を有向グラフ $P^{(1)}{}^{\mathcal{O}} \setminus \partial P$ にする．
     そして
     \begin{align}
         \mathsf{E}_{\text{Int}}^{\mathcal{O}} &\coloneqq \bigl\{\, e \in \mathsf{E} (P^{(1)}{}^{\mathcal{O}} \setminus \partial P) \bigm| \text{始点} \notin G \,\bigr\} \\
         \mathsf{E}_{\partial}^{\mathcal{O}} &\coloneqq \bigl\{\, e \in \mathsf{E} (P^{(1)}{}^{\mathcal{O}} \setminus \partial P) \bigm| \text{始点} \in G \,\bigr\}
     \end{align}
-    とおくと，与えられた有向辺の始点を返す関数 $\mathrm{s} \colon e \lmto \mathrm{s}(e)$ によって集合 $\bigcup_{\mathcal{O}} \mathsf{E}_{\partial}^{\mathcal{O}}$ と集合 $\mathsf{V}(G)$ は1対1対応する．
+    とおくと，与えられた有向辺の始点を返す関数 $\mathrm{s} \colon e \lmto \mathrm{s}(e)$ によって集合 $\bigcup_{\mathcal{O}} \mathsf{E}_{\partial}^{\mathcal{O}}$ と集合 $\mathsf{V}(G)$ は1対1対応する（図\ref{fig:TVbdy-STEP2}）．
     さらに，$v \in \mathsf{V}(G)$ に対して，集合 $E_v$ が持つサイクリックな順序の定義は $\partial M$ の内向き法線ベクトルに関して右ネジの法則を適用して得られるものであったから，\hyperref[TV:STEP1]{閉多様体の場合の \textsf{\textbf{STEP1.}}}より
     $\forall e \in \bigcup_{\mathcal{O}} \mathsf{E}_{\partial}^{\mathcal{O}}$ に対して
     \begin{align}
@@ -6336,6 +6958,101 @@ Turaev-Viro不変量は，与えられた $(M,\, G,\, \{x_e\})$ に対してあ�
     \end{align}
     が成り立つ．
 
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}{0.4\columnwidth}
+            \centering
+            \begin{tikzpicture}[scale=0.6]
+                \path coordinate[bullet,label=above right:${v = \mathrm{s}(\textcolor{red}{e})}$] (v)
+                +(0:3) coordinate (v_1)
+                +(-130:3) coordinate (v_2)
+                +(120:2) coordinate (v_3)
+                ++(0,-5) coordinate (vint)
+                +(0:3) coordinate (vint_1)
+                +(-130:3) coordinate (vint_2)
+                +(120:2) coordinate (vint_3)
+                ;
+            
+                % internal regions
+                \foreach \i in {1,...,3} {
+                    \draw[spath/save=R_\i, red] (vint) -- (vint_\i) -- (v_\i) -- (v.center) -- cycle;
+                }
+                % boundary graphs
+                \draw[name path=e_1, ->-=.5] (v.center) -- (v_1);
+                \draw[name path=e_2, ->-=.5] (v.center) -- (v_2);
+                \draw[name path=e_3, -<-=.5] (v.center) -- (v_3);
+                \draw[name path=eint_3,red] (v_3) -- (vint_3);
+            
+                \begin{scope}
+                    \fill[white,name intersections={of=e_2 and eint_3}] (intersection-1) circle (5pt);
+                    \draw[->-=.5] (v.center) -- (v_2);
+                \end{scope}
+                
+                % label of coloring
+                \foreach \i in {1,...,3} {
+                    \node[red] at ($0.5*(vint) + 0.5*(vint_\i) + (0,1)$) {};
+                    \node[below] at ($0.4*(v) + 0.6*(v_\i)$) {$x_{e_\i}$};
+                }
+            
+                % orientation 
+                \draw[ultra thick, red,->-=.5] (v.center) -- node[midway,right] {$\textcolor{red}{\bm{e}}$} (vint);
+                % normal vector
+                \draw[ultra thick, blue,->] (v.center) -- ++(0,-1);
+            
+                \node at ($(vint_1) + (-1,-2)$) {$\mathcal{H}_{\mathrm{s}(\textcolor{red}{e})} \bigl( G;\, \{x_e\} \bigr) = \mathcal{H} (\textcolor{red}{e};\, \Gamma)$};
+            \end{tikzpicture}
+            \caption{$\textcolor{red}{e} \in E^{\mathcal{O}}_{\partial}$ の場合．}
+            \label{fig:edgebdy}
+        \end{subfigure}
+        \hspace{5mm}
+        \begin{subfigure}{0.4\columnwidth}
+            \centering      
+            \begin{tikzpicture}[scale=0.6]
+                \path coordinate[bullet,label=above right:$v$] (v)
+                +(0:3) coordinate (v_1)
+                +(-130:3) coordinate (v_2)
+                +(120:2) coordinate (v_3)
+                ++(0,-5) coordinate[bullet,label=below right:$\mathrm{s}(\textcolor{red}{e})$] (vint)
+                +(0:3) coordinate (vint_1)
+                +(-130:3) coordinate (vint_2)
+                +(120:2) coordinate (vint_3)
+                ;
+            
+                % internal regions
+                \foreach \i in {1,...,3} {
+                    \draw[spath/save=R_\i, red] (vint.center) -- (vint_\i) -- (v_\i) -- (v.center) -- cycle;
+                }
+                % boundary graphs
+                \draw[name path=e_1, ->-=.5] (v.center) -- (v_1);
+                \draw[name path=e_2, ->-=.5] (v.center) -- (v_2);
+                \draw[name path=e_3, -<-=.5] (v.center) -- (v_3);
+                \draw[name path=eint_3,red] (v_3) -- (vint_3);
+            
+                \begin{scope}
+                    \fill[white,name intersections={of=e_2 and eint_3}] (intersection-1) circle (5pt);
+                    \draw[->-=.5] (v.center) -- (v_2);
+                \end{scope}
+                
+                % label of coloring
+                \foreach \i in {1,...,3} {
+                    \node[red] at ($0.5*(vint) + 0.5*(vint_\i) + (0,1)$) {};
+                    \node[below] at ($0.4*(v) + 0.6*(v_\i)$) {$x_{e_\i}$};
+                }
+            
+                % orientation 
+                \draw[ultra thick, red,-<-=.5] (v.center) -- node[midway,right] {$\textcolor{red}{\bm{e}}$} (vint.center);
+                % normal vector
+                \draw[ultra thick, blue,->] (v.center) -- ++(0,-1);
+            
+                \node at ($(vint_1) + (-1,-2)$) {$\mathcal{H}_{\mathrm{s}(\textcolor{red}{e})} \bigl( G;\, \{x_e\} \bigr) \neq \mathcal{H} (\textcolor{red}{e};\, \Gamma)$};
+            \end{tikzpicture}
+            \caption{$\textcolor{red}{e} \in E^{\mathcal{O}}_{\text{int}}$ の場合．}
+            \label{fig:edgeint}
+        \end{subfigure}
+        \caption{$E^{\mathcal{O}}_{\partial}$ と $E^{\mathcal{O}}_{\text{int}}$．}
+        \label{fig:TVbdy-STEP2}
+    \end{figure}%
+    
     \item[\textbf{STEP3. contraction vectorの構成}]　
     
     部分グラフ $P^{(1)} \setminus \partial P$ に対して，\hyperref[TV:STEP3]{閉多様体の場合の \textsf{\textbf{STEP3.}}}と全く同様の構成によって\textbf{contraction vector}
