@@ -6729,8 +6729,8 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
     \end{description}
     によって $M$ の多面体分割 $(P,\, P^{(1)})$ には
     \begin{itemize}
-        \item $\mathsf{E}(P^{(1)})$ に新しく1つの無向辺 $e$ が，
-        \item $\mathrm{Reg}(P)$ に新しく1つの領域 $R_5$ が
+        \item $\mathsf{E}(P^{(1)})$ に新しく1つの無向辺 $\textcolor{red}{e}$ が，
+        \item $\mathrm{Reg}(P)$ に新しく1つの領域 $\textcolor{blue}{R_3}$ が
     \end{itemize}
     追加される．彩色
     \begin{align}
@@ -6738,7 +6738,7 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
     \end{align}
     を1つ固定しよう．
     \hyperref[TV:STEP5]{\textsf{\textbf{STEP5.}}}の計算のうち非自明な部分は，
-    図中の頂点から構成される\hyperref[def:linkedG]{絡みグラフ}のうち，新しく追加された辺 $e$ と関連する部分のみであり，
+    図中の頂点から構成される\hyperref[def:linkedG]{絡みグラフ}のうち，新しく追加された辺 $\textcolor{red}{e}$ と関連する部分のみであり，
     \begin{align}
         \mathbb{F}_{\Cat{C},\, \Gamma} \left( 
             \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
@@ -6766,7 +6766,7 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
             \node[circlenode] at (x) {$\varphi^\bullet$};
             \node[circlenode] at (y) {$\varphi_\bullet$};
         \end{tikzpicture} &&\because\; \text{補題\ref{lem:spherical-partition}-(5)} \\ 
-        &= \frac{N^{\Gamma(R_1)}_{\Gamma(\textcolor{blue}{R_3}) \Gamma(\textcolor{red}{R_2})}}{\dim \bigl( \Gamma(R_1) \bigr)} \quad
+        &= \frac{N^{\Gamma(R_1)}_{\Gamma(\textcolor{blue}{R_3}) \Gamma(\textcolor{red}{R_2})}}{\dim \bigl( \Gamma(R_1) \bigr) } \quad
         \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
             \draw[->-=.5] (90:0.5) to[out=120,in=-120,looseness=5] node[midway,left] {$\Gamma(R_1)$} (-90:0.5);
             \node[circle,fill=black!20,minimum size=10mm] at (0,0) {};
@@ -6776,7 +6776,7 @@ $\mathsf{V}(P^{(1)}) \neq \emptyset$ の場合を考える．
     ところで，
     \begin{align}
         \prod_{S \in \mathrm{Reg}\bigl(T_3(P)\bigr)} \dim \bigl( \Gamma(S) \bigr)^{\chi(S)}
-        &= \frac{\dim \bigl( \Gamma(\textcolor{blue}{R_3}) \bigr)}{\dim \bigl( \Gamma(R_1) \bigr)^2 \dim \bigl( \Gamma(\textcolor{red}{R_2}) \bigr) } \prod_{S \in \mathrm{Reg}(P)} \dim \bigl( \Gamma(S) \bigr)^{\chi(S)}, \\
+        &= \frac{\dim \bigl( \Gamma(\textcolor{blue}{R_3}) \bigr)}{\dim \bigl( \Gamma(R_1) \bigr) \dim \bigl( \Gamma(\textcolor{red}{R_2}) \bigr) } \prod_{S \in \mathrm{Reg}(P)} \dim \bigl( \Gamma(S) \bigr)^{\chi(S)}, \\
         \abs{M \setminus T_3(P)} &= \abs{M \setminus P}
     \end{align}
     が成り立つので，
