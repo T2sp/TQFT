@@ -7566,7 +7566,7 @@ Turaev-Viroが最初に発見したTQFTは，多様体 $M$ の\hyperref[def:poly
             \node[circlenode] at (z) {$\textcolor{blue}{\varphi_3{}^{\mu_3}}$};
             \node[circlenode] at (w) {$\textcolor{red}{\varphi_1{}_{\mu_1}}$};
         \end{tikzpicture}
-        &= (F^{xyz}_u)_{(\textcolor{red}{a};\, \textcolor{red}{\varphi_1{}_{\mu_1}},\, \textcolor{red}{\varphi_2{}_{\mu_2}}),\, (\textcolor{blue}{b};\, \textcolor{blue}{\varphi_3{}_{\mu_3}},\, \textcolor{blue}{\varphi_4{}_{\mu_4}})}
+        &= \frac{1}{\dim_p (\textcolor{blue}{b})} (F^{xyz}_u)_{(\textcolor{red}{a};\, \textcolor{red}{\varphi_1{}_{\mu_1}},\, \textcolor{red}{\varphi_2{}_{\mu_2}}),\, (\textcolor{blue}{b};\, \textcolor{blue}{\varphi_3{}_{\mu_3}},\, \textcolor{blue}{\varphi_4{}_{\mu_4}})}
     \end{align}
     ただし，$\textcolor{blue}{\varphi_3{}^{\mu_3}} \in \Basis (x \otimes \textcolor{blue}{b},\, u),\; \textcolor{blue}{\varphi_4{}^{\mu_4}} \in \Basis (y \otimes z,\; \textcolor{blue}{b})$ はそれぞれ $\textcolor{blue}{\varphi_3{}_{\mu_3}} \in \Basis (u,\, x \otimes \textcolor{blue}{b}),\, \textcolor{blue}{\varphi_4{}_{\mu_4}} \in \Basis (\textcolor{blue}{b},\, y \otimes z)$ の，\hyperref[lem:nondegen-pairing]{ペアリング} $\omega$ に関する双対基底である．
 \end{mylem}
@@ -7585,13 +7585,139 @@ Turaev-Viroが最初に発見したTQFTは，多様体 $M$ の\hyperref[def:poly
             \draw[->-=.5] (f_3) -- node[midway,right] {$u$} ++(90:\fac);
             \draw[->-=.5] (x) -- node[midway,left] {$x$} (f_3);
             \draw[->-=.5,blue] (f_4) -- node[midway,right] {$b$} (f_3);
-            \draw[->-=.5,blue] (z) -- node[midway,right] {$z$} (f_4);
-            \draw[->-=.5,blue] (y) -- node[midway,left] {$y$} (f_4);
+            \draw[->-=.5] (z) -- node[midway,right] {$z$} (f_4);
+            \draw[->-=.5] (y) -- node[midway,left] {$y$} (f_4);
             \node[circlenode] at (f_3) {$\textcolor{blue}{\varphi_3{}^{\mu_3}}$};
             \node[circlenode] at (f_4) {$\textcolor{blue}{\varphi_4{}^{\mu_4}}$};
         \end{tikzpicture}
     \end{align}
-    を合成して\hyperref[def:trace]{トレース}をとると，
+    を合成して\hyperref[def:trace]{トレース}をとると，左辺は
+    \begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\fac}{1.75}
+        \path coordinate (f_1)
+        +(60:{2*\fac}) coordinate (f_4)
+        ++(120:\fac) coordinate (f_2)
+        +(60:{2*\fac}) coordinate (f_3)
+        ;
+        \draw[->-=.5] (f_1) to[out=60,in=-60] node[midway,right] {$z$} (f_4);
+        \draw[->-=.5,red] (f_1) -- node[midway,below left] {$a$} (f_2);
+        \draw[->-=.5] (f_2) to[out=60,in=-120] node[midway,below] {$y$} (f_4);
+        \draw[->-=.5] (f_2) to[out=120,in=-120] node[midway,above left] {$x$} (f_3);
+        \draw[->-=.5,blue] (f_4) -- node[midway,above right] {$b$} (f_3);
+        \draw[->-=.5] (f_3) to[out=60,in=-60,looseness=4] node[midway,right] {$u$} (f_1);
+        % \draw[->-=.5] (f_3) .. controls +(2,4) and +(4,-4) .. (f_1);
+        \node[circlenode] at (f_1) {$\textcolor{red}{\varphi_1{}_{\mu_1}}$};
+        \node[circlenode] at (f_2) {$\textcolor{red}{\varphi_2{}_{\mu_2}}$};
+        \node[circlenode] at (f_4) {$\textcolor{blue}{\varphi_4{}^{\mu_4}}$};
+        \node[circlenode] at (f_3) {$\textcolor{blue}{\varphi_3{}^{\mu_3}}$};
+    \end{tikzpicture}
+    &=
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\fac}{1.75}
+        \path coordinate (f_1)
+        +(60:{2*\fac}) coordinate (f_4)
+        ++(120:\fac) coordinate (f_2)
+        +(60:{2*\fac}) coordinate (f_3)
+        ;
+        \draw[->-=.5] (f_1) to[out=60,in=-60] node[midway,right] {$z$} (f_4);
+        \draw[->-=.5,red] (f_1) -- node[midway,below left] {$a$} (f_2);
+        \draw[->-=.5] (f_2) to[out=60,in=-120] node[midway,below] {$y$} (f_4);
+        \draw[->-=.5] (f_2) to[out=120,in=-120] node[midway,above left] {$x$} (f_3);
+        \draw[->-=.5,blue] (f_4) -- node[midway,above right] {$b$} (f_3);
+        \draw[->-=.5] (f_3) to[out=120,in=-120,looseness=4] node[midway,left] {$u$} (f_1);
+        % \draw[->-=.5] (f_3) .. controls +(2,4) and +(4,-4) .. (f_1);
+        \node[circlenode] at (f_1) {$\textcolor{red}{\varphi_1{}_{\mu_1}}$};
+        \node[circlenode] at (f_2) {$\textcolor{red}{\varphi_2{}_{\mu_2}}$};
+        \node[circlenode] at (f_4) {$\textcolor{blue}{\varphi_4{}^{\mu_4}}$};
+        \node[circlenode] at (f_3) {$\textcolor{blue}{\varphi_3{}^{\mu_3}}$};
+    \end{tikzpicture} &&\because\quad \text{\hyperref[def:spherical]{spherical}} \\
+    &=
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (x)
+            +(30:2) coordinate (y)
+            +(150:2) coordinate (z)
+            +(-90:2) coordinate (w)
+            ;
+            \draw[->-=.5] (x) -- node[midway,below right] {$y$} (y);
+            \draw[->-=.5] (x) -- node[midway,below] {$x$} (z);
+            \draw[-<-=.5,red] (x) -- node[midway,right] {$a$} (w);
+            \draw[-<-=.5] (y) arc (30:-90:2) node[midway,right] {$z$};
+            \draw[->-=.5,blue] (y) arc (30:150:2) node[midway,above] {$b$};
+            \draw[-<-=.5] (w) arc (-90:-210:2) node[midway,left] {$u$};
+            \node[circlenode] at (x) {$\textcolor{red}{\varphi_2{}_{\mu_2}}$};
+            \node[circlenode] at (y) {$\textcolor{blue}{\varphi_4{}^{\mu_4}}$};
+            \node[circlenode] at (z) {$\textcolor{blue}{\varphi_3{}^{\mu_3}}$};
+            \node[circlenode] at (w) {$\textcolor{red}{\varphi_1{}_{\mu_1}}$};
+        \end{tikzpicture}
+    \end{align}
+    と計算できる．一方右辺は，補題\ref{lem:trivalent-ladder}から
+    \begin{align}
+    &\sum_{
+        \substack{
+            \textcolor{DarkGreen}{c} \in \Simp(\Cat{C}) \\ 
+            \textcolor{DarkGreen}{\varphi_3{}_{\nu_3}} \in \Basis (u,\, x \otimes \textcolor{DarkGreen}{c}) \\ 
+            \textcolor{DarkGreen}{\varphi_4{}_{\nu_4}} \in \Basis (\textcolor{DarkGreen}{c},\, y \otimes z)
+        }
+    }
+        (F^{xyz}_u)_{(\textcolor{red}{a};\, \textcolor{red}{\varphi_1{}_{\mu_1}},\, \textcolor{red}{\varphi_1{}_{\mu_1}}),\, (\textcolor{DarkGreen}{c};\, \textcolor{DarkGreen}{\varphi_3{}_{\nu_3}},\, \textcolor{DarkGreen}{\varphi_4{}_{\nu_4}})}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\fac}{1.75}
+        \path coordinate (f_1)
+        ++(60:\fac) coordinate (f_2)
+        ++(90:\fac) coordinate (f_3)
+        +(120:\fac) coordinate (f_4)
+        ;
+        \draw[->-=.5,DarkGreen] (f_1) -- node[midway,below right] {$c$} (f_2);
+        \draw[->-=.5,blue] (f_3) -- node[midway,above right] {$b$} (f_4);
+        \draw[->-=.5] (f_1) to[out=120,in=-120] node[midway,left] {$x$} (f_4);
+        \draw[->-=.5] (f_2) to[out=120,in=-120] node[midway,left] {$y$} (f_3);
+        \draw[->-=.5] (f_2) to[out=60,in=-60] node[midway,right] {$z$} (f_3);
+        \draw[->-=.5] (f_4) to[out=60,in=-60,looseness=4] node[midway,right] {$u$} (f_1);
+        \node[circlenode] at (f_1) {$\textcolor{DarkGreen}{\varphi_3{}_{\nu_3}}$};
+        \node[circlenode] at (f_2) {$\textcolor{DarkGreen}{\varphi_4{}_{\nu_4}}$};
+        \node[circlenode] at (f_4) {$\textcolor{blue}{\varphi_3{}^{\mu_3}}$};
+        \node[circlenode] at (f_3) {$\textcolor{blue}{\varphi_4{}^{\mu_4}}$};
+    \end{tikzpicture} \\
+    &= \sum_{
+        \substack{
+            \textcolor{DarkGreen}{c} \in \Simp(\Cat{C}) \\ 
+            \textcolor{DarkGreen}{\varphi_3{}_{\nu_3}} \in \Basis (u,\, x \otimes \textcolor{DarkGreen}{c}) \\ 
+            \textcolor{DarkGreen}{\varphi_4{}_{\nu_4}} \in \Basis (\textcolor{DarkGreen}{c},\, y \otimes z)
+        }
+    }
+    (F^{xyz}_u)_{(\textcolor{red}{a};\, \textcolor{red}{\varphi_1{}_{\mu_1}},\, \textcolor{red}{\varphi_1{}_{\mu_1}}),\, (\textcolor{DarkGreen}{c};\, \textcolor{DarkGreen}{\varphi_3{}_{\nu_3}},\, \textcolor{DarkGreen}{\varphi_4{}_{\nu_4}})}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\fac}{1.75}
+        \path coordinate (f_1)
+        ++(30:\fac) coordinate (f_2)
+        ++(90:\fac) coordinate (f_3)
+        +(150:\fac) coordinate (f_4)
+        ;
+        \draw[->-=.5,DarkGreen] (f_1) -- node[midway,below right] {$c$} (f_2);
+        \draw[->-=.5,blue] (f_3) -- node[midway,above right] {$b$} (f_4);
+        \draw[->-=.5] (f_1) -- node[midway,left] {$x$} (f_4);
+        \draw[->-=.5] (f_2) -- node[midway,left] {$y$} (f_3);
+        \draw[->-=.5] (f_2) to[out=30,in=-30,looseness=2] node[midway,right] {$z$} (f_3);
+        \draw[->-=.5] (f_4) to[out=180,in=-180] node[midway,left] {$u$} (f_1);
+        \node[circlenode] at (f_1) {$\textcolor{DarkGreen}{\varphi_3{}_{\nu_3}}$};
+        \node[circlenode] at (f_2) {$\textcolor{DarkGreen}{\varphi_4{}_{\nu_4}}$};
+        \node[circlenode] at (f_4) {$\textcolor{blue}{\varphi_3{}^{\mu_3}}$};
+        \node[circlenode] at (f_3) {$\textcolor{blue}{\varphi_4{}^{\mu_4}}$};
+    \end{tikzpicture} \\
+    &= \sum_{
+        \substack{
+            \textcolor{DarkGreen}{c} \in \Simp(\Cat{C}) \\ 
+            \textcolor{DarkGreen}{\varphi_3{}_{\nu_3}} \in \Basis (u,\, x \otimes \textcolor{DarkGreen}{c}) \\ 
+            \textcolor{DarkGreen}{\varphi_4{}_{\nu_4}} \in \Basis (\textcolor{DarkGreen}{c},\, y \otimes z)
+        }
+    }
+    (F^{xyz}_u)_{(\textcolor{red}{a};\, \textcolor{red}{\varphi_1{}_{\mu_1}},\, \textcolor{red}{\varphi_1{}_{\mu_1}}),\, (\textcolor{DarkGreen}{c};\, \textcolor{DarkGreen}{\varphi_3{}_{\nu_3}},\, \textcolor{DarkGreen}{\varphi_4{}_{\nu_4}})}
+    \dim_p(u)\delta_{\textcolor{DarkGreen}{c},\, \textcolor{blue}{b}} \frac{\delta_{\textcolor{DarkGreen}{\nu_3},\, \textcolor{blue}{\mu_3}}\delta_{\textcolor{DarkGreen}{\nu_4},\, \textcolor{blue}{\mu_4}}}{\dim_p (u) \dim_p (\textcolor{blue}{b})} 
+    \\
+    &= \frac{1}{\dim_p (\textcolor{blue}{b})} (F^{xyz}_u)_{(\textcolor{red}{a};\, \textcolor{red}{\varphi_1{}_{\mu_1}},\, \textcolor{red}{\varphi_2{}_{\mu_2}}),\, (\textcolor{blue}{b};\, \textcolor{blue}{\varphi_3{}_{\mu_3}},\, \textcolor{blue}{\varphi_4{}_{\mu_4}})}
+    \end{align}
+    と計算できるので，示された．
 \end{proof}
 
 \section{離散的高次対称性}
