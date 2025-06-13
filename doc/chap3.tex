@@ -4690,11 +4690,11 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
 \begin{mylem}[label=lem:TVBW-1]{技術的な補題2}
     補題\ref{lem:nondegen-pairing}の双線形形式 $\omega$ を用いる．
     \begin{enumerate}
-        \item $\forall a \in \mathrm{Simp} (\Cat{C}),\, \forall x \in \Obj{\Cat{C}}$ および $\forall \varphi \in \expval{a,\, x},\; \forall\psi \in \expval{x^*,\, a^*}$ に対して
+        \item $\forall a,\, b \in \mathrm{Simp} (\Cat{C}),\, \forall x \in \Obj{\Cat{C}}$ および $\forall \varphi \in \expval{b,\, x},\; \forall\psi \in \expval{x^*,\, a^*}$ に対して
         \begin{align}
             \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
                 \path coordinate[bullet,label=below:$\varphi$] (f)
-                +(-0.5,1.6) coordinate[label=left:$a$] (a)
+                +(-0.5,1.6) coordinate[label=left:$b$] (a)
                 +(0.5,1) coordinate[label=left:$x$] (x)
                 +(1.5,1) coordinate[label=right:$x^*$] (y)
                 +(2.5,1.6) coordinate[label=right:$a^*$] (b)
@@ -4705,7 +4705,7 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
                 \draw[-<-=.5] (g) to[out=120,in=-90] (y);
                 \draw[-<-=.5] (g) to[out=60,in=-90] (b);
             \end{tikzpicture}
-            &= \frac{\omega(\varphi,\, \psi)}{\dim_p(a)}
+            &= \delta_{a,\, b}\frac{\omega(\varphi,\, \psi)}{\dim_p(a)}
             \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
                 \path coordinate[label=left:$a$] (a)
                 +(1,0) coordinate[label=right:$a^*$] (b);
@@ -4794,7 +4794,8 @@ $\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わ�
 
 \begin{proof}
     \begin{enumerate}
-        \item 左辺は $\Hom{\Cat{C}}(1,\, a \otimes a^*)$ の元だが，補題\ref{lem:rigid-hom}の同型 $\alpha^{-1}_{1,a,a} \colon \Hom{\Cat{C}} (1,\, a\otimes a^*) \xrightarrow{\cong} \Hom{\Cat{C}} (a,\, a) = \mathbb{K}$ から，ある定数 $A_a \in \mathbb{K}$ を用いて
+        \item $a\neq b$ ならば補題\ref{lem:simple-hom}-(1) より両辺は $0$ になる．
+        $a=b$ とする．左辺は $\Hom{\Cat{C}}(1,\, a \otimes a^*)$ の元だが，補題\ref{lem:rigid-hom}の同型 $\alpha^{-1}_{1,a,a} \colon \Hom{\Cat{C}} (1,\, a\otimes a^*) \xrightarrow{\cong} \Hom{\Cat{C}} (a,\, a) = \mathbb{K}$ から，ある定数 $A_a \in \mathbb{K}$ を用いて
         \begin{align}
             \alpha_{1,a,a}^{-1} \left(  \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
                 \path coordinate[bullet,label=below:$\varphi$] (f)
@@ -7350,6 +7351,151 @@ $Z_{\text{preTV}}\bigl(M;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}\bigr)$ は
 \begin{proof}
     関手性は補題\ref{lem:statesum-preTQFT}から，\hyperref[def:monidal-functor]{強いモノイダル関手}であることは補題\ref{lem:statesum-premon}より従う．
 \end{proof}
+
+\subsection{三角形分割の場合}
+
+Turaev-Viroが最初に発見したTQFTは，多様体 $M$ の\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)})$ として多面体分割をとる場合のものであった~\cite{TuraevViro1992TQFT}．
+三角形分割に対して\hyperref[def:TV-closed]{Turaev-Viro不変量}を計算してみよう．
+これまでと同様に，\hyperref[def:spherical]{球状フュージョン圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, \rcoev,\, \rev)$ とその\hyperref[def:pivotal]{旋回構造} $p$ を1つ固定する．
+
+\begin{mylem}[label=lem:trinvalent-fusion,breakable]{梯子型ストリング図式の計算}
+    \begin{itemize}
+        \item $\forall a_0,\, a_1,\, \dots,\, a_n \in \Simp(\Cat{C})$
+        \item $\forall b_0,\, b_1,\, \dots,\, b_n \in \Simp(\Cat{C})$ であって，$b_0=a_0,\, b_n=a_n$ を充たすもの
+        \item $\forall c_1,\, \dots,\, c_n \in \Simp(\Cat{C})$
+        \item $\forall \varphi_j \in \expval{a_{j-1}^* ,\, c_j ,\, a_j},\; \forall \psi_j \in \expval{b_j^* ,\, c_j^* ,\, b_{j-1}}$
+    \end{itemize}
+    に対して，以下が成り立つ：
+    \begin{align} 
+    &
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\fac}{2}
+        \path coordinate (b_0)
+            foreach \r in {1,...,4} {
+                +(30:{\fac*\r}) coordinate (b_\r)
+            }
+            ++(0,{5*\fac}) coordinate (u_0)
+            foreach \r in {1,...,4} {
+                +(-30:{\fac*\r}) coordinate (u_\r)
+            }
+        ;
+        \draw[->-=.5] (b_0) -- node[midway,below] {$a_1$} (b_1);
+        \draw[->-=.5] (b_1) -- node[midway,below] {$a_2$} (b_2);
+        \draw[->-=.5] (b_2) -- node[midway,below right] {$a_{n-2}$} (b_3);
+        \draw (b_1) -- (b_3) node[midway,sloped,fill=white] {$\cdots$};
+        \draw[->-=.5] (b_3) -- node[midway,below right] {$a_{n-1}$} (b_4);
+        \draw[-<-=.5] (u_0) -- node[midway,above] {$b_1$} (u_1);
+        \draw[-<-=.5] (u_1) -- node[midway,above] {$b_2$} (u_2);
+        \draw[-<-=.5] (u_2) -- node[midway,above right] {$b_{n-2}$} (u_3);
+        \draw (u_1) -- (u_3) node[midway,sloped,fill=white] {$\cdots$};
+        \draw[-<-=.5] (u_3) -- node[midway,above right] {$b_{n-1}$} (u_4);
+        \draw[->-=.5] (b_0) -- node[midway,left] {$c_1$} (u_0);
+        \draw[->-=.5] (b_1) -- node[midway,left] {$c_2$} (u_1);
+        \node at (barycentric cs:b_2=1,u_2=1) {$\cdots$};
+        \draw[->-=.5] (b_3) -- node[midway,left] {$c_{n-1}$} (u_3);
+        \draw[->-=.5] (b_4) -- node[midway,left] {$c_n$} (u_4);
+        \draw[->-=.5] (b_4) to[out=30,in=-30,looseness=2] node[midway,right] {$a_n=b_n$} (u_4);
+        \draw[->-=.5] (u_0) to[out=180,in=180] node[midway,left] {$a_0=b_0$} (b_0);
+        \node[circlenode] at (b_0) {$\varphi_1$};
+        \node[circlenode] at (b_1) {$\varphi_2$};
+        \node[circlenode] at (b_3) {$\varphi_{n-1}$};
+        \node[circlenode] at (b_4) {$\varphi_n$};
+        \node[circlenode] at (u_0) {$\psi_1$};
+        \node[circlenode] at (u_1) {$\psi_2$};
+        \node[circlenode] at (u_3) {$\psi_{n-1}$};
+        \node[circlenode] at (u_4) {$\psi_n$};
+    \end{tikzpicture}% 
+    \\
+    &= \dim_p (a_0) \prod_{j=1}^n \delta_{a_{j-1},\, b_{j-1}} \frac{\omega (\psi_j,\, \varphi_j)}{\dim_p (a_{j-1})}
+    \end{align}    
+\end{mylem}
+
+\begin{proof}
+    補題\ref{lem:TVBW-1}-(1) を繰り返し用いることで，
+    \begin{align}
+    &\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\fac}{2}
+        \path coordinate (b_0)
+            foreach \r in {1,...,4} {
+                +(30:{\fac*\r}) coordinate (b_\r)
+            }
+            ++(0,{5*\fac}) coordinate (u_0)
+            foreach \r in {1,...,4} {
+                +(-30:{\fac*\r}) coordinate (u_\r)
+            }
+        ;
+        \draw[->-=.5] (b_0) -- node[midway,below] {$a_1$} (b_1);
+        \draw[->-=.5] (b_1) -- node[midway,below] {$a_2$} (b_2);
+        \draw[->-=.5] (b_2) -- node[midway,below right] {$a_{n-2}$} (b_3);
+        \draw (b_1) -- (b_3) node[midway,sloped,fill=white] {$\cdots$};
+        \draw[->-=.5] (b_3) -- node[midway,below right] {$a_{n-1}$} (b_4);
+        \draw[-<-=.5] (u_0) -- node[midway,above] {$b_1$} (u_1);
+        \draw[-<-=.5] (u_1) -- node[midway,above] {$b_2$} (u_2);
+        \draw[-<-=.5] (u_2) -- node[midway,above right] {$b_{n-2}$} (u_3);
+        \draw (u_1) -- (u_3) node[midway,sloped,fill=white] {$\cdots$};
+        \draw[-<-=.5] (u_3) -- node[midway,above right] {$b_{n-1}$} (u_4);
+        \draw[->-=.5] (b_0) -- node[midway,left] {$c_1$} (u_0);
+        \draw[->-=.5] (b_1) -- node[midway,left] {$c_2$} (u_1);
+        \node at (barycentric cs:b_2=1,u_2=1) {$\cdots$};
+        \draw[->-=.5] (b_3) -- node[midway,left] {$c_{n-1}$} (u_3);
+        \draw[->-=.5] (b_4) -- node[midway,left] {$c_n$} (u_4);
+        \draw[->-=.5] (b_4) to[out=30,in=-30,looseness=2] node[midway,right] {$a_n$} (u_4);
+        \draw[->-=.5] (u_0) to[out=180,in=180] node[midway,left] {$a_0$} (b_0);
+        \node[circlenode] at (b_0) {$\varphi_1$};
+        \node[circlenode] at (b_1) {$\varphi_2$};
+        \node[circlenode] at (b_3) {$\varphi_{n-1}$};
+        \node[circlenode] at (b_4) {$\varphi_n$};
+        \node[circlenode] at (u_0) {$\psi_1$};
+        \node[circlenode] at (u_1) {$\psi_2$};
+        \node[circlenode] at (u_3) {$\psi_{n-1}$};
+        \node[circlenode] at (u_4) {$\psi_n$};
+    \end{tikzpicture}% 
+    \\
+    &= \delta_{a_{n-1},\, b_{n-1}} \frac{\omega (\psi_n,\, \varphi_n)}{\dim_p (a_{n-1})} 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\fac}{2}
+        \path coordinate (b_0)
+            foreach \r in {1,...,4} {
+                +(30:{\fac*\r}) coordinate (b_\r)
+            }
+            ++(0,{5*\fac}) coordinate (u_0)
+            foreach \r in {1,...,4} {
+                +(-30:{\fac*\r}) coordinate (u_\r)
+            }
+        ;
+        \draw[->-=.5] (b_0) -- node[midway,below] {$a_1$} (b_1);
+        \draw[->-=.5] (b_1) -- node[midway,below] {$a_2$} (b_2);
+        \draw[->-=.5] (b_2) -- node[midway,below right] {$a_{n-2}$} (b_3);
+        \draw (b_1) -- (b_3) node[midway,sloped,fill=white] {$\cdots$};
+        % \draw[->-=.5] (b_3) -- node[midway,below right] {$a_{n-1}$} (b_4);
+        \draw[-<-=.5] (u_0) -- node[midway,above] {$b_1$} (u_1);
+        \draw[-<-=.5] (u_1) -- node[midway,above] {$b_2$} (u_2);
+        \draw[-<-=.5] (u_2) -- node[midway,above right] {$b_{n-2}$} (u_3);
+        \draw (u_1) -- (u_3) node[midway,sloped,fill=white] {$\cdots$};
+        % \draw[-<-=.5] (u_3) -- node[midway,above right] {$b_{n-1}$} (u_4);
+        \draw[->-=.5] (b_0) -- node[midway,left] {$c_1$} (u_0);
+        \draw[->-=.5] (b_1) -- node[midway,left] {$c_2$} (u_1);
+        \node at (barycentric cs:b_2=1,u_2=1) {$\cdots$};
+        \draw[->-=.5] (b_3) -- node[midway,left] {$c_{n-1}$} (u_3);
+        % \draw[->-=.5] (b_4) -- node[midway,left] {$c_n$} (u_4);
+        \draw[->-=.5] (b_3) to[out=30,in=-30,looseness=1.5] node[midway,right] {$a_{n-1}$} (u_3);
+        \draw[->-=.5] (u_0) to[out=180,in=180,looseness=0.8] node[midway,left] {$a_0$} (b_0);
+        \node[circlenode] at (b_0) {$\varphi_1$};
+        \node[circlenode] at (b_1) {$\varphi_2$};
+        \node[circlenode] at (b_3) {$\varphi_{n-1}$};
+        % \node[circlenode] at (b_4) {$\varphi_n$};
+        \node[circlenode] at (u_0) {$\psi_1$};
+        \node[circlenode] at (u_1) {$\psi_2$};
+        \node[circlenode] at (u_3) {$\psi_{n-1}$};
+        % \node[circlenode] at (u_4) {$\psi_n$};
+    \end{tikzpicture}% 
+    &= \cdots \\
+    &= \dim_p (a_0) \prod_{j=1}^n \delta_{a_{j-1},\, b_{j-1}} \frac{\omega (\psi_j,\, \varphi_j)}{\dim_p (a_{j-1})}
+    \end{align}
+    と計算できる．
+\end{proof}
+
+いま，$\forall a,\, b,\, c \in \Simp(\Cat{C})$ に対して，$\mathbb{K}$-ベクトル空間 $\Hom{\Cat{C}} (a,\, b \otimes c)$ の基底を1つ選んできて固定する．それを $\mathrm{Basis} (a,\, b \otimes c)$ と書く．
 
 
 \section{離散的高次対称性}
