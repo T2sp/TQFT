@@ -7354,7 +7354,7 @@ $Z_{\text{preTV}}\bigl(M;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}\bigr)$ は
 
 \subsection{三角形分割の場合}
 
-Turaev-Viroが最初に発見したTQFTは，多様体 $M$ の\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)})$ として多面体分割をとる場合のものであった~\cite{TuraevViro1992TQFT}．
+Turaev-Viroが最初に発見したTQFTは，多様体 $M$ の\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)})$ として三角形分割をとる場合のものであった~\cite{TuraevViro1992TQFT}．
 三角形分割に対して\hyperref[def:TV-closed]{Turaev-Viro不変量}を計算してみよう．
 これまでと同様に，\hyperref[def:spherical]{球状フュージョン圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lcoev,\, \lev,\, \rcoev,\, \rev)$ とその\hyperref[def:pivotal]{旋回構造} $p$ を1つ固定する．
 
@@ -7495,7 +7495,7 @@ Turaev-Viroが最初に発見したTQFTは，多様体 $M$ の\hyperref[def:poly
     と計算できる．
 \end{proof}
 
-いま，$\forall a,\, b,\, c \in \Simp(\Cat{C})$ に対して，有限次元 $\mathbb{K}$-ベクトル空間 $\Hom{\Cat{C}} (a,\, b \otimes c)$ の基底を1つ選んできて固定する．それを $\bm{\Basis (a,\, b \otimes c)}$ と書く．
+いま，$\forall a,\, b,\, c \in \Simp(\Cat{C})$ に対して，有限次元 $\mathbb{K}$-ベクトル空間 $\Hom{\Cat{C}} (a,\, b \otimes c) \cong \expval{b,\, c,\, a^*}$ の基底を1つ選んできて固定する．それを $\bm{\Basis (a,\, b \otimes c)}$ と書く．
 \hyperref[def:spherical]{球状フュージョン圏}の\hyperref[def:F-symbol]{\textbf{F-シンボル}} (F-symbol) とは，
 \begin{itemize}
     \item $x,\, y,\, z,\, u,\, \textcolor{red}{a},\, \textcolor{blue}{b} \in \Simp(\Cat{C})$
@@ -7600,6 +7600,9 @@ Turaev-Viroが最初に発見したTQFTは，多様体 $M$ の\hyperref[def:poly
         ++(120:\fac) coordinate (f_2)
         +(60:{2*\fac}) coordinate (f_3)
         ;
+        \path[use as bounding box]
+          ($(f_1)+(0,-\fac)$) ($(f_2)+(-0.5*\fac,0)$) ($(f_3)+(0,\fac)$) ($(f_4)+(1.1*\fac,0)$)
+        ;
         \draw[->-=.5] (f_1) to[out=60,in=-60] node[midway,right] {$z$} (f_4);
         \draw[->-=.5,red] (f_1) -- node[midway,below left] {$a$} (f_2);
         \draw[->-=.5] (f_2) to[out=60,in=-120] node[midway,below] {$y$} (f_4);
@@ -7619,6 +7622,9 @@ Turaev-Viroが最初に発見したTQFTは，多様体 $M$ の\hyperref[def:poly
         +(60:{2*\fac}) coordinate (f_4)
         ++(120:\fac) coordinate (f_2)
         +(60:{2*\fac}) coordinate (f_3)
+        ;
+        \path[use as bounding box]
+          ($(f_1)+(0,-\fac)$) ($(f_2)+(-1.1*\fac,0)$) ($(f_3)+(0,\fac)$) ($(f_4)+(0.5*\fac,0)$)
         ;
         \draw[->-=.5] (f_1) to[out=60,in=-60] node[midway,right] {$z$} (f_4);
         \draw[->-=.5,red] (f_1) -- node[midway,below left] {$a$} (f_2);
@@ -7667,6 +7673,9 @@ Turaev-Viroが最初に発見したTQFTは，多様体 $M$ の\hyperref[def:poly
         ++(60:\fac) coordinate (f_2)
         ++(90:\fac) coordinate (f_3)
         +(120:\fac) coordinate (f_4)
+        ;
+        \path[use as bounding box]
+          ($(f_1)+(-0.7*\fac,-\fac)$) ($(f_2)+(1.5*\fac,0)$) ($(f_3)+(1.5*\fac,0)$) ($(f_4)+(-0.7*\fac,\fac)$)
         ;
         \draw[->-=.5,DarkGreen] (f_1) -- node[midway,below right] {$c$} (f_2);
         \draw[->-=.5,blue] (f_3) -- node[midway,above right] {$b$} (f_4);
