@@ -1,0 +1,174 @@
+\documentclass[TQFT_main]{subfiles}
+
+\begin{document}
+
+% \setcounter{}{}
+\chapter{層状化空間・因子化ホモロジー}
+
+~\cite{AFT2014stratified}, ~\cite{AFT2014FH}のレビュー
+
+\section{多様体の層状化}
+
+\subsection{層状化空間}
+
+\begin{mydef}[label=def:topo-poset]{半順序集合の位相}
+    $(P,\, \le)$ を半順序集合とする．
+    $P$ 上の位相 $\mathscr{O}_{\le} \subset 2^P$ を以下で定義する：
+    \begin{align}
+        U \in \mathscr{O}_{\le} \DEF \forall x \in U,\, \forall y \in P,\; \bigl[\, x \le y \IMP y \in U \,\bigr]
+    \end{align}
+\end{mydef}
+
+実際，空集合の定義から $\emptyset \in \mathscr{O}_{\le}$ であり，$\forall U_1,\, U_2 \in \mathcal{O}_{\le}$ に対して $x \in U_1 \cap U_2$ であることは
+\begin{align}
+     \forall y \in P,\; x \le y \IMP y \in U_1 \AND y \in U_2
+\end{align}
+と同値なので $U_1 \cap U_2 \in \mathscr{O}_{\le}$ であり，
+さらに勝手な開集合族 $\Familyset[big]{U_\lambda \in \mathscr{O}_{\le}}{\lambda \in \Lambda}$ に対して
+$x \in \bigcup_{\lambda \in \Lambda} U_\lambda$ は
+\begin{align}
+    \exists \alpha \in \Lambda,\; \forall y \in P,\; x \le y \IMP y \in U_\alpha \subset \bigcup_{\lambda \in \Lambda} U_\lambda 
+\end{align}
+と同値であるから $\bigcup_{\lambda \in \Lambda} U_\lambda \in \mathscr{O}_{\le}$ であり，$\mathscr{O}_{\le}$ は集合 $P$ の位相である．
+
+\begin{myexample}[label=ex:topo-poset]{$[n]$ の位相}
+    半順序集合 $[2] \coloneqq \{0 \le 1 \le 2\}$ を考える．このとき，\hyperref[def:topo-poset]{位相 $\mathscr{O}_{\le}$}とは
+    \begin{align}
+        \mathscr{O}_{\le} = \bigl\{\, \emptyset,\, \{2\},\, \{1,\, 2\},\, \{0,\, 1,\, 2\} \,\bigr\} 
+    \end{align}
+    のことである．同様に，半順序集合 $[n] \coloneqq \{0 \le 1 \le \cdots \le n\}$ に対して
+    \begin{align}
+        \mathscr{O}_{\le} = \bigl\{\, \emptyset,\, \{n\},\, \{n-1,\, n\},\, \dots,\, \{0,\, \dots,\, n\}  \,\bigr\}
+    \end{align}
+    が成り立つ．
+\end{myexample}
+
+\begin{mydef}[label=def:stratified-space]{層状化空間・層状化写像}
+    $(P,\, \le)$ を半順序集合とし，定義\ref{def:topo-poset}の位相を入れて位相空間にする．
+    
+    このとき，位相空間 $X$ が $\bm{P}$\textbf{-層状化}されている ($P$-stratified) とは，連続写像 $s \colon X \lto P$ が存在することを言う．
+    組 $(X,\, s \colon X \lto P)$ のことを\textbf{$\bm{P}$-層状化空間} ($P$-stratified space) と呼ぶ．
+
+    \tcblower
+
+    層状化空間 $(X,\, s \colon X \lto P),\; (X',\, s' \colon X' \lto P')$ の間の\textbf{層状化写像} (stratified map) とは，連続写像の組み $(f \colon X \lto X',\; g \colon P \lto P')$ であって以下の図式を可換にするもののこと：
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAA0QBfU9TXfIRQBGclVqMWbdgHJuvEBmx4CRMsPH1mrRCAAK8vssFFRG6lqm69cruJhQA5vCKgAZgCcIAWyRkQOBBIAEwWkjogAMog1Ax0AEYwDHr8KkIgHliOABY4hiCePkiiAUGIAMxh2myRtgqFvoj+gcVVVgX5DSHULRWxCUkpxqq6mTl5bRGO3BRcQA
+\begin{tikzcd}
+X \arrow[d, "s"'] \arrow[r, red,"f"] & X' \arrow[d, "s'"] \\
+P \arrow[r, red,"g"']                & P'                
+\end{tikzcd}
+    \end{center}
+\end{mydef}
+
+\begin{myexample}[label=ex:str-CW]{CW複体}
+    CW複体 $X$ を与える．$X_{\le k}$ を $X$ の $k$-骨格とするとき，$X_k \setminus X_{k-1}$ を $k \in \mathbb{Z}_{\ge 0}$ に写す写像 $s \colon X \lto \mathbb{Z}_{\ge 0}$ は $X$ の\hyperref[def:stratified-space]{層状化}を与える．
+\end{myexample}
+
+
+\begin{mydef}[label=def:strat-emb]{層状化埋め込み}
+    \hyperref[def:stratified-space]{層状化写像} $(f,\, g) \colon (X,\, s \colon X \lto P) \lto (X',\, s' \colon X' \lto P')$ が\textbf{層状化開埋め込み} (stratified open embedding) であるとは，以下の2条件を充たすことを言う：
+    \begin{enumerate}
+        \item 連続写像 $f \colon X \lto X'$ は位相的埋め込みである\footnote{i.e. $f \colon X \lto f(X)$ が同相写像}
+        \item $\forall p \in P$ に対して，$f$ の制限
+        \begin{align}
+            f|_{s^{-1}(\{p\})} \colon s^{-1} \bigl( \{p\} \bigr) \lto s'{}^{-1} \bigl( \{g(p)\} \bigr) 
+        \end{align}
+        は位相的埋め込みである．
+    \end{enumerate}
+\end{mydef}
+
+\begin{marker}
+    以下では混乱が生じにくい場合，\hyperref[def:stratified-space]{層状化写像} $(f,\, g) \colon (X,\, s \colon X \lto P) \lto (X',\, s' \colon X' \lto P')$ のことを $f \colon (X \to P) \lto (X' \to P')$ と略記し，連続写像 $g \colon P \lto P'$ のことも $f$ と書く．
+\end{marker}
+
+圏 $\StTOP$ を，
+\begin{itemize}
+    \item 第2可算なHausdorff空間の\hyperref[def:stratified-space]{層状化空間}を対象とする
+    \item \hyperref[def:strat-emb]{層状化埋め込み}を射とする
+\end{itemize}
+ことで定義する．
+
+\subsection{$C^0$ 級層状化空間}
+
+
+\begin{mydef}[label=def:str-cone]{コーン}
+    \hyperref[def:stratified-space]{層状化空間} $(X,\, s \colon X \to P)$ を与える．
+    $X$ の\textbf{コーン} (cone) とは，以下のようにして構成される\hyperref[def:stratified-space]{層状化空間} $\bigl( \Cone{X},\, \Cone{s} \colon \Cone{X} \lto \Cone{P} \bigr)$ のこと：
+    \begin{itemize}
+        \item 位相空間 $\Cone{X}$ を，押し出し位相空間
+        \begin{align}
+            \Cone{X} \coloneqq \{\mathrm{pt}\} \amalg_{\{0\} \times X} (\mathbb{R}_{\ge 0} \times X)
+        \end{align}
+        と定義する：
+        \begin{center}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB13hjOBfTvAFt4AAgAaIXqXSZc+QigCM5KrUYs2nQXRwALAEb7gAJV4B9YJwDmMEcV4iBWYXHGTpIDNjwEiZRar0zKyIHFxaOroAToLAaDj87LzuMt7yRMoB1EEaoZyW7Np6MXEJfI7sdNoMVhb5PEkVQqJiDgAUEXqGJuYFNnYOTi7iAJSSqjBQNggooABmURCCSGQgOBBIAEzUDHT6MAwACrI+CiBRWFa6OCkgC0tIymsbiADMUvOLy4ir64-Z6hCYW45SGok60ViWCg5gkHzuXy21D+bx2ewOxzSvlCFyuN14FF4QA
+        \begin{tikzcd}
+\{0\}\times X \arrow[d] \arrow[r, hookrightarrow, "\{0\} \times \mathrm{id}_X"] & \mathbb{R}_{\ge 0} \times X \arrow[d,red]                                 \\
+\{\mathrm{pt}\} \arrow[r,hookrightarrow,red]                                       & \textcolor{red}{\{\mathrm{pt}\} \amalg_{\{0\} \times X} (\mathbb{R}_{\ge 0} \times X)}
+        \end{tikzcd}
+        \end{center}
+        \item 半順序集合 $\Cone{P}$ を，$P$ に最小の要素 $-\infty$ を付け足すことで定義する．これは半順序集合の圏における押し出し
+        \begin{align}
+            \Cone{P} \coloneqq \{-\infty\} \amalg_{\{0\} \times X} \bigl( [1] \times P \bigr) 
+        \end{align}
+        である．
+        \item 連続写像
+        \begin{align}
+            \mathbb{R}_{\ge 0} \times X &\lto [1] \times P, \\
+            (t,\, x) &\lmto 
+            \begin{cases}
+                \bigl( 0,\, s(x) \bigr), &t=0, \\
+                \bigl( 1,\, s(x) \bigr), &t>0
+            \end{cases}
+        \end{align}
+        が\hyperref[def:colim]{押し出しの普遍性}により誘導する連続写像 $\Cone{X} \lto \Cone{P}$ を $\Cone{s}$ と書く．
+    \end{itemize}
+\end{mydef}
+
+\begin{mydef}[label=def:Snglr-C0]{$C^0$ 級層状化空間}
+    以下を充たす $\StTOP$ の最小の\hyperref[def:faithful]{充満部分圏}を $\Snglr$ と書き，圏 $\Snglr$ の対象を\textbf{$\bm{C^0}$ 級層状化空間} ($C^0$ stratified space) と呼ぶ：
+    \begin{description}
+        \item[\textbf{(Snglr-1)}] $(\emptyset \to \emptyset) \in \Obj{\Snglr}$
+        \item[\textbf{(Snglr-2)}]　
+        
+        $(X \to P) \in \Obj{\Snglr}$ かつ $X,\, P$ が位相空間としてコンパクト 
+        
+        $\IMP$ $\Cone{X \to P} \in \Obj{\Snglr}$
+        
+        \item[\textbf{(Snglr-3)}]　
+        
+        $(X \to P) \in \Obj{\Snglr}$ $\IMP$ $(X \times \mathbb{R} \to P) \in \Obj{\Snglr}$\footnote{$X \times \mathbb{R}$ の層状化は，連続写像 $X \times \mathbb{R} \lto X,\; (x,\, t) \lmto x$ を前もって合成することにより定める．}
+        
+        \item[\textbf{(Snglr-4)}]　
+        
+        $(X \to P) \in \Obj{\Snglr}$ かつ $\Hom{\StTOP} \bigl( (U \to P_U),\, (X \to P) \bigr) \neq \emptyset$ 
+        
+        $\IMP$ $(U \to P_U) \in \Obj{\Snglr}$
+        
+        \item[\textbf{(Snglr-5)}]　 
+        
+        $(X \to P) \in \Obj{\StTOP}$ が開被覆 $\Familyset[big]{(U_\lambda \to P_\lambda) \lto (X \to P)}{\lambda \in \Lambda}$\footnote{i.e. $\Familyset[big]{U_\lambda}{\lambda \in \Lambda},\; \Familyset[big]{P_\lambda}{\lambda \in \Lambda}$ が，それぞれ位相空間 $X,\, P$ の開被覆を成す．} を持ち，かつ $\forall \lambda \in \Lambda$ に対して $(U_\lambda \to P_\lambda) \in \Obj{\Snglr}$ 
+        
+        $\IMP$ $(X \to P) \in \Obj{\Snglr}$
+    \end{description}
+\end{mydef}
+
+\begin{myexample}[label=ex:topomfld]{位相多様体は $C^0$ 級層状化空間}
+    \hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-1)}}}より，$* \coloneqq \Cone{\emptyset \to \emptyset} \in \Obj{\Snglr}$ である．
+    \hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-3)}}}より，$\forall n \ge 0$ に対して $\mathbb{R}^n = (\mathbb{R}^n \to [0]) \in \Obj{\Snglr}$ であることが帰納的に分かる．
+    $\mathbb{R}^n$ の任意の開集合 $U \hookrightarrow \mathbb{R}^n$ に対して，
+    \begin{center}
+            \begin{tikzcd}
+        U \arrow[d] \arrow[r, hookrightarrow] & \mathbb{R}^n \arrow[d] \\
+        {[0]} \arrow[r, "="']                & {[0]}               
+    \end{tikzcd}
+    \end{center}
+    は\hyperref[def:strat-emb]{層状化埋め込み}であり，従って \hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-4)}}}より $U \coloneqq (U \to [0]) \in \Obj{\Snglr}$ が分かる．
+    以上の考察と\hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-5)}}}を併せて，任意の位相多様体 $M$ は\footnote{より正確には，$M$ を\hyperref[def:stratified-space]{層状化空間} $(M \to [0])$ と同一視している．}圏 $\Snglr$ の対象である．
+\end{myexample}
+
+
+
+
+\end{document}
