@@ -96,7 +96,7 @@ P \arrow[r, red,"g"']                & P'
     \hyperref[def:stratified-space]{層状化空間} $(X,\, s \colon X \to P)$ を与える．
     $X$ の\textbf{コーン} (cone) とは，以下のようにして構成される\hyperref[def:stratified-space]{層状化空間} $\bigl( \Cone{X},\, \Cone{s} \colon \Cone{X} \lto \Cone{P} \bigr)$ のこと：
     \begin{itemize}
-        \item 位相空間 $\Cone{X}$ を，押し出し位相空間
+        \item 位相空間 $\Cone{X}$ を，\hyperref[def:pullback-pushout]{押し出し}位相空間
         \begin{align}
             \Cone{X} \coloneqq \{\mathrm{pt}\} \amalg_{\{0\} \times X} (\mathbb{R}_{\ge 0} \times X)
         \end{align}
@@ -110,7 +110,7 @@ P \arrow[r, red,"g"']                & P'
         \end{center}
         \item 半順序集合 $\Cone{P}$ を，$P$ に最小の要素 $-\infty$ を付け足すことで定義する．これは半順序集合の圏における押し出し
         \begin{align}
-            \Cone{P} \coloneqq \{-\infty\} \amalg_{\{0\} \times X} \bigl( [1] \times P \bigr) 
+            \Cone{P} \coloneqq \{-\infty\} \amalg_{\{0\} \times P} \bigl( [1] \times P \bigr) 
         \end{align}
         である．
         \item 連続写像
@@ -122,9 +122,36 @@ P \arrow[r, red,"g"']                & P'
                 \bigl( 1,\, s(x) \bigr), &t>0
             \end{cases}
         \end{align}
-        が\hyperref[def:colim]{押し出しの普遍性}により誘導する連続写像 $\Cone{X} \lto \Cone{P}$ を $\Cone{s}$ と書く．
+        が誘導する連続写像 $\Cone{X} \lto \Cone{P}$ を $\Cone{s}$ と書く．
     \end{itemize}
 \end{mydef}
+
+位相空間の圏における押し出しの公式から，位相空間 $\Cone{X}$ とは
+\begin{align}
+    i_1 \colon \{0\} \times \mathbb{R} &\lto \mathbb{R}_{\ge 0} \times X,\; x \lmto (0,\, x), \\
+    i_2 \colon \{0\} \times \mathbb{R} &\lto \{\mathrm{pt}\},\; x \lmto \mathrm{pt}
+\end{align}
+とおいたときのコイコライザ
+\begin{center}
+    % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB13hjOBfTvAFt4AAgAaIXqXSZc+QigCM5KrUYs2nYJ0F0cACwBOg4Ghz92FuroYBzEQAode-QCNXwAEq8A+tva2MCLEvCICWMJw4gCUktIgGNh4BEQATCrU9MysiBzsugZwAGbAAMK8DmKxvKowUIEIKKBFhhCCSGQgOBBIyiAMWGA5IHAQA1Ag1PowdBOIYEwMDNQ4dFgMbJBDkyP6WEU4SAC0fVkauVg+inHNre2Ind291HB7B8-9dK4wDAAKsskFCBDFhbPpDpl1MNLqkbiAWm0Pk9EKkarwgA
+    \begin{tikzcd}
+    \{0\}\times X \arrow[r, "i_1", shift left] \arrow[r, "i_2"', shift right] & \{\mathrm{pt}\}\sqcup (\mathbb{R}_{\ge 0} \times X) \arrow[r] & \mathsf{C}(X)
+    \end{tikzcd}
+\end{center}
+である．i.e. 商位相空間
+\begin{align}
+    \frac{\mathbb{R}_{\ge 0} \times X}{i_1 (x) \sim i_2 (x)} = \frac{\mathbb{R}_{\ge 0} \times X}{\{0\} \times X}
+\end{align}
+のこと．従って $\Cone{s} \colon \Cone{X} \lto \Cone{P}$ とは，連続写像\footnote{$\Cone{P}$ の\hyperref[def:topo-poset]{位相 $\mathscr{O}_{\Cone{P}}$}は，$P$ の位相 $\mathscr{O}_{P}$ に1つの開集合 $\{-\infty\} \cup P$ を加えたものである．$\forall U \in \mathscr{O}_{P}$ に対して $\Cone{s}^{-1} (U) = \mathbb{R}_{\textcolor{red}{>0}} \times s^{-1}(U) \in \mathscr{O}_{\Cone{X}}$ で，かつ $\Cone{s}^{-1}(\{-\infty\} \cup P) = \Cone{X} \in \mathscr{O}_{\Cone{X}}$ なので $\Cone{s}$ は連続である．}
+\begin{align}
+    \frac{\mathbb{R}_{\ge 0} \times X}{\{0\} \times X} &\lto \Cone{P},\;
+    [(t,\, x)] \lmto \begin{cases}
+        -\infty, &t = 0 \\
+        s(x), &t > 0
+    \end{cases}
+\end{align}
+のことである．
+
 
 \begin{mydef}[label=def:Snglr-C0]{$C^0$ 級層状化空間}
     以下を充たす $\StTOP$ の最小の\hyperref[def:faithful]{充満部分圏}を $\Snglr$ と書き，圏 $\Snglr$ の対象を\textbf{$\bm{C^0}$ 級層状化空間} ($C^0$ stratified space) と呼ぶ：
@@ -168,7 +195,119 @@ P \arrow[r, red,"g"']                & P'
     以上の考察と\hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-5)}}}を併せて，任意の位相多様体 $M$ は\footnote{より正確には，$M$ を\hyperref[def:stratified-space]{層状化空間} $(M \to [0])$ と同一視している．}圏 $\Snglr$ の対象である．
 \end{myexample}
 
+\subsection{conically smoothness}
 
+\begin{mydef}[label=def:C0-basic]{$C^0$ basic}
+    \hyperref[def:Snglr-C0]{$\bm{C^0}$ 級層状化空間} $(X \to P) \in \Obj{\Snglr}$ が $\bm{C^0}$\textbf{-basic}であるとは，ある $n \in \mathbb{Z}_{\ge 0}$ およびコンパクトな\hyperref[def:Snglr-C0]{$\bm{C^0}$ 級層状化空間} $(Z \to Q) \in \Obj{\Snglr}$ が存在して
+    $(X \to P) = (\mathbb{R}^n \to *) \times \Cone{Z \to Q}$ が成り立つことを言う．
+\end{mydef}
+
+いま，\hyperref[def:C0-basic]{$C^0$ basic}な $(U \to P_U) = (\mathbb{R}^n \to [0]) \times \Cone{Z \to P} \in \Obj{\Snglr}$ を1つとる．
+\hyperref[def:str-cone]{コーンの定義}から，$U$ の点を $(v,\, [t,\, z]) \in \mathbb{R}^n \times \frac{\mathbb{R}_{\ge 0} \times Z}{\{0\} \times Z}$ と表示することができる．
+自己同相
+\begin{align}
+    \gamma \colon \mathbb{R}_{> 0} \times T \mathbb{R}^n \times \Cone{Z} &\lto \mathbb{R}_{> 0} \times T \mathbb{R}^n \times \Cone{Z}, \\
+    \bigl( t,\, (v,\, p),\, [s,\, z] \bigr) &\lmto \bigl( t,\, (tv + p,\, p),\, [ts,\, z] \bigr)
+\end{align}
+を考える\footnote{接束 $T\mathbb{R}^n$ は $\mathbb{R}^{2n}$ と微分同相である．~\cite[p.23]{AFT2014stratified}の記法に合わせて底空間 $\mathbb{R}^n$ の点を $p$，$p$ 上のファイバーの元を $v$ としたとき $(v,\, p) \in T \mathbb{R}^n$ と書いた．命題\ref{prop:tangentbundle}の記法と順番が逆なので注意．}．
+
+さらに，もう1つの\hyperref[def:C0-basic]{$C^0$ basic}な $(U' \to P_{U'}) = (\mathbb{R}^{n'} \to [0]) \times \Cone{Z' \to P'} \in \Obj{\Snglr}$ および
+$f \in \Hom{\Snglr} \bigl( (U \to P_{U}),\, (U' \to P_{U'})  \bigr)$ をとる．ただし，$\forall u \in \mathbb{R}^n$ に対して $f (u,\, \mathrm{pt}) = f (u,\, \mathrm{pt})$ が成り立つことを仮定する．
+$f|_{\mathbb{R}^n} \colon \mathbb{R}^n \times \{\mathrm{pt}\} \lto \mathbb{R}^n \times \{\mathrm{pt}\}$ を $f$ のコーンポイントへの制限として，
+\begin{align}
+    f_{\Delta} \colon \mathbb{R}_{\textcolor{red}{>0}} \times T \mathbb{R}^n \times \Cone{Z} &\lto \mathbb{R}_{\textcolor{red}{>0}} \times T \mathbb{R}^{n'} \times \Cone{Z'}, \\
+    \bigl( t,\, v,\, p,\, [s,\, z] \bigr) &\lmto \bigl( t,\, f|_{\mathbb{R}^n}(v),\, f(p,\, [ts,\, z]) \bigr)
+\end{align}
+とおこう．
+
+\begin{myexample}[label=ex:cone-diff]{}
+    $Z = Z' = \emptyset$ のとき，$f$ とは単に連続関数 $f \colon \mathbb{R}^n \lto \mathbb{R}^{n'}$ のことである．
+    このとき，
+    \begin{align}
+        (\gamma^{-1} \circ f_{\Delta} \circ \gamma)(t,\, v,\, p)
+        &= \gamma^{-1} \circ f_\Delta (t,\, tv+p,\, p) \\
+        &= \gamma^{-1} \bigl(t,\, f(tv+p),\, f(p)\bigr) \\
+        &= \left( t,\, \frac{f(tv+p) - f(p)}{t},\, f(p) \right)
+    \end{align}
+    と計算できるため，$f$ が $C^1$ 級であることと $\forall (v,\, p) \in T \mathbb{R}^n$ に対して $t \to +0$ の極限，i.e. $v$ に沿った片側方向微分が存在することは同値である．
+\end{myexample}
+
+\begin{mydef}[label=def:c-smooth-along]{$\mathbb{R}^n$ に沿ってconically smooth}
+    \begin{itemize}
+        \item \hyperref[def:C0-basic]{$C^0$ basic}な $(U \to P_{U}) = (\mathbb{R}^{n} \to [0]) \times \Cone{Z \to P} \in \Obj{\Snglr}$
+        \item \hyperref[def:C0-basic]{$C^0$ basic}な $(U' \to P_{U'}) = (\mathbb{R}^{n'} \to [0]) \times \Cone{Z' \to P'} \in \Obj{\Snglr}$
+        \item $f \in \Hom{\Snglr} \bigl( (U \to P_{U}),\, (U' \to P_{U'})  \bigr)$ であって，コーンポイントを保存するもの
+    \end{itemize}
+    を与える．このとき，$f$ が\textbf{$\bm{\mathbb{R}^n}$ に沿って $C^1$ 級} ($C^1$ along $\mathbb{R}^n$) であるとは，以下の図式を可換にする連続写像
+    \begin{align}
+        \textcolor{red}{\tilde{D}f} \colon \mathbb{R}_{\textcolor{red}{\ge 0}} \times T \mathbb{R}^n \times \Cone{Z} &\lto \mathbb{R}_{\textcolor{red}{\ge 0}} \times T \mathbb{R}^{n'} \times \Cone{Z'}
+    \end{align}
+    が存在することを言う：
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACwBGA4ACUAvgH1gnHDAAeOAMYQGEAE7A1MKGOnsA5jAAExMWKMysXeEYAqF7r0HDxAPTAO81uA4DCBGGAALTEQMVJ0TFx8QhQARnIqWkYWNk4efiFRST1ZBWVVDS0dPUMTM08rG3t0pyy3YDAAcnNLbz8A4JawiJAMbDwCIjI4pPpmVkQOR0yXHIA+csr2mpnnbPdlm05-MECQnsiBmKIE0epx1Kna2eypRdMtn1WM9Ybm1vYvbfZd-e6xEltIYEChQAAzNQQLhIABM1BwECQAGZwhCoTDEPCQIikKZepDoSiEUjEHE0SBCZjsbjEMiLilJtN9HQuDxXMAALTkziKLBqRRGcFSTgAERgDBwdE+fIFDhZbLoIGoDDoAglAAUooNYiA1Fh9HwcIdKRi8SSkAlkhM0l8sAxYMBRWJwcqQAwsHs2FA6HA+NowhQxEA
+        \begin{tikzcd}
+        \mathbb{R}_{\textcolor{red}{\ge 0}} \times T \mathbb{R}^n \times \Cone{Z} \arrow[r, "\tilde{D}f", red, dashed]                         & \mathbb{R}_{\textcolor{red}{\ge 0}} \times T \mathbb{R}^{n'} \times \Cone{Z'} \\
+        \mathbb{R}_{> 0} \times T \mathbb{R}^n \times \Cone{Z} \arrow[r] \arrow[u] \arrow[r, "\gamma^{-1}\circ f_{\Delta} \circ \gamma"'] & \mathbb{R}_{> 0} \times T \mathbb{R}^{n'} \times \Cone{Z'} \arrow[u]         
+        \end{tikzcd}
+    \end{center}
+    \tcblower
+    このような拡張が存在するとき，第一変数を $t=0$ に制限して得られる連続写像を
+    \begin{align}
+        \bm{Df} \colon T \mathbb{R}^n \times \Cone{Z} \lto T \mathbb{R}^{n'} \times \Cone{Z'}
+    \end{align}
+    と書く．$f$ が\textbf{$\bm{\mathbb{R}^n}$ に沿って $C^r$ 級} であるとは，$Df$ が $\mathbb{R}^n$ に沿って $C^{r-1}$ 級であることを言う．
+    $f$ が\textbf{$\bm{\mathbb{R}^n}$ に沿ってconically smooth}であるとは，$\forall r \ge 1$ について $C^r$ 級であることを言う．
+\end{mydef}
+
+次に行うべきは，与えられた\hyperref[def:Snglr-C0]{$\bm{C^0}$ 級層状化空間} $(X \to P) \in \Obj{\Snglr}$ の上の\textbf{conically smooth structure} i.e. 変換関数が\hyperref[def:c-smooth-along]{conically smooth}であるような\textbf{極大アトラス}を定義することである．
+この手続きは，次で定義する次元と深さに関する帰納法によって構成される．
+
+\begin{mydef}[label=def:dim-depth]{次元と深さ}
+    空でない\hyperref[def:Snglr-C0]{$\bm{C^0}$ 級層状化空間} $(X \to P) \in \Obj{\Snglr}$ を与える．
+    \begin{itemize}
+        \item $(X \to P)$ の点 $x \in X$ における\textbf{局所的次元} (local dimension) とは，点 $x$ における $X$ の被覆次元\footnote{以下の条件を充たす最小の $d \in \mathbb{Z}_{\ge -1}$ のことを（存在すれば）$X$ の\textbf{被覆次元} (covering dimension) と呼ぶ：$X$ の任意の開被覆 $\mathscr{U}$ に対して，十分細かい細分 $\mathscr{V}_{\mathscr{U}} \prec \mathscr{U}$ をとると，任意の互いに異なる $\forall m > d+1$ 個の開集合 $V_1,\, \dots,\, V_{m} \in \mathscr{V}_{\mathscr{U}}$ の共通部分が空になるようにできる．特に，$\emptyset$ の被覆次元は $-1$ と定義する．} $\bm{\dim_x(X)}$ のことを言う．
+        \item $(X \to P)$ の\textbf{次元} (dimension) とは
+        \begin{align}
+            \bm{\dim (X \to P)} \coloneqq \sup_{x \in X} \dim_x (X)
+        \end{align}
+        \item $(X \xrightarrow{s} P)$ の点 $x \in X$ における\textbf{局所的深さ} (local depth) とは，
+        \begin{align}
+            \bm{\depth_x(X \to P)} \coloneqq \dim_x (X) - \dim_x \bigl( s^{-1}(\{s(x)\}) \bigr)
+        \end{align}
+        のこと．
+        \item $(X \xrightarrow{s} P)$ の\textbf{深さ} (depth) とは，
+        \begin{align}
+            \bm{\depth(X)} \coloneqq \sup_{x \in X} \depth_x(X)
+        \end{align}
+        のこと．
+    \end{itemize}
+\end{mydef}
+
+\begin{myexample}[label=ex:depth-Cone]{コーンの深さ}
+    $n$ 次元位相多様体 $Z$ について，定義から $\dim_x(Z) = n$ が成り立つ．
+    これを\exref{ex:topomfld}により\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間} $(Z \to [0]) \in \Obj{\Snglr}$ と見做すと，これの\hyperref[def:str-cone]{コーン} $\Cone{Z \to [0]}$ について
+    \begin{align}
+        \depth_x \bigl( \Cone{Z \to [0]} \bigr) 
+        =
+        \begin{cases}
+            n+1, &x = \mathrm{pt}, \\
+            0, &\text{otherwise}
+        \end{cases}
+    \end{align}
+    であることがわかる．実際，コーンポイントの逆像は1点なので $0$ 次元であり，かつ $\dim_x \bigl( \Cone{Z} \bigr) = n+1$ である．
+    一方，コーンポイント以外の点の逆像は潰れておらず，$n+1$ 次元である．
+
+    　また，$\forall (X \to P) \in \Obj{\Snglr}$ に対して
+    \begin{align}
+        \dim \bigl( (\mathbb{R}^m \to [0]) \times (X \to P) \bigr) &= m + \dim \bigl( X \to P \bigr), \\
+        \depth \bigl( (\mathbb{R}^m \to [0]) \times (X \to P) \bigr) &= \depth \bigl( X \to P \bigr) 
+    \end{align}
+    が成り立つ．従って，\hyperref[def:C0-basic]{$C^0$ basic}な $(U \to P_U) = (\mathbb{R}^n \to [0]) \times \Cone{Z \to P} \in \Obj{\Snglr}$ に対して
+    \begin{align}
+        \depth (U \to P_U) = \depth (Z \to P) + 1
+    \end{align}
+    が成り立つ．
+\end{myexample}
 
 
 \end{document}
