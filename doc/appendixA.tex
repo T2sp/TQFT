@@ -242,7 +242,7 @@ $C^\infty$ 多様体 $X$ とその開被覆 $\mathcal{U}$ を一つ固定する�
     \label{def:Cech-complex-1}
     \check{C}^{n} (\mathcal{U},\, \Omega^{-1}_X) \coloneqq \check{C}^n (\mathcal{U},\, \mathbb{Z}_X)
 \end{align}
-ただし $\mathbb{Z}_X$ は圏 $\MOD{\mathbb{R}}$ の\hyperref[ex:constant-presheaf]{定数前層}である．そして
+ただし $\mathbb{Z}_X$ は圏 $\MOD{\mathbb{R}}$ に値をとる\hyperref[ex:constant-presheaf]{定数前層}である．そして
 \begin{align}
     \dd_{-1} \colon \check{C}^{n} (\mathcal{U},\, \Omega^{-1}_X) &\lto \check{C}^{n} (\mathcal{U},\, \Omega^{0}_X), \\
     \Dpmember[\big]{c_{\alpha_0 \dots \alpha_n}}{(\alpha_0,\, \dots ,\, \alpha_n)} &\lmto \Dpmember[\big]{(x \lmto c_{\alpha_0 \dots \alpha_n})}{(\alpha_0,\, \dots ,\, \alpha_n)}
@@ -256,39 +256,40 @@ $C^\infty$ 多様体 $X$ とその開被覆 $\mathcal{U}$ を一つ固定する�
         &\vdots & \vdots &\vdots & &\vdots &
     \end{tikzcd}
 \end{center}
-を得る．ここから，ある $0 \le p \le \dim X + 1$ に対して
+を得る．この2重複体を横方向に切り取り，かつ右斜め上方向に直和をとることで得られる複体を\textbf{Deligne-Beilinson複体}と呼ぶ．
+あからさまには，ある $0 \le p \le \dim X + 1$ に対して
 \begin{align}
-    \irm{C}{D}{}_{p}^q 
+    \irm{\mathbb{Z}(p)}{D}^q 
     &\coloneqq 
     \begin{cases}
         \bigoplus_{n+m = q-1} \check{C}^{n}(\mathcal{U},\, \Omega^{m}_X), &0 \le q \le p \\
-        \bigoplus_{\substack{n+m = p-1,\\ m \le p-1}} \check{C}^{n}(\mathcal{U},\, \Omega^{m}_X), &0 \le q > p
+        \bigoplus_{\substack{n+m = p-1,\\ m \le p-1}} \check{C}^{n}(\mathcal{U},\, \Omega^{m}_X), &q > p
     \end{cases}
 \end{align}
 と定義し $D \coloneqq \dd + (-1)^{\deg}\delta$ とおくと，図式
 \begin{align}
-    \cdots \xrightarrow{D} \irm{C}{D}{}_{p}^q  \xrightarrow{D} \irm{C}{D}{}_{p}^{q+1} \xrightarrow{D} \cdots
+    \cdots \xrightarrow{D} \irm{\mathbb{Z}(p)}{D}^q  \xrightarrow{D} \irm{\mathbb{Z}(p)}{D}^{q+1} \xrightarrow{D} \cdots
 \end{align}
 はコチェイン複体になる．
 
 \begin{mydef}[label=def:Deligne-Beilinson]{Deligne-Beilinsonコホモロジー}
     $0 \le p \le \dim X + 1$ を与える．
     
-    上述の複体 $\bigl( \irm{C}{D}{}_{p}^\bullet,\; \mathcal{U},\; D \bigr)$ を開被覆 $\mathcal{U}$ に関する\textbf{Deligne-Beilinson複体}，
+    上述の複体 $\bigl(\mathcal{U},\; \irm{\mathbb{Z}(p)}{D}^\bullet,\; D \bigr)$ を開被覆 $\mathcal{U}$ に関する\textbf{Deligne-Beilinson複体}，
     そのコホモロジーを\textbf{Deligne-Beilinsonコホモロジー}と呼ぶ．
-    記号として $\bm{\DB{\bullet}{\irm{C}{D}{}_p,\, \mathcal{U}}}$ と書く．
+    記号として $\bm{\DB{\bullet}{\mathcal{U};\, \irm{\mathbb{Z}(p)}{D}}}$ と書く．
 \end{mydef}
 
-標準的射影 $\pi^q \colon \irm{C}{D}{}_{p}^q \lto \check{C}^q(\mathcal{U},\, \Omega_X^{-1})$ はチェイン写像
+標準的射影 $\pi^q \colon \irm{\mathbb{Z}(p)}{D}^q \lto \check{C}^q(\mathcal{U},\, \Omega_X^{-1})$ はチェイン写像
 \begin{center}
     \begin{tikzcd}[row sep=large, column sep=large]
-        &\cdots \ar[r, "D"]\ar[d,"\pi"] &\irm{C}{D}{}_{p}^q \ar[r, "D"]\ar[d,"\pi"] &\irm{C}{D}{}_{p}^{q+1} \ar[r, "D"]\ar[d, "\pi"] &\cdots \\
-        &\cdots \ar[r, "\delta"] &\irm{C}{D}{}_{p}^q \ar[r, "\delta"] &\irm{C}{D}{}_{p}^{q+1} \ar[r, "\delta"] &\cdots
+        &\cdots \ar[r, "D"]\ar[d,"\pi"] &\irm{\mathbb{Z}(p)}{D}^q \ar[r, "D"]\ar[d,"\pi"] &\irm{\mathbb{Z}(p)}{D}^{q+1} \ar[r, "D"]\ar[d, "\pi"] &\cdots \\
+        &\cdots \ar[r, "\delta"] &{\check{C}^q (\mathcal{U};\, \mathbb{Z}_X)} \ar[r, "\delta"] &{\check{C}^{q+1} (\mathcal{U};\, \mathbb{Z}_X)} \ar[r, "\delta"] &\cdots
     \end{tikzcd}
 \end{center}
 となるので，誘導準同型
 \begin{align}
-    \DB{q}{\irm{C}{D}{}_p,\, \mathcal{U}} \lto \Cech{q}{\mathcal{U},\, \mathbb{Z}_X}
+    \DB{q}{\mathcal{U};\, \irm{\mathbb{Z}(p)}{D}} \lto \Cech{q}{\mathcal{U};\, \mathbb{Z}_X}
 \end{align}
 がある．
 
@@ -297,15 +298,15 @@ $C^\infty$ 多様体 $X$ とその開被覆 $\mathcal{U}$ を一つ固定する�
     \begin{enumerate}
         \item $q < p$ ならば
         \begin{align}
-            \DB{q}{\irm{C}{D}{}_p,\, \mathcal{U}} \cong \Cech{q-1}{\mathcal{U},\, \mathbb{R}/\mathbb{Z}}
+            \DB{q}{\mathcal{U};\, \irm{\mathbb{Z}(p)}{D}} \cong \Cech{q-1}{\mathcal{U},\, \mathbb{R}/\mathbb{Z}}
         \end{align}
         \item $q > p$ ならば
         \begin{align}
-            \DB{q}{\irm{C}{D}{}_p,\, \mathcal{U}} \cong \Cech{q-1}{\mathcal{U},\, \mathbb{Z}}
+            \DB{q}{\mathcal{U};\, \irm{\mathbb{Z}(p)}{D}} \cong \Cech{q-1}{\mathcal{U},\, \mathbb{Z}}
         \end{align}
         \item $q=p$ ならば，$\mathbb{Z}$ 加群の完全列
         \begin{align}
-            0 \lto \Bigl\{ \substack{\text{closed global}\, (p-1)\text{-forms} \\ \text{with integral periods}} \Bigr\} \lto \Omega^{p-1}(X;\, \mathbb{R}) \lto \DB{p}{\irm{C}{D}{}_p,\, \mathcal{U}} \lto \Cech{p}{\mathcal{U},\, \mathbb{Z}} \quad (\text{exact})
+            0 \lto \Bigl\{ \substack{\text{closed global}\, (p-1)\text{-forms} \\ \text{with integral periods}} \Bigr\} \lto \Omega^{p-1}(X;\, \mathbb{R}) \lto \DB{p}{\mathcal{U};\, \irm{\mathbb{Z}(p)}{D}} \lto \Cech{p}{\mathcal{U},\, \mathbb{Z}} \quad (\text{exact})
         \end{align}
         が成り立つ．
     \end{enumerate}

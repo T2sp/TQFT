@@ -2447,8 +2447,8 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
 \begin{mydef}[label=def:PathCat]{単体的豊穣圏 {$\mathfrak{C}[Q]$}}
 $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{単体的豊穣圏} $\bm{\mathfrak{C}}[Q] \in \Obj{\sCat}$ を以下で定義する：
 \begin{itemize}
-    \item $\Obj{\Cat{C}} \coloneqq Q$
-    \item $\forall i,\, j \in \Obj{\Cat{C}}$ に対して，
+    \item $\Obj{\mathfrak{C}[Q]} \coloneqq Q$
+    \item $\forall i,\, j \in \Obj{\mathfrak{C}[Q]}$ に対して，
     \begin{align}
         \Hom{\mathfrak{C}[Q]} (i,\, j) \coloneqq 
         \begin{cases}
@@ -2469,8 +2469,8 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
         \end{align}
         で定義する．
     \end{itemize}
-    ことで圏と見做し，\hyperref[def:nerve]{脈体}を取った．
-    \item $\forall i,\, j,\, k \in \Obj{\Cat{C}},\; i \le j \le k$ に対して，自然変換
+    ことで圏と見做し，それの\hyperref[def:nerve]{脈体}を取った．
+    \item $\forall i,\, j,\, k \in \Obj{\mathfrak{C}[Q]},\; i \le j \le k$ に対して，自然変換
     \begin{align}
         \circ_{ijk} \colon \Hom{\mathfrak{C}[Q]}(j,\, k) \times \Hom{\mathfrak{C}[Q]}(i,\, j) &\lto \Hom{\mathfrak{C}[Q]}(i,\, k)
     \end{align}
@@ -2527,11 +2527,12 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
         \Bigm|\; 0 \le x \le y \le n+1
          \Bigr\} 
     \end{align}
-    だと分かる．特に，
-    \begin{align}
-        \circ_{012}{}_{[n]} \colon \mathrm{N}(P_{12})_n \times \mathrm{N}(P_{01}) \lto \mathrm{N}(P_{02})
-    \end{align}
-    である．
+    だと分かる．
+    % 特に，
+    % \begin{align}
+    %     \circ_{012}{}_{[n]} \colon \mathrm{N}(P_{12})_n \times \mathrm{N}(P_{01}) \lto \mathrm{N}(P_{02})
+    % \end{align}
+    % である．
 \end{myexample}
 
 \begin{mydef}[label=def:nerve-hc]{homotopy coherentな脈体}
