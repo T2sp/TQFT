@@ -217,6 +217,14 @@ title=公理~\thetcbcounter: #2,#1}
 colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,
 title=公理${}^{\text{ph}}$~\thetcbcounter: #2,#1}
 
+\newtcolorbox[auto counter,number within=chapter]{myassump}[2][breakable]{%
+colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,
+title=仮定~\thetcbcounter: #2,#1}
+
+\newtcolorbox[auto counter,number within=chapter]{myassumpph}[2][breakable]{%
+colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,
+title=仮定${}^{\text{ph}}$~\thetcbcounter: #2,#1}
+
 \newtcolorbox[auto counter,number within=chapter]{mytheo}[2][breakable]{%
 colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,
 title=定理~\thetcbcounter: #2,#1}
@@ -380,7 +388,7 @@ title=系~\thetcbcounter: #2,#1}
 \newcommand{\Gnd}[1]{\mathrm{Gnd}\left(#1\right)}
 \newcommand{\LatG}[2]{\mathrm{Lat}_{#1}\left(#2\right)}
 \newcommand{\GndG}[2]{\mathrm{Gnd}_{#1}\left(#2\right)}
-\newcommand{\Cone}[1]{\mathsf{C}\left( #1 \right) }
+
 \DeclareMathOperator{\depth}{depth}
 \DeclareMathOperator{\Basis}{Basis}
 %% Yoneda embedding

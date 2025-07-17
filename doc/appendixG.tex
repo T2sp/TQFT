@@ -7,7 +7,7 @@
 
 ~\cite{AFT2014stratified}, ~\cite{AFT2014FH}のレビュー
 
-\section{多様体の層状化}
+\section{conically smoothな層状化空間}
 
 \subsection{層状化空間}
 
@@ -48,52 +48,74 @@ $x \in \bigcup_{\lambda \in \Lambda} U_\lambda$ は
     
     このとき，位相空間 $X$ が $\bm{P}$\textbf{-層状化}されている ($P$-stratified) とは，連続写像 $s \colon X \lto P$ が存在することを言う．
     組 $(X,\, s \colon X \lto P)$ のことを\textbf{$\bm{P}$-層状化空間} ($P$-stratified space) と呼ぶ．
+    また，$i \in P$ の逆像 $\bm{X_i} \coloneqq s^{-1}(\{i\}) \subset X$ のことを\textbf{$\bm{i}$-層} ($i$-strata) と呼ぶ．
 
     \tcblower
 
-    層状化空間 $(X,\, s \colon X \lto P),\; (X',\, s' \colon X' \lto P')$ の間の\textbf{層状化写像} (stratified map) とは，連続写像の組み $(f \colon X \lto X',\; g \colon P \lto P')$ であって以下の図式を可換にするもののこと：
+    層状化空間 $(X,\, s \colon X \lto P),\; (X',\, s' \colon X' \lto P')$ の間の\textbf{層状化写像} (stratified map) とは，連続写像の組み $(f \colon X \lto X',\; \tilde{f} \colon P \lto P')$ であって以下の図式を可換にするもののこと：
     \begin{center}
         % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAA0QBfU9TXfIRQBGclVqMWbdgHJuvEBmx4CRMsPH1mrRCAAK8vssFFRG6lqm69cruJhQA5vCKgAZgCcIAWyRkQOBBIAEwWkjogAMog1Ax0AEYwDHr8KkIgHliOABY4hiCePkiiAUGIAMxh2myRtgqFvoj+gcVVVgX5DSHULRWxCUkpxqq6mTl5bRGO3BRcQA
 \begin{tikzcd}
 X \arrow[d, "s"'] \arrow[r, red,"f"] & X' \arrow[d, "s'"] \\
-P \arrow[r, red,"g"']                & P'                
+P \arrow[r, red,"\tilde{f}"']                & P'                
 \end{tikzcd}
     \end{center}
 \end{mydef}
+
+\begin{myexample}[label=ex:strat-n]{$[n]$-層状化空間}
+    半順序集合 $[n] \coloneqq \{0 \le \, \cdots \le n\}$ に対して\exref{ex:topo-poset}の位相を入れる．
+    まず，
+    \begin{align}
+        X_0 = s^{-1} \bigl( [n] \setminus \{1,\, \dots,\, n\} \bigr) 
+    \end{align}
+    でかつ $\{1,\, \dots,\, n\}$ は $[n]$ の開集合であるから，$s$ の連続性から $X$ の部分空間 $X_0 \subset X$ は閉集合だとわかる．
+    さらに
+    \begin{align}
+        X_0 \cup X_1 &= s^{-1} \bigl( [n] \setminus \{2,\, \dots,\, n\} \bigr), \\
+        X_0 \cup X_1 \cup X_2 &= s^{-1} \bigl( [n] \setminus \{3,\, \dots,\, n\} \bigr), \\
+        &\vdots \\
+        X_0 \cup \cdots \cup X_n &= X
+    \end{align}
+    が成り立つことから，$s$ の連続性より $X$ の部分空間 $X_0 \cup \cdots \cup X_{m \le n}$ は閉集合だと分かる．
+\end{myexample}
 
 \begin{myexample}[label=ex:str-CW]{CW複体}
     CW複体 $X$ を与える．$X_{\le k}$ を $X$ の $k$-骨格とするとき，$X_k \setminus X_{k-1}$ を $k \in \mathbb{Z}_{\ge 0}$ に写す写像 $s \colon X \lto \mathbb{Z}_{\ge 0}$ は $X$ の\hyperref[def:stratified-space]{層状化}を与える．
 \end{myexample}
 
+直観的には，層状化空間とはdefect付き $C^\infty$ 多様体の一般化である．
+特に $X$ を $C^\infty$ 多様体とするとき，$[n]$-層状化空間 $(X,\, s \colon X \lto [n])$ の $i$-層 $X_i$ とは，多様体 $X$ 上の余次元 $d-i$ のdefectを全て集めてきたものだと見做せる．
 
-\begin{mydef}[label=def:strat-emb]{層状化埋め込み}
-    \hyperref[def:stratified-space]{層状化写像} $(f,\, g) \colon (X,\, s \colon X \lto P) \lto (X',\, s' \colon X' \lto P')$ が\textbf{層状化開埋め込み} (stratified open embedding) であるとは，以下の2条件を充たすことを言う：
+\begin{mydef}[label=def:strat-emb]{層状化開埋め込み}
+    \hyperref[def:stratified-space]{層状化写像} $(f,\, \tilde{f}) \colon (X,\, s \colon X \lto P) \lto (X',\, s' \colon X' \lto P')$ が\textbf{層状化開埋め込み} (stratified open embedding) であるとは，以下の2条件を充たすことを言う：
     \begin{enumerate}
-        \item 連続写像 $f \colon X \lto X'$ は位相的埋め込みである\footnote{i.e. $f \colon X \lto f(X)$ が同相写像}
-        \item $\forall p \in P$ に対して，$f$ の制限
+        \item 連続写像 $f \colon X \lto X'$ は位相的開埋め込みである\footnote{i.e. $f \colon X \lto f(X)$ が同相写像かつ $f(X) \subset Y$ が開集合}
+        \item $\forall p \in P$ に対して，$f$ の \hyperref[def:stratified-space]{$p$-strata}への制限
+        \footnote{\hyperref[def:stratified-space]{層状化写像}の定義に登場する図式の可換性より，$\forall x \in X_p$ に対して $s' \bigl( f(x) \bigr) = s' \circ f (x) = \tilde{f} \circ s (x) = \tilde{f}(p)$，i.e. $f(x) \in s'{}^{-1} \bigl( \{\tilde{f}(p)\} \bigr) = X'_{\tilde{f}(p)}$ が分かる．}
         \begin{align}
-            f|_{s^{-1}(\{p\})} \colon s^{-1} \bigl( \{p\} \bigr) \lto s'{}^{-1} \bigl( \{g(p)\} \bigr) 
+            f|_{X_p} \colon X_p \lto X'_{\tilde{f}(p)}
         \end{align}
-        は位相的埋め込みである．
+        は位相的開埋め込みである．
     \end{enumerate}
 \end{mydef}
 
 \begin{marker}
-    以下では混乱が生じにくい場合，\hyperref[def:stratified-space]{層状化写像} $(f,\, g) \colon (X,\, s \colon X \lto P) \lto (X',\, s' \colon X' \lto P')$ のことを $f \colon (X \to P) \lto (X' \to P')$ と略記し，連続写像 $g \colon P \lto P'$ のことも $f$ と書く．
+    以下では混乱が生じにくい場合，\hyperref[def:stratified-space]{層状化空間} $(X,\, s \colon X \lto P)$ のことを $(X \xrightarrow{s} P)$ や $(X \to P)$ と略記する．
+    さらに，\hyperref[def:stratified-space]{層状化写像} $(f,\, \tilde{f}) \colon (X,\, s \colon X \lto P) \lto (X',\, s' \colon X' \lto P')$ のことを $f \colon (X \to P) \lto (X' \to P')$ と略記し，連続写像 $\tilde{f} \colon P \lto P'$ のことも $f$ と書く場合がある．
 \end{marker}
 
 圏 $\StTOP$ を，
 \begin{itemize}
-    \item 第2可算なHausdorff空間の\hyperref[def:stratified-space]{層状化空間}を対象とする
-    \item \hyperref[def:strat-emb]{層状化埋め込み}を射とする
+    \item 第2可算なHausdorff空間であるような\hyperref[def:stratified-space]{層状化空間}を対象とする
+    \item \hyperref[def:strat-emb]{層状化開埋め込み}を射とする
 \end{itemize}
 ことで定義する．
 
 \subsection{$C^0$ 級層状化空間}
 
 
-\begin{mydef}[label=def:str-cone]{コーン}
-    \hyperref[def:stratified-space]{層状化空間} $(X,\, s \colon X \to P)$ を与える．
+\begin{mydef}[label=def:str-cone,breakable]{コーン}
+    \hyperref[def:stratified-space]{層状化空間} $(X \xrightarrow{s} P)$ を与える．
     $X$ の\textbf{コーン} (cone) とは，以下のようにして構成される\hyperref[def:stratified-space]{層状化空間} $\bigl( \Cone{X},\, \Cone{s} \colon \Cone{X} \lto \Cone{P} \bigr)$ のこと：
     \begin{itemize}
         \item 位相空間 $\Cone{X}$ を，\hyperref[def:pullback-pushout]{押し出し}位相空間
@@ -128,14 +150,14 @@ P \arrow[r, red,"g"']                & P'
 
 位相空間の圏における押し出しの公式から，位相空間 $\Cone{X}$ とは
 \begin{align}
-    i_1 \colon \{0\} \times \mathbb{R} &\lto \mathbb{R}_{\ge 0} \times X,\; x \lmto (0,\, x), \\
-    i_2 \colon \{0\} \times \mathbb{R} &\lto \{\mathrm{pt}\},\; x \lmto \mathrm{pt}
+    i_1 \colon \{0\} \times X &\lto \mathbb{R}_{\ge 0} \times X,\; x \lmto (0,\, x), \\
+    i_2 \colon \{0\} \times X &\lto \{\mathrm{pt}\},\; x \lmto \mathrm{pt}
 \end{align}
 とおいたときのコイコライザ
 \begin{center}
     % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB13hjOBfTvAFt4AAgAaIXqXSZc+QigCM5KrUYs2nYJ0F0cACwBOg4Ghz92FuroYBzEQAode-QCNXwAEq8A+tva2MCLEvCICWMJw4gCUktIgGNh4BEQATCrU9MysiBzsugZwAGbAAMK8DmKxvKowUIEIKKBFhhCCSGQgOBBIyiAMWGA5IHAQA1Ag1PowdBOIYEwMDNQ4dFgMbJBDkyP6WEU4SAC0fVkauVg+inHNre2Ind291HB7B8-9dK4wDAAKsskFCBDFhbPpDpl1MNLqkbiAWm0Pk9EKkarwgA
     \begin{tikzcd}
-    \{0\}\times X \arrow[r, "i_1", shift left] \arrow[r, "i_2"', shift right] & \{\mathrm{pt}\}\sqcup (\mathbb{R}_{\ge 0} \times X) \arrow[r] & \mathsf{C}(X)
+    \{0\}\times X \arrow[r, "i_1", shift left] \arrow[r, "i_2"', shift right] & \{\mathrm{pt}\}\sqcup (\mathbb{R}_{\ge 0} \times X) \arrow[r, "q"] & \mathsf{C}(X)
     \end{tikzcd}
 \end{center}
 である．i.e. 商位相空間
@@ -151,39 +173,44 @@ P \arrow[r, red,"g"']                & P'
     \end{cases}
 \end{align}
 のことである．
+また，コーンポイントのみからなる1点集合 $\{\mathrm{pt}\} \subset X$ は $q^{-1} \bigl( \{\mathrm{pt}\} \bigr) = \{0\} \times X$ を充たすが，$\{0\} \times X$ は 
+
+\begin{marker}
+    以下では，混乱の恐れがない限り\hyperref[def:stratified-space]{層状化空間} $(X \xrightarrow{s} P)$ の\hyperref[def:str-cone]{コーン}を $\Cone{X \xrightarrow{s} P}$ と略記する．
+\end{marker}
 
 
 \begin{mydef}[label=def:Snglr-C0]{$C^0$ 級層状化空間}
-    以下を充たす $\StTOP$ の最小の\hyperref[def:faithful]{充満部分圏}を $\Snglr$ と書き，圏 $\Snglr$ の対象を\textbf{$\bm{C^0}$ 級層状化空間} ($C^0$ stratified space) と呼ぶ：
+    以下を充たす $\StTOP$ の最小の\hyperref[def:faithful]{充満部分圏}を $\SnglrC$ と書き，圏 $\SnglrC$ の対象を\textbf{$\bm{C^0}$ 級層状化空間} ($C^0$ stratified space) と呼ぶ：
     \begin{description}
-        \item[\textbf{(Snglr-1)}] $(\emptyset \to \emptyset) \in \Obj{\Snglr}$
+        \item[\textbf{(Snglr-1)}] $(\emptyset \to \emptyset) \in \Obj{\SnglrC}$
         \item[\textbf{(Snglr-2)}]　
         
-        $(X \to P) \in \Obj{\Snglr}$ かつ $X,\, P$ が位相空間としてコンパクト 
+        $(X \to P) \in \Obj{\SnglrC}$ かつ $X,\, P$ が位相空間としてコンパクト 
         
-        $\IMP$ $\Cone{X \to P} \in \Obj{\Snglr}$
+        $\IMP$ $\Cone{X \to P} \in \Obj{\SnglrC}$
         
         \item[\textbf{(Snglr-3)}]　
         
-        $(X \to P) \in \Obj{\Snglr}$ $\IMP$ $(X \times \mathbb{R} \to P) \in \Obj{\Snglr}$\footnote{$X \times \mathbb{R}$ の層状化は，連続写像 $X \times \mathbb{R} \lto X,\; (x,\, t) \lmto x$ を前もって合成することにより定める．}
+        $(X \to P) \in \Obj{\SnglrC}$ $\IMP$ $(X \times \mathbb{R} \to P) \in \Obj{\SnglrC}$\footnote{$X \times \mathbb{R}$ の層状化は，連続写像 $X \times \mathbb{R} \lto X,\; (x,\, t) \lmto x$ を前もって合成することにより定める．}
         
         \item[\textbf{(Snglr-4)}]　
         
-        $(X \to P) \in \Obj{\Snglr}$ かつ $\Hom{\StTOP} \bigl( (U \to P_U),\, (X \to P) \bigr) \neq \emptyset$ 
+        $(X \to P) \in \Obj{\SnglrC}$ かつ $\Hom{\StTOP} \bigl( (U \to P_U),\, (X \to P) \bigr) \neq \emptyset$ 
         
-        $\IMP$ $(U \to P_U) \in \Obj{\Snglr}$
+        $\IMP$ $(U \to P_U) \in \Obj{\SnglrC}$
         
         \item[\textbf{(Snglr-5)}]　 
         
-        $(X \to P) \in \Obj{\StTOP}$ が開被覆 $\Familyset[big]{(U_\lambda \to P_\lambda) \lto (X \to P)}{\lambda \in \Lambda}$\footnote{i.e. $\Familyset[big]{U_\lambda}{\lambda \in \Lambda},\; \Familyset[big]{P_\lambda}{\lambda \in \Lambda}$ が，それぞれ位相空間 $X,\, P$ の開被覆を成す．} を持ち，かつ $\forall \lambda \in \Lambda$ に対して $(U_\lambda \to P_\lambda) \in \Obj{\Snglr}$ 
+        $(X \to P) \in \Obj{\StTOP}$ が開被覆 $\Familyset[big]{(U_\lambda \to P_\lambda) \lto (X \to P)}{\lambda \in \Lambda}$\footnote{i.e. $\Familyset[big]{U_\lambda}{\lambda \in \Lambda},\; \Familyset[big]{P_\lambda}{\lambda \in \Lambda}$ が，それぞれ位相空間 $X,\, P$ の開被覆を成す．} を持ち，かつ $\forall \lambda \in \Lambda$ に対して $(U_\lambda \to P_\lambda) \in \Obj{\SnglrC}$ 
         
-        $\IMP$ $(X \to P) \in \Obj{\Snglr}$
+        $\IMP$ $(X \to P) \in \Obj{\SnglrC}$
     \end{description}
 \end{mydef}
 
 \begin{myexample}[label=ex:topomfld]{位相多様体は $C^0$ 級層状化空間}
-    \hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-1)}}}より，$* \coloneqq \Cone{\emptyset \to \emptyset} \in \Obj{\Snglr}$ である．
-    \hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-3)}}}より，$\forall n \ge 0$ に対して $\mathbb{R}^n = (\mathbb{R}^n \to [0]) \in \Obj{\Snglr}$ であることが帰納的に分かる．
+    \hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-1)}}}より，$* \coloneqq \Cone{\emptyset \to \emptyset} \in \Obj{\SnglrC}$ である．
+    \hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-3)}}}より，$\forall n \ge 0$ に対して $\mathbb{R}^n = (\mathbb{R}^n \to [0]) \in \Obj{\SnglrC}$ であることが帰納的に分かる．
     $\mathbb{R}^n$ の任意の開集合 $U \hookrightarrow \mathbb{R}^n$ に対して，
     \begin{center}
             \begin{tikzcd}
@@ -191,29 +218,30 @@ P \arrow[r, red,"g"']                & P'
         {[0]} \arrow[r, "="']                & {[0]}               
     \end{tikzcd}
     \end{center}
-    は\hyperref[def:strat-emb]{層状化埋め込み}であり，従って \hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-4)}}}より $U \coloneqq (U \to [0]) \in \Obj{\Snglr}$ が分かる．
-    以上の考察と\hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-5)}}}を併せて，任意の位相多様体 $M$ は\footnote{より正確には，$M$ を\hyperref[def:stratified-space]{層状化空間} $(M \to [0])$ と同一視している．}圏 $\Snglr$ の対象である．
+    は\hyperref[def:strat-emb]{層状化埋め込み}であり，従って \hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-4)}}}より $U \coloneqq (U \to [0]) \in \Obj{\SnglrC}$ が分かる．
+    以上の考察と\hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-5)}}}を併せて，任意の位相多様体 $M$ は\footnote{より正確には，$M$ を\hyperref[def:stratified-space]{層状化空間} $(M \to [0])$ と同一視している．}圏 $\SnglrC$ の対象である．
 \end{myexample}
 
-\subsection{conically smoothness}
+\subsection{$C^0$ basic}
 
 \begin{mydef}[label=def:C0-basic]{$C^0$ basic}
-    \hyperref[def:Snglr-C0]{$\bm{C^0}$ 級層状化空間} $(X \to P) \in \Obj{\Snglr}$ が $\bm{C^0}$\textbf{-basic}であるとは，ある $n \in \mathbb{Z}_{\ge 0}$ およびコンパクトな\hyperref[def:Snglr-C0]{$\bm{C^0}$ 級層状化空間} $(Z \to Q) \in \Obj{\Snglr}$ が存在して
-    $(X \to P) = (\mathbb{R}^n \to *) \times \Cone{Z \to Q}$ が成り立つことを言う．
+    \hyperref[def:Snglr-C0]{$\bm{C^0}$ 級層状化空間} $(X \to P) \in \Obj{\SnglrC}$ が $\bm{C^0}$\textbf{-basic}であるとは，ある $n \in \mathbb{Z}_{\ge 0}$ およびコンパクトな\hyperref[def:Snglr-C0]{$\bm{C^0}$ 級層状化空間} $(Z \to Q) \in \Obj{\SnglrC}$ が存在して
+    $(X \to P) = \bigl(\mathbb{R}^n \to [0]\bigr) \times \Cone{Z \to Q}$ が成り立つことを言う．
 \end{mydef}
 
-いま，\hyperref[def:C0-basic]{$C^0$ basic}な $(U \to P_U) = (\mathbb{R}^n \to [0]) \times \Cone{Z \to P} \in \Obj{\Snglr}$ を1つとる．
+いま，\hyperref[def:C0-basic]{$C^0$ basic}な $(U \to P_U) = (\mathbb{R}^n \to [0]) \times \Cone{Z \to P} \in \Obj{\SnglrC}$ を1つとる．
 \hyperref[def:str-cone]{コーンの定義}から，$U$ の点を $(v,\, [t,\, z]) \in \mathbb{R}^n \times \frac{\mathbb{R}_{\ge 0} \times Z}{\{0\} \times Z}$ と表示することができる．
-自己同相
+この表示の下で自己同相
 \begin{align}
     \gamma \colon \mathbb{R}_{> 0} \times T \mathbb{R}^n \times \Cone{Z} &\lto \mathbb{R}_{> 0} \times T \mathbb{R}^n \times \Cone{Z}, \\
     \bigl( t,\, (v,\, p),\, [s,\, z] \bigr) &\lmto \bigl( t,\, (tv + p,\, p),\, [ts,\, z] \bigr)
 \end{align}
 を考える\footnote{接束 $T\mathbb{R}^n$ は $\mathbb{R}^{2n}$ と微分同相である．~\cite[p.23]{AFT2014stratified}の記法に合わせて底空間 $\mathbb{R}^n$ の点を $p$，$p$ 上のファイバーの元を $v$ としたとき $(v,\, p) \in T \mathbb{R}^n$ と書いた．命題\ref{prop:tangentbundle}の記法と順番が逆なので注意．}．
 
-さらに，もう1つの\hyperref[def:C0-basic]{$C^0$ basic}な $(U' \to P_{U'}) = (\mathbb{R}^{n'} \to [0]) \times \Cone{Z' \to P'} \in \Obj{\Snglr}$ および
-$f \in \Hom{\Snglr} \bigl( (U \to P_{U}),\, (U' \to P_{U'})  \bigr)$ をとる．ただし，$\forall u \in \mathbb{R}^n$ に対して $f (u,\, \mathrm{pt}) = f (u,\, \mathrm{pt})$ が成り立つことを仮定する．
-$f|_{\mathbb{R}^n} \colon \mathbb{R}^n \times \{\mathrm{pt}\} \lto \mathbb{R}^n \times \{\mathrm{pt}\}$ を $f$ のコーンポイントへの制限として，
+さらに，もう1つの\hyperref[def:C0-basic]{$C^0$ basic}な $(U' \to P_{U'}) = (\mathbb{R}^{n'} \to [0]) \times \Cone{Z' \to P'} \in \Obj{\SnglrC}$ および
+$f \in \Hom{\SnglrC} \bigl( (U \to P_{U}),\, (U' \to P_{U'})  \bigr)$ をとる．ただし，$f$ はコーンポイントをコーンポイントへ写す，
+i.e. $\forall u \in \mathbb{R}^n$ に対して $f (u,\, \mathrm{pt}) \in \mathbb{R}^{n'} \times \{\mathrm{pt}\}$ が成り立つことを仮定する．
+$f|_{\mathbb{R}^n} \colon \mathbb{R}^n \times \{\mathrm{pt}\} \lto \mathbb{R}^{n'} \times \{\mathrm{pt}\}$ を $f$ のコーンポイントへの制限として，
 \begin{align}
     f_{\Delta} \colon \mathbb{R}_{\textcolor{red}{>0}} \times T \mathbb{R}^n \times \Cone{Z} &\lto \mathbb{R}_{\textcolor{red}{>0}} \times T \mathbb{R}^{n'} \times \Cone{Z'}, \\
     \bigl( t,\, v,\, p,\, [s,\, z] \bigr) &\lmto \bigl( t,\, f|_{\mathbb{R}^n}(v),\, f(p,\, [ts,\, z]) \bigr)
@@ -232,11 +260,16 @@ $f|_{\mathbb{R}^n} \colon \mathbb{R}^n \times \{\mathrm{pt}\} \lto \mathbb{R}^n 
     と計算できるため，$f$ が $C^1$ 級であることと $\forall (v,\, p) \in T \mathbb{R}^n$ に対して $t \to +0$ の極限，i.e. $v$ に沿った片側方向微分が存在することは同値である．
 \end{myexample}
 
+\exref{ex:cone-diff}をもとに，\hyperref[def:C0-basic]{$C^0$ basic}な\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間}の間の\hyperref[def:strat-emb]{層状化開埋め込み}の\textbf{conically smoothness}を定義する．
+$C^\infty$ 多様体の $C^\infty$ 構造の定義においては，チャート $(U,\, \varphi \colon \mathbb{R}^n \to U),\, (V,\, \psi \colon \mathbb{R}^n \to V)$ の間の変換関数 $\psi^{-1} \circ \varphi \colon \mathbb{R}^n \lto \mathbb{R}^{n}$ が $C^\infty$ 級であることを要請した．
+次の小節で\textbf{conically smooth structure}の定義を行うが，その際にチャートに対応するものは\textbf{basic} $U = \mathbb{R}^n \times \Cone{Z}$ から着目している\hyperref[def:Snglr-C0]{$C^0$-級層状化空間} $X$ への\hyperref[def:strat-emb]{層状化開埋め込み} $\varphi \colon U \hookrightarrow X$ であり，
+概ね\footnote{コーンポイントをコーンポイントに写さない変換関数も存在しうるので，これだけではいけない．}2つのチャート $\varphi \colon U \hookrightarrow X,\; \psi \colon V \hookrightarrow X$ の間の変換関数 $\psi^{-1} \circ \varphi \colon U \lto V$ に対して\hyperref[def:c-smooth-along]{conically smooth (along $\mathbb{R}^n$)}であることを要請する．
+
 \begin{mydef}[label=def:c-smooth-along]{$\mathbb{R}^n$ に沿ってconically smooth}
     \begin{itemize}
-        \item \hyperref[def:C0-basic]{$C^0$ basic}な $(U \to P_{U}) = (\mathbb{R}^{n} \to [0]) \times \Cone{Z \to P} \in \Obj{\Snglr}$
-        \item \hyperref[def:C0-basic]{$C^0$ basic}な $(U' \to P_{U'}) = (\mathbb{R}^{n'} \to [0]) \times \Cone{Z' \to P'} \in \Obj{\Snglr}$
-        \item $f \in \Hom{\Snglr} \bigl( (U \to P_{U}),\, (U' \to P_{U'})  \bigr)$ であって，コーンポイントを保存するもの
+        \item \hyperref[def:C0-basic]{$C^0$ basic}な $(U \to P_{U}) = (\mathbb{R}^{n} \to [0]) \times \Cone{Z \to P} \in \Obj{\SnglrC}$
+        \item \hyperref[def:C0-basic]{$C^0$ basic}な $(U' \to P_{U'}) = (\mathbb{R}^{n'} \to [0]) \times \Cone{Z' \to P'} \in \Obj{\SnglrC}$
+        \item $f \in \Hom{\SnglrC} \bigl( (U \to P_{U}),\, (U' \to P_{U'})  \bigr)$ であって，コーンポイントを保存するもの
     \end{itemize}
     を与える．このとき，$f$ が\textbf{$\bm{\mathbb{R}^n}$ に沿って $C^1$ 級} ($C^1$ along $\mathbb{R}^n$) であるとは，以下の図式を可換にする連続写像
     \begin{align}
@@ -259,55 +292,337 @@ $f|_{\mathbb{R}^n} \colon \mathbb{R}^n \times \{\mathrm{pt}\} \lto \mathbb{R}^n 
     $f$ が\textbf{$\bm{\mathbb{R}^n}$ に沿ってconically smooth}であるとは，$\forall r \ge 1$ について $C^r$ 級であることを言う．
 \end{mydef}
 
-次に行うべきは，与えられた\hyperref[def:Snglr-C0]{$\bm{C^0}$ 級層状化空間} $(X \to P) \in \Obj{\Snglr}$ の上の\textbf{conically smooth structure} i.e. 変換関数が\hyperref[def:c-smooth-along]{conically smooth}であるような\textbf{極大アトラス}を定義することである．
+\subsection{conically smoothな層状化空間}
+
+次に行うべきは，与えられた\hyperref[def:Snglr-C0]{$\bm{C^0}$ 級層状化空間} $(X \to P) \in \Obj{\SnglrC}$ の上の\textbf{conically smooth structure} i.e. 変換関数が\hyperref[def:c-smooth-along]{conically smooth}であるような\textbf{極大アトラス}を定義することである．
 この手続きは，次で定義する次元と深さに関する帰納法によって構成される．
 
-\begin{mydef}[label=def:dim-depth]{次元と深さ}
-    空でない\hyperref[def:Snglr-C0]{$\bm{C^0}$ 級層状化空間} $(X \to P) \in \Obj{\Snglr}$ を与える．
+\begin{mydef}[label=def:covering-dim]{被覆次元}
+    $X$ を位相空間とする．以下の条件を充たす最小の $d \in \mathbb{Z}_{\ge -1}$ のことを（存在すれば）$X$ の\textbf{被覆次元} (covering dimension) と呼ぶ：
+    
+    \begin{description}
+        \item[\textbf{(covering)}]　
+        
+        $X$ の任意の開被覆 $\mathscr{U}$ に対して，十分細かい細分 $\mathscr{V}_{\mathscr{U}} \prec \mathscr{U}$ をとると，任意の互いに異なる $\forall m > d+1$ 個の開集合 $V_1,\, \dots,\, V_{m} \in \mathscr{V}_{\mathscr{U}}$ の共通部分が空になるようにできる．特に，$\emptyset$ の被覆次元は $-1$ と定義する．
+    \end{description}
+    
+    \tcblower
+
+    点 $x \in X$ における\textbf{被覆次元}を以下で定義する：
+    \begin{align}
+        \dim_x X \coloneqq \inf\, \bigl\{\, \dim U \ge -1 \bigm| x \in U \underset{\text{open}}{\subset} X \,\bigr\}
+    \end{align}
+\end{mydef}
+
+
+\begin{mydef}[label=def:dim-depth,breakable]{次元と深さ}
+    空でない\hyperref[def:Snglr-C0]{$\bm{C^0}$ 級層状化空間} $(X \to P) \in \Obj{\SnglrC}$ を与える．
     \begin{itemize}
-        \item $(X \to P)$ の点 $x \in X$ における\textbf{局所的次元} (local dimension) とは，点 $x$ における $X$ の被覆次元\footnote{以下の条件を充たす最小の $d \in \mathbb{Z}_{\ge -1}$ のことを（存在すれば）$X$ の\textbf{被覆次元} (covering dimension) と呼ぶ：$X$ の任意の開被覆 $\mathscr{U}$ に対して，十分細かい細分 $\mathscr{V}_{\mathscr{U}} \prec \mathscr{U}$ をとると，任意の互いに異なる $\forall m > d+1$ 個の開集合 $V_1,\, \dots,\, V_{m} \in \mathscr{V}_{\mathscr{U}}$ の共通部分が空になるようにできる．特に，$\emptyset$ の被覆次元は $-1$ と定義する．} $\bm{\dim_x(X)}$ のことを言う．
+        \item $(X \to P)$ の点 $x \in X$ における\textbf{局所的次元} (local dimension) とは，点 $x$ における $X$ の\hyperref[def:covering-dim]{被覆次元}
+        % \footnote{以下の条件を充たす最小の $d \in \mathbb{Z}_{\ge -1}$ のことを（存在すれば）$X$ の\textbf{被覆次元} (covering dimension) と呼ぶ：$X$ の任意の開被覆 $\mathscr{U}$ に対して，十分細かい細分 $\mathscr{V}_{\mathscr{U}} \prec \mathscr{U}$ をとると，任意の互いに異なる $\forall m > d+1$ 個の開集合 $V_1,\, \dots,\, V_{m} \in \mathscr{V}_{\mathscr{U}}$ の共通部分が空になるようにできる．特に，$\emptyset$ の被覆次元は $-1$ と定義する．} 
+        $\bm{\dim_x(X)}$ のことを言う．
         \item $(X \to P)$ の\textbf{次元} (dimension) とは
         \begin{align}
             \bm{\dim (X \to P)} \coloneqq \sup_{x \in X} \dim_x (X)
         \end{align}
+        のこと．
         \item $(X \xrightarrow{s} P)$ の点 $x \in X$ における\textbf{局所的深さ} (local depth) とは，
         \begin{align}
-            \bm{\depth_x(X \to P)} \coloneqq \dim_x (X) - \dim_x \bigl( s^{-1}(\{s(x)\}) \bigr)
+            \bm{\depth_x(X \to P)} \coloneqq \dim_x (X) - \dim_x (X_{s(x)})
         \end{align}
         のこと．
-        \item $(X \xrightarrow{s} P)$ の\textbf{深さ} (depth) とは，
+        \item $(X \to P)$ の\textbf{深さ} (depth) とは，
         \begin{align}
-            \bm{\depth(X)} \coloneqq \sup_{x \in X} \depth_x(X)
+            \bm{\depth(X \to P)} \coloneqq \sup_{x \in X} \depth_x(X \to P)
         \end{align}
-        のこと．
+        のこと．ただし，$\depth (\emptyset) \coloneqq -1$ と定義する．
     \end{itemize}
 \end{mydef}
 
 \begin{myexample}[label=ex:depth-Cone]{コーンの深さ}
-    $n$ 次元位相多様体 $Z$ について，定義から $\dim_x(Z) = n$ が成り立つ．
-    これを\exref{ex:topomfld}により\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間} $(Z \to [0]) \in \Obj{\Snglr}$ と見做すと，これの\hyperref[def:str-cone]{コーン} $\Cone{Z \to [0]}$ について
+    $n$ 次元位相多様体 $Z$ について，定義から $\forall x \in Z$ に対して $\dim_x(Z) = n$ が成り立つ．
+    $Z$ を\exref{ex:topomfld}により\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間} $(Z \xrightarrow{s} [0]) \in \Obj{\SnglrC}$ と見做すと，これの\hyperref[def:str-cone]{コーン} $\Cone{Z \xrightarrow{s} [0]}$ について
     \begin{align}
-        \depth_x \bigl( \Cone{Z \to [0]} \bigr) 
+        \depth_x \bigl( \Cone{Z \xrightarrow{s} [0]} \bigr) 
         =
         \begin{cases}
             n+1, &x = \mathrm{pt}, \\
             0, &\text{otherwise}
         \end{cases}
     \end{align}
-    であることがわかる．実際，コーンポイントの逆像は1点なので $0$ 次元であり，かつ $\dim_x \bigl( \Cone{Z} \bigr) = n+1$ である．
-    一方，コーンポイント以外の点の逆像は潰れておらず，$n+1$ 次元である．
-
-    　また，$\forall (X \to P) \in \Obj{\Snglr}$ に対して
+    であることがわかる．実際 $\Cone{Z}_{\Cone{s}(\mathrm{pt})} = \{\mathrm{pt}\}$ であるが，1点からなる位相空間の\hyperref[def:covering-dim]{被覆次元}は $0$ 次元なので $\dim_{\mathrm{pt}} (\Cone{Z}_{\Cone{s}(\mathrm{pt})}) = 0$ である．
+        % ところで， $\dim_{\mathrm{pt}} \bigl( \Cone{Z} \bigr) = n+1$ である．
+    一方，コーンポイント以外の点 $x \in \Cone{Z}$ に対して\hyperref[def:stratified-space]{$\Cone{s}(x)$-層}は
+    $\Cone{Z}_{\Cone{s}(x)} = \mathbb{R}_{\textcolor{red}{> 0}} \times Z \approx \mathbb{R} \times Z$ であるから，
+    $\dim_{x} (\Cone{Z}_{\Cone{s}(x)}) = n + 1$ と計算できる\footnote{さらに，$\forall x \in \Cone{Z}$ に対して $\dim_{x} \Cone{Z} = n+1$ である．}．
+    
+    　また，$\forall (X \to P) \in \Obj{\SnglrC}$ に対して
     \begin{align}
         \dim \bigl( (\mathbb{R}^m \to [0]) \times (X \to P) \bigr) &= m + \dim \bigl( X \to P \bigr), \\
         \depth \bigl( (\mathbb{R}^m \to [0]) \times (X \to P) \bigr) &= \depth \bigl( X \to P \bigr) 
     \end{align}
-    が成り立つ．従って，\hyperref[def:C0-basic]{$C^0$ basic}な $(U \to P_U) = (\mathbb{R}^n \to [0]) \times \Cone{Z \to P} \in \Obj{\Snglr}$ に対して
+    が成り立つ．従って，\hyperref[def:C0-basic]{$C^0$ basic}な $(U \to P_U) = (\mathbb{R}^n \to [0]) \times \Cone{Z \to P} \in \Obj{\SnglrC}$ に対して
     \begin{align}
         \depth (U \to P_U) = \depth (Z \to P) + 1
     \end{align}
     が成り立つ．
 \end{myexample}
+
+次元と深さに関する帰納法を実行する前に，構成したい圏を表す記号の整理をしておこう：
+\begin{itemize}
+    \item conically smoothチャートの素材となる，\textbf{basic}が成す圏
+    \begin{align}
+        \Bsc    
+    \end{align}
+    これは，$C^\infty$ 多様体の圏 $\Mfld$ において $\mathbb{R}^n\; (\forall n \ge -1)$ 全体が成す充満部分圏に相当するものである．
+    
+    \item 与えられた\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間} $(X \to P) \in \Obj{\SnglrC}$ に対して，その上に入る\textbf{極大アトラス}\footnote{存在するか分からないし，存在したとして一意であるとは限らない．実際，例えば $C^\infty$ 多様体の段階においてさえ $\mathbb{R}^4$ の上の極大アトラス（i.e. $C^\infty$ 構造）は非可算無限個存在する~\cite{taubes1987gauge}．}全体が成す集合を返す\hyperref[def:presheaf]{前層}
+    \begin{align}
+        \Sm \colon \OP{(\SnglrC)} \lto \SETS
+    \end{align}
+    この対応が前層であることの直観は，\hyperref[def:strat-emb]{層状化開埋め込み} $f \in \Hom{\SnglrC} \bigl((X \to P),\, (Y \to Q)\bigr)$ が与えられると，$(X \to P)$ 上の極大アトラス $\Sm(X \to P)$ が $(Y \to Q)$ 上の極大アトラス $\Sm(Y \to Q)$ を「制限」する写像 $\Sm(f) \colon \Sm(Y \to Q) \lto \Sm(X \to P)$ によって得られるということである．
+    
+    \item \hyperref[def:dim-depth]{深さ}が $k$ 以下，かつ\hyperref[def:dim-depth]{次元}が $n$ 以下であるような\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間}全体が成す $\SnglrC$ の充満部分圏を
+    \begin{align}
+        \SnglrC{}_{\underbrace{\le k}_{\text{depth}},\, \underbrace{\le n}_{\text{dimension}}}
+    \end{align}
+    と書く．同様に
+    \begin{align}
+        \Bsc_{\le k,\, \le n},\qquad \Sm_{\le k,\, \le n} \colon \OP{(\SnglrC_{\le k,\, \le \infty})} \lto \SETS
+    \end{align}
+    と書く．
+    
+    \item \textbf{conically smoothな層状化空間}の圏
+    \begin{align}
+        \Snglr
+    \end{align}
+    これを作ることが本小節の最終目標である．
+\end{itemize}
+帰納法により，$\forall k \ge -1$ に対して $\Bsc_{\le k,\, \le \infty}$ および $\Sm_{\le k,\, \le \infty} \colon \OP{(\SnglrC_{\le k,\, \le \infty})} \lto \SETS$ が構成される．
+
+\begin{mydef}[label=def:induction-init]{帰納法の出発点}
+    \hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-1)}}}より $(\emptyset \to \emptyset) \in \Obj{\SnglrC_{\le -1,\, \le \infty}}$ である．
+    \begin{enumerate}
+        \item $\Bsc_{\le -1,\, \le \infty} \coloneqq \emptyset$
+        \item $\Sm_{\le -1,\, \le \infty}(\emptyset) \coloneqq \{*\}$
+    \end{enumerate}
+    と定義する．
+\end{mydef}
+
+\begin{myassump}[label=assump:induction-Bsc-Sm]{帰納法の仮定}
+    与えられた $k \ge -1$ に対して以下の構成が完了していると仮定する：
+    \begin{enumerate}
+        \item 圏 $\Bsc_{\le k,\, \le \infty}$
+        \item 前層 $\Sm_{\le k,\, \le \infty} \colon \OP{(\SnglrC_{\le k,\, \le \infty})} \lto \SETS$
+        \item 関手
+        \begin{align}
+            \mathbb{R} \times (\, \mhyphen \,) \colon \Bsc_{\le k,\, \le \infty} &\lto \Bsc_{\le k,\, \le \infty}, \\
+            U &\lmto \mathbb{R} \times U, \\
+            \bigl( U \xrightarrow{f} V \bigr) &\lmto \bigl( \mathbb{R} \times U \xrightarrow{\mathrm{id} \times f} \mathbb{R} \times V \bigr) 
+        \end{align}
+        およびそれが誘導する自然変換\footnote{$X$ の極大アトラス $\Familyset[big]{U_\alpha,\, \varphi_\alpha}{\alpha \in \Lambda}$ に対して，$\Familyset[big]{\mathbb{R} \times U_\alpha,\, \mathrm{id} \times \varphi_\alpha}{\alpha \in \Lambda}$ を対応づける．}
+        % \begin{align}
+        %     \OP{(\SnglrC_{\le k,\, \le \infty})} 
+        % \end{align}
+        \begin{center}
+        \begin{tikzcd}[row sep=large, column sep=large]
+            \OP{(\SnglrC_{\le k,\, \le \infty})}  \ar[bend left=50,r, "{\Sm_{\le k,\, \le  \infty}(\, \mhyphen \,)}"{name=U, above}] \ar[bend right=50,r, "{\Sm_{\le k,\, \le  \infty}(\mathbb{R} \times \, \mhyphen \,)}"{name=D, below}] &\SETS
+            \ar[Rightarrow, from=U, to=D]
+        \end{tikzcd}
+        \end{center}
+    \end{enumerate}
+\end{myassump}
+
+\begin{mydef}[label=def:Bsc-induction,breakable]{圏 $\Bsc_{\le k+1,\, \le \infty}$}
+    帰納法の仮定\ref{assump:induction-Bsc-Sm}がある $k \ge -1$ において成立しているとする．
+    また，\hyperref[def:C0-basic]{$C^0$ basic}を $U^n_Z \coloneqq (\mathbb{R}^n \to [0]) \times \Cone{Z \to P} \in \Obj{\SnglrC}$ と書く．
+    このとき，圏 $\Bsc_{\le k+1,\, \le \infty}$ を以下で定義する：
+    \begin{description}
+        \item[(\textbf{対象})]　
+        
+        \hyperref[def:C0-basic]{$C^0$ basic}
+        \footnote{\exref{ex:depth-Cone}より，$(Z \to P) \in \Obj{\SnglrC_{\le k,\, \le \infty}}$ であることが分かる．} $U^n_Z \in \Obj{\SnglrC_{\le k+1,\, \le \infty}}$ および，極大アトラス $\mathcal{A}_Z \in \Sm_{\textcolor{red}{\le k},\, \le \infty} (Z \to P)$ の組み
+        \begin{align}
+            (U^n_Z,\, \mathcal{A}_Z)
+        \end{align}
+        を対象とする．
+
+        \item[(\textbf{射})]　
+        
+        任意の2つの対象 $(U^n_Z,\, \mathcal{A}_Z),\; (U^m_W,\, \mathcal{A}_W) \in \Obj{\Bsc_{\le k+1,\, \le \infty}}$ に対して，以下の条件を満たす\hyperref[def:strat-emb]{層状化開埋め込み} $f \in \Hom{\SnglrC_{\le k+1,\, \le \infty}} \bigl(U^n_Z,\, U^m_W \bigr)$ を対象とする：
+        \begin{description}
+            \item[\textbf{$\bm{f}$ がコーンポイントを保存しない場合}]　  
+            
+            ある\hyperref[def:strat-emb]{層状化開埋め込み} $f_0 \in \Hom{\SnglrC_{\le k+1,\, \le \infty}} \bigl(U^n_Z,\; \mathbb{R}^m \times \mathbb{R}_{> 0} \times W\bigr)$ が存在して
+            \begin{align}
+                f \colon U^n_Z \xrightarrow{f_0} \mathbb{R}^m \times (\mathbb{R}_{> 0} \times W) \hookrightarrow U^m_W = \mathbb{R}^m \times \Cone{W}
+            \end{align}
+            と書けて，かつ $(U^n_Z,\, f_0) \in \mathcal{A}_{\mathbb{R}^m \times \mathbb{R}_{> 0} \times W} \in \Sm(\mathbb{R}^m \times \mathbb{R}_{> 0} \times W)$
+            
+            \item[\textbf{$\bm{f}$ がコーンポイントを保存する場合}]　 
+            
+            $f$ は\hyperref[def:c-smooth-along]{$\mathbb{R}^n$ に沿ってconically smooth}であって，かつ $Df \colon \mathbb{R}^n \times U^n_Z \lto \mathbb{R}^m \times U^m_W$ が単射であり，
+            かつ
+            \begin{align}
+                \mathcal{A}_{f^{-1}(U^m_W \setminus \mathbb{R}^m)} = \Sm_{\le k,\, \le \infty} \bigl( f|_{f^{-1}(U^m_W \setminus \mathbb{R}^m)} \bigr) \bigl(\mathcal{A}_{U^m_W \setminus \mathbb{R}^m}\bigr)
+            \end{align}
+            を充たす\footnote{ここで帰納法の仮定\ref{assump:induction-Bsc-Sm}-(3) を暗に使っている．}．ただし，$U^m_W \setminus \mathbb{R}^m \coloneqq U^m_W \setminus (\mathbb{R}^m \times \{\mathrm{pt}\}) = \mathbb{R}^{m+1} \times W$ と略記した．
+        \end{description}
+        
+    \end{description}
+\end{mydef}
+
+\begin{mydef}[label=def:Sm-induction,breakable]{前層 $\Sm_{\le k+1,\, \le \infty}$}
+    帰納法の仮定\ref{assump:induction-Bsc-Sm}がある $k \ge -1$ において成立しているとする．さらに定義\ref{def:Bsc-induction}が完成しているとする．
+    \begin{itemize}
+        \item \hyperref[def:Snglr-C0]{$C^0$ 級層状化空間} $\forall (X \to P) \in \Obj{\SnglrC_{\le k+1,\, \le \infty}}$ に対して，$X \to P$ の\textbf{アトラス} (atlas) を族
+        \begin{align}
+            \mathcal{A} \coloneqq \Familyset[big]{\bigl(U_\alpha \in \Obj{\Bsc_{\le k+1,\, \le \infty}},\, \varphi_\alpha \colon U_\alpha \hookrightarrow (X \to P)\bigr)}{\alpha \in \Lambda} \in \Sm_{\le k+1,\, \le \infty} (X \to P)
+        \end{align}
+        であって以下の条件を充たすものとして定義する：
+        \begin{description}
+            \item[\textbf{(Atlas-1)}]　
+            
+            $\mathcal{A}$ は $(X \to P)$ の開被覆である．
+    
+            \item[\textbf{(Atlas-2)}]　
+            
+            $\forall \alpha,\, \beta \in \Lambda$ および $\forall x \in \varphi_\alpha (U_\alpha) \cap \varphi_\beta (U_\beta)$ に対して，
+            \hyperref[def:Bsc-induction]{圏 $\Bsc_{\le k+1,\, \le \infty}$}の可換図式
+            \begin{center}
+                % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAHUQBfU9TXfIRRkAjFVqMWbAKoB9YAB0FjNAAs6XbrxAZseAkRGkx1es1aIQADS189gw+XFmpluYoUAjGDg3dxMFAA5vBEoABmAE4QALZIZCA4EEgAzKaSFiDh8krevpo8EdFxiAlJSEYS5mzZHirqmtQMdN4MAAr8+kIgkVhBqji2WcUV1OWIAExNLTDtnQ6Wvf2D6dWWSvSRalg5ygxqfoXDsaljyZPTrR32BpYMMOErVa4gG3RbqjseeYcUXEA
+                \begin{tikzcd}
+                \exists \textcolor{red}{W} \arrow[r, hookrightarrow, red,"f_{\beta}"] \arrow[d, hookrightarrow, red,"f_{\alpha}"'] & U_{\beta} \arrow[d, hookrightarrow, "\varphi_{\beta}"] \\
+                U_{\alpha} \arrow[r, hookrightarrow, "\varphi_{\alpha}"']         & X                                     
+                \end{tikzcd}
+            \end{center}
+            が存在して $x \in \varphi_\alpha \circ \textcolor{red}{f_\alpha} (\textcolor{red}{W}) = \varphi_\beta \circ \textcolor{red}{f_\beta} (\textcolor{red}{W})$ を充たす
+        \end{description}
+        アトラス $\mathcal{A}$ の元 $(U_\alpha,\, \varphi_\alpha) \in \mathcal{A}$ のことを\textbf{チャート} (chart) と呼ぶ．
+
+        \item \hyperref[def:Snglr-C0]{$C^0$ 級層状化空間} $\forall (X \to P) \in \Obj{\SnglrC_{\le k+1,\, \le \infty}}$ の2つのアトラス $\mathcal{A},\, \mathcal{B}$ が\textbf{同値}であるとは，$\mathcal{A} \cup \mathcal{B}$ が $(X \to P)$ のアトラスであることを言う．
+        これは $(X \to P)$ のアトラス全体の集合の上に同値関係を定める\footnote{同値関係であることの証明は~\cite[Lemma 3.2.11.]{AFT2014stratified}を参照．}．
+        $(X \to P)$ の\textbf{極大アトラス} (maximal atlas) とは，この同値関係によるアトラス $\mathcal{A}$ の同値類 $[\mathcal{A}]$ のことを言う．
+
+        \item 前層
+        \begin{align}
+            \Sm_{\le k+1,\, \le \infty} \colon \OP{(\SnglrC_{\le k+1,\, \le \infty})} \lto \SETS
+        \end{align}
+        を以下のように定義する：
+        \begin{description}
+            \item[\textbf{(対象)}]　
+            
+            任意の\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間} $(X \to P) \in \Obj{\SnglrC_{\le k+1,\, \le \infty}}$ に対して
+            \begin{align}
+                \Sm_{\le k+1,\, \le \infty} (X \to P) \coloneqq \bigl\{\, [\mathcal{A}] \bigm| \mathcal{A}\; \text{is an atlas of}\; (X \to P) \,\bigr\} 
+            \end{align}
+            
+            \item[\textbf{(射)}]　
+            
+            任意の\hyperref[def:strat-emb]{層状化開埋め込み} $f \in \Hom{\SnglrC_{\le k+1,\, \le \infty}}$ に対して，$f$ によるアトラスの引き戻しを対応付ける．
+        \end{description}
+    \end{itemize}
+\end{mydef}
+
+以上の帰納法をまとめて，conically smoothな層状化空間と\hyperref[def:strat-emb]{層状化開埋め込み}の圏 $\Snglr$ を得る．
+
+\begin{mydef}[label=def:Snglr]{圏 $\Snglr$}
+    \begin{itemize}
+        \item \textbf{basic}のなす圏 $\Bsc$ を以下で定義する：
+        \begin{align}
+            \Bsc \coloneqq \bigcup_{k \ge -1} \Bsc_{\le k,\, \le \infty}
+        \end{align}
+        \item 極大アトラスの集合を与える関手 $\Sm \colon \OP{(\SnglrC)} \lto \SETS$ を以下の\hyperref[def:Kanext]{右Kan拡張}として定義する：
+        \begin{center}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12B5ABWAApOAZTABzBgCcAwgH1gAHgAEnLGABmOAJ6lOpZewYx9qjZoC+ASjMgzpdJlz5CKMgEYqtRizadeA4WKSUlY2diAY2HgERK7kHvTMrIgc7EIAogAqQjYeMFCi8ESgahIQALZIZCA4EEgATNQJ3snCZXJKKupaOux6nIbGXeahxaUViFU1SK62o+XT1FOIDSAMqkkgUHRwABZ5II1eG60Hq3QARjAMPA5RziASWKI7ODlmQA
+            \begin{tikzcd}[column sep=large]
+            {\OP{(\SnglrC_{< \infty,\, \le \infty})}} \arrow[r, "{\Sm_{< \infty,\, \le \infty}}"] \arrow[d,hookrightarrow] & \SETS \\
+            \OP{(\SnglrC)} \arrow[ru,red, "\Sm"', dashed]                                                       &      
+            \end{tikzcd}
+        \end{center}
+        ただし，$\SnglrC_{< \infty,\, \le \infty} \coloneqq \bigcup_{k \ge -1} \SnglrC_{\le k,\, \le \infty}$ とおいた．
+        \item \textbf{conically smoothな層状化空間} (conically smooth stratified space) と\hyperref[def:strat-emb]{層状化開埋め込み}の圏 $\Snglr$ を以下で定義する：
+        
+        \begin{description}
+            \item[\textbf{(対象)}]　
+            
+            \hyperref[def:Snglr-C0]{$C^0$ 級層状化空間} $(X \to P) \in \Obj{\SnglrC}$ およびその\hyperref[def:Sm-induction]{極大アトラス} $\mathcal{A_X} \in \Sm (X \to P)$ の組み $\bigl((X\to P),\, \mathcal{A}_X\bigr)$ を対象とする．
+        
+            \item[\textbf{(射)}]　
+            
+            \hyperref[def:strat-emb]{層状化開埋め込み} $f \in \Hom{\SnglrC} \bigl((X \to P),\, (Y \to Q)\bigr)$ であって，$f^* \mathcal{A}_Y = \mathcal{A}_X$ を充たすものを射とする．
+        \end{description}
+    \end{itemize}
+    
+\end{mydef}
+
+\subsection{conically smooth map}
+
+ここまでは\hyperref[def:strat-emb]{層状化開埋め込み}のみを考えていたため，一般の\hyperref[def:stratified-space]{層状化写像}のconically smoothnessを定義しなくてはいけない．
+
+\begin{mydef}[label=def:c-smooth-map]{conically smooth map}
+    2つの\hyperref[def:Snglr]{\underline{\textbf{basic}}}\footnote{\hyperref[def:C0-basic]{$C^0$ basic}を $U^n_Z \coloneqq (\mathbb{R}^n \to [0]) \times \Cone{Z \to P} \in \Obj{\SnglrC}$ と書く．} $X = (U^n_Z,\, \mathcal{A}_Z),\, Y = (U^m_W,\, \mathcal{A}_W)\in \Obj{\Bsc}$ の間の\hyperref[def:stratified-space]{層状化写像} $f \colon U^n_Z \lto U^m_W$ が\textbf{conically smooth}であることを，
+    $\depth (Y)$ に関する帰納法によって定義する：
+    \begin{enumerate}
+        \item まず，$\depth (Y) = -1$ のときは $X = Y = \emptyset$ であり，一意的に定まる $X,\, Y$ 間の層状化写像がconically smoothであると定義する．
+        \item 深さ $k \ge -1$ のbasicに対して定義が完了しているとする．
+        $Y \in \Obj{\Bsc}$ の深さが高々 $k+1$ であるならば，層状化写像 $f \colon X \lto Y$ がconically smoothであることを以下で定義する：
+        \begin{description}
+            \item[\textbf{$\bm{f}$ がコーンポイントを保存しない場合}]　  
+            
+            あるconically smoothな層状化写像 $f_0 \colon X \lto \mathbb{R}^m \times \mathbb{R}_{> 0} \times W$ が存在して
+            \begin{align}
+                f \colon X \xrightarrow{f_0} \mathbb{R}^m \times (\mathbb{R}_{> 0} \times W) \hookrightarrow Y = \mathbb{R}^m \times \Cone{W}
+            \end{align}
+            と書ける\footnote{\exref{ex:depth-Cone}より$\depth(W) < k+1$であり，帰納法の仮定が使える．}．
+            
+            \item[\textbf{$\bm{f}$ がコーンポイントを保存する場合}]　 
+            
+            $f$ は\hyperref[def:c-smooth-along]{$\mathbb{R}^n$ に沿ってconically smooth}であって，かつ制限
+            \begin{align}
+                f|_{f^{-1}(Y \setminus \mathbb{R}^m)} \colon f^{-1}(Y \setminus \mathbb{R}^m) \lto Y \setminus \mathbb{R}^m
+            \end{align}
+            がconically smooth．ただし，$U^m_W \setminus \mathbb{R}^m \coloneqq U^m_W \setminus (\mathbb{R}^m \times \{\mathrm{pt}\}) = \mathbb{R}^{m+1} \times W$ と略記した．
+        \end{description}
+    \end{enumerate}
+    
+    \tcblower
+    % \hyperref[def:C0-basic]{$C^0$ basic}を $U^n_Z \coloneqq (\mathbb{R}^n \to [0]) \times \Cone{Z \to P} \in \Obj{\SnglrC}$ と書く．
+    \hyperref[def:Snglr]{conically smoothな層状化空間} $\bigl( (X \to P),\, \mathcal{A}_X \bigr),\, \bigl( (Y \to Q),\, \mathcal{A}_Y \bigr) \in \Obj{\Snglr}$ の間の\hyperref[def:stratified-space]{層状化写像} $f \colon (X \to P) \lto (Y \to Q)$ が\textbf{conically smooth}であるとは，
+    任意のチャートの組み合わせ $(U,\, \varphi) \in \mathcal{A}_X,\, (V,\, \psi) \in \mathcal{A}_Y$ に対して
+    \begin{align}
+        \psi^{-1} \circ f \circ \varphi \colon U \lto V
+    \end{align}
+    がconically smooth (for \hyperref[def:Snglr]{basic}s) であることを言う．
+\end{mydef}
+
+\begin{myprop}[label=prop:c-smooth-map]{conically smooth mapの基本性質}
+    2つの\hyperref[def:c-smooth-map]{conically smooth map}の合成もconically smoothである．
+\end{myprop}
+
+\begin{proof}
+    ~\cite[Proposition 3.3.5]{AFT2014stratified}
+\end{proof}
+
+命題\ref{prop:c-smooth-map}より，\textbf{conically smoothな層状化空間}の圏を定義できる．
+
+\begin{mydef}[label=def:c-smooth]{conically smoothな層状化空間の圏 $\Strat$ }
+    \textbf{conically smoothな層状化空間}の圏 $\Strat$ を以下で定義する：
+    \begin{description}
+        \item[\textbf{(対象)}]　
+        
+        圏 \hyperref[def:Snglr]{$\Snglr$}と全く同じ対象を持つ：
+        \begin{align}
+            \Obj{\Strat} \coloneqq \Obj{\SnglrC}
+        \end{align}
+        \item[\textbf{(射)}]　
+        
+        \hyperref[def:c-smooth-map]{conically smooth map}を射とする．
+    \end{description}
+\end{mydef}
+
+\subsection{管状近傍・ハンドル分解}
+
 
 
 \end{document}
