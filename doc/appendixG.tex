@@ -562,11 +562,11 @@ $C^\infty$ 多様体の $C^\infty$ 構造の定義においては，チャート
 
 \begin{mydef}[label=def:c-smooth-map]{conically smooth map}
     2つの\hyperref[def:Snglr]{\underline{\textbf{basic}}}\footnote{\hyperref[def:C0-basic]{$C^0$ basic}を $U^n_Z \coloneqq (\mathbb{R}^n \to [0]) \times \Cone{Z \to P} \in \Obj{\SnglrC}$ と書く．} $X = (U^n_Z,\, \mathcal{A}_Z),\, Y = (U^m_W,\, \mathcal{A}_W)\in \Obj{\Bsc}$ の間の\hyperref[def:stratified-space]{層状化写像} $f \colon U^n_Z \lto U^m_W$ が\textbf{conically smooth}であることを，
-    $\depth (Y)$ に関する帰納法によって定義する：
+    \hyperref[def:dim-depth]{$\depth (Y)$} に関する帰納法によって定義する：
     \begin{enumerate}
         \item まず，$\depth (Y) = -1$ のときは $X = Y = \emptyset$ であり，一意的に定まる $X,\, Y$ 間の層状化写像がconically smoothであると定義する．
         \item 深さ $k \ge -1$ のbasicに対して定義が完了しているとする．
-        $Y \in \Obj{\Bsc}$ の深さが高々 $k+1$ であるならば，層状化写像 $f \colon X \lto Y$ がconically smoothであることを以下で定義する：
+        $Y \in \Obj{\Bsc}$ の深さが高々 $k+1$ であるとき，層状化写像 $f \colon X \lto Y$ がconically smoothであることを以下で定義する：
         \begin{description}
             \item[\textbf{$\bm{f}$ がコーンポイントを保存しない場合}]　  
             
@@ -621,8 +621,55 @@ $C^\infty$ 多様体の $C^\infty$ 構造の定義においては，チャート
     \end{description}
 \end{mydef}
 
+ここで，圏 $\Strat$ における特別な射に名前をつけておこう：
+
+\begin{mydef}[label=def:cbl,breakable]{constructuble bundle}
+    \begin{itemize}
+        \item \hyperref[def:c-smooth-map]{conically smoothな層状化写像} $\pi \in \Hom{\Strat}\bigl( (E \to P),\, (B \to Q) \bigr)$ が\textbf{層状化ファイバー束} (conically smooth fiber bundle) であるとは，conically smoothな\hyperref[def:strat-emb]{層状化開埋め込み}の族 $\Familyset[big]{U_\alpha \hookrightarrow B}{\alpha \in \Lambda},\; \Familyset[big]{\varphi_\alpha \colon U_\alpha \times F_\alpha \hookrightarrow E}{\alpha \in \Lambda}$ が存在して以下を充たすことを言う：
+        \begin{description}
+            \item[\textbf{(Bun-1)}]　
+            
+            $\forall \alpha \in \Lambda$ に対して，圏 $\Strat$ における\hyperref[def:pullback-pushout]{引き戻し}の図式
+            
+            \begin{center}
+                % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAFUB9YAHR8bQALOgF8ABHzwBbeGIBi3PgOEiQI0uky58hFGQCMVWoxZsuvfgyGi1GkBmx4CRfaUPV6zVohAAhW5qOOi7kRp6mPgCiakYwUADm8ESgAGYAThBSSGQgOBBIAMzUOHRYDGyCEBAA1iAeJt4gfPRpQliKltaq6qkZWYiuufmIAEzFpeU+lTUBIOmZ2cXDg+GNfFJ0OIJpUsBoGQBWIpz6dSAMdABGMAwAClpOuiBpWPGCOLPz-UVDSGPGXjYfDQWBiIiAA
+                \begin{tikzcd}
+                U_{\alpha} \times F_{\alpha} \arrow[r, "\varphi_{\alpha}", hook] \arrow[d, "\mathrm{proj}_1"'] & E \arrow[d, "\pi"] \\
+                U_{\alpha} \arrow[r, hook]                                                                     & B                 
+                \end{tikzcd}
+            \end{center}
+            が成り立つ．
+
+            \item[\textbf{(Bun-2)}]　
+            
+            族 $\Familyset[big]{U_\alpha}{\alpha \in \Lambda}$ は $B$ の開基である．
+        \end{description}
+        
+        \item \hyperref[def:c-smooth-map]{conically smoothな層状化写像} $\pi \in \Hom{\Strat}\bigl( (E \to P),\, (B \to Q) \bigr)$ が\textbf{弱構成可能束} (weakly constructuble bundle) であるとは，$\forall q \in Q$ に対して，$\pi$ の\hyperref[def:stratified-space]{$q$-層}への制限
+        \begin{align}
+            \pi|_{\pi^{-1}(B_q)} \colon \pi^{-1}(B_q) \lto B_q
+        \end{align}
+        が層状化ファイバー束であることを言う．
+
+        \item  \hyperref[def:c-smooth-map]{conically smoothな層状化写像} $\pi \in \Hom{\Strat}\bigl( (E \to P),\, (B \to Q) \bigr)$ が\textbf{構成可能束} (constructuble bundle) であることを，\hyperref[def:dim-depth]{$\depth (E)$} に関する帰納法によって定義する：
+        \begin{enumerate}
+            \item $\depth (E) = 0$ のとき，$\pi$ が構成可能束であるとは，$\pi$ が $C^\infty$ ファイバー束であることを言う．
+            \item 深さ $k \ge 0$ までの定義が完了しているとする．$\depth(E) \le k+1$ のとき，$\pi$ が構成可能束であるとは，以下の2条件を充たすことを言う：
+            \begin{description}
+                \item[\textbf{(cBun-1)}] $f$ は弱構成可能束である．
+                \item[\textbf{(cBun-2)}] $\forall q \in Q$ に対して，$\pi$ が誘導する層状化写像
+                \begin{align}
+                    \Link_{\pi^{-1}(B_q)} (E) \lto \pi^{-1}(B_q) \times_{B_q} \Link_{B_q} (B)
+                \end{align}
+                が構成可能束である．
+            \end{description}
+        \end{enumerate}
+    \end{itemize}
+\end{mydef}
+
+
 \subsection{管状近傍・ハンドル分解}
 
-
+\subsection{層状化空間の接構造}
 
 \end{document}
