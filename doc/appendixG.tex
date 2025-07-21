@@ -613,7 +613,7 @@ $C^\infty$ 多様体の $C^\infty$ 構造の定義においては，チャート
         
         圏 \hyperref[def:Snglr]{$\Snglr$}と全く同じ対象を持つ：
         \begin{align}
-            \Obj{\Strat} \coloneqq \Obj{\SnglrC}
+            \Obj{\Strat} \coloneqq \Obj{\Snglr}
         \end{align}
         \item[\textbf{(射)}]　
         
@@ -621,6 +621,7 @@ $C^\infty$ 多様体の $C^\infty$ 構造の定義においては，チャート
     \end{description}
 \end{mydef}
 
+定義から明らかに $\Snglr \subset \Strat$ である．
 ここで，圏 $\Strat$ における特別な射に名前をつけておこう：
 
 \begin{mydef}[label=def:cbl,breakable]{constructuble bundle}
@@ -672,7 +673,99 @@ $C^\infty$ 多様体の $C^\infty$ 構造の定義においては，チャート
 
 \section{層状化空間の接構造}
 
-\subsection{$\inftyGrpd$-豊穣化}
+\subsection{$\KAN$-豊穣化}
+
+圏 $\KAN$ を，
+\begin{itemize}
+    \item \hyperref[def:KanCplx]{Kan複体}を対象に持つ
+    \item Kan複体の間の自然変換を射に持つ
+\end{itemize}
+$(1,\, 1)$-圏とする．$\KAN$ は\hyperref[def:SimpSet]{単体的集合の圏 $\sSet$}の充満部分圏であり，直積\eqref{eq:sSet-tensor}をテンソル積とするモノイダル圏になる．
+
+\begin{mydef}[label=def:standard-cosimplicial-mfd]{余単体的多様体}
+    以下で定義する関手
+    \begin{align}
+        \bm{\Delta_e} \colon \Delta \lto \Strat
+    \end{align}
+    のことを\textbf{余単体的多様体} (standard cosimplicial manifold) と呼ぶ\footnote{\hyperref[def:simplicial-to]{余単体的集合}に似ているが，$x^i \ge 0$ の領域で切り取っていない．}：
+    \begin{itemize}
+        \item $[n] \in \Obj{\Delta}$ を，\hyperref[def:c-smooth]{conically smoothな層状化空間}
+        \begin{align}
+            \Delta_e^n \coloneqq \bigl\{\, (x^0,\, \dots,\, x^n) \lto \mathbb{R}^{n+1} \bigm| \sum_{i=0}^n x^i = 1 \,\bigr\} 
+        \end{align}
+        に対応付ける．
+        \item $\alpha \in \Hom{\Delta}([m],\, [n])$ を，\hyperref[def:c-smooth-map]{conically smoothな層状化写像}
+        \begin{align}
+            \Delta_e(\alpha) \colon \Delta_e^m &\lto \Delta_e^n, \\
+            (x^0,\, \dots,\, x^m) &\lmto \Bigl( \sum_{j,\, \alpha(j) = 0} x^j,\, \dots,\, \sum_{j,\, \alpha(j) = n} x^j \Bigr)
+        \end{align}
+        に対応付ける．
+    \end{itemize}
+\end{mydef}
+
+$\PshSETS{\OP{\Strat}}$ から $\sSet$ への関手を
+\begin{align}
+    (\, \mhyphen \,)|_{\Delta} \colon \PshSETS{\OP{\Strat}}{\SETS} &\lto \sSet, \\
+    F &\lmto F \circ \Delta_e
+\end{align}
+で定義する．さらに，$\forall X,\, Y \in \Obj{\Strat}$ に対して前層 $\widetilde{\Hom{\STRAT}} (X,\, Y) \in \PshSETS{\OP{\Strat}}$ を
+\begin{align}
+    \widetilde{\Hom{\STRAT}} (X,\, Y) \colon \OP{\Strat} &\lto \SETS, \\
+    \textcolor{red}{Z} &\lmto \bigl\{\, f \in \Hom{\Strat}(\textcolor{red}{Z} \times X,\, \textcolor{red}{Z} \times Y) \bigm| \mathrm{proj}_Z \circ f = \mathrm{proj}_Z \,\bigr\}, \\
+    (Z \xrightarrow{\alpha} W) &\lmto (f \mapsto f \circ \alpha)
+\end{align}
+で定義する．ただし，\hyperref[def:c-smooth-map]{conically smoothな層状化写像} $\mathrm{proj}_Z \in \Hom{\Strat}(Z \times X,\, X)$ とは第一成分への射影のことである．
+同様にして前層 $\widetilde{\Hom{\SNGLR}} (X,\, Y) \in \PshSETS{\OP{\Strat}}$ を
+\begin{align}
+    \widetilde{\Hom{\SNGLR}} (X,\, Y) \colon \OP{\Strat} &\lto \SETS, \\
+    \textcolor{red}{Z} &\lmto \bigl\{\, f \in \Hom{\Snglr}(\textcolor{red}{Z} \times X,\, \textcolor{red}{Z} \times Y) \bigm| \mathrm{proj}_Z \circ f = \mathrm{proj}_Z \,\bigr\}, \\
+    (Z \xrightarrow{\alpha} W) &\lmto (f \mapsto f \circ \alpha)
+\end{align}
+で定義する．
+
+\begin{mylem}[label=lem:Kan-enriched]{}
+    $\forall X,\, Y \in \Obj{\Strat}$ に対して定まる\hyperref[def:sSet]{単体的集合}
+    \begin{align}
+        \Hom{\STRAT}(X,\, Y) &\coloneqq \widetilde{\Hom{\STRAT}}(X,\, Y) \circ (\, \mhyphen \,)|_{\Delta}, \\
+        \Hom{\SNGLR}(X,\, Y) &\coloneqq \widetilde{\Hom{\SNGLR}}(X,\, Y) \circ (\, \mhyphen \,)|_{\Delta}
+    \end{align}
+    は\hyperref[def:KanCplx]{Kan複体}である．
+\end{mylem}
+
+\begin{proof}
+    ~\cite[Lemma 4.1.4.]{AFT2014stratified}．
+\end{proof}
+
+\begin{mydef}[label=def:Strat-infty]{{$(\infty,\, 1)$}-圏 {$\STRAT,\, \SNGLR,\, \BSC$}}
+    \hyperref[def:enriched]{$\KAN$-豊穣圏} $\STRAT$ を以下で定義する：
+    \begin{itemize}
+        \item $\Obj{\STRAT} \coloneqq \Obj{\Snglr}$
+        \item 補題\ref{lem:Kan-enriched}で構成した $\Hom{\STRAT}(X,\, Y) \in \Obj{\KAN}$ をHom対象とする．
+    \end{itemize}
+    同様に，$\KAN$-豊穣圏 $\SNGLR$ を以下で定義する：
+    \begin{itemize}
+        \item $\Obj{\SNGLR} \coloneqq \Obj{\Snglr}$
+        \item 補題\ref{lem:Kan-enriched}で構成した $\Hom{\SNGLR}(X,\, Y) \in \Obj{\KAN}$ をHom対象とする．
+    \end{itemize}
+    
+    \tcblower
+
+    $\KAN$-豊穣圏 $\SNGLR$ の対象を \hyperref[def:Snglr]{$\Obj{\Bsc}$} に制限して得られる充満部分圏を $\BSC$ と書く．
+    % \tcblower
+
+    % \hyperref[def:infty-1]{$(\infty,\, 1)$-圏} $\STRAT,\, \SNGLR$ を以下で定義する：
+    % \begin{align}
+    %     \STRAT &\coloneqq \mathrm{N}_{\text{hc}} (\STRAT), \\
+    %     \SNGLR &\coloneqq \mathrm{N}_{\text{hc}} (\SNGLR)
+    % \end{align}
+    
+\end{mydef}
+
+\begin{marker}
+    homotopy hypothesisより $\KAN$-豊穣圏は $(\infty,\, 1)$-圏のモデルと見做せる．
+    故に以下では $\KAN$-豊穣圏 $\STRAT,\, \SNGLR$ と $(\infty,\, 1)$-圏 $\mathrm{N}_{\text{hc}} (\STRAT),\, \mathrm{N}_{\text{hc}} (\SNGLR)$ を区別しない．
+    ただし，関手 $\mathrm{N}_{\text{hc}} \colon \sCat \lto \sSet$ は\hyperref[def:nerve-hc]{homotopy coherent nerve functor}である．
+\end{marker}
 
 \subsection{接構造}
 
