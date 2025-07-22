@@ -2061,11 +2061,31 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
         $(\infty,\, 1)$-圏の関手とは，\hyperref[def:SimpSet]{$\sSet$}の射のこと．
         \item $\bm{\infty}$\textbf{-groupoid}とは，\hyperref[def:KanCplx]{Kan複体}のこと．
     \end{itemize}
+    \tcblower
+    \begin{itemize}
+        \item $(\infty,\, 1)$-圏 $\Cat{C}$ の\textbf{対象}\footnote{$\bm{0}$\textbf{-射}，$\bm{0}$\textbf{-セル} ($0$-cell) とも言う．} (object) とは，$\Cat{C}$ の\hyperref[def:SimpSet]{$0$-単体} $\Cat{C}_0$ の元のこと．
+        \item $(\infty,\, 1)$-圏 $\Cat{C}$ の\textbf{射}\footnote{\textbf{1-射}，\textbf{1-セル} (1-cell) とも言う．同様に，$n$-単体 $\Cat{C}_n$ の元のことを\textbf{$\bm{n}$-射} ($n$-morphism)，\textbf{$\bm{n}$-セル} ($n$-cell) と呼ぶ．} (morphism) とは，$\Cat{C}$ の\hyperref[def:SimpSet]{$1$-単体} $\Cat{C}_1$ の元のこと．
+        \item $(\infty,\, 1)$-圏の射 $f \in \Cat{C}_1$ に対して定まる $(\infty,\, 1)$-圏の対象 $\partial^1_1(f),\, \partial^1_0(f) \in \Cat{C}_0$ のことをそれぞれ $f$ の\textbf{始点} (source)，\textbf{終点} (target) と呼ぶ．
+    \end{itemize}
 \end{mydef}
 
 \begin{marker}
     一般に，$(\infty,\, 1)$-圏のことを単に $\bm{\infty}$\textbf{-圏}と呼ぶことが多い．
 \end{marker}
+
+\begin{myexample}[label=def:infty-Fun]{{$(\infty,\, 1)$}-圏の関手が成す {$\infty,\, 1$}-圏}
+    \hyperref[def:infty-1]{$(\infty,\, 1)$-圏} $K,\, L$ を与える．
+    このとき，
+    % 自然変換の集合 $\Hom{\sSet} (K,\, L)$ を\hyperref[def:infty-1]{$(\infty,\, 1)$-圏}と見做すことができる．
+    \hyperref[def:SimpSet]{単体的集合}
+    \begin{align}
+        \FUN (K,\, L) \colon \OP{\Delta} &\lto \SETS, \\
+        [n] &\lmto \Hom{\sSet} (\Delta^n \times K,\, L), \\
+        \bigl( [m] \xrightarrow{\alpha} [n] \bigr) &\lmto \bigl(f \mapsto f \circ (\alpha_* \times \Id_K)\bigr)
+    \end{align}
+    は $(\infty,\, 1)$-圏であることが知られている~\cite[Theorem 1.5.3.7.]{Kerodon}．
+\end{myexample}
+
 
 \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}が通常の\hyperref[def:category]{圏}の一般化であることは，次の定理（および命題\ref{prop:nerve-grpd}）から分かる．
 
@@ -2338,6 +2358,86 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
     
 \end{proof}
 
+\subsection{$(\infty,\, 1)$-圏の圏同値}
+
+\begin{mydef}[label=def:infty-homotopy-morphism,breakable]{1-射の間のホモトピー}
+    $K$ を\hyperref[def:infty-1]{$(\infty,\, 1)$-圏}，$f,\, g \in K_1$ を\hyperref[def:infty-1]{始点と終点}が同一であるような $K$ の1-射とする．
+    
+    このとき，\textbf{$\bm{f}$ と $\bm{g}$ を繋ぐホモトピー}とは，2-射 $\sigma \in K_2$ であって以下を充たすもののこと：
+    \begin{itemize}
+        \item $\partial^2_0(\sigma) = \Id$
+        \item $\partial^2_1(\sigma) = g$
+        \item $\partial^2_2(\sigma) = f$
+    \end{itemize}
+    $\partial^1_1(f) \eqqcolon X,\, \partial^1_0(f) \eqqcolon Y$ とおいて図式\ref{fig:2-simp}を書くと以下の通り：
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQANEAX1PU1z5CKAEwVqdJq3YBNHnxAZseAkXKliEhizaIQc7hJhQA5vCKgAZgCcIAWyRkQOCEnWSd7EyBqN6AIxhGAAUBFWEQaywTAAsceStbB0QnFyQxD2k9SwSQG3t0mjTEd20skAAdCoBJKAB9A0puIA
+\begin{tikzcd}
+                                   & Y \arrow[rdd, "\Id_Y"] &   \\
+                                   &\sigma  & \\
+X \arrow[rr, "g"'] \arrow[ruu, "f"] &                       & Y
+\end{tikzcd}
+    \end{center}
+\end{mydef}
+
+\begin{mylem}[label=def:infty-homotopy-equivalence]{ホモトピックは同値関係}
+    $K$ を\hyperref[def:infty-1]{$(\infty,\, 1)$-圏}，$\Hom{K}(X,\, Y) \subset K_1$ を，対象 $X,\, Y \in K_0$ をそれぞれ始点，終点に持つような1-射全体が成す集合とする．
+    このとき，2項関係
+    \begin{align}
+        f \simeq g \DEF f,\, g\; \text{を\hyperref[def:infty-homotopy-morphism]{繋ぐホモトピー}が存在}
+    \end{align}
+    は $\Hom{K}(X,\, Y)$ 上の同値関係である．
+\end{mylem}
+
+\begin{proof}
+    
+\end{proof}
+
+$K$ を\hyperref[def:infty-1]{$(\infty,\, 1)$-圏}とする．$\forall X,\, Y,\, Z \in K_0$ に対して
+\begin{align}
+    \bm{\Hom{\htpy{K}} (X,\, Y)} &\coloneqq \Hom{K} (X,\, Y)/{\simeq}
+\end{align}
+とおき，さらに
+\begin{align}
+    \label{eq:htpy-cat-composition}
+    \circ \colon \Hom{\htpy{K}}(Y,\, Z) \times \Hom{\htpy{K}}(X,\, Y) &\lto \Hom{\htpy{K}} (X,\, Z), \\
+    \bigl([g],\, [f]\bigr) &\lmto [g \circ f]
+\end{align}
+と定義する\footnote{角の図式 $(f,\, \bullet,\, g) \in K_1^{\times 2}$ を\hyperref[def:KanCplx]{\textsf{\textbf{(Kan)}}}によって埋める2-射 $\sigma \in K_2$ に対して，$g \circ f \coloneqq \partial^2_1 (\sigma)$ とおいた．この写像はwell-definedである．}．
+    
+
+\begin{mydef}[label=def:hcat-infty,breakable]{{$(\infty,\, 1)$}-圏のホモトピー圏}
+    \hyperref[def:infty-1]{$(\infty,\, 1)$-圏} $K$ の\textbf{ホモトピー圏} (homotopy category) $\htpy{K}$ とは，次のように定義される $(1,\, 1)$-圏のこと：
+    \begin{itemize}
+        \item $\Obj{\htpy{K}} \coloneqq K_0$
+        \item $\Hom{\htpy{K}} (X,\, Y)$ をHom集合とする．
+        \item \eqref{eq:htpy-cat-composition}の写像 $\circ$ を射の合成とする．
+        \item $\forall X \in \Obj{\htpy{K}}$ に対して $[\Id_X] \in \Hom{\htpy{K}}(X,\, X)$ を恒等射とする
+    \end{itemize}
+\end{mydef}
+
+\begin{mydef}[label=def:isom-infty]{{$(\infty,\, 1)$}-圏における対象の同型}
+    \hyperref[def:infty-1]{$(\infty,\, 1)$-圏} $K$ を与える．
+    \begin{itemize}
+        \item 1-射 $f \in K_0$ が\textbf{同型射} (isomorphism) であるとは，$K$ の\hyperref[def:hcat-infty]{ホモトピー圏} $\htpy{K}$ において $[f]$ が\hyperref[def:iso]{同型射}であることを言う．
+        \item 対象 $X,\, Y \in K_0$ が\textbf{同型} (isomorphic) であるとは，$X,\, Y$ をそれぞれ始点・終点に持つ $K$ の同型射が存在することを言う．
+    \end{itemize}
+\end{mydef}
+
+\begin{mydef}[label=def:hqCat]{{$\qCat$}のホモトピー圏}
+    $(1,\, 1)$-圏 $\htpy{(\qCat)}$ を以下で定義する：
+    \begin{itemize}
+        \item \hyperref[def:infty-1]{$(\infty,\, 1)$-圏}を対象とする
+        \item \exref{def:infty-Fun}で構成した $(\infty,\, 1)$-圏 $\FUN(K,\, L)$ の\hyperref[def:hcat-infty]{ホモトピー圏} $\htpy{\bigl(\FUN(K,\, L)\bigr)}$ における対象の\hyperref[def:iso]{同型}類を射とする
+    \end{itemize}
+\end{mydef}
+
+\begin{mydef}[label=def:equiv-infty]{{$(\infty,\, 1)$}-圏の同値}
+    \hyperref[def:infty-1]{$(\infty,\, 1)$-圏の関手} $F \colon K \lto L$ が\textbf{$\bm{(\infty,\, 1)}$-圏同値}であるとは，$[F] \in \Hom{\htpy{(\qCat)}}(K,\, L)$ が同型射であることを言う．
+\end{mydef}
+
+
+
 \section{単体的豊穣圏とホモトピー論}
 
 \subsection{単体的豊穣圏とホモトピーコヒーレントな脈体}
@@ -2444,7 +2544,36 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
     \item $\forall X \in \Obj{\Cat{C}}$ に対して，$0$-単体 $j_X \in \Hom{\Cat{C}}(X,\, X)_0 \cong \Hom{\sSet} \bigl( \Delta^0,\, \Hom{\Cat{C}}(X,\, X) \bigr)$
 \end{itemize}
 
-\begin{mydef}[label=def:PathCat]{単体的豊穣圏 {$\mathfrak{C}[Q]$}}
+\begin{myexample}[label=def:Kan]{Kan複体の圏}
+    $(1,\, 1)$-圏 $\Kan$ を，
+    \begin{itemize}
+        \item \hyperref[def:KanCplx]{Kan複体}を対象に持つ
+        \item Kan複体の間の自然変換を射に持つ
+    \end{itemize}
+    で定義する．$\Kan$ は\hyperref[def:SimpSet]{単体的集合の圏 $\sSet$}の充満部分圏であり，直積\eqref{eq:sSet-tensor}をテンソル積とするモノイダル圏になる．
+
+    　さらに，$\Kan$ は\hyperref[def:SimpCat]{単体的豊穣圏}と見做すこともできる．
+    実際，任意のKan複体 $X,\, Y \in \Obj{\Kan}$ に対して
+    \begin{align}
+        \Hom{\KAN}(X,\, Y) \colon \OP{\Delta} &\lto \SETS, \\
+        [n] &\lmto \Hom{\sSet}(X \times \Delta^n,\, Y), \\
+        \bigl( [m] \xrightarrow{\alpha} [n] \bigr) &\lmto \bigl( f \mapsto f \circ (\Id_X \times \alpha_*) \bigr) 
+    \end{align}
+    なる対応は\hyperref[def:SimpSet]{単体的集合}を成しているため，
+    \begin{itemize}
+        \item 集合 $\Obj{\Kan}$
+        \item Hom対象 $\Hom{\KAN}(X,\, Y) \in \Obj{\sSet}$
+    \end{itemize}
+    を持つ単体的豊穣圏 $\KAN$ が構成できた．
+    特に，
+    \begin{align}
+        \Hom{\KAN}(X,\, Y)_0 &= \Hom{\sSet}(X \times \Delta^0,\, Y) \cong \Hom{\sSet}(X,\, Y) = \Hom{\Kan}(X,\, Y)
+    \end{align}
+    が成り立つ．
+\end{myexample}
+
+
+\begin{mydef}[label=def:PathCat,breakable]{単体的豊穣圏 {$\mathfrak{C}[Q]$}}
 $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{単体的豊穣圏} $\bm{\mathfrak{C}}[Q] \in \Obj{\sCat}$ を以下で定義する：
 \begin{itemize}
     \item $\Obj{\mathfrak{C}[Q]} \coloneqq Q$
@@ -2535,7 +2664,7 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
     % である．
 \end{myexample}
 
-\begin{mydef}[label=def:nerve-hc]{homotopy coherentな脈体}
+\begin{mydef}[label=def:nerve-hc,breakable]{homotopy coherentな脈体}
     \hyperref[def:SimpCat]{単体的豊穣圏} $\Cat{C} \in \Obj{\sCat}$ の\textbf{homotopy coherent nerve}
     \begin{align}
         \mathrm{N}_{\text{hc}}(\Cat{C}) \colon \OP{\Delta} \lto \SETS
@@ -2572,6 +2701,15 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
     \end{itemize}
 \end{mydef}
 % \subsection{単体的圏}
+
+\begin{myexample}[label=def:Spaces]{空間の成す {$(\infty,\, 1)$}-圏}
+    \exref{def:Kan}\hyperref[def:SimpCat]{単体的豊穣圏} $\KAN$ を\hyperref[def:nerve-hc]{homotopy coherent nerve}で $\sSet$ に埋め込んだものを\textbf{空間の成す $\bm{(\infty,\, 1)}$-圏} ($\infty$-category of spaces) と呼び，
+    \begin{align}
+         \SPACES \coloneqq \irm{\mathrm{N}}{hc} (\KAN)
+    \end{align}
+    と書く．実際，\hyperref[def:SimpSet]{単体的集合} $\SPACES \in \Obj{\sSet}$ は\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}である~\cite[Proposition 5.5.1.2.]{Kerodon}
+\end{myexample}
+
 
 \subsection{単体的ホモトピー}
 
@@ -2703,23 +2841,47 @@ $a,\, b \in Z_n (X,\, *)$ に対して，系\ref{col:horn-coeq}，命題\ref{pro
     ~\cite[p.64, PROPOSITION 11.1]{goerss2009simplicial}
 \end{proof}
 
-
-
-
 \section{$\infty$-トポス}
 
-\hyperref[def:infinity-1]{$\infty$-groupoid}のなす $(\infty,\, 1)$-圏を $\inftyGrpd$ と書く．
+\hyperref[def:SimpSet]{単体圏} $\Delta$ 上の関手
+\begin{align}
+    \mathrm{OP} \colon \Delta &\lto \Delta, \\
+    [n] &\lmto [n], \\
+    \bigl( [m] \xrightarrow{\alpha} [n] \bigr) &\lmto (j \mapsto n - \alpha (m-j))
+\end{align}
+を考える．
 
-\begin{mydef}[label=def:infinity-presheaf]{$\infty$-前層}
-    $K$ を\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}とする．$K$ 上の\textbf{$(\infty,\, 1)$-前層}とは，\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+\begin{mydef}[label=def:op-infty]{{$(\infty,\, 1)$}-圏の逆}
+    \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $K$ の\textbf{反対} (opposite) とは，\hyperref[def:SimpSet]{単体的集合}
     \begin{align}
-        P \colon \OP{K} \lto \inftyGrpd
+        \bm{\OP{K}} \colon \OP{\Delta} \xrightarrow{\mathrm{OP}} \OP{\Delta} \xrightarrow{K} \SETS
     \end{align}
-    のこと．$(\infty,\, 1)$-前層のなす $(\infty,\, 1)$-圏とは，$(\infty,\, 1)$-圏の関手の圏
-    \begin{align}
-        \inftyPsh{K} \coloneqq \mathrm{Fun}_{(\infty,\, 1)} (\OP{K},\, \inftyGrpd)
-    \end{align}
-    のこと．
+    のことを言う．$\OP{K}$ もまた $(\infty,\, 1)$-圏である~\cite[Proposition 1.4.2.6.]{Kerodon}．
+\end{mydef}
+
+反対圏 $\OP{K}$ における\hyperref[def:SimpSet]{面写像・縮退写像}はそれぞれ
+\begin{align}
+    (\partial^n_i \colon \OP{K}_n \lto \OP{K}_{n-1}) &= (\partial^n_{n-i} \colon K_n \lto K_{n-1}), \\
+    (\sigma^n_i \colon \OP{K}_n \lto \OP{K}_{n+1}) &= (\sigma^n_{n-i} \colon K_n \lto K_{n+1})
+\end{align}
+となる．従って，\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏 $K$ の射}の始点と終点が入れ替わっている．
+
+\begin{mydef}[label=def:infinity-presheaf]{{$(\infty,\, 1)$}-前層}
+    \begin{itemize}
+        \item     
+        $K$ を\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}とする．$K$ 上の\textbf{$\bm{(\infty,\, 1)}$-前層}とは，
+        自然変換\footnote{i.e. これは\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}である．}
+        \begin{align}
+            P \colon \OP{K} \lto \SPACES
+        \end{align}
+        のこと．
+        \item $K$ 上の $\bm{(\infty,\, 1)}$\textbf{-前層が成す} $\bm{(\infty,\, 1)}$\textbf{-圏}とは，$(\infty,\, 1)$-前層全体の集合 $\Hom{\sSet} (\OP{K},\, \SPACES)$ を\exref{def:Kan}のHom対象の構成と全く同じ方法で\hyperref[def:SimpSet]{単体的集合}と見做した
+        \begin{align}
+            \inftyPsh{K} \coloneqq \Hom{\sSet}(\OP{K},\, \SPACES) \in \Obj{\sSet}
+        \end{align}
+        のこと．$\inftyPsh{K}$ は $(\infty,\, 1)$-圏である~\cite[Theorem 1.5.3.7.]{Kerodon}
+        \footnote{$\inftyPsh{K}_0 = \Hom{\sSet} (\OP{K} \times \Delta^0,\, \SPACES) \cong \Hom{\sSet}(\OP{K},\, \SPACES)$ より，$\inftyPsh{K}$ の\hyperref[def:infinity-1]{対象} (0-セル) がまさに $K$ 上の $(\infty,\, 1)$-前層となっている．}
+    \end{itemize}
 \end{mydef}
 
 \begin{marker}
@@ -2727,26 +2889,26 @@ $a,\, b \in Z_n (X,\, *)$ に対して，系\ref{col:horn-coeq}，命題\ref{pro
 \end{marker}
 
 
-\begin{myprop}[label=prop:nerve-grpd-Psh]{$\infty$-前層の圏のモデル}
-    $\Cat{C}$ を\hyperref[def:enriched]{$\sSet$-豊穣圏}であって，\hyperref[def:KanCplx]{Kan複体}を\hyperref[def:enriched]{Hom対象}に持つものとする．
+% \begin{myprop}[label=prop:nerve-grpd-Psh]{$\infty$-前層の圏のモデル}
+%     $\Cat{C}$ を\hyperref[def:enriched]{$\sSet$-豊穣圏}であって，\hyperref[def:KanCplx]{Kan複体}を\hyperref[def:enriched]{Hom対象}に持つものとする．
     
-    このとき\hyperref[def:nerve-hc]{homotopy coherentな脈体} $\irm{\mathrm{N}}{hc}$ に対して
-    \begin{align}
-        \inftyPsh{\irm{\mathrm{N}}{hc}(\Cat{C})} \cong \irm{\mathrm{N}}{hc} \bigl( \comm{\OP{\Cat{C}}}{\irm{\sSet}{Quillen}}_{\mathrm{proj}}^\circ \bigr)
-    \end{align}
-    が成り立つ．
-\end{myprop}
+%     このとき\hyperref[def:nerve-hc]{homotopy coherentな脈体} $\irm{\mathrm{N}}{hc}$ に対して
+%     \begin{align}
+%         \inftyPsh{\irm{\mathrm{N}}{hc}(\Cat{C})} \cong \irm{\mathrm{N}}{hc} \bigl( \comm{\OP{\Cat{C}}}{\irm{\sSet}{Quillen}}_{\mathrm{proj}}^\circ \bigr)
+%     \end{align}
+%     が成り立つ．
+% \end{myprop}
 
-\begin{proof}
-    \url{https://ncatlab.org/nlab/show/%28infinity%2C1%29-category+of+%28infinity%2C1%29-presheaves}を参照．
-\end{proof}
+% \begin{proof}
+%     \url{https://ncatlab.org/nlab/show/%28infinity%2C1%29-category+of+%28infinity%2C1%29-presheaves}を参照．
+% \end{proof}
 
 ~\cite{nLab}, ~\cite[p.9]{NSS2012}に従い $(\infty,\, 1)$-トポスの定義を概観する\footnote{ここでの定義は不完全なので，詳細は~\cite{nLab}, ~\cite{lurie2008higher}などを参照．}．
 
 \begin{mydef}[label=def:infinity-topos]{$\infty$-トポス}
     $K$ を\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}とする．
     
-    $K$ 上の $\bm{(\infty,\, 1)}$\textbf{-トポス}とは，$(\infty,\, 1)$-前層のなす $(\infty,\, 1)$-圏 $\inftyPsh{K}$ の部分\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
+    $K$ 上の $\bm{(\infty,\, 1)}$\textbf{-トポス}とは，$(\infty,\, 1)$-圏 $\inftyPsh{K}$ の部分\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
     \begin{align}
         i \colon \bm{\mathrm{H}} \hookrightarrow \inftyPsh{K}
     \end{align}
@@ -2781,7 +2943,7 @@ $a,\, b \in Z_n (X,\, *)$ に対して，系\ref{col:horn-coeq}，命題\ref{pro
     
 \end{mydef}
 
-~\cite{alfonsi2023higher}は命題\ref{prop:nerve-grpd-Psh}を使って $\infty$-トポスを定義している．
+% ~\cite{alfonsi2023higher}は命題\ref{prop:nerve-grpd-Psh}を使って $\infty$-トポスを定義している．
 
 
 \section{$(\infty,\, n)$-圏}

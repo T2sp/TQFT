@@ -673,14 +673,14 @@ $C^\infty$ 多様体の $C^\infty$ 構造の定義においては，チャート
 
 \section{層状化空間の接構造}
 
-\subsection{$\KAN$-豊穣化}
+\subsection{$\mathrm{Kan}$-豊穣化}
 
-圏 $\KAN$ を，
+圏 $\Kan$ を，
 \begin{itemize}
     \item \hyperref[def:KanCplx]{Kan複体}を対象に持つ
     \item Kan複体の間の自然変換を射に持つ
 \end{itemize}
-$(1,\, 1)$-圏とする．$\KAN$ は\hyperref[def:SimpSet]{単体的集合の圏 $\sSet$}の充満部分圏であり，直積\eqref{eq:sSet-tensor}をテンソル積とするモノイダル圏になる．
+$(1,\, 1)$-圏とする．$\Kan$ は\hyperref[def:SimpSet]{単体的集合の圏 $\sSet$}の充満部分圏であり，直積\eqref{eq:sSet-tensor}をテンソル積とするモノイダル圏になる．
 
 \begin{mydef}[label=def:standard-cosimplicial-mfd]{余単体的多様体}
     以下で定義する関手
@@ -737,20 +737,20 @@ $\PshSETS{\OP{\Strat}}$ から $\sSet$ への関手を
 \end{proof}
 
 \begin{mydef}[label=def:Strat-infty]{{$(\infty,\, 1)$}-圏 {$\STRAT,\, \SNGLR,\, \BSC$}}
-    \hyperref[def:enriched]{$\KAN$-豊穣圏} $\STRAT$ を以下で定義する：
+    \hyperref[def:enriched]{$\Kan$-豊穣圏} $\STRAT$ を以下で定義する：
     \begin{itemize}
         \item $\Obj{\STRAT} \coloneqq \Obj{\Snglr}$
-        \item 補題\ref{lem:Kan-enriched}で構成した $\Hom{\STRAT}(X,\, Y) \in \Obj{\KAN}$ をHom対象とする．
+        \item 補題\ref{lem:Kan-enriched}で構成した $\Hom{\STRAT}(X,\, Y) \in \Obj{\Kan}$ をHom対象とする．
     \end{itemize}
-    同様に，$\KAN$-豊穣圏 $\SNGLR$ を以下で定義する：
+    同様に，$\Kan$-豊穣圏 $\SNGLR$ を以下で定義する：
     \begin{itemize}
         \item $\Obj{\SNGLR} \coloneqq \Obj{\Snglr}$
-        \item 補題\ref{lem:Kan-enriched}で構成した $\Hom{\SNGLR}(X,\, Y) \in \Obj{\KAN}$ をHom対象とする．
+        \item 補題\ref{lem:Kan-enriched}で構成した $\Hom{\SNGLR}(X,\, Y) \in \Obj{\Kan}$ をHom対象とする．
     \end{itemize}
     
     \tcblower
 
-    $\KAN$-豊穣圏 $\SNGLR$ の対象を \hyperref[def:Snglr]{$\Obj{\Bsc}$} に制限して得られる充満部分圏を $\BSC$ と書く．
+    $\Kan$-豊穣圏 $\SNGLR$ の対象を \hyperref[def:Snglr]{$\Obj{\Bsc}$} に制限して得られる充満部分圏を $\BSC$ と書く．
     % \tcblower
 
     % \hyperref[def:infty-1]{$(\infty,\, 1)$-圏} $\STRAT,\, \SNGLR$ を以下で定義する：
@@ -762,10 +762,81 @@ $\PshSETS{\OP{\Strat}}$ から $\sSet$ への関手を
 \end{mydef}
 
 \begin{marker}
-    homotopy hypothesisより $\KAN$-豊穣圏は $(\infty,\, 1)$-圏のモデルと見做せる．
-    故に以下では $\KAN$-豊穣圏 $\STRAT,\, \SNGLR$ と $(\infty,\, 1)$-圏 $\mathrm{N}_{\text{hc}} (\STRAT),\, \mathrm{N}_{\text{hc}} (\SNGLR)$ を区別しない．
-    ただし，関手 $\mathrm{N}_{\text{hc}} \colon \sCat \lto \sSet$ は\hyperref[def:nerve-hc]{homotopy coherent nerve functor}である．
+    % homotopy hypothesisより $\Kan$-豊穣圏は $(\infty,\, 1)$-圏のモデルと見做せる．故に
+    $\Kan$-豊穣圏を\hyperref[def:nerve-hc]{homotopy coherent nerve functor} $\mathrm{N}_{\text{hc}} \colon \sCat \lto \sSet$ で単体的集合の圏 $\sSet$ へ埋め込んだものは $(\infty,\, 1)$-圏である~\cite[Proposition 1.1.5.10.]{lurie2008higher}．
+    故に以下では $\Kan$-豊穣圏 $\STRAT,\, \SNGLR$ と $(\infty,\, 1)$-圏 $\mathrm{N}_{\text{hc}} (\STRAT),\, \mathrm{N}_{\text{hc}} (\SNGLR)$ を区別しない．
 \end{marker}
+
+\subsection{$(\infty,\, 1)$-圏におけるファイブレーション}
+
+\begin{mydef}[label=def:infty-fib]{{$(\infty,\, 1)$}-ファイブレーション}
+    $p \colon \Cat{E} \lto \Cat{B}$ を\hyperref[def:infty-1]{$(\infty,\, 1)$-圏の関手}とする．
+    \begin{description}
+        \item[\textbf{(lifting property)}]　
+        
+        包含 $\iota \in \Hom{\sSet}(\Lambda^p_j,\, \Delta^n)$ に対して $p \circ \textcolor{blue}{f_0} = \textcolor{blue}{f} \circ \iota$ を充たす任意の $(\textcolor{blue}{f_0},\, \textcolor{blue}{f}) \in \Hom{\sSet}(\Lambda^n_j,\, \Cat{E}) \times \Hom{\sSet}(\Delta^n_j,\, \Cat{B})$ に対して，以下の図式を可換にする $\textcolor{red}{\bar{f}} \in \Hom{\sSet}(\Delta^n,\, \Cat{E})$ が存在する：
+        \begin{center}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12AZOgWwCModAHpoA+gCsQAX1LpMufIRRkAjFVqMWbTgBEYDHCLQy5IDNjwEiq0uur1mrRB3YBhOjmAAhaafmWSjbkGo7aLpweXgCiftIaMFAA5vBEoABmAE4QvEhkIDgQSADMDlrOIEn+IFk5SLYFRYgATGVObOkg1Ax0-AYACgpWyiCZWEkAFjjVtbmIpY1IrZrtLiayGdlz+YX11EZYDGwTEBAA1l0r4a74Rpc9fQyDgdYuY5PTGzVbe4vz3VgwBUhHAJolLmEKpx+HRMsB0nEKNIgA
+            \begin{tikzcd}[column sep=large,row sep=large]
+            \Lambda^n_j \arrow[r, blue, "\forall f_0"] \arrow[d, "\iota"', hook]   & \Cat{E} \arrow[d, "p"] \\
+            \Delta^n \arrow[r, blue, "\forall f"'] \arrow[ru, red, "\exists \bar{f}", dashed] & \Cat{B}               
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+    \tcblower
+    \begin{itemize}
+        \item $p$ が\textbf{右ファイブレーション} (right fibration) であるとは，$0 \,\textcolor{red}{<}\, \forall j \le \forall n$ に対して \textsf{\textbf{(lifting property)}} を充たすことを言う．
+        \item $p$ が\textbf{左ファイブレーション} (left fibration) であるとは，$0 \le \forall j \,\textcolor{red}{<}\, \forall n$ に対して \textsf{\textbf{(lifting property)}} を充たすことを言う．
+        \item $p$ が\textbf{Kanファイブレーション} (Kan fibration) であるとは，$0 \le \forall j \le \forall n$ に対して \textsf{\textbf{(lifting property)}} を充たすことを言う．
+    \end{itemize}
+\end{mydef}
+
+系\ref{col:horn-coeq}によると，\hyperref[def:infty-R-fib]{\textsf{\textbf{(lifting property)}}}は，\underline{$(\infty,\, 1)$-圏 $\Cat{B}$ における}\hyperref[def:horn]{角}の図式
+$\bigl(p_{[n-1]}(\textcolor{blue}{f_0}{}_0),\, \dots,\, \underbrace{\bullet}_{j},\, \dots,\, p_{[n-1]}(\textcolor{blue}{f_0}{}_n)\bigr) \in (\Cat{B}_{n-1})^{\times n}$ を $n$-射 $\textcolor{blue}{f} \in \Cat{B}_n$ が埋めているならば，
+\underline{$(\infty,\, 1)$-圏 $\Cat{E}$ における}\hyperref[def:horn]{角}の図式
+$\bigl(\textcolor{blue}{f_{0}}{}_0,\, \dots,\, \underbrace{\bullet}_{j},\, \dots,\, \textcolor{blue}{f_0}{}_n\bigr) \in (\Cat{E}_{n-1})^{\times n}$ を埋める $n$-射 $\textcolor{red}{\bar{f}} \in \Cat{E}_n$ が存在することを主張している．
+
+2つの\hyperref[def:infty-fib]{右ファイブレーション} $\mathcal{E} \xrightarrow{p} \mathcal{B},\; \mathcal{E}' \xrightarrow{p'} \mathcal{B}$ が与えられたとき，これらの間の射とは集合
+\begin{align}
+    \Hom{\Rfib_{\Cat{B}}} (\Cat{E},\, \Cat{E}') &\coloneqq 
+    \bigl\{\, f \in \Hom{\sSet}(\mathcal{E},\, \mathcal{E}') \bigm| p' \circ f = p \,\bigr\}
+\end{align}
+のことである．$\Hom{\Rfib_{Cat{B}}} (\Cat{E},\, \Cat{E}')$ の元を可換図式として表すと以下の通り：
+\begin{center}
+    \begin{tikzcd}
+        \Cat{E} \arrow[rd, "p"'] \arrow[rr, "f"] &         & \Cat{E}' \arrow[ld, "p'"] \\
+                                             & \Cat{B} &                          
+    \end{tikzcd}
+\end{center}
+$\Hom{\Rfib_{\Cat{B}}} (\Cat{E},\, \Cat{E}') \subset \Hom{\sSet}(\mathcal{E},\, \mathcal{E}')$ を\exref{def:Kan}の方法で\hyperref[def:SimpSet]{単体的集合}と見做せる．
+このようにして得られる単体的集合 $\Hom{\Rfib_{\Cat{B}}} (\Cat{E},\, \Cat{E}')$ の最大の部分Kan複体を $\bm{\Hom{\RFIB_{\Cat{B}}}(\Cat{E},\, \Cat{E}')}$ と書く．
+
+\begin{mydef}[label=def:RFIB]{右ファイブレーションの成す {$(\infty,\, 1)$}-圏}
+    $\Cat{B}$ を $(\infty,\, 1)$-圏とする．
+    $\Kan$-豊穣圏 $\RFIB_{\Cat{B}}$ を
+    \begin{itemize}
+        \item \hyperref[def:infty-fib]{右ファイブレーション}を対象とする
+        \item $\Hom{\RFIB_{\Cat{B}}}(\Cat{E},\, \Cat{E}')$ をHom対象とする
+    \end{itemize}
+    ことで定義する．
+    以降では $(\infty,\, 1)$-圏 $\mathrm{N}_{\text{hc}}(\RFIB_{\Cat{B}}) \in \Obj{\sSet}$ のことも $\RFIB_{\Cat{B}}$ と書き，区別しない．
+\end{mydef}
+
+\begin{mytheo}[label=thm:unstraightening]{unstraightening construction}
+    \textbf{Unstraightening construction}~\cite[Theorem 2.2.1.2.]{lurie2008higher}は，\hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}
+    \begin{align}
+        \inftyPsh{\Cat{B}} \xrightarrow{\cong} \RFIB_{\Cat{B}}
+    \end{align}
+    を与える．
+\end{mytheo}
+
+\begin{proof}
+    ~\cite[Proposition 2.2.3.11]{lurie2008higher}
+\end{proof}
+
+\subsection{$\mathcal{B}\mathrm{sc}$ の構造}
+
+
 
 \subsection{接構造}
 
