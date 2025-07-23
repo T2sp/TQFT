@@ -31,7 +31,7 @@ $x \in \bigcup_{\lambda \in \Lambda} U_\lambda$ は
 \end{align}
 と同値であるから $\bigcup_{\lambda \in \Lambda} U_\lambda \in \mathscr{O}_{\le}$ であり，$\mathscr{O}_{\le}$ は集合 $P$ の位相である．
 
-\begin{myexample}[label=ex:topo-poset]{$[n]$ の位相}
+\begin{myexample}[label=ex:topo-poset]{{$[n]$} の位相}
     半順序集合 $[2] \coloneqq \{0 \le 1 \le 2\}$ を考える．このとき，\hyperref[def:topo-poset]{位相 $\mathscr{O}_{\le}$}とは
     \begin{align}
         \mathscr{O}_{\le} = \bigl\{\, \emptyset,\, \{2\},\, \{1,\, 2\},\, \{0,\, 1,\, 2\} \,\bigr\} 
@@ -62,7 +62,7 @@ P \arrow[r, red,"\tilde{f}"']                & P'
     \end{center}
 \end{mydef}
 
-\begin{myexample}[label=ex:strat-n]{$[n]$-層状化空間}
+\begin{myexample}[label=ex:strat-n]{{$[n]$}-層状化空間}
     半順序集合 $[n] \coloneqq \{0 \le \, \cdots \le n\}$ に対して\exref{ex:topo-poset}の位相を入れる．
     まず，
     \begin{align}
@@ -833,6 +833,324 @@ $\Hom{\Rfib_{\Cat{B}}} (\Cat{E},\, \Cat{E}') \subset \Hom{\sSet}(\mathcal{E},\, 
 \begin{proof}
     ~\cite[Proposition 2.2.3.11]{lurie2008higher}
 \end{proof}
+
+\subsection{{$(\infty,\, 1)$}-圏におけるスライス圏}
+
+\begin{mydef}[label=def:Simp-Join]{単体的集合のjoin}
+    2つの単体的集合 $S,\, T \in \Obj{\sSet}$ の\textbf{join}とは，単体的集合
+    \begin{align}
+        \bm{S \star T} \colon \OP{\Delta} &\lto \SETS, \\
+        [n] &\lmto \coprod_{-1 \le i \le n} (S_i \times T_{n-i-1}), \\
+        \biggl( [m] \xrightarrow{\alpha} [n] \biggr) &\lmto \biggl( \Bigl( i;\, (x,\, y) \Bigr) \mapsto \Bigl( \alpha^{-1}([i]);\, \bigl(S(\alpha|_{\alpha^{-1}([i])})(x),\, T(\alpha|_{\alpha^{-1}([m-i-1])})(y) \bigr)  \Bigr)  \biggr) 
+    \end{align}
+    のこと．ただし $S_{-1} = T_{-1} \coloneqq \emptyset$ とおいた．
+\end{mydef}
+
+特に，$d^n_j \in \Hom{\Delta}([n-1],\, [n]),\; s^n_j \in \Hom{\Delta}([n+1],\, [n])$ に対して
+\begin{align}
+    (d^n_j)^{-1} ([i]) &= \begin{cases}
+        [i], &i < j \\
+        [i-1], &i \ge j
+    \end{cases} \\
+    (s^n_j)^{-1} ([i]) &= \begin{cases}
+        [i], &i < j \\
+        [i+1], &i \ge j
+    \end{cases}
+\end{align}
+であるから，
+$S \star T$ の\hyperref[def:SimpSet]{面写像}は
+\begin{align}
+    \label{eq:face-join}
+    \partial^n_j \colon \coprod_{-1 \le i \le n} (S_i \times T_{n-i-1}) &\lto \coprod_{-1 \le i \le n-1} (S_i \times T_{n-i-2}), \\
+    \bigl( i;\, (x,\, y) \bigr) &\lmto 
+    \begin{cases}
+        % \bigl(-1;\,y \bigr), &i=0 \\
+        \bigl(i;\, (\partial_j^i x,\, y) \bigr), &j < i,\; i\neq 0 \\
+        \bigl(i-1;\, (\partial_j^i x,\, y) \bigr), &j = i \neq 0 \\
+        \bigl(-1;\, y \bigr), &j = i = 0 \\
+        \bigl(i-1;\, (x,\, \partial^{n-i-1}_{j-i-1} y) \bigr), &j > i > 0,\; n-i-1\neq 0
+        % \bigl(n;\, x\bigr), &j > i=0
+        % \bigl(-1;\,\partial^n_j y \bigr), &i=-1
+    \end{cases}
+\end{align}
+であり，\hyperref[def:SimpSet]{縮退写像}は
+\begin{align}
+    \label{eq:degen-join}
+    \sigma^n_j \colon \coprod_{-1 \le i \le n} (S_i \times T_{n-i-1}) &\lto \coprod_{-1 \le i \le n+1} (S_i \times T_{n-i}), \\
+    \bigl( i;\, (x,\, y) \bigr) &\lmto 
+    \begin{cases}
+        % \bigl(n;\,\sigma^n_j x \bigr), &i=n \\
+        \bigl(i;\, (\sigma_j^i x,\, y) \bigr), &j < i,\; i\neq 0 \\
+        \bigl(i+1;\, (\sigma_{j}^i x,\, y) \bigr), &j = i \\
+        \bigl(i+1;\, (x,\, \sigma^{n-i-1}_{j-i-1} y) \bigr), &j > i,\; n-i-1\neq 0 \\
+        % \bigl(-1;\,\sigma^n_j y \bigr), &i=-1
+    \end{cases}
+\end{align}
+となる．
+
+\begin{myexample}[label=ex:join-0]{join {$\Delta^0 \star \Delta^0$}}
+    $\textcolor{red}{\Delta^0} \star \textcolor{blue}{\Delta^0}$ を計算してみよう\footnote{左右の区別を付けるために色を付けた．}．まず対象は
+    \begin{align}
+        (\Delta^0 \star \Delta^0)_0 &= \textcolor{red}{\Delta^0}_0 \sqcup \textcolor{blue}{\Delta^0}_0 
+        = \left\{ 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[bullet,blue,label=below:$\{0\}$] (x)
+                ++(0,1) coordinate[bullet,red,label=above:$\{0\}$] (y)
+                ;
+            \end{tikzpicture}
+        \right\}
+    \end{align}
+    である．1-射は
+    \begin{align}
+        (\Delta^0 \star \Delta^0)_1 &= \textcolor{red}{\Delta^0}_1 \sqcup (\textcolor{DarkGreen}{\Delta^0_0 \times \Delta^0_0}) \sqcup \textcolor{blue}{\Delta^0}_1
+    \end{align}
+    であるが，\eqref{eq:face-join}より始点関数は
+    \begin{align}
+        \partial^1_1|_{\textcolor{DarkGreen}{\Delta^0_0 \times \Delta^0_0}} \colon \textcolor{DarkGreen}{\Delta^0_0 \times \Delta^0_0} &\lto \textcolor{red}{\Delta^0}_0 \sqcup \textcolor{blue}{\Delta^0}_0, \\
+        (\{0\},\, \{0\}) &\lmto \textcolor{red}{\{0\}}
+    \end{align}
+    終点関数は
+    \begin{align}
+        \partial^1_0|_{\textcolor{DarkGreen}{\Delta^0_0 \times \Delta^0_0}} \colon \textcolor{DarkGreen}{\Delta^0_0 \times \Delta^0_0} &\lto \textcolor{red}{\Delta^0}_0 \sqcup \textcolor{blue}{\Delta^0}_0, \\
+        (\{0\},\, \{0\}) &\lmto \textcolor{blue}{\{0\}}
+    \end{align}
+    となるため，$\textcolor{red}{\Delta^0}_1,\, \textcolor{blue}{\Delta^0}_1$ が縮退していることを考慮すると
+    \begin{align}
+        (\Delta^0 \star \Delta^0)_1
+        &= \left\{ 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[bullet,blue,label=below:$\{0\}$] (x)
+                ++(0,1) coordinate[bullet,red,label=above:$\{0\}$] (y)
+                ;
+                \draw[->-=.5,DarkGreen] (y) -- (x);
+            \end{tikzpicture}
+        \right\}     
+    \end{align}
+    と図示できる．
+\end{myexample}
+
+\begin{myexample}[label=ex:join-1]{join {$\Delta^1 \star \Delta^0$}}
+    $\Delta^1 \star \Delta^0$ を計算してみよう．まず対象は
+    \begin{align}
+        (\Delta^1 \star \Delta^0)_0 &= \textcolor{red}{\Delta^1}_0 \sqcup \textcolor{blue}{\Delta^0}_0 
+        = \left\{ 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[bullet,blue,label=below:$\{0\}$] (x)
+                +(120:1) coordinate[bullet,red,label=above:$\{0\}$] (y)
+                +(60:1) coordinate[bullet,red,label=above:$\{1\}$] (z)
+                ;
+            \end{tikzpicture}
+        \right\}
+    \end{align}
+    である．1-射は
+    \begin{align}
+        (\Delta^1 \star \Delta^0)_1 &= \textcolor{red}{\Delta^1}_1 \sqcup (\textcolor{DarkGreen}{\Delta^1_0 \times \Delta^0_0}) \sqcup \textcolor{blue}{\Delta^0}_1
+    \end{align}
+    であるが，\eqref{eq:face-join}より始点関数は
+    \begin{align}
+        \partial^1_1|_{\textcolor{DarkGreen}{\Delta^1_0 \times \Delta^0_0}} \colon \textcolor{DarkGreen}{\Delta^1_0 \times \Delta^0_0} &\lto \textcolor{red}{\Delta^1}_0 \sqcup \textcolor{blue}{\Delta^0}_0, \\
+        (x,\, \{0\}) &\lmto \textcolor{red}{x}
+    \end{align}
+    終点関数は
+    \begin{align}
+        \partial^1_0|_{\textcolor{DarkGreen}{\Delta^1_0 \times \Delta^0_0}} \colon \textcolor{DarkGreen}{\Delta^1_0 \times \Delta^0_0} &\lto \textcolor{red}{\Delta^1}_0 \sqcup \textcolor{blue}{\Delta^0}_0, \\
+        (x,\, \{0\}) &\lmto \textcolor{blue}{\{0\}}
+    \end{align}
+    となるため，
+    \begin{align}
+        \Delta^1 \star \Delta^0
+        &= \left\{ 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[bullet,blue,label=below:$\{0\}$] (x)
+                +(120:1) coordinate[bullet,red,label=above:$\{0\}$] (y)
+                +(60:1) coordinate[bullet,red,label=above:$\{1\}$] (z)
+                ;
+                \draw[->-=.5,red] (y) -- (z);
+                \draw[->-=.5,DarkGreen] (y) -- (x);
+                \draw[->-=.5,DarkGreen] (z) -- (x);
+            \end{tikzpicture}
+        \right\}  
+    \end{align}
+    と図示できる．ただし，三角形の内部は2-射 $(\Id_{[1]},\, \{0\}) \in \Delta^1_1 \times \Delta^0_0 \subset (\Delta^1 \star \Delta^0)_2$ が埋めている．
+    同様に
+    \begin{align}
+        (\Delta^0 \star \Delta^1)_1
+        &= \left\{ 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[bullet,red,label=below:$\{0\}$] (x)
+                +(120:1) coordinate[bullet,blue,label=above:$\{0\}$] (y)
+                +(60:1) coordinate[bullet,blue,label=above:$\{1\}$] (z)
+                ;
+                \draw[->-=.5,blue] (y) -- (z);
+                \draw[-<-=.5,DarkGreen] (y) -- (x);
+                \draw[-<-=.5,DarkGreen] (z) -- (x);
+            \end{tikzpicture}
+        \right\}
+    \end{align}
+    であることが分かる．
+\end{myexample}
+
+\begin{myexample}[label=ex:join-2]{join {$\Delta^2 \star \Delta^0$}}
+    $\Delta^2 \star \Delta^0$ を計算してみよう．まず
+    \begin{align}
+        (\Delta^2 \star \Delta^0)_0 
+        &= \textcolor{red}{\Delta^2}_0 \sqcup \textcolor{blue}{\Delta^0}_0 
+        = \left\{ 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[bullet,blue,label=below:$\{0\}$] (x)
+                ++(0,1) coordinate[bullet,red,label=right:$\{2\}$] (z)
+                +(150:1) coordinate[bullet,red,label=above left:$\{1\}$] (y)
+                +(30:1) coordinate[bullet,red,label=above right:$\{0\}$] (w)
+                ;
+            \end{tikzpicture}
+        \right\} \\
+    \end{align}
+    である．次に1射は
+    \begin{align}
+        (\Delta^2 \star \Delta^0)_1 
+        &= \textcolor{red}{\Delta^2}_1 \sqcup (\textcolor{DarkGreen}{\Delta^2_0 \times \Delta^0_0}) \sqcup \textcolor{blue}{\Delta^0}_1
+    \end{align}
+    であるが，\eqref{eq:face-join}より始点関数は
+    \begin{align}
+        \partial^1_1|_{\textcolor{DarkGreen}{\Delta^2_0 \times \Delta^0_0}} \colon \textcolor{DarkGreen}{\Delta^2_0 \times \Delta^0_0} &\lto \textcolor{red}{\Delta^2}_0 \sqcup \textcolor{blue}{\Delta^0}_0,\\
+        (x,\, \Id_{\{0\}}) &\lmto \textcolor{red}{x}
+    \end{align}
+    となり，終点関数は
+    \begin{align}
+        \partial^1_0|_{\textcolor{DarkGreen}{\Delta^2_0 \times \Delta^0_0}} \colon \textcolor{DarkGreen}{\Delta^2_0 \times \Delta^0_0} &\lto \textcolor{red}{\Delta^2}_0 \sqcup \textcolor{blue}{\Delta^0}_0,\\
+        (x,\, \Id_{\{0\}}) &\lmto \textcolor{blue}{\{0\}}
+    \end{align}
+    となる．従って図式\ref{fig:1-simp}に倣うと
+    \begin{align}
+        (\Delta^2 \star \Delta^0)_1 
+        &= \textcolor{red}{\Delta^2}_1 \sqcup (\textcolor{DarkGreen}{\Delta^2_0 \times \Delta^0_0}) \sqcup \textcolor{blue}{\Delta^0}_1 =
+        \left\{ 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[bullet,blue,label=below:$\{0\}$] (x)
+                ++(0,1.5) coordinate[bullet,red,label=right:$\{1\}$] (y)
+                +(150:1) coordinate[bullet,red,label=above left:$\{0\}$] (z)
+                +(30:1) coordinate[bullet,red,label=above right:$\{2\}$] (w)
+                ;
+                \draw[->-=.5,DarkGreen] (y) -- (x);
+                \draw[->-=.5,DarkGreen] (z) -- (x);
+                \draw[->-=.5,DarkGreen] (w) -- (x);
+                \draw[->-=.5,red] (z) -- (y);
+                \draw[->-=.5,red] (y) -- (w);
+                \draw[->-=.5,red] (z) -- (w);
+            \end{tikzpicture}
+        \right\} 
+    \end{align}
+    と図示できる．ただし，四面体の内部は3-射 $(\Id_{[2]},\, \textcolor{blue}{\{0\}}) \in \Delta^2_2 \times \Delta^0_0 \subset (\Delta^1 \star \Delta^0)_2$ が埋めている．
+    同様に，$\Delta^0 \star \Delta^2$ の1-射を図示すると
+    \begin{align}
+        (\Delta^0 \star \Delta^2)_1 
+        &= \textcolor{red}{\Delta^0}_1 \sqcup (\textcolor{DarkGreen}{\Delta^0_0 \times \Delta^2_0}) \sqcup \textcolor{blue}{\Delta^2}_1 =
+        \left\{ 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[bullet,blue,label=below left:$\{0\}$] (x)
+                ++(30:1) coordinate[bullet,blue,label=above right:$\{1\}$] (y)
+                +(-30:1) coordinate[bullet,blue,label=below right:$\{2\}$] (z)
+                +(0,1.5) coordinate[bullet,red,label=above:$\{0\}$] (w)
+                ;
+                \draw[->-=.5,blue] (x) -- (y);
+                \draw[->-=.5,blue] (x) -- (z);
+                \draw[->-=.5,blue] (y) -- (z);
+                \draw[-<-=.5,DarkGreen] (x) -- (w);
+                \draw[-<-=.5,DarkGreen] (y) -- (w);
+                \draw[-<-=.5,DarkGreen] (z) -- (w);
+            \end{tikzpicture}
+        \right\} 
+    \end{align}
+    のようになる．
+\end{myexample}
+
+\begin{mylem}[label=lem:join-infty]{{$(\infty,\, 1)$}-圏同士のjoinは{$(\infty,\, 1)$}-圏}
+    \hyperref[def:infty-1]{$(\infty,\, 1)$-圏}同士の\hyperref[def:Simp-Join]{join}は $(\infty,\, 1)$-圏である．
+\end{mylem}
+
+\begin{proof}
+    ~\cite[Proposition 1.2.8.3]{lurie2008higher}
+\end{proof}
+
+\begin{mydef}[label=def:overcat-infty,breakable]{スライス {$(\infty,\, 1)$}-圏}
+    \hyperref[def:infty-1]{$(\infty,\, 1)$-圏} $\Cat{D},\, \Cat{C}$ および\hyperref[def:infty-1]{$(\infty,\, 1)$-圏の関手} $p \in \Hom{\sSet} (\Cat{D},\, \Cat{C})$ を与える．
+    $p$ に沿った $\Cat{C}$ の\textbf{スライス圏} (overcategory) 
+    \begin{align}
+        \bm{\Cat{C}_{/p}} \colon \OP{\Delta} &\lto \SETS
+    \end{align}
+    を以下で定義する：
+    \begin{itemize}
+        \item $\forall [n] \in \Obj{\OP{\Delta}}$ に対して，集合
+        \begin{align}
+            \Hom{p} (\Delta^n \star \Cat{D},\, \Cat{C})
+            \coloneqq \bigl\{\, f \in \Hom{\sSet} (\Delta^n \star \Cat{D},\, \Cat{C}) \bigm| f|_{\Cat{D}} = p \,\bigr\} 
+        \end{align}
+        を対応付ける\footnote{$f|_{\Cat{D}}$ というのは，\hyperref[def:Simp-Join]{joinの定義}における $(\Delta^n \star \Cat{D})_k$ のdisjoint unionのうち，添字 $i=0$ が振られている成分への制限を意味する．}．
+        \item $\forall \alpha \in \Hom{\OP{\Delta}} ([m],\, [n])$ に対して，写像
+        \begin{align}
+            \Cat{C}_{/p} (\alpha) \colon \Hom{p} (\Delta^m \star \Cat{D},\, \Cat{C}) &\lto \Hom{p} (\Delta^n \star \Cat{D},\, \Cat{C}), \\
+            f &\lmto f \circ (\alpha_* \star \Id_{\Cat{D}})
+        \end{align}
+        を対応付ける．
+    \end{itemize}
+    実際，単体的集合 $\Cat{C}_{/p}$ は $(\infty,\, 1)$-圏である~\cite[Proposition 4.3.6.1]{Kerodon}．
+    
+    \tcblower
+
+    $p$ に沿った $\Cat{C}$ の\textbf{コスライス圏} (undercategory) 
+    \begin{align}
+        \bm{\Cat{C}_{p/}} \colon \OP{\Delta} &\lto \SETS
+    \end{align}
+    を以下で定義する：
+    \begin{itemize}
+        \item $\forall [n] \in \Obj{\OP{\Delta}}$ に対して，集合
+        \begin{align}
+            \Hom{p} (\Cat{D} \star \Delta^n,\, \Cat{C})
+            \coloneqq \bigl\{\, f \in \Hom{\sSet} (\Cat{D} \star \Delta^n,\, \Cat{C}) \bigm| f|_{\Cat{D}} = p \,\bigr\} 
+        \end{align}
+        を対応付ける\footnote{$f|_{\Cat{D}}$ というのは，\hyperref[def:Simp-Join]{joinの定義}における $(\Cat{D} \star \Delta^n)_k$ のdisjoint unionのうち，添字 $i=n$ が振られている成分への制限を意味する．}．
+        \item $\forall \alpha \in \Hom{\OP{\Delta}} ([m],\, [n])$ に対して，写像
+        \begin{align}
+            \Cat{C}_{p/} (\alpha) \colon \Hom{p} (\Cat{D} \star \Delta^m,\, \Cat{C}) &\lto \Hom{p} (\Cat{D} \star \Delta^n,\, \Cat{C}), \\
+            f &\lmto f \circ (\Id_{\Cat{D}} \star \alpha_*)
+        \end{align}
+        を対応付ける．
+    \end{itemize}
+\end{mydef}
+
+特に注目すべきは，\hyperref[def:infty-1]{$(\infty,\, 1)$-圏の関手} $p \colon \Delta^0 \lto \Cat{C}$ をとった場合である．
+このとき $X \coloneqq p_{[0]} (\{0\}) \in \Cat{C}_0$ とおいて $\bm{\Cat{C}_{/X}},\; \bm{\Cat{C}_{X/}}$ などと書く．
+
+まず，$(\infty,\, 1)$-圏 $\Cat{C}_{/X}$ の対象 $\varphi \in (\Cat{C}_{/X})_0 = \Hom{p}(\Delta^0 \star \textcolor{blue}{\Delta^0},\, \Cat{C})$ をとる．
+すると\exref{ex:join-0}および $\varphi|_{\textcolor{blue}{\Delta^0}} = p$ の条件から，$\varphi_{[1]} \colon (\Delta^0 \star \textcolor{blue}{\Delta^0})_1 \lto \Cat{C}_1$ とは図式
+\begin{align}
+    \varphi =  
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate[bullet,blue,label=below:$X$] (x)
+        ++(0,1) coordinate[bullet,label=above:$\varphi_{[0]}|_{\Delta^0_0}(\{0\})$] (y)
+        ;
+        \draw[->-=.5] (y) --node[midway,right]{$\varphi_{[1]}|_{\textcolor{DarkGreen}{\Delta^0_0 \times \Delta^0_0}} (\{0\}\to \textcolor{blue}{\{0\}})$} (x);
+    \end{tikzpicture}
+\end{align}
+である．$n \ge 2$ 射に相当する $\varphi_{[n]} \colon (\Delta^0 \star \textcolor{blue}{\Delta^0})_n \lto \Cat{C}_n$ のデータは縮退していて自明である．従って，$\varphi$ は \hyperref[def:slice-category]{$(1,\, 1)$-圏における $X$ 上のスライス圏}の対象と等価なデータを与える．
+
+同様に，$(\infty,\, 1)$-圏 $\Cat{C}_{/X}$ の1-射 $f \in (\Cat{C}_{/X})_0 = \Hom{p}(\Delta^1 \star \textcolor{blue}{\Delta^0},\, \Cat{C})$ とは，\exref{ex:join-1}より
+\begin{align}
+    f =     
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate[bullet,blue,label=below:$X$] (x)
+        +(120:1) coordinate[bullet,label=left:$f_{[0]}|_{\Delta^1_0}(\{0\})$] (y)
+        +(60:1) coordinate[bullet,label=right:$f_{[0]}|_{\Delta^1_0}(\{1\})$] (z)
+        ;
+        \draw[->-=.5] (y) -- (z);
+        \draw[->-=.5] (y) -- (x);
+        \draw[->-=.5] (z) -- (x);
+        % \fill[red!20] (x) -- (y) -- (z) -- cycle;
+    \end{tikzpicture}
+\end{align}
+のことである．ただし三角形の内部は2-射 $f_{[2]}(\Id_{[2]},\, \textcolor{blue}{\{0\}}) \in \Cat{C}_2$ が埋めている．これは\hyperref[def:slice-category]{$(1,\, 1)$-圏における $X$ 上のスライス圏}の射のデータに対応しているが，横向きの矢印を決めるだけでは $f$ がupto \hyperref[def:infty-homotopy-morphism]{homotopy}でしか定まらないという点で異なっている．
+
+$(\infty,\, 1)$-圏 $\Cat{C}_{/X}$ の $n$-射も同様に図示できる．
 
 \subsection{$\mathcal{B}\mathrm{sc}$ の構造}
 
