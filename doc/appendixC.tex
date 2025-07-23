@@ -2552,19 +2552,19 @@ $K$ を\hyperref[def:infty-1]{$(\infty,\, 1)$-圏}とする．$\forall X,\, Y,\,
     \end{itemize}
     で定義する．$\Kan$ は\hyperref[def:SimpSet]{単体的集合の圏 $\sSet$}の充満部分圏であり，直積\eqref{eq:sSet-tensor}をテンソル積とするモノイダル圏になる．
 
-    　さらに，$\Kan$ は\hyperref[def:SimpCat]{単体的豊穣圏}と見做すこともできる．
+    　さらに，$\Kan$ は\exref{def:Fun-infty}と同様の方法で\hyperref[def:SimpCat]{単体的豊穣圏}と見做すこともできる．
     実際，任意のKan複体 $X,\, Y \in \Obj{\Kan}$ に対して
     \begin{align}
-        \Hom{\KAN}(X,\, Y) \colon \OP{\Delta} &\lto \SETS, \\
+        \FUN(X,\, Y) \colon \OP{\Delta} &\lto \SETS, \\
         [n] &\lmto \Hom{\sSet}(X \times \Delta^n,\, Y), \\
         \bigl( [m] \xrightarrow{\alpha} [n] \bigr) &\lmto \bigl( f \mapsto f \circ (\Id_X \times \alpha_*) \bigr) 
     \end{align}
     なる対応は\hyperref[def:SimpSet]{単体的集合}を成しているため，
     \begin{itemize}
-        \item 集合 $\Obj{\Kan}$
-        \item Hom対象 $\Hom{\KAN}(X,\, Y) \in \Obj{\sSet}$
+        \item $\Obj{\KAN} \coloneqq \Obj{\Kan}$ 
+        \item Hom対象を $\Hom{\KAN}(X,\, Y) \coloneqq \FUN(X,\, Y) \in \Obj{\sSet}$
     \end{itemize}
-    を持つ単体的豊穣圏 $\KAN$ が構成できた．
+    と定義することで単体的豊穣圏 $\KAN$ が構成できた．
     特に，
     \begin{align}
         \Hom{\KAN}(X,\, Y)_0 &= \Hom{\sSet}(X \times \Delta^0,\, Y) \cong \Hom{\sSet}(X,\, Y) = \Hom{\Kan}(X,\, Y)
@@ -2875,9 +2875,9 @@ $a,\, b \in Z_n (X,\, *)$ に対して，系\ref{col:horn-coeq}，命題\ref{pro
             P \colon \OP{K} \lto \SPACES
         \end{align}
         のこと．
-        \item $K$ 上の $\bm{(\infty,\, 1)}$\textbf{-前層が成す} $\bm{(\infty,\, 1)}$\textbf{-圏}とは，$(\infty,\, 1)$-前層全体の集合 $\Hom{\sSet} (\OP{K},\, \SPACES)$ を\exref{def:Kan}のHom対象の構成と全く同じ方法で\hyperref[def:SimpSet]{単体的集合}と見做した
+        \item $K$ 上の $\bm{(\infty,\, 1)}$\textbf{-前層が成す} $\bm{(\infty,\, 1)}$\textbf{-圏}とは，$(\infty,\, 1)$-前層全体の集合 $\Hom{\sSet} (\OP{K},\, \SPACES)$ を\exref{def:Fun-infty}の構成と全く同じ方法で\hyperref[def:SimpSet]{単体的集合}と見做した
         \begin{align}
-            \inftyPsh{K} \coloneqq \Hom{\sSet}(\OP{K},\, \SPACES) \in \Obj{\sSet}
+            \inftyPsh{K} \coloneqq \FUN(\OP{K},\, \SPACES) \in \Obj{\sSet}
         \end{align}
         のこと．$\inftyPsh{K}$ は $(\infty,\, 1)$-圏である~\cite[Theorem 1.5.3.7.]{Kerodon}
         \footnote{$\inftyPsh{K}_0 = \Hom{\sSet} (\OP{K} \times \Delta^0,\, \SPACES) \cong \Hom{\sSet}(\OP{K},\, \SPACES)$ より，$\inftyPsh{K}$ の\hyperref[def:infinity-1]{対象} (0-セル) がまさに $K$ 上の $(\infty,\, 1)$-前層となっている．}

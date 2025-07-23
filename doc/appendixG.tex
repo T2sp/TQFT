@@ -801,11 +801,11 @@ $\bigl(\textcolor{blue}{f_{0}}{}_0,\, \dots,\, \underbrace{\bullet}_{j},\, \dots
     \Hom{\Rfib_{\Cat{B}}} (\Cat{E},\, \Cat{E}') &\coloneqq 
     \bigl\{\, f \in \Hom{\sSet}(\mathcal{E},\, \mathcal{E}') \bigm| p' \circ f = p \,\bigr\}
 \end{align}
-のことである．$\Hom{\Rfib_{Cat{B}}} (\Cat{E},\, \Cat{E}')$ の元を可換図式として表すと以下の通り：
+のことである．$\Hom{\Rfib_{\Cat{B}}} (\Cat{E},\, \Cat{E}')$ の元を可換図式として表すと以下の通り：
 \begin{center}
     \begin{tikzcd}
         \Cat{E} \arrow[rd, "p"'] \arrow[rr, "f"] &         & \Cat{E}' \arrow[ld, "p'"] \\
-                                             & \Cat{B} &                          
+                                            & \Cat{B} &                          
     \end{tikzcd}
 \end{center}
 $\Hom{\Rfib_{\Cat{B}}} (\Cat{E},\, \Cat{E}') \subset \Hom{\sSet}(\mathcal{E},\, \mathcal{E}')$ を\exref{def:Kan}の方法で\hyperref[def:SimpSet]{単体的集合}と見做せる．
@@ -825,7 +825,7 @@ $\Hom{\Rfib_{\Cat{B}}} (\Cat{E},\, \Cat{E}') \subset \Hom{\sSet}(\mathcal{E},\, 
 \begin{mytheo}[label=thm:unstraightening]{unstraightening construction}
     \textbf{Unstraightening construction}~\cite[Theorem 2.2.1.2.]{lurie2008higher}は，\hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}
     \begin{align}
-        \inftyPsh{\Cat{B}} \xrightarrow{\cong} \RFIB_{\Cat{B}}
+        \inftyPsh{\Cat{B}} \xrightarrow{\simeq} \RFIB_{\Cat{B}}
     \end{align}
     を与える．
 \end{mytheo}
@@ -1152,11 +1152,97 @@ $S \star T$ の\hyperref[def:SimpSet]{面写像}は
 
 $(\infty,\, 1)$-圏 $\Cat{C}_{/X}$ の $n$-射も同様に図示できる．
 
-\subsection{$\mathcal{B}\mathrm{sc}$ の構造}
+% \subsection{$\mathcal{B}\mathrm{sc}$ の構造}
 
+\subsection{層状化空間の接構造}
 
+\begin{mydef}[label=def:Yoneda-infty]{{$(\infty,\, 1)$}-圏の米田埋め込み (informal)}
+    $\Cat{C}$ を\hyperref[def:infty-1]{$(\infty,\, 1)$-圏}とする．$(\infty,\, 1)$-圏の\textbf{米田埋め込み} (Yoneda embedding)
+    \begin{align}
+        \yo \colon \Cat{C} \lto \inftyPsh{\Cat{C}}
+    \end{align}
+    とは，$\Cat{C}$ から\hyperref[def:infinity-presheaf]{$(\infty,\, 1)$-前層の成す $(\infty,\, 1)$-圏} $\inftyPsh{\Cat{C}}$ への\hyperref[def:infty-1]{$(\infty,\, 1)$-圏の関手}であって，
+    対象 $x \in \Cat{C}_0$ に対して
+    \begin{align}
+        \yo(x)_{[0]} \colon \OP{\Cat{C}}_0 &\lto \SPACES_0, \\
+        y &\lmto \Hom{\Cat{C}} (x,\, y)
+    \end{align}
+    を充たす\footnote{$(\infty,\, 1)$-圏 $\Cat{C}$ において，対象 $x,\, y \in \Cat{C}_0$ の間の1-射全体の集合 $\Hom{\Cat{C}}(x,\, y) \subset \Cat{C}_1$ はKan複体を成す~\cite[Proposition 4.6.1.10]{Kerodon}．}ような $(\infty,\, 1)$-圏の関手 $\yo(x) \in \inftyPsh{\Cat{C}}_0 = \Hom{\sSet}(\OP{K},\, \SPACES)$ を対応付けるもののこと\footnote{厳密な構成については~\cite[Definition 8.3.3.9]{Kerodon}を参照．}．
+\end{mydef}
 
-\subsection{接構造}
+\begin{mydef}[label=def:Enter]{enter-path category}
+    \hyperref[def:c-smooth]{conically smoothな層状化空間} $X \in \Obj{\Strat}$ の\textbf{enter-path $(\infty,\, 1)$-category}とは，
+    $(\infty,\, 1)$-圏 \hyperref[def:Strat-infty]{$\BSC$} の\hyperref[def:overcat-infty]{スライス圏}
+    \begin{align}
+        \ENTR{X} \coloneqq \BSC_{/X}
+    \end{align}
+    のこと．
+\end{mydef}
+
+\begin{mydef}[label=def:tangent-classifier]{tangent classifier}
+    $\iota \colon \BSC \hookrightarrow \SNGLR$ を包含とする．
+    \textbf{tangent classifier}とは，\hyperref[def:infty-1]{$(\infty,\, 1)$-圏の関手}
+    \begin{align}
+        \bm{\tau} \colon \SNGLR \xrightarrow{\yo} \inftyPsh{\SNGLR} \xrightarrow{\iota^*} \inftyPsh{\BSC}
+    \end{align}
+    のこと．
+\end{mydef}
+
+定義\ref{def:Yoneda-infty}より，
+\hyperref[def:tangent-classifier]{tangent classifier}は\hyperref[def:c-smooth]{conically smoothな層状化空間} $X \in \SNGLR_0$ に対して $(\infty,\, 1)$-圏の表現可能前層
+\begin{align}
+    \label{eq:representable-infty}
+    \tau_{[0]}(X) = \Hom{\BSC}(\, \mhyphen\, ,\, X) \in \inftyPsh{\BSC}_0
+\end{align}
+を対応付ける．
+
+\begin{marker}
+    定理\ref{thm:unstraightening}により，\hyperref[def:tangent-classifier]{tangent classifier} $\tau$ のことを
+    \begin{align}
+        \tau \colon \SNGLR \xrightarrow{\yo} \inftyPsh{\SNGLR} \xrightarrow{\iota^*} \inftyPsh{\BSC} \xrightarrow{\simeq} \RFIB_{\BSC}
+    \end{align}
+    と見做すこともできる．このとき，\hyperref[def:RFIB]{$\RFIB_{\BSC}$} の構成および $(\infty,\, 1)$-前層\eqref{eq:representable-infty}に対する定理\ref{thm:unstraightening}の具体的構成から，
+    \hyperref[def:c-smooth]{conically smoothな層状化空間} $X \in \SNGLR_0$ に対して定まる $(\infty,\, 1)$-圏の\hyperref[def:infty-fib]{右ファイブレーション} $\tau_{[0]}(X) \in (\RFIB_{\BSC})_0$ とは
+    忘却関手
+    \begin{align}
+        \tau_{[0]}(X) \colon \ENTR{X} \lto \BSC
+    \end{align}
+    のことである．この忘却関手を以下では $\bm{\tau_X} \coloneqq \tau_{[0]}(X)$ と書く．
+\end{marker}
+
+\begin{mydef}[label=def:B-mfld,breakable]{{$\Cat{B}$}-多様体}
+    \begin{itemize}
+        \item \textbf{$\bm{(\Cat{B},\, f)}$ 構造}\footnote{~\cite[Definition 1.1.6]{AFT2014stratified}では\textbf{$(\infty,\, 1)$-category of basics}と呼ばれている．}とは，$(\infty,\, 1)$-圏の\hyperref[def:infty-fib]{右ファイブレーション} $(\Cat{B} \xrightarrow{f} \BSC) \in (\RFIB_{\BSC})_0$ のこと．
+        \item $(\Cat{B},\, f)$ 構造 $\Cat{B} \xrightarrow{f} \BSC$ を1つ固定する．このとき，\textbf{$\bm{\Cat{B}}$-多様体} ($\Cat{B}$-manifold) の成す $(\infty,\, 1)$-圏 $\MFLDB{\Cat{B}}$ とは，$\sSet$ における引き戻し
+        \begin{center}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BZAMQBkAIgCFgnAMJ0cwIQF8ZIGaXSZc+QigCM5KrUYs2ACk4AlHgEkhAfVHshAZTEyAlNfGTpMgAScAHgCcsAHMACxw6Pz8IAHdgNC9Oe0cFJRAMbDwCIi0NHXpmVkQOdlMLV1sHeUVldLUiMhzqPP1CzjsAOQBxPmMFHRgoQPgiUAAzSIBbJABmahwIJAAmRr0CorCmEGoGOgAjGAYABRUM9RAAkJxk0YmkMhA56aqQMYhJxC17+cQl3Xy2TnGkmCfnGwBGED8gxwlRSLzedwe7xkFBkQA
+            \begin{tikzcd}
+            \MFLDB{\Cat{B}} \arrow[d] \arrow[r] & (\RFIB_{\BSC})_{/f} \arrow[d, "\mathrm{forget}"] \\
+            \SNGLR \arrow[r, "\tau"']           & \RFIB_{\BSC}                                                              
+            \end{tikzcd}
+        \end{center}
+        のこと．特に，$\MFLDB{\Cat{B}}_0$ の元は以下の2つのデータから成り，\textbf{$\bm{\Cat{B}}$-多様体}と呼ばれる：
+        \begin{itemize}
+            \item \hyperref[def:c-smooth]{conically smoothな層状化空間} $X \in \SNGLR_0$
+            \item \hyperref[def:infty-1]{$(\infty,\, 1)$-圏の関手} $g \colon \ENTR{X} \lto \Cat{B}$
+        \end{itemize}
+        これらは以下の条件を充たさねばならない：
+        \begin{description}
+            \item[\textbf{(lift of tangent classifier)}]　
+            
+            $\sSet$ における以下の図式は可換である：
+            \begin{center}
+                % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQAdDgUQDkAVAErAAGgF8QY0uky58hFOQrU6TVuy4AhAMoBhSdJAZseAkSXEVDFm0ScOu+jmCaJYlTCgBzeEVAAzACcIAFskMhAcCCQAJhprdTsvAwDgsMQIqKQlVRsNDhx6ZgB9ERAaRnoAIxhGAAVZUwUQQKwvAAscFJAg0NiaLMQchNseyUoxIA
+                \begin{tikzcd}
+                                                            & \Cat{B} \arrow[d, "f"] \\
+                \ENTR{X} \arrow[ru, "g"] \arrow[r, "\tau_X"'] & \BSC                  
+                \end{tikzcd}
+            \end{center}
+        \end{description}
+    \end{itemize}
+\end{mydef}
+
+\subsection{$C^\infty$-多様体の接構造との比較}
 
 
 
