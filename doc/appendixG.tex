@@ -785,6 +785,7 @@ $\PshSETS{\OP{\Strat}}$ から $\sSet$ への関手を
     \end{description}
     \tcblower
     \begin{itemize}
+        \item $p$ が\textbf{内的ファイブレーション} (inner fibration) であるとは，$0 \,\textcolor{red}{<}\, \forall j \textcolor{red}{<} \forall n$ に対して \textsf{\textbf{(lifting property)}} を充たすことを言う．
         \item $p$ が\textbf{右ファイブレーション} (right fibration) であるとは，$0 \,\textcolor{red}{<}\, \forall j \le \forall n$ に対して \textsf{\textbf{(lifting property)}} を充たすことを言う．
         \item $p$ が\textbf{左ファイブレーション} (left fibration) であるとは，$0 \le \forall j \,\textcolor{red}{<}\, \forall n$ に対して \textsf{\textbf{(lifting property)}} を充たすことを言う．
         \item $p$ が\textbf{Kanファイブレーション} (Kan fibration) であるとは，$0 \le \forall j \le \forall n$ に対して \textsf{\textbf{(lifting property)}} を充たすことを言う．
@@ -962,12 +963,16 @@ $S \star T$ の\hyperref[def:SimpSet]{面写像}は
         &= \left\{ 
             \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
                 \path coordinate[bullet,blue,label=below:$\{0\}$] (x)
-                +(120:1) coordinate[bullet,red,label=above:$\{0\}$] (y)
-                +(60:1) coordinate[bullet,red,label=above:$\{1\}$] (z)
+                +(120:3) coordinate[bullet,red,label=above:$\{0\}$] (y)
+                +(60:3) coordinate[bullet,red,label=above:$\{1\}$] (z)
                 ;
                 \draw[->-=.5,red] (y) -- (z);
                 \draw[->-=.5,DarkGreen] (y) -- (x);
                 \draw[->-=.5,DarkGreen] (z) -- (x);
+                \node[gray] at (barycentric cs:x=1,y=1,z=1) {$(\Id_{[1]},\, \{0\})$};
+                \begin{scope}[on background layer]
+                    \fill[gray!20] (x.center) -- (y.center) -- (z.center);
+                \end{scope}
             \end{tikzpicture}
         \right\}  
     \end{align}
@@ -978,12 +983,16 @@ $S \star T$ の\hyperref[def:SimpSet]{面写像}は
         &= \left\{ 
             \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
                 \path coordinate[bullet,red,label=below:$\{0\}$] (x)
-                +(120:1) coordinate[bullet,blue,label=above:$\{0\}$] (y)
-                +(60:1) coordinate[bullet,blue,label=above:$\{1\}$] (z)
+                +(120:3) coordinate[bullet,blue,label=above:$\{0\}$] (y)
+                +(60:3) coordinate[bullet,blue,label=above:$\{1\}$] (z)
                 ;
                 \draw[->-=.5,blue] (y) -- (z);
                 \draw[-<-=.5,DarkGreen] (y) -- (x);
                 \draw[-<-=.5,DarkGreen] (z) -- (x);
+                \node[gray] at (barycentric cs:x=1,y=1,z=1) {$(\{0\},\, \Id_{[1]})$};
+                \begin{scope}[on background layer]
+                    \fill[gray!20] (x.center) -- (y.center) -- (z.center);
+                \end{scope}
             \end{tikzpicture}
         \right\}
     \end{align}
@@ -1139,18 +1148,74 @@ $S \star T$ の\hyperref[def:SimpSet]{面写像}は
     f =     
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
         \path coordinate[bullet,blue,label=below:$X$] (x)
-        +(120:1) coordinate[bullet,label=left:$f_{[0]}|_{\Delta^1_0}(\{0\})$] (y)
-        +(60:1) coordinate[bullet,label=right:$f_{[0]}|_{\Delta^1_0}(\{1\})$] (z)
+        +(120:3) coordinate[bullet,label=left:$f_{[0]}|_{\Delta^1_0}(\{0\})$] (y)
+        +(60:3) coordinate[bullet,label=right:$f_{[0]}|_{\Delta^1_0}(\{1\})$] (z)
         ;
         \draw[->-=.5] (y) -- (z);
         \draw[->-=.5] (y) -- (x);
         \draw[->-=.5] (z) -- (x);
+         \node[gray] at (barycentric cs:x=1,y=1,z=1) {$f_{[2]}|_{\Delta^1_1 \times \Delta^0_0}(\Id_{[1]},\, \{0\})$};
+                \begin{scope}[on background layer]
+                    \fill[gray!20] (x.center) -- (y.center) -- (z.center);
+                \end{scope}
         % \fill[red!20] (x) -- (y) -- (z) -- cycle;
     \end{tikzpicture}
 \end{align}
-のことである．ただし三角形の内部は2-射 $f_{[2]}(\Id_{[2]},\, \textcolor{blue}{\{0\}}) \in \Cat{C}_2$ が埋めている．これは\hyperref[def:slice-category]{$(1,\, 1)$-圏における $X$ 上のスライス圏}の射のデータに対応しているが，横向きの矢印を決めるだけでは $f$ がupto \hyperref[def:infty-homotopy-morphism]{homotopy}でしか定まらないという点で異なっている．
+のことである．ただし三角形の内部は2-射 $f_{[2]}|_{\Delta^1_1 \times \Delta^0_0}(\Id_{[2]},\, \textcolor{blue}{\{0\}}) \in \Cat{C}_2$ が埋めている．これは\hyperref[def:slice-category]{$(1,\, 1)$-圏における $X$ 上のスライス圏}の射のデータに対応しているが，横向きの矢印を決めるだけでは $f$ がupto \hyperref[def:infty-homotopy-morphism]{homotopy}でしか定まらないという点で異なっている．
 
 $(\infty,\, 1)$-圏 $\Cat{C}_{/X}$ の $n$-射も同様に図示できる．
+
+\subsection{homotopy limit/colimit}
+
+後の議論のため，先取りして $(\infty,\, 1)$-圏におけるlimit/colimitを定義しておこう．
+$(\infty,\, 1)$-圏のモデルとして\hyperref[def:infty-1]{quasi-category}を採用する場合，これは\textbf{homotopy limit/colimit}と呼ばれることもある．
+
+\begin{mydef}[label=def:initial-final-infty]{{$(\infty,\, 1)$}-圏における始対象と終対象}
+    \begin{itemize}
+        \item \hyperref[def:infty-1]{$(\infty,\, 1)$-圏} $\Cat{C}$ における対象 $x \in \Cat{C}_0$ が\textbf{始対象} (initial object) であるとは，\hyperref[def:hcat-infty]{ホモトピー圏} $\htpy{\Cat{C}}$ における始対象\footnote{$(1,\, 1)$-圏の\textbf{始対象}とは，空の図式における\hyperref[def:colim]{余極限}のこと．}であること．
+        \item \hyperref[def:infty-1]{$(\infty,\, 1)$-圏} $\Cat{C}$ における対象 $x \in \Cat{C}_0$ が\textbf{終対象} (final object) であるとは，\hyperref[def:hcat-infty]{ホモトピー圏} $\htpy{\Cat{C}}$ における終対象\footnote{$(1,\, 1)$-圏の\textbf{終対象}とは，空の図式における\hyperref[def:lim]{極限}のこと．}であること．
+    \end{itemize}
+\end{mydef}
+
+\begin{mydef}[label=def:holim-hocolim]{homotopy limit/colimit}
+    \hyperref[def:infty-1]{$(\infty,\, 1)$-圏の関手} $D \colon \Cat{I} \lto \Cat{C}$ を与える\footnote{\hyperref[def:diagram]{$(1,\, 1)$-圏の場合}からのアナロジーで，$D$ を図式と見做す．}．
+    \begin{itemize}
+        \item $D$ の\textbf{homotopy limit}とは，\hyperref[def:overcat-infty]{スライス $(\infty,\, 1)$-圏} $\Cat{C}_{/D}$ における\hyperref[def:initial-final-infty]{終対象}のこと．$\bm{\holim D} \in \Cat{C}_0$ と書く．
+        \item $D$ の\textbf{homotopy colimit}とは，\hyperref[def:overcat-infty]{スライス $(\infty,\, 1)$-圏} $\Cat{C}_{D/}$ における\hyperref[def:initial-final-infty]{始対象}のこと．$\bm{\hocolim D} \in \Cat{C}_0$ と書く．
+    \end{itemize}
+\end{mydef}
+
+\begin{myexample}[label=def:htpy-pullback]{homotopy pullback}
+    単体的集合の積 $S \times T \colon \OP{\Delta} \lto \SETS$ における面写像とは 
+    \begin{align}
+        \partial^n_j \colon S_n \times T_n &\lto S_{n-1} \times T_{n-1}, \\
+        (x,\, y) &\lmto (\partial^n_j x,\, \partial^n_j y)
+    \end{align}
+    のことであった．故に，単体的集合 $\Delta^1 \times \Delta^1$ は，$\Delta^1_0 \eqqcolon \{\bullet_0,\, \bullet_1\}$ とおくと
+    \begin{align}
+        \Delta^1 \times \Delta^1 =
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path  coordinate[bullet,label=below left:{$(0,\,1)$}] (x)
+            +(1,0) coordinate[bullet,label=below right:{$(1,\,1)$}] (y)
+            +(0,1) coordinate[bullet,label=above left:{$(0,\,0)$}] (z)
+            +(1,1) coordinate[bullet,label=above right:{$(1,\,0)$}] (w)
+            ;
+            \draw[->-=.5] (z) -- (x);
+            \draw[->-=.5] (z) -- (y);
+            \draw[->-=.5] (z) -- (w);
+            \draw[->-=.5] (x) -- (y);
+            \draw[->-=.5] (w) -- (y);
+        \end{tikzpicture}
+    \end{align}
+    と図示できる．ただし，2-射以上は縮退していて見えない．
+    
+    　\hyperref[def:infty-1]{$(\infty,\, 1)$-圏の関手} $D \colon \Delta^1 \times \Delta^1 \lto \Cat{C}$ の\hyperref[def:holim-hocolim]{homotopy limit}のことを（存在すれば）\textbf{homotopy pullback}と呼び，
+    \begin{align}
+        \bm{D(0,1) \times_{D(1,\, 1)} D(1,\, 0)} \coloneqq \holim D \in \Cat{C}_0
+    \end{align}
+    と書く．
+\end{myexample}
+
 
 % \subsection{$\mathcal{B}\mathrm{sc}$ の構造}
 
@@ -1213,7 +1278,7 @@ $(\infty,\, 1)$-圏 $\Cat{C}_{/X}$ の $n$-射も同様に図示できる．
 \begin{mydef}[label=def:B-mfld,breakable]{{$\Cat{B}$}-多様体}
     \begin{itemize}
         \item \textbf{$\bm{(\Cat{B},\, f)}$ 構造}\footnote{~\cite[Definition 1.1.6]{AFT2014stratified}では\textbf{$(\infty,\, 1)$-category of basics}と呼ばれている．}とは，$(\infty,\, 1)$-圏の\hyperref[def:infty-fib]{右ファイブレーション} $(\Cat{B} \xrightarrow{f} \BSC) \in (\RFIB_{\BSC})_0$ のこと．
-        \item $(\Cat{B},\, f)$ 構造 $\Cat{B} \xrightarrow{f} \BSC$ を1つ固定する．このとき，\textbf{$\bm{\Cat{B}}$-多様体} ($\Cat{B}$-manifold) の成す $(\infty,\, 1)$-圏 $\MFLDB{\Cat{B}}$ とは，$\sSet$ における引き戻し
+        \item $(\Cat{B},\, f)$ 構造 $\Cat{B} \xrightarrow{f} \BSC$ を1つ固定する．このとき，\textbf{$\bm{\Cat{B}}$-多様体} ($\Cat{B}$-manifold) の成す $(\infty,\, 1)$-圏 $\MFLDB{\Cat{B}}$ とは，$\qCat$\footnote{quasi-category全体のなす $(\infty,\, 1)$-圏} における\hyperref[def:htpy-pullback]{homotopy pullback}
         \begin{center}
             % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BZAMQBkAIgCFgnAMJ0cwIQF8ZIGaXSZc+QigCM5KrUYs2ACk4AlHgEkhAfVHshAZTEyAlNfGTpMgAScAHgCcsAHMACxw6Pz8IAHdgNC9Oe0cFJRAMbDwCIi0NHXpmVkQOdlMLV1sHeUVldLUiMhzqPP1CzjsAOQBxPmMFHRgoQPgiUAAzSIBbJABmahwIJAAmRr0CorCmEGoGOgAjGAYABRUM9RAAkJxk0YmkMhA56aqQMYhJxC17+cQl3Xy2TnGkmCfnGwBGED8gxwlRSLzedwe7xkFBkQA
             \begin{tikzcd}
@@ -1243,6 +1308,229 @@ $(\infty,\, 1)$-圏 $\Cat{C}_{/X}$ の $n$-射も同様に図示できる．
 \end{mydef}
 
 \subsection{$C^\infty$-多様体の接構造との比較}
+
+\section{Disk algebras}
+
+\subsection{対称モノイダル {$(\infty,\, 1)$}-圏}
+
+本資料では，$(\infty,\, 1)$-圏を\hyperref[def:infty-1]{quasi-category}として定義した．
+この小節では，quai-categoryにおける対称モノイダル構造を定義する．
+
+\begin{mydef}[label=def:Fin]{圏 {$\FIN_*$}}
+    $(1,\, 1)$-圏 $\FIN_*$ を以下で定義する：
+    \begin{itemize}
+        \item 基点付き有限集合
+        \begin{align}
+            \expval{n} \coloneqq \{*,\, 1,\, \dots,\, n\}
+        \end{align}
+        を対象に持つ．i.e.
+        \begin{align}
+            \Obj{\FIN_*} \coloneqq \bigl\{\, \expval{n} \bigm| n \in \mathbb{Z}_{\ge 0} \,\bigr\}.
+        \end{align}
+        \item $\forall \expval{m},\, \expval{n} \in \Obj{\FIN_*}$ に対して，それらの間の基点を保つ写像を射とする．i.e.
+        \begin{align}
+            \Hom{\FIN_*}\bigl( \expval{m},\, \expval{n} \bigr)  \coloneqq \bigl\{\, f \in \Hom{\SETS} \bigl( \expval{m},\, \expval{n} \bigr)  \bigm| f(*) = * \,\bigr\}.
+        \end{align}
+    \end{itemize}
+\end{mydef}
+
+\hyperref[def:nerve]{脈体の定義}において $[n] \in \Obj{\Delta}$ を $(1,\, 1)$-圏と見做した方法と同様にして，半順序集合 $\{n-1 \le n\}$ を $(1,\, 1)$-圏と見做す．
+このとき，
+\begin{align}
+    \mathrm{N}\bigl( \{n-1 \le n\} \bigr) = 
+    \left(
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate[bullet,label=below:$n-1$] (x)
+            +(2,0) coordinate[bullet,label=below:$n$] (y)
+            ;
+            \draw[->-=.5] (x) -- (y);
+        \end{tikzpicture}
+     \right) \cong \Delta^1
+\end{align}
+と図示できる．同様に，
+\begin{align}
+    \mathrm{N}\bigl( \{0 \le 1\} \bigr) = 
+    \left(
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate[bullet,label=below:$0$] (x)
+            +(2,0) coordinate[bullet,label=below:$1$] (y)
+            ;
+            \draw[->-=.5] (x) -- (y);
+        \end{tikzpicture}
+     \right) = \Delta^1
+\end{align}
+である．
+
+\begin{mydef}[label=def:Cartesian-fib,breakable]{デカルトファイブレーション}
+    $p \colon \Cat{E} \lto \Cat{B}$ を\hyperref[def:infty-1]{内的ファイブレーション}とする．
+    \begin{itemize}
+        \item $p$ が\textbf{デカルトファイブレーション} (Cartesian fibration) であるとは，
+        \begin{itemize}
+            \item $\Cat{B}$ の任意の1射 $(x \xrightarrow{f} y) \in \Cat{B}_1$ 
+            \item $p_{[0]}(\bar{y}) = y$ を充たす $\Cat{E}$ の任意の対象 $\bar{y} \in \Cat{E}_0$
+        \end{itemize}
+        に対して，
+        以下の条件を充たす $\Cat{E}$ の1-射 $(z \xrightarrow{\bar{f}} \bar{y}) \in \Cat{E}_1$ が存在すること：
+        \begin{description}
+            \item[\textbf{(Cart-1)}]　
+            
+            $\bar{f}$ は $f$ の持ち上げである．i.e. $p_{[1]}(\bar{f}) = f$ が成り立つ．
+
+            \item[\textbf{(Cart-2)}]　
+            
+            $\forall n \ge 2$ に対して，以下の図式を可換にする $\Cat{E}$ の $n$-射 $\textcolor{red}{\bar{\varphi}} \in \Hom{\sSet} (\Delta^n,\, \Cat{E}) \cong \Cat{E}_n$ が存在する：
+            \begin{center}
+                % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACwBOXYADkAvpwBGWAOYMAFJ2BgAtAEYABJwYwNYThPbSZAgJRb2AYwIyLAERgMcdAHpqQY0uky58hFGqkalS0jCxsnADCvMAAomIeXiAY2HgERIEATCH0zKyIHOzROMAAQgme3ql+RGTZ1LnhBZwOTq6Elck+af4kQTlh+YUAMnRcklDtAPodITBQMvBEoABmAhBcSGQgOBBIACzUzlgMbHwQEADWiavrm4jbu0iBoXkRRnQCwCsVSWsbByOe0Qak6-3uAGYgUhMg1Bu8VhABIwGBZ6AI0HwsCBqAw6JJHAAFbo1AoCWR8HA3EDgwE7YFQnZ0E5nC7XMF3Z7QxCw15NZLU2mIRlPEG4rBgIaTOB8eY4vlDTgwAAeWDgODgFkkn2AnHRmKwFQoYiAA
+                \begin{tikzcd}
+                \mathrm{N}\bigl(\{n-1 \le n\}\bigr) \cong \Delta^1 \arrow[d, hook] \arrow[rd, "\bar{f}"] &                        \\
+                \Lambda^n_n \arrow[r,blue, "\forall \varphi_0"] \arrow[d, hook]                                                    & \Cat{E} \arrow[d, "p"] \\
+                \Delta^n \arrow[r, blue,"\forall \varphi"'] \arrow[ru, red, "\exists \bar{\varphi}", dashed]       & \Cat{B}               
+                \end{tikzcd}
+            \end{center}
+            ただし，$\sSet$ の射 $\bar{f} \colon \mathrm{N}\bigl(\{n-1 \le n\}\bigr) \lto \Cat{E}$ とは
+            \begin{align}
+                \bar{f}_{[1]}
+                    \left( 
+                       \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                           \path coordinate[bullet,label=below:$n-1$] (x)
+                           +(1,0) coordinate[bullet,label=below:$n$] (y)
+                           ;
+                           \draw[->-=.5] (x) -- (y);
+                       \end{tikzpicture}
+                    \right)
+                =
+                       \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                           \path coordinate[bullet,label=below:$z$] (x)
+                           +(1,0) coordinate[bullet,label=below:$\bar{y}$] (y)
+                           ;
+                           \draw[->-=.5] (x) --node[midway,above] {$\bar{f}$} (y);
+                       \end{tikzpicture}
+            \end{align}
+            を充たす唯一の自然変換である．
+        \end{description}
+        \item $p$ が\textbf{余デカルトファイブレーション} (coCartesian fibration) であるとは，
+        \begin{itemize}
+            \item $\Cat{B}$ の任意の1射 $(x \xrightarrow{f} y) \in \Cat{B}_1$ 
+            \item $p_{[0]}(\bar{x}) = x$ を充たす $\Cat{E}$ の任意の対象 $\bar{x} \in \Cat{E}_0$
+        \end{itemize}
+        に対して，
+        以下の条件を充たす $\Cat{E}$ の1-射 $(\bar{x} \xrightarrow{\bar{f}} z) \in \Cat{E}_1$ が存在すること：
+        \begin{description}
+            \item[\textbf{(coCart-1)}]　
+            
+            $\bar{f}$ は $f$ の持ち上げである．i.e. $p_{[1]}(\bar{f}) = f$ が成り立つ．
+
+            \item[\textbf{(coCart-2)}]　
+            
+            $\forall n \ge 2$ に対して，以下の図式を可換にする $\Cat{E}$ の $n$-射 $\textcolor{red}{\bar{\varphi}} \in \Hom{\sSet} (\Delta^n,\, \Cat{E}) \cong \Cat{E}_n$ が存在する：
+            \begin{center}
+                % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACwBOXYADkAvpwBGWAOYMAFJ2BgAtAEYABJwYwNYThPbSZAgJRb2AYwIyLAERgMcdAHpqQY0uky58hFGqkalS0jCxsnADCvMAAomIeXiAY2HgERIEATCH0zKyIHOzROMAAQgme3ql+RGTZ1LnhBZwOTq6Elck+af4kQTlh+YUAMnRcklDtAPodITBQMvBEoABmAhBcSGQgOBBIACzUzlgMbHwQEADWiavrm4jbu0iBoXkRRnQCwCsVSWsbByOe0Qak6-3uAGYgUhMg1Bu8VhABIwGBZ6AI0HwsCBqAw6JJHAAFbo1AoCWR8HA3EDgwE7YFQnZ0E5nC7XMF3Z7QxCw15NZLU2mIRlPEG4rBgIaTOB8eY4vlDTgwAAeWDgODgFkkn2AnHRmKwFQoYiAA
+                \begin{tikzcd}
+                \mathrm{N}\bigl(\{0 \le 1\}\bigr) \cong \Delta^1 \arrow[d, hook] \arrow[rd, "\bar{f}"] &                        \\
+                \Lambda^n_0 \arrow[r,blue,"\forall \varphi_0"] \arrow[d, hook]                                                    & \Cat{E} \arrow[d, "p"] \\
+                \Delta^n \arrow[r, blue,"\forall \varphi"'] \arrow[ru, red, "\exists \bar{\varphi}", dashed]       & \Cat{B}               
+                \end{tikzcd}
+            \end{center}
+            ただし，$\sSet$ の射 $\bar{f} \colon \mathrm{N}\bigl(\{0 \le 1\}\bigr) \lto \Cat{E}$ とは
+            \begin{align}
+                \bar{f}_{[1]}
+                    \left( 
+                       \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                           \path coordinate[bullet,label=below:$n-1$] (x)
+                           +(1,0) coordinate[bullet,label=below:$n$] (y)
+                           ;
+                           \draw[->-=.5] (x) -- (y);
+                       \end{tikzpicture}
+                    \right)
+                =
+                       \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                           \path coordinate[bullet,label=below:$\bar{x}$] (x)
+                           +(1,0) coordinate[bullet,label=below:$z$] (y)
+                           ;
+                           \draw[->-=.5] (x) --node[midway,above] {$\bar{f}$} (y);
+                       \end{tikzpicture}
+            \end{align}
+            を充たす唯一の自然変換である．
+        \end{description}
+    \end{itemize}
+\end{mydef}
+
+$n=2$ の場合の\hyperref[def:Cartesian-fib]{\textsf{\textbf{(coCart-2)}}}の可換図式を系\ref{col:horn-coeq}を用いて書き直そう．
+まず，包含 $\mathrm{N}\bigl( \{0 \le 1\} \bigr) \hookrightarrow \Lambda^2_0$ というのは，系\ref{col:horn-coeq}による角 $\Lambda^2_0$ の図示
+\begin{center}
+    \begin{tikzpicture} 
+        \path coordinate[bullet,label=below left:$\{0\}$] (v0)
+        +(2,0) coordinate[bullet,label=below right:$\{2\}$] (v2)
+        +(60:2) coordinate[bullet,label=above:$\{1\}$] (v1)
+        ;
+        \draw[->-=.5] (v0) -- (v1);
+        \draw[->-=.5] (v0) -- (v2);
+        % \draw[->-=.5] (v1) -- (v2);
+    \end{tikzpicture}   
+\end{center}
+のうち，辺 $\{0\} \lto \{1\}$ への埋め込みである．従って可換図式の
+\begin{center}
+    % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACwBOXYADkAvpwBGWAOYMAFJ2BgAtAEYABJwYwNYThPbSZAgJRb2AYwIyLAERgMcdAHpqQY0uky58hFGqkalS0jCxsnADCvMAAomIeXiAY2HgERIEATCH0zKyIHOzROMAAQgme3ql+RGTZ1LnhBZwOTq6Elck+af4kQTlh+YUAMnRcklDtAPodITBQMvBEoABmAhBcSGQgOBBIACzUzlgMbHwQEADWiavrm4jbu0iBoXkRRnQCwCsVSWsbByOe0Qak6-3uAGYgUhMg1Bu8VhABIwGBZ6AI0HwsCBqAw6JJHAAFbo1AoCWR8HA3EDgwE7YFQnZ0E5nC7XMF3Z7QxCw15NZLU2mIRlPEG4rBgIaTOB8eY4vlDTgwAAeWDgODgFkkn2AnHRmKwFQoYiAA
+    \begin{tikzcd}
+    \mathrm{N}\bigl(\{0 \le 1\}\bigr) \cong \Delta^1 \arrow[d, hook] \arrow[rd, "\bar{f}"] &                        \\
+    \Lambda^n_0 \arrow[r,blue,"\forall \varphi_0"]                                                  & \Cat{E}
+    \end{tikzcd}
+\end{center}
+の部分は角の図式 $\textcolor{blue}{\varphi_0} = (\bullet,\, \bar{f},\, \textcolor{blue}{\varphi_0{}_2}) \in \Cat{E}_1^{\times 2}$ に対応する．
+図示すると
+\begin{align}
+    \label{eq:horn-coCart}
+    \textcolor{blue}{\varphi_0}
+    &= \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate[bullet,label=below left:$\bar{x}$] (v0)
+        +(2,0) coordinate[bullet,blue] (v2)
+        +(60:2) coordinate[bullet,label=above:$z$] (v1)
+        ;
+        \draw[->-=.5] (v0) --node[midway,above left]{$\bar{f}$} (v1);
+        \draw[->-=.5,blue] (v0) --node[midway,below,blue]{$\varphi_0{}_2$} (v2);
+        % \draw[->-=.5] (v1) -- (v2);
+    \end{tikzpicture}
+\end{align}
+となる．従って，\hyperref[def:Cartesian-fib]{\textsf{\textbf{(coCart-2)}}}の主張は次のように言い換えられる：
+
+$(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\textcolor{blue}{\varphi} \in \Hom{\sSet}(\Delta^2,\, \Cat{B}) \cong \Cat{B}_2$ によって
+\begin{center}
+    \begin{tikzpicture} 
+        \path coordinate[bullet,label=below left:$x$] (v0)
+        +(2,0) coordinate[bullet,blue] (v2)
+        +(60:2) coordinate[bullet,label=above:$y$] (v1)
+        ;
+        \draw[->-=.5] (v0) --node[midway,above left]{$p_{[1]}(\bar{f}) = f$} (v1);
+        \draw[->-=.5,blue] (v0) --node[midway,below,blue]{$p_{[1]}(\varphi_0{}_2)$} (v2);
+        \draw[->-=.5,blue] (v1) --node[midway,above right,blue]{$\partial^2_0(\varphi)$} (v2);
+
+        \node[blue] at (barycentric cs:v0=1,v1=1,v2=1) {$\varphi$};
+
+        \begin{scope}[on background layer]
+            \fill[blue!20] (v0.center) -- (v1.center) -- (v2.center) --cycle;
+        \end{scope}
+        % \draw[->-=.5] (v1) -- (v2);
+    \end{tikzpicture}   
+\end{center}
+と埋められているならば，\underline{$\Cat{E}$ において}角の図式\eqref{eq:horn-coCart}を
+\begin{center}
+    \begin{tikzpicture} 
+        \path coordinate[bullet,label=below left:$\bar{x}$] (v0)
+        +(2,0) coordinate[bullet,blue] (v2)
+        +(60:2) coordinate[bullet,label=above:$z$] (v1)
+        ;
+        \draw[->-=.5] (v0) --node[midway,above left]{$\bar{f}$} (v1);
+        \draw[->-=.5,blue] (v0) --node[midway,below,blue]{$\varphi_0{}_2$} (v2);
+        \draw[->-=.5,red] (v1) --node[midway,above right,red]{$\partial^2_0(\bar{\varphi})$} (v2);
+        \node[red] at (barycentric cs:v0=1,v1=1,v2=1) {$\bar{\varphi}$};
+
+        \begin{scope}[on background layer]
+            \fill[red!20] (v0.center) -- (v1.center) -- (v2.center) --cycle;
+        \end{scope}
+        % \draw[->-=.5] (v1) -- (v2);
+    \end{tikzpicture}   
+\end{center}
+のように埋める2-射 $\textcolor{red}{\bar{\varphi}} \in \Hom{\sSet}(\Delta^2,\, \Cat{E}) \cong \Cat{E}_2$ が存在する．
 
 
 
