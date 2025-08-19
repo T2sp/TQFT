@@ -460,8 +460,8 @@
     \hyperref[def:diagram]{図式}
     \begin{align}
         D \colon \boxdiagram{
-            \&\overset{3}{\bullet} \ar[d, "p"] \\
-            \overset{1}{\bullet} \ar[r, "f"'] \&\overset{2}{\bullet} 
+            \&\overset{2}{\bullet} \ar[d, "p"] \\
+            \overset{1}{\bullet} \ar[r, "f"'] \&\overset{3}{\bullet} 
         } \lto \Cat{C}
     \end{align}
     の\hyperref[def:lim]{極限}を（存在すれば）\textbf{引き戻し}\footnote{\textbf{ファイバー積} (fiber product) と呼ぶこともある．} (pullback) と呼び，$\bm{D(1) \times_{D(3)} D(2)}$ と書く．
@@ -469,8 +469,8 @@
     \hyperref[def:diagram]{図式}
     \begin{align}
         D \colon \boxdiagram{
-            \&\overset{3}{\bullet} \\
-            \overset{1}{\bullet}  \ar[from=r, "f"'] \&\overset{2}{\bullet} \ar[u, "i"']
+            \&\overset{2}{\bullet} \\
+            \overset{1}{\bullet}  \ar[from=r, "f"'] \&\overset{3}{\bullet} \ar[u, "i"']
         } \lto \Cat{C}
     \end{align}
     の\hyperref[def:colim]{余極限}を（存在すれば）\textbf{押し出し}と呼び，$\bm{D(1) \amalg_{D(3)} D(2)}$ と書く．
@@ -834,7 +834,7 @@ $\tau \in \Hom{\PshSETS{\Cat{C}}}\bigl( \Hom{\Cat{C}}(\, \mhyphen\,,\, X)\bigr)$
         \end{align}
         が分かるが，これはまさに\hyperref[def:Cone]{錐の定義}である．
 
-        　以上の考察から，自然同型 $\theta$ は，図式 $D$ の勝手な錐 $(C,\, \tau) \in \Obj{\CONE{D}}$ が与えられると，対応する $\theta_C^{-1}(\tau) \in \Hom{\Cat{C}}(C,\, X)$ を一意的に定めるが，これは\hyperref[def:lim]{極限の普遍性}に他ならない．
+        　以上の考察から，自然同型 $\theta$ は図式 $D$ の勝手な錐 $(C,\, \tau) \in \Obj{\CONE{D}}$ が与えられると，対応する $\theta_C^{-1}(\tau) \in \Hom{\Cat{C}}(C,\, X)$ を一意的に定めるが，これは\hyperref[def:lim]{極限の普遍性}に他ならない．
         特に，\hyperref[lem:Yoneda]{米田の補題}から自然同型 $\theta$ は $\theta_X(\Id_X) \in \Hom{\PSH{I}{\SETS}} \Bigl( \mathrm{pt},\, \Hom{\Cat{C}}\bigl(X,\, D(\, \mhyphen \,) \bigr)  \Bigr)$ と対応付き，$\bigl( X,\, \theta_X(\Id_X) \bigr) \in \Obj{\CONE{D}}$ が図式 $D$ の極限である．
 
         \item[\textbf{($\bm{\Longrightarrow}$)}]　
@@ -1526,7 +1526,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     \hyperref[def:horn]{角} $\Lambda^2_0 \colon \OP{\Delta} \lto \SETS$ とはどのようなものだろうか．
     まず，\hyperref[def:representable]{表現可能前層} $\Delta^2$ の定義から
     \begin{align}
-        \Lambda^2_0([0]) = \Bigl\{\, f \in \Hom{\Delta} ([0],\, [2]) \Bigm| [2] \setminus \bigl( f([0]) \cup \{0\}\bigr)  \,\Bigr\} 
+        \Lambda^2_0([0]) = \Bigl\{\, f \in \Hom{\Delta} ([0],\, [2]) \Bigm| [2] \setminus \bigl( f([0]) \cup \{0\}\bigr) \neq \emptyset \,\Bigr\} 
     \end{align}
     であるが，$\forall f \in \Hom{\Delta} ([0],\, [2])$ は定数写像なので $\Lambda^2_0([0]) = \Hom{\Delta} ([0],\, [2])$ である．これらを
     \begin{align}
@@ -1534,7 +1534,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     \end{align}
     と書く．次に
     \begin{align}
-        \Lambda^2_0([1]) = \Bigl\{\, f \in \Hom{\Delta} ([1],\, [2]) \Bigm| [2] \setminus \bigl( f([1]) \cup \{0\}\bigr)  \,\Bigr\} 
+        \Lambda^2_0([1]) = \Bigl\{\, f \in \Hom{\Delta} ([1],\, [2]) \Bigm| [2] \setminus \bigl( f([1]) \cup \{0\}\bigr) \neq \emptyset  \,\Bigr\} 
     \end{align}
     を調べる．6点集合 $\Hom{\Delta} ([1],\, [2])$ の元を全て書き出すと
     \begin{align}
@@ -1570,7 +1570,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     と書ける．
     次に
     \begin{align}
-        \Lambda^2_0([2]) = \Bigl\{\, f \in \Hom{\Delta} ([2],\, [2]) \Bigm| [2] \setminus \bigl( f([2]) \cup \{0\}\bigr)  \,\Bigr\} 
+        \Lambda^2_0([2]) = \Bigl\{\, f \in \Hom{\Delta} ([2],\, [2]) \Bigm| [2] \setminus \bigl( f([2]) \cup \{0\}\bigr) \neq \emptyset \,\Bigr\} 
     \end{align}
     であるが，縮退写像の像に含まれない $\Hom{\Delta} ([2],\, [2])$ の元は $\Id_{[2]}$ のみであり，明らかに $\Id_{[n]} \notin \Lambda^2_0([2])$ となっている．
     \begin{align}

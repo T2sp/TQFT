@@ -153,14 +153,14 @@ P \arrow[r, red,"\tilde{f}"']                & P'
     i_1 \colon \{0\} \times X &\lto \mathbb{R}_{\ge 0} \times X,\; x \lmto (0,\, x), \\
     i_2 \colon \{0\} \times X &\lto \{\mathrm{pt}\},\; x \lmto \mathrm{pt}
 \end{align}
-とおいたときのコイコライザ
+とおいたときの\hyperref[def:eq-coeq]{コイコライザ}
 \begin{center}
     % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB13hjOBfTvAFt4AAgAaIXqXSZc+QigCM5KrUYs2nYJ0F0cACwBOg4Ghz92FuroYBzEQAode-QCNXwAEq8A+tva2MCLEvCICWMJw4gCUktIgGNh4BEQATCrU9MysiBzsugZwAGbAAMK8DmKxvKowUIEIKKBFhhCCSGQgOBBIyiAMWGA5IHAQA1Ag1PowdBOIYEwMDNQ4dFgMbJBDkyP6WEU4SAC0fVkauVg+inHNre2Ind291HB7B8-9dK4wDAAKsskFCBDFhbPpDpl1MNLqkbiAWm0Pk9EKkarwgA
     \begin{tikzcd}
-    \{0\}\times X \arrow[r, "i_1", shift left] \arrow[r, "i_2"', shift right] & \{\mathrm{pt}\}\sqcup (\mathbb{R}_{\ge 0} \times X) \arrow[r, "q"] & \mathsf{C}(X)
+    \{0\}\times X \arrow[r, "i_1", shift left] \arrow[r, "i_2"', shift right] & \{\mathrm{pt}\}\sqcup (\mathbb{R}_{\ge 0} \times X) \arrow[r, "q"] & \mathsf{C}(X),
     \end{tikzcd}
 \end{center}
-である．i.e. 商位相空間
+i.e. 商位相空間
 \begin{align}
     \frac{\mathbb{R}_{\ge 0} \times X}{i_1 (x) \sim i_2 (x)} = \frac{\mathbb{R}_{\ge 0} \times X}{\{0\} \times X}
 \end{align}
@@ -173,7 +173,7 @@ P \arrow[r, red,"\tilde{f}"']                & P'
     \end{cases}
 \end{align}
 のことである．
-また，コーンポイントのみからなる1点集合 $\{\mathrm{pt}\} \subset X$ は $q^{-1} \bigl( \{\mathrm{pt}\} \bigr) = \{0\} \times X$ を充たすが，$\{0\} \times X$ は 
+% また，コーンポイントのみからなる1点集合 $\{\mathrm{pt}\} \subset X$ は $q^{-1} \bigl( \{\mathrm{pt}\} \bigr) = \{0\} \times X$ を充たすが，$\{0\} \times X$ は 
 
 \begin{marker}
     以下では，混乱の恐れがない限り\hyperref[def:stratified-space]{層状化空間} $(X \xrightarrow{s} P)$ の\hyperref[def:str-cone]{コーン}を $\Cone{X \xrightarrow{s} P}$ と略記する．
