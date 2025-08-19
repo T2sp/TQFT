@@ -24,7 +24,7 @@
      \forall y \in P,\; x \le y \IMP y \in U_1 \AND y \in U_2
 \end{align}
 と同値なので $U_1 \cap U_2 \in \mathscr{O}_{\le}$ であり，
-さらに勝手な開集合族 $\Familyset[big]{U_\lambda \in \mathscr{O}_{\le}}{\lambda \in \Lambda}$ に対して
+さらに勝手な開集合族 $\Familyset[\big]{U_\lambda \in \mathscr{O}_{\le}}{\lambda \in \Lambda}$ に対して
 $x \in \bigcup_{\lambda \in \Lambda} U_\lambda$ は
 \begin{align}
     \exists \alpha \in \Lambda,\; \forall y \in P,\; x \le y \IMP y \in U_\alpha \subset \bigcup_{\lambda \in \Lambda} U_\lambda 
@@ -202,7 +202,7 @@ i.e. 商位相空間
         
         \item[\textbf{(Snglr-5)}]　 
         
-        $(X \to P) \in \Obj{\StTOP}$ が開被覆 $\Familyset[big]{(U_\lambda \to P_\lambda) \lto (X \to P)}{\lambda \in \Lambda}$\footnote{i.e. $\Familyset[big]{U_\lambda}{\lambda \in \Lambda},\; \Familyset[big]{P_\lambda}{\lambda \in \Lambda}$ が，それぞれ位相空間 $X,\, P$ の開被覆を成す．} を持ち，かつ $\forall \lambda \in \Lambda$ に対して $(U_\lambda \to P_\lambda) \in \Obj{\SnglrC}$ 
+        $(X \to P) \in \Obj{\StTOP}$ が開被覆 $\Familyset[\big]{(U_\lambda \to P_\lambda) \lto (X \to P)}{\lambda \in \Lambda}$\footnote{i.e. $\Familyset[\big]{U_\lambda}{\lambda \in \Lambda},\; \Familyset[\big]{P_\lambda}{\lambda \in \Lambda}$ が，それぞれ位相空間 $X,\, P$ の開被覆を成す．} を持ち，かつ $\forall \lambda \in \Lambda$ に対して $(U_\lambda \to P_\lambda) \in \Obj{\SnglrC}$ 
         
         $\IMP$ $(X \to P) \in \Obj{\SnglrC}$
     \end{description}
@@ -422,7 +422,7 @@ $C^\infty$ 多様体の $C^\infty$ 構造の定義においては，チャート
             U &\lmto \mathbb{R} \times U, \\
             \bigl( U \xrightarrow{f} V \bigr) &\lmto \bigl( \mathbb{R} \times U \xrightarrow{\mathrm{id} \times f} \mathbb{R} \times V \bigr) 
         \end{align}
-        およびそれが誘導する自然変換\footnote{$X$ の極大アトラス $\Familyset[big]{U_\alpha,\, \varphi_\alpha}{\alpha \in \Lambda}$ に対して，$\Familyset[big]{\mathbb{R} \times U_\alpha,\, \mathrm{id} \times \varphi_\alpha}{\alpha \in \Lambda}$ を対応づける．}
+        およびそれが誘導する自然変換\footnote{$X$ の極大アトラス $\Familyset[\big]{U_\alpha,\, \varphi_\alpha}{\alpha \in \Lambda}$ に対して，$\Familyset[\big]{\mathbb{R} \times U_\alpha,\, \mathrm{id} \times \varphi_\alpha}{\alpha \in \Lambda}$ を対応づける．}
         % \begin{align}
         %     \OP{(\SnglrC_{\le k,\, \le \infty})} 
         % \end{align}
@@ -443,7 +443,7 @@ $C^\infty$ 多様体の $C^\infty$ 構造の定義においては，チャート
         \item[(\textbf{対象})]　
         
         \hyperref[def:C0-basic]{$C^0$ basic}
-        \footnote{\exref{ex:depth-Cone}より，$(Z \to P) \in \Obj{\SnglrC_{\le k,\, \le \infty}}$ であることが分かる．} $U^n_Z \in \Obj{\SnglrC_{\le k+1,\, \le \infty}}$ および，極大アトラス $\mathcal{A}_Z \in \Obj{\Sm_{\textcolor{red}{\le k},\, \le \infty} (Z \to P)}$ の組み
+        \footnote{\hyperref[def:dim-depth]{depthの定義}から $\depth (Z \to P) \le \dim (Z \to P)$ である．故に\exref{ex:depth-Cone}から，$\depth (Z \to P) \le \dim (Z \to P) = \depth U^n_Z - 1 \le k$ であること，i.e. $(Z \to P) \in \Obj{\SnglrC_{\le k,\, \le \infty}}$ が分かる．} $U^n_Z \in \Obj{\SnglrC_{\le k+1,\, \le \infty}}$ および，極大アトラス $\mathcal{A}_Z \in \Obj{\Sm_{\textcolor{red}{\le k},\, \le \infty} (Z \to P)}$ の組み
         \begin{align}
             (U^n_Z,\, \mathcal{A}_Z)
         \end{align}
@@ -475,11 +475,11 @@ $C^\infty$ 多様体の $C^\infty$ 構造の定義においては，チャート
 \end{mydef}
 
 \begin{mydef}[label=def:Sm-induction,breakable]{前層 $\Sm_{\le k+1,\, \le \infty}$}
-    帰納法の仮定\ref{assump:induction-Bsc-Sm}がある $k \ge -1$ において成立しているとする．さらに定義\ref{def:Bsc-induction}が完成しているとする．
+    帰納法の仮定\ref{assump:induction-Bsc-Sm}がある $k \ge -1$ において成立しているとする．さらに定義\ref{def:Bsc-induction}によって $\Bsc_{\le k+1,\, \le \infty}$ が完成しているとする．
     \begin{itemize}
         \item \hyperref[def:Snglr-C0]{$C^0$ 級層状化空間} $\forall (X \to P) \in \Obj{\SnglrC_{\le k+1,\, \le \infty}}$ に対して，$X \to P$ の\textbf{アトラス} (atlas) を族
         \begin{align}
-            \mathcal{A} \coloneqq \Familyset[big]{\bigl(U_\alpha \in \Obj{\Bsc_{\le k+1,\, \le \infty}},\, \varphi_\alpha \colon U_\alpha \hookrightarrow (X \to P)\bigr)}{\alpha \in \Lambda} \in \Sm_{\le k+1,\, \le \infty} (X \to P)
+            \mathcal{A} \coloneqq \Familyset[\Big]{\bigl(U_\alpha \in \Obj{\Bsc_{\le k+1,\, \le \infty}},\, \varphi_\alpha \colon U_\alpha \hookrightarrow (X \to P)\bigr)}{\alpha \in \Lambda} \in \Sm_{\le k+1,\, \le \infty} (X \to P)
         \end{align}
         であって以下の条件を充たすものとして定義する：
         \begin{description}
@@ -628,7 +628,7 @@ $C^\infty$ 多様体の $C^\infty$ 構造の定義においては，チャート
 
 \begin{mydef}[label=def:cbl,breakable]{constructuble bundle}
     \begin{itemize}
-        \item \hyperref[def:c-smooth-map]{conically smoothな層状化写像} $\pi \in \Hom{\Strat}\bigl( (E \to P),\, (B \to Q) \bigr)$ が\textbf{層状化ファイバー束} (conically smooth fiber bundle) であるとは，conically smoothな\hyperref[def:strat-emb]{層状化開埋め込み}の族 $\Familyset[big]{U_\alpha \hookrightarrow B}{\alpha \in \Lambda},\; \Familyset[big]{\varphi_\alpha \colon U_\alpha \times F_\alpha \hookrightarrow E}{\alpha \in \Lambda}$ が存在して以下を充たすことを言う：
+        \item \hyperref[def:c-smooth-map]{conically smoothな層状化写像} $\pi \in \Hom{\Strat}\bigl( (E \to P),\, (B \to Q) \bigr)$ が\textbf{層状化ファイバー束} (conically smooth fiber bundle) であるとは，conically smoothな\hyperref[def:strat-emb]{層状化開埋め込み}の族 $\Familyset[\big]{U_\alpha \hookrightarrow B}{\alpha \in \Lambda},\; \Familyset[\big]{\varphi_\alpha \colon U_\alpha \times F_\alpha \hookrightarrow E}{\alpha \in \Lambda}$ が存在して以下を充たすことを言う：
         \begin{description}
             \item[\textbf{(Bun-1)}]　
             
@@ -645,7 +645,7 @@ $C^\infty$ 多様体の $C^\infty$ 構造の定義においては，チャート
 
             \item[\textbf{(Bun-2)}]　
             
-            族 $\Familyset[big]{U_\alpha}{\alpha \in \Lambda}$ は $B$ の開基である．
+            族 $\Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$ は $B$ の開基である．
         \end{description}
         
         \item \hyperref[def:c-smooth-map]{conically smoothな層状化写像} $\pi \in \Hom{\Strat}\bigl( (E \to P),\, (B \to Q) \bigr)$ が\textbf{弱構成可能束} (weakly constructuble bundle) であるとは，$\forall q \in Q$ に対して，$\pi$ の\hyperref[def:stratified-space]{$q$-層}への制限
