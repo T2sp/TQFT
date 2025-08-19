@@ -844,51 +844,55 @@ $\Hom{\Rfib_{\Cat{B}}} (\Cat{E},\, \Cat{E}') \subset \Hom{\sSet}(\mathcal{E},\, 
     \begin{align}
         \bm{S \star T} \colon \OP{\Delta} &\lto \SETS, \\
         [n] &\lmto \coprod_{-1 \le i \le n} (S_i \times T_{n-i-1}), \\
-        \biggl( [m] \xrightarrow{\alpha} [n] \biggr) &\lmto \biggl( \Bigl( i;\, (x,\, y) \Bigr) \mapsto \Bigl( \alpha^{-1}([i]);\, \bigl(S(\alpha|_{\alpha^{-1}([i])})(x),\, T(\alpha|_{\alpha^{-1}([m-i-1])})(y) \bigr)  \Bigr)  \biggr) 
+        \biggl( [m] \xrightarrow{\alpha} [n] \biggr) &\lmto \biggl( \Bigl( i;\, (x,\, y) \Bigr) \mapsto \Bigl( \alpha^{-1}([i]);\, \bigl(S(\alpha|_{\alpha^{-1}([i])})(x),\, T(\alpha|_{\alpha^{-1}([m]\setminus[i])})(y) \bigr)  \Bigr)  \biggr) 
     \end{align}
     のこと．ただし $S_{-1} = T_{-1} \coloneqq \emptyset$ とおいた．
 \end{mydef}
 
-特に，$d^n_j \in \Hom{\Delta}([n-1],\, [n]),\; s^n_j \in \Hom{\Delta}([n+1],\, [n])$ に対して
+$[-1] \coloneqq \emptyset$ とおく．このとき $d^n_j \in \Hom{\Delta}([n-1],\, [n]),\; s^n_j \in \Hom{\Delta}([n+1],\, [n])$ に対して
 \begin{align}
-    (d^n_j)^{-1} ([i]) &= \begin{cases}
-        [i], &i < j \\
-        [i-1], &i \ge j
-    \end{cases} \\
-    (s^n_j)^{-1} ([i]) &= \begin{cases}
-        [i], &i < j \\
-        [i+1], &i \ge j
+    (d^n_j)^{-1} ([i]) &= 
+    \begin{cases}
+        [i], &-1 \le i < j \\
+        [i-1], &j \le i \le n
+    \end{cases} 
+    \\
+    (d^n_j)^{-1} ([n]\setminus [i]) &= \begin{cases}
+        [n-1]\setminus [i], &-1 \le i < j \\
+        [n-1]\setminus [i-1], &j \le i \le n
     \end{cases}
 \end{align}
 であるから，
-$S \star T$ の\hyperref[def:SimpSet]{面写像}は
+$S \star T$ の\hyperref[def:SimpSet]{面写像}は $n \ge 1,\, 0 \le j \le n$ に対して
 \begin{align}
     \label{eq:face-join}
     \partial^n_j \colon \coprod_{-1 \le i \le n} (S_i \times T_{n-i-1}) &\lto \coprod_{-1 \le i \le n-1} (S_i \times T_{n-i-2}), \\
     \bigl( i;\, (x,\, y) \bigr) &\lmto 
     \begin{cases}
         % \bigl(-1;\,y \bigr), &i=0 \\
-        \bigl(i;\, (\partial_j^i x,\, y) \bigr), &j < i,\; i\neq 0 \\
-        \bigl(i-1;\, (\partial_j^i x,\, y) \bigr), &j = i \neq 0 \\
-        \bigl(-1;\, y \bigr), &j = i = 0 \\
-        \bigl(i-1;\, (x,\, \partial^{n-i-1}_{j-i-1} y) \bigr), &j > i > 0,\; n-i-1\neq 0
+        \bigl(-1;\, \partial^n_j y \bigr), &i=-1 \\
+        \bigl(i;\, (x,\, \partial^{n-i-1}_{j-i-1} y) \bigr), &0 \le i < j,\; (i,\, j) \neq (n-1,\, n) \\
+        \bigl(i-1;\, (\partial^i_j x,\, y) \bigr), &j \le i \le n-1,\; (i,\, j) \neq (0,\, 0) \\
+        \bigl(n-1;\, \partial^n_j x \bigr), &i=n \\
+        \bigl(n-1;\, x \bigr), &(i,\, j) = (n-1,\, n) \\
+        \bigl(-1;\, y \bigr), &(i,\, j) = (0,\, 0)
         % \bigl(n;\, x\bigr), &j > i=0
         % \bigl(-1;\,\partial^n_j y \bigr), &i=-1
     \end{cases}
 \end{align}
-であり，\hyperref[def:SimpSet]{縮退写像}は
-\begin{align}
-    \label{eq:degen-join}
-    \sigma^n_j \colon \coprod_{-1 \le i \le n} (S_i \times T_{n-i-1}) &\lto \coprod_{-1 \le i \le n+1} (S_i \times T_{n-i}), \\
-    \bigl( i;\, (x,\, y) \bigr) &\lmto 
-    \begin{cases}
-        % \bigl(n;\,\sigma^n_j x \bigr), &i=n \\
-        \bigl(i;\, (\sigma_j^i x,\, y) \bigr), &j < i,\; i\neq 0 \\
-        \bigl(i+1;\, (\sigma_{j}^i x,\, y) \bigr), &j = i \\
-        \bigl(i+1;\, (x,\, \sigma^{n-i-1}_{j-i-1} y) \bigr), &j > i,\; n-i-1\neq 0 \\
-        % \bigl(-1;\,\sigma^n_j y \bigr), &i=-1
-    \end{cases}
-\end{align}
+% であり，\hyperref[def:SimpSet]{縮退写像}は
+% \begin{align}
+%     \label{eq:degen-join}
+%     \sigma^n_j \colon \coprod_{-1 \le i \le n} (S_i \times T_{n-i-1}) &\lto \coprod_{-1 \le i \le n+1} (S_i \times T_{n-i}), \\
+%     \bigl( i;\, (x,\, y) \bigr) &\lmto 
+%     \begin{cases}
+%         % \bigl(n;\,\sigma^n_j x \bigr), &i=n \\
+%         \bigl(i;\, (\sigma_j^i x,\, y) \bigr), &j < i,\; i\neq 0 \\
+%         \bigl(i+1;\, (\sigma_{j}^i x,\, y) \bigr), &j = i \\
+%         \bigl(i+1;\, (x,\, \sigma^{n-i-1}_{j-i-1} y) \bigr), &j > i,\; n-i-1\neq 0 \\
+%         % \bigl(-1;\,\sigma^n_j y \bigr), &i=-1
+%     \end{cases}
+% \end{align}
 となる．
 
 \begin{myexample}[label=ex:join-0]{join {$\Delta^0 \star \Delta^0$}}
