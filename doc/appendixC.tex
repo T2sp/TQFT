@@ -2552,7 +2552,7 @@ $K$ を\hyperref[def:infty-1]{$(\infty,\, 1)$-圏}とする．$\forall X,\, Y,\,
     \end{itemize}
     で定義する．$\Kan$ は\hyperref[def:SimpSet]{単体的集合の圏 $\sSet$}の充満部分圏であり，直積\eqref{eq:sSet-tensor}をテンソル積とするモノイダル圏になる．
 
-    　さらに，$\Kan$ は\exref{def:Fun-infty}と同様の方法で\hyperref[def:SimpCat]{単体的豊穣圏}と見做すこともできる．
+    　さらに，$\Kan$ は\exref{def:infty-Fun}と同様の方法で\hyperref[def:SimpCat]{単体的豊穣圏}と見做すこともできる．
     実際，任意のKan複体 $X,\, Y \in \Obj{\Kan}$ に対して
     \begin{align}
         \FUN(X,\, Y) \colon \OP{\Delta} &\lto \SETS, \\
@@ -2626,8 +2626,8 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
         % \mathrm{N}(P_{01})_0 &= \mathrm{Fun}([0],\, P_{01}) = \{\bullet_{0},\, \bullet_{1}\}, \\
         % \mathrm{N}(P_{02})_0 &= \mathrm{Fun}([0],\, P_{02}) = \{\bullet_{0},\, \bullet_{1},\, \bullet_{2}\}, \\
         % \mathrm{N}(P_{12})_0 &= \mathrm{Fun}([0],\, P_{12}) = \{\bullet_{1},\, \bullet_{2}\}, \\
-        \mathrm{N}(P_{ii})_1 &= \mathrm{Fun}([n],\, P_{ii}) = \{\mathrm{const}_{i} \colon k \lmto i\}, \\
-        \mathrm{N}(P_{01})_1 &= \mathrm{Fun}([n],\, P_{01}) = 
+        \mathrm{N}(P_{ii})_n &= \mathrm{Fun}([n],\, P_{ii}) = \{\mathrm{const}_{i} \colon k \lmto i\}, \\
+        \mathrm{N}(P_{01})_n &= \mathrm{Fun}([n],\, P_{01}) = 
         \Bigl\{ 
             f_{x} \colon k \lmto
             \begin{cases}
@@ -2875,7 +2875,7 @@ $a,\, b \in Z_n (X,\, *)$ に対して，系\ref{col:horn-coeq}，命題\ref{pro
             P \colon \OP{K} \lto \SPACES
         \end{align}
         のこと．
-        \item $K$ 上の $\bm{(\infty,\, 1)}$\textbf{-前層が成す} $\bm{(\infty,\, 1)}$\textbf{-圏}とは，$(\infty,\, 1)$-前層全体の集合 $\Hom{\sSet} (\OP{K},\, \SPACES)$ を\exref{def:Fun-infty}の構成と全く同じ方法で\hyperref[def:SimpSet]{単体的集合}と見做した
+        \item $K$ 上の $\bm{(\infty,\, 1)}$\textbf{-前層が成す} $\bm{(\infty,\, 1)}$\textbf{-圏}とは，$(\infty,\, 1)$-前層全体の集合 $\Hom{\sSet} (\OP{K},\, \SPACES)$ を\exref{def:infty-Fun}の構成と全く同じ方法で\hyperref[def:SimpSet]{単体的集合}と見做した
         \begin{align}
             \inftyPsh{K} \coloneqq \FUN(\OP{K},\, \SPACES) \in \Obj{\sSet}
         \end{align}
