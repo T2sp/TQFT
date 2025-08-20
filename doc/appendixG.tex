@@ -716,7 +716,7 @@ $\PshSETS{\OP{\Strat}}$ から $\sSet$ への関手を
     \textcolor{red}{Z} &\lmto \bigl\{\, f \in \Hom{\Strat}(\textcolor{red}{Z} \times X,\, \textcolor{red}{Z} \times Y) \bigm| \mathrm{proj}_Z \circ f = \mathrm{proj}_Z \,\bigr\}, \\
     (Z \xrightarrow{\alpha} W) &\lmto (f \mapsto f \circ \alpha)
 \end{align}
-で定義する．ただし，\hyperref[def:c-smooth-map]{conically smoothな層状化写像} $\mathrm{proj}_Z \in \Hom{\Strat}(Z \times X,\, X)$ とは第一成分への射影のことである．
+で定義する．ただし，\hyperref[def:c-smooth-map]{conically smoothな層状化写像} $\mathrm{proj}_Z \in \Hom{\Strat}(Z \times X,\, Z)$ とは第一成分への射影のことである．
 同様にして前層 $\widetilde{\Hom{\SNGLR}} (X,\, Y) \in \PshSETS{\OP{\Strat}}$ を
 \begin{align}
     \widetilde{\Hom{\SNGLR}} (X,\, Y) \colon \OP{\Strat} &\lto \SETS, \\
@@ -776,7 +776,7 @@ $\PshSETS{\OP{\Strat}}$ から $\sSet$ への関手を
     \begin{description}
         \item[\textbf{(lifting property)}]　
         
-        包含 $\iota \in \Hom{\sSet}(\Lambda^p_j,\, \Delta^n)$ に対して $p \circ \textcolor{blue}{f_0} = \textcolor{blue}{f} \circ \iota$ を充たす任意の $(\textcolor{blue}{f_0},\, \textcolor{blue}{f}) \in \Hom{\sSet}(\Lambda^n_j,\, \Cat{E}) \times \Hom{\sSet}(\Delta^n_j,\, \Cat{B})$ に対して，以下の図式を可換にする $\textcolor{red}{\bar{f}} \in \Hom{\sSet}(\Delta^n,\, \Cat{E})$ が存在する：
+        包含 $\iota \in \Hom{\sSet}(\Lambda^n_j,\, \Delta^n)$ に対して $p \circ \textcolor{blue}{f_0} = \textcolor{blue}{f} \circ \iota$ を充たす任意の $(\textcolor{blue}{f_0},\, \textcolor{blue}{f}) \in \Hom{\sSet}(\Lambda^n_j,\, \Cat{E}) \times \Hom{\sSet}(\Delta^n_j,\, \Cat{B})$ に対して，以下の図式を可換にする $\textcolor{red}{\bar{f}} \in \Hom{\sSet}(\Delta^n,\, \Cat{E})$ が存在する：
         \begin{center}
             % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12AZOgWwCModAHpoA+gCsQAX1LpMufIRRkAjFVqMWbTgBEYDHCLQy5IDNjwEiq0uur1mrRB3YBhOjmAAhaafmWSjbkGo7aLpweXgCiftIaMFAA5vBEoABmAE4QvEhkIDgQSADMDlrOIEn+IFk5SLYFRYgATGVObOkg1Ax0-AYACgpWyiCZWEkAFjjVtbmIpY1IrZrtLiayGdlz+YX11EZYDGwTEBAA1l0r4a74Rpc9fQyDgdYuY5PTGzVbe4vz3VgwBUhHAJolLmEKpx+HRMsB0nEKNIgA
             \begin{tikzcd}[column sep=large,row sep=large]
@@ -804,7 +804,7 @@ $\bigl(\textcolor{blue}{f_{0}}{}_0,\, \dots,\, \underbrace{\bullet}_{j},\, \dots
     \Hom{\Rfib_{\Cat{B}}} (\Cat{E},\, \Cat{E}') &\coloneqq 
     \bigl\{\, f \in \Hom{\sSet}(\mathcal{E},\, \mathcal{E}') \bigm| p' \circ f = p \,\bigr\}
 \end{align}
-のことである．$\Hom{\Rfib_{\Cat{B}}} (\Cat{E},\, \Cat{E}')$ の元を可換図式として表すと以下の通り：
+のことである．$\Hom{\Rfib_{\Cat{B}}} (\Cat{E},\, \Cat{E}')$ の元を $\sSet$ における可換図式として表すと以下の通り：
 \begin{center}
     \begin{tikzcd}
         \Cat{E} \arrow[rd, "p"'] \arrow[rr, "f"] &         & \Cat{E}' \arrow[ld, "p'"] \\
