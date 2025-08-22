@@ -843,13 +843,12 @@ $\Hom{\Rfib_{\Cat{B}}} (\Cat{E},\, \Cat{E}') \subset \Hom{\sSet}(\mathcal{E},\, 
     2つの単体的集合 $S,\, T \in \Obj{\sSet}$ の\textbf{join}とは，単体的集合
     \begin{align}
         \bm{S \star T} \colon \OP{\Delta} &\lto \SETS, \\
-        [n] &\lmto \coprod_{-1 \le i \le n} (S_i \times T_{n-i-1}), \\
-        \biggl( [m] \xrightarrow{\alpha} [n] \biggr) &\lmto \biggl( \Bigl( i;\, (x,\, y) \Bigr) \mapsto \Bigl( \alpha^{-1}([i]);\, \bigl(S(\alpha|_{\alpha^{-1}([i])})(x),\, T(\alpha|_{\alpha^{-1}([m]\setminus[i])})(y) \bigr)  \Bigr)  \biggr) 
+        [n] &\lmto \coprod_{[i];\, -1 \le i \le n} (S_i \times T_{n-i-1}), \\
+        \biggl( [m] \xrightarrow{\alpha} [n] \biggr) &\lmto \biggl( \Bigl( [i];\, (x,\, y) \Bigr) \mapsto \Bigl( \alpha^{-1}([i]);\, \bigl(S(\alpha|_{\alpha^{-1}([i])})(x),\, T(\alpha|_{\alpha^{-1}([m]\setminus[i])})(y) \bigr)  \Bigr)  \biggr) 
     \end{align}
-    のこと．ただし $S_{-1} = T_{-1} \coloneqq \emptyset$ とおいた．
+    のこと．ただし $S_{-1} = T_{-1} \coloneqq \{*\},\; [-1] \coloneqq \emptyset$ とおいた．
 \end{mydef}
-
-$[-1] \coloneqq \emptyset$ とおく．このとき $d^n_j \in \Hom{\OP{\Delta}}([n],\, [n-1])$ に対して
+$d^n_j \in \Hom{\OP{\Delta}}([n],\, [n-1])$ に対して
 \begin{align}
     (d^n_j)^{-1} ([i]) &= 
     \begin{cases}
@@ -867,15 +866,15 @@ $S \star T$ の\hyperref[def:SimpSet]{面写像}は $n \ge 1,\, 0 \le j \le n$ �
 \begin{align}
     \label{eq:face-join}
     \partial^n_j \colon \coprod_{-1 \le i \le n} (S_i \times T_{n-i-1}) &\lto \coprod_{-1 \le i \le n-1} (S_i \times T_{n-i-2}), \\
-    \bigl( i;\, (x,\, y) \bigr) &\lmto 
+    \bigl([i];\, (x,\, y) \bigr) &\lmto 
     \begin{cases}
         % \bigl(-1;\,y \bigr), &i=0 \\
-        \bigl(-1;\, \partial^n_j y \bigr), &i=-1 \\
-        \bigl(i;\, (x,\, \partial^{n-i-1}_{j-i-1} y) \bigr), &0 \le i < j,\; (i,\, j) \neq (n-1,\, n) \\
-        \bigl(i-1;\, (\partial^i_j x,\, y) \bigr), &j \le i \le n-1,\; (i,\, j) \neq (0,\, 0) \\
-        \bigl(n-1;\, \partial^n_j x \bigr), &i=n \\
-        \bigl(n-1;\, x \bigr), &(i,\, j) = (n-1,\, n) \\
-        \bigl(-1;\, y \bigr), &(i,\, j) = (0,\, 0)
+        \bigl([-1];\, (*,\, \partial^n_j y) \bigr), &i=-1 \\
+        \bigl([i];\, (x,\, \partial^{n-i-1}_{j-i-1} y) \bigr), &0 \le i < j,\; (i,\, j) \neq (n-1,\, n) \\
+        \bigl([i-1];\, (\partial^i_j x,\, y) \bigr), &j \le i \le n-1,\; (i,\, j) \neq (0,\, 0) \\
+        \bigl([n-1];\, (\partial^n_j x,\, *) \bigr), &i=n \\
+        \bigl([n-1];\, (x,\, *) \bigr), &(i,\, j) = (n-1,\, n) \\
+        \bigl([-1];\, (*,\, y) \bigr), &(i,\, j) = (0,\, 0)
         % \bigl(n;\, x\bigr), &j > i=0
         % \bigl(-1;\,\partial^n_j y \bigr), &i=-1
     \end{cases}
@@ -1171,7 +1170,7 @@ $S \star T$ の\hyperref[def:SimpSet]{面写像}は $n \ge 1,\, 0 \le j \le n$ �
 
 $(\infty,\, 1)$-圏 $\Cat{C}_{/X}$ の $n$-射も同様に図示できる．
 
-\subsection{homotopy limit/colimit}
+\subsection{{$(\infty,\, 1)$}-圏のlimit/colimit}
 
 後の議論のため，先取りして $(\infty,\, 1)$-圏におけるlimit/colimitを定義しておこう．
 $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infty-1]{quasi-category}を採用する場合，これは\textbf{homotopy limit/colimit}と呼ばれることもある．
@@ -1183,15 +1182,15 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infty-1]{quasi-category}�
     \end{itemize}
 \end{mydef}
 
-\begin{mydef}[label=def:holim-hocolim]{homotopy limit/colimit}
+\begin{mydef}[label=def:lim-colim-infty]{{$(\infty,\, 1)$}-圏のlimit/colimit}
     \hyperref[def:infty-1]{$(\infty,\, 1)$-圏の関手} $D \colon \Cat{I} \lto \Cat{C}$ を与える\footnote{\hyperref[def:diagram]{$(1,\, 1)$-圏の場合}からのアナロジーで，$D$ を図式と見做す．}．
     \begin{itemize}
-        \item $D$ の\textbf{homotopy limit}とは，\hyperref[def:overcat-infty]{スライス $(\infty,\, 1)$-圏} $\Cat{C}_{/D}$ における\hyperref[def:initial-final-infty]{終対象}のこと．$\bm{\holim D} \in \Cat{C}_0$ と書く．
-        \item $D$ の\textbf{homotopy colimit}とは，\hyperref[def:overcat-infty]{スライス $(\infty,\, 1)$-圏} $\Cat{C}_{D/}$ における\hyperref[def:initial-final-infty]{始対象}のこと．$\bm{\hocolim D} \in \Cat{C}_0$ と書く．
+        \item $D$ の\textbf{limit}とは，\hyperref[def:overcat-infty]{スライス $(\infty,\, 1)$-圏} $\Cat{C}_{/D}$ における\hyperref[def:initial-final-infty]{終対象}のこと．$\bm{\lim D} \in \Cat{C}_0$ と書く．
+        \item $D$ の\textbf{colimit}とは，\hyperref[def:overcat-infty]{スライス $(\infty,\, 1)$-圏} $\Cat{C}_{D/}$ における\hyperref[def:initial-final-infty]{始対象}のこと．$\bm{\colim D} \in \Cat{C}_0$ と書く．
     \end{itemize}
 \end{mydef}
 
-\begin{myexample}[label=def:htpy-pullback]{homotopy pullback}
+\begin{myexample}[label=def:pullback-infty]{pullback}
     単体的集合の積 $S \times T \colon \OP{\Delta} \lto \SETS$ における面写像とは 
     \begin{align}
         \partial^n_j \colon S_n \times T_n &\lto S_{n-1} \times T_{n-1}, \\
@@ -1215,9 +1214,9 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infty-1]{quasi-category}�
     \end{align}
     と図示できる．ただし，2-射以上は縮退していて見えない．
     
-    　\hyperref[def:infty-1]{$(\infty,\, 1)$-圏の関手} $D \colon \Delta^1 \times \Delta^1 \lto \Cat{C}$ の\hyperref[def:holim-hocolim]{homotopy limit}のことを（存在すれば）\textbf{homotopy pullback}と呼び，
+    　\hyperref[def:infty-1]{$(\infty,\, 1)$-圏の関手} $D \colon \Delta^1 \times \Delta^1 \lto \Cat{C}$ の\hyperref[def:lim-colim-infty]{limit}のことを（存在すれば）\textbf{pullback}と呼び，
     \begin{align}
-        D(0,\, 1) \times^{\mathrm{h}}_{D(1,\, 1)} D(1,\, 0) \coloneqq \holim D \in \Cat{C}_0
+        D(0,\, 1) \times_{D(1,\, 1)} D(1,\, 0) \coloneqq \lim D \in \Cat{C}_0
     \end{align}
     と書く．
 \end{myexample}
@@ -1284,7 +1283,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infty-1]{quasi-category}�
 \begin{mydef}[label=def:B-mfld,breakable]{{$\Cat{B}$}-多様体}
     \begin{itemize}
         \item \textbf{$\bm{(\Cat{B},\, f)}$ 構造}\footnote{~\cite[Definition 1.1.6]{AFT2014stratified}では\textbf{$(\infty,\, 1)$-category of basics}と呼ばれている．}とは，$(\infty,\, 1)$-圏の\hyperref[def:infty-fib]{右ファイブレーション} $(\Cat{B} \xrightarrow{f} \BSC) \in (\RFIB_{\BSC})_0$ のこと．
-        \item $(\Cat{B},\, f)$ 構造 $\Cat{B} \xrightarrow{f} \BSC$ を1つ固定する．このとき，\textbf{$\bm{\Cat{B}}$-多様体} ($\Cat{B}$-manifold) の成す $(\infty,\, 1)$-圏 $\MFLDB{\Cat{B}}$ とは，$\qCat$\footnote{quasi-category全体のなす $(\infty,\, 1)$-圏} における\hyperref[def:htpy-pullback]{homotopy pullback}
+        \item $(\Cat{B},\, f)$ 構造 $\Cat{B} \xrightarrow{f} \BSC$ を1つ固定する．このとき，\textbf{$\bm{\Cat{B}}$-多様体} ($\Cat{B}$-manifold) の成す $(\infty,\, 1)$-圏 $\MFLDB{\Cat{B}}$ とは，\hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏のpullback}
         \begin{center}
             % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BZAMQBkAIgCFgnAMJ0cwIQF8ZIGaXSZc+QigCM5KrUYs2ACk4AlHgEkhAfVHshAZTEyAlNfGTpMgAScAHgCcsAHMACxw6Pz8IAHdgNC9Oe0cFJRAMbDwCIi0NHXpmVkQOdlMLV1sHeUVldLUiMhzqPP1CzjsAOQBxPmMFHRgoQPgiUAAzSIBbJABmahwIJAAmRr0CorCmEGoGOgAjGAYABRUM9RAAkJxk0YmkMhA56aqQMYhJxC17+cQl3Xy2TnGkmCfnGwBGED8gxwlRSLzedwe7xkFBkQA
             \begin{tikzcd}
