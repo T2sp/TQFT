@@ -1,0 +1,49 @@
+name: Sync single PDF to GitHub Pages repo
+
+on:
+  push:
+    branches: [ main ]                # ← 参照元のデフォルトブランチに合わせて変更可
+    paths:
+      - 'doc/out/TQFT_main.pdf'       # ← この1ファイルの更新時のみ実行
+  workflow_dispatch:                  # 手動実行も可能に
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source repo
+        uses: actions/checkout@v4
+
+      - name: Prepare publish artifact
+        run: |
+          mkdir -p publish
+          cp -f doc/out/TQFT_main.pdf publish/TQFT_main.pdf
+
+      - name: Clone destination (Pages) repo
+        env:
+          GH_PAT: ${{ secrets.PAGES_BOT_TOKEN }}
+        run: |
+          # 個人サイト（T2sp.github.io）の main ブランチを想定
+          git clone --depth 1 https://x-access-token:${GH_PAT}@github.com/T2sp/T2sp.github.io.git dest
+
+      - name: Sync into notes/ on Pages
+        run: |
+          mkdir -p dest/notes
+          cp -f publish/TQFT_main.pdf dest/notes/TQFT_main.pdf
+
+      - name: Commit & push if changed
+        working-directory: dest
+        run: |
+          git config T2sp.name  "pages-bot"
+          git config T2sp.email "pages-bot@example.com"
+
+          if ! git diff --quiet; then
+            git add -A
+            git commit -m "sync: update notes/TQFT_main.pdf from ${GITHUB_REPOSITORY}@${GITHUB_SHA}"
+            git push origin HEAD
+          else
+            echo "No changes to commit."
+          fi
