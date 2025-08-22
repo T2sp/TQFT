@@ -37,8 +37,8 @@ jobs:
       - name: Commit & push if changed
         working-directory: dest
         run: |
-          git config T2sp.name  "pages-bot"
-          git config T2sp.email "pages-bot@example.com"
+          git config user.name  "pages-bot"
+          git config user.email "pages-bot@example.com"
 
           if ! git diff --quiet; then
             git add -A
