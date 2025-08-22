@@ -707,29 +707,29 @@ $(1,\, 1)$-圏とする．$\Kan$ は\hyperref[def:SimpSet]{単体的集合の圏
 
 $\PshSETS{\OP{\Strat}}$ から $\sSet$ への関手を
 \begin{align}
-    (\, \mhyphen \,)|_{\Delta} \colon \PshSETS{\OP{\Strat}} &\lto \sSet, \\
+    (\, \mhyphen \,)|_{\Delta} \colon \PshSETS{\Strat} &\lto \sSet, \\
     F &\lmto F \circ \Delta_e
 \end{align}
-で定義する．さらに，$\forall X,\, Y \in \Obj{\Strat}$ に対して前層 $\widetilde{\Hom{\STRAT}} (X,\, Y) \in \PshSETS{\OP{\Strat}}$ を
+で定義する．さらに，$\forall X,\, Y \in \Obj{\Strat}$ に対して前層 $\widetilde{\Hom{\STRAT}} (X,\, Y) \in \PshSETS{\Strat}$ を
 \begin{align}
     \widetilde{\Hom{\STRAT}} (X,\, Y) \colon \OP{\Strat} &\lto \SETS, \\
     \textcolor{red}{Z} &\lmto \bigl\{\, f \in \Hom{\Strat}(\textcolor{red}{Z} \times X,\, \textcolor{red}{Z} \times Y) \bigm| \mathrm{proj}_Z \circ f = \mathrm{proj}_Z \,\bigr\}, \\
     (Z \xrightarrow{\alpha} W) &\lmto (f \mapsto f \circ \alpha)
 \end{align}
 で定義する．ただし，\hyperref[def:c-smooth-map]{conically smoothな層状化写像} $\mathrm{proj}_Z \in \Hom{\Strat}(Z \times X,\, Z)$ とは第一成分への射影のことである．
-同様にして前層 $\widetilde{\Hom{\SNGLR}} (X,\, Y) \in \PshSETS{\OP{\Strat}}$ を
+同様にして前層 $\widetilde{\Hom{\SNGLR}} (X,\, Y) \in \PshSETS{\Strat}$ を
 \begin{align}
     \widetilde{\Hom{\SNGLR}} (X,\, Y) \colon \OP{\Strat} &\lto \SETS, \\
     \textcolor{red}{Z} &\lmto \bigl\{\, f \in \Hom{\Snglr}(\textcolor{red}{Z} \times X,\, \textcolor{red}{Z} \times Y) \bigm| \mathrm{proj}_Z \circ f = \mathrm{proj}_Z \,\bigr\}, \\
-    (Z \xrightarrow{\alpha} W) &\lmto (f \mapsto f \circ \alpha)
+    (Z \xrightarrow{\alpha} W) &\lmto \Biggl(f \mapsto \biggl(\Bigl(w,\, x\Bigr) \mapsto \Bigl(w,\, \mathrm{proj}_Y \circ f \bigl(\alpha(w),\, x\bigr)\Bigr)\biggr)\Biggr)
 \end{align}
 で定義する．
 
 \begin{mylem}[label=lem:Kan-enriched]{}
     $\forall X,\, Y \in \Obj{\Strat}$ に対して定まる\hyperref[def:sSet]{単体的集合}
     \begin{align}
-        \Hom{\STRAT}(X,\, Y) &\coloneqq \widetilde{\Hom{\STRAT}}(X,\, Y) \circ (\, \mhyphen \,)|_{\Delta}, \\
-        \Hom{\SNGLR}(X,\, Y) &\coloneqq \widetilde{\Hom{\SNGLR}}(X,\, Y) \circ (\, \mhyphen \,)|_{\Delta}
+        \Hom{\STRAT}(X,\, Y) &\coloneqq \eval{\widetilde{\Hom{\STRAT}}(X,\, Y)}_{\Delta}, \\
+        \Hom{\SNGLR}(X,\, Y) &\coloneqq \eval{\widetilde{\Hom{\SNGLR}}(X,\, Y)}_{\Delta}
     \end{align}
     は\hyperref[def:KanCplx]{Kan複体}である．
 \end{mylem}
