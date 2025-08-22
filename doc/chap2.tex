@@ -488,7 +488,7 @@ $\irm{x}{i},\, \irm{x}{f}$ の両方を含む $\mathcal{M}$ のチャート $\bi
 \end{mydef}
 
 \begin{myexample}[label=ex:tangentbundle]{接束}
-    $n$ 次元\cinfty 多様体 $M$ の\hyperref[def:tangentbundle]{接束}は，構造群を $\LGL(n,\, \mathbb{R})$ とするベクトル束
+    $n$ 次元\cinfty 多様体 $M$ の\hyperref[prop:tangentbundle]{接束}は，構造群を $\LGL(n,\, \mathbb{R})$ とするベクトル束
     $\mathbb{R}^n \hookrightarrow TM \xrightarrow{\pi} M$ である．
     実際，$M$ のチャート $\bigl( U_\lambda,\, (x^\mu) \bigr)$ に対して局所自明化は
     \begin{align}
@@ -642,7 +642,7 @@ $\xi = (E,\, \pi,\, B,\, F)$ を\hyperref[def.fiber-1]{ファイバー束}とす
 	\end{align}
 	だから $t_{\beta\alpha}(b) = t_{\alpha\beta}(b)^{-1}$ である．
 
-	開被覆 $\{U_\lambda\}$ の添字集合を $\Lambda$ とする．このとき $\forall \lambda \in \Lambda$ に対して，$U_\lambda \subset B$ には底空間 $B$ からの\hyperref[def.reltopo]{相対位相}を入れ，$U_\lambda \times F$ にはそれと $F$ の位相との\hyperref[def.prodtopo]{積位相}を入れることで，\hyperref[def.disjoint_topo]{直和位相空間}
+	開被覆 $\{U_\lambda\}$ の添字集合を $\Lambda$ とする．このとき $\forall \lambda \in \Lambda$ に対して，$U_\lambda \subset B$ には底空間 $B$ からの\hyperref[def.reltopo]{相対位相}を入れ，$U_\lambda \times F$ にはそれと $F$ の位相との\hyperref[def:product-coproduct]{積位相}を入れることで，\hyperref[def:product-coproduct]{直和位相空間}
 	\begin{align}
 	\mathcal{E} \coloneqq \coprod_{\lambda \in \Lambda} U_\lambda \times F
 	\end{align}
@@ -1435,7 +1435,7 @@ $\forall g \in G$ と $\forall X,\, Y \in \Lie{\mathfrak{X}}(G)$ をとる．こ
     以上の議論は $G$ が $\LGL(n,\, \mathbb{K})$ の部分Lie群の場合にも成立するが，\underline{大抵の場合Lie代数の同型写像 $\alpha$ は省略される}．
 \end{myexample}
 
-定理\ref{thm:fundamental-flow}によって，\cinfty 多様体 $M$ 上の\hyperref[def:vecf-complete]{完備}なベクトル場 $X$ がLie群 $\mathbb{R}$ の $M$ への作用 $\theta \colon \mathbb{R} \times M \lto M$ を一意に定めることが分かる．
+定理\ref{thm:fundamental-flow}によって，\cinfty 多様体 $M$ 上の\hyperref[def:complete-vecf]{完備}なベクトル場 $X$ がLie群 $\mathbb{R}$ の $M$ への作用 $\theta \colon \mathbb{R} \times M \lto M$ を一意に定めることが分かる．
 そしてこのような状況を指して，ベクトル場 $X$ はLie群 $\mathbb{R}$ の作用 $\theta$ の無限小生成子であると言うのだった．
 この考えを任意のLie群 $G$ の，任意の $M$ への\underline{右作用}に拡張することができる．
 つまり，任意のLie群 $G$ の任意の右作用 $\btl \colon M \times G \lto M$ は，ただ一つの無限小生成子を持つ．
@@ -1465,7 +1465,7 @@ $\forall X \in \mathfrak{g}$ に対して，\cinfty 写像\footnote{これは命
 \begin{align}
     \theta_{(X)} \colon \mathbb{R} \times M \lto M,\; (t,\, x) \lmto x \btl \exp(tX) = R_{\exp(tX)} (x)
 \end{align}
-は\hyperref[def:flow-global]{大域的フロー}である
+は\hyperref[def:global-flow]{大域的フロー}である
 \footnote{
     実際，命題\ref{prop:exp}から
     \begin{align}
@@ -1478,7 +1478,7 @@ $\forall X \in \mathfrak{g}$ に対して，\cinfty 写像\footnote{これは命
     が成り立つ．
 }
 ．
-この大域的フローの\hyperref[def:thm:fundamental-flow]{無限小生成子}はベクトル場
+この大域的フローの\hyperref[thm:fundamental-flow]{無限小生成子}はベクトル場
 \begin{align}
     x \lmto \Bigl( x,\, \dot{\theta_{(X)}^{(x)}} (0) \Bigr) = \left( x,\, T_0 \bigl( \theta_{(X)}^{(x)} \bigr) \left( \eval{\dv{}{t}}_{t=0} \right)   \right) 
 \end{align}
@@ -3001,7 +3001,7 @@ $C^\infty$ 曲線のみならず，底空間上の $C^\infty$ ベクトル場も
 \end{proof}
 
 \begin{myprop}[label=prop:horizontal-lift-vecf]{ベクトル場の水平持ち上げは右不変}
-    $\tilde{X}$ は右不変である．i.e. $\forall g \in G$ に対して自分自身と\hyperref[def:F-rel]{$R_g$-related}である．
+    $\tilde{X}$ は右不変である．i.e. $\forall g \in G$ に対して自分自身と\hyperref[def:F-related]{$R_g$-related}である．
 \end{myprop}
 
 \begin{proof}
@@ -4295,7 +4295,7 @@ $\Lgl(n,\, \mathbb{K}) = \Mat{n}{\mathbb{K}}$ だから，\hyperref[def:polynomi
 を得る．補題\ref{lem:Z-extension}により $f(t^i{}_j,\, \lambda) \in \mathbb{K}[t^i{}_j,\, \lambda],\;  f_k (t^i{}_j) \in \mathbb{K}[t^i{}_j]$ と見做してもこの等式は成り立つ．
 
 \begin{myprop}[label=prop:det-coeff-invariant]{$f_k(t^i{}_j)$ は不変多項式}
-    $\mathbb{K}$ を標数 $0$ の体とする．このとき $f_k (t^i{}_j) \in \mathbb{K}[t^i{}_j]$ は\hyperref[label]{$\Adj(\LGL(n,\, \mathbb{K}))$-不変多項式}である．
+    $\mathbb{K}$ を標数 $0$ の体とする．このとき $f_k (t^i{}_j) \in \mathbb{K}[t^i{}_j]$ は\hyperref[def:invariant]{$\Adj(\LGL(n,\, \mathbb{K}))$-不変多項式}である．
 \end{myprop}
 
 \begin{proof}

@@ -201,7 +201,7 @@
 \subsection{重力アノマリー}
 
 トポロジカル相の文脈で\textbf{重力アノマリー} (gravitational anomaly) と呼ばれるものを導入しておこう~\cite{KongWen2014braidedfusioncategoriesgravitational}．
-これは文字通り量子重力を考えていると言うわけではなく，\hyperref[label=hypo:anomaly-inflow]{アノマリー流入}に類似の概念である．
+これは文字通り量子重力を考えていると言うわけではなく，\hyperref[hypo:anomaly-inflow]{アノマリー流入}に類似の概念である．
 
 \begin{mydefph}[label=def:anomalousQP]{gappedな量子相のアノマリー}
     空間 $D$ 次元の\hyperref[def:quantum-phase]{量子相}が\textbf{アノマリーを持たない} (anomaly-free) とは，それが\hyperref[def:bosonic-lattice-model]{局所的な格子模型}として実現できることを言う．
@@ -413,7 +413,7 @@ gappedな量子系を特徴付けるデータは，\textbf{トポロジカル欠
 \end{myexample}
 
 可逆なトポロジカル秩序の積層を同一視すると言うことは，任意の局所演算子の作用に関して不変であることと等価である．
-従って，局所演算子が合成に関して成す結合代数 (\textbf{local operator algebra}) を $\irm{\mathcal{A}}{loc}$ と書くと，\hyperref[def:excitation]{トポロジカル欠陥}を次のように特徴付けることもできる：
+従って，局所演算子が合成に関して成す結合代数 (\textbf{local operator algebra}) を $\irm{\mathcal{A}}{loc}$ と書くと，\hyperref[def:TD]{トポロジカル欠陥}を次のように特徴付けることもできる：
 
 \begin{marker}
     演算子の局所性の概念は，系のスケールに依存する．逆に言うと，トポロジカル欠陥は系のスケールに依存しない．
@@ -421,7 +421,7 @@ gappedな量子系を特徴付けるデータは，\textbf{トポロジカル欠
 
 
 \begin{myprop}[label=prop:TD]{トポロジカル欠陥の特徴付け}
-    \hyperref[def:excitation]{トポロジカル欠陥}とは，$\irm{\mathcal{A}}{loc}$-加群のこと．
+    \hyperref[def:TD]{トポロジカル欠陥}とは，$\irm{\mathcal{A}}{loc}$-加群のこと．
 \end{myprop}
 
 \begin{myexample}[label=ex:toric-loc]{toric codeのトポロジカル欠陥-2}
@@ -616,7 +616,7 @@ $\sk_0(\mathsf{C}_D)$ における射とは，任意の局所演算子と可換�
 \end{align}
 
 \begin{mydef}[label=def:unitary]{ユニタリ構造}
-    $\Cat{C}$ を $\mathbb{C}$-線形な\hyperref[def:additivecat]{アーベル圏}とする．
+    $\Cat{C}$ を $\mathbb{C}$-線形な\hyperref[def:additive-cat]{アーベル圏}とする．
     $\Cat{C}$ の\textbf{ダガー構造} (dagger structure) とは，反線形な関手
     \begin{align}
         \dagger \colon \OP{\Cat{C}} \lto \Cat{C}
@@ -637,7 +637,7 @@ $\sk_0(\mathsf{C}_D)$ における射とは，任意の局所演算子と可換�
 \end{mydef}
 
 \begin{myprop}[label=prop:unitary-Cstar]{ユニタリ構造と $C^*$ 構造}
-    $\mathbb{C}$-線形な\hyperref[def:additivecat]{アーベル圏} $\Cat{C}$ が\hyperref[def:starcat]{$C^*$-圏}であることと，\hyperref[def:unitary]{ユニタリ圏}であることは同値である．
+    $\mathbb{C}$-線形な\hyperref[def:additive-cat]{アーベル圏} $\Cat{C}$ が\hyperref[def:starcat]{$C^*$-圏}であることと，\hyperref[def:unitary]{ユニタリ圏}であることは同値である．
 \end{myprop}
 
 \begin{proof}
@@ -889,7 +889,7 @@ $\mathfrak{Z}_2 (\Cat{C})$ は $\Cat{C}$ から\hyperref[redef:braided-monoidal]
 \end{mydef}
 
 \begin{mypropph}[label=prop:remote-detectable]{}
-    \hyperref[def:stable]{安定な} $2+1$ 次元のトポロジカル秩序 $\mathsf{C}_2$ が\hyperref[def:anomalyQP]{アノマリー}を持たないことと，
+    \hyperref[def:stableTO]{安定な} $2+1$ 次元のトポロジカル秩序 $\mathsf{C}_2$ が\hyperref[def:anomalousQP]{アノマリー}を持たないことと，
     組紐付きユニタリフュージョン圏 $\sk_0(\mathsf{C}_2)$ が\hyperref[def:nondegen-BFC]{非退化}であることは同値である．
 \end{mypropph}
 
@@ -898,11 +898,11 @@ $\mathfrak{Z}_2 (\Cat{C})$ は $\Cat{C}$ から\hyperref[redef:braided-monoidal]
 \end{mydef}
 
 \begin{mypropph}[label=prop:sk0-braided]{$\sk_0(\mathsf{C}_2)$ はMTC}
-    空間多様体 $\mathbb{R}^2$ 上に置かれた\hyperref[def:stable]{安定}かつ\hyperref[def:anomalyQP]{アノマリーを持たない} 2+1次元のトポロジカル秩序 $\mathsf{C}_2$ が持つ点状のトポロジカル欠陥全体
+    空間多様体 $\mathbb{R}^2$ 上に置かれた\hyperref[def:stableTO]{安定}かつ\hyperref[def:anomalousQP]{アノマリーを持たない} 2+1次元のトポロジカル秩序 $\mathsf{C}_2$ が持つ点状のトポロジカル欠陥全体
     $\sk_0(\mathsf{C}_2)$ はユニタリ\hyperref[def:MTC]{モジュラーテンソル圏}を成す．
 \end{mypropph}
 
-なお，$2+1$ 次元のトポロジカル欠陥 $\mathsf{C}_2$ が\hyperref[def:anomaly-QP]{アノマリー}を持たないことと，$\mathsf{C}_2$ の低エネルギー有効理論であるTQFTがアノマリーを持たないことは等価\underline{ではない}．
+なお，$2+1$ 次元のトポロジカル欠陥 $\mathsf{C}_2$ が\hyperref[def:anomalousQP]{アノマリー}を持たないことと，$\mathsf{C}_2$ の低エネルギー有効理論であるTQFTがアノマリーを持たないことは等価\underline{ではない}．
 両者の間には\textbf{フレーミングアノマリー} (framing anomaly) の分だけ差異がある~\cite{turaev2010quantum}．
 
 \begin{myprop}[label=prop:MTC]{MTCの性質}

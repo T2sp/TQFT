@@ -689,7 +689,7 @@ $(1,\, 1)$-圏とする．$\Kan$ は\hyperref[def:SimpSet]{単体的集合の圏
     \begin{align}
         \bm{\Delta_e} \colon \Delta \lto \Strat
     \end{align}
-    のことを\textbf{余単体的多様体} (standard cosimplicial manifold) と呼ぶ\footnote{\hyperref[def:simplicial-to]{余単体的集合}に似ているが，$x^i \ge 0$ の領域で切り取っていない．}：
+    のことを\textbf{余単体的多様体} (standard cosimplicial manifold) と呼ぶ\footnote{\hyperref[def:simplicial-top]{幾何学的 $n$-単体}に似ているが，$x^i \ge 0$ の領域で切り取っていない．}：
     \begin{itemize}
         \item $[n] \in \Obj{\Delta}$ を，\hyperref[def:c-smooth]{conically smoothな層状化空間}
         \begin{align}
@@ -726,7 +726,7 @@ $\PshSETS{\OP{\Strat}}$ から $\sSet$ への関手を
 で定義する．
 
 \begin{mylem}[label=lem:Kan-enriched]{}
-    $\forall X,\, Y \in \Obj{\Strat}$ に対して定まる\hyperref[def:sSet]{単体的集合}
+    $\forall X,\, Y \in \Obj{\Strat}$ に対して定まる\hyperref[def:SimpSet]{単体的集合}
     \begin{align}
         \Hom{\STRAT}(X,\, Y) &\coloneqq \eval{\widetilde{\Hom{\STRAT}}(X,\, Y)}_{\Delta}, \\
         \Hom{\SNGLR}(X,\, Y) &\coloneqq \eval{\widetilde{\Hom{\SNGLR}}(X,\, Y)}_{\Delta}
@@ -755,7 +755,7 @@ $\PshSETS{\OP{\Strat}}$ から $\sSet$ への関手を
     $\Kan$-豊穣圏 $\SNGLR$ の対象を \hyperref[def:Snglr]{$\Obj{\Bsc}$} に制限して得られる充満部分圏を $\BSC$ と書く．
     % \tcblower
 
-    % \hyperref[def:infty-1]{$(\infty,\, 1)$-圏} $\STRAT,\, \SNGLR$ を以下で定義する：
+    % \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\STRAT,\, \SNGLR$ を以下で定義する：
     % \begin{align}
     %     \STRAT &\coloneqq \mathrm{N}_{\text{hc}} (\STRAT), \\
     %     \SNGLR &\coloneqq \mathrm{N}_{\text{hc}} (\SNGLR)
@@ -772,7 +772,7 @@ $\PshSETS{\OP{\Strat}}$ から $\sSet$ への関手を
 \subsection{$(\infty,\, 1)$-圏におけるファイブレーション}
 
 \begin{mydef}[label=def:infty-fib]{{$(\infty,\, 1)$}-ファイブレーション}
-    $p \colon \Cat{E} \lto \Cat{B}$ を\hyperref[def:infty-1]{$(\infty,\, 1)$-圏の関手}とする．
+    $p \colon \Cat{E} \lto \Cat{B}$ を\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}とする．
     \begin{description}
         \item[\textbf{(lifting property)}]　
         
@@ -794,7 +794,7 @@ $\PshSETS{\OP{\Strat}}$ から $\sSet$ への関手を
     \end{itemize}
 \end{mydef}
 
-系\ref{col:horn-coeq}によると，\hyperref[def:infty-R-fib]{\textsf{\textbf{(lifting property)}}}は，\underline{$(\infty,\, 1)$-圏 $\Cat{B}$ における}\hyperref[def:horn]{角}の図式
+系\ref{col:horn-coeq}によると，\hyperref[def:infty-fib]{\textsf{\textbf{(lifting property)}}}は，\underline{$(\infty,\, 1)$-圏 $\Cat{B}$ における}\hyperref[def:horn]{角}の図式
 $\bigl(p_{[n-1]}(\textcolor{blue}{f_0}{}_0),\, \dots,\, \underbrace{\bullet}_{j},\, \dots,\, p_{[n-1]}(\textcolor{blue}{f_0}{}_n)\bigr) \in (\Cat{B}_{n-1})^{\times n}$ を $n$-射 $\textcolor{blue}{f} \in \Cat{B}_n$ が埋めているならば，
 \underline{$(\infty,\, 1)$-圏 $\Cat{E}$ における}\hyperref[def:horn]{角}の図式
 $\bigl(\textcolor{blue}{f_{0}}{}_0,\, \dots,\, \underbrace{\bullet}_{j},\, \dots,\, \textcolor{blue}{f_0}{}_n\bigr) \in (\Cat{E}_{n-1})^{\times n}$ を埋める $n$-射 $\textcolor{red}{\bar{f}} \in \Cat{E}_n$ が存在することを主張している．
@@ -1079,7 +1079,7 @@ $S \star T$ の\hyperref[def:SimpSet]{面写像}は $n \ge 1,\, 0 \le j \le n$ �
 \end{myexample}
 
 \begin{mylem}[label=lem:join-infty]{{$(\infty,\, 1)$}-圏同士のjoinは{$(\infty,\, 1)$}-圏}
-    \hyperref[def:infty-1]{$(\infty,\, 1)$-圏}同士の\hyperref[def:Simp-Join]{join}は $(\infty,\, 1)$-圏である．
+    \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}同士の\hyperref[def:Simp-Join]{join}は $(\infty,\, 1)$-圏である．
 \end{mylem}
 
 \begin{proof}
@@ -1087,7 +1087,7 @@ $S \star T$ の\hyperref[def:SimpSet]{面写像}は $n \ge 1,\, 0 \le j \le n$ �
 \end{proof}
 
 \begin{mydef}[label=def:overcat-infty,breakable]{スライス {$(\infty,\, 1)$}-圏}
-    \hyperref[def:infty-1]{$(\infty,\, 1)$-圏} $\Cat{D},\, \Cat{C}$ および\hyperref[def:infty-1]{$(\infty,\, 1)$-圏の関手} $p \in \Hom{\sSet} (\Cat{D},\, \Cat{C})$ を与える．
+    \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\Cat{D},\, \Cat{C}$ および\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $p \in \Hom{\sSet} (\Cat{D},\, \Cat{C})$ を与える．
     $p$ に沿った $\Cat{C}$ の\textbf{スライス圏} (overcategory) 
     \begin{align}
         \bm{\Cat{C}_{/p}} \colon \OP{\Delta} &\lto \SETS
@@ -1107,7 +1107,7 @@ $S \star T$ の\hyperref[def:SimpSet]{面写像}は $n \ge 1,\, 0 \le j \le n$ �
         \end{align}
         を対応付ける．
     \end{itemize}
-    実際，単体的集合 $\Cat{C}_{/p}$ は $(\infty,\, 1)$-圏である~\cite[Proposition 4.3.6.1]{Kerodon}．
+    実際，単体的集合 $\Cat{C}_{/p}$ は $(\infty,\, 1)$-圏である~\cite[\href{https://kerodon.net/tag/018F}{Tag 018F}]{kerodon}．
     
     \tcblower
 
@@ -1132,7 +1132,7 @@ $S \star T$ の\hyperref[def:SimpSet]{面写像}は $n \ge 1,\, 0 \le j \le n$ �
     \end{itemize}
 \end{mydef}
 
-特に注目すべきは，\hyperref[def:infty-1]{$(\infty,\, 1)$-圏の関手} $p \colon \Delta^0 \lto \Cat{C}$ をとった場合である．
+特に注目すべきは，\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $p \colon \Delta^0 \lto \Cat{C}$ をとった場合である．
 このとき $X \coloneqq p_{[0]} (\{0\}) \in \Cat{C}_0$ とおいて $\bm{\Cat{C}_{/X}},\; \bm{\Cat{C}_{X/}}$ などと書く．
 
 まず，$(\infty,\, 1)$-圏 $\Cat{C}_{/X}$ の対象 $\varphi \in (\Cat{C}_{/X})_0 = \Hom{p}(\Delta^0 \star \textcolor{blue}{\Delta^0},\, \Cat{C})$ をとる．
@@ -1173,17 +1173,17 @@ $(\infty,\, 1)$-圏 $\Cat{C}_{/X}$ の $n$-射も同様に図示できる．
 \subsection{{$(\infty,\, 1)$}-圏のlimit/colimit}
 
 後の議論のため，先取りして $(\infty,\, 1)$-圏におけるlimit/colimitを定義しておこう．
-$(\infty,\, 1)$-圏のモデルとして\hyperref[def:infty-1]{quasi-category}を採用する場合，これは\textbf{homotopy limit/colimit}と呼ばれることもある．
+$(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category}を採用する場合，これは\textbf{homotopy limit/colimit}と呼ばれることもある．
 
 \begin{mydef}[label=def:initial-final-infty]{{$(\infty,\, 1)$}-圏における始対象と終対象}
     \begin{itemize}
-        \item \hyperref[def:infty-1]{$(\infty,\, 1)$-圏} $\Cat{C}$ における対象 $x \in \Cat{C}_0$ が\textbf{始対象} (initial object) であるとは，\hyperref[def:hcat-infty]{ホモトピー圏} $\htpy{\Cat{C}}$ における始対象\footnote{$(1,\, 1)$-圏の\textbf{始対象}とは，空の図式における\hyperref[def:colim]{余極限}のこと．}であること．
-        \item \hyperref[def:infty-1]{$(\infty,\, 1)$-圏} $\Cat{C}$ における対象 $x \in \Cat{C}_0$ が\textbf{終対象} (final object) であるとは，\hyperref[def:hcat-infty]{ホモトピー圏} $\htpy{\Cat{C}}$ における終対象\footnote{$(1,\, 1)$-圏の\textbf{終対象}とは，空の図式における\hyperref[def:lim]{極限}のこと．}であること．
+        \item \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\Cat{C}$ における対象 $x \in \Cat{C}_0$ が\textbf{始対象} (initial object) であるとは，\hyperref[def:hcat-infty]{ホモトピー圏} $\htpy{\Cat{C}}$ における始対象\footnote{$(1,\, 1)$-圏の\textbf{始対象}とは，空の図式における\hyperref[def:colim]{余極限}のこと．}であること．
+        \item \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\Cat{C}$ における対象 $x \in \Cat{C}_0$ が\textbf{終対象} (final object) であるとは，\hyperref[def:hcat-infty]{ホモトピー圏} $\htpy{\Cat{C}}$ における終対象\footnote{$(1,\, 1)$-圏の\textbf{終対象}とは，空の図式における\hyperref[def:lim]{極限}のこと．}であること．
     \end{itemize}
 \end{mydef}
 
 \begin{mydef}[label=def:lim-colim-infty]{{$(\infty,\, 1)$}-圏のlimit/colimit}
-    \hyperref[def:infty-1]{$(\infty,\, 1)$-圏の関手} $D \colon \Cat{I} \lto \Cat{C}$ を与える\footnote{\hyperref[def:diagram]{$(1,\, 1)$-圏の場合}からのアナロジーで，$D$ を図式と見做す．}．
+    \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $D \colon \Cat{I} \lto \Cat{C}$ を与える\footnote{\hyperref[def:diagram]{$(1,\, 1)$-圏の場合}からのアナロジーで，$D$ を図式と見做す．}．
     \begin{itemize}
         \item $D$ の\textbf{limit}とは，\hyperref[def:overcat-infty]{スライス $(\infty,\, 1)$-圏} $\Cat{C}_{/D}$ における\hyperref[def:initial-final-infty]{終対象}のこと．$\bm{\lim D} \in \Cat{C}_0$ と書く．
         \item $D$ の\textbf{colimit}とは，\hyperref[def:overcat-infty]{スライス $(\infty,\, 1)$-圏} $\Cat{C}_{D/}$ における\hyperref[def:initial-final-infty]{始対象}のこと．$\bm{\colim D} \in \Cat{C}_0$ と書く．
@@ -1214,7 +1214,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infty-1]{quasi-category}�
     \end{align}
     と図示できる．ただし，2-射以上は縮退していて見えない．
     
-    　\hyperref[def:infty-1]{$(\infty,\, 1)$-圏の関手} $D \colon \Delta^1 \times \Delta^1 \lto \Cat{C}$ の\hyperref[def:lim-colim-infty]{limit}のことを（存在すれば）\textbf{pullback}と呼び，
+    　\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $D \colon \Delta^1 \times \Delta^1 \lto \Cat{C}$ の\hyperref[def:lim-colim-infty]{limit}のことを（存在すれば）\textbf{pullback}と呼び，
     \begin{align}
         D(0,\, 1) \times_{D(1,\, 1)} D(1,\, 0) \coloneqq \lim D \in \Cat{C}_0
     \end{align}
@@ -1227,17 +1227,17 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infty-1]{quasi-category}�
 \subsection{層状化空間の接構造}
 
 \begin{mydef}[label=def:Yoneda-infty]{{$(\infty,\, 1)$}-圏の米田埋め込み (informal)}
-    $\Cat{C}$ を\hyperref[def:infty-1]{$(\infty,\, 1)$-圏}とする．$(\infty,\, 1)$-圏の\textbf{米田埋め込み} (Yoneda embedding)
+    $\Cat{C}$ を\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}とする．$(\infty,\, 1)$-圏の\textbf{米田埋め込み} (Yoneda embedding)
     \begin{align}
         \yo \colon \Cat{C} \lto \inftyPsh{\Cat{C}}
     \end{align}
-    とは，$\Cat{C}$ から\hyperref[def:infinity-presheaf]{$(\infty,\, 1)$-前層の成す $(\infty,\, 1)$-圏} $\inftyPsh{\Cat{C}}$ への\hyperref[def:infty-1]{$(\infty,\, 1)$-圏の関手}であって，
+    とは，$\Cat{C}$ から\hyperref[def:infinity-presheaf]{$(\infty,\, 1)$-前層の成す $(\infty,\, 1)$-圏} $\inftyPsh{\Cat{C}}$ への\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}であって，
     対象 $x \in \Cat{C}_0$ に対して
     \begin{align}
         \yo_{[0]}(x)_{[0]} \colon \OP{\Cat{C}}_0 &\lto \SPACES_0, \\
         y &\lmto \Hom{\Cat{C}} (x,\, y)
     \end{align}
-    を充たす\footnote{$(\infty,\, 1)$-圏 $\Cat{C}$ において，対象 $x,\, y \in \Cat{C}_0$ の間の1-射全体の集合 $\Hom{\Cat{C}}(x,\, y) \subset \Cat{C}_1$ はKan複体を成す~\cite[Proposition 4.6.1.10]{Kerodon}．}ような $(\infty,\, 1)$-圏の関手 $\yo_{[0]}(x) \in \inftyPsh{\Cat{C}}_0 = \Hom{\sSet}(\OP{\Cat{C}},\, \SPACES)$ を対応付けるもののこと\footnote{厳密な構成については~\cite[Definition 8.3.3.9]{Kerodon}を参照．}．
+    を充たす\footnote{$(\infty,\, 1)$-圏 $\Cat{C}$ において，対象 $x,\, y \in \Cat{C}_0$ の間の1-射全体の集合 $\Hom{\Cat{C}}(x,\, y) \subset \Cat{C}_1$ はKan複体を成す~\cite[\href{https://kerodon.net/tag/01JC}{Tag 01JC}]{kerodon}．}ような $(\infty,\, 1)$-圏の関手 $\yo_{[0]}(x) \in \inftyPsh{\Cat{C}}_0 = \Hom{\sSet}(\OP{\Cat{C}},\, \SPACES)$ を対応付けるもののこと\footnote{厳密な構成については~\cite[\href{https://kerodon.net/tag/03NF}{Tag 03NF}]{kerodon}を参照．}．
 \end{mydef}
 
 \begin{mydef}[label=def:Enter]{enter-path category}
@@ -1251,7 +1251,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infty-1]{quasi-category}�
 
 \begin{mydef}[label=def:tangent-classifier]{tangent classifier}
     $\iota \colon \BSC \hookrightarrow \SNGLR$ を包含とする．
-    \textbf{tangent classifier}とは，\hyperref[def:infty-1]{$(\infty,\, 1)$-圏の関手}
+    \textbf{tangent classifier}とは，\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
     \begin{align}
         \bm{\tau} \colon \SNGLR \xrightarrow{\yo} \inftyPsh{\SNGLR} \xrightarrow{\iota^*} \inftyPsh{\BSC}
     \end{align}
@@ -1294,7 +1294,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infty-1]{quasi-category}�
         のこと．特に，$\MFLDB{\Cat{B}}_0$ の元は以下の2つのデータから成り，\textbf{$\bm{\Cat{B}}$-多様体}と呼ばれる：
         \begin{itemize}
             \item \hyperref[def:c-smooth]{conically smoothな層状化空間} $X \in \SNGLR_0$
-            \item \hyperref[def:infty-1]{$(\infty,\, 1)$-圏の関手} $g \colon \ENTR{X} \lto \Cat{B}$
+            \item \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $g \colon \ENTR{X} \lto \Cat{B}$
         \end{itemize}
         これらは以下の条件を充たさねばならない：
         \begin{description}
@@ -1318,7 +1318,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infty-1]{quasi-category}�
 
 \subsection{対称モノイダル {$(\infty,\, 1)$}-圏}
 
-本資料では，$(\infty,\, 1)$-圏を\hyperref[def:infty-1]{quasi-category}として定義した．
+本資料では，$(\infty,\, 1)$-圏を\hyperref[def:infinity-1]{quasi-category}として定義した．
 この小節では，quai-categoryにおける対称モノイダル構造を定義する．
 
 \begin{mydef}[label=def:Fin]{圏 {$\FIN_*$}}
@@ -1367,7 +1367,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infty-1]{quasi-category}�
 である．
 
 \begin{mydef}[label=def:Cartesian-fib,breakable]{デカルトファイブレーション}
-    $p \colon \Cat{E} \lto \Cat{B}$ を\hyperref[def:infty-1]{内的ファイブレーション}とする．
+    $p \colon \Cat{E} \lto \Cat{B}$ を\hyperref[def:infty-fib]{内的ファイブレーション}とする．
     \begin{itemize}
         \item $p$ が\textbf{デカルトファイブレーション} (Cartesian fibration) であるとは，
         \begin{itemize}

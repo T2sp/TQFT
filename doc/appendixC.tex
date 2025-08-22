@@ -94,7 +94,7 @@
 
 \chapter{$\infty$-圏}
 
-この付録では，~\cite{lurie2008higher}, ~\cite{Kerodon}, ~\cite{Land2021infinity}, ~\cite{alfonsi2023higher}に従って $(\infty,\, 1)$-圏\footnote{~\cite{Kerodon}は創始者本人によって運営されているwebサイトのようだ．}を導入する．
+この付録では，~\cite{lurie2008higher}, ~\cite{kerodon}, ~\cite{Land2021infinity}, ~\cite{alfonsi2023higher}に従って $(\infty,\, 1)$-圏\footnote{~\cite{kerodon}は創始者本人によって運営されているwebサイトのようだ．}を導入する．
 さらに，~\cite{barwick2020unicityhomotopytheoryhigher}, ~\cite{ayala2020factorizationhomologyihigher}をベースに $(\infty,\, n)$-圏の構成を試みる．
 
 \section{圏論の復習}
@@ -517,7 +517,7 @@ $\SETS$ は\hyperref[def:complete]{双完備}である．
 
 \begin{proof}
     \begin{enumerate}
-        \item $\Cat{C}$ が完備なので，図式 $D \colon I \lto \Cat{C}$ の\hyperref[def:limit]{極限}
+        \item $\Cat{C}$ が完備なので，図式 $D \colon I \lto \Cat{C}$ の\hyperref[def:lim]{極限}
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
                 &&\lim_I D \ar[dl, bend right, "p_i"'] \ar[dr, bend left, "p_j"] & \\
@@ -560,7 +560,7 @@ $\SETS$ は\hyperref[def:complete]{双完備}である．
         でなくてはいけない．
 
         \item 
-        $\Cat{C}$ が余完備なので，図式 $D \colon I \lto \Cat{C}$ の\hyperref[def:colimit]{余極限}
+        $\Cat{C}$ が余完備なので，図式 $D \colon I \lto \Cat{C}$ の\hyperref[def:colim]{余極限}
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
                 &D(i) \ar[rr, "D(f)"]\ar[dr, bend right, "p_i"']&&D(j)\ar[dl, bend left, "p_j"] \\
@@ -1268,7 +1268,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     \item 射の族 $\Familyset[\big]{\partial^n_i \colon K_n \lto K_{n-1}}{0 \le i \le n,\, n \ge 0}$
     \item 射の族 $\Familyset[\big]{\sigma^n_i \colon K_n \lto K_{n+1}}{0 \le i \le n,\, n \ge 0}$
 \end{itemize}
-の組であって単体的恒等式を充たすものは単体的集合を一意に定める~\cite[Proposition 1.1.2.14]{Kerodon}．
+の組であって単体的恒等式を充たすものは単体的集合を一意に定める\cite[\href{https://kerodon.net/tag/04FW}{Tag 04FW}]{kerodon}．
 
 \hyperref[def:SimpSet]{単体的集合} $K \colon \OP{\Delta} \lto \SETS$ を図示する方法がある．
 \begin{enumerate}
@@ -2074,16 +2074,16 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
 \end{marker}
 
 \begin{myexample}[label=def:infty-Fun]{{$(\infty,\, 1)$}-圏の関手が成す {$\infty,\, 1$}-圏}
-    \hyperref[def:infty-1]{$(\infty,\, 1)$-圏} $K,\, L$ を与える．
+    \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $K,\, L$ を与える．
     このとき，
-    % 自然変換の集合 $\Hom{\sSet} (K,\, L)$ を\hyperref[def:infty-1]{$(\infty,\, 1)$-圏}と見做すことができる．
+    % 自然変換の集合 $\Hom{\sSet} (K,\, L)$ を\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}と見做すことができる．
     \hyperref[def:SimpSet]{単体的集合}
     \begin{align}
         \FUN (K,\, L) \colon \OP{\Delta} &\lto \SETS, \\
         [n] &\lmto \Hom{\sSet} (\Delta^n \times K,\, L), \\
         \bigl( [m] \xrightarrow{\alpha} [n] \bigr) &\lmto \bigl(f \mapsto f \circ (\alpha_* \times \Id_K)\bigr)
     \end{align}
-    は $(\infty,\, 1)$-圏であることが知られている~\cite[Theorem 1.5.3.7.]{Kerodon}．
+    は $(\infty,\, 1)$-圏であることが知られている~\cite[\href{https://kerodon.net/tag/0066}{Tag 0066}]{kerodon}．
 \end{myexample}
 
 
@@ -2119,7 +2119,7 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
         \begin{align}
             U_0 \xrightarrow{g_1} U_1 \xrightarrow{g_2} \cdots \xrightarrow{g_{n}} U_n
         \end{align}
-        が定まる．ここから\eqref{eq:nerve-spine}の方法で $U \in \mathrm{N}(\Cat{C})_n$ が一意的に定まり，\hyperref[lem:Yoneda]{米田の補題}により対応する $u \in \Hom{\sSet} \bigl(\Delta^n,\, \mathrm{N}(\Cat{C})\bigr)$ が一意的に定まるが，構成からこれが所望の $u$ である~\cite[Lemma1.3.4.2]{Kerodon}．
+        が定まる．ここから\eqref{eq:nerve-spine}の方法で $U \in \mathrm{N}(\Cat{C})_n$ が一意的に定まり，\hyperref[lem:Yoneda]{米田の補題}により対応する $u \in \Hom{\sSet} \bigl(\Delta^n,\, \mathrm{N}(\Cat{C})\bigr)$ が一意的に定まるが，構成からこれが所望の $u$ である\cite[\href{https://kerodon.net/tag/0032}{Tag 0032}]{kerodon}．
         % ．この $u$ が\hyperref[def:KanCplx]{弱Kan条件}を充たすことを示す（なお，弱Kan条件を充たす $u$ の一意性は明らかである．実際，$u'|_{\Lambda^n_j} = f$ を充たすもう一つの $u'$ が存在したとすると，$u'$ もまた $U$ に対応付けられるため $u=u'$ だと分かる）．
         % $n = 2$ のときは，$0 < j < 2$ なので $j=1$ となる．\exref{ex:horn}より，$0 < \forall k \le 2$ に対して $g_k \coloneqq f_{[1]}(\{k-1\} \lto \{k\})$ とおくと，
         % \begin{align}
@@ -2361,7 +2361,7 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
 \subsection{$(\infty,\, 1)$-圏の圏同値}
 
 \begin{mydef}[label=def:infty-homotopy-morphism,breakable]{1-射の間のホモトピー}
-    $K$ を\hyperref[def:infty-1]{$(\infty,\, 1)$-圏}，$f,\, g \in K_1$ を\hyperref[def:infty-1]{始点と終点}が同一であるような $K$ の1-射とする．
+    $K$ を\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}，$f,\, g \in K_1$ を\hyperref[def:infinity-1]{始点と終点}が同一であるような $K$ の1-射とする．
     
     このとき，\textbf{$\bm{f}$ と $\bm{g}$ を繋ぐホモトピー}とは，2-射 $\sigma \in K_2$ であって以下を充たすもののこと：
     \begin{itemize}
@@ -2381,7 +2381,7 @@ X \arrow[rr, "g"'] \arrow[ruu, "f"] &                       & Y
 \end{mydef}
 
 \begin{mylem}[label=def:infty-homotopy-equivalence]{ホモトピックは同値関係}
-    $K$ を\hyperref[def:infty-1]{$(\infty,\, 1)$-圏}，$\Hom{K}(X,\, Y) \subset K_1$ を，対象 $X,\, Y \in K_0$ をそれぞれ始点，終点に持つような1-射全体が成す集合とする．
+    $K$ を\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}，$\Hom{K}(X,\, Y) \subset K_1$ を，対象 $X,\, Y \in K_0$ をそれぞれ始点，終点に持つような1-射全体が成す集合とする．
     このとき，2項関係
     \begin{align}
         f \simeq g \DEF f,\, g\; \text{を\hyperref[def:infty-homotopy-morphism]{繋ぐホモトピー}が存在}
@@ -2393,7 +2393,7 @@ X \arrow[rr, "g"'] \arrow[ruu, "f"] &                       & Y
     
 \end{proof}
 
-$K$ を\hyperref[def:infty-1]{$(\infty,\, 1)$-圏}とする．$\forall X,\, Y,\, Z \in K_0$ に対して
+$K$ を\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}とする．$\forall X,\, Y,\, Z \in K_0$ に対して
 \begin{align}
     \bm{\Hom{\htpy{K}} (X,\, Y)} &\coloneqq \Hom{K} (X,\, Y)/{\simeq}
 \end{align}
@@ -2407,7 +2407,7 @@ $K$ を\hyperref[def:infty-1]{$(\infty,\, 1)$-圏}とする．$\forall X,\, Y,\,
     
 
 \begin{mydef}[label=def:hcat-infty,breakable]{{$(\infty,\, 1)$}-圏のホモトピー圏}
-    \hyperref[def:infty-1]{$(\infty,\, 1)$-圏} $K$ の\textbf{ホモトピー圏} (homotopy category) $\htpy{K}$ とは，次のように定義される $(1,\, 1)$-圏のこと：
+    \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $K$ の\textbf{ホモトピー圏} (homotopy category) $\htpy{K}$ とは，次のように定義される $(1,\, 1)$-圏のこと：
     \begin{itemize}
         \item $\Obj{\htpy{K}} \coloneqq K_0$
         \item $\Hom{\htpy{K}} (X,\, Y)$ をHom集合とする．
@@ -2417,7 +2417,7 @@ $K$ を\hyperref[def:infty-1]{$(\infty,\, 1)$-圏}とする．$\forall X,\, Y,\,
 \end{mydef}
 
 \begin{mydef}[label=def:isom-infty]{{$(\infty,\, 1)$}-圏における対象の同型}
-    \hyperref[def:infty-1]{$(\infty,\, 1)$-圏} $K$ を与える．
+    \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $K$ を与える．
     \begin{itemize}
         \item 1-射 $f \in K_0$ が\textbf{同型射} (isomorphism) であるとは，$K$ の\hyperref[def:hcat-infty]{ホモトピー圏} $\htpy{K}$ において $[f]$ が\hyperref[def:iso]{同型射}であることを言う．
         \item 対象 $X,\, Y \in K_0$ が\textbf{同型} (isomorphic) であるとは，$X,\, Y$ をそれぞれ始点・終点に持つ $K$ の同型射が存在することを言う．
@@ -2427,13 +2427,13 @@ $K$ を\hyperref[def:infty-1]{$(\infty,\, 1)$-圏}とする．$\forall X,\, Y,\,
 \begin{mydef}[label=def:hqCat]{{$\qCat$}のホモトピー圏}
     $(1,\, 1)$-圏 $\htpy{(\qCat)}$ を以下で定義する：
     \begin{itemize}
-        \item \hyperref[def:infty-1]{$(\infty,\, 1)$-圏}を対象とする
+        \item \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}を対象とする
         \item \exref{def:infty-Fun}で構成した $(\infty,\, 1)$-圏 $\FUN(K,\, L)$ の\hyperref[def:hcat-infty]{ホモトピー圏} $\htpy{\bigl(\FUN(K,\, L)\bigr)}$ における対象の\hyperref[def:iso]{同型}類を射とする
     \end{itemize}
 \end{mydef}
 
 \begin{mydef}[label=def:equiv-infty]{{$(\infty,\, 1)$}-圏の同値}
-    \hyperref[def:infty-1]{$(\infty,\, 1)$-圏の関手} $F \colon K \lto L$ が\textbf{$\bm{(\infty,\, 1)}$-圏同値}であるとは，$[F] \in \Hom{\htpy{(\qCat)}}(K,\, L)$ が同型射であることを言う．
+    \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $F \colon K \lto L$ が\textbf{$\bm{(\infty,\, 1)}$-圏同値}であるとは，$[F] \in \Hom{\htpy{(\qCat)}}(K,\, L)$ が同型射であることを言う．
 \end{mydef}
 
 
@@ -2707,7 +2707,7 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
     \begin{align}
          \SPACES \coloneqq \irm{\mathrm{N}}{hc} (\KAN)
     \end{align}
-    と書く．実際，\hyperref[def:SimpSet]{単体的集合} $\SPACES \in \Obj{\sSet}$ は\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}である~\cite[Proposition 5.5.1.2.]{Kerodon}
+    と書く．実際，\hyperref[def:SimpSet]{単体的集合} $\SPACES \in \Obj{\sSet}$ は\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}である\cite[\href{https://kerodon.net/tag/01YY}{Tag 01YY}]{kerodon}．
 \end{myexample}
 
 
@@ -2774,7 +2774,7 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
     \end{align}
 \end{mydef}
 
-一見するとホモトピーと単体的ホモトピーは別のものに見えるが，実は同じものである．\hyperref[def:SimpSet-homotopy]{単体的ホモトピー} $\Familyset[\big]{h_i \colon X_n \lto Y_{n+1}}{i = 0,\, \dots,\, n,\, n \ge 0}$ が与えられたとする．このとき $\sSet$ の射 $\eta \in \Hom{\sSet}(X \times \Delta^1,\, Y)$ を
+一見するとホモトピーと単体的ホモトピーは別のものに見えるが，実は同じものである．\hyperref[def:SimpSet-homotopic]{単体的ホモトピー} $\Familyset[\big]{h_i \colon X_n \lto Y_{n+1}}{i = 0,\, \dots,\, n,\, n \ge 0}$ が与えられたとする．このとき $\sSet$ の射 $\eta \in \Hom{\sSet}(X \times \Delta^1,\, Y)$ を
 \begin{align}
     \eta_0 &\coloneqq \partial_0 \circ h_0, \\
     \eta_{n+1} &\coloneqq \partial_{n+1} \circ h_n, \\
@@ -2856,7 +2856,7 @@ $a,\, b \in Z_n (X,\, *)$ に対して，系\ref{col:horn-coeq}，命題\ref{pro
     \begin{align}
         \bm{\OP{K}} \colon \OP{\Delta} \xrightarrow{\mathrm{OP}} \OP{\Delta} \xrightarrow{K} \SETS
     \end{align}
-    のことを言う．$\OP{K}$ もまた $(\infty,\, 1)$-圏である~\cite[Proposition 1.4.2.6.]{Kerodon}．
+    のことを言う．$\OP{K}$ もまた $(\infty,\, 1)$-圏である~\cite[\href{https://kerodon.net/tag/003S}{Tag 003S}]{kerodon}．
 \end{mydef}
 
 反対圏 $\OP{K}$ における\hyperref[def:SimpSet]{面写像・縮退写像}はそれぞれ
@@ -2879,7 +2879,7 @@ $a,\, b \in Z_n (X,\, *)$ に対して，系\ref{col:horn-coeq}，命題\ref{pro
         \begin{align}
             \inftyPsh{K} \coloneqq \FUN(\OP{K},\, \SPACES) \in \Obj{\sSet}
         \end{align}
-        のこと．$\inftyPsh{K}$ は $(\infty,\, 1)$-圏である~\cite[Theorem 1.5.3.7.]{Kerodon}
+        のこと．$\inftyPsh{K}$ は $(\infty,\, 1)$-圏である~\cite[\href{https://kerodon.net/tag/0066}{Tag 0066}]{kerodon}
         \footnote{$\inftyPsh{K}_0 = \Hom{\sSet} (\OP{K} \times \Delta^0,\, \SPACES) \cong \Hom{\sSet}(\OP{K},\, \SPACES)$ より，$\inftyPsh{K}$ の\hyperref[def:infinity-1]{対象} (0-セル) がまさに $K$ 上の $(\infty,\, 1)$-前層となっている．}
     \end{itemize}
 \end{mydef}

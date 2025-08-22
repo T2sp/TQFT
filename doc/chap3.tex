@@ -919,7 +919,7 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
         % i.e. $\Sigma,\, \Sigma'$ について，$Z(\Sigma \amalg \Sigma') = Z(\Sigma) \otimes Z(\Sigma')$ を充たす．
     \end{description}
     % $D$ 次元の\textbf{位相的場の理論} (Topological Quantum Field Theory; TQFT) とは，
-    % \hyperref[Cob-string]{コボルディズム圏}からある\hyperref[def:braided-monoidal]{対称モノイダル圏} $\mathcal{D}$ への\hyperref[def:monidal-functor]{strict monoidal functor}\footnote{strong monoidal functorとする場合もある（例えば\url{https://ncatlab.org/nlab/show/cobordism}）ようだが，原論文~\cite{Atiyah1988tqft}ではstrict monoidal functorになっていた．}
+    % \hyperref[ex:Bord]{コボルディズム圏}からある\hyperref[def:braided-monoidal]{対称モノイダル圏} $\mathcal{D}$ への\hyperref[def:monidal-functor]{strict monoidal functor}\footnote{strong monoidal functorとする場合もある（例えば\url{https://ncatlab.org/nlab/show/cobordism}）ようだが，原論文~\cite{Atiyah1988tqft}ではstrict monoidal functorになっていた．}
     % \begin{align}
     %     Z \colon \BORD{D}{D+1}\lto \mathcal{D}
     % \end{align}
@@ -988,7 +988,7 @@ $Z(M) \in V(\partial M) = Z(\Sigma_1)^* \otimes Z(\Sigma_2) \cong \Hom{\mathbb{K
 
 \begin{mydef}[label=def:TQFT]{TQFTの定義}
     $D$ 次元の\textbf{位相的場の理論} (Topological Quantum Field Theory; TQFT) とは，
-    \hyperref[Cob-string]{コボルディズム圏}からある\hyperref[def:braided-monoidal]{対称モノイダル圏} $\mathcal{D}$ への\hyperref[def:monidal-functor]{strict monoidal functor}\footnote{strong monoidal functorとする場合もある（例えば\url{https://ncatlab.org/nlab/show/cobordism}）ようだが，原論文~\cite{Atiyah1988tqft}ではstrict monoidal functorになっていた．}
+    \hyperref[ex:Bord]{コボルディズム圏}からある\hyperref[def:braided-monoidal]{対称モノイダル圏} $\mathcal{D}$ への\hyperref[def:monidal-functor]{strict monoidal functor}\footnote{strong monoidal functorとする場合もある（例えば\url{https://ncatlab.org/nlab/show/cobordism}）ようだが，原論文~\cite{Atiyah1988tqft}ではstrict monoidal functorになっていた．}
     \begin{align}
         Z \colon \BORD{D}{D+1}\lto \mathcal{D}
     \end{align}
@@ -3701,7 +3701,7 @@ $\BIMODC{\Cat{C}}{\textcolor{red}{A}}{\textcolor{red}{A}}$ のassociatorとunito
 
 \begin{mytheo}[label=thm:modulecat]{加群圏の特徴付け}
     \begin{itemize}
-        \item \hyperref[def:finite-abcat]{有限}な\hyperref[def:tenosrfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$
+        \item \hyperref[def:finite-abcat]{有限}な\hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$
         \item 既約かつ\hyperref[def:modulecat-exact]{完全}な\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏} $(\Cat{M},\, \btr,\, \alpha,\, \lambda)$\footnote{~\cite[p.152]{etingof2015tensor}}
         \item 勝手な $\Cat{M}$ の対象 $m \in \Obj{\Cat{M}}$
     \end{itemize}
@@ -3725,10 +3725,10 @@ $\BIMODC{\Cat{C}}{\textcolor{red}{A}}{\textcolor{red}{A}}$ のassociatorとunito
 \subsection{再ゲージ化}
 
 既約かつ\hyperref[def:modulecat-exact]{完全}な\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏} $(\Cat{M},\, \btr,\, \alpha,\, \lambda)$ を1つ固定する．
-命題\ref{prop:symcat-2d-gauged}, \ref{prop:domainwall-gauged}および定理\ref{thm:modulecat}から，ある\hyperref[def:sym-Frobenius]{対称Frobenius代数対象} $A \in \Obj{\Cat{C}}$ が存在して左 $\Cat{C}$-加群圏の同値 $\Cat{M} \cong \MODCR{\Cat{C}}{A}$ が成り立ち，ゲージ化された理論 $T/\Cat{M}$ は $\Cat{C}' \coloneqq \BIMODC{\Cat{C}}{A}{A}$ の対称性を持ち，$\Cat{M}$ は自然に\hyperref[def:bimodule-cat]{$(\Cat{C},\, \BIMODC{\Cat{C}}{A}{A})$-両側加群圏}の構造を持つ．
+命題\ref{prop:symcat-2d-gauged}, \ref{prop:domainwall-gauged}および定理\ref{thm:modulecat}から，ある\hyperref[def:sym-Frobenius]{対称Frobenius代数対象} $A \in \Obj{\Cat{C}}$ が存在して左 $\Cat{C}$-加群圏の同値 $\Cat{M} \cong \MODCR{\Cat{C}}{A}$ が成り立ち，ゲージ化された理論 $T/\Cat{M}$ は $\Cat{C}' \coloneqq \BIMODC{\Cat{C}}{A}{A}$ の対称性を持ち，$\Cat{M}$ は自然に\hyperref[def:bimodulecat]{$(\Cat{C},\, \BIMODC{\Cat{C}}{A}{A})$-両側加群圏}の構造を持つ．
 
 既約かつ\hyperref[def:modulecat-exact]{完全}な\hyperref[def:modulecat]{左 $\BIMODC{\Cat{C}}{A}{A}$-加群圏} $(\Cat{M}',\, \btr',\, \alpha',\, \lambda')'$ をとってきてこの操作を繰り返すことは，
-\hyperref[def:bimodule-cat]{$(\Cat{C},\, \Cat{C}'')$-両側加群圏}の構造を持つ\hyperref[def:DeligneProduct]{Deligneのテンソル積} $\Cat{M} \boxtimes_{\Cat{C}'} \Cat{M}'$ によって $T/(\Cat{M} \boxtimes_{\Cat{C}'} \Cat{M}')$ とゲージ化することに等しい．
+\hyperref[def:bimodulecat]{$(\Cat{C},\, \Cat{C}'')$-両側加群圏}の構造を持つ\hyperref[def:DeligneProduct]{Deligneのテンソル積} $\Cat{M} \boxtimes_{\Cat{C}'} \Cat{M}'$ によって $T/(\Cat{M} \boxtimes_{\Cat{C}'} \Cat{M}')$ とゲージ化することに等しい．
 特に，$\Cat{M}$ の反対加群\footnote{反対圏は op を上付きに書くことで区別する．} $\irm{\Cat{M}}{op}$ を加群積の順序を逆にすることで定義する\footnote{より正確には，さらにleft/right actorの逆写像をとる}と，$\irm{\Cat{M}}{op}$ は $(\Cat{C}',\, \Cat{C})$-両側加群圏となり，$\Cat{M} \boxtimes_{\Cat{C}'} \irm{\Cat{M}}{op}$ によるゲージ化は対称性を元に戻す．i.e. 定義\ref{def:gauged-isom}の意味で $T \cong T/\Cat{M}/\irm{\Cat{M}}{op}$ が成り立つ．
 
 \subsection{ゲージ化で移り合える対称性}
@@ -3811,7 +3811,7 @@ $\Cat{C}$ の\hyperref[def:semisimple-cat]{単純対象}の同型類が成す有
     \end{enumerate}
 \end{proof}
 
-$\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わずに\hyperref[def:additive-cat]{$\mathbb{K}$-線形な加法圏}における\hyperref[def:semisimple]{半単純性}を特徴付ける方法が存在する~\cite[p.6]{Mueger2002subfactor}．
+$\mathbb{K}$ を代数閉体とするとき，アーベル圏の構造を使わずに\hyperref[def:additive-cat]{$\mathbb{K}$-線形な加法圏}における\hyperref[def:semisimple-cat]{半単純性}を特徴付ける方法が存在する~\cite[p.6]{Mueger2002subfactor}．
 
 \begin{mydef}[label=def:semisimple-Muger,breakable]{M\"{u}ger半単純}
     \hyperref[def:additive-cat]{$\mathbb{K}$-線形な加法圏} $\Cat{C}$ が\textbf{M\"{u}ger半単純}であるとは，

@@ -262,7 +262,7 @@
         
         \tcblower
 
-        $\Cat{C}$ を \hyperref[def:additivecat]{$\mathbb{C}$-線形なアーベル圏}とする．
+        $\Cat{C}$ を \hyperref[def:additive-cat]{$\mathbb{C}$-線形なアーベル圏}とする．
         $\Cat{C}$ の\textbf{ユニタリ構造} (unitary structure) とは，以下の条件を充たすダガー構造
         \begin{align}
             \dagger \colon \OP{\Cat{C}} \lto \Cat{C}
@@ -303,7 +303,7 @@
     \end{mydef}
 
     \begin{myprop}[label=reprop:unitary-Cstar]{ユニタリ構造と $C^*$ 構造}
-        \hyperref[def:additivecat]{$\mathbb{C}$-線形なアーベル圏} $\Cat{C}$ が\hyperref[def:starcat]{$C^*$-圏}であることと，\hyperref[redef:unitary]{ユニタリ圏}であることは同値である．
+        \hyperref[def:additive-cat]{$\mathbb{C}$-線形なアーベル圏} $\Cat{C}$ が\hyperref[def:starcat]{$C^*$-圏}であることと，\hyperref[redef:unitary]{ユニタリ圏}であることは同値である．
     \end{myprop}
     
     \begin{proof}
@@ -375,7 +375,7 @@
         \begin{align}
             \times \colon \CAT \times \CAT \lto \CAT
         \end{align}
-        を $\Obj{\Cat{C} \times \Cat{D}} \coloneqq \Obj{\Cat{C}} \times \Obj{\Cat{D}}$ により定めると，組み $(\CAT,\, \times,\, I)$ は\hyperref[redef:monoidal]{厳密なモノイダル圏}になる．ただし $I$ はただ1つの対象 $\bullet$ を持ち，$\Hom{I}(\bullet,\,\bullet) = \{\Id_{\bullet}\}$ とする圏である\footnote{これは $\CAT$ の\hyperref[def:colim]{終対象}でもある．}
+        を $\Obj{\Cat{C} \times \Cat{D}} \coloneqq \Obj{\Cat{C}} \times \Obj{\Cat{D}}$ により定めると，組み $(\CAT,\, \times,\, I)$ は\hyperref[redef:monoidal-category]{厳密なモノイダル圏}になる．ただし $I$ はただ1つの対象 $\bullet$ を持ち，$\Hom{I}(\bullet,\,\bullet) = \{\Id_{\bullet}\}$ とする圏である\footnote{これは $\CAT$ の\hyperref[def:colim]{終対象}でもある．}
     \end{myexample}
 
 
@@ -1629,7 +1629,7 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
         同様の議論から $z^* \xrightarrow{g^*} y^* \xrightarrow{f^*} x^* \lto 0$ の完全性も従う．
 
         \item 任意のゼロでない単純な部分対象 $x \overset{i}{\hookrightarrow} 1$ を1つとる\footnote{アーベル圏 $\Cat{C}$ の\hyperref[def:finite-abcat]{有限性}から，このような $x$ は存在する．}．
-        $\Cat{C}$ は\hyperref[def:additivecat]{アーベル圏}なので $i$ の余核が存在し，
+        $\Cat{C}$ は\hyperref[def:additive-cat]{アーベル圏}なので $i$ の余核が存在し，
         \begin{align}
             0 \lto x \overset{i}{\hookrightarrow} 1 \xrightarrow{\coker i} \Coker i \lto 0
         \end{align}
@@ -4382,7 +4382,7 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
     \hyperref[redef:monoidal-category]{モノイダル圏} $(\Cat{C},\, \otimes ,\, 1)$ の対象 $x \in \Obj{\Cat{C}}$ を1つとる．
     
     \begin{itemize}
-        \item 対象 $y \in \Obj{\Cat{C}}$ が $x$ の\textbf{弱い逆対象} (weak inverse) であるとは，\hyperref[def:iso]{対象の同型}の意味で\footnote{\hyperref[nat]{自然同型}ではない} $x \otimes y \cong 1 \AND y \otimes x \cong 1$ が成り立つことを言う．
+        \item 対象 $y \in \Obj{\Cat{C}}$ が $x$ の\textbf{弱い逆対象} (weak inverse) であるとは，\hyperref[def:iso]{対象の同型}の意味で\footnote{\hyperref[def:nat]{自然同型}ではない} $x \otimes y \cong 1 \AND y \otimes x \cong 1$ が成り立つことを言う．
         \item $x$ が\textbf{弱可逆} (weakly invertible) であるとは，$x$ が弱い逆対象を持つことを言う．
     \end{itemize}
     
@@ -4742,7 +4742,7 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
         \item 射 $\Id_1 \colon 1 \lto \mathrm{id}(1) = 1$
         \item 射の族 $\Familyset[\big]{\gamma_{x,y} \colon \mathrm{id}(x \tilde{\otimes} y) \lto \mathrm{id}(x) \otimes \mathrm{id}(y) }{x,\, y \in \Obj{\Cat{G}}}$
     \end{itemize}
-    の3つ組が\hyperref[def:monoidal-functior]{モノイダル関手}になるように関手 $\tilde{\otimes} \colon \Cat{G} \times \Cat{G} \lto \Cat{G}$ および自然変換 $\tilde{a},\, \tilde{l},\, \tilde{r}$ を構成することができる．
+    の3つ組が\hyperref[def:monoidal-functor]{モノイダル関手}になるように関手 $\tilde{\otimes} \colon \Cat{G} \times \Cat{G} \lto \Cat{G}$ および自然変換 $\tilde{a},\, \tilde{l},\, \tilde{r}$ を構成することができる．
     $\tilde{\lev},\, \tilde{\lcoev}$ は，以下の可換図式が成り立つように決めれば良い：
     \begin{center}
         \begin{tikzcd}[row sep=large, column sep=large]
@@ -4854,7 +4854,7 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
 \subsection{2-crossed moduleと厳密な3-群}
 
 \begin{mydef}[label=def:S3G]{厳密な3-群}
-    \hyperref[def:str3-cat]{厳密な3-圏} $\Cat{G}$ であって，ただ1つの対象を持ち，1-射，2-射，3-射が厳密に可逆であるものを\textbf{厳密な3-群} (strict 3-category) と呼ぶ．
+    \hyperref[def:str3cat]{厳密な3-圏} $\Cat{G}$ であって，ただ1つの対象を持ち，1-射，2-射，3-射が厳密に可逆であるものを\textbf{厳密な3-群} (strict 3-category) と呼ぶ．
 \end{mydef}
 
 \begin{mydef}[label=def:2crossed]{2-交差加群}
