@@ -659,7 +659,7 @@ $C^\infty$ 多様体の $C^\infty$ 構造の定義においては，チャート
             \item $\depth (E) = 0$ のとき，$\pi$ が構成可能束であるとは，$\pi$ が $C^\infty$ ファイバー束であることを言う．
             \item 深さ $k \ge 0$ までの定義が完了しているとする．$\depth(E) \le k+1$ のとき，$\pi$ が構成可能束であるとは，以下の2条件を充たすことを言う：
             \begin{description}
-                \item[\textbf{(cBun-1)}] $f$ は弱構成可能束である．
+                \item[\textbf{(cBun-1)}] $\pi$ は弱構成可能束である．
                 \item[\textbf{(cBun-2)}] $\forall q \in Q$ に対して，$\pi$ が誘導する層状化写像
                 \begin{align}
                     \Link_{\pi^{-1}(B_q)} (E) \lto \pi^{-1}(B_q) \times_{B_q} \Link_{B_q} (B)
@@ -1316,10 +1316,10 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 
 \section{Disk algebras}
 
-\subsection{対称モノイダル {$(\infty,\, 1)$}-圏}
+\subsection{{$(\infty,\, 1)$}-オペラッド}
 
 本資料では，$(\infty,\, 1)$-圏を\hyperref[def:infinity-1]{quasi-category}として定義した．
-この小節では，quai-categoryにおける対称モノイダル構造を定義する．
+この小節では，quai-categoryにおけるcolored operadを定義する．
 
 \begin{mydef}[label=def:Fin]{圏 {$\FIN_*$}}
     $(1,\, 1)$-圏 $\FIN_*$ を以下で定義する：
@@ -1336,6 +1336,13 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
         \begin{align}
             \Hom{\FIN_*}\bigl( \expval{m},\, \expval{n} \bigr)  \coloneqq \bigl\{\, f \in \Hom{\SETS} \bigl( \expval{m},\, \expval{n} \bigr)  \bigm| f(*) = * \,\bigr\}.
         \end{align}
+    \end{itemize}
+\end{mydef}
+
+\begin{mydef}[label=def:innert-active]{innert/active morphism}
+    \begin{itemize}
+        \item \hyperref[def:Fin]{圏 $\FIN_*$} における射 $f \in \Hom{\FIN_*} (\expval{m},\, \expval{n})$ が\textbf{innert}であるとは，$\forall i \in \expval{n} \setminus \{*\}$ に対して $f^{-1} \bigl( \{i\} \bigr) \subset \expval{m}$ が1点集合であることを言う．
+        \item \hyperref[def:Fin]{圏 $\FIN_*$} における射 $f \in \Hom{\FIN_*} (\expval{m},\, \expval{n})$ が\textbf{active}であるとは，$f^{-1} \bigl( \{*\} \bigr) = \{*\} \subset \expval{m}$ であることを言う．
     \end{itemize}
 \end{mydef}
 
@@ -1366,7 +1373,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 \end{align}
 である．
 
-\begin{mydef}[label=def:Cartesian-fib,breakable]{デカルトファイブレーション}
+\begin{mydef}[label=def:Cart-coCart,breakable]{デカルトファイブレーション}
     $p \colon \Cat{E} \lto \Cat{B}$ を\hyperref[def:infty-fib]{内的ファイブレーション}とする．
     \begin{itemize}
         \item $p$ が\textbf{デカルトファイブレーション} (Cartesian fibration) であるとは，
@@ -1458,9 +1465,17 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
             を充たす唯一の自然変換である．
         \end{description}
     \end{itemize}
+    
+    \tcblower
+
+    $p \colon \Cat{E} \lto \Cat{B}$ を\hyperref[def:infty-fib]{内的ファイブレーション}とする．
+    \begin{itemize}
+        \item $\Cat{E}$ の1-射 $(x \xrightarrow{f} y) \in \Cat{E}_1$ が\textbf{$\bm{p}$-Cartesian}であるとは，それが条件 \textsf{\textbf{(Cart-2)}} を充たすことを言う．
+        \item $\Cat{E}$ の1-射 $(x \xrightarrow{f} y) \in \Cat{E}_1$ が\textbf{$\bm{p}$-coCartesian}であるとは，それが条件 \textsf{\textbf{(coCart-2)}} を充たすことを言う．
+    \end{itemize}
 \end{mydef}
 
-$n=2$ の場合の\hyperref[def:Cartesian-fib]{\textsf{\textbf{(coCart-2)}}}の可換図式を系\ref{col:horn-coeq}を用いて書き直そう．
+$n=2$ の場合の\hyperref[def:Cart-coCart]{\textsf{\textbf{(coCart-2)}}}の可換図式を系\ref{col:horn-coeq}を用いて書き直そう．
 まず，包含 $\mathrm{N}\bigl( \{0 \le 1\} \bigr) \hookrightarrow \Lambda^2_0$ というのは，系\ref{col:horn-coeq}による角 $\Lambda^2_0$ の図示
 \begin{center}
     \begin{tikzpicture} 
@@ -1496,7 +1511,7 @@ $n=2$ の場合の\hyperref[def:Cartesian-fib]{\textsf{\textbf{(coCart-2)}}}の�
         % \draw[->-=.5] (v1) -- (v2);
     \end{tikzpicture}
 \end{align}
-となる．従って，\hyperref[def:Cartesian-fib]{\textsf{\textbf{(coCart-2)}}}の主張は次のように言い換えられる：
+となる．従って，\hyperref[def:Cart-coCart]{\textsf{\textbf{(coCart-2)}}}の主張は次のように言い換えられる：
 
 $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\textcolor{blue}{\varphi} \in \Hom{\sSet}(\Delta^2,\, \Cat{B}) \cong \Cat{B}_2$ によって
 \begin{center}
@@ -1537,6 +1552,39 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
 \end{center}
 のように埋める2-射 $\textcolor{red}{\bar{\varphi}} \in \Hom{\sSet}(\Delta^2,\, \Cat{E}) \cong \Cat{E}_2$ が存在する．
 
+\begin{mydef}[label=def:infty-operad]{{$(\infty,\, 1)$}-オペラッド}
+    \hyperref[def:innert-active]{innertな}射 $\rho^i \in \Hom{\FIN_*}\bigl( \expval{n},\, \expval{1} \bigr)$ を
+    \begin{align}
+        \rho^i \colon \expval{n} &\lto \expval{1}, \\
+        j &\lmto \begin{cases}
+            1, &j=i \\
+            *, &j\neq i
+        \end{cases}
+    \end{align}
+    で定義する．
+    $\bm{(\infty,\, 1)}$\textbf{-オペラッド} ($(\infty,\, 1)$-operad)\footnote{$\infty$-operadとも呼ばれる．} は，
+    \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $p \colon \Cat{O}^{\otimes} \lto \mathrm{N}(\FIN_*)$ であって以下の条件を充たすもののこと：
+    \begin{description}
+        \item[\textbf{(Op-1)}]　
+        
+        任意の\hyperref[def:innert-active]{innertな}射 $f \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $\forall c \in (\Cat{O}^\otimes_{\expval{m}})_0$ に対して，
+        $\Cat{O}^\otimes$ における\hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射 $\bar{f} \colon c \lto c'$ が存在して $p_{[1]}(\bar{f}) = f$ を充たす．
+        
+        \item[\textbf{(Op-2)}]　
+        
+        $\forall f \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $\forall c \in (\Cat{O}^\otimes_{\expval{m}})_0,\; \forall c' \in (\Cat{O}^\otimes_{\expval{n}})_0$ に対して，
+        innertな射 $\rho^i \in  \Hom{\FIN_*}\bigl( \expval{n},\, \expval{1} \bigr)$ に \textsf{\textbf{(Op-1)}} を適用して得られる\hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射 $c' \lto c'_i$ が誘導する $(\infty,\, 1)$-圏の関手
+        \begin{align}
+            \Hom{\Cat{O}^\otimes}^f (c,\, c') \lto \prod_{i=1}^n \Hom{\Cat{O}^\otimes}^{\rho^i \circ f} (c,\, c'_i)
+        \end{align}
+        は\hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}である．
+
+        \item[\textbf{(Op-3)}]　
+        
+        $\forall c_1,\, \dots,\, c_n \in (\Cat{O}^\otimes_{\expval{1}})_0$ に対して，
+        ある $c \in (\Cat{O}^\otimes_{\expval{n}})_0$ および \hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射 $\overline{\rho^i} \in \Hom{\Cat{O}^\otimes}^{\rho^i} (c,\, c_i)$ が存在する．
+    \end{description}
+\end{mydef}
 
 
 \end{document}
