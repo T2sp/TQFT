@@ -83,8 +83,8 @@ P \arrow[r, red,"\tilde{f}"']                & P'
     CW複体 $X$ を与える．$X_{\le k}$ を $X$ の $k$-骨格とするとき，$X_k \setminus X_{k-1}$ を $k \in \mathbb{Z}_{\ge 0}$ に写す写像 $s \colon X \lto \mathbb{Z}_{\ge 0}$ は $X$ の\hyperref[def:stratified-space]{層状化}を与える．
 \end{myexample}
 
-直観的には，層状化空間とはdefect付き $C^\infty$ 多様体の一般化である．
-特に $X$ を $C^\infty$ 多様体とするとき，$[n]$-層状化空間 $(X,\, s \colon X \lto [n])$ の $i$-層 $X_i$ とは，多様体 $X$ 上の余次元 $d-i$ のdefectを全て集めてきたものだと見做せる．
+直観的には，層状化空間とはdefect付き位相多様体の一般化である．
+特に $X$ を位相多様体とするとき，$[n]$-層状化空間 $(X,\, s \colon X \lto [n])$ の $i$-層 $X_i$ とは，多様体 $X$ 上の余次元 $d-i$ のdefectを全て集めてきたものだと見做せる．
 
 \begin{mydef}[label=def:strat-emb]{層状化開埋め込み}
     \hyperref[def:stratified-space]{層状化写像} $(f,\, \tilde{f}) \colon (X,\, s \colon X \lto P) \lto (X',\, s' \colon X' \lto P')$ が\textbf{層状化開埋め込み} (stratified open embedding) であるとは，以下の2条件を充たすことを言う：
@@ -221,6 +221,8 @@ i.e. 商位相空間
     は\hyperref[def:strat-emb]{層状化埋め込み}であり，従って \hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-4)}}}より $U \coloneqq (U \to [0]) \in \Obj{\SnglrC}$ が分かる．
     以上の考察と\hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-5)}}}を併せて，任意の位相多様体 $M$ は\footnote{より正確には，$M$ を\hyperref[def:stratified-space]{層状化空間} $(M \to [0])$ と同一視している．}圏 $\SnglrC$ の対象である．
 \end{myexample}
+
+\exref{ex:topomfld}の意味で，\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間}は位相多様体の一般化と見做せる．しかしまだそこには $C^\infty$ 構造を一般化した構造は入っておらず，$C^\infty$ 多様体の一般化とは見做せない．
 
 \subsection{$C^0$ basic}
 
@@ -370,7 +372,7 @@ $C^\infty$ 多様体の $C^\infty$ 構造の定義においては，チャート
     が成り立つ．
 \end{myexample}
 
-次元と深さに関する帰納法を実行する前に，構成したい圏を表す記号の整理をしておこう：
+次元と深さに関する帰納法を実行する前に，構成したい $(1,\, 1)$-圏を表す記号の整理をしておこう：
 \begin{itemize}
     \item conically smoothチャートの素材となる，\textbf{basic}が成す圏
     \begin{align}
@@ -490,7 +492,7 @@ $C^\infty$ 多様体の $C^\infty$ 構造の定義においては，チャート
             \item[\textbf{(Atlas-2)}]　
             
             $\forall \alpha,\, \beta \in \Lambda$ および $\forall x \in \varphi_\alpha (U_\alpha) \cap \varphi_\beta (U_\beta)$ に対して，
-            \hyperref[def:Bsc-induction]{圏 $\Bsc_{\le k+1,\, \le \infty}$}の可換図式
+            圏 $\SnglrC_{\le k+1,\, \le \infty}$ の可換図式
             \begin{center}
                 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAHUQBfU9TXfIRRkAjFVqMWbAKoB9YAB0FjNAAs6XbrxAZseAkRGkx1es1aIQADS189gw+XFmpluYoUAjGDg3dxMFAA5vBEoABmAE4QALZIZCA4EEgAzKaSFiDh8krevpo8EdFxiAlJSEYS5mzZHirqmtQMdN4MAAr8+kIgkVhBqji2WcUV1OWIAExNLTDtnQ6Wvf2D6dWWSvSRalg5ygxqfoXDsaljyZPTrR32BpYMMOErVa4gG3RbqjseeYcUXEA
                 \begin{tikzcd}
@@ -498,7 +500,9 @@ $C^\infty$ 多様体の $C^\infty$ 構造の定義においては，チャート
                 U_{\alpha} \arrow[r, hookrightarrow, "\varphi_{\alpha}"']         & X                                     
                 \end{tikzcd}
             \end{center}
-            が存在して $x \in \varphi_\alpha \circ \textcolor{red}{f_\alpha} (\textcolor{red}{W}) = \varphi_\beta \circ \textcolor{red}{f_\beta} (\textcolor{red}{W})$ を充たす
+            が存在して $x \in \varphi_\alpha \circ \textcolor{red}{f_\alpha} (\textcolor{red}{W}) = \varphi_\beta \circ \textcolor{red}{f_\beta} (\textcolor{red}{W})$ を充たす．
+            ただし，可換図式中の赤色の部分は全て\hyperref[def:Bsc-induction]{圏 $\Bsc_{\le k+1,\, \le \infty}$} の対象および射からなる．
+
         \end{description}
         アトラス $\mathcal{A}$ の元 $(U_\alpha,\, \varphi_\alpha) \in \mathcal{A}$ のことを\textbf{チャート} (chart) と呼ぶ．
 
@@ -824,18 +828,6 @@ $\Hom{\Rfib_{\Cat{B}}} (\Cat{E},\, \Cat{E}') \subset \Hom{\sSet}(\mathcal{E},\, 
     ことで定義する．
     以降では $(\infty,\, 1)$-圏 $\mathrm{N}_{\text{hc}}(\RFIB_{\Cat{B}}) \in \Obj{\sSet}$ のことも $\RFIB_{\Cat{B}}$ と書き，区別しない．
 \end{mydef}
-
-\begin{mytheo}[label=thm:unstraightening]{unstraightening construction}
-    \textbf{Unstraightening construction}~\cite[Theorem 2.2.1.2.]{lurie2008higher}は，\hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}
-    \begin{align}
-        \inftyPsh{\Cat{B}} \xrightarrow{\simeq} \RFIB_{\Cat{B}}
-    \end{align}
-    を与える．
-\end{mytheo}
-
-\begin{proof}
-    ~\cite[Proposition 2.2.3.11]{lurie2008higher}
-\end{proof}
 
 \subsection{{$(\infty,\, 1)$}-圏におけるスライス圏}
 
@@ -1170,6 +1162,22 @@ $S \star T$ の\hyperref[def:SimpSet]{面写像}は $n \ge 1,\, 0 \le j \le n$ �
 
 $(\infty,\, 1)$-圏 $\Cat{C}_{/X}$ の $n$-射も同様に図示できる．
 
+\begin{myexample}[label=def:infty-forget]{スライス圏からのforgetful functor}
+    \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\Cat{C}$ の，$X \colon \Delta^0 \lto \Cat{C}$ に沿った\hyperref[def:overcat-infty]{スライス圏}に対して，\textbf{忘却関手} (forgetful functor)
+    \begin{align}
+        \text{forget} \colon \Cat{C}_{/X} \lto \Cat{C}
+    \end{align}
+    を次のように定義する：
+    \begin{align}
+        \label{eq:forget}
+        \text{forget}_{[n]} \colon (\Cat{C}_{/X})_n = \Hom{X} (\Delta^n \star \Delta^0,\, \Cat{C}) &\lto \Cat{C}_n = \Hom{\sSet}(\Delta^n,\, \Cat{C}), \\
+        f &\lmto f|_{\Delta^n}
+    \end{align}
+    $n = 0,\, 1,\, 2$ の場合，i.e. \exref{ex:join-0}, \exref{ex:join-1}, \exref{ex:join-2}の図式においては，ちょうど $X \in \Cat{C}_0$ に対応する青色の頂点（コーンポイント）を除去する操作に対応している．
+    \eqref{eq:forget}の定義は\hyperref[def:infty-fib]{右ファイブレーション}になっている．
+\end{myexample}
+
+
 \subsection{{$(\infty,\, 1)$}-圏のlimit/colimit}
 
 後の議論のため，先取りして $(\infty,\, 1)$-圏におけるlimit/colimitを定義しておこう．
@@ -1216,15 +1224,81 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
     
     　\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $D \colon \Delta^1 \times \Delta^1 \lto \Cat{C}$ の\hyperref[def:lim-colim-infty]{limit}のことを（存在すれば）\textbf{pullback}と呼び，
     \begin{align}
-        D(0,\, 1) \times_{D(1,\, 1)} D(1,\, 0) \coloneqq \lim D \in \Cat{C}_0
+        \bm{D(0,\, 1)} \bm{\times}_{\bm{D(1,\, 1)}} \bm{D(1,\, 0)} \coloneqq \lim D \in \Cat{C}_0
     \end{align}
     と書く．
 \end{myexample}
 
+\subsection{Unstraightening construction}
 
-% \subsection{$\mathcal{B}\mathrm{sc}$ の構造}
+\begin{mytheo}[label=thm:unstraightening]{unstraightening construction}
+    \hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}
+    \begin{align}
+        \inftyPsh{\Cat{B}} \xrightarrow{\simeq} \RFIB_{\Cat{B}}
+    \end{align}
+    が存在する．
+\end{mytheo}
 
-\subsection{層状化空間の接構造}
+\begin{proof}
+    \hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}
+    \begin{align}
+        \Un\colon \inftyPsh{\Cat{B}} \lto \RFIB_{\Cat{B}}
+    \end{align}
+    は，次のようにして構成される (\textbf{unstraightening construction})：
+    \begin{description}
+        \item[\textbf{対象}] 
+        $F \in \inftyPsh{\Cat{B}}_0$ に対して，\hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏のpullback}
+        \begin{center}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BVMACgDEAlCAC+pdJlz5CKAIzkqtRizacAygAUAggGEAomoD6wAPQAqEaPEgM2PASLzZi+s1aIO7TboNWJd6SIyZ2pXFQ9OHTocYAAhSxFFGCgAc3giUAAzACcIAFskAGZqHAgkACZqBjoAIxgGDUl7GRBsrBSACxwQUOV3EH4-EBz8pHkQUoret1V2HBgADxjMiGy0nATrEYLEMgmyxEKxLNydvcnEWUSRIA
+            \begin{tikzcd}
+            \textcolor{red}{\Un(F)} \arrow[red,d] \arrow[r] & \SPACES_{/*} \arrow[d, "\text{forget}"] \\
+            \Cat{B} \arrow[r, "F"']    & \SPACES                                
+            \end{tikzcd}
+        \end{center}
+        により得られる\hyperref[def:infty-fib]{右ファイブレーション} $\textcolor{red}{\Un(F) \lto}\, \Cat{B} \in (\RFIB_{\Cat{B}}){}_0$ を対応付ける．
+        \item[\textbf{$\bm{n}$-射}] 
+    \end{description}
+    逆向きの\hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値} (\textbf{straightning construction})
+    \begin{align}
+        \St\colon \RFIB_{\Cat{B}} \lto \inftyPsh{\Cat{B}}
+    \end{align}
+    は難しい．詳細は~\cite[Proposition 2.2.3.11]{lurie2008higher}を参照．
+\end{proof}
+
+\subsection{{$(\infty,\, 1)$}-圏における米田埋め込み}
+
+\begin{mydef}[label=def:Tw]{twisted arrow category}
+    \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\Cat{C}$ を与える．
+    このとき，$\Cat{C}$ の\textbf{twisted arrow category}と呼ばれる $(\infty,\, 1)$-圏を以下で定義する：
+    \begin{align}
+        \Tw(\Cat{C}) \colon \OP{\Delta} &\lto \SETS, \\
+        [n] &\lmto \Hom{\sSet} \bigl( \OP{(\Delta^n)} \star \Delta^n,\, \Cat{C} \bigr), \\
+        \bigl( [m] \xrightarrow{\alpha} [n] \bigr) &\lmto \bigl( f \mapsto f \circ (\alpha_* \times \alpha_*) \bigr) 
+    \end{align}
+\end{mydef}
+
+\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} 
+\begin{align}
+    \mathrm{pr} \colon \Tw(\Cat{C}) \lto \OP{\Cat{C}} \times \Cat{C}
+\end{align}
+を以下で定義すると，これは\hyperref[def:infty-fib]{左ファイブレーション}になる~\cite[\href{https://kerodon.net/tag/03JQ}{Tag 03JQ}]{kerodon}：
+\begin{align}
+    \mathrm{pr}_{[n]} \colon \Tw(\Cat{C})_n &\lto \OP{\Cat{C}}_n \times \Cat{C}_n = \Hom{\sSet}(\Delta^n,\, \OP{\Cat{C}}) \times \Hom{\sSet}(\Delta^n,\, \Cat{C}) \\
+    f &\lmto \bigl( f|_{\OP{(\Delta^n)}},\, f|_{\Delta^n} \bigr) 
+\end{align}
+\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}におけるHom関手
+\begin{align}
+    \Hom{\Cat{C}} \colon \OP{\Cat{C}} \times \Cat{C} \lto \SPACES
+\end{align}
+の自然な構成は，\hyperref[thm:unstraightening]{straightning construction}を用いた
+\begin{center}
+    % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BVMACgDEAlCAC+pdJlz5CKAIzkqtRizacAygAUAggGEAomoD6wAPQAqEaPEgM2PASLzZi+s1aIO7TboNWJd6SIyZ2pXFQ9OHTocYAAhSxFFGCgAc3giUAAzACcIAFskAGZqHAgkACZqBjoAIxgGDUl7GRBsrBSACxwQUOV3EH4-EBz8pHkQUoret1V2HBgADxjMiGy0nATrEYLEMgmyxEKxLNydvcnEWUSRIA
+    \begin{tikzcd}[column sep=large]
+    \Tw(\Cat{C}) \arrow[d, "\mathrm{pr}"'] \arrow[r] & \SPACES_{*/} \arrow[d, "\text{forget}"] \\
+    \OP{\Cat{C}} \times \Cat{C} \arrow[r, red, "\Hom{\Cat{C}} \coloneqq \St(\mathrm{pr})"']    & \SPACES                                
+    \end{tikzcd}
+\end{center}
+である~\cite[I.26., p.19]{Hebestreit2020K-theory}．
 
 \begin{mydef}[label=def:Yoneda-infty]{{$(\infty,\, 1)$}-圏の米田埋め込み (informal)}
     $\Cat{C}$ を\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}とする．$(\infty,\, 1)$-圏の\textbf{米田埋め込み} (Yoneda embedding)
@@ -1239,6 +1313,11 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
     \end{align}
     を充たす\footnote{$(\infty,\, 1)$-圏 $\Cat{C}$ において，対象 $x,\, y \in \Cat{C}_0$ の間の1-射全体の集合 $\Hom{\Cat{C}}(x,\, y) \subset \Cat{C}_1$ はKan複体を成す~\cite[\href{https://kerodon.net/tag/01JC}{Tag 01JC}]{kerodon}．}ような $(\infty,\, 1)$-圏の関手 $\yo_{[0]}(x) \in \inftyPsh{\Cat{C}}_0 = \Hom{\sSet}(\OP{\Cat{C}},\, \SPACES)$ を対応付けるもののこと\footnote{厳密な構成については~\cite[\href{https://kerodon.net/tag/03NF}{Tag 03NF}]{kerodon}を参照．}．
 \end{mydef}
+% \subsection{$\mathcal{B}\mathrm{sc}$ の構造}
+
+
+
+\subsection{層状化空間の接構造}
 
 \begin{mydef}[label=def:Enter]{enter-path category}
     \hyperref[def:c-smooth]{conically smoothな層状化空間} $X \in \Obj{\Strat}$ の\textbf{enter-path $(\infty,\, 1)$-category}とは，
@@ -1493,7 +1572,7 @@ $n=2$ の場合の\hyperref[def:Cart-coCart]{\textsf{\textbf{(coCart-2)}}}の可
     % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACwBOXYADkAvpwBGWAOYMAFJ2BgAtAEYABJwYwNYThPbSZAgJRb2AYwIyLAERgMcdAHpqQY0uky58hFGqkalS0jCxsnADCvMAAomIeXiAY2HgERIEATCH0zKyIHOzROMAAQgme3ql+RGTZ1LnhBZwOTq6Elck+af4kQTlh+YUAMnRcklDtAPodITBQMvBEoABmAhBcSGQgOBBIACzUzlgMbHwQEADWiavrm4jbu0iBoXkRRnQCwCsVSWsbByOe0Qak6-3uAGYgUhMg1Bu8VhABIwGBZ6AI0HwsCBqAw6JJHAAFbo1AoCWR8HA3EDgwE7YFQnZ0E5nC7XMF3Z7QxCw15NZLU2mIRlPEG4rBgIaTOB8eY4vlDTgwAAeWDgODgFkkn2AnHRmKwFQoYiAA
     \begin{tikzcd}
     \mathrm{N}\bigl(\{0 \le 1\}\bigr) \cong \Delta^1 \arrow[d, hook] \arrow[rd, "\bar{f}"] &                        \\
-    \Lambda^n_0 \arrow[r,blue,"\forall \varphi_0"]                                                  & \Cat{E}
+    \Lambda^2_0 \arrow[r,blue,"\forall \varphi_0"]                                                  & \Cat{E}
     \end{tikzcd}
 \end{center}
 の部分は角の図式 $\textcolor{blue}{\varphi_0} = (\bullet,\, \bar{f},\, \textcolor{blue}{\varphi_0{}_2}) \in \Cat{E}_1^{\times 2}$ に対応する．
@@ -1552,7 +1631,7 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
 \end{center}
 のように埋める2-射 $\textcolor{red}{\bar{\varphi}} \in \Hom{\sSet}(\Delta^2,\, \Cat{E}) \cong \Cat{E}_2$ が存在する．
 
-\begin{mydef}[label=def:infty-operad]{{$(\infty,\, 1)$}-オペラッド}
+\begin{mydef}[label=def:infty-operad,breakable]{{$(\infty,\, 1)$}-オペラッド}
     \hyperref[def:innert-active]{innertな}射 $\rho^i \in \Hom{\FIN_*}\bigl( \expval{n},\, \expval{1} \bigr)$ を
     \begin{align}
         \rho^i \colon \expval{n} &\lto \expval{1}, \\
@@ -1562,7 +1641,8 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         \end{cases}
     \end{align}
     で定義する．
-    $\bm{(\infty,\, 1)}$\textbf{-オペラッド} ($(\infty,\, 1)$-operad)\footnote{$\infty$-operadとも呼ばれる．} は，
+
+    $\bm{(\infty,\, 1)}$\textbf{-オペラッド} ($(\infty,\, 1)$-operad)\footnote{$\infty$-operadとも呼ばれる．} とは，
     \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $p \colon \Cat{O}^{\otimes} \lto \mathrm{N}(\FIN_*)$ であって以下の条件を充たすもののこと：
     \begin{description}
         \item[\textbf{(Op-1)}]　
@@ -1575,15 +1655,25 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         $\forall f \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $\forall c \in (\Cat{O}^\otimes_{\expval{m}})_0,\; \forall c' \in (\Cat{O}^\otimes_{\expval{n}})_0$ に対して，
         innertな射 $\rho^i \in  \Hom{\FIN_*}\bigl( \expval{n},\, \expval{1} \bigr)$ に \textsf{\textbf{(Op-1)}} を適用して得られる\hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射 $c' \lto c'_i$ が誘導する $(\infty,\, 1)$-圏の関手
         \begin{align}
-            \Hom{\Cat{O}^\otimes}^f (c,\, c') \lto \prod_{i=1}^n \Hom{\Cat{O}^\otimes}^{\rho^i \circ f} (c,\, c'_i)
+            \Hom{\Cat{O}^\otimes} (c,\, c')_f \lto \prod_{i=1}^n \Hom{\Cat{O}^\otimes} (c,\, c'_i)_{\rho^i \circ f}
         \end{align}
         は\hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}である．
 
         \item[\textbf{(Op-3)}]　
         
         $\forall c_1,\, \dots,\, c_n \in (\Cat{O}^\otimes_{\expval{1}})_0$ に対して，
-        ある $c \in (\Cat{O}^\otimes_{\expval{n}})_0$ および \hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射 $\overline{\rho^i} \in \Hom{\Cat{O}^\otimes}^{\rho^i} (c,\, c_i)$ が存在する．
+        ある $c \in (\Cat{O}^\otimes_{\expval{n}})_0$ および \hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射 $\overline{\rho^i} \in \Hom{\Cat{O}^\otimes} (c,\, c_i)_{\rho^i}$ が存在する．
     \end{description}
+
+    ただし，点 $\expval{n} \in \mathrm{N}(\FIN_*)_0$ における\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $p \colon \Cat{O}^\otimes \lto \mathrm{N}(\FIN_*)$ の\textbf{ファイバー}\footnote{これ自体が $(\infty,\, 1)$-圏である．} $\Cat{O}^{\otimes}_{\expval{n}}$ を，\hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏のpullback}
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BhOnYAeQC+APWCcIeALbxBAfTHsYADzT0GwMIMEhBpdJlz5CKMgEYqtRizacefIcPFT4OvSAzY8BIqdLnqataIHOySvAAWAE6SwAByggAUnABiAJKxsgBUAJSu+p5GPuQWgazBnAAiMAw4dMLEOhYwUADmLiigAGaREJJIZCA4EEgAzLpdPX2IA0NIpuMg3b2j1LOIAEyrdFgMbOEQEADWIAFWZSHKqowa2gtLU76DwxunzOdoJyAMdABG1QAKBi8xhAkSwLXCOEagiAA
+        \begin{tikzcd}
+        \textcolor{red}{\Cat{O}^{\otimes}_{\expval{n}}} \arrow[red, r] \arrow[red,d] & \Delta^0 \arrow[d, "\expval{n}", hook] \\
+        \Cat{O}^\otimes \arrow[r, "p"']                    & \mathrm{N}(\FIN_*)                    
+        \end{tikzcd}
+    \end{center}
+    として定義した．
 \end{mydef}
 
 
