@@ -1288,6 +1288,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 \end{align}
 \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}におけるHom関手
 \begin{align}
+    \label{def:infty-Hom}
     \Hom{\Cat{C}} \colon \OP{\Cat{C}} \times \Cat{C} \lto \SPACES
 \end{align}
 の自然な構成は，\hyperref[thm:unstraightening]{straightning construction}を用いた
@@ -1491,7 +1492,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
         を充たす唯一の自然変換である．
         \item $\Cat{E}$ の1-射 $(x \xrightarrow{f} y) \in \Cat{E}_1$ が以下の条件を充たすとき，$f$ は\textbf{$\bm{p}$-coCartesian}であると言う：
         \begin{description}
-            \item[\textbf{coCartesian}] 
+            \item[\textbf{(coCartesian)}] 
             
             $\forall n \ge 2$ に対して，以下の図式を可換にする $\Cat{E}$ の $n$-射 $\textcolor{red}{\bar{\varphi}} \in \Hom{\sSet} (\Delta^n,\, \Cat{E}) \cong \Cat{E}_n$ が存在する：
             \begin{center}
@@ -1707,7 +1708,6 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         \end{cases}
     \end{align}
     で定義する．
-
     $\bm{(\infty,\, 1)}$\textbf{-オペラッド} ($(\infty,\, 1)$-operad)\footnote{$\infty$-operadとも呼ばれる．} とは，
     \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $p \colon \Cat{O}^{\otimes} \lto \Ner (\FIN_*)$ であって以下の条件を充たすもののこと：
     \begin{description}
@@ -1719,11 +1719,11 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         \item[\textbf{(Op-2)}]　
         
         $\forall f \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $\forall c \in (\Cat{O}^\otimes_{\expval{m}})_0,\; \forall c' \in (\Cat{O}^\otimes_{\expval{n}})_0$ に対して，
-        innertな射 $\rho^i \in  \Hom{\FIN_*}\bigl( \expval{n},\, \expval{1} \bigr)$ に \textsf{\textbf{(Op-1)}} を適用して得られる\hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射 $c' \lto c'_i$ が誘導する $(\infty,\, 1)$-圏の関手
+        innertな射 $\rho^i \in  \Hom{\FIN_*}\bigl( \expval{n},\, \expval{1} \bigr)$ に \textsf{\textbf{(Op-1)}} を適用して得られる\hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射の族 $\Familyset[\big]{c' \xrightarrow{\bar{\rho}^i} c'_i \in (\Cat{O}^\otimes)_1}{1 \le i \le n}$ が誘導する $(\infty,\, 1)$-圏の関手
         \begin{align}
             \Hom{\Cat{O}^\otimes} (c,\, c')_f \lto \prod_{i=1}^n \Hom{\Cat{O}^\otimes} (c,\, c'_i)_{\rho^i \circ f}
         \end{align}
-        は\hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}である．
+        は，$(\infty,\, 1)$-圏\hyperref[def:Spaces]{$\SPACES$}における\hyperref[def:isom-infty]{同型射}である．
 
         \item[\textbf{(Op-3)}]　
         
@@ -1731,15 +1731,78 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         ある $c \in (\Cat{O}^\otimes_{\expval{n}})_0$ および \hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射 $\overline{\rho^i} \in \Hom{\Cat{O}^\otimes} (c,\, c_i)_{\rho^i}$ が存在する．
     \end{description}
 
-    ただし，点 $\expval{n} \in \Ner (\FIN_*)_0$ における\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $p \colon \Cat{O}^\otimes \lto \Ner (\FIN_*)$ の\textbf{ファイバー}\footnote{これ自体が $(\infty,\, 1)$-圏である．} $\Cat{O}^{\otimes}_{\expval{n}}$ を，\hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏のpullback}
-    \begin{center}
-        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BhOnYAeQC+APWCcIeALbxBAfTHsYADzT0GwMIMEhBpdJlz5CKMgEYqtRizacefIcPFT4OvSAzY8BIqdLnqataIHOySvAAWAE6SwAByggAUnABiAJKxsgBUAJSu+p5GPuQWgazBnAAiMAw4dMLEOhYwUADmLiigAGaREJJIZCA4EEgAzLpdPX2IA0NIpuMg3b2j1LOIAEyrdFgMbOEQEADWIAFWZSHKqowa2gtLU76DwxunzOdoJyAMdABG1QAKBi8xhAkSwLXCOEagiAA
-        \begin{tikzcd}
-        \textcolor{red}{\Cat{O}^{\otimes}_{\expval{n}}} \arrow[red, r] \arrow[red,d] & \Delta^0 \arrow[d, "\expval{n}", hook] \\
-        \Cat{O}^\otimes \arrow[r, "p"']                    & \Ner (\FIN_*)                    
-        \end{tikzcd}
-    \end{center}
-    として定義した．
+    ただし，以下の記法を採用した：
+    \begin{itemize}
+        \item 点 $\expval{n} \in \Ner (\FIN_*)_0$ における\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $p \colon \Cat{O}^\otimes \lto \Ner (\FIN_*)$ の\textbf{ファイバー}\footnote{これ自体が $(\infty,\, 1)$-圏である．} $\Cat{O}^{\otimes}_{\expval{n}}$ を，\hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏のpullback}
+        \begin{center}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BhOnYAeQC+APWCcIeALbxBAfTHsYADzT0GwMIMEhBpdJlz5CKMgEYqtRizacefIcPFT4OvSAzY8BIqdLnqataIHOySvAAWAE6SwAByggAUnABiAJKxsgBUAJSu+p5GPuQWgazBnAAiMAw4dMLEOhYwUADmLiigAGaREJJIZCA4EEgAzLpdPX2IA0NIpuMg3b2j1LOIAEyrdFgMbOEQEADWIAFWZSHKqowa2gtLU76DwxunzOdoJyAMdABG1QAKBi8xhAkSwLXCOEagiAA
+            \begin{tikzcd}
+            \textcolor{red}{\Cat{O}^{\otimes}_{\expval{n}}} \arrow[red, r] \arrow[red,d] & \Delta^0 \arrow[d, "\expval{n}", hook] \\
+            \Cat{O}^\otimes \arrow[r, "p"']                    & \Ner (\FIN_*)                    
+            \end{tikzcd}
+        \end{center}
+        と定義した．
+        \item $f \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $c \in (\Cat{O}^\otimes_{\expval{m}})_0,\; c' \in (\Cat{O}^\otimes_{\expval{n}})_0$ に対して，
+        $\bar{f} \in \Hom{\Cat{O}^\otimes}(c,\, c')_{0}$ であって $p_{[1]}(\bar{f}) = f$ を充たすもの全体が生成する，\hyperref[def:infty-1]{Kan複体} $\Hom{\Cat{O}^\otimes} (c,\, c') \in \SPACES_0$\footnote{$\Hom{\Cat{O}^\otimes} (c,\, c') \in \SPACES_0$ は，\hyperref[def:infty-Hom]{$(\infty,\, 1)$-圏におけるHom関手} $\Hom{\Cat{O}^\otimes} \colon \OP{(\Cat{O}^\otimes)} \times \Cat{O}^\otimes \lto \SPACES$ による対象 $(c,\, c') \in (\OP{(\Cat{O}^\otimes)} \times \Cat{O}^\otimes)_0$ の像である．}
+        の最大の部分Kan複体を
+        \begin{align}
+            \bm{\Hom{\Cat{O}^\otimes} (c,\, c')_f} \hookrightarrow \Hom{\Cat{O}^\otimes} (c,\, c')
+        \end{align}
+        と書いた．
+    \end{itemize}
+\end{mydef}
+
+定義\ref{def:infty-operad}がオペラッドと呼ぶにふさわしいことを示すために，次の小節では $(1,\, 1)$-圏の文脈で対応物を考えよう．
+
+\subsection{古典的なオペラッドと {$(1,\, 1)$}-圏のcoCartesian fibration}
+
+\begin{mydef}[label=def:p-coCart-ord,breakable]{{$(1,\, 1)$}-圏におけるcoCartesian fibration}
+    $p \colon \Cat{E} \lto \Cat{B}$ を $(1,\, 1)$-圏の関手とする．
+    \begin{itemize}
+        \item $\Cat{E}$ の射 $\bar{f} \in \Hom{\Cat{E}} (\bar{x},\, \bar{y})$ が以下の条件を充たすとき，$f$ は\textbf{$\bm{p}$-coCartesian}であると言う：
+        \begin{description}
+            \item[\textbf{(coCart-ord)}] 
+            $(1,\, 1)$-圏 $\Cat{B}$ の図式
+            \begin{center}
+                % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQ0AKAHW4CN6AJ2AAPAL4BKEGNLpMufIRTlSxanSat2XXgOEBPSdNkd5eAkQBMFdQxZtEHHvyHAAXkbHqYUAObwiUAAzQQgAWyQyEBwIJBUNe21nPWAgzxMQ8MiaGKRrBK1HHW4giEEmRgACXgZBNAALLAB9YikaRno+GEYABTNFdkEsX3qcY2DQiMR43MR8u0KQXlLyxiqaoQasaUoxIA
+                \begin{tikzcd}
+                                                                                        & p(\bar{y}) \arrow[rd, blue, "\forall \varphi"] &            \\
+                p(\bar{x}) \arrow[ru, "p(\bar{f})"] \arrow[rr, blue, "p(\forall \varphi_0)"'] &                                          & p(\forall \textcolor{blue}{\bar{z}})
+                \end{tikzcd}
+            \end{center}
+            を可換にする勝手な2つの射 $\textcolor{blue}{\varphi_0} \in \Hom{\Cat{E}} (\bar{x},\, \textcolor{blue}{\bar{z}}),\; \textcolor{blue}{\varphi} \in \Hom{\Cat{B}} \bigl( p(\bar{y}),\, p(\textcolor{blue}{\bar{z}}) \bigr)$ に対して，
+            射 $\textcolor{red}{\bar{\varphi}} \in \Hom{\Cat{E}} (\bar{y},\, \textcolor{blue}{\bar{z}})$ が\underline{一意的に}存在して $(1,\, 1)$-圏 $\Cat{E}$ の図式
+            \begin{center}
+                % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQAdDgI3oCdgADwC+IYaXSZc+QinKli1Ok1bsuvAQE9R4ydjwEiAJgpKGLNok49+wAF46lMKAHN4RUADM+EALZIyEBwIJHllCzUbAU8dCRBvPwCaYKQTcNUrLgY+NAALLAB9YhAaRnpuGEYABSkDWRA+LBdcnDE4hP9EMJTENPMM6w1gLP48rEdhIA
+                \begin{tikzcd}
+                                                                       & \bar{y} \arrow[rd, red,"\exists ! \bar{\varphi}"] &         \\
+                \bar{x} \arrow[ru, "\bar{f}"] \arrow[rr, blue, "\varphi_0"'] &                                     & \textcolor{blue}{\bar{z}}
+                \end{tikzcd}
+            \end{center}
+            を可換にする．
+        \end{description}
+        \item $p$ が\textbf{coCartesian fibration}であるとは，
+        \begin{itemize}
+            \item $(1,\, 1)$-圏 $\Cat{B}$ の任意の射 $f \in \Hom{\Cat{B}} (x,\, y)$
+            \item $p(\bar{x}) = x$ を充たす $(1,\, 1)$-圏 $\Cat{E}$ の対象 $\bar{x} \in \Obj{\Cat{E}}$
+        \end{itemize}
+        に対して，以下の条件を充たす $(1,\, 1)$-圏 $\Cat{E}$ の射 $\bar{f} \in \Hom{\Cat{E}} (\bar{x},\, z)$ が存在することを言う：
+        \begin{description}
+            \item[\textbf{(coCart-ord-1)}]　
+            
+            $\bar{f}$ は $f$ の持ち上げである．i.e. $p(\bar{f}) = f$ が成り立つ．
+
+            \item[\textbf{(coCart-ord-2)}]　
+            
+            $\bar{f}$ は $p$-coCartesianである．
+        \end{description}
+        % \item $p$ が\textbf{isofibration}であるとは，
+        % \begin{itemize}
+        %     \item $(1,\, 1)$-圏 $\Cat{B}$ の任意の\underline{同型射} $f \in \Hom{\Cat{B}} (x,\, y)$
+        %     \item $p(\bar{x}) = x$ を充たす $(1,\, 1)$-圏 $\Cat{E}$ の対象 $\bar{x} \in \Obj{\Cat{E}}$
+        % \end{itemize}
+        % に対して，条件 \textsf{\textbf{(coCart-ord-1)}}, \textsf{\textbf{(cocCart-ord-2)}} を充たす $(1,\, 1)$-圏 $\Cat{E}$ の射 $\bar{f} \in \Hom{\Cat{E}} (\bar{x},\, z)$ が存在することを言う．
+    \end{itemize}
 \end{mydef}
 
 
