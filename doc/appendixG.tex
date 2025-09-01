@@ -1452,79 +1452,59 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 \end{align}
 である．
 
-\begin{mydef}[label=def:Cart-coCart,breakable]{デカルトファイブレーション}
+\begin{mydef}[label=def:p-Cart,breakable]{$p$-Cartesian morphism}
     $p \colon \Cat{E} \lto \Cat{B}$ を\hyperref[def:infty-fib]{内的ファイブレーション}とする．
     \begin{itemize}
-        \item $p$ が\textbf{デカルトファイブレーション} (Cartesian fibration) であるとは，
-        \begin{itemize}
-            \item $\Cat{B}$ の任意の1射 $(x \xrightarrow{f} y) \in \Cat{B}_1$ 
-            \item $p_{[0]}(\bar{y}) = y$ を充たす $\Cat{E}$ の任意の対象 $\bar{y} \in \Cat{E}_0$
-        \end{itemize}
-        に対して，
-        以下の条件を充たす $\Cat{E}$ の1-射 $(z \xrightarrow{\bar{f}} \bar{y}) \in \Cat{E}_1$ が存在すること：
+        \item $\Cat{E}$ の1-射 $(x \xrightarrow{f} y) \in \Cat{E}_1$ が以下の条件を充たすとき，$f$ は\textbf{$\bm{p}$-Cartesian}であると言う：
         \begin{description}
-            \item[\textbf{(Cart-1)}]　
-            
-            $\bar{f}$ は $f$ の持ち上げである．i.e. $p_{[1]}(\bar{f}) = f$ が成り立つ．
-
-            \item[\textbf{(Cart-2)}]　
+            \item[\textbf{(Cartesian)}]
             
             $\forall n \ge 2$ に対して，以下の図式を可換にする $\Cat{E}$ の $n$-射 $\textcolor{red}{\bar{\varphi}} \in \Hom{\sSet} (\Delta^n,\, \Cat{E}) \cong \Cat{E}_n$ が存在する：
             \begin{center}
                 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACwBOXYADkAvpwBGWAOYMAFJ2BgAtAEYABJwYwNYThPbSZAgJRb2AYwIyLAERgMcdAHpqQY0uky58hFGqkalS0jCxsnADCvMAAomIeXiAY2HgERIEATCH0zKyIHOzROMAAQgme3ql+RGTZ1LnhBZwOTq6Elck+af4kQTlh+YUAMnRcklDtAPodITBQMvBEoABmAhBcSGQgOBBIACzUzlgMbHwQEADWiavrm4jbu0iBoXkRRnQCwCsVSWsbByOe0Qak6-3uAGYgUhMg1Bu8VhABIwGBZ6AI0HwsCBqAw6JJHAAFbo1AoCWR8HA3EDgwE7YFQnZ0E5nC7XMF3Z7QxCw15NZLU2mIRlPEG4rBgIaTOB8eY4vlDTgwAAeWDgODgFkkn2AnHRmKwFQoYiAA
                 \begin{tikzcd}
-                \Ner \bigl(\{n-1 \le n\}\bigr) \cong \Delta^1 \arrow[d, hook] \arrow[rd, "\bar{f}"] &                        \\
+                \Ner \bigl(\{n-1 \le n\}\bigr) \cong \Delta^1 \arrow[d, hook] \arrow[rd, "f"] &                        \\
                 \Lambda^n_n \arrow[r,blue, "\forall \varphi_0"] \arrow[d, hook]                                                    & \Cat{E} \arrow[d, "p"] \\
                 \Delta^n \arrow[r, blue,"\forall \varphi"'] \arrow[ru, red, "\exists \bar{\varphi}", dashed]       & \Cat{B}               
                 \end{tikzcd}
             \end{center}
-            ただし，$\sSet$ の射 $\bar{f} \colon \Ner \bigl(\{n-1 \le n\}\bigr) \lto \Cat{E}$ とは
-            \begin{align}
-                \bar{f}_{[1]}
-                    \left( 
-                       \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-                           \path coordinate[bullet,label=below:$n-1$] (x)
-                           +(1,0) coordinate[bullet,label=below:$n$] (y)
-                           ;
-                           \draw[->-=.5] (x) -- (y);
-                       \end{tikzpicture}
-                    \right)
-                =
-                       \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-                           \path coordinate[bullet,label=below:$z$] (x)
-                           +(1,0) coordinate[bullet,label=below:$\bar{y}$] (y)
-                           ;
-                           \draw[->-=.5] (x) --node[midway,above] {$\bar{f}$} (y);
-                       \end{tikzpicture}
-            \end{align}
-            を充たす唯一の自然変換である．
         \end{description}
-        \item $p$ が\textbf{余デカルトファイブレーション} (coCartesian fibration) であるとは，
-        \begin{itemize}
-            \item $\Cat{B}$ の任意の1射 $(x \xrightarrow{f} y) \in \Cat{B}_1$ 
-            \item $p_{[0]}(\bar{x}) = x$ を充たす $\Cat{E}$ の任意の対象 $\bar{x} \in \Cat{E}_0$
-        \end{itemize}
-        に対して，
-        以下の条件を充たす $\Cat{E}$ の1-射 $(\bar{x} \xrightarrow{\bar{f}} z) \in \Cat{E}_1$ が存在すること：
+        ただし，$\sSet$ の射 $f \colon \Ner \bigl(\{n-1 \le n\}\bigr) \lto \Cat{E}$ とは
+        \begin{align}
+            f_{[1]}
+                \left( 
+                   \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                       \path coordinate[bullet,label=below:$n-1$] (x)
+                       +(1,0) coordinate[bullet,label=below:$n$] (y)
+                       ;
+                       \draw[->-=.5] (x) -- (y);
+                   \end{tikzpicture}
+                \right)
+            =
+                   \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                       \path coordinate[bullet,label=below:$x$] (x)
+                       +(1,0) coordinate[bullet,label=below:$y$] (y)
+                       ;
+                       \draw[->-=.5] (x) --node[midway,above] {$f$} (y);
+                   \end{tikzpicture}
+        \end{align}
+        を充たす唯一の自然変換である．
+        \item $\Cat{E}$ の1-射 $(x \xrightarrow{f} y) \in \Cat{E}_1$ が以下の条件を充たすとき，$f$ は\textbf{$\bm{p}$-coCartesian}であると言う：
         \begin{description}
-            \item[\textbf{(coCart-1)}]　
-            
-            $\bar{f}$ は $f$ の持ち上げである．i.e. $p_{[1]}(\bar{f}) = f$ が成り立つ．
-
-            \item[\textbf{(coCart-2)}]　
+            \item[\textbf{coCartesian}] 
             
             $\forall n \ge 2$ に対して，以下の図式を可換にする $\Cat{E}$ の $n$-射 $\textcolor{red}{\bar{\varphi}} \in \Hom{\sSet} (\Delta^n,\, \Cat{E}) \cong \Cat{E}_n$ が存在する：
             \begin{center}
                 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACwBOXYADkAvpwBGWAOYMAFJ2BgAtAEYABJwYwNYThPbSZAgJRb2AYwIyLAERgMcdAHpqQY0uky58hFGqkalS0jCxsnADCvMAAomIeXiAY2HgERIEATCH0zKyIHOzROMAAQgme3ql+RGTZ1LnhBZwOTq6Elck+af4kQTlh+YUAMnRcklDtAPodITBQMvBEoABmAhBcSGQgOBBIACzUzlgMbHwQEADWiavrm4jbu0iBoXkRRnQCwCsVSWsbByOe0Qak6-3uAGYgUhMg1Bu8VhABIwGBZ6AI0HwsCBqAw6JJHAAFbo1AoCWR8HA3EDgwE7YFQnZ0E5nC7XMF3Z7QxCw15NZLU2mIRlPEG4rBgIaTOB8eY4vlDTgwAAeWDgODgFkkn2AnHRmKwFQoYiAA
                 \begin{tikzcd}
-                \Ner \bigl(\{0 \le 1\}\bigr) \cong \Delta^1 \arrow[d, hook] \arrow[rd, "\bar{f}"] &                        \\
+                \Ner \bigl(\{0 \le 1\}\bigr) \cong \Delta^1 \arrow[d, hook] \arrow[rd, "f"] &                        \\
                 \Lambda^n_0 \arrow[r,blue,"\forall \varphi_0"] \arrow[d, hook]                                                    & \Cat{E} \arrow[d, "p"] \\
                 \Delta^n \arrow[r, blue,"\forall \varphi"'] \arrow[ru, red, "\exists \bar{\varphi}", dashed]       & \Cat{B}               
                 \end{tikzcd}
             \end{center}
-            ただし，$\sSet$ の射 $\bar{f} \colon \Ner \bigl(\{0 \le 1\}\bigr) \lto \Cat{E}$ とは
+            ただし，$\sSet$ の射 $f \colon \Ner \bigl(\{0 \le 1\}\bigr) \lto \Cat{E}$ とは
             \begin{align}
-                \bar{f}_{[1]}
+                f_{[1]}
                     \left( 
                        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
                            \path coordinate[bullet,label=below:$n-1$] (x)
@@ -1535,26 +1515,18 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
                     \right)
                 =
                        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-                           \path coordinate[bullet,label=below:$\bar{x}$] (x)
-                           +(1,0) coordinate[bullet,label=below:$z$] (y)
+                           \path coordinate[bullet,label=below:$x$] (x)
+                           +(1,0) coordinate[bullet,label=below:$y$] (y)
                            ;
-                           \draw[->-=.5] (x) --node[midway,above] {$\bar{f}$} (y);
+                           \draw[->-=.5] (x) --node[midway,above] {$f$} (y);
                        \end{tikzpicture}
             \end{align}
             を充たす唯一の自然変換である．
         \end{description}
     \end{itemize}
-    
-    \tcblower
-
-    $p \colon \Cat{E} \lto \Cat{B}$ を\hyperref[def:infty-fib]{内的ファイブレーション}とする．
-    \begin{itemize}
-        \item $\Cat{E}$ の1-射 $(x \xrightarrow{f} y) \in \Cat{E}_1$ が\textbf{$\bm{p}$-Cartesian}であるとは，それが条件 \textsf{\textbf{(Cart-2)}} を充たすことを言う．
-        \item $\Cat{E}$ の1-射 $(x \xrightarrow{f} y) \in \Cat{E}_1$ が\textbf{$\bm{p}$-coCartesian}であるとは，それが条件 \textsf{\textbf{(coCart-2)}} を充たすことを言う．
-    \end{itemize}
 \end{mydef}
 
-$n=2$ の場合の\hyperref[def:Cart-coCart]{\textsf{\textbf{(coCart-2)}}}の可換図式を系\ref{col:horn-coeq}を用いて書き直そう．
+$n=2$ の場合の\hyperref[def:p-Cart]{\textsf{\textbf{(coCartesian)}}}の可換図式の意味を，系\ref{col:horn-coeq}を用いて解読しよう．
 まず，包含 $\Ner \bigl( \{0 \le 1\} \bigr) \hookrightarrow \Lambda^2_0$ というのは，系\ref{col:horn-coeq}による角 $\Lambda^2_0$ の図示
 \begin{center}
     \begin{tikzpicture} 
@@ -1567,39 +1539,39 @@ $n=2$ の場合の\hyperref[def:Cart-coCart]{\textsf{\textbf{(coCart-2)}}}の可
         % \draw[->-=.5] (v1) -- (v2);
     \end{tikzpicture}   
 \end{center}
-のうち，辺 $\{0\} \lto \{1\}$ への埋め込みである．従って可換図式の
+のうち辺 $\{0\} \lto \{1\}$ への埋め込みであるから，可換図式の
 \begin{center}
     % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACwBOXYADkAvpwBGWAOYMAFJ2BgAtAEYABJwYwNYThPbSZAgJRb2AYwIyLAERgMcdAHpqQY0uky58hFGqkalS0jCxsnADCvMAAomIeXiAY2HgERIEATCH0zKyIHOzROMAAQgme3ql+RGTZ1LnhBZwOTq6Elck+af4kQTlh+YUAMnRcklDtAPodITBQMvBEoABmAhBcSGQgOBBIACzUzlgMbHwQEADWiavrm4jbu0iBoXkRRnQCwCsVSWsbByOe0Qak6-3uAGYgUhMg1Bu8VhABIwGBZ6AI0HwsCBqAw6JJHAAFbo1AoCWR8HA3EDgwE7YFQnZ0E5nC7XMF3Z7QxCw15NZLU2mIRlPEG4rBgIaTOB8eY4vlDTgwAAeWDgODgFkkn2AnHRmKwFQoYiAA
     \begin{tikzcd}
-    \Ner \bigl(\{0 \le 1\}\bigr) \cong \Delta^1 \arrow[d, hook] \arrow[rd, "\bar{f}"] &                        \\
+    \Ner \bigl(\{0 \le 1\}\bigr) \cong \Delta^1 \arrow[d, hook] \arrow[rd, "f"] &                        \\
     \Lambda^2_0 \arrow[r,blue,"\forall \varphi_0"]                                                  & \Cat{E}
     \end{tikzcd}
 \end{center}
-の部分は角の図式 $\textcolor{blue}{\varphi_0} = (\bullet,\, \bar{f},\, \textcolor{blue}{\varphi_0{}_2}) \in \Cat{E}_1^{\times 2}$ に対応する．
+の部分は勝手な角の図式 $\textcolor{blue}{\varphi_0} = (\bullet,\, f,\, \textcolor{blue}{\varphi_0{}_2}) \in \Cat{E}_1^{\times 2}$ を与えることに対応する．
 図示すると
 \begin{align}
     \label{eq:horn-coCart}
     \textcolor{blue}{\varphi_0}
     &= \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \path coordinate[bullet,label=below left:$\bar{x}$] (v0)
-        +(2,0) coordinate[bullet,blue] (v2)
-        +(60:2) coordinate[bullet,label=above:$z$] (v1)
-        ;
-        \draw[->-=.5] (v0) --node[midway,above left]{$\bar{f}$} (v1);
-        \draw[->-=.5,blue] (v0) --node[midway,below,blue]{$\varphi_0{}_2$} (v2);
-        % \draw[->-=.5] (v1) -- (v2);
-    \end{tikzpicture}
-\end{align}
-となる．従って，\hyperref[def:Cart-coCart]{\textsf{\textbf{(coCart-2)}}}の主張は次のように言い換えられる：
-
-$(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\textcolor{blue}{\varphi} \in \Hom{\sSet}(\Delta^2,\, \Cat{B}) \cong \Cat{B}_2$ によって
-\begin{center}
-    \begin{tikzpicture} 
         \path coordinate[bullet,label=below left:$x$] (v0)
         +(2,0) coordinate[bullet,blue] (v2)
         +(60:2) coordinate[bullet,label=above:$y$] (v1)
         ;
-        \draw[->-=.5] (v0) --node[midway,above left]{$p_{[1]}(\bar{f}) = f$} (v1);
+        \draw[->-=.5] (v0) --node[midway,above left]{$f$} (v1);
+        \draw[->-=.5,blue] (v0) --node[midway,below,blue]{$\varphi_0{}_2$} (v2);
+        % \draw[->-=.5] (v1) -- (v2);
+    \end{tikzpicture}
+\end{align}
+となる．従って，\hyperref[def:Cart-coCart]{\textsf{\textbf{(coCart-2)}}}の主張は次のような意味を持つ：
+
+$(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\textcolor{blue}{\varphi} \in \Hom{\sSet}(\Delta^2,\, \Cat{B}) \cong \Cat{B}_2$ によって
+\begin{center}
+    \begin{tikzpicture} 
+        \path coordinate[bullet,label=below left:$p_{[0]}(x)$] (v0)
+        +(2,0) coordinate[bullet,blue] (v2)
+        +(60:2) coordinate[bullet,label=above:$p_{[0]}(y)$] (v1)
+        ;
+        \draw[->-=.5] (v0) --node[midway,above left]{$p_{[1]}(f)$} (v1);
         \draw[->-=.5,blue] (v0) --node[midway,below,blue]{$p_{[1]}(\varphi_0{}_2)$} (v2);
         \draw[->-=.5,blue] (v1) --node[midway,above right,blue]{$\partial^2_0(\varphi)$} (v2);
 
@@ -1614,11 +1586,11 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
 と埋められているならば，\underline{$\Cat{E}$ において}角の図式\eqref{eq:horn-coCart}を
 \begin{center}
     \begin{tikzpicture} 
-        \path coordinate[bullet,label=below left:$\bar{x}$] (v0)
+        \path coordinate[bullet,label=below left:$x$] (v0)
         +(2,0) coordinate[bullet,blue] (v2)
-        +(60:2) coordinate[bullet,label=above:$z$] (v1)
+        +(60:2) coordinate[bullet,label=above:$y$] (v1)
         ;
-        \draw[->-=.5] (v0) --node[midway,above left]{$\bar{f}$} (v1);
+        \draw[->-=.5] (v0) --node[midway,above left]{$f$} (v1);
         \draw[->-=.5,blue] (v0) --node[midway,below,blue]{$\varphi_0{}_2$} (v2);
         \draw[->-=.5,red] (v1) --node[midway,above right,red]{$\partial^2_0(\bar{\varphi})$} (v2);
         \node[red] at (barycentric cs:v0=1,v1=1,v2=1) {$\bar{\varphi}$};
@@ -1630,6 +1602,100 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
     \end{tikzpicture}   
 \end{center}
 のように埋める2-射 $\textcolor{red}{\bar{\varphi}} \in \Hom{\sSet}(\Delta^2,\, \Cat{E}) \cong \Cat{E}_2$ が存在する．
+
+\begin{mydef}[label=def:Cart-coCart,breakable]{デカルトファイブレーション}
+    $p \colon \Cat{E} \lto \Cat{B}$ を\hyperref[def:infty-fib]{内的ファイブレーション}とする．
+    \begin{itemize}
+        \item $p$ が\textbf{デカルトファイブレーション} (Cartesian fibration) であるとは，
+        \begin{itemize}
+            \item $\Cat{B}$ の任意の1射 $(x \xrightarrow{f} y) \in \Cat{B}_1$ 
+            \item $p_{[0]}(\bar{y}) = y$ を充たす $\Cat{E}$ の任意の対象 $\bar{y} \in \Cat{E}_0$
+        \end{itemize}
+        に対して，以下の条件を充たす $\Cat{E}$ の1-射 $(z \xrightarrow{\bar{f}} \bar{y}) \in \Cat{E}_1$ が存在することを言う：
+        \begin{description}
+            \item[\textbf{(Cart-1)}]　
+            
+            $\bar{f}$ は $f$ の持ち上げである．i.e. $p_{[1]}(\bar{f}) = f$ が成り立つ．
+
+            \item[\textbf{(Cart-2)}]　
+            
+            $\bar{f}$ は\hyperref[def:p-Cart]{$p$-Cartesian}である．
+        %     $\forall n \ge 2$ に対して，以下の図式を可換にする $\Cat{E}$ の $n$-射 $\textcolor{red}{\bar{\varphi}} \in \Hom{\sSet} (\Delta^n,\, \Cat{E}) \cong \Cat{E}_n$ が存在する：
+        %     \begin{center}
+        %         % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACwBOXYADkAvpwBGWAOYMAFJ2BgAtAEYABJwYwNYThPbSZAgJRb2AYwIyLAERgMcdAHpqQY0uky58hFGqkalS0jCxsnADCvMAAomIeXiAY2HgERIEATCH0zKyIHOzROMAAQgme3ql+RGTZ1LnhBZwOTq6Elck+af4kQTlh+YUAMnRcklDtAPodITBQMvBEoABmAhBcSGQgOBBIACzUzlgMbHwQEADWiavrm4jbu0iBoXkRRnQCwCsVSWsbByOe0Qak6-3uAGYgUhMg1Bu8VhABIwGBZ6AI0HwsCBqAw6JJHAAFbo1AoCWR8HA3EDgwE7YFQnZ0E5nC7XMF3Z7QxCw15NZLU2mIRlPEG4rBgIaTOB8eY4vlDTgwAAeWDgODgFkkn2AnHRmKwFQoYiAA
+        %         \begin{tikzcd}
+        %         \Ner \bigl(\{n-1 \le n\}\bigr) \cong \Delta^1 \arrow[d, hook] \arrow[rd, "\bar{f}"] &                        \\
+        %         \Lambda^n_n \arrow[r,blue, "\forall \varphi_0"] \arrow[d, hook]                                                    & \Cat{E} \arrow[d, "p"] \\
+        %         \Delta^n \arrow[r, blue,"\forall \varphi"'] \arrow[ru, red, "\exists \bar{\varphi}", dashed]       & \Cat{B}               
+        %         \end{tikzcd}
+        %     \end{center}
+        %     ただし，$\sSet$ の射 $\bar{f} \colon \Ner \bigl(\{n-1 \le n\}\bigr) \lto \Cat{E}$ とは
+        %     \begin{align}
+        %         \bar{f}_{[1]}
+        %             \left( 
+        %                \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        %                    \path coordinate[bullet,label=below:$n-1$] (x)
+        %                    +(1,0) coordinate[bullet,label=below:$n$] (y)
+        %                    ;
+        %                    \draw[->-=.5] (x) -- (y);
+        %                \end{tikzpicture}
+        %             \right)
+        %         =
+        %                \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        %                    \path coordinate[bullet,label=below:$z$] (x)
+        %                    +(1,0) coordinate[bullet,label=below:$\bar{y}$] (y)
+        %                    ;
+        %                    \draw[->-=.5] (x) --node[midway,above] {$\bar{f}$} (y);
+        %                \end{tikzpicture}
+        %     \end{align}
+        %     を充たす唯一の自然変換である．
+        \end{description}
+        \item $p$ が\textbf{余デカルトファイブレーション} (coCartesian fibration) であるとは，
+        \begin{itemize}
+            \item $\Cat{B}$ の任意の1射 $(x \xrightarrow{f} y) \in \Cat{B}_1$ 
+            \item $p_{[0]}(\bar{x}) = x$ を充たす $\Cat{E}$ の任意の対象 $\bar{x} \in \Cat{E}_0$
+        \end{itemize}
+        に対して，以下の条件を充たす $\Cat{E}$ の1-射 $(\bar{x} \xrightarrow{\bar{f}} z) \in \Cat{E}_1$ が存在することを言う：
+        \begin{description}
+            \item[\textbf{(coCart-1)}]　
+            
+            $\bar{f}$ は $f$ の持ち上げである．i.e. $p_{[1]}(\bar{f}) = f$ が成り立つ．
+
+            \item[\textbf{(coCart-2)}]　
+            
+            $\bar{f}$ は\hyperref[def:p-Cart]{$p$-coCartesian}である．
+            % $\forall n \ge 2$ に対して，以下の図式を可換にする $\Cat{E}$ の $n$-射 $\textcolor{red}{\bar{\varphi}} \in \Hom{\sSet} (\Delta^n,\, \Cat{E}) \cong \Cat{E}_n$ が存在する：
+            % \begin{center}
+            %     % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACwBOXYADkAvpwBGWAOYMAFJ2BgAtAEYABJwYwNYThPbSZAgJRb2AYwIyLAERgMcdAHpqQY0uky58hFGqkalS0jCxsnADCvMAAomIeXiAY2HgERIEATCH0zKyIHOzROMAAQgme3ql+RGTZ1LnhBZwOTq6Elck+af4kQTlh+YUAMnRcklDtAPodITBQMvBEoABmAhBcSGQgOBBIACzUzlgMbHwQEADWiavrm4jbu0iBoXkRRnQCwCsVSWsbByOe0Qak6-3uAGYgUhMg1Bu8VhABIwGBZ6AI0HwsCBqAw6JJHAAFbo1AoCWR8HA3EDgwE7YFQnZ0E5nC7XMF3Z7QxCw15NZLU2mIRlPEG4rBgIaTOB8eY4vlDTgwAAeWDgODgFkkn2AnHRmKwFQoYiAA
+            %     \begin{tikzcd}
+            %     \Ner \bigl(\{0 \le 1\}\bigr) \cong \Delta^1 \arrow[d, hook] \arrow[rd, "\bar{f}"] &                        \\
+            %     \Lambda^n_0 \arrow[r,blue,"\forall \varphi_0"] \arrow[d, hook]                                                    & \Cat{E} \arrow[d, "p"] \\
+            %     \Delta^n \arrow[r, blue,"\forall \varphi"'] \arrow[ru, red, "\exists \bar{\varphi}", dashed]       & \Cat{B}               
+            %     \end{tikzcd}
+            % \end{center}
+            % ただし，$\sSet$ の射 $\bar{f} \colon \Ner \bigl(\{0 \le 1\}\bigr) \lto \Cat{E}$ とは
+            % \begin{align}
+            %     \bar{f}_{[1]}
+            %         \left( 
+            %            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            %                \path coordinate[bullet,label=below:$n-1$] (x)
+            %                +(1,0) coordinate[bullet,label=below:$n$] (y)
+            %                ;
+            %                \draw[->-=.5] (x) -- (y);
+            %            \end{tikzpicture}
+            %         \right)
+            %     =
+            %            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            %                \path coordinate[bullet,label=below:$\bar{x}$] (x)
+            %                +(1,0) coordinate[bullet,label=below:$z$] (y)
+            %                ;
+            %                \draw[->-=.5] (x) --node[midway,above] {$\bar{f}$} (y);
+            %            \end{tikzpicture}
+            % \end{align}
+            % を充たす唯一の自然変換である．
+        \end{description}
+    \end{itemize}
+\end{mydef}
 
 \begin{mydef}[label=def:infty-operad,breakable]{{$(\infty,\, 1)$}-オペラッド}
     \hyperref[def:innert-active]{innertな}射 $\rho^i \in \Hom{\FIN_*}\bigl( \expval{n},\, \expval{1} \bigr)$ を
