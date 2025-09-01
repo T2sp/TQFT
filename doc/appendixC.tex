@@ -1572,7 +1572,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     \begin{align}
         \Lambda^2_0([2]) = \Bigl\{\, f \in \Hom{\Delta} ([2],\, [2]) \Bigm| [2] \setminus \bigl( f([2]) \cup \{0\}\bigr) \neq \emptyset \,\Bigr\} 
     \end{align}
-    であるが，縮退写像の像に含まれない $\Hom{\Delta} ([2],\, [2])$ の元は $\Id_{[2]}$ のみであり，明らかに $\Id_{[n]} \notin \Lambda^2_0([2])$ となっている．
+    であるが，縮退写像の像に含まれない $\Hom{\Delta} ([2],\, [2])$ の元は $\Id_{[2]}$ のみであり，かつ $\Id_{[2]} \notin \Lambda^2_0([2])$ となっている．
     \begin{align}
         \partial_0^2(\Id_{[2]}) = \bigl( 0 \lmto 1,\, 1 \lmto 2 \bigr) = f_4
     \end{align}
@@ -1812,13 +1812,13 @@ $[n] \in \Obj{\Delta}$ に対して，
 \begin{mydef}[label=def:nerve,breakable]{脈体}
         圏 $\Cat{C}$ の\textbf{脈体} (nerve) とは，以下で定義される\hyperref[def:SimpSet]{単体的集合}
         \begin{align}
-            \mathrm{N}(\Cat{C}) \colon \OP{\Delta} \lto \SETS
+            \Ner (\Cat{C}) \colon \OP{\Delta} \lto \SETS
         \end{align}
         のことを言う：
         \begin{itemize}
             \item $\forall [n] \in \Obj{\OP{\Delta}}$ に対して
             \begin{align}
-                \mathrm{N}(\Cat{C}) ([n]) = \mathrm{Fun} ([n],\, \Cat{C})
+                \Ner (\Cat{C}) ([n]) = \mathrm{Fun} ([n],\, \Cat{C})
             \end{align}
             を対応付ける
             \item \hyperref[def:simplex-cat]{圏 $\OP{\Delta}$ }における任意の射 $[n] \xrightarrow{\alpha} [m]$ に対して\underline{写像}
@@ -1833,22 +1833,22 @@ $[n] \in \Obj{\Delta}$ に対して，
 
         \textbf{脈体関手} (nerve functor) とは，以下で定義される関手
         \begin{align}
-            \mathrm{N} \colon \CAT \lto \sSet
+            \Ner  \colon \CAT \lto \sSet
         \end{align}
         のことを言う：
         \begin{itemize}
-            \item $\forall \Cat{C} \in \Obj{\Cat{C}}$ に対して $\mathrm{N}(\Cat{C}) \in \Obj{\sSet}$ を対応づける．
+            \item $\forall \Cat{C} \in \Obj{\Cat{C}}$ に対して $\Ner (\Cat{C}) \in \Obj{\sSet}$ を対応づける．
             \item 任意の関手 $\Cat{C} \xrightarrow{F} \Cat{D}$ に対して\hyperref[def:nat]{自然変換}
             \begin{align}
                 \ner{F} \colon &\ner{\Cat{C}} \Longrightarrow \ner{\Cat{D}}, \\
-                \WHERE \ner{F} &\coloneqq \Familyset[\big]{\mathrm{N}(F)_{[n]} \colon \mathrm{Fun}([n],\, \Cat{C}) \lto \mathrm{Fun}([n],\, \Cat{D}),\; X \lmto F \circ X}{[n] \in \Obj{\OP{\Delta}}}
+                \WHERE \ner{F} &\coloneqq \Familyset[\big]{\Ner (F)_{[n]} \colon \mathrm{Fun}([n],\, \Cat{C}) \lto \mathrm{Fun}([n],\, \Cat{D}),\; X \lmto F \circ X}{[n] \in \Obj{\OP{\Delta}}}
             \end{align}
             を対応付ける
         \end{itemize}
 \end{mydef}
 
-定義\ref{def:SimpSet}の略記に倣い，$\mathrm{N}(\Cat{C})_n \coloneqq \mathrm{N} (\Cat{C})([n]) \in \Obj{\SETS}$ と略記する．
-このとき，圏 $[n]$ の定義を思い出すと，集合の要素 $X \in \mathrm{N}(\Cat{C})_n$ は以下のデータからなる：
+定義\ref{def:SimpSet}の略記に倣い，$\Ner (\Cat{C})_n \coloneqq \Ner  (\Cat{C})([n]) \in \Obj{\SETS}$ と略記する．
+このとき，圏 $[n]$ の定義を思い出すと，集合の要素 $X \in \Ner (\Cat{C})_n$ は以下のデータからなる：
 \begin{itemize}
     \item 圏 $\Cat{C}$ の対象の族
     \begin{align}
@@ -1877,7 +1877,7 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
 と理解できる．
 
 \begin{myexample}[label=ex:nerve-face]{面写像}
-    $\forall X \in \mathrm{N}(\Cat{C})_n$ を $\Cat{C}$ の図式
+    $\forall X \in \Ner (\Cat{C})_n$ を $\Cat{C}$ の図式
     \begin{align}
         X_0 \xrightarrow{f_1} X_1 \xrightarrow{f_2} \cdots \xrightarrow{f_n} X_n
     \end{align}
@@ -1891,7 +1891,7 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
 \end{myexample}
 
 \begin{myexample}[label=ex:nerve-degen]{縮退写像}
-    $\forall X \in \mathrm{N}(\Cat{C})_n$ を $\Cat{C}$ の図式
+    $\forall X \in \Ner (\Cat{C})_n$ を $\Cat{C}$ の図式
     \begin{align}
         X_0 \xrightarrow{f_1} X_1 \xrightarrow{f_2} \cdots \xrightarrow{f_n} X_n
     \end{align}
@@ -1909,7 +1909,7 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
 \end{myprop}
 \begin{proof}
     \begin{align}
-        \theta \colon \Hom{\CAT}(\Cat{C},\, \Cat{D}) \lto \Hom{\sSet} \bigl( \mathrm{N}(\Cat{C}),\, \mathrm{N}(\Cat{D}) \bigr),\; F \lmto \mathrm{N}(F)
+        \theta \colon \Hom{\CAT}(\Cat{C},\, \Cat{D}) \lto \Hom{\sSet} \bigl( \Ner (\Cat{C}),\, \Ner (\Cat{D}) \bigr),\; F \lmto \Ner (F)
     \end{align}
     が全単射であることを示せば良い．
 
@@ -1929,7 +1929,7 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
         が成り立つ．i.e. $F = G$ である．
         \item[\textbf{全射}]　
         
-        $\forall f \in \Hom{\sSet} \bigl( \mathrm{N}(\Cat{C}),\, \mathrm{N}(\Cat{D}) \bigr)$ を1つ固定する．$f$ は\hyperref[def:nat]{自然変換}だから，$\forall n \ge 0$ に対して\hyperref[def:nat]{自然変換} $f_{[n]} \colon \mathrm{N}(\Cat{C})_n \lto \mathrm{N}(\Cat{D})_n$ が定まる．
+        $\forall f \in \Hom{\sSet} \bigl( \Ner (\Cat{C}),\, \Ner (\Cat{D}) \bigr)$ を1つ固定する．$f$ は\hyperref[def:nat]{自然変換}だから，$\forall n \ge 0$ に対して\hyperref[def:nat]{自然変換} $f_{[n]} \colon \Ner (\Cat{C})_n \lto \Ner (\Cat{D})_n$ が定まる．
         \eqref{eq:nerve-spine}より $\forall X,\, Y \in \Obj{\Cat{C}}$ を $\ner{\Cat{C}}_0$ の要素と見做し，圏 $\Cat{C}$ における任意の射 $X \xrightarrow{u} Y$ を $\ner{\Cat{C}}_1$ の要素と見做すことができる．すると自然変換 $f$ により
         \begin{align}
             f_{[0]} (X),\, f_{[0]} (Y) \in \Obj{\Cat{D}}
@@ -2006,7 +2006,7 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
                 $f$ が\hyperref[def:nat]{自然変換}なので\hyperref[def:simplex-cat]{縮退写像} $s_0^0 \colon [1] \lto [0]$ について可換図式
                 \begin{center}
                     \begin{tikzcd}[row sep=large, column sep=large]
-                        &\ner{\Cat{C}}_{1} \ar[from=d, "\mathrm{N}(\Cat{C})(s_0^0)=\sigma_0^0"] \ar[r, "f_{[1]}"] &\ner{\Cat{D}}_1 \ar[from=d, "\ner{\Cat{D}}(s_0^0)=\sigma_0^0"'] \\
+                        &\ner{\Cat{C}}_{1} \ar[from=d, "\Ner (\Cat{C})(s_0^0)=\sigma_0^0"] \ar[r, "f_{[1]}"] &\ner{\Cat{D}}_1 \ar[from=d, "\ner{\Cat{D}}(s_0^0)=\sigma_0^0"'] \\
                         &\ner{\Cat{C}}_{0} \ar[r, "f_{[0]}"] &\ner{\Cat{D}}_0
                     \end{tikzcd}
                 \end{center}
@@ -2104,8 +2104,8 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
     \begin{description}
         \item[\textbf{(1)$\bm{\Longrightarrow}$(2)}]　
         
-        ある圏 $\Cat{C}$ が存在して $K \cong \mathrm{N}(\Cat{C})$ だとする．
-        $\forall f \in \Hom{\sSet}\bigl(\Lambda^n_j,\, \mathrm{N}(\Cat{C})\bigr)$ を1つ与える．このとき $0 < \forall j < \forall n$ に対して $f$ が $u \in \Hom{\sSet} \bigl( \Delta^n,\, \mathrm{N}(\Cat{C}) \bigr)$ へ一意的に拡張できることを示せば良い．
+        ある圏 $\Cat{C}$ が存在して $K \cong \Ner (\Cat{C})$ だとする．
+        $\forall f \in \Hom{\sSet}\bigl(\Lambda^n_j,\, \Ner (\Cat{C})\bigr)$ を1つ与える．このとき $0 < \forall j < \forall n$ に対して $f$ が $u \in \Hom{\sSet} \bigl( \Delta^n,\, \Ner (\Cat{C}) \bigr)$ へ一意的に拡張できることを示せば良い．
 
         　$0 \le \forall k \le n$ に対して $U_k \coloneqq f_{[0]}(\{k\})$ とおく\footnote{\exref{ex:horn}より，$\{k\} \in \Lambda^n_j ([0])$ である．}．
         さらに $0 < \forall k \le n$ に対して
@@ -2120,7 +2120,7 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
         \begin{align}
             U_0 \xrightarrow{g_1} U_1 \xrightarrow{g_2} \cdots \xrightarrow{g_{n}} U_n
         \end{align}
-        が定まる．ここから\eqref{eq:nerve-spine}の方法で $U \in \mathrm{N}(\Cat{C})_n$ が一意的に定まり，\hyperref[lem:Yoneda]{米田の補題}により対応する $u \in \Hom{\sSet} \bigl(\Delta^n,\, \mathrm{N}(\Cat{C})\bigr)$ が一意的に定まるが，構成からこれが所望の $u$ である\cite[\href{https://kerodon.net/tag/0032}{Tag 0032}]{kerodon}．
+        が定まる．ここから\eqref{eq:nerve-spine}の方法で $U \in \Ner (\Cat{C})_n$ が一意的に定まり，\hyperref[lem:Yoneda]{米田の補題}により対応する $u \in \Hom{\sSet} \bigl(\Delta^n,\, \Ner (\Cat{C})\bigr)$ が一意的に定まるが，構成からこれが所望の $u$ である\cite[\href{https://kerodon.net/tag/0032}{Tag 0032}]{kerodon}．
         % ．この $u$ が\hyperref[def:KanCplx]{弱Kan条件}を充たすことを示す（なお，弱Kan条件を充たす $u$ の一意性は明らかである．実際，$u'|_{\Lambda^n_j} = f$ を充たすもう一つの $u'$ が存在したとすると，$u'$ もまた $U$ に対応付けられるため $u=u'$ だと分かる）．
         % $n = 2$ のときは，$0 < j < 2$ なので $j=1$ となる．\exref{ex:horn}より，$0 < \forall k \le 2$ に対して $g_k \coloneqq f_{[1]}(\{k-1\} \lto \{k\})$ とおくと，
         % \begin{align}
@@ -2240,11 +2240,11 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
         
         さて，$\sSet$ の射
         \begin{align}
-            \theta \colon K \lto \mathrm{N}(\Cat{C})
+            \theta \colon K \lto \Ner (\Cat{C})
         \end{align}
-        を構成しよう．$\theta$ は\hyperref[def:nat]{自然変換}であるから，$\forall [n] \in $ に対して写像 $\theta_{[n]} \colon K_n \lto \mathrm{N}(\Cat{C})_n$ を定めれば良い．命題\ref{prop:SimpSet-basic}-(1) より $\forall \sigma \in K_n$ は自然に $\Hom{\sSet} (\Delta^n,\, K)$ の元と見做せるため，
+        を構成しよう．$\theta$ は\hyperref[def:nat]{自然変換}であるから，$\forall [n] \in $ に対して写像 $\theta_{[n]} \colon K_n \lto \Ner (\Cat{C})_n$ を定めれば良い．命題\ref{prop:SimpSet-basic}-(1) より $\forall \sigma \in K_n$ は自然に $\Hom{\sSet} (\Delta^n,\, K)$ の元と見做せるため，
         \begin{align}
-            \theta_{[n]} \colon K_n &\lto \mathrm{N}(\Cat{C})_n, \\
+            \theta_{[n]} \colon K_n &\lto \Ner (\Cat{C})_n, \\
             \sigma &\lmto \bigl( \sigma_{[0]}(\{0\}) \xrightarrow{\sigma_{[1]}(\{0,\, 1\})} \cdots \xrightarrow{\sigma_{[1]}(\{n-1,\, n\})} \sigma_{[0]}(\{n\}) \bigr) 
         \end{align}
         と定義する．構成から $\theta_{[n]}$ は自然である．
@@ -2252,7 +2252,7 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
         まず，圏 $\Cat{C}$ の構成から $\theta_{[0]},\, \theta_{[1]}$ が全単射であることは明らかである．
         $n > 1$ のとき，示すべきは命題\ref{prop:SimpSet-basic}-(1) より
         \begin{align}
-            \theta_* \colon \Hom{\sSet} (\Delta^n,\, K) &\lto \Hom{\sSet} \bigl(\Delta^n,\, \mathrm{N}(\Cat{C})\bigr), \\
+            \theta_* \colon \Hom{\sSet} (\Delta^n,\, K) &\lto \Hom{\sSet} \bigl(\Delta^n,\, \Ner (\Cat{C})\bigr), \\
             \sigma &\lmto \theta \circ \sigma
         \end{align}
         が全単射であることである．$0 < j < n$ を1つとる．$u \in \Hom{\sSet} (\Lambda^n_j,\, K)$ に対する\hyperref[def:KanCplx]{弱Kan条件}の解を $\overline{u} \in \Hom{\sSet} (\Delta^n,\, K)$ と書くと，解の一意性の仮定より写像
@@ -2260,11 +2260,11 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
             \phi_K \colon \Hom{\sSet} (\Delta^n,\, K) &\lto \Hom{\sSet} (\Lambda^n_j,\, K), \\
             \overline{u} &\lmto u
         \end{align}
-        は全単射である．$\mathrm{N}(\Cat{C})$ にも同様の構成ができるため，可換図式
+        は全単射である．$\Ner (\Cat{C})$ にも同様の構成ができるため，可換図式
         \begin{center}
             \begin{tikzcd}
-                {\Hom{\sSet}(\Delta^n,\, K)} \arrow[d, "\phi_K"'] \arrow[rr, "\theta_*"] &  & {\Hom{\sSet}\bigl(\Delta^n,\, \mathrm{N}(\Cat{C})\bigr)} \arrow[d, "\phi_{\mathrm{N}(\Cat{C})}"] \\
-                {\Hom{\sSet}(\Lambda_j^n,\, K)} \arrow[rr, "\theta_*|_{\Lambda^n_j}"]    &  & {\Hom{\sSet}\bigl(\Lambda_j^n,\, \mathrm{N}(\Cat{C})\bigr)}                                     
+                {\Hom{\sSet}(\Delta^n,\, K)} \arrow[d, "\phi_K"'] \arrow[rr, "\theta_*"] &  & {\Hom{\sSet}\bigl(\Delta^n,\, \Ner (\Cat{C})\bigr)} \arrow[d, "\phi_{\Ner (\Cat{C})}"] \\
+                {\Hom{\sSet}(\Lambda_j^n,\, K)} \arrow[rr, "\theta_*|_{\Lambda^n_j}"]    &  & {\Hom{\sSet}\bigl(\Lambda_j^n,\, \Ner (\Cat{C})\bigr)}                                     
             \end{tikzcd}
         \end{center}
         が書ける．縦の射は全単射なので，$\theta_*|_{\Lambda^n_j}$ が全単射であることを示せば良い．これは系\ref{col:horn-coeq}および帰納法の仮定から従う．
@@ -2284,7 +2284,7 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
 
 
 \begin{myprop}[label=prop:nerve-grpd]{脈体が $\infty$-groupoidになる必要十分条件}
-    圏 $\Cat{C}$ の\hyperref[def:nerve]{脈体} $\mathrm{N}(\Cat{C})$ が\hyperref[def:infinity-1]{$\infty$-groupoid}になる必要十分条件は，$\Cat{C}$ が\hyperref[def:groupoid]{groupoid}であること．
+    圏 $\Cat{C}$ の\hyperref[def:nerve]{脈体} $\Ner (\Cat{C})$ が\hyperref[def:infinity-1]{$\infty$-groupoid}になる必要十分条件は，$\Cat{C}$ が\hyperref[def:groupoid]{groupoid}であること．
 \end{myprop}
 
 \begin{proof}
@@ -2292,31 +2292,31 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
     \begin{description}
         \item[\textbf{($\bm{\Longrightarrow}$)}]　
         
-        $\mathrm{N}(\Cat{C})$ が\hyperref[def:infinity-1]{$\infty$-groupoid}だと仮定する．
+        $\Ner (\Cat{C})$ が\hyperref[def:infinity-1]{$\infty$-groupoid}だと仮定する．
         このとき，\hyperref[def:KanCplx]{Kan条件}により，$\forall n \ge 1,\; 0 \le \forall j \le n$ に対して全射\footnote{定理\ref{thm:KanCplx}の状況とは異なり，\underline{単射とは限らない}！}
         \begin{align}
-            \theta^n_j \colon \Hom{\sSet}\bigl(\Delta^n,\,\mathrm{N}(\Cat{C})\bigr) &\lto \Hom{\sSet}\bigl(\Lambda_j^n,\,\mathrm{N}(\Cat{C})\bigr)
+            \theta^n_j \colon \Hom{\sSet}\bigl(\Delta^n,\,\Ner (\Cat{C})\bigr) &\lto \Hom{\sSet}\bigl(\Lambda_j^n,\,\Ner (\Cat{C})\bigr)
         \end{align}
         が存在する．
 
-        　$\forall f \in \Hom{\Cat{C}}(X,\, Y)$ を1つ固定し，これを\eqref{eq:nerve-spine}の方法により $\mathrm{N}(\Cat{C})_1$ の元と見做す．このとき，$\bigl(f,\, \Id_Y = \sigma^0_0(Y)\bigr) \in \mathrm{N}(\Cat{C})_1^{\times 2}$ は
+        　$\forall f \in \Hom{\Cat{C}}(X,\, Y)$ を1つ固定し，これを\eqref{eq:nerve-spine}の方法により $\Ner (\Cat{C})_1$ の元と見做す．このとき，$\bigl(f,\, \Id_Y = \sigma^0_0(Y)\bigr) \in \Ner (\Cat{C})_1^{\times 2}$ は
         % 単体的恒等式\eqref{eq:Simp4}より
         \begin{align}
             \partial^1_0(f) &= Y = \partial^1_0(\Id_Y)
         \end{align}
-        を充たすため系\ref{col:horn-coeq}が使えて，$(f,\, \Id_Y) \in \Hom{\sSet}\bigl(\Lambda^2_2,\, \mathrm{N}(\Cat{C})\bigr)$ と見做せる．
-        このとき $\theta^2_2$ の全射性により，$\sigma \in \mathrm{N}(\Cat{C})_2 \cong \Hom{\sSet} \bigl( \Delta^2,\, \mathrm{N}(\Cat{C}) \bigr)$ が存在して $(f,\, \Id_Y) = \theta^2_2(\sigma)$ を充たす．
+        を充たすため系\ref{col:horn-coeq}が使えて，$(f,\, \Id_Y) \in \Hom{\sSet}\bigl(\Lambda^2_2,\, \Ner (\Cat{C})\bigr)$ と見做せる．
+        このとき $\theta^2_2$ の全射性により，$\sigma \in \Ner (\Cat{C})_2 \cong \Hom{\sSet} \bigl( \Delta^2,\, \Ner (\Cat{C}) \bigr)$ が存在して $(f,\, \Id_Y) = \theta^2_2(\sigma)$ を充たす．
         $\theta^n_j$ の定義および系\ref{col:horn-coeq}から，これは
         \begin{align}
             \partial^2_0 (\sigma) &= f, \\
             \partial^2_1 (\sigma) &= \Id_Y
         \end{align}
-        を意味する．故に命題\ref{prop:nerve}の証明から，$g \coloneqq \partial^2_2 (\sigma) \in \mathrm{N}(\Cat{C})_1 = \Hom{\Cat{C}}(Y,\, X)$ とおくことで，
+        を意味する．故に命題\ref{prop:nerve}の証明から，$g \coloneqq \partial^2_2 (\sigma) \in \Ner (\Cat{C})_1 = \Hom{\Cat{C}}(Y,\, X)$ とおくことで，
         \begin{align}
             f \circ g = \partial^2_1 (\sigma) = \Id_Y
         \end{align}
         が成り立つことが分かった．
-        同様に，$(\Id_X,\, f) \in \Hom{\sSet}\bigl(\Lambda^2_0,\, \mathrm{N}(\Cat{C})\bigr)$ と見做せること，および $\theta^2_0$ の全射性から $h \in \mathrm{N}(\Cat{C})_1 = \Hom{\Cat{C}} (Y,\, X)$ であって $h \circ f = \Id_X$ を充たすものが存在する．
+        同様に，$(\Id_X,\, f) \in \Hom{\sSet}\bigl(\Lambda^2_0,\, \Ner (\Cat{C})\bigr)$ と見做せること，および $\theta^2_0$ の全射性から $h \in \Ner (\Cat{C})_1 = \Hom{\Cat{C}} (Y,\, X)$ であって $h \circ f = \Id_X$ を充たすものが存在する．
         命題\ref{prop:nerve}の証明から，
         \begin{align}
             g = \Id_X \circ g = (h \circ f) \circ g = h \circ (f \circ g) = h \circ \Id_Y = h
@@ -2329,19 +2329,19 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
         定理\ref{thm:KanCplx}から，示すべきは $\forall n \ge 1,\, j = 0,\, n$ に対して\hyperref[def:KanCplx]{Kan条件}が成立していることである．
         
         　$n=1,\, j=0$ とする．このとき $\Lambda^n_0 = \bigl\{ \{0\},\, \{1\} \bigr\}$ であるから，
-        $\forall \sigma \in \Hom{\sSet}\bigl( \Lambda^n_0,\, \mathrm{N}(\Cat{C}) \bigr)$ は $\Obj{\Cat{C}}$ の元である．よって，$\bar{\sigma} \in \Hom{\sSet}\bigl(\Delta^1,\, \mathrm{N}(\Cat{C})\bigr)$ として $\bar{\sigma} \in \Hom{\Cat{C}}(X,\, \sigma)$ をとれば $\partial^1_0(\bar{\sigma}) = \sigma$ を充たす．
+        $\forall \sigma \in \Hom{\sSet}\bigl( \Lambda^n_0,\, \Ner (\Cat{C}) \bigr)$ は $\Obj{\Cat{C}}$ の元である．よって，$\bar{\sigma} \in \Hom{\sSet}\bigl(\Delta^1,\, \Ner (\Cat{C})\bigr)$ として $\bar{\sigma} \in \Hom{\Cat{C}}(X,\, \sigma)$ をとれば $\partial^1_0(\bar{\sigma}) = \sigma$ を充たす．
         このことは系\ref{col:horn-coeq}より $\bar{\sigma}|_{\Lambda^n_0} = \sigma$ を意味する．
 
-        　次に，$n=2,\, j=0$ とする．このとき $\forall \sigma \in \Hom{\sSet}\bigl( \Lambda^n_0,\, \mathrm{N}(\Cat{C}) \bigr)$ は，系\ref{col:horn-coeq}より $\bigl(\sigma_1 \coloneqq \partial^2_1(\sigma),\, \sigma_2 \coloneqq \sigma^2_2(\sigma)\bigr) \in \mathrm{N}(\Cat{C})_{1}^{\times 2}$ であって以下の図式として書けるものと同一視できる：
+        　次に，$n=2,\, j=0$ とする．このとき $\forall \sigma \in \Hom{\sSet}\bigl( \Lambda^n_0,\, \Ner (\Cat{C}) \bigr)$ は，系\ref{col:horn-coeq}より $\bigl(\sigma_1 \coloneqq \partial^2_1(\sigma),\, \sigma_2 \coloneqq \sigma^2_2(\sigma)\bigr) \in \Ner (\Cat{C})_{1}^{\times 2}$ であって以下の図式として書けるものと同一視できる：
         \begin{center}
             \begin{tikzcd}
                 & Z &   \\
             X \arrow[rr, "\sigma_1"] \arrow[ru, "\sigma_2"] &   & Y
             \end{tikzcd}
         \end{center}
-        $\Cat{C}$ は\hyperref[def:groupoid]{groupoid}なので，この図式に $\sigma_0 \coloneqq \sigma_1 \circ \sigma_2 \in \mathrm{N}(\Cat{C})_1$ を付け足すことで所望の $\bar{\sigma} \in \mathrm{N}(\Cat{C})_2 \cong \Hom{\sSet} \bigl(\Delta^2,\, \mathrm{N}(\Cat{C})\bigr)$ を得る．
+        $\Cat{C}$ は\hyperref[def:groupoid]{groupoid}なので，この図式に $\sigma_0 \coloneqq \sigma_1 \circ \sigma_2 \in \Ner (\Cat{C})_1$ を付け足すことで所望の $\bar{\sigma} \in \Ner (\Cat{C})_2 \cong \Hom{\sSet} \bigl(\Delta^2,\, \Ner (\Cat{C})\bigr)$ を得る．
 
-        　次に，$n \ge 3,\, j=0$ とする．このとき定理\ref{thm:KanCplx}の (1) $\Longrightarrow$ (2) の構成によって $\bar{\sigma} \in \mathrm{N}(\Cat{C})_n$ を作ろうとする．この構成が可能なのは，勝手な $0 \le i \le j \le k \le n$ に対して $\sigma_{[1]} (\{j,\, k\}) \circ \sigma_{[1]} (\{i,\, j\}) = \sigma_{\{i,\, k\}}$ が成り立つときだが，
+        　次に，$n \ge 3,\, j=0$ とする．このとき定理\ref{thm:KanCplx}の (1) $\Longrightarrow$ (2) の構成によって $\bar{\sigma} \in \Ner (\Cat{C})_n$ を作ろうとする．この構成が可能なのは，勝手な $0 \le i \le j \le k \le n$ に対して $\sigma_{[1]} (\{j,\, k\}) \circ \sigma_{[1]} (\{i,\, j\}) = \sigma_{\{i,\, k\}}$ が成り立つときだが，
         これは3頂点 $\bigl\{\{i,\}\, \{j\},\, \{k\}\bigr\}$ が作る2-単体 $\sigma_{ijk} \in \Delta^n([2])$ が $\Lambda^n_0([2])$ に含まれることと同値である．よって $n=3$ のときのみが非自明である．
         $n=3$ のときは，$\sigma_{ij} \coloneqq \sigma_{[1]} (\{j,\, k\})$ とおくと
         \begin{align}
@@ -2352,7 +2352,7 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
             &= \sigma_{13} \circ \sigma_{01}
         \end{align}
         と計算できるが，$\Cat{C}$ がgroupoidなので両辺の右から $\sigma_{01}^{-1}$ をかけることで $\sigma_{23} \circ \sigma_{12} = \sigma_{13}$ が示される．
-        % $\forall \sigma \in \Hom{\sSet} \bigl( \Lambda^n_0,\, \mathrm{N}(\Cat{C}) \bigr)$ から次のようにして $\mathrm{N}(\Cat{C})_n$ の元を構成する：
+        % $\forall \sigma \in \Hom{\sSet} \bigl( \Lambda^n_0,\, \Ner (\Cat{C}) \bigr)$ から次のようにして $\Ner (\Cat{C})_n$ の元を構成する：
 
         　$j=n$ の場合も同様である．
     \end{description}
@@ -2420,9 +2420,9 @@ $K$ を\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}とする．$\forall X,\, Y
 \begin{mydef}[label=def:isom-infty]{{$(\infty,\, 1)$}-圏における対象の同型}
     \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $K$ を与える．
     \begin{itemize}
-        \item 1-射 $f \in K_0$ が\textbf{同型射} (isomorphism) であるとは，$K$ の\hyperref[def:hcat-infty]{ホモトピー圏} $\htpy{K}$ において $[f]$ が\hyperref[def:iso]{同型射}であることを言う．
+        \item 1-射 $f \in K_1$ が\textbf{同型射} (isomorphism) であるとは，$K$ の\hyperref[def:hcat-infty]{ホモトピー圏} $\htpy{K}$ において $[f]$ が\hyperref[def:iso]{同型射}であることを言う．
         \item 対象 $X,\, Y \in K_0$ が\textbf{同型} (isomorphic) であるとは，$X,\, Y$ をそれぞれ始点・終点に持つ $K$ の同型射が存在することを言う．
-    \end{itemize}
+    \end{itemize}z
 \end{mydef}
 
 \begin{mydef}[label=def:hqCat]{{$\qCat$}のホモトピー圏}
@@ -2582,7 +2582,7 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
     \begin{align}
         \Hom{\mathfrak{C}[Q]} (i,\, j) \coloneqq 
         \begin{cases}
-            \mathrm{N}(P_{ij}), &i \le j \\
+            \Ner (P_{ij}), &i \le j \\
             \emptyset, &i > j
         \end{cases}
     \end{align}
@@ -2606,7 +2606,7 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
     \end{align}
     を次で定義する：
     \begin{align}
-        \circ_{ijk}{}_{[n]} \colon \mathrm{N}(P_{jk})_n \times \mathrm{N}(P_{ij})_n &\lto \mathrm{N}(P_{ij})_n, \\
+        \circ_{ijk}{}_{[n]} \colon \Ner (P_{jk})_n \times \Ner (P_{ij})_n &\lto \Ner (P_{ij})_n, \\
         (\sigma,\, \tau) &\lmto \sigma \cup \tau
     \end{align}
 \end{itemize}    
@@ -2623,12 +2623,12 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
     \end{align}
     であるから，\hyperref[def:nerve]{脈体}の定義により
     \begin{align}
-        % \mathrm{N}(P_{ii})_0 &= \mathrm{Fun}([0],\, P_{ii}) = \{\bullet_{i}\}, \\
-        % \mathrm{N}(P_{01})_0 &= \mathrm{Fun}([0],\, P_{01}) = \{\bullet_{0},\, \bullet_{1}\}, \\
-        % \mathrm{N}(P_{02})_0 &= \mathrm{Fun}([0],\, P_{02}) = \{\bullet_{0},\, \bullet_{1},\, \bullet_{2}\}, \\
-        % \mathrm{N}(P_{12})_0 &= \mathrm{Fun}([0],\, P_{12}) = \{\bullet_{1},\, \bullet_{2}\}, \\
-        \mathrm{N}(P_{ii})_n &= \mathrm{Fun}([n],\, P_{ii}) = \{\mathrm{const}_{i} \colon k \lmto i\}, \\
-        \mathrm{N}(P_{01})_n &= \mathrm{Fun}([n],\, P_{01}) = 
+        % \Ner (P_{ii})_0 &= \mathrm{Fun}([0],\, P_{ii}) = \{\bullet_{i}\}, \\
+        % \Ner (P_{01})_0 &= \mathrm{Fun}([0],\, P_{01}) = \{\bullet_{0},\, \bullet_{1}\}, \\
+        % \Ner (P_{02})_0 &= \mathrm{Fun}([0],\, P_{02}) = \{\bullet_{0},\, \bullet_{1},\, \bullet_{2}\}, \\
+        % \Ner (P_{12})_0 &= \mathrm{Fun}([0],\, P_{12}) = \{\bullet_{1},\, \bullet_{2}\}, \\
+        \Ner (P_{ii})_n &= \mathrm{Fun}([n],\, P_{ii}) = \{\mathrm{const}_{i} \colon k \lmto i\}, \\
+        \Ner (P_{01})_n &= \mathrm{Fun}([n],\, P_{01}) = 
         \Bigl\{ 
             f_{x} \colon k \lmto
             \begin{cases}
@@ -2637,7 +2637,7 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
             \end{cases}\;
         \Bigm|\; 0 \le x \le n+1
         \Bigr\}, \\
-        \mathrm{N}(P_{12})_n &= \mathrm{Fun}([n],\, P_{12}) = 
+        \Ner (P_{12})_n &= \mathrm{Fun}([n],\, P_{12}) = 
         \Bigl\{ 
             f_{x} \colon k \lmto
             \begin{cases}
@@ -2646,7 +2646,7 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
             \end{cases}\;
         \Bigm|\; 0 \le x \le n+1
         \Bigr\}, \\
-        \mathrm{N}(P_{02})_n &= \mathrm{Fun}([n],\, P_{02}) = 
+        \Ner (P_{02})_n &= \mathrm{Fun}([n],\, P_{02}) = 
         \Bigl\{ 
             f_{xy} \colon k \lmto 
             \begin{cases}
@@ -2660,7 +2660,7 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
     だと分かる．
     % 特に，
     % \begin{align}
-    %     \circ_{012}{}_{[n]} \colon \mathrm{N}(P_{12})_n \times \mathrm{N}(P_{01}) \lto \mathrm{N}(P_{02})
+    %     \circ_{012}{}_{[n]} \colon \Ner (P_{12})_n \times \Ner (P_{01}) \lto \Ner (P_{02})
     % \end{align}
     % である．
 \end{myexample}
@@ -2668,18 +2668,18 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
 \begin{mydef}[label=def:nerve-hc,breakable]{homotopy coherentな脈体}
     \hyperref[def:SimpCat]{単体的豊穣圏} $\Cat{C} \in \Obj{\sCat}$ の\textbf{homotopy coherent nerve}
     \begin{align}
-        \mathrm{N}_{\text{hc}}(\Cat{C}) \colon \OP{\Delta} \lto \SETS
+        \hcNer (\Cat{C}) \colon \OP{\Delta} \lto \SETS
     \end{align}
     を以下で定義する：
     \begin{itemize}
         \item $\forall [n] \in \Obj{\OP{\Delta}}$ に対して
         \begin{align}
-            \mathrm{N}_{\text{hc}}(\Cat{C})_n &\coloneqq \Hom{\sCat} \bigl( \mathfrak{C}[n],\, \Cat{C} \bigr) 
+            \hcNer (\Cat{C})_n &\coloneqq \Hom{\sCat} \bigl( \mathfrak{C}[n],\, \Cat{C} \bigr) 
         \end{align}
         を対応づける．
         \item $\forall \alpha \in \Hom{\OP{\Delta}}([n],\, [m])$ に対して，写像
         \begin{align}
-            \mathrm{N}_{\text{hc}}(\Cat{C})(\alpha) \coloneqq \alpha^* \colon \Hom{\sCat} \bigl( \mathfrak{C}[n],\, \Cat{C} \bigr) &\lto \Hom{\sCat} \bigl( \mathfrak{C}[m],\, \Cat{C} \bigr), \\
+            \hcNer (\Cat{C})(\alpha) \coloneqq \alpha^* \colon \Hom{\sCat} \bigl( \mathfrak{C}[n],\, \Cat{C} \bigr) &\lto \Hom{\sCat} \bigl( \mathfrak{C}[m],\, \Cat{C} \bigr), \\
             X &\lmto X \circ \alpha
         \end{align}
         を対応付ける．
@@ -2689,14 +2689,14 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
 
     \textbf{homotopy coherent nerve functor}
     \begin{align}
-        \mathrm{N}_{\text{hc}} \colon \sCat \lto \sSet
+        \hcNer  \colon \sCat \lto \sSet
     \end{align}
     を以下で定義する：
     \begin{itemize}
-        \item $\forall \Cat{C} \in \Obj{\sCat}$ に対して $\mathrm{N}_{\text{hc}}(\Cat{C}) \in \Obj{\sSet}$ を対応付ける．
+        \item $\forall \Cat{C} \in \Obj{\sCat}$ に対して $\hcNer (\Cat{C}) \in \Obj{\sSet}$ を対応付ける．
         \item 任意の $\sSet$-\hyperref[def:enriched-functor]{豊穣関手} $\Cat{C} \xrightarrow{F} \Cat{D}$ に対して，\hyperref[def:nat]{自然変換}
         \begin{align}
-            \mathrm{N}_{\text{hc}} (F) \coloneqq \Familyset[big]{\mathrm{N}_{\text{hc}}(F)_{[n]} \colon X \lmto F \circ X}{[n] \in \Obj{\OP{\Delta}}}
+            \hcNer  (F) \coloneqq \Familyset[big]{\hcNer (F)_{[n]} \colon X \lmto F \circ X}{[n] \in \Obj{\OP{\Delta}}}
         \end{align}
         を対応付ける．
     \end{itemize}
@@ -2706,7 +2706,7 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
 \begin{myexample}[label=def:Spaces]{空間の成す {$(\infty,\, 1)$}-圏}
     \exref{def:Kan}\hyperref[def:SimpCat]{単体的豊穣圏} $\KAN$ を\hyperref[def:nerve-hc]{homotopy coherent nerve}で $\sSet$ に埋め込んだものを\textbf{空間の成す $\bm{(\infty,\, 1)}$-圏} ($\infty$-category of spaces)\footnote{より現代的には，$\bm{(\infty,\, 1)}$\textbf{-category of anima}と呼ばれることがある．} と呼び，
     \begin{align}
-         \SPACES \coloneqq \irm{\mathrm{N}}{hc} (\KAN)
+         \SPACES \coloneqq \hcNer (\KAN)
     \end{align}
     と書く．実際，\hyperref[def:SimpSet]{単体的集合} $\SPACES \in \Obj{\sSet}$ は\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}である\cite[\href{https://kerodon.net/tag/01YY}{Tag 01YY}]{kerodon}．
 \end{myexample}
@@ -2893,9 +2893,9 @@ $a,\, b \in Z_n (X,\, *)$ に対して，系\ref{col:horn-coeq}，命題\ref{pro
 % \begin{myprop}[label=prop:nerve-grpd-Psh]{$\infty$-前層の圏のモデル}
 %     $\Cat{C}$ を\hyperref[def:enriched]{$\sSet$-豊穣圏}であって，\hyperref[def:KanCplx]{Kan複体}を\hyperref[def:enriched]{Hom対象}に持つものとする．
     
-%     このとき\hyperref[def:nerve-hc]{homotopy coherentな脈体} $\irm{\mathrm{N}}{hc}$ に対して
+%     このとき\hyperref[def:nerve-hc]{homotopy coherentな脈体} $\irm{\Ner }{hc}$ に対して
 %     \begin{align}
-%         \inftyPsh{\irm{\mathrm{N}}{hc}(\Cat{C})} \cong \irm{\mathrm{N}}{hc} \bigl( \comm{\OP{\Cat{C}}}{\irm{\sSet}{Quillen}}_{\mathrm{proj}}^\circ \bigr)
+%         \inftyPsh{\irm{\Ner }{hc}(\Cat{C})} \cong \irm{\Ner }{hc} \bigl( \comm{\OP{\Cat{C}}}{\irm{\sSet}{Quillen}}_{\mathrm{proj}}^\circ \bigr)
 %     \end{align}
 %     が成り立つ．
 % \end{myprop}
@@ -2949,7 +2949,7 @@ $a,\, b \in Z_n (X,\, *)$ に対して，系\ref{col:horn-coeq}，命題\ref{pro
 
 \section{$(\infty,\, n)$-圏}
 
-\subsection{因子化ホモロジー}
+% \subsection{因子化ホモロジー}
 
 \subsection{Complete Segal space}
 

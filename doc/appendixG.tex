@@ -761,16 +761,16 @@ $\PshSETS{\OP{\Strat}}$ から $\sSet$ への関手を
 
     % \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\STRAT,\, \SNGLR$ を以下で定義する：
     % \begin{align}
-    %     \STRAT &\coloneqq \mathrm{N}_{\text{hc}} (\STRAT), \\
-    %     \SNGLR &\coloneqq \mathrm{N}_{\text{hc}} (\SNGLR)
+    %     \STRAT &\coloneqq \hcNer  (\STRAT), \\
+    %     \SNGLR &\coloneqq \hcNer  (\SNGLR)
     % \end{align}
     
 \end{mydef}
 
 \begin{marker}
     % homotopy hypothesisより $\Kan$-豊穣圏は $(\infty,\, 1)$-圏のモデルと見做せる．故に
-    $\Kan$-豊穣圏を\hyperref[def:nerve-hc]{homotopy coherent nerve functor} $\mathrm{N}_{\text{hc}} \colon \sCat \lto \sSet$ で単体的集合の圏 $\sSet$ へ埋め込んだものは $(\infty,\, 1)$-圏である~\cite[Proposition 1.1.5.10.]{lurie2008higher}．
-    故に以下では $\Kan$-豊穣圏 $\STRAT,\, \SNGLR$ と $(\infty,\, 1)$-圏 $\mathrm{N}_{\text{hc}} (\STRAT),\, \mathrm{N}_{\text{hc}} (\SNGLR)$ を区別しない．
+    $\Kan$-豊穣圏を\hyperref[def:nerve-hc]{homotopy coherent nerve functor} $\hcNer  \colon \sCat \lto \sSet$ で単体的集合の圏 $\sSet$ へ埋め込んだものは $(\infty,\, 1)$-圏である~\cite[Proposition 1.1.5.10.]{lurie2008higher}．
+    故に以下では $\Kan$-豊穣圏 $\STRAT,\, \SNGLR$ と $(\infty,\, 1)$-圏 $\hcNer  (\STRAT),\, \hcNer  (\SNGLR)$ を区別しない．
 \end{marker}
 
 \subsection{$(\infty,\, 1)$-圏におけるファイブレーション}
@@ -826,7 +826,7 @@ $\Hom{\Rfib_{\Cat{B}}} (\Cat{E},\, \Cat{E}') \subset \Hom{\sSet}(\mathcal{E},\, 
         \item $\Hom{\RFIB_{\Cat{B}}}(\Cat{E},\, \Cat{E}')$ をHom対象とする
     \end{itemize}
     ことで定義する．
-    以降では $(\infty,\, 1)$-圏 $\mathrm{N}_{\text{hc}}(\RFIB_{\Cat{B}}) \in \Obj{\sSet}$ のことも $\RFIB_{\Cat{B}}$ と書き，区別しない．
+    以降では $(\infty,\, 1)$-圏 $\hcNer (\RFIB_{\Cat{B}}) \in \Obj{\sSet}$ のことも $\RFIB_{\Cat{B}}$ と書き，区別しない．
 \end{mydef}
 
 \subsection{{$(\infty,\, 1)$}-圏におけるスライス圏}
@@ -1428,7 +1428,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 \hyperref[def:nerve]{脈体の定義}において $[n] \in \Obj{\Delta}$ を $(1,\, 1)$-圏と見做した方法と同様にして，半順序集合 $\{n-1 \le n\}$ を $(1,\, 1)$-圏と見做す．
 このとき，
 \begin{align}
-    \mathrm{N}\bigl( \{n-1 \le n\} \bigr) = 
+    \Ner \bigl( \{n-1 \le n\} \bigr) = 
     \left(
         \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
             \path coordinate[bullet,label=below:$n-1$] (x)
@@ -1440,7 +1440,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 \end{align}
 と図示できる．同様に，
 \begin{align}
-    \mathrm{N}\bigl( \{0 \le 1\} \bigr) = 
+    \Ner \bigl( \{0 \le 1\} \bigr) = 
     \left(
         \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
             \path coordinate[bullet,label=below:$0$] (x)
@@ -1473,12 +1473,12 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
             \begin{center}
                 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACwBOXYADkAvpwBGWAOYMAFJ2BgAtAEYABJwYwNYThPbSZAgJRb2AYwIyLAERgMcdAHpqQY0uky58hFGqkalS0jCxsnADCvMAAomIeXiAY2HgERIEATCH0zKyIHOzROMAAQgme3ql+RGTZ1LnhBZwOTq6Elck+af4kQTlh+YUAMnRcklDtAPodITBQMvBEoABmAhBcSGQgOBBIACzUzlgMbHwQEADWiavrm4jbu0iBoXkRRnQCwCsVSWsbByOe0Qak6-3uAGYgUhMg1Bu8VhABIwGBZ6AI0HwsCBqAw6JJHAAFbo1AoCWR8HA3EDgwE7YFQnZ0E5nC7XMF3Z7QxCw15NZLU2mIRlPEG4rBgIaTOB8eY4vlDTgwAAeWDgODgFkkn2AnHRmKwFQoYiAA
                 \begin{tikzcd}
-                \mathrm{N}\bigl(\{n-1 \le n\}\bigr) \cong \Delta^1 \arrow[d, hook] \arrow[rd, "\bar{f}"] &                        \\
+                \Ner \bigl(\{n-1 \le n\}\bigr) \cong \Delta^1 \arrow[d, hook] \arrow[rd, "\bar{f}"] &                        \\
                 \Lambda^n_n \arrow[r,blue, "\forall \varphi_0"] \arrow[d, hook]                                                    & \Cat{E} \arrow[d, "p"] \\
                 \Delta^n \arrow[r, blue,"\forall \varphi"'] \arrow[ru, red, "\exists \bar{\varphi}", dashed]       & \Cat{B}               
                 \end{tikzcd}
             \end{center}
-            ただし，$\sSet$ の射 $\bar{f} \colon \mathrm{N}\bigl(\{n-1 \le n\}\bigr) \lto \Cat{E}$ とは
+            ただし，$\sSet$ の射 $\bar{f} \colon \Ner \bigl(\{n-1 \le n\}\bigr) \lto \Cat{E}$ とは
             \begin{align}
                 \bar{f}_{[1]}
                     \left( 
@@ -1517,12 +1517,12 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
             \begin{center}
                 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACwBOXYADkAvpwBGWAOYMAFJ2BgAtAEYABJwYwNYThPbSZAgJRb2AYwIyLAERgMcdAHpqQY0uky58hFGqkalS0jCxsnADCvMAAomIeXiAY2HgERIEATCH0zKyIHOzROMAAQgme3ql+RGTZ1LnhBZwOTq6Elck+af4kQTlh+YUAMnRcklDtAPodITBQMvBEoABmAhBcSGQgOBBIACzUzlgMbHwQEADWiavrm4jbu0iBoXkRRnQCwCsVSWsbByOe0Qak6-3uAGYgUhMg1Bu8VhABIwGBZ6AI0HwsCBqAw6JJHAAFbo1AoCWR8HA3EDgwE7YFQnZ0E5nC7XMF3Z7QxCw15NZLU2mIRlPEG4rBgIaTOB8eY4vlDTgwAAeWDgODgFkkn2AnHRmKwFQoYiAA
                 \begin{tikzcd}
-                \mathrm{N}\bigl(\{0 \le 1\}\bigr) \cong \Delta^1 \arrow[d, hook] \arrow[rd, "\bar{f}"] &                        \\
+                \Ner \bigl(\{0 \le 1\}\bigr) \cong \Delta^1 \arrow[d, hook] \arrow[rd, "\bar{f}"] &                        \\
                 \Lambda^n_0 \arrow[r,blue,"\forall \varphi_0"] \arrow[d, hook]                                                    & \Cat{E} \arrow[d, "p"] \\
                 \Delta^n \arrow[r, blue,"\forall \varphi"'] \arrow[ru, red, "\exists \bar{\varphi}", dashed]       & \Cat{B}               
                 \end{tikzcd}
             \end{center}
-            ただし，$\sSet$ の射 $\bar{f} \colon \mathrm{N}\bigl(\{0 \le 1\}\bigr) \lto \Cat{E}$ とは
+            ただし，$\sSet$ の射 $\bar{f} \colon \Ner \bigl(\{0 \le 1\}\bigr) \lto \Cat{E}$ とは
             \begin{align}
                 \bar{f}_{[1]}
                     \left( 
@@ -1555,7 +1555,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 \end{mydef}
 
 $n=2$ の場合の\hyperref[def:Cart-coCart]{\textsf{\textbf{(coCart-2)}}}の可換図式を系\ref{col:horn-coeq}を用いて書き直そう．
-まず，包含 $\mathrm{N}\bigl( \{0 \le 1\} \bigr) \hookrightarrow \Lambda^2_0$ というのは，系\ref{col:horn-coeq}による角 $\Lambda^2_0$ の図示
+まず，包含 $\Ner \bigl( \{0 \le 1\} \bigr) \hookrightarrow \Lambda^2_0$ というのは，系\ref{col:horn-coeq}による角 $\Lambda^2_0$ の図示
 \begin{center}
     \begin{tikzpicture} 
         \path coordinate[bullet,label=below left:$\{0\}$] (v0)
@@ -1571,7 +1571,7 @@ $n=2$ の場合の\hyperref[def:Cart-coCart]{\textsf{\textbf{(coCart-2)}}}の可
 \begin{center}
     % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACwBOXYADkAvpwBGWAOYMAFJ2BgAtAEYABJwYwNYThPbSZAgJRb2AYwIyLAERgMcdAHpqQY0uky58hFGqkalS0jCxsnADCvMAAomIeXiAY2HgERIEATCH0zKyIHOzROMAAQgme3ql+RGTZ1LnhBZwOTq6Elck+af4kQTlh+YUAMnRcklDtAPodITBQMvBEoABmAhBcSGQgOBBIACzUzlgMbHwQEADWiavrm4jbu0iBoXkRRnQCwCsVSWsbByOe0Qak6-3uAGYgUhMg1Bu8VhABIwGBZ6AI0HwsCBqAw6JJHAAFbo1AoCWR8HA3EDgwE7YFQnZ0E5nC7XMF3Z7QxCw15NZLU2mIRlPEG4rBgIaTOB8eY4vlDTgwAAeWDgODgFkkn2AnHRmKwFQoYiAA
     \begin{tikzcd}
-    \mathrm{N}\bigl(\{0 \le 1\}\bigr) \cong \Delta^1 \arrow[d, hook] \arrow[rd, "\bar{f}"] &                        \\
+    \Ner \bigl(\{0 \le 1\}\bigr) \cong \Delta^1 \arrow[d, hook] \arrow[rd, "\bar{f}"] &                        \\
     \Lambda^2_0 \arrow[r,blue,"\forall \varphi_0"]                                                  & \Cat{E}
     \end{tikzcd}
 \end{center}
@@ -1643,7 +1643,7 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
     で定義する．
 
     $\bm{(\infty,\, 1)}$\textbf{-オペラッド} ($(\infty,\, 1)$-operad)\footnote{$\infty$-operadとも呼ばれる．} とは，
-    \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $p \colon \Cat{O}^{\otimes} \lto \mathrm{N}(\FIN_*)$ であって以下の条件を充たすもののこと：
+    \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $p \colon \Cat{O}^{\otimes} \lto \Ner (\FIN_*)$ であって以下の条件を充たすもののこと：
     \begin{description}
         \item[\textbf{(Op-1)}]　
         
@@ -1665,12 +1665,12 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         ある $c \in (\Cat{O}^\otimes_{\expval{n}})_0$ および \hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射 $\overline{\rho^i} \in \Hom{\Cat{O}^\otimes} (c,\, c_i)_{\rho^i}$ が存在する．
     \end{description}
 
-    ただし，点 $\expval{n} \in \mathrm{N}(\FIN_*)_0$ における\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $p \colon \Cat{O}^\otimes \lto \mathrm{N}(\FIN_*)$ の\textbf{ファイバー}\footnote{これ自体が $(\infty,\, 1)$-圏である．} $\Cat{O}^{\otimes}_{\expval{n}}$ を，\hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏のpullback}
+    ただし，点 $\expval{n} \in \Ner (\FIN_*)_0$ における\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $p \colon \Cat{O}^\otimes \lto \Ner (\FIN_*)$ の\textbf{ファイバー}\footnote{これ自体が $(\infty,\, 1)$-圏である．} $\Cat{O}^{\otimes}_{\expval{n}}$ を，\hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏のpullback}
     \begin{center}
         % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BhOnYAeQC+APWCcIeALbxBAfTHsYADzT0GwMIMEhBpdJlz5CKMgEYqtRizacefIcPFT4OvSAzY8BIqdLnqataIHOySvAAWAE6SwAByggAUnABiAJKxsgBUAJSu+p5GPuQWgazBnAAiMAw4dMLEOhYwUADmLiigAGaREJJIZCA4EEgAzLpdPX2IA0NIpuMg3b2j1LOIAEyrdFgMbOEQEADWIAFWZSHKqowa2gtLU76DwxunzOdoJyAMdABG1QAKBi8xhAkSwLXCOEagiAA
         \begin{tikzcd}
         \textcolor{red}{\Cat{O}^{\otimes}_{\expval{n}}} \arrow[red, r] \arrow[red,d] & \Delta^0 \arrow[d, "\expval{n}", hook] \\
-        \Cat{O}^\otimes \arrow[r, "p"']                    & \mathrm{N}(\FIN_*)                    
+        \Cat{O}^\otimes \arrow[r, "p"']                    & \Ner (\FIN_*)                    
         \end{tikzcd}
     \end{center}
     として定義した．
