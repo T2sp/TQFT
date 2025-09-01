@@ -1719,7 +1719,7 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         \item[\textbf{(Op-2)}]　
         
         $\forall f \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $\forall c \in (\Cat{O}^\otimes_{\expval{m}})_0,\; \forall c' \in (\Cat{O}^\otimes_{\expval{n}})_0$ に対して，
-        innertな射 $\rho^i \in  \Hom{\FIN_*}\bigl( \expval{n},\, \expval{1} \bigr)$ に \textsf{\textbf{(Op-1)}} を適用して得られる\hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射の族 $\Familyset[\big]{c' \xrightarrow{\bar{\rho}^i} c'_i \in (\Cat{O}^\otimes)_1}{1 \le i \le n}$ が誘導する $(\infty,\, 1)$-圏の関手
+        innertな射 $\rho^i \in  \Hom{\FIN_*}\bigl( \expval{n},\, \expval{1} \bigr)$ に \textsf{\textbf{(Op-1)}} を適用して得られる\hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射の族 $\Familyset[\big]{c' \xrightarrow{\bar{\rho}^i} c'_i \in (\Cat{O}^\otimes)_1}{1 \le i \le n}$ が誘導する\hyperref[def:infinity-1]{Kan複体の関手}
         \begin{align}
             \Hom{\Cat{O}^\otimes} (c,\, c')_f \lto \prod_{i=1}^n \Hom{\Cat{O}^\otimes} (c,\, c'_i)_{\rho^i \circ f}
         \end{align}
@@ -1728,7 +1728,7 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         \item[\textbf{(Op-3)}]　
         
         $\forall c_1,\, \dots,\, c_n \in (\Cat{O}^\otimes_{\expval{1}})_0$ に対して，
-        ある $c \in (\Cat{O}^\otimes_{\expval{n}})_0$ および \hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射 $\overline{\rho^i} \in \Hom{\Cat{O}^\otimes} (c,\, c_i)_{\rho^i}$ が存在する．
+        ある $c \in (\Cat{O}^\otimes_{\expval{n}})_0$ および \hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射 $\widehat{\rho_i} \in \bigl(\Hom{\Cat{O}^\otimes} (c,\, c_i)_{\rho^i}\bigr)_0$ が存在する．
     \end{description}
 
     ただし，以下の記法を採用した：
@@ -1754,7 +1754,7 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
 
 定義\ref{def:infty-operad}がオペラッドと呼ぶにふさわしいことを示すために，次の小節では $(1,\, 1)$-圏の文脈で対応物を考えよう．
 
-\subsection{古典的なオペラッドと {$(1,\, 1)$}-圏のcoCartesian fibration}
+\subsection{色付きオペラッドと {$(1,\, 1)$}-圏のcoCartesian fibration}
 
 \begin{mydef}[label=def:p-coCart-ord,breakable]{{$(1,\, 1)$}-圏におけるcoCartesian fibration}
     $p \colon \Cat{E} \lto \Cat{B}$ を $(1,\, 1)$-圏の関手とする．
@@ -1804,6 +1804,87 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         % に対して，条件 \textsf{\textbf{(coCart-ord-1)}}, \textsf{\textbf{(cocCart-ord-2)}} を充たす $(1,\, 1)$-圏 $\Cat{E}$ の射 $\bar{f} \in \Hom{\Cat{E}} (\bar{x},\, z)$ が存在することを言う．
     \end{itemize}
 \end{mydef}
+
+定義\ref{def:infty-operad}に合わせて，$(1,\, 1)$-圏の関手
+\begin{align}
+    \label{eq:operad-ord}
+    p \colon \Cat{O}^\otimes \lto \FIN_*
+\end{align}
+であって以下の3条件を充たすものを考えてみる：
+\begin{description}
+    \item[\textbf{(OP-ord-1)}]　
+    
+    任意の\hyperref[def:innert-active]{innertな}射 $f \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $\forall c \in \Obj{\Cat{O^\otimes}_{\expval{m}}}$ に対して，
+    $\Cat{O}^\otimes$ における\hyperref[def:p-coCart-ord]{$p$-coCartesian}な射 $\bar{f} \in \Hom{\Cat{O}^\otimes} (c,\, c')$ が存在して $p(\bar{f}) = f$ を充たす．
+        
+    \item[\textbf{(OP-ord-2)}]　 
+    
+            
+    $\forall f \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $\forall c \in \Obj{\Cat{O}^\otimes_{\expval{m}}},\, \forall c' \in \Obj{\Cat{O}^\otimes_{\expval{n}}}$ に対して，
+    innertな射 $\rho^i \in  \Hom{\FIN_*}\bigl( \expval{n},\, \expval{1} \bigr)$ に \textsf{\textbf{(Op-ord-1)}} を適用して得られる\hyperref[def:p-coCart-ord]{$p$-coCartesian}な射の族 $\Familyset[\big]{\bar{\rho}^i \in \Hom{\Cat{O}^\otimes} (c',\, c'_i)}{1 \le i \le n}$ が誘導する写像
+    \begin{align}
+        \Hom{\Cat{O}^\otimes} (c,\, c')_f &\lto \prod_{i=1}^n \Hom{\Cat{O}^\otimes} (c,\, c'_i)_{\rho^i \circ f}, \\
+        \varphi &\lmto (\bar{\rho}^1 \circ \varphi,\, \dots,\, \bar{\rho}^n \circ \varphi)
+    \end{align}
+    は，$(1,\, 1)$-圏 $\SETS$ における\hyperref[def:iso]{同型射}である．
+
+    \item[\textbf{(OP-ord-3)}]　 
+    
+    $\forall c_1,\, \dots,\, c_n \in \Obj{\Cat{O}^\otimes}$ であって $p(c_i) = \expval{1}$ を充たすものに対して，
+    ある $c \in \Obj{\Cat{O}^\otimes_{\expval{n}}}_0$ および \hyperref[def:Cart-coCart]{$p$-coCartesian}な射 $\widehat{\rho_i} \in \Hom{\Cat{O}^\otimes} (c,\, c_i)_{\rho^i}$ が存在する．
+\end{description}
+ここで，$\CAT$ における\hyperref[def:pullback-pushout]{引き戻し}
+\begin{center}
+    % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BhOnYAeQC+APWCcIeALbxBAfTHsYADzT0GwMIMEhBpdJlz5CKMgEYqtRizacefIcPFT4OvSAzY8BIqdLnqataIHOySvAAWAE6SwAByggAUnABiAJKxsgBUAJSu+p5GPuQWgazBnAAiMAw4dMLEOhYwUADmLiigAGaREJJIZCA4EEgAzLpdPX2IA0NIpuMg3b2j1LOIAEyrdFgMbOEQEADWIAFWZSHKqowa2gtLU76DwxunzOdoJyAMdABG1QAKBi8xhAkSwLXCOEagiAA
+    \begin{tikzcd}
+    \textcolor{red}{\Cat{O}^{\otimes}_{\expval{n}}} \arrow[red, r] \arrow[red,d] &* \arrow[d, "\expval{n}", hook] \\
+    \Cat{O}^\otimes \arrow[r, "p"']                    & \FIN_*
+    \end{tikzcd}
+\end{center}
+により $(1,\, 1)$-圏 $\Cat{O}^\otimes$ を定義している．具体的には
+\begin{align}
+    \Obj{\Cat{O}^\otimes} &= \bigl\{\, c \in \Obj{\Cat{O}^\otimes} \bigm| p(c) = \expval{n} \,\bigr\}
+\end{align}
+である．さらに，$\forall f \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ に対して
+\begin{align}
+    \Hom{\Cat{O}^\otimes} (c,\, c')_f \coloneqq \bigl\{\, \varphi \in \Hom{\Cat{O}^\otimes} (c,\, c') \bigm| p(\varphi) = f \,\bigr\} 
+\end{align}
+と定義した．
+
+\begin{myprop}[label=prop:operad-ord]{色付きオペラッドの再構成}
+    条件\textsf{\textbf{(Op-ord-1)}}-\textsf{\textbf{(Op-ord-3)}}を充たす $(1,\, 1)$-圏の関手\eqref{eq:operad-ord}から次のように構成されたデータの組み $\Cat{O}$ は\textbf{色付きオペラッド} (colored operad) を成す：
+    \begin{itemize}
+        \item 対象の集まり $\Obj{\Cat{O}} \coloneqq \Obj{\Cat{O}^\otimes}$
+        \item $\forall x_1,\, \dots,\, x_n,\, y \in \Obj{\Cat{O}}$ に対して，以下の3つ組 (multimorphism) 全体が成す集合 $\Mul{\Cat{O}} \bigl( (x_1,\, \dots,\, x_n),\, y \bigr)$：
+        \begin{enumerate}
+            \item $x_1,\, \dots,\, x_n$ に対して\textsf{\textbf{(Op-ord-3)}}を適用することにより定まる $X \in \Obj{\Cat{O}^\otimes_{\expval{n}}}$ 
+            \item $x_1,\, \dots,\, x_n$ に対して\textsf{\textbf{(Op-ord-3)}}を適用することにより定まる\hyperref[def:Cart-coCart]{$p$-coCartesian}な射の族 $\Familyset[\big]{\widehat{\rho_i} \in \Hom{\Cat{O}^\otimes}(X,\, x_i)_{\rho^i}}{1 \le i \le n}$
+            \item \hyperref[def:innert-active]{active}な射
+            \footnote{$\alpha_n$ は
+                \begin{align}
+                    \alpha_n(i) \coloneqq \begin{cases}
+                        1, &i \neq *, \\
+                        *, &i = *
+                    \end{cases}
+                \end{align}
+                であり，一意である．
+            } 
+            $\alpha_n \in \Hom{\FIN_*} \bigl( \expval{n},\, \expval{1} \bigr)$ およびその上の $\Cat{O}^\otimes$ の射 $F \in \Hom{\Cat{O}^\otimes} (X,\, y)_{\alpha_n}$
+        \end{enumerate}
+        \item $n$ 個の多射 $F^1 \in \Mul{\Cat{O}} \bigl( (x^1_1,\, \dots,\, x^1_{m_1}),\, y_1 \bigr),\, \dots,\, F^n \in \Mul{\Cat{O}} \bigl( (x^n_1,\, \dots,\, x^n_{m_n}),\, y_n \bigr)$ と1つの多射 $G \in \Mul{\Cat{O}} \bigl( (y_1,\, \dots,\, y_n),\, z\bigr)$ の合成
+        \begin{align}
+            G \circ (F^1;\, \dots \, ;\, F^n) \in \Mul{\Cat{O}} \bigl( (x^1_1,\, \dots,\, x^1_{m_1};\, \dots\, ;\, x^n_1,\, \dots,\, x^n_{m_n}),\, z \bigr) 
+        \end{align}
+        を次のように定義する：
+        \begin{enumerate}
+            \item $x^1_1,\, \dots,\, x^n_{m_n} \in \Obj{\Cat{O}}$ に対して\textsf{\textbf{(Op-ord-3)}}を適用することにより定まる $X \in \Obj{\Cat{O}^\otimes_{\expval{m_1 + \cdots + m_n}}}$ 
+            \item $x^1_1,\, \dots,\, x^n_{m_n} \in \Obj{\Cat{O}}$ に対して\textsf{\textbf{(Op-ord-3)}}を適用することにより定まる \hyperref[def:Cart-coCart]{$p$-coCartesian}な射の族 $\Familyset[\big]{\widehat{\rho_i} \in \Hom{\Cat{O}^\otimes}(X,\, x^j_i)_{\rho^i}}{\substack{1 \le i \le m_1 + \cdots + m_n, \\ 1 \le j \le n}}$
+            \item 
+        \end{enumerate}
+        
+    \end{itemize}
+\end{myprop}
+
 
 
 \end{document}
