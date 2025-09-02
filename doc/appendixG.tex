@@ -1401,7 +1401,13 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 本資料では，$(\infty,\, 1)$-圏を\hyperref[def:infinity-1]{quasi-category}として定義した．
 この小節では，quai-categoryにおけるcolored operadを定義する．
 
-\begin{mydef}[label=def:Fin]{圏 {$\FIN_*$}}
+\begin{mydef}[label=def:Fin]{{$(1,\, 1)$}-圏 {$\FIN,\; \FIN_*$}}
+    $(1,\, 1)$-圏 $\FIN$ を以下で定義する：
+    \begin{itemize}
+        \item 有限集合および空集合を対象に持つ．
+        \item $I,\, J \in \Obj{\FIN}$ の間の写像を射とする．
+    \end{itemize}
+    \tcblower
     $(1,\, 1)$-圏 $\FIN_*$ を以下で定義する：
     \begin{itemize}
         \item 基点付き有限集合
@@ -1419,12 +1425,38 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
     \end{itemize}
 \end{mydef}
 
-\begin{mydef}[label=def:innert-active]{innert/active morphism}
+\begin{mydef}[label=def:inert-active]{inert/active morphism}
     \begin{itemize}
-        \item \hyperref[def:Fin]{圏 $\FIN_*$} における射 $f \in \Hom{\FIN_*} (\expval{m},\, \expval{n})$ が\textbf{innert}であるとは，$\forall i \in \expval{n} \setminus \{*\}$ に対して $f^{-1} \bigl( \{i\} \bigr) \subset \expval{m}$ が1点集合であることを言う．
+        \item \hyperref[def:Fin]{圏 $\FIN_*$} における射 $f \in \Hom{\FIN_*} (\expval{m},\, \expval{n})$ が\textbf{inert}であるとは，$\forall i \in \expval{n} \setminus \{*\}$ に対して $f^{-1} \bigl( \{i\} \bigr) \subset \expval{m}$ が空である，または1点集合であることを言う．
         \item \hyperref[def:Fin]{圏 $\FIN_*$} における射 $f \in \Hom{\FIN_*} (\expval{m},\, \expval{n})$ が\textbf{active}であるとは，$f^{-1} \bigl( \{*\} \bigr) = \{*\} \subset \expval{m}$ であることを言う．
     \end{itemize}
 \end{mydef}
+
+\begin{myexample}[label=def:rho-i]{inertな射 {$\rho^i$}}
+    $1 \le \forall i \le \forall n$ を1つ固定する．このとき，写像
+    \begin{align}
+        \rho^i \colon \expval{n} &\lto \expval{1}, \\
+        j &\lmto 
+        \begin{cases}
+            1, &j=i \\
+            *, &j\neq i
+        \end{cases}
+    \end{align}
+    は圏 $\FIN_*$ における\hyperref[def:inert-active]{inertな射}である．
+\end{myexample}
+
+\begin{myexample}[label=def:alpha-n]{activeな射 {$\alpha_n$}}
+    $\forall n \ge 1$ を1つ固定する．このとき，写像
+    \begin{align}
+        \alpha_n \colon \expval{n} &\lto \expval{1}, \\
+        j &\lmto 
+        \begin{cases}
+            1, &j\neq * \\
+            *, &j = *
+        \end{cases}
+    \end{align}
+    は圏 $\FIN_*$ における\hyperref[def:inert-active]{activeな射}である．なお，$\alpha_n$ は射の集合 $\Hom{\FIN_*} \bigl( \expval{n},\, \expval{1} \bigr)$ の元のうち，唯一のactiveな射である．
+\end{myexample}
 
 \hyperref[def:nerve]{脈体の定義}において $[n] \in \Obj{\Delta}$ を $(1,\, 1)$-圏と見做した方法と同様にして，半順序集合 $\{n-1 \le n\}$ を $(1,\, 1)$-圏と見做す．
 このとき，
@@ -1460,7 +1492,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
         \begin{description}
             \item[\textbf{(Cartesian)}]
             
-            $\forall n \ge 2$ に対して，以下の図式を可換にする $\Cat{E}$ の $n$-射 $\textcolor{red}{\bar{\varphi}} \in \Hom{\sSet} (\Delta^n,\, \Cat{E}) \cong \Cat{E}_n$ が存在する：
+            $\forall n \ge 2$ に対して，以下の $\sSet$ の図式を可換にする $\Cat{E}$ の $n$-射 $\textcolor{red}{\bar{\varphi}} \in \Hom{\sSet} (\Delta^n,\, \Cat{E}) \cong \Cat{E}_n$ が存在する：
             \begin{center}
                 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACwBOXYADkAvpwBGWAOYMAFJ2BgAtAEYABJwYwNYThPbSZAgJRb2AYwIyLAERgMcdAHpqQY0uky58hFGqkalS0jCxsnADCvMAAomIeXiAY2HgERIEATCH0zKyIHOzROMAAQgme3ql+RGTZ1LnhBZwOTq6Elck+af4kQTlh+YUAMnRcklDtAPodITBQMvBEoABmAhBcSGQgOBBIACzUzlgMbHwQEADWiavrm4jbu0iBoXkRRnQCwCsVSWsbByOe0Qak6-3uAGYgUhMg1Bu8VhABIwGBZ6AI0HwsCBqAw6JJHAAFbo1AoCWR8HA3EDgwE7YFQnZ0E5nC7XMF3Z7QxCw15NZLU2mIRlPEG4rBgIaTOB8eY4vlDTgwAAeWDgODgFkkn2AnHRmKwFQoYiAA
                 \begin{tikzcd}
@@ -1494,7 +1526,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
         \begin{description}
             \item[\textbf{(coCartesian)}] 
             
-            $\forall n \ge 2$ に対して，以下の図式を可換にする $\Cat{E}$ の $n$-射 $\textcolor{red}{\bar{\varphi}} \in \Hom{\sSet} (\Delta^n,\, \Cat{E}) \cong \Cat{E}_n$ が存在する：
+            $\forall n \ge 2$ に対して，以下の $\sSet$ の図式を可換にする $\Cat{E}$ の $n$-射 $\textcolor{red}{\bar{\varphi}} \in \Hom{\sSet} (\Delta^n,\, \Cat{E}) \cong \Cat{E}_n$ が存在する：
             \begin{center}
                 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACwBOXYADkAvpwBGWAOYMAFJ2BgAtAEYABJwYwNYThPbSZAgJRb2AYwIyLAERgMcdAHpqQY0uky58hFGqkalS0jCxsnADCvMAAomIeXiAY2HgERIEATCH0zKyIHOzROMAAQgme3ql+RGTZ1LnhBZwOTq6Elck+af4kQTlh+YUAMnRcklDtAPodITBQMvBEoABmAhBcSGQgOBBIACzUzlgMbHwQEADWiavrm4jbu0iBoXkRRnQCwCsVSWsbByOe0Qak6-3uAGYgUhMg1Bu8VhABIwGBZ6AI0HwsCBqAw6JJHAAFbo1AoCWR8HA3EDgwE7YFQnZ0E5nC7XMF3Z7QxCw15NZLU2mIRlPEG4rBgIaTOB8eY4vlDTgwAAeWDgODgFkkn2AnHRmKwFQoYiAA
                 \begin{tikzcd}
@@ -1621,35 +1653,6 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
             \item[\textbf{(Cart-2)}]　
             
             $\bar{f}$ は\hyperref[def:p-Cart]{$p$-Cartesian}である．
-        %     $\forall n \ge 2$ に対して，以下の図式を可換にする $\Cat{E}$ の $n$-射 $\textcolor{red}{\bar{\varphi}} \in \Hom{\sSet} (\Delta^n,\, \Cat{E}) \cong \Cat{E}_n$ が存在する：
-        %     \begin{center}
-        %         % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACwBOXYADkAvpwBGWAOYMAFJ2BgAtAEYABJwYwNYThPbSZAgJRb2AYwIyLAERgMcdAHpqQY0uky58hFGqkalS0jCxsnADCvMAAomIeXiAY2HgERIEATCH0zKyIHOzROMAAQgme3ql+RGTZ1LnhBZwOTq6Elck+af4kQTlh+YUAMnRcklDtAPodITBQMvBEoABmAhBcSGQgOBBIACzUzlgMbHwQEADWiavrm4jbu0iBoXkRRnQCwCsVSWsbByOe0Qak6-3uAGYgUhMg1Bu8VhABIwGBZ6AI0HwsCBqAw6JJHAAFbo1AoCWR8HA3EDgwE7YFQnZ0E5nC7XMF3Z7QxCw15NZLU2mIRlPEG4rBgIaTOB8eY4vlDTgwAAeWDgODgFkkn2AnHRmKwFQoYiAA
-        %         \begin{tikzcd}
-        %         \Ner \bigl(\{n-1 \le n\}\bigr) \cong \Delta^1 \arrow[d, hook] \arrow[rd, "\bar{f}"] &                        \\
-        %         \Lambda^n_n \arrow[r,blue, "\forall \varphi_0"] \arrow[d, hook]                                                    & \Cat{E} \arrow[d, "p"] \\
-        %         \Delta^n \arrow[r, blue,"\forall \varphi"'] \arrow[ru, red, "\exists \bar{\varphi}", dashed]       & \Cat{B}               
-        %         \end{tikzcd}
-        %     \end{center}
-        %     ただし，$\sSet$ の射 $\bar{f} \colon \Ner \bigl(\{n-1 \le n\}\bigr) \lto \Cat{E}$ とは
-        %     \begin{align}
-        %         \bar{f}_{[1]}
-        %             \left( 
-        %                \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        %                    \path coordinate[bullet,label=below:$n-1$] (x)
-        %                    +(1,0) coordinate[bullet,label=below:$n$] (y)
-        %                    ;
-        %                    \draw[->-=.5] (x) -- (y);
-        %                \end{tikzpicture}
-        %             \right)
-        %         =
-        %                \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        %                    \path coordinate[bullet,label=below:$z$] (x)
-        %                    +(1,0) coordinate[bullet,label=below:$\bar{y}$] (y)
-        %                    ;
-        %                    \draw[->-=.5] (x) --node[midway,above] {$\bar{f}$} (y);
-        %                \end{tikzpicture}
-        %     \end{align}
-        %     を充たす唯一の自然変換である．
         \end{description}
         \item $p$ が\textbf{余デカルトファイブレーション} (coCartesian fibration) であるとは，
         \begin{itemize}
@@ -1665,61 +1668,27 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
             \item[\textbf{(coCart-2)}]　
             
             $\bar{f}$ は\hyperref[def:p-Cart]{$p$-coCartesian}である．
-            % $\forall n \ge 2$ に対して，以下の図式を可換にする $\Cat{E}$ の $n$-射 $\textcolor{red}{\bar{\varphi}} \in \Hom{\sSet} (\Delta^n,\, \Cat{E}) \cong \Cat{E}_n$ が存在する：
-            % \begin{center}
-            %     % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACwBOXYADkAvpwBGWAOYMAFJ2BgAtAEYABJwYwNYThPbSZAgJRb2AYwIyLAERgMcdAHpqQY0uky58hFGqkalS0jCxsnADCvMAAomIeXiAY2HgERIEATCH0zKyIHOzROMAAQgme3ql+RGTZ1LnhBZwOTq6Elck+af4kQTlh+YUAMnRcklDtAPodITBQMvBEoABmAhBcSGQgOBBIACzUzlgMbHwQEADWiavrm4jbu0iBoXkRRnQCwCsVSWsbByOe0Qak6-3uAGYgUhMg1Bu8VhABIwGBZ6AI0HwsCBqAw6JJHAAFbo1AoCWR8HA3EDgwE7YFQnZ0E5nC7XMF3Z7QxCw15NZLU2mIRlPEG4rBgIaTOB8eY4vlDTgwAAeWDgODgFkkn2AnHRmKwFQoYiAA
-            %     \begin{tikzcd}
-            %     \Ner \bigl(\{0 \le 1\}\bigr) \cong \Delta^1 \arrow[d, hook] \arrow[rd, "\bar{f}"] &                        \\
-            %     \Lambda^n_0 \arrow[r,blue,"\forall \varphi_0"] \arrow[d, hook]                                                    & \Cat{E} \arrow[d, "p"] \\
-            %     \Delta^n \arrow[r, blue,"\forall \varphi"'] \arrow[ru, red, "\exists \bar{\varphi}", dashed]       & \Cat{B}               
-            %     \end{tikzcd}
-            % \end{center}
-            % ただし，$\sSet$ の射 $\bar{f} \colon \Ner \bigl(\{0 \le 1\}\bigr) \lto \Cat{E}$ とは
-            % \begin{align}
-            %     \bar{f}_{[1]}
-            %         \left( 
-            %            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-            %                \path coordinate[bullet,label=below:$n-1$] (x)
-            %                +(1,0) coordinate[bullet,label=below:$n$] (y)
-            %                ;
-            %                \draw[->-=.5] (x) -- (y);
-            %            \end{tikzpicture}
-            %         \right)
-            %     =
-            %            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-            %                \path coordinate[bullet,label=below:$\bar{x}$] (x)
-            %                +(1,0) coordinate[bullet,label=below:$z$] (y)
-            %                ;
-            %                \draw[->-=.5] (x) --node[midway,above] {$\bar{f}$} (y);
-            %            \end{tikzpicture}
-            % \end{align}
-            % を充たす唯一の自然変換である．
         \end{description}
     \end{itemize}
 \end{mydef}
 
 \begin{mydef}[label=def:infty-operad,breakable]{{$(\infty,\, 1)$}-オペラッド}
-    \hyperref[def:innert-active]{innertな}射 $\rho^i \in \Hom{\FIN_*}\bigl( \expval{n},\, \expval{1} \bigr)$ を
-    \begin{align}
-        \rho^i \colon \expval{n} &\lto \expval{1}, \\
-        j &\lmto \begin{cases}
-            1, &j=i \\
-            *, &j\neq i
-        \end{cases}
-    \end{align}
-    で定義する．
     $\bm{(\infty,\, 1)}$\textbf{-オペラッド} ($(\infty,\, 1)$-operad)\footnote{$\infty$-operadとも呼ばれる．} とは，
-    \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $p \colon \Cat{O}^{\otimes} \lto \Ner (\FIN_*)$ であって以下の条件を充たすもののこと：
+    \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+    \begin{align}
+        p \colon \Cat{O}^{\otimes} \lto \Ner (\FIN_*)
+    \end{align}
+    であって以下の条件を充たすもののこと~\cite[Definition 2.1.1.10.]{Lurie2017HA}：
     \begin{description}
         \item[\textbf{(Op-1)}]　
         
-        任意の\hyperref[def:innert-active]{innertな}射 $f \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $\forall c \in (\Cat{O}^\otimes_{\expval{m}})_0$ に対して，
+        任意の\hyperref[def:inert-active]{inertな}射 $f \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $\forall c \in (\Cat{O}^\otimes_{\expval{m}})_0$ に対して，
         $\Cat{O}^\otimes$ における\hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射 $\bar{f} \colon c \lto c'$ が存在して $p_{[1]}(\bar{f}) = f$ を充たす．
         
         \item[\textbf{(Op-2)}]　
         
         $\forall f \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $\forall c \in (\Cat{O}^\otimes_{\expval{m}})_0,\; \forall c' \in (\Cat{O}^\otimes_{\expval{n}})_0$ に対して，
-        innertな射 $\rho^i \in  \Hom{\FIN_*}\bigl( \expval{n},\, \expval{1} \bigr)$ に \textsf{\textbf{(Op-1)}} を適用して得られる\hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射の族 $\Familyset[\big]{c' \xrightarrow{\bar{\rho}^i} c'_i \in (\Cat{O}^\otimes)_1}{1 \le i \le n}$ が誘導する\hyperref[def:infinity-1]{Kan複体の関手}
+        \exref{def:rho-i}のinertな射の族 $\Familyset[\big]{\rho^i \in  \Hom{\FIN_*}\bigl( \expval{n},\, \expval{1} \bigr)}{1 \le i \le n}$ に \textsf{\textbf{(Op-1)}} を適用して得られる\hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射の族 $\Familyset[\big]{c' \xrightarrow{\bar{\rho}^i} c'_i \in (\Cat{O}^\otimes)_1}{1 \le i \le n}$ が誘導する\hyperref[def:infinity-1]{Kan複体の関手}
         \begin{align}
             \Hom{\Cat{O}^\otimes} (c,\, c')_f \lto \prod_{i=1}^n \Hom{\Cat{O}^\otimes} (c,\, c'_i)_{\rho^i \circ f}
         \end{align}
@@ -1743,8 +1712,9 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         \end{center}
         と定義した．
         \item $f \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $c \in (\Cat{O}^\otimes_{\expval{m}})_0,\; c' \in (\Cat{O}^\otimes_{\expval{n}})_0$ に対して，
-        $\bar{f} \in \Hom{\Cat{O}^\otimes}(c,\, c')_{0}$ であって $p_{[1]}(\bar{f}) = f$ を充たすもの全体が生成する，\hyperref[def:infty-1]{Kan複体} $\Hom{\Cat{O}^\otimes} (c,\, c') \in \SPACES_0$\footnote{$\Hom{\Cat{O}^\otimes} (c,\, c') \in \SPACES_0$ は，\hyperref[def:infty-Hom]{$(\infty,\, 1)$-圏におけるHom関手} $\Hom{\Cat{O}^\otimes} \colon \OP{(\Cat{O}^\otimes)} \times \Cat{O}^\otimes \lto \SPACES$ による対象 $(c,\, c') \in (\OP{(\Cat{O}^\otimes)} \times \Cat{O}^\otimes)_0$ の像である．}
-        の最大の部分Kan複体を
+        $\bar{f} \in \Hom{\Cat{O}^\otimes}(c,\, c')_{0}$ であって $p_{[1]}(\bar{f}) = f$ を充たすもの全体が生成する，$\Hom{\Cat{O}^\otimes} (c,\, c') \in \SPACES_0$
+        の\footnote{\hyperref[def:infty-1]{Kan複体} $\Hom{\Cat{O}^\otimes} (c,\, c') \in \SPACES_0$ は，\hyperref[def:infty-Hom]{$(\infty,\, 1)$-圏におけるHom関手} $\Hom{\Cat{O}^\otimes} \colon \OP{(\Cat{O}^\otimes)} \times \Cat{O}^\otimes \lto \SPACES$ による対象 $(c,\, c') \in (\OP{(\Cat{O}^\otimes)} \times \Cat{O}^\otimes)_0$ の像である．}
+        最大の部分Kan複体を
         \begin{align}
             \bm{\Hom{\Cat{O}^\otimes} (c,\, c')_f} \hookrightarrow \Hom{\Cat{O}^\otimes} (c,\, c')
         \end{align}
@@ -1756,10 +1726,59 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
 
 \subsection{色付きオペラッドと {$(1,\, 1)$}-圏のcoCartesian fibration}
 
+\begin{mydef}[label=def:c-operad,breakable]{colored operad}
+    \textbf{色付きオペラッド} (colored operad) $\Cat{O}$ は，以下の4つのデータから成る：
+    \begin{itemize}
+        \item \textbf{対象}\footnote{\textbf{色} (color) と呼ばれることもある．} (object) の集まり
+        \begin{align}
+            \bm{\Obj{\Cat{O}}}
+        \end{align}
+        \item $\forall I \in \Obj{\FIN},\; \forall \Familyset{x_i \in \Obj{\Cat{O}}}{i \in I},\;  \forall y \in \Obj{\Cat{O}}$ の3つ組に対して定まっている，
+        $\Familyset{x_i}{i \in I}$ から $y$ へ向かう\textbf{多射} (multimorphism) の集合
+        \begin{align}
+            \bm{\Mul{\Cat{O}}} \bigl( \Familyset{x_i}{i \in I},\, y \bigr) \in \Obj{\SETS}
+        \end{align}
+        \item $\forall \alpha \in \Hom{\FIN} (I,\, J),\; \forall \Familyset[\big]{x_i \in \Obj{\Cat{O}}}{i \in I},\; \Familyset[\big]{y_j \in \Obj{\Cat{O}}}{j \in J},\; \forall z \in \Obj{\Cat{O}}$ の4つ組に対して定まっている，
+        多射の\textbf{合成} (composition map) と呼ばれる写像
+        \begin{align}
+            \bm{\circ}_{\bm{\alpha}} \colon \Mul{\Cat{O}} \bigl( \Familyset{y_j}{j \in J},\, z \bigr) \times \prod_{j \in J} \Mul{\Cat{O}} \bigl( \Familyset{x_i}{i \in \alpha^{-1}(\{j\})},\, y_j \bigr) &\lto \Mul{\Cat{O}} \bigl( \Familyset{x_i}{i \in I},\, z \bigr), \\
+            \bigl( G,\, (F_j)_{j \in J} \bigr) &\lmto G \circ_{\alpha} (F_j)_{j \in J}
+        \end{align}
+        \item \textbf{恒等射} (identitiy) と呼ばれる多射の族 $\Familyset[\Big]{\Id_x \in \Mul{\Cat{O}} \bigl(\{x\},\, x \bigr)}{x \in \Obj{\Cat{O}}}$
+    \end{itemize}
+    これらは以下の条件を充たさねばならない：
+    \begin{description}
+        \item[\textbf{(cOp-1)}]　
+        
+        恒等射は合成に関して単位元として振る舞う．
+        
+        \item[\textbf{(cOp-2)}]　
+        
+        多射の合成は結合則を充たす．i.e.
+        $\forall \alpha \in \Hom{\FIN}(I,\, J),\; \forall \beta \in \Hom{\FIN}(J,\, K),\; \forall \Familyset[\big]{x_i \in \Obj{\Cat{O}}}{i \in I},\; \forall \Familyset[\big]{y_j \in \Obj{\Cat{O}}}{j \in J},\; \forall \Familyset[\big]{z_k \in \Obj{\Cat{O}}}{k \in K},\; \forall w \in \Obj{\Cat{O}}$ に対して，
+        $(1,\, 1)$-圏 $\SETS$ の図式
+        \small
+        \begin{center}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQAdDgWWceC4BhejmAB5AL4SuAIywBzRgAouAMXoBbLIwCecGKIBeAfQDWE4Ka5YwAAgDSE0l1K2A7rIUAnAJS2ueBrw-hxoXtDGliE2DhIhvPxCIuJSIXKKKhzqWrr6ojrGAFYWhdF2sgb0AHrAALTEEpmWXBI+Ti62JlYc6b4hgcFcYRHApdZ2AFJxXAkCHMKiktM9Cspqmtp6BsAAHsZYFlhlIUxoABbVdQ1NhS1tzhyuBbcr8r4gTuiYuPiEKABMpGI1DoTFY7BmfDmCxS0leayyG1y2y6Fm6MUcD1cHlefQCWCCcBCwygkVMx0c8ShSUWqU8GXWOS2oj2B2AR3GtkyMkqIQAxlgvHyToxzvQfDV6o0uM0OK12o9OmZ6e9PiAMNg8AQiOQgSCGCw2IhODxqfNkkt6Qjsps8sBniVOVMse4VX58YTieFSaNjlMqYlzbTlulrUjmbt9odjlxThdJdcZS95S7nm6PqQvprfkQyP99WCjSbZjTYVbMjbkSyo+zOQBJBWuQzpiQgmBQeTwIigABm4Q0SF1IBwECQgNBhohHAFQsiFRw9GWAyJXDrUBANEY9B5jAACt8tX8QF4FGccBne-3BzQR0gyBPwcbV1B+gTgsBMjO+XOOHHFz4yQpKQNxALcd33bNtWNRgYB7c81T7CAB0Qcdb0QABmGgDUfE0vx-P8JBAsCYD3A8c2NE95DPC8QEQ5D7zQzCHyLLg8LmHkF35QVhVjUULkI1sJCAA
+            \begin{tikzcd}[column sep={10em,between origins},row sep=large]
+                                                                                                                                                                                                    & {\Mul{\Cat{O}}\bigl(\Familyset{z_k}{k\in K},\, w\bigr) \times \prod_{k \in K} \Mul{\Cat{O}} \bigl(\Familyset{y_j}{j \in \beta^{-1}(\{k\})},\, z_k\bigr) \times \prod_{j \in J} \Mul{\Cat{O}} \bigl(\Familyset{x_i}{i \in \alpha^{-1}(\{j\})},\, y_j\bigr)} \arrow[ld, "\circ_{\beta} \times \Id"'] \arrow[ddr, "\Id \times {\bigl(\circ_{\alpha|_{\alpha^{-1}(\beta^{-1}(\{k\}))}}\bigr)_{k \in K}}"] &                                                                                                                                                                                                                  \\
+            {\Mul{\Cat{O}}\bigl(\Familyset{y_j}{j\in J},\, w\bigr) \times \prod_{j \in J} \Mul{\Cat{O}} \bigl(\Familyset{x_i}{i \in \alpha^{-1}(\{j\})},\, y_j\bigr)} \arrow[ddr, "\circ_{\alpha}"'] &                                                                                                                                                                                                                                                                                                                                                          &                                                                                                                                                                                                                  \\
+                                                                                                                                                                                                    &                                                                                                                                                                                                                                                                                                                                                          &{\Mul{\Cat{O}}\bigl(\Familyset{z_k}{k\in K},\, w\bigr) \times \prod_{k \in K} \Mul{\Cat{O}} \bigl(\Familyset{x_i}{i \in (\beta \circ \alpha)^{-1}(\{k\})},\, z_k\bigr)} \arrow[ld, "\circ_{\beta \circ \alpha}"]  \\
+                                                                                                                                                                                                    & {\Mul{\Cat{O}}\bigl(\Familyset{x_i}{i\in I},\, z\bigr)}                                                                                                                                                                                                                                                                                                  &                                                                                                                                                                                                                 
+            \end{tikzcd}
+        \end{center}
+        \normalsize
+        は可換である．
+    \end{description}
+\end{mydef}
+
+\hyperref[def:c-operad]{色付きオペラッド}の定義において，写像 $\alpha \in \Hom{\FIN} (I,\, J)$ が多射の合成の「型」を規定している．
+
+
 \begin{mydef}[label=def:p-coCart-ord,breakable]{{$(1,\, 1)$}-圏におけるcoCartesian fibration}
     $p \colon \Cat{E} \lto \Cat{B}$ を $(1,\, 1)$-圏の関手とする．
     \begin{itemize}
-        \item $\Cat{E}$ の射 $\bar{f} \in \Hom{\Cat{E}} (\bar{x},\, \bar{y})$ が以下の条件を充たすとき，$f$ は\textbf{$\bm{p}$-coCartesian}であると言う：
+        \item $\Cat{E}$ の射 $\bar{f} \in \Hom{\Cat{E}} (\bar{x},\, \bar{y})$ が以下の条件を充たすとき，$\bar{f}$ は\textbf{$\bm{p}$-coCartesian}であると言う：
         \begin{description}
             \item[\textbf{(coCart-ord)}] 
             $(1,\, 1)$-圏 $\Cat{B}$ の図式
@@ -1814,23 +1833,23 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
 \begin{description}
     \item[\textbf{(OP-ord-1)}]　
     
-    任意の\hyperref[def:innert-active]{innertな}射 $f \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $\forall c \in \Obj{\Cat{O^\otimes}_{\expval{m}}}$ に対して，
+    任意の\hyperref[def:inert-active]{inertな}射 $f \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $\forall c \in \Obj{\Cat{O^\otimes}_{\expval{m}}}$ に対して，
     $\Cat{O}^\otimes$ における\hyperref[def:p-coCart-ord]{$p$-coCartesian}な射 $\bar{f} \in \Hom{\Cat{O}^\otimes} (c,\, c')$ が存在して $p(\bar{f}) = f$ を充たす．
         
     \item[\textbf{(OP-ord-2)}]　 
     
             
     $\forall f \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $\forall c \in \Obj{\Cat{O}^\otimes_{\expval{m}}},\, \forall c' \in \Obj{\Cat{O}^\otimes_{\expval{n}}}$ に対して，
-    innertな射 $\rho^i \in  \Hom{\FIN_*}\bigl( \expval{n},\, \expval{1} \bigr)$ に \textsf{\textbf{(Op-ord-1)}} を適用して得られる\hyperref[def:p-coCart-ord]{$p$-coCartesian}な射の族 $\Familyset[\big]{\bar{\rho}^i \in \Hom{\Cat{O}^\otimes} (c',\, c'_i)}{1 \le i \le n}$ が誘導する写像
+    inertな射 $\rho^i \in  \Hom{\FIN_*}\bigl( \expval{n},\, \expval{1} \bigr)$ に \textsf{\textbf{(Op-ord-1)}} を適用して得られる\hyperref[def:p-coCart-ord]{$p$-coCartesian}な射の族 $\Familyset[\big]{\bar{\rho}^i \in \Hom{\Cat{O}^\otimes} (c',\, c'_i)}{1 \le i \le n}$ が誘導する写像
     \begin{align}
         \Hom{\Cat{O}^\otimes} (c,\, c')_f &\lto \prod_{i=1}^n \Hom{\Cat{O}^\otimes} (c,\, c'_i)_{\rho^i \circ f}, \\
         \varphi &\lmto (\bar{\rho}^1 \circ \varphi,\, \dots,\, \bar{\rho}^n \circ \varphi)
     \end{align}
-    は，$(1,\, 1)$-圏 $\SETS$ における\hyperref[def:iso]{同型射}である．
+    は，$(1,\, 1)$-圏 $\SETS$ における\hyperref[def:iso]{同型射}（i.e. 全単射）である．
 
     \item[\textbf{(OP-ord-3)}]　 
     
-    $\forall c_1,\, \dots,\, c_n \in \Obj{\Cat{O}^\otimes}$ であって $p(c_i) = \expval{1}$ を充たすものに対して，
+    $\forall c_1,\, \dots,\, c_n \in \Obj{\Cat{O}^\otimes_{\expval{1}}}$ に対して，
     ある $c \in \Obj{\Cat{O}^\otimes_{\expval{n}}}_0$ および \hyperref[def:Cart-coCart]{$p$-coCartesian}な射 $\widehat{\rho_i} \in \Hom{\Cat{O}^\otimes} (c,\, c_i)_{\rho^i}$ が存在する．
 \end{description}
 ここで，$\CAT$ における\hyperref[def:pullback-pushout]{引き戻し}
@@ -1851,35 +1870,73 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
 \end{align}
 と定義した．
 
-\begin{myprop}[label=prop:operad-ord]{色付きオペラッドの再構成}
-    条件\textsf{\textbf{(Op-ord-1)}}-\textsf{\textbf{(Op-ord-3)}}を充たす $(1,\, 1)$-圏の関手\eqref{eq:operad-ord}から次のように構成されたデータの組み $\Cat{O}$ は\textbf{色付きオペラッド} (colored operad) を成す：
+\begin{myprop}[label=prop:operad-ord,breakable]{色付きオペラッドの再構成}
+    条件\textsf{\textbf{(Op-ord-1)}}-\textsf{\textbf{(Op-ord-3)}}を充たす $(1,\, 1)$-圏の関手\eqref{eq:operad-ord}から次のように構成されたデータの組み $\Cat{O}$ は\hyperref[def:c-operad]{色付きオペラッド}を成す：
     \begin{itemize}
-        \item 対象の集まり $\Obj{\Cat{O}} \coloneqq \Obj{\Cat{O}^\otimes}$
-        \item $\forall x_1,\, \dots,\, x_n,\, y \in \Obj{\Cat{O}}$ に対して，以下の3つ組 (multimorphism) 全体が成す集合 $\Mul{\Cat{O}} \bigl( (x_1,\, \dots,\, x_n),\, y \bigr)$：
+        \item 対象の集まりを $\Obj{\Cat{O}} \coloneqq \Obj{\Cat{O}^\otimes_{\expval{1}}}$ と定義する．
+        \item $\forall x_1,\, \dots,\, x_n,\, y \in \Obj{\Cat{O}}$ に対して，以下の3つ組全体が成す集合を $\Mul{\Cat{O}} \bigl( (x_1,\, \dots,\, x_n),\, y \bigr)$ と定義する．
         \begin{enumerate}
             \item $x_1,\, \dots,\, x_n$ に対して\textsf{\textbf{(Op-ord-3)}}を適用することにより定まる $X \in \Obj{\Cat{O}^\otimes_{\expval{n}}}$ 
             \item $x_1,\, \dots,\, x_n$ に対して\textsf{\textbf{(Op-ord-3)}}を適用することにより定まる\hyperref[def:Cart-coCart]{$p$-coCartesian}な射の族 $\Familyset[\big]{\widehat{\rho_i} \in \Hom{\Cat{O}^\otimes}(X,\, x_i)_{\rho^i}}{1 \le i \le n}$
-            \item \hyperref[def:innert-active]{active}な射
-            \footnote{$\alpha_n$ は
-                \begin{align}
-                    \alpha_n(i) \coloneqq \begin{cases}
-                        1, &i \neq *, \\
-                        *, &i = *
-                    \end{cases}
-                \end{align}
-                であり，一意である．
-            } 
+            \item \exref{def:alpha-n}の\hyperref[def:inert-active]{active}な射
             $\alpha_n \in \Hom{\FIN_*} \bigl( \expval{n},\, \expval{1} \bigr)$ およびその上の $\Cat{O}^\otimes$ の射 $F \in \Hom{\Cat{O}^\otimes} (X,\, y)_{\alpha_n}$
         \end{enumerate}
-        \item $n$ 個の多射 $F^1 \in \Mul{\Cat{O}} \bigl( (x^1_1,\, \dots,\, x^1_{m_1}),\, y_1 \bigr),\, \dots,\, F^n \in \Mul{\Cat{O}} \bigl( (x^n_1,\, \dots,\, x^n_{m_n}),\, y_n \bigr)$ と1つの多射 $G \in \Mul{\Cat{O}} \bigl( (y_1,\, \dots,\, y_n),\, z\bigr)$ の合成
+        \item $n$ 個の多射
         \begin{align}
-            G \circ (F^1;\, \dots \, ;\, F^n) \in \Mul{\Cat{O}} \bigl( (x^1_1,\, \dots,\, x^1_{m_1};\, \dots\, ;\, x^n_1,\, \dots,\, x^n_{m_n}),\, z \bigr) 
+            (X^1,\, \Familyset{\widehat{\rho_i}^1}{1 \le i \le m_1},\, F^1) &\in \Mul{\Cat{O}} \bigl( (x^1_1,\, \dots,\, x^1_{m_1}),\, y_1 \bigr),\\ 
+            &\vdots \\ 
+            (X^n,\, \Familyset{\widehat{\rho_i}^n}{1 \le i \le m_n},\, F^n) &\in \Mul{\Cat{O}} \bigl( (x^n_1,\, \dots,\, x^n_{m_n}),\, y_n \bigr)
+        \end{align}
+        と1つの多射 $(Y,\, \Familyset{\widehat{\rho_j}}{1 \le j \le n},\, G) \in \Mul{\Cat{O}} \bigl( (y_1,\, \dots,\, y_n),\, z\bigr)$ の合成
+        \begin{align}
+            \bigl(X,\, \Familyset{\widehat{\rho_i}}{1 \le i \le m_1+\cdots +m_n},\, G \circ (F^1;\, \dots \, ;\, F^n)\bigr) \in \Mul{\Cat{O}} \bigl( (x^1_1,\, \dots,\, x^1_{m_1};\, \dots\, ;\, x^n_1,\, \dots,\, x^n_{m_n}),\, z \bigr) 
         \end{align}
         を次のように定義する：
         \begin{enumerate}
-            \item $x^1_1,\, \dots,\, x^n_{m_n} \in \Obj{\Cat{O}}$ に対して\textsf{\textbf{(Op-ord-3)}}を適用することにより定まる $X \in \Obj{\Cat{O}^\otimes_{\expval{m_1 + \cdots + m_n}}}$ 
-            \item $x^1_1,\, \dots,\, x^n_{m_n} \in \Obj{\Cat{O}}$ に対して\textsf{\textbf{(Op-ord-3)}}を適用することにより定まる \hyperref[def:Cart-coCart]{$p$-coCartesian}な射の族 $\Familyset[\big]{\widehat{\rho_i} \in \Hom{\Cat{O}^\otimes}(X,\, x^j_i)_{\rho^i}}{\substack{1 \le i \le m_1 + \cdots + m_n, \\ 1 \le j \le n}}$
-            \item 
+            \item $X \in \Obj{\Cat{O}^\otimes_{\expval{m_1 + \cdots + m_n}}}$ は，$x^1_1,\, \dots,\, x^n_{m_n} \in \Obj{\Cat{O}}$ に対して\textsf{\textbf{(Op-ord-3)}}を適用することにより定める．
+            \item \hyperref[def:Cart-coCart]{$p$-coCartesian}な射の族 $\Familyset[\big]{\widehat{\rho^j_{i}} \in \Hom{\Cat{O}^\otimes}(X,\, x^j_i)_{\rho^{i+m_1+\cdots+m_{j-1}}}}{\substack{1 \le j \le n \\ 1 \le i \le m_j}}$ は $x^1_1,\, \dots,\, x^n_{m_n} \in \Obj{\Cat{O}}$ に対して\textsf{\textbf{(Op-ord-3)}}を適用することにより定める．
+            \item $\Cat{O}^\otimes$ の射 $G \circ (F^1;\, \dots \, ;\, F^n) \in \Hom{\Cat{O}^\otimes} (X,\, z)_{\alpha_{m_1 + \cdots + m_n}}$ は以下の手順に従って構成する：
+            \begin{description}
+                \item[\textbf{(STEP-1)}]　
+                
+                    まず，$1 \le \forall j \le n$ に対して\hyperref[def:inert-active]{inertな射} $\pi_j \in \Hom{\FIN_*} \bigl( \expval{m_1 + \cdots + m_n},\, \expval{m_j} \bigr)$ を
+                    \begin{align}
+                        \pi_j \colon \expval{m_1 + \cdots + m_n} &\lto \expval{m_j}, \\
+                        k &\lmto \begin{cases}
+                            k - (m_1 + \cdots + m_{j-1}), &1 \le k - (m_1 + \cdots + m_{j-1}) \le m_j \\
+                            *, &\text{otherwise}
+                        \end{cases}
+                    \end{align}
+                    で定義する．
+                \item[\textbf{(STEP-2)}]　
+                
+                    \hyperref[def:inert-active]{inertな射} $\pi_j \in \Hom{\FIN_*} \bigl( \expval{m_1 + \cdots + m_n},\, \expval{m_j} \bigr)$ に対して\textsf{\textbf{(Op-ord-1)}}を適用することにより，\hyperref[def:p-coCart-ord]{$p$-coCartesianな射} 
+                    $\bar{\pi}_j \in \Hom{\Cat{O}^\otimes} (X,\, X^j)_{\pi_j}$ を取得する．
+
+                \item[\textbf{(STEP-3)}]　
+                
+                    \begin{align}
+                        (F^1 \circ \bar{\pi}_1,\, \dots,\, F^n \circ \bar{\pi}_n) \in \prod_{j=1}^n \Hom{\Cat{O}^\otimes} (X,\, y_j)_{\alpha_{m_j} \circ \pi_j}
+                    \end{align}
+                    に対して\textsf{\textbf{(Op-ord-2)}}を適用することで，対応する
+                    \begin{align}
+                        F \in \Hom{\Cat{O}^\otimes} (X,\, Y)_\pi
+                    \end{align}
+                    が一意的に定まる．これに $G \in \Hom{\Cat{O}^\otimes}(Y,\, z)_{\alpha_n}$ を合成して
+                    \begin{align}
+                        G \circ_{\pi} (F^1;\, \dots \, ;\, F^n) \coloneqq G \circ F \in \Hom{\Cat{O}^\otimes} (X,\, z)_{\alpha_{m_1 + \cdots + m_n}}
+                    \end{align}
+                    と定義する．
+                    ただし，$\pi \in \Hom{\FIN_*} \bigl( \expval{m_1 + \cdots + m_n},\, \expval{n} \bigr)$ は
+                    \begin{align}
+                        \pi(k) \coloneqq 
+                        \begin{cases}
+                            j, &m_{j-1} < k \le m_j \\
+                            *, &k=*
+                        \end{cases}
+                    \end{align}
+                    と定義される\hyperref[def:inert-active]{activeな射}である\footnote{$1 \le \forall j \le n$ に対して $\rho^j \circ \pi = \alpha_{m_j} \circ \pi_j$ が成り立つ．}．
+            \end{description}
         \end{enumerate}
         
     \end{itemize}
