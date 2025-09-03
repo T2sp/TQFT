@@ -1427,7 +1427,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 
 \begin{mydef}[label=def:inert-active]{inert/active morphism}
     \begin{itemize}
-        \item \hyperref[def:Fin]{圏 $\FIN_*$} における射 $f \in \Hom{\FIN_*} (\expval{m},\, \expval{n})$ が\textbf{inert}であるとは，$\forall i \in \expval{n} \setminus \{*\}$ に対して $f^{-1} \bigl( \{i\} \bigr) \subset \expval{m}$ が空である，または1点集合であることを言う．
+        \item \hyperref[def:Fin]{圏 $\FIN_*$} における射 $f \in \Hom{\FIN_*} (\expval{m},\, \expval{n})$ が\textbf{inert}であるとは，$\forall i \in \expval{n} \setminus \{*\}$ に対して $f^{-1} \bigl( \{i\} \bigr) \subset \expval{m}$ が1点集合であることを言う．
         \item \hyperref[def:Fin]{圏 $\FIN_*$} における射 $f \in \Hom{\FIN_*} (\expval{m},\, \expval{n})$ が\textbf{active}であるとは，$f^{-1} \bigl( \{*\} \bigr) = \{*\} \subset \expval{m}$ であることを言う．
     \end{itemize}
 \end{mydef}
@@ -1721,6 +1721,25 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         と書いた．
     \end{itemize}
 \end{mydef}
+
+\begin{mydef}[label=def:infty-operad-map]{{$(\infty,\, 1)$}-オペラッドの射}
+    2つの\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド} $p \colon \Cat{O}^{\otimes} \lto \Ner (\FIN_*),\; q \colon \Cat{O}'{}^\otimes \lto \Ner (\FIN_*)$ を与える．
+    このとき，\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $f \colon \Cat{O}^{\otimes} \lto \Cat{O}'{}^\otimes$ が\textbf{$\bm{(\infty,\, 1)}$-オペラッドの射} ($\infty$-operad map) であるとは，以下の2つの条件を充たすことを言う：
+    \begin{description}
+        \item[\textbf{(Opmap-1)}] $(1,\, 1)$-圏 $\sSet$ の図式
+        \begin{center}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BhOnYAeQC+APU4Q8AW3ghBpdJlz5CKAEzkqtRizacefIQHJgIsZOmz52PASIBGUrY31mrRB3YA5GACcABAApOADEASQ8AfQAqAEoZDRgoAHNpFFAAM28ICSQyEBwIJHtNFzY0mTkQDKyc6nykNWLtNzQQagY6ACMYBgAFBWtlEG8sRIALHHL0zOzEIrrEBucmkABHOMEgA
+            \begin{tikzcd}
+            \Cat{O}^\otimes \arrow[rr, "f"] \arrow[rd, "p"'] &               & \Cat{O}'{}^\otimes \arrow[ld, "q"] \\
+                                                             & \Ner (\FIN_*) &                                   
+            \end{tikzcd}
+        \end{center}
+        は可換である．
+
+        \item[\textbf{(Opmap-2)}] 1-射の間の写像 $f_{[1]} \colon (\Cat{O}^{\otimes})_1 \lto (\Cat{O}'{}^{\otimes})_1$ により，任意の\hyperref[def:inert-active]{inertな射}の \hyperref[def:infty-operad]{\textsf{\textbf{(Op-1)}}} による\hyperref[def:Cart-coCart]{p-coCartesian}な持ち上げが保たれる．
+    \end{description}
+\end{mydef}
+
 
 定義\ref{def:infty-operad}がオペラッドと呼ぶにふさわしいことを示すために，次の小節では $(1,\, 1)$-圏の文脈で対応物を考えよう．
 
