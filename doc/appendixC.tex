@@ -1231,10 +1231,12 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
             K \colon \Delta \lto \SETS
         \end{align}
         のこと．
-        \item 単体的集合 $S \colon \OP{\Delta} \lto \SETS$ が単体的集合 $K \colon \OP{\Delta} \lto \SETS$ の\textbf{単体的部分集合} (simplicial subset) であるとは，以下の2条件を充たすことを言う：
+        \item 単体的集合 $S \colon \OP{\Delta} \lto \SETS$ が単体的集合 $K \colon \OP{\Delta} \lto \SETS$ の\textbf{単体的部分集合} (simplicial subset) であるとは，以下の2つの条件を充たすことを言う
+        \footnote{条件 \textsf{\textbf{(sub-2)}} により\textbf{包含写像} $i \coloneqq \Familyset[\big]{i_{[n]} \colon S([n]) \lto K([n]),\; x \lmto x}{n \ge 0}$ が\hyperref[def:nat]{自然変換}になり，$i \in \Hom{\sSet} (S,\, K)$ と見做せる．このことから，以降では包含写像を $S \hookrightarrow K$ と略記する．}
+        ：
         \begin{description}
             \item[\textbf{(sub-1)}] $\forall n \ge 0$ に対して $S([n]) \subset K([n])$
-            \item[\textbf{(sub-2)}] \hyperref[def:simplex-cat]{圏 $\Delta$} における任意の射 $\alpha \colon [n] \lto [m]$ に対して $K(\alpha) \bigl( S([m]) \bigr) \subset S([n])$
+            \item[\textbf{(sub-2)}] \hyperref[def:simplex-cat]{圏 $\Delta$} における任意の射 $\alpha \colon [n] \lto [m]$ に対して $K(\alpha) \bigl( S([m]) \bigr) \subset S([n])$ で，かつ $S(\alpha) = K(\alpha)|_{S([m])}$ が成り立つ．
         \end{description}
         誤解の恐れがないときは，単体的部分集合を $\bm{S \subset K}$ と書く．
         \item \textbf{単体的集合の圏} $\sSet$ とは，\hyperref[def:presheaf-general]{前層}の圏
@@ -2434,9 +2436,66 @@ $K$ を\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}とする．$\forall X,\, Y
 \end{mydef}
 
 \begin{mydef}[label=def:equiv-infty]{{$(\infty,\, 1)$}-圏の同値}
-    \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $F \colon K \lto L$ が\textbf{$\bm{(\infty,\, 1)}$-圏同値}であるとは，$[F] \in \Hom{\htpy{(\qCat)}}(K,\, L)$ が同型射であることを言う．
+    \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $F \colon K \lto L$ が\textbf{$\bm{(\infty,\, 1)}$-圏同値} (equivalence) であるとは，$[F] \in \Hom{\htpy{(\qCat)}}(K,\, L)$ が同型射であることを言う．
 \end{mydef}
 
+\subsection{射の空間}
+
+\begin{mydef}[label=def:Map]{射の空間}
+    \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $K$ と，その対象 $x,\, y \in K_0$ を与える．
+    $x$ から $y$ へ向かう\textbf{射の空間} (morphism space) を，$(1,\, 1)$-圏 $\sSet$ における引き戻し
+    \begin{align}
+        \bm{\inftyMap{K} (x,\, y)} \coloneqq \{x\} \times_{\FUN (\{0\},\, K)} \FUN (\Delta^1,\, K) \times_{\FUN (\{1\},\, K)} \{y\} \in \Obj{\sSet}
+    \end{align}
+    として定義する~\cite[\href{https://kerodon.net/tag/01J5}{Tag 01J5}]{kerodon}．
+\end{mydef}
+
+$(1,\, 1)$-圏 $\sSet$ における引き戻しとは，命題\ref{prop:SimpSet-basic}-(2) の証明より，$n$-単体毎に\hyperref[def:pullback-pushout]{$\SETS$ における引き戻し}を取ることで構成される．
+さらに，\exref{def:infty-Fun}より $\FUN (\Delta^1,\, K)_n = \Hom{\sSet}(\Delta^n \times \Delta^1,\, K)$ であるから，
+単体的集合 $\inftyMap{K} (x,\, y)$ の\hyperref[def:SimpSet]{$n$-単体}とは，集合として具体的に
+\begin{align}
+    \inftyMap{K} (x,\, y)_n = \bigl\{\, f \in \Hom{\sSet}(\Delta^n \times \Delta^1,\, K) \bigm| f|_{\Delta^n \times \{0\}} = x,\; f|_{\Delta^n \times \{1\}} = y \,\bigr\} 
+\end{align}
+と書ける\footnote{右辺に登場する $x \in \Hom{\sSet}(\Delta^n \times \{0\},\, K),\, y \in \Hom{\sSet}(\Delta^n \times \{1\},\, K)$ は記号の濫用である．正確には，\hyperref[lem:Yoneda]{米田の補題}による全単射 $\Hom{\sSet}(\Delta^n \times \{i\},\, K) \cong \Hom{\sSet}(\Delta^n,\, K) \cong K_n$ を用いて $\sigma^n_0 \circ \cdots \circ \sigma^0_0 (x),\, \sigma^n_0 \circ \cdots \circ \sigma^0_0 (y) \in K_n$ を送った先を意味する．図示すると，全ての頂点に $x,\, y$ が載り，全ての部分単体上に $\Id_x,\, \Id_y$ が載った標準 $n$-単体になっている．}．
+特に $\inftyMap{K} (x,\, y)_0 \subset K_1$ と見做すことができるが，これは始点，終点をそれぞれ $x,\, y \in K_0$ に持つような1-射全体の集合と一致する．
+この意味で $\inftyMap{K}(x,\, y)$ は，$(1,\, 1)$-圏におけるHom集合の $(\infty,\, 1)$-圏における対応物である．
+
+\begin{myprop}[label=prop:Map-is-Kan]{射の空間はKan複体}
+    $(\infty,\, 1)$-圏 $K$ における\hyperref[def:Map]{射の空間} $\inftyMap{K}(x,\, y) \in \Obj{\sSet}$ は\hyperref[def:infinity-1]{Kan複体}である．
+\end{myprop}
+
+\begin{proof}
+    \cite[\href{https://kerodon.net/tag/01JC}{Tag 01JC}]{kerodon}
+\end{proof}
+
+\begin{mydef}[label=def:FF-ES-infty]{忠実充満・本質的全射な{$(\infty,\, 1)$}-圏の関手}
+    \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+    \begin{align}
+        F \colon K \lto L
+    \end{align}
+    を与える．
+    \begin{itemize}
+        \item $F$ が\textbf{忠実充満} (fully faithful) であるとは，$\forall x,\, y \in K_0$ に対して，$F$ が誘導する\hyperref[def:Map]{射の空間}の間の関手
+        \begin{align}
+            \inftyMap{K} (x,\, y) \lto \inftyMap{L} \bigl( F_{[0]}(x),\, F_{[0]}(y) \bigr) 
+        \end{align}
+        が\hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}であることを言う．
+        \item $F$ の\textbf{本質的像} (essential image) とは，$F(x) \in L_0$ の形で書ける $L$ の対象と\hyperref[def:iso-infty]{同型}であるような $L$ の対象全体によって生成される $L$ の\hyperref[def:fullsub-infty]{充満部分 $(\infty,\, 1)$-圏}のこと．
+        \item $F$ が\textbf{本質的全射} (essentially surgective) であるとは，$F$ の本質的像が $L$ と一致すること．
+    \end{itemize}
+\end{mydef}
+
+\begin{myprop}[label=prop:equiv-FF-ES]{忠実充満かつ本質的全射}
+        \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+    \begin{align}
+        F \colon K \lto L
+    \end{align}
+    が\hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}である必要十分条件は，それが\hyperref[def:FF-ES-infty]{忠実充満}かつ\hyperref[def:FF-ES-infty]{本質的全射}であること．
+\end{myprop}
+
+\begin{proof}
+    \cite[\href{https://kerodon.net/tag/01JX}{Tag 01JX}]{kerodon}
+\end{proof}
 
 
 \section{単体的豊穣圏とホモトピー論}

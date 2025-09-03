@@ -803,6 +803,19 @@ $\bigl(p_{[n-1]}(\textcolor{blue}{f_0}{}_0),\, \dots,\, \underbrace{\bullet}_{j}
 \underline{$(\infty,\, 1)$-圏 $\Cat{E}$ における}\hyperref[def:horn]{角}の図式
 $\bigl(\textcolor{blue}{f_{0}}{}_0,\, \dots,\, \underbrace{\bullet}_{j},\, \dots,\, \textcolor{blue}{f_0}{}_n\bigr) \in (\Cat{E}_{n-1})^{\times n}$ を埋める $n$-射 $\textcolor{red}{\bar{f}} \in \Cat{E}_n$ が存在することを主張している．
 
+\begin{mydef}[label=def:fullsub-infty]{充満部分{$(\infty,\, 1)$-圏}}
+    \begin{itemize}
+        \item \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\Cat{C}$ の\textbf{部分 $\bm{(\infty,\, 1)}$-圏} (sub $(\infty,\, 1)$-category) とは，
+        \hyperref[def:SimpSet]{単体的部分集合} $\Cat{S} \subset \Cat{C}$ であって，その\hyperref[def:SimpSet]{包含写像} $i \colon \Cat{S} \hookrightarrow \Cat{C}$ が\hyperref[def:infy-fib]{内的ファイブレーション}であるようなもののこと\footnote{このとき $\Cat{S}$ は $(\infty,\, 1)$-圏になる~\cite[\href{https://kerodon.net/tag/01CG}{Tag 01CG}]{kerodon}}．
+        \item 部分 $(\infty,\, 1)$-圏 $\Cat{S} \subset \Cat{C}$ が\textbf{充満部分 $\bm{(\infty,\, 1)}$-圏} (full sub $(\infty,\, 1)$-category) であるとは，
+        $\forall n \ge 0$ に対して以下の条件を充たすことを言う：
+        \begin{description}
+            \item[\textbf{(fullsub)}] 
+            $\forall \sigma \in \Cat{C}_n \cong \Hom{\sSet} (\Delta^n,\, \Cat{C})$ に対して，$\sigma_{[0]}(\Delta^n_0) \subset \Cat{S}_0 \IMP \sigma \in \Cat{S}_n$ が成り立つ．
+        \end{description}
+    \end{itemize}
+\end{mydef}
+
 2つの\hyperref[def:infty-fib]{右ファイブレーション} $\mathcal{E} \xrightarrow{p} \mathcal{B},\; \mathcal{E}' \xrightarrow{p'} \mathcal{B}$ が与えられたとき，これらの間の射とは集合
 \begin{align}
     \Hom{\Rfib_{\Cat{B}}} (\Cat{E},\, \Cat{E}') &\coloneqq 
@@ -816,7 +829,7 @@ $\bigl(\textcolor{blue}{f_{0}}{}_0,\, \dots,\, \underbrace{\bullet}_{j},\, \dots
     \end{tikzcd}
 \end{center}
 $\Hom{\Rfib_{\Cat{B}}} (\Cat{E},\, \Cat{E}') \subset \Hom{\sSet}(\mathcal{E},\, \mathcal{E}')$ を\exref{def:Kan}の方法で\hyperref[def:SimpSet]{単体的集合}と見做せる．
-このようにして得られる単体的集合 $\Hom{\Rfib_{\Cat{B}}} (\Cat{E},\, \Cat{E}')$ の最大の部分Kan複体を $\bm{\Hom{\RFIB_{\Cat{B}}}(\Cat{E},\, \Cat{E}')}$ と書く．
+このようにして得られる単体的集合 $\Hom{\Rfib_{\Cat{B}}} (\Cat{E},\, \Cat{E}')$ の最大の\hyperref[def:fullsub-infty]{部分Kan複体}を $\bm{\Hom{\RFIB_{\Cat{B}}}(\Cat{E},\, \Cat{E}')}$ と書く．
 
 \begin{mydef}[label=def:RFIB]{右ファイブレーションの成す {$(\infty,\, 1)$}-圏}
     $\Cat{B}$ を $(\infty,\, 1)$-圏とする．
@@ -1289,14 +1302,14 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}におけるHom関手
 \begin{align}
     \label{def:infty-Hom}
-    \Hom{\Cat{C}} \colon \OP{\Cat{C}} \times \Cat{C} \lto \SPACES
+    \inftyMap{\Cat{C}} \colon \OP{\Cat{C}} \times \Cat{C} \lto \SPACES
 \end{align}
 の自然な構成は，\hyperref[thm:unstraightening]{straightning construction}を用いた
 \begin{center}
     % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BVMACgDEAlCAC+pdJlz5CKAIzkqtRizacAygAUAggGEAomoD6wAPQAqEaPEgM2PASLzZi+s1aIO7TboNWJd6SIyZ2pXFQ9OHTocYAAhSxFFGCgAc3giUAAzACcIAFskAGZqHAgkACZqBjoAIxgGDUl7GRBsrBSACxwQUOV3EH4-EBz8pHkQUoret1V2HBgADxjMiGy0nATrEYLEMgmyxEKxLNydvcnEWUSRIA
     \begin{tikzcd}[column sep=large]
     \Tw(\Cat{C}) \arrow[d, "\mathrm{pr}"'] \arrow[r] & \SPACES_{*/} \arrow[d, "\text{forget}"] \\
-    \OP{\Cat{C}} \times \Cat{C} \arrow[r, red, "\Hom{\Cat{C}} \coloneqq \St(\mathrm{pr})"']    & \SPACES                                
+    \OP{\Cat{C}} \times \Cat{C} \arrow[r, red, "\inftyMap{\Cat{C}} \coloneqq \St(\mathrm{pr})"']    & \SPACES                                
     \end{tikzcd}
 \end{center}
 である~\cite[I.26., p.19]{Hebestreit2020K-theory}．
@@ -1310,9 +1323,9 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
     対象 $x \in \Cat{C}_0$ に対して
     \begin{align}
         \yo_{[0]}(x)_{[0]} \colon \OP{\Cat{C}}_0 &\lto \SPACES_0, \\
-        y &\lmto \Hom{\Cat{C}} (x,\, y)
+        y &\lmto \inftyMap{\Cat{C}} (x,\, y)
     \end{align}
-    を充たす\footnote{$(\infty,\, 1)$-圏 $\Cat{C}$ において，対象 $x,\, y \in \Cat{C}_0$ の間の1-射全体の集合 $\Hom{\Cat{C}}(x,\, y) \subset \Cat{C}_1$ はKan複体を成す~\cite[\href{https://kerodon.net/tag/01JC}{Tag 01JC}]{kerodon}．}ような $(\infty,\, 1)$-圏の関手 $\yo_{[0]}(x) \in \inftyPsh{\Cat{C}}_0 = \Hom{\sSet}(\OP{\Cat{C}},\, \SPACES)$ を対応付けるもののこと\footnote{厳密な構成については~\cite[\href{https://kerodon.net/tag/03NF}{Tag 03NF}]{kerodon}を参照．}．
+    を充たす\footnote{$(\infty,\, 1)$-圏 $\Cat{C}$ において，対象 $x,\, y \in \Cat{C}_0$ の間の\hyperref[def:Map]{射の空間} $\inftyMap{\Cat{C}}(x,\, y)$ はKan複体を成すのだった~\cite[\href{https://kerodon.net/tag/01JC}{Tag 01JC}]{kerodon}．}ような $(\infty,\, 1)$-圏の関手 $\yo_{[0]}(x) \in \inftyPsh{\Cat{C}}_0 = \Hom{\sSet}(\OP{\Cat{C}},\, \SPACES)$ を対応付けるもののこと\footnote{厳密な構成については~\cite[\href{https://kerodon.net/tag/03NF}{Tag 03NF}]{kerodon}を参照．}．
 \end{mydef}
 % \subsection{$\mathcal{B}\mathrm{sc}$ の構造}
 
@@ -1342,7 +1355,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 \hyperref[def:tangent-classifier]{tangent classifier}は\hyperref[def:c-smooth]{conically smoothな層状化空間} $X \in \SNGLR_0$ に対して $(\infty,\, 1)$-圏の表現可能前層
 \begin{align}
     \label{eq:representable-infty}
-    \tau_{[0]}(X) = \Hom{\BSC}(\, \mhyphen\, ,\, X) \in \inftyPsh{\BSC}_0
+    \tau_{[0]}(X) = \inftyMap{\BSC}(\, \mhyphen\, ,\, X) \in \inftyPsh{\BSC}_0
 \end{align}
 を対応付ける．
 
@@ -1690,14 +1703,14 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         $\forall f \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $\forall c \in (\Cat{O}^\otimes_{\expval{m}})_0,\; \forall c' \in (\Cat{O}^\otimes_{\expval{n}})_0$ に対して，
         \exref{def:rho-i}のinertな射の族 $\Familyset[\big]{\rho^i \in  \Hom{\FIN_*}\bigl( \expval{n},\, \expval{1} \bigr)}{1 \le i \le n}$ に \textsf{\textbf{(Op-1)}} を適用して得られる\hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射の族 $\Familyset[\big]{c' \xrightarrow{\bar{\rho}^i} c'_i \in (\Cat{O}^\otimes)_1}{1 \le i \le n}$ が誘導する\hyperref[def:infinity-1]{Kan複体の関手}
         \begin{align}
-            \Hom{\Cat{O}^\otimes} (c,\, c')_f \lto \prod_{i=1}^n \Hom{\Cat{O}^\otimes} (c,\, c'_i)_{\rho^i \circ f}
+            \inftyMap{\Cat{O}^\otimes} (c,\, c')_f \lto \prod_{i=1}^n \inftyMap{\Cat{O}^\otimes} (c,\, c'_i)_{\rho^i \circ f}
         \end{align}
         は，$(\infty,\, 1)$-圏\hyperref[def:Spaces]{$\SPACES$}における\hyperref[def:isom-infty]{同型射}である．
 
         \item[\textbf{(Op-3)}]　
         
         $\forall c_1,\, \dots,\, c_n \in (\Cat{O}^\otimes_{\expval{1}})_0$ に対して，
-        ある $c \in (\Cat{O}^\otimes_{\expval{n}})_0$ および \hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射 $\widehat{\rho_i} \in \bigl(\Hom{\Cat{O}^\otimes} (c,\, c_i)_{\rho^i}\bigr)_0$ が存在する．
+        ある $c \in (\Cat{O}^\otimes_{\expval{n}})_0$ および \hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射 $\widehat{\rho_i} \in \bigl(\inftyMap{\Cat{O}^\otimes} (c,\, c_i)_{\rho^i}\bigr)_0$ が存在する．
     \end{description}
 
     ただし，以下の記法を採用した：
@@ -1712,17 +1725,69 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         \end{center}
         と定義した．
         \item $f \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $c \in (\Cat{O}^\otimes_{\expval{m}})_0,\; c' \in (\Cat{O}^\otimes_{\expval{n}})_0$ に対して，
-        $\bar{f} \in \Hom{\Cat{O}^\otimes}(c,\, c')_{0}$ であって $p_{[1]}(\bar{f}) = f$ を充たすもの全体が生成する，$\Hom{\Cat{O}^\otimes} (c,\, c') \in \SPACES_0$
-        の\footnote{\hyperref[def:infty-1]{Kan複体} $\Hom{\Cat{O}^\otimes} (c,\, c') \in \SPACES_0$ は，\hyperref[def:infty-Hom]{$(\infty,\, 1)$-圏におけるHom関手} $\Hom{\Cat{O}^\otimes} \colon \OP{(\Cat{O}^\otimes)} \times \Cat{O}^\otimes \lto \SPACES$ による対象 $(c,\, c') \in (\OP{(\Cat{O}^\otimes)} \times \Cat{O}^\otimes)_0$ の像である．}
-        最大の部分Kan複体を
+        $\bar{f} \in \inftyMap{\Cat{O}^\otimes}(c,\, c')_{0}$ であって $p_{[1]}(\bar{f}) = f$ を充たすもの全体が生成する，$\inftyMap{\Cat{O}^\otimes} (c,\, c') \in \SPACES_0$
+        の\footnote{\hyperref[def:infty-1]{Kan複体} $\Hom{\Cat{O}^\otimes} (c,\, c') \in \SPACES_0$ は，\hyperref[def:infty-Hom]{$(\infty,\, 1)$-圏におけるHom関手} $\inftyMap{\Cat{O}^\otimes} \colon \OP{(\Cat{O}^\otimes)} \times \Cat{O}^\otimes \lto \SPACES$ による対象 $(c,\, c') \in (\OP{(\Cat{O}^\otimes)} \times \Cat{O}^\otimes)_0$ の像である．}
+        \hyperref[def:fullsub-infty]{充満部分Kan複体}を
         \begin{align}
-            \bm{\Hom{\Cat{O}^\otimes} (c,\, c')_f} \hookrightarrow \Hom{\Cat{O}^\otimes} (c,\, c')
+            \bm{\inftyMap{\Cat{O}^\otimes} (c,\, c')_f} \hookrightarrow \inftyMap{\Cat{O}^\otimes} (c,\, c')
         \end{align}
         と書いた．
     \end{itemize}
 \end{mydef}
 
+\begin{mylem}[label=lem:Segal-cond]{Segal条件}
+    \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+    \begin{align}
+        p \colon \Cat{O}^{\otimes} \lto \Ner (\FIN_*)
+    \end{align}
+    であって条件\hyperref[def:infty-operad]{\textsf{\textbf{(Op-1)}}, \textsf{\textbf{(Op-2)}}}を充たすものを与える．
+    このとき，条件\hyperref[def:infty-operad]{\textsf{\textbf{(Op-3)}}}は以下と同値である：
+    \begin{description}
+        \item[\textbf{(Segal)}]　
+        
+        $\forall n \ge 0$ に対して，\exref{def:rho-i}の\hyperref[def:inert-active]{inertな射}の族 $\Familyset[\big]{\rho^i \in \Hom{\FIN_*} \bigl( \expval{n},\, \expval{1} \bigr)}{1 \le i \le n}$ が条件\hyperref[def:infty-operad]{\textsf{\textbf{(Op-1)}}}により誘導する\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}の族 $\Familyset[\big]{\rho^i_{!} \colon \Cat{O}^\otimes_{\expval{n}} \lto \Cat{O}^\otimes_{\expval{1}}}{1 \le i \le n}$ は，\hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}
+        \begin{align}
+            \label{eq:Segalmap}
+            (\rho^1_{!},\, \dots,\, \rho^n_{!}) \colon \Cat{O}^\otimes_{\expval{n}} \xrightarrow{\simeq} \bigl( \Cat{O}^\otimes_{\expval{1}} \bigr)^{\times n}
+        \end{align}
+        を与える．
+    \end{description}
+\end{mylem}
+
+\begin{proof}
+    \begin{description}
+        \item[\textbf{(OP-3)} $\Longrightarrow$ \textbf{(Segal)}]　
+        
+        　\textsf{\textbf{(OP-3)}}を仮定する．命題\ref{prop:equiv-FF-ES}より，$(\infty,\, 1)$-圏の関手\eqref{eq:Segalmap}が\hyperref[def:FF-ES]{忠実充満かつ本質的全射}であることを示せば良い．
+
+        　$\forall n \ge 0$ および $\forall c,\, c' \in (\Cat{O}^\otimes_{\expval{n}})_0$ を固定する．このとき $\Id_{\expval{n}} \in \Hom{\FIN_*} \bigl( \expval{n},\, \expval{n} \bigr)$ に対して\textsf{\textbf{(OP-2)}}を用いることで\footnote{\textsf{\textbf{(OP-2)}}における $c'_i \in (\Cat{O}^\otimes_{\expval{1}})_0$ とは，ちょうど $\rho^i_!{}_{[0]}(c')$ のことである．}，
+        ホモトピー同値
+        \begin{align}
+            \inftyMap{\Cat{O}^\otimes} (c,\, c')_{\Id_{\expval{n}}} \lto \prod_{i=1}^n \inftyMap{\Cat{O}^\otimes} \bigl(c,\, \rho^i_!{}_{[0]}(c')\bigr)_{\rho^i}
+        \end{align}
+        が得られる．さらに，\hyperref[def:Cart-coCart]{$p$-coCartesianな射の定義}からホモトピー同値
+        \begin{align}
+            \prod_{i=1}^n \inftyMap{\Cat{O}^\otimes} \bigl(\rho^i_!{}_{[0]}(c),\, \rho^i_!{}_{[0]}(c')\bigr)_{\Id_{\expval{1}}} \lto \prod_{i=1}^n \inftyMap{\Cat{O}^\otimes} \bigl(c,\, \rho^i_!{}_{[0]}(c')\bigr)_{\rho^i}
+        \end{align}
+        が得られるため，\eqref{eq:Segalmap}が\hyperref[def:FF-ES-infty]{忠実充満}だと分かった．
+        \hyperref[def:FF-ES-infty]{本質的全射}であることは\textsf{\textbf{(OP-3)}}より従う．
+
+        \item[\textbf{(OP-3)} $\Longleftarrow$ \textbf{(Segal)}]　
+        明らか．
+    \end{description}
+\end{proof}
+
+
 \begin{mydef}[label=def:infty-operad-map]{{$(\infty,\, 1)$}-オペラッドの射}
+    2つの\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド} $p \colon \Cat{O}^{\otimes} \lto \Ner (\FIN_*)$ を与える．
+    このとき，$(\infty,\, 1)$-圏 $\Cat{O}^\otimes$ の1-射 $f \in (\Cat{O}^\otimes)_1$ が\textbf{inert}であるとは，以下の2条件を充たすことを言う：
+    \begin{description}
+        \item[\textbf{(inert-1)}] $p_{[1]}(f)$ は $(1,\, 1)$-圏 $\FIN_*$ における\hyperref[def:inert-active]{innerな射}である．
+        \item[\textbf{(inert-2)}] $f$ は\hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射である．
+    \end{description}
+    
+    \tcblower
+    
     2つの\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド} $p \colon \Cat{O}^{\otimes} \lto \Ner (\FIN_*),\; q \colon \Cat{O}'{}^\otimes \lto \Ner (\FIN_*)$ を与える．
     このとき，\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $f \colon \Cat{O}^{\otimes} \lto \Cat{O}'{}^\otimes$ が\textbf{$\bm{(\infty,\, 1)}$-オペラッドの射} ($\infty$-operad map) であるとは，以下の2つの条件を充たすことを言う：
     \begin{description}
@@ -1736,10 +1801,9 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         \end{center}
         は可換である．
 
-        \item[\textbf{(Opmap-2)}] 1-射の間の写像 $f_{[1]} \colon (\Cat{O}^{\otimes})_1 \lto (\Cat{O}'{}^{\otimes})_1$ により，任意の\hyperref[def:inert-active]{inertな射}の \hyperref[def:infty-operad]{\textsf{\textbf{(Op-1)}}} による\hyperref[def:Cart-coCart]{p-coCartesian}な持ち上げが保たれる．
+        \item[\textbf{(Opmap-2)}] 1-射の間の写像 $f_{[1]} \colon (\Cat{O}^{\otimes})_1 \lto (\Cat{O}'{}^{\otimes})_1$ により，innertな1-射が保存される\footnote{条件 \textsf{\textbf{(Opmap-1)}} より，inertな1-射の $p_{[1]}$ による像が条件 \textsf{\textbf{(inert-1)}} を充たすことは明らかである．}．
     \end{description}
 \end{mydef}
-
 
 定義\ref{def:infty-operad}がオペラッドと呼ぶにふさわしいことを示すために，次の小節では $(1,\, 1)$-圏の文脈で対応物を考えよう．
 
