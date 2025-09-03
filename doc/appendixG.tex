@@ -1702,6 +1702,7 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         
         $\forall f \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $\forall c \in (\Cat{O}^\otimes_{\expval{m}})_0,\; \forall c' \in (\Cat{O}^\otimes_{\expval{n}})_0$ に対して，
         \exref{def:rho-i}のinertな射の族 $\Familyset[\big]{\rho^i \in  \Hom{\FIN_*}\bigl( \expval{n},\, \expval{1} \bigr)}{1 \le i \le n}$ に \textsf{\textbf{(Op-1)}} を適用して得られる\hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射の族 $\Familyset[\big]{c' \xrightarrow{\bar{\rho}^i} c'_i \in (\Cat{O}^\otimes)_1}{1 \le i \le n}$ が誘導する\hyperref[def:infinity-1]{Kan複体の関手}
+        \footnote{対象の対応としては $\bar{f} \lmto (\bar{\rho}^1 \circ \bar{f},\, \dots,\, \bar{\rho}^n \circ \bar{f})$ であるが，右辺の\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\Cat{O}^\otimes$ における1-射の合成はup to homotopyでしか定まらないため，この関手はup to homotopyでしか決まらない．}
         \begin{align}
             \inftyMap{\Cat{O}^\otimes} (c,\, c')_f \lto \prod_{i=1}^n \inftyMap{\Cat{O}^\otimes} (c,\, c'_i)_{\rho^i \circ f}
         \end{align}
@@ -1726,7 +1727,8 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         と定義した．
         \item $f \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $c \in (\Cat{O}^\otimes_{\expval{m}})_0,\; c' \in (\Cat{O}^\otimes_{\expval{n}})_0$ に対して，
         $\bar{f} \in \inftyMap{\Cat{O}^\otimes}(c,\, c')_{0}$ であって $p_{[1]}(\bar{f}) = f$ を充たすもの全体が生成する，$\inftyMap{\Cat{O}^\otimes} (c,\, c') \in \SPACES_0$
-        の\footnote{\hyperref[def:infty-1]{Kan複体} $\Hom{\Cat{O}^\otimes} (c,\, c') \in \SPACES_0$ は，\hyperref[def:infty-Hom]{$(\infty,\, 1)$-圏におけるHom関手} $\inftyMap{\Cat{O}^\otimes} \colon \OP{(\Cat{O}^\otimes)} \times \Cat{O}^\otimes \lto \SPACES$ による対象 $(c,\, c') \in (\OP{(\Cat{O}^\otimes)} \times \Cat{O}^\otimes)_0$ の像である．}
+        の
+        % \footnote{\hyperref[def:infty-1]{Kan複体} $\Hom{\Cat{O}^\otimes} (c,\, c') \in \SPACES_0$ は，\hyperref[def:infty-Hom]{$(\infty,\, 1)$-圏におけるHom関手} $\inftyMap{\Cat{O}^\otimes} \colon \OP{(\Cat{O}^\otimes)} \times \Cat{O}^\otimes \lto \SPACES$ による対象 $(c,\, c') \in (\OP{(\Cat{O}^\otimes)} \times \Cat{O}^\otimes)_0$ の像である．}
         \hyperref[def:fullsub-infty]{充満部分Kan複体}を
         \begin{align}
             \bm{\inftyMap{\Cat{O}^\otimes} (c,\, c')_f} \hookrightarrow \inftyMap{\Cat{O}^\otimes} (c,\, c')
@@ -1760,16 +1762,17 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         
         　\textsf{\textbf{(OP-3)}}を仮定する．命題\ref{prop:equiv-FF-ES}より，$(\infty,\, 1)$-圏の関手\eqref{eq:Segalmap}が\hyperref[def:FF-ES]{忠実充満かつ本質的全射}であることを示せば良い．
 
-        　$\forall n \ge 0$ および $\forall c,\, c' \in (\Cat{O}^\otimes_{\expval{n}})_0$ を固定する．このとき $\Id_{\expval{n}} \in \Hom{\FIN_*} \bigl( \expval{n},\, \expval{n} \bigr)$ に対して\textsf{\textbf{(OP-2)}}を用いることで\footnote{\textsf{\textbf{(OP-2)}}における $c'_i \in (\Cat{O}^\otimes_{\expval{1}})_0$ とは，ちょうど $\rho^i_!{}_{[0]}(c')$ のことである．}，
+        　$\forall n \ge 0$ および $\forall c,\, c' \in (\Cat{O}^\otimes_{\expval{n}})_0$ を固定する．このとき $\Id_{\expval{n}} \in \Hom{\FIN_*} \bigl( \expval{n},\, \expval{n} \bigr)$ に対して\textsf{\textbf{(OP-2)}}を用いることで，
         ホモトピー同値
         \begin{align}
-            \inftyMap{\Cat{O}^\otimes} (c,\, c')_{\Id_{\expval{n}}} \lto \prod_{i=1}^n \inftyMap{\Cat{O}^\otimes} \bigl(c,\, \rho^i_!{}_{[0]}(c')\bigr)_{\rho^i}
+            \inftyMap{\Cat{O}^\otimes_{\expval{n}}}(c,\, c') \simeq \inftyMap{\Cat{O}^\otimes} (c,\, c')_{\Id_{\expval{n}}} \lto \prod_{i=1}^n \inftyMap{\Cat{O}^\otimes} \bigl(c,\, c'_i\bigr)_{\rho^i}
         \end{align}
         が得られる．さらに，\hyperref[def:Cart-coCart]{$p$-coCartesianな射の定義}からホモトピー同値
         \begin{align}
-            \prod_{i=1}^n \inftyMap{\Cat{O}^\otimes} \bigl(\rho^i_!{}_{[0]}(c),\, \rho^i_!{}_{[0]}(c')\bigr)_{\Id_{\expval{1}}} \lto \prod_{i=1}^n \inftyMap{\Cat{O}^\otimes} \bigl(c,\, \rho^i_!{}_{[0]}(c')\bigr)_{\rho^i}
+            \prod_{i=1}^n \inftyMap{\Cat{O}^\otimes_{\expval{1}}} \bigl(\rho^i_!{}_{[0]}(c),\, \rho^i_!{}_{[0]}(c')\bigr) \simeq \prod_{i=1}^n \inftyMap{\Cat{O}^\otimes} \bigl(c_i,\, c'_i\bigr)_{\Id_{\expval{1}}} \lto \prod_{i=1}^n \inftyMap{\Cat{O}^\otimes} \bigl(c,\, c'_i\bigr)_{\rho^i}
         \end{align}
-        が得られるため，\eqref{eq:Segalmap}が\hyperref[def:FF-ES-infty]{忠実充満}だと分かった．
+        が得られる\footnote{\textsf{\textbf{(OP-2)}}における $c'_i \in (\Cat{O}^\otimes_{\expval{1}})_0$ とは，ちょうど $\rho^i_!{}_{[0]}(c')$ のことである．}
+        ため，\eqref{eq:Segalmap}が\hyperref[def:FF-ES-infty]{忠実充満}だと分かった．
         \hyperref[def:FF-ES-infty]{本質的全射}であることは\textsf{\textbf{(OP-3)}}より従う．
 
         \item[\textbf{(OP-3)} $\Longleftarrow$ \textbf{(Segal)}]　
@@ -1810,7 +1813,7 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
 \subsection{色付きオペラッドと {$(1,\, 1)$}-圏のcoCartesian fibration}
 
 \begin{mydef}[label=def:c-operad,breakable]{colored operad}
-    \textbf{色付きオペラッド} (colored operad) $\Cat{O}$ は，以下の4つのデータから成る：
+    \textbf{色付きオペラッド}\footnote{いわゆる\textbf{対称色付きオペラッド} (symmetric colored operad) である．} (colored operad) $\Cat{O}$ は，以下の4つのデータから成る：
     \begin{itemize}
         \item \textbf{対象}\footnote{\textbf{色} (color) と呼ばれることもある．} (object) の集まり
         \begin{align}
@@ -2049,6 +2052,11 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
                 \Familyset[\Big]{\phi_j \in \Mul{\Cat{O}} \bigl( \Familyset{x_i}{i \in \alpha^{-1}(\{j\})},\, y_j \bigr) }{1 \le j \le n}
             \end{align}
         \end{enumerate}
+        より具体的には，
+        \begin{align}
+            \Hom{\Cat{O}^\otimes} \bigl( \Familyset{x_i}{1 \le i \le m},\, \Familyset{y_j}{1 \le j \le n} \bigr) \coloneqq \coprod_{\alpha \in \Hom{\FIN_*}\bigl( \expval{m},\, \expval{n} \bigr)} \prod_{j=1}^n \Mul{\Cat{O}} \bigl( \Familyset{x_i}{i \in \alpha^{-1}(\{j\})},\, y_j \bigr)
+        \end{align}
+        である．
         \item 射の合成は，$\FIN_*$ における射の合成および $\Cat{O}$ における多射の合成によって定める．
     \end{itemize}
     \tcblower
@@ -2066,7 +2074,7 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
     \begin{align}
         p \colon \Cat{O}^\otimes \lto \FIN_*
     \end{align}
-    において，$\Cat{O}^\otimes$ がある\hyperref[def:c-operad]{色付きオペラッド}の\hyperref[def:cat-of-operators]{category of operators}と圏同値になる必要十分条件は，
+    において，$\Cat{O}^\otimes$ がある\hyperref[def:c-operad]{色付きオペラッド} $\Cat{O}$ の\hyperref[def:cat-of-operators]{category of operators}と圏同値になる必要十分条件は，
     $p$ が条件\hyperref[cond:Op-ord-1]{\textsf{\textbf{(Op-ord-1)}}}-\hyperref[cond:Op-ord-1]{\textsf{\textbf{(Op-ord-3)}}}を充たすことである．
 \end{myprop}
 
