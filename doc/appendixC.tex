@@ -409,7 +409,7 @@
     　同様に，圏 $\Cat{C}$ における2つの対象 $D(1),\, D(2) \in \Obj{\Cat{C}}$ の\textbf{和}とは，
     \begin{itemize}
         \item 圏 $\Cat{C}$ における1つの対象 $D(1) \amalg D(2) \in \Obj{\Cat{C}}$
-        \item 圏 $\Cat{C}$ における2つの射 $i_j \in \Hom{\Cat{C}} \bigl( D(1) \amalg D(2),\, D(j) \bigr) \WHERE j=1,\, 2$
+        \item 圏 $\Cat{C}$ における2つの射 $i_j \in \Hom{\Cat{C}} \bigl( D(j),\, D(1) \amalg D(2) \bigr) \WHERE j=1,\, 2$
     \end{itemize}
     の組であって，任意の組 $\Bigl( \textcolor{blue}{C} \in \Obj{\Cat{C}},\, \Familyset[big]{\textcolor{blue}{c_i} \in \Hom{\Cat{C}} \bigl( D(i),\, \textcolor{blue}{C} \bigr)}{i \in \{1,\, 2\}} \Bigr)$ に対して以下の図式を可換にする圏 $\Cat{C}$ の射 $\textcolor{red}{u} \in \Hom{\Cat{C}} \bigl(D(1)\amalg D(2),\, \textcolor{blue}{C} \bigr)$ が\underline{一意的}に存在するようなもののこと：
     % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQAdDnGADxwDGERhABOwAEYsYAX2ABhGSBml0mXPkIpypYtTpNW7ACIAKYgEplqkBmx4CRAEy79DaSdNOrKtfc1EZE5uhmyIIGaWXPQAtkwA5gAEZt7K+jBQ8fBEoABmohAxSGQgOBBIOgYe4QIA+sQgNIz0EjCMAArqDlogjDC5OI0grWBQSADMlXAAFlgDFb4g+YVILqXliJXuRjW1TkPNrR1dAeGiWPHTgzQjY4gAtJOLy0WIJWUTNNthIFj1By02p1-I4zhcrkNbkhHuRngVXmsPohxl9Quw-vsmoDjiCen15jcYKMJrCbC9PusKqjqpwOHwsHAcHAAISJZgAo7AjSg3r9a69LBgH5QegzDJpGRAA
@@ -422,9 +422,18 @@
     \end{center}
     具体的な圏における和は，例えば以下の通りである：
     \begin{enumerate}
-        \item 集合と写像の圏 $\SETS$ における積とは，disjoint unionと，disjoint unionの各成分への包含写像の組のこと．
-        \item 位相空間の圏 $\TOP$ における積とは，disjoint union
-        \item 体 $\mathbb{K}$ 上のベクトル空間の圏 $\SETS$ における積とは，直積ベクトル空間のこと．これは，特に元の図式の対象が有限個である場合は直和ベクトル空間と同型である．
+        \item 集合と写像の圏 $\SETS$ における和とは，disjoint unionと，disjoint unionの各成分への包含写像の組のこと．より具体的には，集合
+        \begin{align}
+            D(1) \amalg D(2) &= \bigl\{\, (1,\, x) \bigm| x \in D(1) \,\bigr\} \cup \bigl\{\, (2, y) \bigm| y \in D(2) \,\bigr\}
+        \end{align}
+        および写像
+        \begin{align}
+            i_1 \colon D(1) &\lto D(1) \amalg D(2),\; x \lmto (1,\, x) \\
+            i_2 \colon D(2) &\lto D(1) \amalg D(2),\; y \lmto (2,\, y)
+        \end{align}
+        の組のこと．
+        \item 位相空間の圏 $\TOP$ における和とは，disjoint unionと，disjoint unionの各成分への連続な\footnote{むしろ，集合としてのdisjoint unionの上に，包含写像 $i_j \in \Hom{\SETS} \bigl( D(j),\, D(1) \amalg D(2) \bigr)$ が連続になるような最強の位相を入れている．}包含写像の組のこと．
+        \item 体 $\mathbb{K}$ 上のベクトル空間の圏 $\SETS$ における和とは，直和ベクトル空間のこと．これは，特に元の図式の対象が有限個である場合は直積ベクトル空間と同型である．
     \end{enumerate}
 \end{myexample}
 
@@ -432,19 +441,19 @@
     \hyperref[def:diagram]{図式}
     \begin{align}
         D \colon \boxdiagram{
-            \overset{1}{\bullet} \ar[r,shift left,"f"]\ar[r,shift right,"g"'] \&\overset{2}{\bullet}
+            \overset{1}{\bullet} \ar[r,shift left,"f_{12}"]\ar[r,shift right,"g_{12}"'] \&\overset{2}{\bullet}
         } \lto \Cat{C}
     \end{align}
     の\hyperref[def:lim]{極限}を（存在すれば）\textbf{イコライザ} (equalizer) と呼び，$\bm{\mathrm{Eq}\bigl(D(1),\, D(2)\bigr)}$ と書く．
     同じ図式の\hyperref[def:colim]{余極限}を（存在すれば）\textbf{コイコライザ} (coequalizer) と呼び，$\bm{\mathrm{Coeq}\bigl(D(1),\, D(2)\bigr)}$ と書く．
-    具体的な圏における例は以下の通り：
+    具体的な圏における例は以下の通りである．ただし，$X \coloneqq D(1),\, Y \coloneqq D(2),\, f \coloneqq D(f_{12}),\, g \coloneqq D(g_{12})$ と書いている：
     \begin{enumerate}
         \item 集合と写像の圏 $\SETS$ におけるイコライザとは，2つの写像 $f,\, g \in \Hom{\SETS} (X,\, Y)$ によって定まる $X$ の部分集合
         \begin{align}
             \mathrm{Eq}(f,\, g) \coloneqq \bigl\{\, x \in X \bigm| f(x) = g(x) \,\bigr\} 
         \end{align}
         と，包含写像 $i \colon \mathrm{Eq}(f,\, g) \lto X$ の組みである．直観的には方程式 $f(x) = g(x)$ の解空間のことである．
-        \item 集合と写像の圏 $\SETS$ における2つの写像 $f,\, g \in \Hom{\SETS} (X,\, Y)$ の間のコイコライザとは，$f(x) \sim g(x)\; \forall x \in X$ を充たす $Y$ の最小の同値関係 $\sim \subset Y \times Y$ による商集合 
+        \item 集合と写像の圏 $\SETS$ における2つの写像 $f,\, g \in \Hom{\SETS} (X,\, Y)$ の間のコイコライザとは，$f(x) \sim g(x)\; \forall x \in X$ を充たす $Y$ の最小の同値関係 $\sim\; \subset Y \times Y$ による商集合 
         \begin{align}
             \mathrm{Coeq} (f,\, g) \coloneqq Y/{\sim}
         \end{align}
@@ -460,20 +469,66 @@
     \hyperref[def:diagram]{図式}
     \begin{align}
         D \colon \boxdiagram{
-            \&\overset{2}{\bullet} \ar[d, "p"] \\
-            \overset{1}{\bullet} \ar[r, "f"'] \&\overset{3}{\bullet} 
+            \&\overset{2}{\bullet} \ar[d, "f_{23}"] \\
+            \overset{1}{\bullet} \ar[r, "f_{13}"'] \&\overset{3}{\bullet} 
         } \lto \Cat{C}
     \end{align}
     の\hyperref[def:lim]{極限}を（存在すれば）\textbf{引き戻し}\footnote{\textbf{ファイバー積} (fiber product) と呼ぶこともある．} (pullback) と呼び，$\bm{D(1) \times_{D(3)} D(2)}$ と書く．
+    具体的な圏における例は以下の通りである．ただし，$X \coloneqq D(1),\, Y \coloneqq D(2),\, Z \coloneqq D(3),\, f \coloneqq D(f_{13}),\, p \coloneqq D(f_{23})$ と書いている：
+    \begin{enumerate}
+        \item 集合と写像の圏 $\SETS$ における引き戻しとは，2つの写像 $X \xrightarrow{f} Z \xleftarrow{p} Y$ によって定まる，直積集合 $X \times Y$ の部分集合
+        \begin{align}
+            X \times_Z Y = \bigl\{\, (x,\, y) \in X \times Y \bigm| f(x) = p(y) \,\bigr\} 
+        \end{align}
+        と，3つの射影
+        \begin{align}
+            p_1 \colon X \times_Z Y &\lto X,\; (x,\, y) \lmto x \\
+            p_2 \colon X \times_Z Y &\lto Y,\; (x,\, y) \lmto y \\
+            p_3 \colon X \times_Z Y &\lto Z,\; (x,\, y) \lmto f(x) = p(y)
+        \end{align}
+        の4つ組のこと．\hyperref[def:eq-coeq]{イコライザ}を用いて $X \times_Z Y = \mathrm{Eq} \bigl( X \times Y,\, Z \bigr)$ と書くこともできる．
+        特に，\hyperref[def:Cone]{錐の定義}から $p_3 = D(f_{13}) \circ p_1 = D(f_{23}) \circ p_2$ が常に成り立つため，$p_3$ は省略されることが多い．
+        \hyperref[def:Cone]{錐の可換図式}を書くと次のようになる：
+        \begin{center}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAA0ACAHW7wFt4AfQBanAJogAvqXSZc+QijIBGKrUYs27abJAZseAkRWk11es1aIQI3XMOKT5dZa03JU9TCgBzeESgAGYAThD8SGQgOBBIphpWbGhCKiDUDHQARjAMAAryRkogIVi+ABY4aSDZYFBIALQAzMQywWERiFExSI0Wmtb6QgBMVTV1iM2tIKHhPdTdiEN9iTZo9tPtcfOxi8vu01UZ2XkFTjYl5ZVTMx1dO0vVMLU9UW4DyY3SFFJAA
+            \begin{tikzcd}
+            X \times_Z Y \arrow[d, "p_1"', bend right] \arrow[r, "p_2", bend left] \arrow[rd, "p_3", bend left] & Y \arrow[d, "p"] \\
+            X \arrow[r, "f"']                                                                                   & Z               
+            \end{tikzcd}
+        \end{center}
+        この可換図式において $p_3$ を略記する際によく使われる記法は以下の通りである：
+        \begin{center}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAA0ACAHW7wFt4AfQBanAJogAvqXSZc+QijIBGKrUYs27abJAZseAkRWk11es1aIQI3XMOKT5dZa03JU9TCgBzeESgAGYAThD8SGQgOBBIphpWbGhCKiDUDHQARjAMAAryRkogIVi+ABY4aSDZYFCRMsFhEYhRMUgAzBaa1vpCAExVNXUtDSCh4R3UbYh9XYk2aPZjTXFTsTNz7mNVGdl5BU42JeWVXlJAA
+            \begin{tikzcd}
+            X \times_Z Y \arrow[d, "p_1"'] \arrow[r, "p_2"]\arrow[dr, phantom," " {pullback}, very near start, color=black] & Y \arrow[d, "p"] \\
+            X \arrow[r, "f"']                               & Z               
+            \end{tikzcd}
+        \end{center}
+    \end{enumerate}
     
     \hyperref[def:diagram]{図式}
     \begin{align}
         D \colon \boxdiagram{
             \&\overset{2}{\bullet} \\
-            \overset{1}{\bullet}  \ar[from=r, "f"'] \&\overset{3}{\bullet} \ar[u, "i"']
+            \overset{1}{\bullet}  \ar[from=r, "f_{31}"] \&\overset{3}{\bullet} \ar[u, "f_{32}"']
         } \lto \Cat{C}
     \end{align}
-    の\hyperref[def:colim]{余極限}を（存在すれば）\textbf{押し出し}と呼び，$\bm{D(1) \amalg_{D(3)} D(2)}$ と書く．
+    の\hyperref[def:colim]{余極限}を（存在すれば）\textbf{押し出し} (pushforward) と呼び，$\bm{D(1) \amalg_{D(3)} D(2)}$ と書く．
+    具体的な圏における例は以下の通りである．ただし，$X \coloneqq D(1),\, Y \coloneqq D(2),\, Z \coloneqq D(3),\, f \coloneqq D(f_{31}),\, i \coloneqq D(f_{32})$ と書いている：
+    \begin{enumerate}
+        \item 集合と写像の圏 $\SETS$ における押し出しとは，2つの写像 $X \xleftarrow{f} Z \xrightarrow{i} Y$ によって定まる，\hyperref[def:product-coproduct]{直和集合} $X \amalg Y$ の商集合
+        \begin{align}
+            X \amalg_Z Y = \frac{X \amalg Y}{\bigl(1,\, f(z)\bigr) \sim \bigl(2,\, i(z)\bigr)}
+        \end{align}
+        と，2つの写像
+        \begin{align}
+            c_1 \colon X &\lto X \amalg_Z Y,\; x \lmto [(1,\, x)] \\
+            c_2 \colon Y &\lto X \amalg_Z Y,\; y \lmto [(2,\, y)]
+        \end{align}
+        の3つ組のこと
+        \footnote{\hyperref[def:coCone]{余錐の定義}に登場する図式の可換性から，写像 $c_3 \colon Z \lto X \amalg_Z Y$ は省略されることが多い．}．
+        \hyperref[def:eq-coeq]{コイコライザ}を用いて $X \amalg_Z Y = \mathrm{Coeq} \bigl( Z,\, X \amalg Y \bigr)$ と書くこともできる．
+    \end{enumerate}
 \end{myexample}
 
 

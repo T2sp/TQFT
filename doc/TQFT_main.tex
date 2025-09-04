@@ -95,6 +95,11 @@
     },
     process/.style={
         shape=rectangle, rounded corners, align=center, draw=#1, double
+    },
+    pullback/.style={
+        minimum size=1.2ex,path picture={
+            \draw[opacity=1,black,-,#1] (-0.5ex,-0.5ex) -- (0.5ex,-0.5ex) -- (0.5ex,0.5ex);%
+        }
     }
 }
 \pgfdeclarelayer{background}
