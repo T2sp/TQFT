@@ -2430,11 +2430,24 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
     $\partial^1_1(f) \eqqcolon X,\, \partial^1_0(f) \eqqcolon Y$ とおいて図式\ref{fig:2-simp}を書くと以下の通り：
     \begin{center}
         % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQANEAX1PU1z5CKAEwVqdJq3YBNHnxAZseAkXKliEhizaIQc7hJhQA5vCKgAZgCcIAWyRkQOCEnWSd7EyBqN6AIxhGAAUBFWEQaywTAAsceStbB0QnFyQxD2k9SwSQG3t0mjTEd20skAAdCoBJKAB9A0puIA
-\begin{tikzcd}
-                                   & Y \arrow[rdd, "\Id_Y"] &   \\
-                                   &\sigma  & \\
-X \arrow[rr, "g"'] \arrow[ruu, "f"] &                       & Y
-\end{tikzcd}
+% \begin{tikzcd}
+%                                    & Y \arrow[rdd, "\Id_Y"] &   \\
+%                                    &\sigma  & \\
+% X \arrow[rr, "g"'] \arrow[ruu, "f"] &                       & Y
+% \end{tikzcd}
+        \begin{tikzpicture}
+            \path coordinate[bullet,label=left:$X$] (x)
+            +(0:2) coordinate[bullet,label=right:$Y$] (z)
+            +(60:2) coordinate[bullet,label=above:$Y$] (y)
+            ;
+            \draw[->-=.5] (x.center) -- node[midway,left] {$f$} (y.center);
+            \draw[->-=.5] (y.center) -- node[midway,right] {$\Id_Y$} (z.center);
+            \draw[->-=.5] (x.center) -- node[midway,below] {$g$} (z.center);
+            \node[gray] at (barycentric cs:x=1,y=1,z=1) {$\sigma$};
+            \begin{scope}[on background layer]
+                \fill[gray!20] (x.center) -- (y.center) -- (z.center) --cycle;
+            \end{scope}
+        \end{tikzpicture}
     \end{center}
 \end{mydef}
 
@@ -2479,7 +2492,7 @@ $K$ を\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}とする．$\forall X,\, Y
     \begin{itemize}
         \item 1-射 $f \in K_1$ が\textbf{同型射} (isomorphism) であるとは，$K$ の\hyperref[def:hcat-infty]{ホモトピー圏} $\htpy{K}$ において $[f]$ が\hyperref[def:iso]{同型射}であることを言う．
         \item 対象 $X,\, Y \in K_0$ が\textbf{同型} (isomorphic) であるとは，$X,\, Y$ をそれぞれ始点・終点に持つ $K$ の同型射が存在することを言う．
-    \end{itemize}z
+    \end{itemize}
 \end{mydef}
 
 \begin{mydef}[label=def:hqCat]{{$\qCat$}のホモトピー圏}
@@ -2823,6 +2836,7 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
          \SPACES \coloneqq \hcNer (\KAN)
     \end{align}
     と書く．実際，\hyperref[def:SimpSet]{単体的集合} $\SPACES \in \Obj{\sSet}$ は\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}である\cite[\href{https://kerodon.net/tag/01YY}{Tag 01YY}]{kerodon}．
+    $(\infty,\, 1)$-圏 $\SPACES$ は，$(1,\, 1)$-圏論における $\SETS$ の，$(\infty,\, 1)$-圏論における対応物である．
 \end{myexample}
 
 
