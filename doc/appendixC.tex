@@ -2577,19 +2577,20 @@ $(1,\, 1)$-圏 $\sSet$ における引き戻しとは，命題\ref{prop:SimpSet-
     \begin{itemize}
         \item 集合 $\Obj{\Cat{C}}$
         \item $\forall x, y \in \Obj{\Cat{C}}$ に対して，\textbf{Hom対象}と呼ばれる\underline{$V$ の}対象 $\Hom{\Cat{C}}(x,\, y) \in \Obj{V}$ を持つ
-        \item $\forall x, y,\, z \in \Obj{\Cat{C}}$ に対して，\textbf{合成射}と呼ばれる\underline{$V$ の}射 $\circ_{x,\, y,\, z} \colon \Hom{\Cat{C}}(y,\, z) \otimes \Hom{\Cat{C}}(x,\, y) \lto \Hom{\Cat{C}} (x,\, z)$ を持つ
+        \item $\forall x, y,\, z \in \Obj{\Cat{C}}$ に対して，\textbf{合成射}と呼ばれる\underline{$V$ の}射 $\circ_{z,\, y,\, x} \colon \Hom{\Cat{C}}(y,\, z) \otimes \Hom{\Cat{C}}(x,\, y) \lto \Hom{\Cat{C}} (x,\, z)$ を持つ
         \item $\forall x \in \Obj{\Cat{C}}$ に対して，\textbf{恒等素}と呼ばれる\underline{$V$ の}射 $j_x \colon I \lto \Hom{\Cat{C}} (x,\, x)$ を持つ
     \end{itemize}
     これらは以下の図式を可換にしなくてはいけない：
     \begin{description}
         \item[\textbf{(associativity)}]　
         
-        $\forall x,\, y,\, z,\, w \in \Obj{\Cat{C}}$ について\footnote{$\cong$ はモノイダル圏 $V$ の \hyperref[def:monoidal-category]{associator}}
+        $\forall w,\, x,\, y,\, z \in \Obj{\Cat{C}}$ について\footnote{$\cong$ はモノイダル圏 $V$ の \hyperref[def:monoidal-category]{associator}}
         \begin{flushleft}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12AjLAcwYAUnABIQAtsE4BhOjmBSAvgoEBPUp1IACAF4BKTZwh4x8A+1ETps+UoEAPdey0rdnHrwBOr9kawm4ZhaS7DJyisoA7o5adrogCqTomLj4hChkAExUtIwsbCLiwaE2ymoaOvqGxqZufIIFliHW4fbRmi61nt6+-oGFVmG2UeWxnV7xiSAY2HgERACM5Nn0zKyIHOb9TYPKDuV6Zj01m43FLcNOmrETSTOpC6Tzy7lrG0EDJQIXWno3U8mzNLIRZZagrPLrBpFZq2MqXA5VPzHd7bT7fdpxBTZGBQXjwIigABmHnESDIIBwECQGTBL3y7AAxlgPAyAPrAbSkNR2BSI3qcACSUD+xNJiBpFKpiAAzLTVvSmSz2ZyHBEFCKSWIkAAWaiUpCynLyyGM5lsjlc0hqkDUBh0LgwBgABQB93WHj4AAscBqxeT9YhFiA7Q7na65u6vT65RCNgyCLxfVrA3qpbqjbHBVBDtUApxFebuVb1bb7Y6XXcIyAPbxvfEKAogA
             \begin{tikzcd}[column sep=large]
-                &\bigl( \Hom{\Cat{C}}(x,\,  y) \otimes \Hom{\Cat{C}}(y,\,  z) \bigr) \otimes \Hom{\Cat{C}}(z,\,  w) \ar[dd, "\cong"']\ar[r,"\substack{\circ_{x,y,z} \otimes \Id_{\Hom{\Cat{C}}(z,\,  w)} \\ \phantom{0}}"] &\Hom{\Cat{C}} (x,\,  z) \otimes \Hom{\Cat{C}}(z,\,  w) \ar[d, "\circ_{x,z,w}"] \\
-                & &\Hom{\Cat{C}}(x,\,  w) \\
-                &\Hom{\Cat{C}}(x,\,  y) \otimes \bigl( \Hom{\Cat{C}}(y,\,  z) \otimes \Hom{\Cat{C}}(z,\,  w) \bigr) \ar[r, "\substack{\phantom{0} \\ \Id_{\Hom{\Cat{C}}(x,\,  y)} \otimes \circ_{y,z,w}}"'] &\Hom{\Cat{C}}(x,\,  y) \otimes \Hom{\Cat{C}}(y,\,  w) \ar[u,"\circ_{x,y,w}"']
+            {\bigl(\Hom{\Cat{C}}(y,\, z) \otimes \Hom{\Cat{C}}(x,\, y)\bigr)\otimes \Hom{\Cat{C}}(w,\, x)} \arrow[r, "{\circ_{z,y,x}\otimes \Id}"] \arrow[dd, "\cong"'] & {\Hom{\Cat{C}}(x,\, z) \otimes \Hom{\Cat{C}}(w,\, x)} \arrow[d, "{\circ_{z,x,w}}"]  \\
+                                                                                                                                                                        & {\Hom{\Cat{C}}(w,\, z)}                                                             \\
+            {\Hom{\Cat{C}}(y,\, z) \otimes \bigl(\Hom{\Cat{C}}(x,\, y)\otimes \Hom{\Cat{C}}(w,\, x)\bigr)} \arrow[r, "{\Id \otimes \circ_{y,x,w}}"']              & {\Hom{\Cat{C}}(y,\, z) \otimes \Hom{\Cat{C}}(w,\, y)} \arrow[u, "{\circ_{z,y,w}}"']
             \end{tikzcd}
         \end{flushleft}
         
@@ -2598,8 +2599,8 @@ $(1,\, 1)$-圏 $\sSet$ における引き戻しとは，命題\ref{prop:SimpSet-
         $\forall x,\, y \in \Obj{\Cat{C}}$ について\footnote{$\cong$ はモノイダル圏 $V$ の\hyperref[def:monoidal-category]{left/right unitor}}
         \begin{center}
             \begin{tikzcd}
-                &\Hom{\Cat{C}}(x,\,  x) \otimes \Hom{\Cat{C}}(x,\,  y) \ar[r, "\circ_{x{,}x{,}y}"] &\Hom{\Cat{C}}(x,\,  y) &\Hom{\Cat{C}}(x,\,  y) \otimes \Hom{\Cat{C}}(y,\,  y) \ar[l, "\circ_{x{,}y{,}y}"'] \\
-                &I \otimes \Hom{\Cat{C}}(x,\,  y) \ar[u, "j_x \otimes \Id_{\Hom{\Cat{C}}(x,\,  y)}"] \ar[ur, "\cong"'] & &\Hom{\Cat{C}}(x,\,  y) \otimes I \ar[u, "\Id_{\Hom{\Cat{C}}(x,\,  y)} \otimes j_y"'] \ar[ul, "\cong"]
+                &\Hom{\Cat{C}}(y,\,  y) \otimes \Hom{\Cat{C}}(x,\,  y) \ar[r, "\circ_{y{,}y{,}x}"] &\Hom{\Cat{C}}(x,\,  y) &\Hom{\Cat{C}}(x,\,  y) \otimes \Hom{\Cat{C}}(x,\,  x) \ar[l, "\circ_{y{,}x{,}x}"'] \\
+                &I \otimes \Hom{\Cat{C}}(x,\,  y) \ar[u, "j_y \otimes \Id_{\Hom{\Cat{C}}(x,\,  y)}"] \ar[ur, "\cong"'] & &\Hom{\Cat{C}}(x,\,  y) \otimes I \ar[u, "\Id_{\Hom{\Cat{C}}(x,\,  y)} \otimes j_x"'] \ar[ul, "\cong"]
             \end{tikzcd}
         \end{center}
         
@@ -2627,9 +2628,10 @@ $(1,\, 1)$-圏 $\sSet$ における引き戻しとは，命題\ref{prop:SimpSet-
         
         $\forall x,\, y,\, z \in \Obj{\Cat{C}}$ に対して\footnote{これは，通常の関手において射の合成が保存されることに対応する．}
         \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-                &\Hom{\Cat{C}}(x,\,  y) \otimes \Hom{\Cat{C}}(y,\,  z) \ar[r, "\circ_{x{,}y{,}{z}}"]\ar[d, "F_{x{,}y} \otimes F_{y{,}z}"'] &\Hom{\Cat{C}}(x,\,  z) \ar[d, "F_{x{,}z}"] \\
-                &\Hom{\Cat{D}}\bigl(F_0(x),\,  F_0(y)\bigr) \otimes \Hom{\Cat{D}}\bigl(F_0(y),\,  F_0(z)\bigr) \ar[r, "\substack{\phantom{0} \\ \circ_{F_0(x){,}F_0(y){,}F_0(z)}}"'] &\Hom{\Cat{D}}\bigl(F_0(x),\,  F_0(z)\bigr)
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12AJCAW2E4BhOjmCCAvuIAUAT1KdSAAgBeASkWcIeXvA3c+A9sNETpAD3nslM1SHGl0mXPkIoAjOSq1GLNpx78QiJiklIWCiq29o7YeAREHm5e9MysiBz6gUbBACKSnABGWADmDFIAYgD6xGGqlkpVNWqFJQBOUQ4gGLEuRGRJ1Cm+6f4GQaJ54i2lFdWydRGNUs3sRcXtelpYOnB6AYbGwJPTZUtmC1aKSzbT7XZeMFDF8ESgAGatfEhkIDgQSB5vKk-OwAMZYVqgyrAZSkORmcR2TofL6IH5-JAAZkGPjSICqwDkyim7C2Oyu0IsMkR1AYdAKMAYAAUnHFXCBWiUABY4JHvT68AHUDGIABMOOB6QJFmJfJAKMFiGxv3+Ytp9MZLJ68XSnOKPJAEuGGXBkOhSzUpGudTOqkR4go4iAA
+            \begin{tikzcd}[row sep=large, column sep=huge]
+            {\Hom{\Cat{C}}(y,\, z) \otimes \Hom{\Cat{C}}(x,\, y)} \arrow[r, "{\circ_{z,y,x}}"] \arrow[d, "{F_{y,z}\otimes F_{x,y}}"']                  & {\Hom{\Cat{C}}(x,\, z)} \arrow[d, "{F_{x,z}}"] \\
+            {\Hom{\Cat{D}}\bigl(F_0(y),\, F_0(z)\bigr) \otimes \Hom{\Cat{D}}\bigl(F_0(x),\, F_0(y)\bigr)} \arrow[r, "{\circ_{F_0(z),F_0(y),F_0(x)}}"'] & {\Hom{\Cat{D}}\bigl(F_0(x),\, F_0(z)\bigr)}   
             \end{tikzcd}
         \end{center}
         \item[\textbf{(enriched-2)}]　
@@ -2667,7 +2669,7 @@ $(1,\, 1)$-圏 $\sSet$ における引き戻しとは，命題\ref{prop:SimpSet-
     \item $\forall X,\, Y \in \Obj{\Cat{C}}$ に対して，\hyperref[def:SimpSet]{単体的集合} $\Hom{\Cat{C}}(X,\, Y) \in \Obj{\sSet}$
     \item $\forall X,\, Y,\, Z \in \Obj{\Cat{C}}$ に対して，自然変換
     \begin{align}
-        \circ_{X,\, Y,\, Z} \in \Hom{\sSet} \bigl( \Hom{\Cat{C}}(Y,\, Z) \times \Hom{\Cat{C}}(X,\, Y),\, \Hom{\Cat{C}}(X,\, Z) \bigr) 
+        \circ_{Z,\, Y,\, X} \in \Hom{\sSet} \bigl( \Hom{\Cat{C}}(Y,\, Z) \times \Hom{\Cat{C}}(X,\, Y),\, \Hom{\Cat{C}}(X,\, Z) \bigr) 
     \end{align}
     \item $\forall X \in \Obj{\Cat{C}}$ に対して，$0$-単体 $j_X \in \Hom{\Cat{C}}(X,\, X)_0 \cong \Hom{\sSet} \bigl( \Delta^0,\, \Hom{\Cat{C}}(X,\, X) \bigr)$
 \end{itemize}
@@ -2713,76 +2715,80 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
             \emptyset, &i > j
         \end{cases}
     \end{align}
-    ただし，半順序集合 $P_{ij} \coloneqq \bigl\{\, k \in Q \bigm| i \le k \le j \,\bigr\}$ を
+    ただし，集合 $P_{ij} \coloneqq \bigl\{\, K \subset Q \bigm| K = \{\, i = x_0 < x_1 < \cdots < x_m = j \,\},\, m \ge 0 \,\bigr\}$ 
+    % の上に順序関係
+    % \begin{align}
+    %     K \le L \DEF K \supset L
+    % \end{align}
+    % を入れて半順序集合 $(P_{ij},\, \le)$ を作り，そこ
+    を
     \begin{itemize}
-        \item $\forall k \in P_{ij}$ を対象とする．
-        \item Hom集合は
+        \item $\forall K \in P_{ij}$ を対象と見做す．
+        \item Hom集合を次のように定義する：
         \begin{align}
-            \Hom{P_{ij}} (k,\, l) \coloneqq 
+            \Hom{P_{ij}} (K,\, L) \coloneqq 
             \begin{cases}
-                \{\mathrm{pt}_{kl}\}, &k \le l \\
-                \emptyset, &k > l
+                \{\mathrm{pt}_{K,L}\}, &K \supset L \\
+                \emptyset, &K \subsetneq L
             \end{cases}
         \end{align}
-        で定義する．
     \end{itemize}
-    ことで圏と見做し，それの\hyperref[def:nerve]{脈体}を取った．
+    とすることで圏と見做し
+    \footnote{
+        集合 $P_{ij}$ の上に順序関係
+        \begin{align}
+            K \le L \DEF K \supset L
+        \end{align}
+        を入れて半順序集合 $(P_{ij},\, \le)$ を作り，それを $(1,\, 1)$-圏と見做した．順序関係が\underline{包含の逆向き}であるが，$i$ から $j$ を辿る経路の細分 (subdivision) をとったと考えると憶えやすい．
+    }，それの\hyperref[def:nerve]{脈体}を取った．
     \item $\forall i,\, j,\, k \in \Obj{\mathfrak{C}[Q]},\; i \le j \le k$ に対して，自然変換
     \begin{align}
-        \circ_{ijk} \colon \Hom{\mathfrak{C}[Q]}(j,\, k) \times \Hom{\mathfrak{C}[Q]}(i,\, j) &\lto \Hom{\mathfrak{C}[Q]}(i,\, k)
+        \circ_{kji} \colon \Hom{\mathfrak{C}[Q]}(j,\, k) \times \Hom{\mathfrak{C}[Q]}(i,\, j) &\lto \Hom{\mathfrak{C}[Q]}(i,\, k)
     \end{align}
     を次で定義する：
     \begin{align}
-        \circ_{ijk}{}_{[n]} \colon \Ner (P_{jk})_n \times \Ner (P_{ij})_n &\lto \Ner (P_{ij})_n, \\
+        \circ_{kji}{}_{[n]} \colon \Ner (P_{jk})_n \times \Ner (P_{ij})_n &\lto \Ner (P_{ij})_n, \\
         (\sigma,\, \tau) &\lmto \sigma \cup \tau
     \end{align}
+    ただし $\sigma \cup \tau$ とは，$n$-単体 $\sigma,\, \tau$ の，頂点のレベルで和集合をとることによって一意的に定まる $n$-単体のことである．
 \end{itemize}    
 \end{mydef}
+
+\hyperref[def:PathCat]{単体的豊穣圏 $\mathfrak{C}(Q)$}における\hyperref[def:enriched]{合成射}のイメージを掴むために，具体例を見よう．
 
 \begin{myexample}[label=ex:PathCat2]{単体的豊穣圏 {$\mathfrak{C}[2]$}}
     圏 \hyperref[def:PathCat]{$\mathfrak{C}[2]$} の構造を調べよう．
     定義\ref{def:PathCat}の記号に倣うと
     \begin{align}
-        P_{ii} &= \{i\}, \\
-        P_{01} &= \{0 \le 1\}, \\
-        P_{02} &= \{0 \le 1 \le 2\}, \\
-        P_{12} &= \{1 \le 2\}
+        P_{ii} &= \Ner(P_{ii})_{0} = \bigl\{\, \{i\} \,\bigr\} \qquad (i=0,\,1,\, 2), \\
+        P_{01} &= \Ner(P_{01})_{0} = \bigl\{\, \{0 < 1\} \,\bigr\}, \\
+        P_{02} &= \Ner(P_{02})_{0} = \bigl\{\, \{0 < 2\},\, \{0 < 1 < 2\} \,\bigr\}, \\
+        P_{12} &= \Ner(P_{12})_{0} = \bigl\{\, \{1 < 2\} \,\bigr\}
     \end{align}
-    であるから，\hyperref[def:nerve]{脈体}の定義により
+    であるから，\eqref{eq:nerve-spine}の記法に則ると
     \begin{align}
         % \Ner (P_{ii})_0 &= \mathrm{Fun}([0],\, P_{ii}) = \{\bullet_{i}\}, \\
         % \Ner (P_{01})_0 &= \mathrm{Fun}([0],\, P_{01}) = \{\bullet_{0},\, \bullet_{1}\}, \\
         % \Ner (P_{02})_0 &= \mathrm{Fun}([0],\, P_{02}) = \{\bullet_{0},\, \bullet_{1},\, \bullet_{2}\}, \\
         % \Ner (P_{12})_0 &= \mathrm{Fun}([0],\, P_{12}) = \{\bullet_{1},\, \bullet_{2}\}, \\
-        \Ner (P_{ii})_n &= \mathrm{Fun}([n],\, P_{ii}) = \{\mathrm{const}_{i} \colon k \lmto i\}, \\
+        \Ner (P_{ii})_n &= \mathrm{Fun}([n],\, P_{ii}) = \Bigl\{\,
+            \underbrace{\{i\} \xrightarrow{\Id_{\{i\}}} \{i\} \xrightarrow{\Id_{\{i\}}}\cdots \xrightarrow{\Id_{\{i\}}} \{i\}}_{n\,\text{個の頂点}}
+        \,\Bigr\}, \\
         \Ner (P_{01})_n &= \mathrm{Fun}([n],\, P_{01}) = 
         \Bigl\{ 
-            f_{x} \colon k \lmto
-            \begin{cases}
-                0, &k < x, \\
-                1, &k \ge x
-            \end{cases}\;
-        \Bigm|\; 0 \le x \le n+1
+            \{0<1\} \xrightarrow{\Id_{\{0<1\}}} \{0<1\} \xrightarrow{\Id_{\{0<1\}}}\cdots \xrightarrow{\Id_{\{0<1\}}} \{0<1\}
         \Bigr\}, \\
         \Ner (P_{12})_n &= \mathrm{Fun}([n],\, P_{12}) = 
         \Bigl\{ 
-            f_{x} \colon k \lmto
-            \begin{cases}
-                1, &k < x, \\
-                2, &k \ge x
-            \end{cases}\;
-        \Bigm|\; 0 \le x \le n+1
+            \{1<2\} \xrightarrow{\Id_{\{1<2\}}} \{1<2\} \xrightarrow{\Id_{\{1<2\}}}\cdots \xrightarrow{\Id_{\{1<2\}}} \{1<2\}
         \Bigr\}, \\
-        \Ner (P_{02})_n &= \mathrm{Fun}([n],\, P_{02}) = 
-        \Bigl\{ 
-            f_{xy} \colon k \lmto 
-            \begin{cases}
-                0, &k < x, \\
-                1, &x \le k < y, \\
-                2, &k \ge y
-            \end{cases}
-        \Bigm|\; 0 \le x \le y \le n+1
-         \Bigr\} 
+        \Ner (P_{02})_n &= \mathrm{Fun}([n],\, P_{02}) \\
+        =\; 
+        &\Bigl\{ 
+            \underbrace{\{0<1<2\} \xrightarrow{\Id} \cdots \xrightarrow{\Id} \{0<1<2\}}_{i\, \text{個の頂点}} \xrightarrow{\mathrm{pt}_{\{0<1<2\},\{0<2\}}} \underbrace{\{0<2\} \xrightarrow{\Id} \cdots \xrightarrow{\Id} \{0<2\}}_{n-i\,\text{個の頂点}}
+            \Bigm|
+            0 \le i \le n
+        \Bigr\} 
     \end{align}
     だと分かる．
     % 特に，
@@ -2790,7 +2796,32 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
     %     \circ_{012}{}_{[n]} \colon \Ner (P_{12})_n \times \Ner (P_{01}) \lto \Ner (P_{02})
     % \end{align}
     % である．
+    非自明な合成射は自然変換
+    \begin{align}
+        \circ_{210} \colon \Ner (P_{12}) \times \Ner (P_{01}) \lto \Ner (P_{02})
+    \end{align}
+    のみである．これはまず $0$-単体に関して
+    \begin{align}
+        \circ_{210}{}_{[0]} \colon \Ner(P_{12})_{0} \times \Ner(P_{01})_{0} &\lto \Ner(P_{02})_0 , \\
+        \bigl( \{1<2\},\, \{0<1\} \bigr) &\lmto \{0<1<2\}
+    \end{align}
+    と振る舞う．$1$-単体に関しては，頂点毎に和集合をとることで
+    \begin{align}
+        \circ_{210}{}_{[1]} \colon \Ner(P_{12})_{1} \times \Ner(P_{01})_{1} &\lto \Ner(P_{02})_1, \\
+        \bigl( \{1<2\} \to \{1<2\},\, \{0<1\} \to \{0<2\} \bigr) &\lmto \bigl( \{0<1<2\} \to \{0<1<2\}\bigr)
+    \end{align}
+    と定まっている．全く同様に $n$-単体に関して，写像
+    \begin{align}
+        \circ_{210}{}_{[n]} \colon \Ner(P_{12})_{n} \times \Ner(P_{01})_{n} &\lto \Ner(P_{02})_n
+    \end{align}
+    とは常に
+    \begin{align}
+        \underbrace{\{0<1<2\} \xrightarrow{\Id} \cdots \xrightarrow{\Id} \{0<1<2\}}_{n\,\text{個の頂点}} \in \Ner(P_{02})_n
+    \end{align}
+    を返す写像である．
 \end{myexample}
+
+後に紹介する定理\ref{thm:Kan-enriched}と併せて，次に定義する\hyperref[def:nerve-hc]{homotopy coherent nerve}は非自明な\footnote{命題\ref{prop:nerve}の適用範囲外（i.e. 本質的に $(1,\, 1)$-圏とは異なる）であるような $(\infty,\, 1)$-圏という意味である．}\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}を構成する非常に便利なツールとなる．
 
 \begin{mydef}[label=def:nerve-hc,breakable]{homotopy coherentな脈体}
     \hyperref[def:SimpCat]{単体的豊穣圏} $\Cat{C} \in \Obj{\sCat}$ の\textbf{homotopy coherent nerve}
@@ -2829,6 +2860,177 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
     \end{itemize}
 \end{mydef}
 % \subsection{単体的圏}
+
+\hyperref[def:nerve-hc]{homotopy coherent nerve}の $n$-射および射の合成がどうなっているかを調べよう．
+\hyperref[def:SimpCat]{単体的豊穣圏} $\Cat{C} \in \Obj{\sCat}$ を1つ固定する．
+
+\begin{myexample}[label=ex:hcNer-0]{homotopy coherent nerveの0-単体}
+    まず，$\hcNer(\Cat{C})$ の $0$-単体とは
+    \begin{align}
+        F \in \hcNer(\Cat{C})_0 = \Hom{\sCat} \bigl( \mathfrak{C}[0],\, \Cat{C} \bigr)
+    \end{align}
+    のことであった．\hyperref[def:SimpCat]{単体的豊穣圏} $\mathfrak{C}[0]$ について
+    $\Obj{\mathfrak{C}[0]} = \{0\}$
+    で，かつ非自明なHom対象は $\Hom{\mathfrak{C}[0]} (0,\, 0) = \Ner \bigl( \bigl\{\, \{0\} \, \bigr\} \bigr)$
+    のみであるから，\hyperref[def:enriched-functor]{$\sSet$-豊穣関手の定義}より $F$ は
+    \begin{align}
+        x &\coloneqq F_0 (0) \in \Obj{\Cat{C}}, \\
+        F_{0,0} &\in \Hom{\sSet} \Bigl(\Ner \bigl( \bigl\{\, \{0\} \, \bigr\} \bigr),\, \Hom{\Cat{C}} (x,\, x)  \Bigr) \cong \Hom{\Cat{C}} (x,\, x)_0
+    \end{align}
+    の2つのデータにより完全に特徴付けられる\footnote{$\Ner \bigl( \bigl\{\, \{0\} \, \bigr\} \bigr) \cong \Delta^0$ が成り立つ．}．然るに $\Ner \bigl( \bigl\{\, \{0\} \,\bigr\} \bigr) \in \Obj{\sSet}$ はモノイダル圏 $\sSet$ における単位対象であるから，\hyperref[def:enriched-functor]{\textsf{\textbf{(enriched-2)}}}より
+    $F_{0,\, 0} = j_x$ でなくてはいけない．\hyperref[def:enriched]{恒等素}は $x \in \Obj{\Cat{C}}$ が与えられると一意的に定まるため，$F$ を構成する2つのデータのうち本質的なものは $x$ のみである．
+    i.e. 写像
+    \begin{align}
+        \hcNer(\Cat{C})_0 &\lto \Obj{\Cat{C}}, \\
+        F &\lmto x=F_0 (0)
+    \end{align}
+    は全単射である．
+    
+    　以上の考察より，$\hcNer(\Cat{C})$ の $0$-単体を
+    \begin{align}
+        F= \quad 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate[bullet,label=below:$x$];
+        \end{tikzpicture}
+        \quad
+        \in \hcNer(\Cat{C})_0
+    \end{align}
+    と書くことにする．    
+\end{myexample}
+
+\begin{myexample}[label=ex:hcNer-1]{homotopy coherent nerveの1-単体}
+    次に，$\hcNer(\Cat{C})$ の $1$-単体とは
+    \begin{align}
+        F \in \hcNer(\Cat{C})_1 = \Hom{\sCat} \bigl( \mathfrak{C}[1],\, \Cat{C} \bigr)
+    \end{align}
+    のことであった．\hyperref[def:SimpCat]{単体的豊穣圏} $\mathfrak{C}[0]$ について
+    $\Obj{\mathfrak{C}[1]} = \{0,\, 1\}$
+    で，かつ非自明なHom対象が3つ存在し，それぞれ
+    \begin{align}
+        \Hom{\mathfrak{C}[1]} (0,\, 0) &= \Ner \bigl( \bigl\{\, \{0\} \,\bigr\} \bigr), \\
+        \Hom{\mathfrak{C}[1]} (0,\, 1) &= \Ner \bigl( \bigl\{\, \{0 < 1\} \,\bigr\} \bigr), \\
+        \Hom{\mathfrak{C}[1]} (1,\, 1) &= \Ner \bigl( \bigl\{\, \{1\} \,\bigr\} \bigr)
+    \end{align}
+    と書ける．しかるにこれら3つは全てモノイダル圏 $\sSet$ における単位対象である．
+    従って\hyperref[def:enriched-functor]{$\sSet$-豊穣関手} $F$ を完全に特徴付けるデータとは
+    \begin{align}
+        x &\coloneqq F_0(0) \in \Obj{\Cat{C}}, \\
+        y &\coloneqq F_0(1) \in \Obj{\Cat{C}}, \\
+        F_{0,1} &\in \Hom{\sSet} \Bigl(\Ner \bigl( \bigl\{\, \{0 < 1\} \,\bigr\} \bigr),\, \Hom{\Cat{C}} (x,\, y) \Bigr) \cong \Hom{\Cat{C}}(x,\, y)_0
+    \end{align}
+    の3つ組である．i.e. 写像
+    \begin{align}
+        \hcNer(\Cat{C})_1 &\lto \bigcup_{x,\, y \in \Obj{\Cat{C}}} \Hom{\Cat{C}}(x,\, y)_0, \\
+        F &\lmto F_{0,\, 1}
+    \end{align}
+    は全単射である．
+    
+    　ところで，\exref{ex:hcNer-0}より $x,\, y \in \hcNer (\Cat{C})_0$ と見做せる．
+    さらに\hyperref[def:SimpSet]{面写像}は
+    \begin{align}
+        \partial^1_1 \colon \hcNer(\Cat{C})_1 &\lto \hcNer(\Cat{C})_0, \\
+        F &\lmto F \circ d^1_1 = \bigl(0 \mapsto F_0(0)\bigr)
+    \end{align}
+    および
+    \begin{align}
+        \partial^1_0 \colon \hcNer(\Cat{C})_1 &\lto \hcNer(\Cat{C})_0, \\
+        F &\lmto F \circ d^1_0 = \bigl(0 \mapsto F_0(1)\bigr)
+    \end{align}
+    となるので，図\ref{fig:1-simp}に則り
+    \begin{align}
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate[bullet,label=below left:$x$] (x)
+            ++(1,0) coordinate[bullet,label=below right:$y$] (y)
+            ;
+            \draw[->-=.5] (x) -- node[midway, above] {$F_{0,1}$} (y);
+        \end{tikzpicture}
+        \in \hcNer(\Cat{C})_1
+    \end{align}
+    と図示する．
+\end{myexample}
+
+\begin{myexample}[label=ex:hcNer-2]{homotopy coherent nerveの2-単体}
+    $\hcNer(\Cat{C})$ の2-単体とは
+    \begin{align}
+        F \in \hcNer(\Cat{C})_2 = \Hom{\sCat} \bigl( \mathfrak{C}[2],\, \Cat{C} \bigr) 
+    \end{align}
+    のことである．\exref{ex:PathCat2}より，\hyperref[def:enriched-functor]{$\sSet$-豊穣関手} $F$ を完全に特徴付けるデータとは
+    \begin{align}
+        x &\coloneqq F_0(0) \in \Obj{\Cat{C}}, \\
+        y &\coloneqq F_0(1) \in \Obj{\Cat{C}}, \\
+        z &\coloneqq F_0(2) \in \Obj{\Cat{C}}, \\
+        F_{0,1} &\in \Hom{\sSet} \bigl( \Ner(P_{01}),\, \Hom{\Cat{C}}(x,\, y) \bigr) \cong \Hom{\Cat{C}}(x,\, y)_0 \\
+        F_{1,2} &\in \Hom{\sSet} \bigl( \Ner(P_{12}),\, \Hom{\Cat{C}}(y,\, z) \bigr) \cong \Hom{\Cat{C}}(y,\, z)_0 \\
+        F_{0,2} &\in \Hom{\sSet} \bigl( \Ner(P_{02}),\, \Hom{\Cat{C}}(x,\, z) \bigr) \cong \Hom{\Cat{C}}(x,\, z)_1
+    \end{align}
+    の6つ組である．
+    再び\exref{ex:PathCat2}より，$\Ner(P_{12}),\, \Ner(P_{01})$ はそれぞれ $\{1<2\},\, \{0 < 1\}$ が張る1点集合であるから，$F_{1,2},\, F_{0,1}$ はそれぞれ
+    \begin{align}
+        f_{1,2} &\coloneqq F_{1,2}{}_{[0]} \bigl( \{1<2\} \bigr) \in \Hom{\Cat{C}} (y,\, z)_0,\\ 
+        f_{0,1} &\coloneqq F_{0,1}{}_{[0]} \bigl( \{0<1\} \bigr) \in \Hom{\Cat{C}} (x,\, y)_0
+    \end{align}
+    と同一視できる．さらに，$F_{0,2}$ を完全に特徴付けるには
+    \begin{align}
+        \tilde{f}_{0,2} &\coloneqq F_{0,2}{}_{[0]} \bigl( \{0<1<2\} \bigr) \in \Hom{\Cat{C}} (x,\, z)_0, \\
+        f_{0,2} &\coloneqq F_{0,2}{}_{[0]} \bigl( \{0<2\} \bigr) \in \Hom{\Cat{C}} (x,\, z)_0, \\
+        \varphi_{0,2} &\coloneqq F_{0,2}{}_{[1]} \bigl( \{0<1<2\} \xrightarrow{\mathrm{pt}_{\{0<1<2\},\{0<2\}}} \{0<2\} \bigr) \in \Hom{\Cat{C}} (x,\, z)_1
+    \end{align}
+    の3つ組を与えることが必要十分だと分かる．特に，\underline{単体的集合 $\Hom{\Cat{C}}(x,\, z) \in \Obj{\sSet}$ の}面写像は
+    \begin{align}
+        \label{eq:homotopy-composer}
+        \partial^1_1 (\varphi_{0,2}) &= \tilde{f}_{0,2}, \\
+        \partial^1_0 (\varphi_{0,2}) &= f_{0,2}
+    \end{align}
+    を充たし，かつ\underline{単体的集合 $\hcNer (\Cat{C}) \in \Obj{\sSet}$ の}面写像は
+    \begin{align}
+        \partial^2_0 (F) &= f_{1,2}, \\
+        \partial^2_1 (F) &= f_{0,2}, \\
+        \partial^2_2 (F) &= f_{0,1}
+    \end{align}
+    を充たすことが見て取れる．
+    
+    　ところで，\hyperref[def:enriched-functor]{\textsf{\textbf{(enriched-1)}}}より，$(1,\, 1)$-圏 $\sSet$ における図式
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12A5GAJwAoACgH1gARgBMAXwCUnPAFt4AAk48BI4MTGyQU0uky58hFGPJVajFmzV8ho4tJl6DIDNjwEiZMZfrMrIgc7AASEArAnADCdDjA0VJS-ACepJykygBeMqrsiiqc4ZExcQlJ-AAe6eyZKS76hp4mROZ+1AE2wUURUeyx8YnJ1RnZDZYwUADm8ESgAGa8EUhkIDgQSOZWgbbsAMZYvHuiEmLEUq4LSwqb1OtIAMwd1kEgAGKOpNKXIIvLiKt7ogJM8dsEPuIvlJ5FglHBlBDfBdqAw6AAjGAMQRGLymEC8LBTAAWOB+fxuwLuG0QTxAqIxWJxLWCBOJpNBXRCByOoiypDSlQuUgoUiAA
+        \begin{tikzcd}
+        \Ner(P_{12})\times \Ner(P_{01}) \arrow[r, "\circ_{210}"] \arrow[d, "{F_{1,2}\times F_{0,1}}"'] & \Ner(P_{02}) \arrow[d, "{F_{0,2}}"] \\
+        {\Hom{\Cat{C}}(y,\, z) \times \Hom{\Cat{C}}(x,\, y)} \arrow[r, "{\circ_{z,y,x}}"']             & {\Hom{\Cat{C}}(x,\, z)}            
+        \end{tikzcd}
+    \end{center}
+    が可換にならなくてはいけない．$\{1<2\} \circ_{210}{}_{[0]} \{0 < 1\} = \{0<1<2\}$ であるから，この条件は
+    \begin{align}
+        \tilde{f}_{0,2} = F_{0,2}{}_{[0]} \bigl( \{0<1<2\} \bigr) = f_{1,2}\, \circ_{z,y,x}{}_{[0]}\, f_{0,1} \in \Hom{\Cat{C}} (x,\, z)_0
+    \end{align}
+    と等価である．\eqref{eq:homotopy-composer}と併せると，$\varphi_{0,2} \in \Hom{\Cat{C}}(x,\, z)_1$ は $f_{1,2} \circ f_{0,1}$ と $f_{0,2}$ を繋ぐホモトピーだと見做せる．
+
+    　以上の考察を踏まえて，図\ref{fig:2-simp}に則り
+    \begin{align}
+        F = 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate[bullet,label=below left:$x$] (x)
+            +(60:2) coordinate[bullet,label=above:$y$] (y)
+            +(0:2) coordinate[bullet,label=below right:$z$] (z)
+            ;
+            \draw[->-=.5] (x.center) -- node[midway,left] {$f_{0,1}$} (y.center);
+            \draw[->-=.5] (y.center) -- node[midway,right] {$f_{1,2}$} (z.center);
+            \draw[->-=.5] (x.center) -- node[midway,below] {$f_{0,2}$} (z.center);
+            \begin{scope}[on background layer]
+                \fill[gray!20] (x.center) -- (y.center) -- (z.center) --cycle;
+            \end{scope}
+            \node[gray] at (barycentric cs:x=1,y=1,z=1) {$\varphi_{0,2}$};
+        \end{tikzpicture}
+        \in \hcNer(\Cat{C})_2
+    \end{align}
+    と図示する．\hyperref[def:nerve]{$(1,\, 1)$-圏の脈体}の場合と異なり，一般に $f_{1,2} \circ f_{0,1} \neq f_{0,2}$ である点に注意すべきである．i.e. \hyperref[def:nerve-hc]{homotopy coherent nerve} $\hcNer(\Cat{C})$ において\underline{1-射の合成はupto homotopyでしか定まらない}．
+\end{myexample}
+
+\begin{mytheo}[label=thm:Kan-enriched]{{$\Kan$}-豊穣圏は{$(\infty,\, 1)$-圏}}
+    \hyperref[def:Kan]{$\Kan$}-\hyperref[def:enriched]{豊穣圏}\footnote{$\Kan$ は $\sSet$ の充満部分圏であるから，$\Kan$-豊穣圏は\hyperref[def:SimpCat]{単体的豊穣圏}と見做せる．} $\Cat{C} \in \Obj{\sCat}$ の\hyperref[def:nerve-hc]{homotopy coherent nerve} $\hcNer(\Cat{C}) \in \Obj{\sSet}$ は\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}である．
+\end{mytheo}
+
+\begin{proof}
+    ~\cite[\href{https://kerodon.net/tag/00LJ}{Tag 00LJ}]{kerodon}
+\end{proof}
 
 \begin{myexample}[label=def:Spaces]{空間の成す {$(\infty,\, 1)$}-圏}
     \exref{def:Kan}\hyperref[def:SimpCat]{単体的豊穣圏} $\KAN$ を\hyperref[def:nerve-hc]{homotopy coherent nerve}で $\sSet$ に埋め込んだものを\textbf{空間の成す $\bm{(\infty,\, 1)}$-圏} ($\infty$-category of spaces)\footnote{より現代的には，$\bm{(\infty,\, 1)}$\textbf{-category of anima}と呼ばれることがある．} と呼び，

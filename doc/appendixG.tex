@@ -1716,7 +1716,7 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
 
     ただし，以下の記法を採用した：
     \begin{itemize}
-        \item 点 $\expval{n} \in \Ner (\FIN_*)_0$ における\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $p \colon \Cat{O}^\otimes \lto \Ner (\FIN_*)$ の\textbf{ファイバー}\footnote{これ自体が $(\infty,\, 1)$-圏である．} $\Cat{O}^{\otimes}_{\expval{n}}$ を，\hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏のpullback}
+        \item 点 $\expval{n} \in \Ner (\FIN_*)_0$ における\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $p \colon \Cat{O}^\otimes \lto \Ner (\FIN_*)$ の\textbf{ファイバー} $\Cat{O}^{\otimes}_{\expval{n}}$ を，\hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏のpullback}
         \begin{center}
             % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BhOnYAeQC+APWCcIeALbxBAfTHsYADzT0GwMIMEhBpdJlz5CKMgEYqtRizacefIcPFT4OvSAzY8BIqdLnqataIHOySvAAWAE6SwAByggAUnABiAJKxsgBUAJSu+p5GPuQWgazBnAAiMAw4dMLEOhYwUADmLiigAGaREJJIZCA4EEgAzLpdPX2IA0NIpuMg3b2j1LOIAEyrdFgMbOEQEADWIAFWZSHKqowa2gtLU76DwxunzOdoJyAMdABG1QAKBi8xhAkSwLXCOEagiAA
             \begin{tikzcd}
@@ -1724,7 +1724,10 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
             \Cat{O}^\otimes \arrow[r, "p"']                    & \Ner (\FIN_*)                    
             \end{tikzcd}
         \end{center}
-        と定義した．
+        と定義した
+        \footnote{
+            これ自体が $(\infty,\, 1)$-圏である．なお，ファイバーは $(\infty,\, 1)$-圏のpullbackなので一見すると非常に計算が難しいが，幸いにしてこの場合は\hyperref[prop:SimpSet-basic]{$(1,\, 1)$-圏 $\sSet$ におけるpullback}と一致する．
+        }．
         \item $f \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $c \in (\Cat{O}^\otimes_{\expval{m}})_0,\; c' \in (\Cat{O}^\otimes_{\expval{n}})_0$ に対して，
         $\bar{f} \in \inftyMap{\Cat{O}^\otimes}(c,\, c')_{0}$ であって $p_{[1]}(\bar{f}) = f$ を充たすもの全体から定まる，$\inftyMap{\Cat{O}^\otimes} (c,\, c') \in \SPACES_0$
         の
@@ -2084,7 +2087,7 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
     ~\cite[Proposition 2.2.II.]{Haugseng2023iop}
 \end{proof}
 
-\subsection{{$(\infty,\, 1)$}-圏における代数}
+\subsection{{$(\infty,\, 1)$}-圏の構成}
 
 話を\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド}に戻そう．
 
