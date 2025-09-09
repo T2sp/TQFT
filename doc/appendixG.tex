@@ -1726,7 +1726,7 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         \end{center}
         と定義した．
         \item $f \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $c \in (\Cat{O}^\otimes_{\expval{m}})_0,\; c' \in (\Cat{O}^\otimes_{\expval{n}})_0$ に対して，
-        $\bar{f} \in \inftyMap{\Cat{O}^\otimes}(c,\, c')_{0}$ であって $p_{[1]}(\bar{f}) = f$ を充たすもの全体が生成する，$\inftyMap{\Cat{O}^\otimes} (c,\, c') \in \SPACES_0$
+        $\bar{f} \in \inftyMap{\Cat{O}^\otimes}(c,\, c')_{0}$ であって $p_{[1]}(\bar{f}) = f$ を充たすもの全体から定まる，$\inftyMap{\Cat{O}^\otimes} (c,\, c') \in \SPACES_0$
         の
         % \footnote{\hyperref[def:infty-1]{Kan複体} $\Hom{\Cat{O}^\otimes} (c,\, c') \in \SPACES_0$ は，\hyperref[def:infty-Hom]{$(\infty,\, 1)$-圏におけるHom関手} $\inftyMap{\Cat{O}^\otimes} \colon \OP{(\Cat{O}^\otimes)} \times \Cat{O}^\otimes \lto \SPACES$ による対象 $(c,\, c') \in (\OP{(\Cat{O}^\otimes)} \times \Cat{O}^\otimes)_0$ の像である．}
         \hyperref[def:fullsub-infty]{充満部分Kan複体}を
@@ -1743,7 +1743,9 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         p \colon \Cat{O}^{\otimes} \lto \Ner (\FIN_*)
     \end{align}
     であって条件\hyperref[def:infty-operad]{\textsf{\textbf{(Op-1)}}, \textsf{\textbf{(Op-2)}}}を充たすものを与える．
-    このとき，条件\hyperref[def:infty-operad]{\textsf{\textbf{(Op-3)}}}は以下と同値である：
+    このとき，条件\hyperref[def:infty-operad]{\textsf{\textbf{(Op-3)}}}は以下と同値である
+    \footnote{一般にSegal条件というと $n$-fold pullbackのことだが，現在は $\Cat{O}^\otimes_{\expval{0}}$ がcontractibleなので $n$-fold productになっている．}
+    ：
     \begin{description}
         \item[\textbf{(Segal)}]　
         
