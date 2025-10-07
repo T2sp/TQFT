@@ -877,7 +877,7 @@ $x$ が $y$ の周りを断熱的に1周する過程は同型射 $x \otimes y \x
     $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev,\, b)$ を\hyperref[redef:braided-monoidal]{組紐}付き\hyperref[def:tensorfusion-cat]{フュージョン圏}とする．
     $\Cat{C}$ の\textbf{M\"{u}ger中心} (M\"{u}ger center) とは，
     \begin{align}
-        \mathfrak{Z}_2 (\Cat{C}) \coloneqq \bigl\{\, x \in \Obj{\Cat{C}} \bigm| \forall y \in \Obj{\Cat{C}},\; b_{y,\, x} \circ b_{x,\, y} = \Id_{x \otimes y} \,\bigr\} 
+        \Obj{\mathfrak{Z}_2 (\Cat{C})} \coloneqq \bigl\{\, x \in \Obj{\Cat{C}} \bigm| \forall y \in \Obj{\Cat{C}},\; b_{y,\, x} \circ b_{x,\, y} = \Id_{x \otimes y} \,\bigr\} 
     \end{align}
     を対象とする $\Cat{C}$ の充満部分圏 $\mathfrak{Z}_2 (\Cat{C})$ のこと．
 \end{mydef}
@@ -885,7 +885,7 @@ $\mathfrak{Z}_2 (\Cat{C})$ は $\Cat{C}$ から\hyperref[redef:braided-monoidal]
 
 \begin{mydef}[label=def:nondegen-BFC]{非退化な組紐付きフュージョン圏}
     \hyperref[redef:braided-monoidal]{組紐}付き\hyperref[def:tensorfusion-cat]{フュージョン圏}が\textbf{非退化} (non-degenerate) であるとは，
-    \hyperref[def:Muger-center]{M\"{u}ger中心}の単純対象が唯一であることを言う．
+    \hyperref[def:Muger-center]{M\"{u}ger中心}の単純対象が唯一であること，i.e. $\mathfrak{Z}_2 (\Cat{C}) \cong \VEC{\mathbb{C}}$ が成り立つことを言う．
 \end{mydef}
 
 \begin{mypropph}[label=prop:remote-detectable]{}

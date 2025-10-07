@@ -2625,9 +2625,14 @@ $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 上の積\eqref{eq:fusionring}は明らか�
     \begin{description}
         \item[\textbf{(普遍性)}]　
         
-        任意の双右完全関手 $\textcolor{blue}{F} \colon \Cat{C} \times \Cat{D} \lto \Cat{C} \boxtimes \textcolor{blue}{\Cat{A}}$ に対し，ある双右完全関手 $\textcolor{red}{\bar{F}} \colon \Cat{C} \boxtimes \Cat{D} \lto \textcolor{blue}{\Cat{A}}$ が一意的に存在して $\textcolor{red}{\bar{F}} \circ \boxtimes = \textcolor{blue}{F}$ を充たす．
+        任意の双右完全関手 $\textcolor{blue}{F} \colon \Cat{C} \times \Cat{D} \lto \textcolor{blue}{\Cat{A}}$ に対し，ある双右完全関手 $\textcolor{red}{\bar{F}} \colon \Cat{C} \boxtimes \Cat{D} \lto \textcolor{blue}{\Cat{A}}$ が一意的に存在して $\textcolor{red}{\bar{F}} \circ \boxtimes = \textcolor{blue}{F}$ を充たす．
+
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BhOnYLgL4ACTngC28Ed17AAIgJADS6TLnyEUARnJVajFm1EwAHjgDGEBhABOwAEbMYA4Jx58AggIVKV2PASIyTV16R0NpPkEpOwhTLAk4KTc5b10YKABzeCJQADNrCDEkMhAcCCQAJmpQg0QOdhi4hJBqBjo7GAYABVV-DRBrLAyACxxFZRB8wuLqMqRtPTC6gDFxvIKixCrS8sQFto7u3vU2QZGx6v1WOs4TLDgcOABCaLpbZdSBIA
+        \begin{tikzcd}
+        \Cat{C} \times \Cat{D} \arrow[d, "\boxtimes"'] \arrow[r, blue, "F"] & \textcolor{blue}{\Cat{A}} \\
+        \Cat{C} \boxtimes \Cat{D} \arrow[ru, red, "\exists! \bar{F}"']     &                          
+        \end{tikzcd}
     \end{description}
-    
 \end{mydef}
 
 \begin{myprop}[label=prop:DeligneProduct]{Deligneのテンソル積の基本性質}
@@ -3233,7 +3238,7 @@ $\forall (m,\, \rho) \in \Obj{\MODCR{\Cat{C}}{x}},\; \forall y,\,z \in \Obj{\Cat
         \item $\Cat{C}$ における\hyperref[def:moduleobj]{右 $x$-加群対象} $(m,\, \rho) \in \Obj{\MODCR{\Cat{C}}{x}}$
         \item $\Cat{C}$ における\hyperref[def:moduleobj]{左 $x$-加群対象} $(n,\, \lambda) \in \Obj{\MODR{\Cat{C}}{x}}$
     \end{itemize}
-    を与える．このとき，$m$ と $n$ の\textbf{$\bm{x}$ 上のテンソル積} (tensor product over $x$) $\bm{m \otimes_x n} \in \Obj{\Cat{C}}$ を，以下の図式の\hyperref[def:colim]{コイコライザ}として定義する：
+    を与える．このとき，$m$ と $n$ の\textbf{$\bm{x}$ 上のテンソル積} (tensor product over $x$) $\bm{m \otimes_x n} \in \Obj{\Cat{C}}$ を，以下の図式の\hyperref[def:eq-coeq]{コイコライザ}として定義する：
     \begin{center}
         \begin{tikzcd}[row sep=large, column sep=large]
             &m \otimes x \otimes n \ar[r, shift left, "\rho \otimes \Id_n"]\ar[r, shift right, "\Id_m \otimes \lambda"'] &m \otimes n \ar[r, red, "\pi"] &\textcolor{red}{m \otimes_x n}
