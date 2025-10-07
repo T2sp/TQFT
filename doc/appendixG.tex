@@ -780,7 +780,7 @@ $\PshSETS{\OP{\Strat}}$ から $\sSet$ への関手を
     \begin{description}
         \item[\textbf{(lifting property)}]　
         
-        包含 $\iota \in \Hom{\sSet}(\Lambda^n_j,\, \Delta^n)$ に対して $p \circ \textcolor{blue}{f_0} = \textcolor{blue}{f} \circ \iota$ を充たす任意の $(\textcolor{blue}{f_0},\, \textcolor{blue}{f}) \in \Hom{\sSet}(\Lambda^n_j,\, \Cat{E}) \times \Hom{\sSet}(\Delta^n_j,\, \Cat{B})$ に対して，以下の図式を可換にする $\textcolor{red}{\bar{f}} \in \Hom{\sSet}(\Delta^n,\, \Cat{E})$ が存在する：
+        包含 $\iota \in \Hom{\sSet}(\Lambda^n_j,\, \Delta^n)$ に関して $p \circ \textcolor{blue}{f_0} = \textcolor{blue}{f} \circ \iota$ を充たす任意の $(\textcolor{blue}{f_0},\, \textcolor{blue}{f}) \in \Hom{\sSet}(\Lambda^n_j,\, \Cat{E}) \times \Hom{\sSet}(\Delta^n_j,\, \Cat{B})$ に対して，以下の図式を可換にする $\textcolor{red}{\bar{f}} \in \Hom{\sSet}(\Delta^n,\, \Cat{E})$ が存在する：
         \begin{center}
             % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12AZOgWwCModAHpoA+gCsQAX1LpMufIRRkAjFVqMWbTgBEYDHCLQy5IDNjwEiq0uur1mrRB3YBhOjmAAhaafmWSjbkGo7aLpweXgCiftIaMFAA5vBEoABmAE4QvEhkIDgQSADMDlrOIEn+IFk5SLYFRYgATGVObOkg1Ax0-AYACgpWyiCZWEkAFjjVtbmIpY1IrZrtLiayGdlz+YX11EZYDGwTEBAA1l0r4a74Rpc9fQyDgdYuY5PTGzVbe4vz3VgwBUhHAJolLmEKpx+HRMsB0nEKNIgA
             \begin{tikzcd}[column sep=large,row sep=large]
@@ -1787,7 +1787,7 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
 
 
 \begin{mydef}[label=def:infty-operad-map]{{$(\infty,\, 1)$}-オペラッドの射}
-    2つの\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド} $p \colon \Cat{O}^{\otimes} \lto \Ner (\FIN_*)$ を与える．
+    \hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド} $p \colon \Cat{O}^{\otimes} \lto \Ner (\FIN_*)$ を与える．
     このとき，$(\infty,\, 1)$-圏 $\Cat{O}^\otimes$ の1-射 $f \in (\Cat{O}^\otimes)_1$ が\textbf{inert}であるとは，以下の2条件を充たすことを言う：
     \begin{description}
         \item[\textbf{(inert-1)}] $p_{[1]}(f)$ は $(1,\, 1)$-圏 $\FIN_*$ における\hyperref[def:inert-active]{innerな射}である．
@@ -1796,20 +1796,20 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
     
     \tcblower
     
-    2つの\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド} $p \colon \Cat{O}^{\otimes} \lto \Ner (\FIN_*),\; q \colon \Cat{O}'{}^\otimes \lto \Ner (\FIN_*)$ を与える．
+    2つの\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド} $p \colon \Cat{O}^{\otimes} \lto \Ner (\FIN_*),\; p' \colon \Cat{O}'{}^\otimes \lto \Ner (\FIN_*)$ を与える．
     このとき，\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $f \colon \Cat{O}^{\otimes} \lto \Cat{O}'{}^\otimes$ が\textbf{$\bm{(\infty,\, 1)}$-オペラッドの射} ($\infty$-operad map) であるとは，以下の2つの条件を充たすことを言う：
     \begin{description}
         \item[\textbf{(Opmap-1)}] $(1,\, 1)$-圏 $\sSet$ の図式
         \begin{center}
             % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BhOnYAeQC+APU4Q8AW3ghBpdJlz5CKAEzkqtRizacefIQHJgIsZOmz52PASIBGUrY31mrRB3YA5GACcABAApOADEASQ8AfQAqAEoZDRgoAHNpFFAAM28ICSQyEBwIJHtNFzY0mTkQDKyc6nykNWLtNzQQagY6ACMYBgAFBWtlEG8sRIALHHL0zOzEIrrEBucmkABHOMEgA
             \begin{tikzcd}
-            \Cat{O}^\otimes \arrow[rr, "f"] \arrow[rd, "p"'] &               & \Cat{O}'{}^\otimes \arrow[ld, "q"] \\
+            \Cat{O}^\otimes \arrow[rr, "f"] \arrow[rd, "p"'] &               & \Cat{O}'{}^\otimes \arrow[ld, "p'"] \\
                                                              & \Ner (\FIN_*) &                                   
             \end{tikzcd}
         \end{center}
         は可換である．
 
-        \item[\textbf{(Opmap-2)}] 1-射の間の写像 $f_{[1]} \colon (\Cat{O}^{\otimes})_1 \lto (\Cat{O}'{}^{\otimes})_1$ により，innertな1-射が保存される\footnote{条件 \textsf{\textbf{(Opmap-1)}} より，inertな1-射の $p_{[1]}$ による像が条件 \textsf{\textbf{(inert-1)}} を充たすことは明らかである．}．
+        \item[\textbf{(Opmap-2)}] 1-射の間の写像 $f_{[1]} \colon (\Cat{O}^{\otimes})_1 \lto (\Cat{O}'{}^{\otimes})_1$ により，inertな1-射が保存される\footnote{条件 \textsf{\textbf{(Opmap-1)}} より，inertな1-射の $p_{[1]}$ による像が条件 \textsf{\textbf{(inert-1)}} を充たすことは明らかである．}．
     \end{description}
 \end{mydef}
 
@@ -1955,7 +1955,7 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
 \end{center}
 により $(1,\, 1)$-圏 $\Cat{O}^\otimes$ を定義している．具体的には
 \begin{align}
-    \Obj{\Cat{O}^\otimes} &= \bigl\{\, c \in \Obj{\Cat{O}^\otimes} \bigm| p(c) = \expval{n} \,\bigr\}
+    \Obj{\Cat{O}^\otimes_{\expval{n}}} &= \bigl\{\, c \in \Obj{\Cat{O}^\otimes} \bigm| p(c) = \expval{n} \,\bigr\}
 \end{align}
 である．さらに，$\forall f \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ に対して
 \begin{align}
