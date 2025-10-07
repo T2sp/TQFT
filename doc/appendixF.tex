@@ -2626,12 +2626,13 @@ $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 上の積\eqref{eq:fusionring}は明らか�
         \item[\textbf{(普遍性)}]　
         
         任意の双右完全関手 $\textcolor{blue}{F} \colon \Cat{C} \times \Cat{D} \lto \textcolor{blue}{\Cat{A}}$ に対し，ある双右完全関手 $\textcolor{red}{\bar{F}} \colon \Cat{C} \boxtimes \Cat{D} \lto \textcolor{blue}{\Cat{A}}$ が一意的に存在して $\textcolor{red}{\bar{F}} \circ \boxtimes = \textcolor{blue}{F}$ を充たす．
-
-        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BhOnYLgL4ACTngC28Ed17AAIgJADS6TLnyEUARnJVajFm1EwAHjgDGEBhABOwAEbMYA4Jx58AggIVKV2PASIyTV16R0NpPkEpOwhTLAk4KTc5b10YKABzeCJQADNrCDEkMhAcCCQAJmpQg0QOdhi4hJBqBjo7GAYABVV-DRBrLAyACxxFZRB8wuLqMqRtPTC6gDFxvIKixCrS8sQFto7u3vU2QZGx6v1WOs4TLDgcOABCaLpbZdSBIA
-        \begin{tikzcd}
-        \Cat{C} \times \Cat{D} \arrow[d, "\boxtimes"'] \arrow[r, blue, "F"] & \textcolor{blue}{\Cat{A}} \\
-        \Cat{C} \boxtimes \Cat{D} \arrow[ru, red, "\exists! \bar{F}"']     &                          
-        \end{tikzcd}
+        \begin{center}
+                    % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BhOnYLgL4ACTngC28Ed17AAIgJADS6TLnyEUARnJVajFm1EwAHjgDGEBhABOwAEbMYA4Jx58AggIVKV2PASIyTV16R0NpPkEpOwhTLAk4KTc5b10YKABzeCJQADNrCDEkMhAcCCQAJmpQg0QOdhi4hJBqBjo7GAYABVV-DRBrLAyACxxFZRB8wuLqMqRtPTC6gDFxvIKixCrS8sQFto7u3vU2QZGx6v1WOs4TLDgcOABCaLpbZdSBIA
+            \begin{tikzcd}
+            \Cat{C} \times \Cat{D} \arrow[d, "\boxtimes"'] \arrow[r, blue, "\forall F"] & \textcolor{blue}{\Cat{A}} \\
+            \Cat{C} \boxtimes \Cat{D} \arrow[ru, red, "\exists! \bar{F}"']     &                          
+            \end{tikzcd}
+        \end{center}
     \end{description}
 \end{mydef}
 
@@ -2656,871 +2657,6 @@ $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 上の積\eqref{eq:fusionring}は明らか�
     \end{enumerate}
     
 \end{proof}
-
-\section{加群圏}
-
-\subsection{左/右加群圏}
-
-\begin{mydef}[label=def:modulecat,breakable]{左/右加群圏}
-    $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r)$ を\hyperref[redef:monoidal-category]{モノイダル圏}とする．
-    \textbf{左 $\Cat{C}$-加群圏} (left $\Cat{C}$-module category) $\Cat{M}$ は，以下のデータからなる：
-    \begin{itemize}
-        \item 圏 $\Cat{M}$
-        \item \textbf{左加群積} (left module product) と呼ばれる関手\footnote{記号として $\oslash$ を使うこともある（参考：\url{https://ncatlab.org/nlab/show/action+of+a+monoidal+category}）．} $\btr \colon \Cat{C} \times \Cat{M} \lto \Cat{M}$
-        \item \textbf{left actor}と呼ばれる\hyperref[def:nat]{自然同型} $\Familyset[\big]{\alpha_{x,\, y,\, m} \colon (x \otimes y) \btr m \lto x \btr (y \btr m)}{x,y \in \Obj{\Cat{C}},\, m \in \Obj{\Cat{M}}}$
-        \item \textbf{left unitor}と呼ばれる\hyperref[def:nat]{自然同型} $\Familyset[\big]{\lambda_{m} \colon 1 \btr m \lto m}{m \in \Obj{\Cat{M}}}$
-    \end{itemize}
-    これらは以下の条件を充たさねばならない：
-    \begin{description}
-        \item[\textbf{(lMod-1)}] $\forall x,\,y,\, z \in \Obj{\Cat{C}},\; \forall m \in \Obj{\Cat{M}}$ に対して以下の図式を可換にする：
-        \begin{flushleft}
-            \begin{tikzcd}[row sep=large, column sep=large]
-                & &\bigl( (x \otimes y) \otimes z \bigr) \btr m \ar[ddl, "a_{x,y,z}\btr \Id_m"']\ar[dr, "\alpha_{x\otimes y,z,m}"] & \\
-                & & &(x\otimes y) \btr (z \btr m) \ar[dd, "\alpha_{x,y,z\btr m}"] \\
-                &\bigl( x \otimes (y \otimes z) \bigr) \btr m \ar[ddr, "\alpha_{x,y\otimes z,m}"'] & & \\
-                & & &x \btr \bigl( y \btr (z \btr m) \bigr)  \\
-                & &x \btr \bigl( (y \otimes z) \btr m \bigr) \ar[ur, "\Id_x \btr \alpha_{y,z,m}"'] &
-            \end{tikzcd}
-        \end{flushleft}
-        \item[\textbf{(lMod-2)}] $\forall x \in \Cat{C},\; \forall m \in \Cat{M}$ に対して以下の図式を可換にする：
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-                &(x \otimes 1) \btr m \ar[rr, "\alpha_{x,1,m}"]\ar[dr, "r_x \btr \Id_m"'] & &x \btr (1 \btr m) \ar[dl, "\Id_x \btr \textcolor{red}{\lambda_m}"] \\
-                & &x \btr m &
-            \end{tikzcd}
-        \end{center}
-        
-    \end{description}
-
-    \tcblower
-
-    $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r)$ を\hyperref[redef:monoidal-category]{モノイダル圏}とする．
-    \textbf{右 $\Cat{C}$-加群圏} $\Cat{M}$ は，以下のデータからなる：
-    \begin{itemize}
-        \item 圏 $\Cat{M}$
-        \item \textbf{右加群積} (left module product) と呼ばれる関手\footnote{記号として $\oslash$ を使うこともある（参考：\url{https://ncatlab.org/nlab/show/action+of+a+monoidal+category}）．} $\btr \colon \Cat{C} \times \Cat{M} \lto \Cat{M}$
-        \item \textbf{right actor}と呼ばれる\hyperref[def:nat]{自然同型} $\Familyset[\big]{\beta_{m,\, x,\, y} \colon m \btl (x \otimes y) \lto (m \btl x) \btl y}{x,y \in \Obj{\Cat{C}},\, m \in \Obj{\Cat{M}}}$
-        \item \textbf{right unitor}と呼ばれる\hyperref[def:nat]{自然同型} $\Familyset[\big]{\rho_{m} \colon m \btl 1 \lto m}{m \in \Obj{\Cat{M}}}$
-    \end{itemize}
-    これらは以下の条件を充たさねばならない：
-    \begin{description}
-        \item[\textbf{(rMod-1)}] $\forall x,\,y,\, z \in \Obj{\Cat{C}},\; \forall m \in \Obj{\Cat{M}}$ に対して以下の図式を可換にする：
-        \item[\textbf{(rMod-2)}] $\forall x \in \Cat{C},\; \forall m \in \Cat{M}$ に対して以下の図式を可換にする：
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-                &m \btl (1 \otimes x) \ar[rr, "\beta_{m,1,x}"]\ar[dr, "\Id_m \btl l_x"'] & &(m \btl 1) \btl x \ar[dl, "\textcolor{red}{\rho_m} \btl \Id_x"] \\
-                & &m \btl x &
-            \end{tikzcd}
-        \end{center}
-    \end{description}
-    
-\end{mydef}
-
-$\Cat{C}$ が\hyperref[def:tensorfusion-cat]{多重テンソル圏}である場合は，\hyperref[def:modulecat]{左/右加群積}が射について $\mathbb{K}$-双線形であること，および両方の引数について\hyperref[def:additive-exact]{完全関手}になっていることを要請する\footnote{実際には，第1/第2引数について完全になっていさえいれば残りの引数についても自動的に完全になる~\cite[EXERCISE7.3.2, p.135]{etingof2015tensor}}．
-
-\begin{mydef}[label=def:module-functor,breakable]{加群関手}
-    $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r)$ を\hyperref[redef:monoidal-category]{モノイダル圏}，$(\Cat{M}_i,\, \btr_i,\, \alpha_i,\, \lambda_i) \WHERE i =1,\, 2$ を\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏}とする．
-    \textbf{左 $\Cat{C}$-加群関手} (left $\Cat{C}$-module functor) は，以下のデータからなる：
-    \begin{itemize}
-        \item 関手 $F \colon \Cat{M}_1 \lto \Cat{M}_2$
-        \item \hyperref[def:nat]{自然同型} $\Familyset[\big]{s_{x,m} \colon F(x \btr_1 m) \lto x \btr_2 F(m)}{x \in \Obj{\Cat{C}},\; m \in \Obj{\Cat{M}_1}}$
-    \end{itemize}
-    これらは以下の条件を充たさねばならない：
-    \begin{description}
-        \item[\textbf{(pentagon identity)}] $\forall x,\, y \in \Obj{\Cat{C}},\; \forall m \in \Obj{\Cat{M}_1}$ に対して以下の図式を可換にする：
-        \begin{flushleft}
-            \begin{tikzcd}[row sep=large]
-                & &F \bigl( (x \otimes y) \btr_1 m \bigr) \ar[ddl, "F(\alpha_1{}_{x,y,m})"']\ar[dr, "s_{x\otimes y,m}"] & \\
-                & & &(x \otimes y) \btr_2 F(m) \ar[dd, "\alpha_2{}_{x,y,F(m)}"] \\
-                &F \bigl( x \btr_1 (y \btr_1 m) \bigr) \ar[ddr, "s_{x,y \btr_1 m}"'] & & \\
-                & & &x \btr_2 \bigl( y \btr_2 F(m) \bigr) \\
-                & &x \btr_2 F(y \btr_1 m) \ar[ur, "\Id_x \btr_2 s_{y,m}"'] &
-            \end{tikzcd}
-        \end{flushleft}
-        
-        \item[\textbf{(triangle identity)}] $\forall m \in \Cat{M}_1$ に対して以下の図式を可換にする：
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-                &F(1 \btr_1 m) \ar[rr, "s_{1,m}"]\ar[dr, "F(\lambda_1{}_m)"'] & &1 \otimes_2 F(m) \ar[dl, "\lambda_2{}_{F(m)}"] \\
-                & &F(m) &
-            \end{tikzcd}
-        \end{center}
-    \end{description}
-    
-\end{mydef}
-
-\begin{mydef}[label=def:module-nat,breakable]{加群圏の自然変換}
-    $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r)$ を\hyperref[redef:monoidal-category]{モノイダル圏}，
-    $(\Cat{M}_i,\, \btr_i,\, \alpha_i,\, \lambda_i) \WHERE i=1,\, 2$ を\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏}，
-    $(F_i \colon \Cat{M}_1 \lto \Cat{M}_2,\; s_i) \WHERE i=1,\, 2$ を\hyperref[def:module-functor]{$\Cat{C}$-加群関手}とする．
-    このとき，\hyperref[def:nat]{自然変換}
-    \begin{center}
-        \begin{tikzcd}[row sep=large, column sep=large]
-            \Cat{M}_1 \ar[bend left=50,r, "F_1"{name=U, above}] \ar[bend right=50,r, "F_2"{name=D, below}] &\Cat{M}_2
-            \ar[Rightarrow, from=U, to=D, red, "\tau"]
-        \end{tikzcd}
-    \end{center}
-    が\textbf{$\Cat{C}$-加群圏の自然変換}であるとは，$\forall x \in \Cat{C},\; \forall m \in \Cat{M}_1$ に対して以下の図式が可換になること：
-    \begin{description}
-        \item[\textbf{(actionの保存)}] 
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-                &F_1(x \btr_1 m) \ar[r, "s_1{}_{x,m}"]\ar[d,red,"\tau_{x \btr_1 m}"'] &x \btr_2 F_1(m) \ar[d, red,"\tau_{x} \btr_2 \Id_m"] \\
-                &F_2(x \btr_1 m) \ar[r, "s_2{}_{x,m}"'] &x \btr_2 F_2(m)
-            \end{tikzcd}
-        \end{center}
-        
-    \end{description}
-    
-\end{mydef}
-
-\begin{mydef}[label=def:modulecat-exact]{加群圏の完全性}
-    十分\hyperref[def:finite-abcat]{射影的対象}を持つ\hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
-
-    \hyperref[def:finite-abcat]{局所有限}な\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏} $(\Cat{M},\, \btr,\, \alpha,\, \lambda)$ が\textbf{完全} (exact) であるとは，任意の射影的対象 $p \in \Obj{\Cat{C}}$ および任意の対象 $m \in \Cat{M}$ に対して $p \btr m$ が $\Cat{M}$ の射影的対象になることを言う．
-\end{mydef}
-
-\subsection{両側加群圏}
-
-\begin{mydef}[label=def:bimodulecat,breakable]{両側加群圏}
-    $(\Cat{C}_i,\, \otimes_i,\, 1,\, a_i,\, l_i,\, r_i) \WHERE i =1,\, 2$ を\hyperref[redef:monoidal-category]{モノイダル圏}とする．
-    \textbf{$(\Cat{C}_1,\, \Cat{C}_2)$-両側加群圏} ($(\Cat{C}_1,\, \Cat{C}_2)$-bimodule category) $\Cat{M}$ は，以下のデータからなる：
-    \begin{itemize}
-        \item 圏 $\Cat{M}$
-        \item \textbf{左加群積}と呼ばれる関手 $\btr \colon \Cat{C}_1 \times \Cat{M} \lto \Cat{M}$
-        \item \textbf{右加群積}と呼ばれる関手 $\btl \colon \Cat{M} \times \Cat{C}_2 \lto \Cat{M}$
-        \item \textbf{left actor} と呼ばれる\hyperref[def:nat]{自然同型}
-        \begin{align}
-            \Familyset[\big]{\alpha_{x_1,\, y_1,\, m} \colon (x_1 \otimes y_1) \btr m \lto x_1 \btr (y_1 \btr m)}{x_1,y_1\in \Obj{\Cat{C}_1},\, m \in \Obj{\Cat{M}}}
-        \end{align}
-        \item \textbf{left unitor}と呼ばれる\hyperref[def:nat]{自然同型} $\Familyset[\big]{\lambda_{m} \colon 1 \btr m \lto m}{m \in \Obj{\Cat{M}}}$
-        \item \textbf{right actor} と呼ばれる\hyperref[def:nat]{自然同型}
-        \begin{align}
-            \Familyset[\big]{\beta_{m,\, x_2,\, y_2} \colon m \btl (x_2 \otimes y_2) \lto  (m \btl x_2) \btl y_2}{x_2,y_2 \in \Obj{\Cat{C}_2},\, m \in \Obj{\Cat{M}}}
-        \end{align}
-        \item \textbf{right unitor}と呼ばれる\hyperref[def:nat]{自然同型} $\Familyset[\big]{\rho_{m} \colon m \btl 1 \lto m}{m \in \Obj{\Cat{M}}}$
-        \item \textbf{middle actor} と呼ばれる\hyperref[def:nat]{自然同型}
-        \begin{align}
-            \Familyset[\big]{b_{x_1,\,m,\, x_2} \colon (x_1 \btr m) \btl x_2 \lto  x_1 \btr (m \btl x_2)}{x_1 \in \Obj{\Cat{C}_1},\, x_2 \in \Obj{\Cat{C}_2} m \in \Obj{\Cat{M}}}
-        \end{align}
-    \end{itemize}
-    これらは以下の条件を充たす：
-    \begin{description}
-        \item[\textbf{(Bimod-1)}] 組 $(\Cat{M},\, \btr,\, \alpha,\, \lambda)$ は\hyperref[def:modulecat]{左 $\Cat{C}_1$-加群圏}である．
-        \item[\textbf{(Bimod-2)}] 組 $(\Cat{M},\, \btl,\, \beta,\, \rho)$ は\hyperref[def:modulecat]{右 $\Cat{C}_2$-加群圏}である．
-        \item[\textbf{(Bimod-3)}] $\forall x_i,\, y_i \in \Obj{\Cat{C}_i},\; \forall m \in \Obj{\Cat{M}}$ に対して以下の図式を可換にする：
-        \begin{flushleft}
-            \begin{tikzcd}[row sep=large]
-                & &\bigl( (x_1 \otimes_1 y_1) \btr m \bigr) \btl x_1 \ar[ddl, "\alpha_{x_1,y_1,m} \btr \Id_{x_1}"']\ar[dr, "b_{x_1\otimes_1 y_1,m,x_2}"] & \\
-                & & &(x_1\otimes_1 y_1) \btr (m \btl x_2) \ar[dd, "\alpha_{x_1,y_1,m\btl x_2}"] \\
-                &\bigl( x_1 \btr (y_1 \btr m) \bigr) \btl x_1 \ar[ddr, "b_{x_1,y_1\btr m,x_2}"'] & & \\
-                & & &x_1 \btr \bigl( y_1 \btr (m \btl x_2) \bigr) \\
-                & &x_1 \btr \bigl( (y_1 \btr m) \btl x_1 \bigr) \ar[ur, "\Id_{x_1} \btr b_{y_1,m,_1}"'] &
-            \end{tikzcd}%
-        \end{flushleft}
-        \begin{flushleft}
-            \begin{tikzcd}[row sep=large]
-                &                           &x_1 \btr \bigl(m \btl (x_2 \otimes_2 y_2) \bigr) \ar[ddl, "\Id_{x_1} \btr \beta_{m,x_2,y_2}"']& \\
-                &                           &                                                                                              &(x_1 \btr m) \btl (x_2 \otimes_2 y_2) \ar[ul, "b_{x_1,m,x_2\otimes_2 y_2}"']\ar[dd, "\beta_{x_1 \btr m,x_2,y_2}"] \\
-                &x_1 \btr \bigl( (m \btl x_2) \btl y_2 \bigr)  & & \\
-                &                           &                                                                                              &\bigl( (x_1 \btr m) \btl x_2 \bigr) \btl y_2 \ar[dl, "b_{x_1,m,x_2} \btl \Id_{y_2}"] \\
-                &                           &\bigl( x_1 \btr (m \btl x_2) \bigr)  \btl y_2 \ar[uul, "b_{x_1,m\btl x_2,y_2}"]               &
-            \end{tikzcd}%
-        \end{flushleft}
-        
-    \end{description}
-\end{mydef}
-
-\subsection{代数と加群}
-
-\begin{mydef}[label=def:algobj,breakable]{代数対象}
-    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
-    $ \Cat{C}$ の\textbf{代数対象} (algebra object) $x$ とは，以下のデータからなる：
-    \begin{itemize}
-        \item $\Cat{C}$ の対象 $x \in \Obj{\Cat{C}}$ 
-        \item \textbf{乗法} (multiplication) と呼ばれる $\Cat{C}$ の射 $\mu \colon x \otimes x \lto x$
-        \item \textbf{単位} (unit) と呼ばれる $\Cat{C}$ の射 $\upsilon \colon 1 \lto x$
-    \end{itemize}
-    これらは以下の条件を充たさねばならない：
-    \begin{description}
-        \item[\textbf{(associatibity)}]　
-        
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-              &  &(x \otimes x) \otimes x \ar[ddl, "\mu \otimes \Id_x"']\ar[dr, "a_{x,x,x}"]  &  \\
-              &  &  &x \otimes (x \otimes x)\ar[dd, "\Id_x \otimes \mu"]  \\
-              &x \otimes x\ar[ddr, "\mu"']  &  &  \\
-              &  &  &x\otimes x  \\
-              &  &x\ar[from=ur, "\mu"]  &
-            \end{tikzcd}
-        \end{center}
-    
-        \item[\textbf{(unitality)}]　
-        
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-                &1 \otimes x \ar[r, "l_x"]\ar[d, "\upsilon \otimes \Id_x"'] &x \ar[d, "\Id_x"] \\
-                &x \otimes x \ar[r, "\mu"'] &x
-            \end{tikzcd}
-        \end{center}
-        
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-                &x \otimes 1 \ar[r, "r_x"]\ar[d, "\Id_x \otimes \upsilon"'] &x \ar[d, "\Id_x"] \\
-                &x \otimes x \ar[r, "\mu"'] &x
-            \end{tikzcd}
-        \end{center}
-    \end{description}
-    
-     \tcblower
-
-     \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
-    $ \Cat{C}$ の\textbf{余代数対象} (coalgebra object) $y$ とは，以下のデータからなる：
-    \begin{itemize}
-        \item $\Cat{C}$ の対象 $y \in \Obj{\Cat{C}}$ 
-        \item \textbf{余乗法} (comultiplication) と呼ばれる $\Cat{C}$ の射 $\Delta \colon y \lto y \otimes y$
-        \item \textbf{余単位} (counit) と呼ばれる $\Cat{C}$ の射 $\epsilon \colon y \lto 1$
-    \end{itemize}
-    これらは以下の条件を充たさねばならない：
-    \begin{description}
-        \item[\textbf{(coassociatibity)}]　
-        
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-              &  &(y \otimes y) \otimes y \ar[from=ddl, "\Delta \otimes \Id_y"]\ar[from=dr, "a_{y,y,y}"']  &  \\
-              &  &  &y \otimes (y \otimes y)\ar[from=dd, "\Id_y \otimes \Delta"']  \\
-              &y \otimes y\ar[from=ddr, "\Delta"]  &  &  \\
-              &  &  &y\otimes y  \\
-              &  &y\ar[ur, "\Delta"']  &
-            \end{tikzcd}
-        \end{center}
-        
-        \item[\textbf{(unitality)}]　
-        
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-                &1 \otimes y \ar[from=r, "l_y"']\ar[from=d, "\epsilon \otimes \Id_y"] &y \ar[from=d, "\Id_y"'] \\
-                &y \otimes y \ar[from=r, "\Delta"] &y
-            \end{tikzcd}
-        \end{center}
-        
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-                &y \otimes 1 \ar[from=r, "r_y"']\ar[from=d, "\Id_y \otimes \epsilon"] &y \ar[from=d, "\Id_y"'] \\
-                &y \otimes y \ar[from=r, "\Delta"] &y
-            \end{tikzcd}
-        \end{center}
-    \end{description}
-\end{mydef}
-
-ストリング図式で\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$ の \textsf{\textbf{(associatibity)}}, \textsf{\textbf{(unitality)}} を書くと，それぞれ
-\begin{align}
-    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \pgfmathsetmacro{\dx}{cos(60)}
-        \pgfmathsetmacro{\dy}{sin(60)}
-        \node[bullet] (m1) at (0,0) {};
-        \node[bullet] (m2) at ($(m1) + (\dx,\dy)$) {};
-        \node[right] () at (m1) {$\mu$};
-        \node[right] () at (m2) {$\mu$};
-        \coordinate (x1) at ($(m1) + (-\dx,-\dy)$);
-        \coordinate (x2) at ($(m1) + (\dx,-\dy)$);
-        \coordinate (x3) at ($(m2) + 2*(\dx,-\dy)$);
-        \coordinate (x4) at ($(m2) + (0,\dy)$);
-        \draw[->-=.5] (x1) -- node[midway, above left] {$x$} (m1);
-        \draw[->-=.5] (m1) -- node[midway, above left] {$x$} (m2);
-        \draw[->-=.5] (m2) -- node[midway, above left] {$x$} (x4);
-        \draw[->-=.5] (x2) -- node[midway, above right] {$x$} (m1);
-        \draw[->-=.5] (x3) -- node[midway, above right] {$x$} (m2);
-    \end{tikzpicture}
-    \quad &= \quad
-    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \pgfmathsetmacro{\dx}{cos(60)}
-        \pgfmathsetmacro{\dy}{sin(60)}
-        \node[bullet] (m1) at (0,0) {};
-        \node[bullet] (m2) at ($(m1) + (-\dx,\dy)$) {};
-        \node[right] () at (m1) {$\mu$};
-        \node[right] () at (m2) {$\mu$};
-        \coordinate (x1) at ($(m2) + 2*(-\dx,-\dy)$);
-        \coordinate (x2) at ($(m1) + (-\dx,-\dy)$);
-        \coordinate (x3) at ($(m1) + (\dx,-\dy)$);
-        \coordinate (x4) at ($(m2) + (0,\dy)$);
-        \draw[->-=.5] (x1) -- node[midway, above left] {$x$} (m2);
-        \draw[->-=.5] (x2) -- node[midway, above left] {$x$} (m1);
-        \draw[->-=.5] (x3) -- node[midway, above right] {$x$} (m1);
-        \draw[->-=.5] (m1) -- node[midway, above right] {$x$} (m2);
-        \draw[->-=.5] (m2) -- node[midway, above left] {$x$} (x4);
-    \end{tikzpicture} \\
-    & \\
-    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \pgfmathsetmacro{\dx}{cos(60)}
-        \pgfmathsetmacro{\dy}{sin(60)}
-        \node[bullet] (m1) at (0,0) {};
-        \node[bullet] (m2) at ($(m1) + (\dx,\dy)$) {};
-        \node[below] () at (m1) {$\upsilon$};
-        \node[right] () at (m2) {$\mu$};
-        \coordinate (x1) at ($(m1) + (-\dx,-\dy)$);
-        \coordinate (x2) at ($(m1) + (\dx,-\dy)$);
-        \coordinate (x3) at ($(m2) + 2*(\dx,-\dy)$);
-        \coordinate (x4) at ($(m2) + (0,\dy)$);
-        % \draw[->-=.5] (x1) -- node[midway, above left] {$x$} (m1);
-        \draw[->-=.5] (m1) -- node[midway, above left] {$x$} (m2);
-        \draw[->-=.5] (m2) -- node[midway, above left] {$x$} (x4);
-        % \draw[->-=.5] (x2) -- node[midway, above right] {$x$} (m1);
-        \draw[->-=.5] (x3) -- node[midway, above right] {$x$} (m2);
-    \end{tikzpicture}
-    \quad &= \quad 
-    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \pgfmathsetmacro{\dx}{cos(60)}
-        \pgfmathsetmacro{\dy}{sin(60)}
-        \node[bullet] (m1) at (0,0) {};
-        \node[bullet] (m2) at ($(m1) + (-\dx,\dy)$) {};
-        \node[below] () at (m1) {$\upsilon$};
-        \node[right] () at (m2) {$\mu$};
-        \coordinate (x1) at ($(m2) + 2*(-\dx,-\dy)$);
-        \coordinate (x2) at ($(m1) + (-\dx,-\dy)$);
-        \coordinate (x3) at ($(m1) + (\dx,-\dy)$);
-        \coordinate (x4) at ($(m2) + (0,\dy)$);
-        \draw[->-=.5] (x1) -- node[midway, above left] {$x$} (m2);
-        % \draw[->-=.5] (x2) -- node[midway, above left] {$x$} (m1);
-        % \draw[->-=.5] (x3) -- node[midway, above right] {$x$} (m1);
-        \draw[->-=.5] (m1) -- node[midway, above right] {$x$} (m2);
-        \draw[->-=.5] (m2) -- node[midway, above left] {$x$} (x4);
-    \end{tikzpicture}
-    \quad = \quad 
-    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \pgfmathsetmacro{\dy}{sin(60)}
-        \draw[->-=.5] (0,0) -- node[midway, left] {$x$} (0,3*\dy);
-    \end{tikzpicture}
-\end{align}
-となり，\hyperref[def:algobj]{余代数対象} $(y,\, \Delta,\, \epsilon)$ の \textsf{\textbf{(associatibity)}}, \textsf{\textbf{(unitality)}} を書くと
-\begin{align}
-    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \pgfmathsetmacro{\dx}{cos(60)}
-        \pgfmathsetmacro{\dy}{sin(60)}
-        \node[bullet] (m1) at (0,0) {};
-        \node[bullet] (m2) at ($(m1) + (-\dx,\dy)$) {};
-        \node[left] () at (m1) {$\Delta$};
-        \node[left] () at (m2) {$\Delta$};
-        \coordinate (y1) at ($(m1) + (0,-\dy)$);
-        \coordinate (y2) at ($(m1) + 2*(\dx,\dy)$);
-        \coordinate (y3) at ($(m2) + (\dx,\dy)$);
-        \coordinate (y4) at ($(m2) + (-\dx,\dy)$);
-        \draw[->-=.5] (y1) -- node[midway, right] {$y$} (m1);
-        \draw[->-=.5] (m1) -- node[midway, right] {$y$} (y2);
-        \draw[->-=.5] (m1) -- node[midway, left] {$y$} (m2);
-        \draw[->-=.5] (m2) -- node[midway, right] {$y$} (y3);
-        \draw[->-=.5] (m2) -- node[midway, left] {$y$} (y4);
-    \end{tikzpicture}
-    \quad &= \quad 
-    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \pgfmathsetmacro{\dx}{cos(60)}
-        \pgfmathsetmacro{\dy}{sin(60)}
-        \node[bullet] (m1) at (0,0) {};
-        \node[bullet] (m2) at ($(m1) + (\dx,\dy)$) {};
-        \node[left] () at (m1) {$\Delta$};
-        \node[right] () at (m2) {$\Delta$};
-        \coordinate (y1) at ($(m1) + (0,-\dy)$);
-        \coordinate (y2) at ($(m2) + (\dx,\dy)$);
-        \coordinate (y3) at ($(m2) + (-\dx,\dy)$);
-        \coordinate (y4) at ($(m1) + 2*(-\dx,\dy)$);
-        \draw[->-=.5] (y1) -- node[midway, right] {$y$} (m1);
-        \draw[->-=.5] (m2) -- node[midway, right] {$y$} (y2);
-        \draw[->-=.5] (m1) -- node[midway, right] {$y$} (m2);
-        \draw[->-=.5] (m2) -- node[midway, left] {$y$} (y3);
-        \draw[->-=.5] (m1) -- node[midway, left] {$y$} (y4);
-    \end{tikzpicture} \\
-    & \\
-    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \pgfmathsetmacro{\dx}{cos(60)}
-        \pgfmathsetmacro{\dy}{sin(60)}
-        \node[bullet] (m1) at (0,0) {};
-        \node[bullet] (m2) at ($(m1) + (-\dx,\dy)$) {};
-        \node[left] () at (m1) {$\Delta$};
-        \node[above] () at (m2) {$\epsilon$};
-        \coordinate (y1) at ($(m1) + (0,-\dy)$);
-        \coordinate (y2) at ($(m1) + 2*(\dx,\dy)$);
-        \coordinate (y3) at ($(m2) + (\dx,\dy)$);
-        \coordinate (y4) at ($(m2) + (-\dx,\dy)$);
-        \draw[->-=.5] (y1) -- node[midway, right] {$y$} (m1);
-        \draw[->-=.5] (m1) -- node[midway, right] {$y$} (y2);
-        \draw[->-=.5] (m1) -- node[midway, left] {$y$} (m2);
-        % \draw[->-=.5] (m2) -- node[midway, right] {$y$} (y3);
-        % \draw[->-=.5] (m2) -- node[midway, left] {$y$} (y4);
-    \end{tikzpicture}
-    \quad &= \quad 
-    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \pgfmathsetmacro{\dx}{cos(60)}
-        \pgfmathsetmacro{\dy}{sin(60)}
-        \node[bullet] (m1) at (0,0) {};
-        \node[bullet] (m2) at ($(m1) + (\dx,\dy)$) {};
-        \node[left] () at (m1) {$\Delta$};
-        \node[above] () at (m2) {$\epsilon$};
-        \coordinate (y1) at ($(m1) + (0,-\dy)$);
-        \coordinate (y2) at ($(m2) + (\dx,\dy)$);
-        \coordinate (y3) at ($(m2) + (-\dx,\dy)$);
-        \coordinate (y4) at ($(m1) + 2*(-\dx,\dy)$);
-        \draw[->-=.5] (y1) -- node[midway, right] {$y$} (m1);
-        % \draw[->-=.5] (m2) -- node[midway, right] {$y$} (y2);
-        \draw[->-=.5] (m1) -- node[midway, right] {$y$} (m2);
-        % \draw[->-=.5] (m2) -- node[midway, left] {$y$} (y3);
-        \draw[->-=.5] (m1) -- node[midway, left] {$y$} (y4);
-    \end{tikzpicture}
-    \quad = \quad 
-    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \pgfmathsetmacro{\dy}{sin(60)}
-        \draw[->-=.5] (0,0) -- node[midway, left] {$y$} (0,3*\dy);
-    \end{tikzpicture}
-\end{align}
-となる．
-
-\begin{mydef}[label=def:moduleobj,breakable]{加群対象}
-    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ 
-    および $\Cat{C}$ の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$ を与える．
-    
-    $\Cat{C}$ における，\textbf{左 $\bm{x}$-加群対象} (right $x$-module object) $m$ とは，以下のデータからなる：
-    \begin{itemize}
-        \item $\Cat{C}$ の対象 $m \in \Obj{\Cat{C}}$ 
-        \item \textbf{左作用} (right action) と呼ばれる $\Cat{C}$ の射 $\lambda \colon x \otimes m \lto m$
-    \end{itemize}
-    これらは以下の条件を充たさねばならない：
-    \begin{description}
-        \item[\textbf{(associativity)}]　 
-        
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-              &  &x \otimes (x \otimes m)\ar[ddl, "\Id_x \otimes \lambda"']\ar[dr, "a_{x,x,m}^{-1}"]  &  \\
-              &  &  &(x \otimes x) \otimes m\ar[dd, "\mu \otimes \Id_m"]  \\
-              &x \otimes m \ar[ddr, "\lambda"']  &  &  \\
-              &  &  &x \otimes m  \\
-              &  &m\ar[from=ur, "\lambda"]  &
-            \end{tikzcd}
-        \end{center}
-
-        \item[\textbf{(unitarity)}]　 
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-                &1 \otimes m \ar[r, "l_m"]\ar[d, "\upsilon \otimes \Id_m"'] &m \ar[d, "\Id_m"] \\
-                &x \otimes m \ar[r, "\lambda"'] &m
-            \end{tikzcd}
-        \end{center}
-        
-    \end{description}
-    
-    \tcblower 
-
-    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ 
-    および $\Cat{C}$ の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$ を与える．
-    
-    $\Cat{C}$ における，\textbf{右 $\bm{x}$-加群対象} (right $x$-module object) $m$ とは，以下のデータからなる：
-    \begin{itemize}
-        \item $\Cat{C}$ の対象 $m \in \Obj{\Cat{C}}$ 
-        \item \textbf{右作用} (right action) と呼ばれる $\Cat{C}$ の射 $\rho \colon m \otimes x \lto m$
-    \end{itemize}
-    これらは以下の条件を充たさねばならない：
-    \begin{description}
-        \item[\textbf{(associativity)}]　 
-        
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-              &  &(m \otimes x) \otimes x\ar[ddl, "\rho \otimes \Id_x"']\ar[dr, "a_{m,x,x}"]  &  \\
-              &  &  &m \otimes (x \otimes x)\ar[dd, "\Id_x \otimes \rho"]  \\
-              &m \otimes x\ar[ddr, "\rho"']  &  &  \\
-              &  &  &m \otimes x  \\
-              &  &m\ar[from=ur, "\rho"]  &
-            \end{tikzcd}
-        \end{center}
-        \item[\textbf{(unitarity)}]　 
-        
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-                &m \otimes 1 \ar[r, "r_m"]\ar[d, "\Id_m \otimes \upsilon"'] &m \ar[d, "\Id_m"] \\
-                &m \otimes x \ar[r, "\rho"'] &m
-            \end{tikzcd}
-        \end{center}
-        
-    \end{description}
-    
-\end{mydef}
-
-\begin{mydef}[label=def:hom-algmod]{代数および加群の準同型}
-    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ 
-    および $\Cat{C}$ の2つの\hyperref[def:algobj]{代数対象} $(x_i,\, \mu_i,\, \upsilon_i) \WHERE i = 1,\, 2$ を与える．
-
-    このとき，\underline{$\Cat{C}$ の}射 $f \in \Hom{\Cat{C}} (x_1,\, x_2)$ が\textbf{代数準同型} (algebra homomorphism) であるとは，以下の条件を充たすことを言う：
-    \begin{description}
-        \item[\textbf{(乗法の保存)}]　
-        
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-                &x_1 \otimes x_1 \ar[r, "f \otimes f"]\ar[d, "\mu_1"'] &x_2 \otimes x_2 \ar[d, "\mu_2"] \\
-                &x_1 \ar[r, "f"'] &x_2
-            \end{tikzcd}
-        \end{center}
-        
-        \item[\textbf{(単位の保存)}]　
-        
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-                &1 \ar[rr, "\upsilon_1"]\ar[dr, "\upsilon_2"'] & &A_1 \ar[dl, "f"] \\
-                & &A_2 &
-            \end{tikzcd}
-        \end{center}
-        
-    \end{description}
-    
-    \tcblower
-
-        \begin{itemize}
-            \item \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ 
-            \item $\Cat{C}$ の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$
-            \item $\Cat{C}$ の2つの\hyperref[def:moduleobj]{左 $x$-加群対象} $(m_i,\, \lambda_i) \WHERE i = 1,\, 2$
-        \end{itemize}
-        を与える．
-
-        このとき，\underline{$\Cat{C}$ の}射 $f \in \Hom{\Cat{C}} (m_1,\, m_2)$ が\textbf{左 $x$-加群準同型} (left $x$-module homohorphism) であるとは，以下の条件を充たすことを言う：
-
-        \begin{description}
-            \item[\textbf{(左作用の保存)}]　
-            
-            \begin{center}
-                \begin{tikzcd}[row sep=large, column sep=large]
-                    &x \otimes m_1 \ar[r, "\Id_x \otimes f"]\ar[d, "\lambda_1"'] &x \otimes m_2 \ar[d, "\lambda_2"] \\
-                    &x_1 \ar[r, "f"'] &x_2
-                \end{tikzcd}
-            \end{center}
-            
-        \end{description}
-\end{mydef}
-
-しばらくの間 \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ および $\Cat{C}$ の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$ を1つ固定する．
-
-2つの\hyperref[def:moduleobj]{左 $x$-加群対象} $(m_i,\, \lambda_i) \WHERE i = 1,\, 2$ の間の\hyperref[def:hom-algmod]{左 $x$-加群の準同型}全体がなす集合を $\bm{\Hom{x}(m_1,\, m_2)} \subset \Hom{\Cat{C}} (m_1,\, m_2)$ と書くと，これは部分 $\mathbb{K}$-ベクトル空間をなす．
-さらに準同型の合成は準同型であるから，\hyperref[def:additive-cat]{アーベル圏} $\MODC{\Cat{C}}{x}$ を次のようにして構成することができる：
-\begin{itemize}
-    \item $\Cat{C}$ における\hyperref[def:moduleobj]{左 $x$-加群対象}を対象とする．
-    \item \hyperref[def:hom-algmod]{左 $x$-加群の準同型}を射とする．
-\end{itemize}
-同様にして $\Cat{C}$ における\hyperref[def:moduleobj]{右 $x$-加群対象}がなす圏 $\MODCR{\Cat{C}}{x}$ を定義できる．
-
-\hyperref[def:modulecat]{左加群圏}と $\MODCR{\Cat{C}}{x}$ の間には関係がある．
-今，$\Cat{C}$ における任意の\hyperref[def:moduleobj]{右 $x$-加群対象} $(m,\, \rho)$ および $\Cat{C}$ の任意の対象 $y \in \Obj{\Cat{C}}$ を与える．
-すると，$y \otimes m \in \Obj{\Cat{C}}$ と
-\begin{align}
-    \rho_{y \otimes m} \colon (y \otimes m) \otimes x \xrightarrow{a_{y,m,x}} y \otimes (m \otimes x) \xrightarrow{\Id_y \otimes \rho} y \otimes m
-\end{align}
-の組み $(y \otimes m,\, \rho_{y \otimes m})$ は右 $x$-加群になる．i.e. $(y \otimes m,\, \rho_{y \otimes m}) \in \Obj{\MODCR{\Cat{C}}{x}}$ である．
-この構成により関手
-\begin{align}
-    \label{eq:modc-product}
-    \btr \colon \Cat{C} \times \MODCR{\Cat{C}}{x} \lto \MODCR{\Cat{C}}{x}
-\end{align}
-が定義できる．さらに，$\Cat{C}$ が元々持っていたassociatorとunitorsに関しては，
-$\forall (m,\, \rho) \in \Obj{\MODCR{\Cat{C}}{x}},\; \forall y,\,z \in \Obj{\Cat{C}}$ に対して
-\begin{align}
-    a_{y,z,m} &\colon (y \otimes z) \btr m \lto y \btr (z \btr m) \\
-    l_{y} &\colon 1 \btr m \lto m
-\end{align}
-が自然な\footnote{$a \coloneqq \Familyset[\big]{a_{y,z,m}}{y,z \in \Obj{\Cat{C}},\, m \in \Obj{\MODCR{\Cat{C}}{x}}}$ が\hyperref[def:nat]{自然同型}．}\hyperref[def:hom-algmod]{右 $x$-加群の同型}になる．
-
-\begin{myprop}[label=prop:modc-modcat]{$\MODCR{\Cat{C}}{x}$ は左加群圏}
-    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ および $\Cat{C}$ の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$ を1つ与える．
-
-    このとき，組み\footnote{$\btr \colon \Cat{C} \times \MODCR{\Cat{C}}{x} \lto \MODCR{\Cat{C}}{x}$ は\eqref{eq:modc-product}で定義した関手である．} $(\MODCR{\Cat{C}}{x},\, \btr,\, a,\, l)$ は\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏}である．
-\end{myprop}
-
-\begin{proof}
-    $\forall y,\,z,\, w \in \Obj{\Cat{C}},\; \forall (m,\, \rho) \in \Obj{\MODCR{\Cat{C}}{x}}$ に対して\hyperref[def:modulecat]{\textsf{\textbf{(lMOD-1)}}, \textsf{\textbf{(lMOD-2)}}}が成り立つことを示せば良い．
-\end{proof}
-
-\begin{mydef}[label=def:tensor-overalg]{代数上のテンソル積}
-    \begin{itemize}
-        \item \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ および $\Cat{C}$ の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$
-        \item $\Cat{C}$ における\hyperref[def:moduleobj]{右 $x$-加群対象} $(m,\, \rho) \in \Obj{\MODCR{\Cat{C}}{x}}$
-        \item $\Cat{C}$ における\hyperref[def:moduleobj]{左 $x$-加群対象} $(n,\, \lambda) \in \Obj{\MODR{\Cat{C}}{x}}$
-    \end{itemize}
-    を与える．このとき，$m$ と $n$ の\textbf{$\bm{x}$ 上のテンソル積} (tensor product over $x$) $\bm{m \otimes_x n} \in \Obj{\Cat{C}}$ を，以下の図式の\hyperref[def:eq-coeq]{コイコライザ}として定義する：
-    \begin{center}
-        \begin{tikzcd}[row sep=large, column sep=large]
-            &m \otimes x \otimes n \ar[r, shift left, "\rho \otimes \Id_n"]\ar[r, shift right, "\Id_m \otimes \lambda"'] &m \otimes n \ar[r, red, "\pi"] &\textcolor{red}{m \otimes_x n}
-       \end{tikzcd}
-    \end{center}
-\end{mydef}
-
-\subsection{両側加群}
-
-\begin{mydef}[label=def:bimodobj,breakable]{両側加群}
-    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ 
-    および $\Cat{C}$ の2つの\hyperref[def:algobj]{代数対象} $(x_i,\, \mu_i,\, \upsilon_i)$ を与える．
-    $\Cat{C}$ における\textbf{$(\bm{x_1},\, \bm{x_2})$-両側加群対象} ($(x_1,\, x_2)$-bimodule object) とは，以下のデータからなる：
-    \begin{itemize}
-        \item $\Cat{C}$ の対象 $m \in \Obj{\Cat{C}}$ 
-        \item \textbf{左作用} (left action) と呼ばれる $\Cat{C}$ の射 $\lambda \colon x_1 \otimes m \lto m$
-        \item \textbf{右作用} (right action) と呼ばれる $\Cat{C}$ の射 $\rho \colon m \otimes x_2 \lto m$
-    \end{itemize}
-    これらは以下の条件を充たさねばならない：
-    \begin{description}
-        \item[\textbf{(bimod-1)}] 組 $(m,\, \lambda)$ は $\Cat{C}$ の\hyperref[def:moduleobj]{左 $x_1$-加群対象}
-        \item[\textbf{(bimod-2)}] 組 $(m,\, \rho)$ は $\Cat{C}$ の\hyperref[def:moduleobj]{右 $x_2$-加群対象}
-        \item[\textbf{(bimod-3)}] 以下の図式を可換にする：
-        
-        \begin{center}
-            \begin{tikzcd}[row sep=large]
-              &  &(x_1 \otimes m) \otimes x_2\ar[ddl, "\lambda \otimes \Id_{x_2}"']\ar[dr, "a_{x_1,m,x_2}"]  &  \\
-              &  &  &x_1 \otimes (m \otimes x_2)\ar[dd, "\Id_{x_1} \otimes \rho"]  \\
-              &m \otimes x_2\ar[ddr, "\rho"']  &  &  \\
-              &  &  &x_1 \otimes m  \\
-              &  &m\ar[from=ur, "\lambda"]  &
-            \end{tikzcd}
-        \end{center}
-    \end{description}
-    
-\end{mydef}
-
-\begin{mydef}[label=def:hom-bimod]{両側加群の準同型}
-    \begin{itemize}
-        \item \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ 
-        および $\Cat{C}$ の2つの\hyperref[def:algobj]{代数対象} $(x_i,\, \mu_i,\, \upsilon_i)$
-        \item 2つの\hyperref[def:bimodobj]{$(x_1,\, x_2)$-両側加群対象} $(m_i,\, \lambda_i,\, \rho_i) \WHERE i = 1,\, 2$
-    \end{itemize}
-    を与える．
-    このとき，\underline{$\Cat{C}$ の}射 $ f \colon m_1 \lto m_2$ が\textbf{$(x_1,\, x_2)$ 両側加群の準同型}であるとは，それが\hyperref[def:hom-algmod]{左 $x_1$-加群の準同型}かつ\hyperref[def:hom-algmod]{右 $x_2$-加群の準同型}であることを言う．
-\end{mydef}
-
-しばらくの間 \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ および $\Cat{C}$ の2つの\hyperref[def:algobj]{代数対象} $(x_i,\, \mu_i,\, \upsilon_i)$ を固定する．
-
-2つの\hyperref[def:bimodobj]{$(x_1,\, x_2)$-両側加群対象} $(m_i,\, \lambda_i,\, \rho_i) \WHERE i = 1,\, 2$ の間の\hyperref[def:hom-bimod]{$(x_1,\, x_2)$-両側加群の準同型}全体がなす集合を $\bm{\Hom{x_1 \mhyphen x_2}(m_1,\, m_2)} \subset \Hom{\Cat{C}} (m_1,\, m_2)$ と書くと，これは部分 $\mathbb{K}$-ベクトル空間をなす．
-さらに準同型の合成は準同型であるから，\hyperref[def:additive-cat]{アーベル圏} $\BIMODC{\Cat{C}}{x_1}{x_2}$ を次のようにして構成することができる：
-\begin{itemize}
-    \item $\Cat{C}$ における\hyperref[def:bimodobj]{$(x_1,\, x_2)$-加群対象}を対象とする．
-    \item \hyperref[def:hom-bimod]{$(x_1,\, x_2)$-両側加群の準同型}を射とする．
-\end{itemize}
-同様にして $\Cat{C}$ における\hyperref[def:moduleobj]{右 $x$-加群対象}がなす圏 $\MODCR{\Cat{C}}{x}$ を定義できる．
-
-\begin{mylem}[label=lem:bimod]{両側加群のテンソル積}
-    \begin{itemize}
-        \item \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ 
-        および $\Cat{C}$ の4つの\hyperref[def:algobj]{代数対象} $(x_i,\, \mu_i,\, \upsilon_i) \WHERE  i = 1,\, \dots,\, 4$
-        \item \hyperref[def:bimodobj]{$(x_1,\, x_2)$-両側加群対象} $(m_1,\, \lambda_1,\, \rho_1) \in \Obj{\BIMODC{\Cat{C}}{x_1}{x_2}}$
-        \item \hyperref[def:bimodobj]{$(x_2,\, x_3)$-両側加群対象} $(m_2,\, \lambda_2,\, \rho_2) \in \Obj{\BIMODC{\Cat{C}}{x_2}{x_3}}$
-        \item \hyperref[def:bimodobj]{$(x_3,\, x_4)$-両側加群対象} $(m_3,\, \lambda_3,\, \rho_3) \in \Obj{\BIMODC{\Cat{C}}{x_3}{x_4}}$
-    \end{itemize}
-    を与える．このとき以下が成り立つ：
-    \begin{enumerate}
-        \item $m_1 \otimes_{x_2} m_2$ は自然な $(x_1,\, x_3)$-両側加群対象の構造を持つ．
-        \item 自然な\hyperref[def:hom-bimod]{$(x_1,\, x_4)$-両側加群の同型}
-        \begin{align}
-            \bar{a}_{m_1,m_2,m_3} &\colon (m_1 \otimes_{x_2} m_2) \otimes_{x_3} m_3 \xrightarrow{\cong} m_1 \otimes_{x_2} (m_2 \otimes_{x_3} m_3) \\
-            \bar{l}_{m_1} &\colon x_1 \otimes_{x_1} m_1 \xrightarrow{\cong} m_1 \\
-            \bar{r}_{m_1} &\colon m_1 \otimes_{x_2} x_2 \xrightarrow{\cong} m_1
-        \end{align}
-        が存在する．
-    \end{enumerate}
-\end{mylem}
-
-\begin{proof}
-    \begin{enumerate}
-        \item 
-    \end{enumerate}
-\end{proof}
-
-$\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$ について，明らかに $(x,\, \mu,\, \mu) \in \BIMODC{\Cat{C}}{x}{x}$ である．
-
-\begin{mydef}[label=def:separable-alg]{分離可能性}
-    \hyperref[def:tensorfusion-cat]{テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ の\hyperref[def:algobj]{代数対象} $(x,\,\mu ,\,\upsilon)$ が\textbf{分離可能} (separable) であるとは，
-    ある\hyperref[def:hom-bimod]{$(x,\, x)$-両側加群の準同型} $\bar{\mu} \colon x \lto x \otimes x$ が存在して $\mu \circ \bar{\mu} = \Id_x$ を充たすことを言う\footnote{補題\ref{lem:bimod}-(1) によって $x \otimes x$ を $(x,\, x)$-両側加群対象と見做す．}．
-\end{mydef}
-
-\hyperref[def:separable-alg]{分離可能性}をストリング図式で表すと
-\begin{align}
-    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \coordinate (a) at (0,0);
-        \coordinate (b1) at (-.5,2);
-        \coordinate (b2) at (.5,2);
-        \coordinate (c) at (0,4);
-        \node[red,bullet] (D) at (barycentric cs:a=1,b1=1,b2=1) {};
-        \node[red,right] at (D) {$\exists \bar{\mu}$};
-        \node[bullet] (M) at (barycentric cs:c=1,b1=1,b2=1) {};
-        \node[right] at (M) {$\mu$};
-        \draw[->-=.5,red] (a) -- node[midway,right] {$x$} (D);
-        \draw[->-=.5,red] (D) to [out=60,in=-90] node[midway,right] {$x$} (b2);
-        \draw[->-=.5,red] (D) to [out=120,in=-90] node[midway,left] {$x$} (b1);
-        \draw[->-=.5] (b1) to [out=90,in=-120] node[midway,left] {$x$} (M);
-        \draw[->-=.5] (b2) to [out=90,in=-60] node[midway,right] {$x$} (M);
-        \draw[->-=.5] (M) -- node[midway,right] {$x$} (c);
-    \end{tikzpicture}
-    &\quad = \quad
-    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \coordinate (a) at (0,0);
-        \coordinate (c) at (0,4);
-        \draw[->-=.5] (a) -- node[midway,right] {$x$} (c);
-    \end{tikzpicture}
-\end{align}
-となる．
-
-\begin{myprop}[label=prop:separable-alg]{分離可能性と半単純性}
-    \hyperref[def:tensorfusion-cat]{フュージョン圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ の\hyperref[def:algobj]{代数対象} $(x,\,\mu ,\,\upsilon)$ を与える．
-
-    このときもし $(x,\, \mu,\, \upsilon)$ が\hyperref[def:separable-alg]{分離可能}ならば，\hyperref[def:additive-cat]{アーベル圏} $\MODCR{\Cat{C}}{x}$ は\hyperref[def:semisimple-cat]{半単純}である．
-\end{myprop}
-
-\begin{proof}
-    ~\cite[PROPOSITION7.8.30, p.146]{etingof2015tensor}
-\end{proof}
-
-\subsection{森田同値}
-
-\begin{mydef}[label=def:Morita-equiv]{森田同値}
-    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
-    
-    $\Cat{C}$ の2つの\hyperref[def:algobj]{代数対象} $(x_i,\, \mu_i,\, \upsilon_i) \WHERE i = 1,\, 2$ が\textbf{森田同値} (Morita equivalent) であるとは，\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏}として $\MODC{\Cat{C}}{x_1}$ と $\MODC{\Cat{C}}{x_2}$ が圏同値であることを言う．
-\end{mydef}
-
-\subsection{Frobenius代数}
-
-\begin{mydef}[label=def:Frobenius-alg]{Frobenius代数}
-    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\,r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
-
-    $\Cat{C}$ の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$ が\textbf{Frobenius代数} (Frobenius algebra) であるとは，
-    \begin{itemize}
-        \item \textbf{余乗法} (comultiplication) と呼ばれる $\Cat{C}$ の射 $\Delta \colon x \lto x \otimes x$
-        \item \textbf{余単位} (counit) と呼ばれる $\Cat{C}$ の射 $\epsilon \colon x \lto 1$
-    \end{itemize}
-    が存在して以下を充たすことを言う：
-    \begin{description}
-        \item[\textbf{(Frob-1)}] $(x,\, \Delta,\, \epsilon)$ は $\Cat{C}$ の\hyperref[def:algobj]{余代数対象}である．
-        \item[\textbf{(Frob-2)}] 以下の図式を可換にする：
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-                &   &x \otimes x \ar[dl, "\Delta \otimes \Id_x"']\ar[d, "\mu"]\ar[dr, "\Id_x \otimes \Delta"] & \\
-                &x \otimes x \otimes x \ar[dr, "\Id_x \otimes \mu"']  &x \ar[d, "\Delta"] &x \otimes x \otimes x \ar[dl, "\mu \otimes \Id_x"] \\
-                & &x \otimes x &
-            \end{tikzcd}
-        \end{center}
-    \end{description}
-    
-\end{mydef}
-
-ストリング図式で\hyperref[def:Frobenius-alg]{\textsf{\textbf{(Frob-2)}}}を書くと次のようになる：
-\begin{align}
-    \label{eq:Frobenius}
-    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \path coordinate[bullet,label=left:$\Delta$] (delta)
-        ++(60:2) coordinate[bullet,label=right:$\mu$] (mu)
-        ;
-        \draw[-<-=.5] (delta) -- node[midway,right] {$x$} ++(-90:1);
-        \draw[->-=.5] (delta) to[out=120,in=-90] node[midway,left] {$x$} ++(-1,{1+sqrt(3)});
-        \draw[->-=.5] (delta) -- node[midway,below right] {$x$} (mu);
-        \draw[-<-=.5] (mu) to[out=-60,in=90] node[midway,right] {$x$} ++(1,{-1-sqrt(3)});
-        \draw[->-=.5] (mu) -- node[midway,left] {$x$} ++(90:1);
-    \end{tikzpicture}
-    &\quad = 
-    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \path coordinate[bullet,label=right:$\mu$] (mu)
-        ++(0,2) coordinate[bullet,label=left:$\Delta$] (delta)
-        ;
-        \draw[-<-=.5] (mu) -- node[midway, left] {$x$} ++(-120:1);
-        \draw[-<-=.5] (mu) -- node[midway, right] {$x$} ++(-60:1);
-        \draw[->-=.5] (mu) -- node[midway,right] {$x$} (delta);
-        \draw[->-=.5] (delta) -- node[midway, right] {$x$} ++(60:1);
-        \draw[->-=.5] (delta) -- node[midway, left] {$x$} ++(120:1);
-    \end{tikzpicture}
-    = \quad
-    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \path coordinate[bullet,label=right:$\Delta$] (delta)
-        ++(120:2) coordinate[bullet,label=left:$\mu$] (mu)
-        ;
-        \draw[-<-=.5] (delta) -- node[midway,left] {$x$} ++(-90:1);
-        \draw[->-=.5] (delta) to[out=60,in=-90] node[midway,left] {$x$} ++(1,{1+sqrt(3)});
-        \draw[->-=.5] (delta) -- node[midway,above right] {$x$} (mu);
-        \draw[-<-=.5] (mu) to[out=-120,in=90] node[midway,right] {$x$} ++(-1,{-1-sqrt(3)});
-        \draw[->-=.5] (mu) -- node[midway,right] {$x$} ++(90:1);
-    \end{tikzpicture}
-\end{align}
-
-\begin{mydef}[label=def:sym-Frobenius]{対称Frobenius代数}
-    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\,r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
-
-    $\Cat{C}$ の\hyperref[def:Frobenius-alg]{Frobenius代数} $(x,\, \mu,\, \upsilon,\, \Delta,\, \epsilon)$ が\textbf{対称} (symmetric) であるとは，
-    以下の図式を可換にすることを言う：
-    \begin{center}
-        \begin{tikzcd}[row sep=large, column sep=large]
-            &x \ar[r, "\rcoev_x \otimes \Id_x"]\ar[d, "\Id_x \otimes \lcoev_x"'] &\rdual{x} \otimes x \otimes x \ar[d, "\Id_{\rdual{x}} \otimes \mu"] \\
-            &x \otimes x \otimes x^* \ar[d, "\mu \otimes \Id_{x^*}"'] &\rdual{x} \otimes x \ar[d, "\Id_{\rdual{x}} \otimes \epsilon"]\\
-            &x \otimes x^* \ar[r, "\epsilon \otimes \Id_{x^*}"'] &\rdual{x}
-        \end{tikzcd}
-    \end{center}
-\end{mydef}
-
-ストリング図式では
-\begin{align}
-    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \coordinate (a) at (0,0);
-        \coordinate (b1) at (0,2);
-        \coordinate (b2) at (1,2);
-        \coordinate (b3) at (2,2);
-        \coordinate (c1) at (0.5,3);
-        \coordinate (c2) at (2,4);
-        \node[bullet] (M) at (barycentric cs:b1=0.7,b2=0.7,c1=1) {};
-        \node[above right] at (M) {$\mu$};
-        \node[bullet] (E) at (c1) {};
-        \node[above] at (E) {$\epsilon$};
-        \draw[->-=.5] (a) -- node[midway,left] {$x$} (b1);
-        \draw[->-=.5] (b1) to [out=90,in=-150] (M);
-        \draw[->-=.5] (b2) to [out=90,in=-30] (M);
-        \draw[->-=.5] (M) -- (c1);
-        \draw[->-=.5] (c2) -- node[midway, right] {$x^*$} (b3);
-        \LCOEV{b2}{b3}
-    \end{tikzpicture}
-    \quad = \quad
-    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-        \coordinate (a) at (2,0);
-        \coordinate (b1) at (0,2);
-        \coordinate (b2) at (1,2);
-        \coordinate (b3) at (2,2);
-        \coordinate (c1) at (0,4);
-        \coordinate (c2) at (1.5,3);
-        \node[bullet] (M) at (barycentric cs:b2=0.7,b3=0.7,c2=1) {};
-        \node[above right] at (M) {$\mu$};
-        \node[bullet] (E) at (c2) {};
-        \node[above] at (E) {$\epsilon$};
-        \draw[->-=.5] (a) -- node[midway,right] {$x$} (b3);
-        \draw[->-=.5] (b2) to [out=90,in=-150] (M);
-        \draw[->-=.5] (b3) to [out=90,in=-30] (M);
-        \draw[->-=.5] (M) -- (c2);
-        \draw[->-=.5] (c1) -- node[midway, left] {$\rdual{x}$} (b1);
-        \RCOEV{b1}{b2}
-    \end{tikzpicture}
-\end{align}
-となる．
-
-\begin{mydef}[label=def:special-Frobenius]{特殊Frobenius代数}
-    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\,r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
-
-    $\Cat{C}$ の\hyperref[def:Frobenius-alg]{Frobenius代数} $(x,\, \mu,\, \upsilon,\, \Delta,\, \epsilon)$ が\textbf{特殊} (special) であるとは，
-    $\Cat{C}$ の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$ が\hyperref[def:algobj]{余積} $\Delta \colon x \lto x \otimes x$ によって\hyperref[def:separable-alg]{分離可能}であることを言う\footnote{これは~\cite[p.17]{coecke2008quantummeasurementssums}に倣った定義である．ある $\beta_x,\, \beta_1 \in \mathbb{K}^\times$ が存在して $\mu \circ \Delta = \beta_x \Id_x,\; \epsilon \circ \upsilon = \beta_1 \Id_1$ が成り立つことを，special Frobenius algebraの定義とする場合もある~\cite[Definition 3.4-(i)]{Fuchs2002cm}}．
-    i.e. $\mu \circ \Delta = \Id_x$ が成り立つこと．
-\end{mydef}
-
-
-\subsection{加群圏におけるinternal hom}
-
-
-\begin{mydef}[label=def:internal-hom,breakable]{加群圏におけるinternal hom}
-    $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r)$ を\hyperref[redef:monoidal-category]{モノイダル圏}とする．
-    \hyperref[def:modulecat]{左 $\Cat{C}$-加群圏} $(\mathcal{M},\, \btr,\, \alpha,\, \lambda)$ を与える．
-    $\Cat{M}$ の\textbf{internal hom}とは，以下のデータの組のこと：
-    \begin{itemize}
-        \item 関手
-        \begin{align}
-            \multimap \colon \OP{\Cat{M}} \times \Cat{M} \lto \VEC{\mathbb{K}}
-        \end{align}
-        \item 
-        \textbf{currying}と呼ばれる\hyperref[def:nat]{自然同型}
-        \begin{align}
-            \Familyset[\big]{c_{x,\, m_1,\, m_2} \colon \Hom{}(x \btr m_1,\, m_2) \xrightarrow{\cong} \Hom{}(x,\, m_1 \multimap m_2)}{x \in \Obj{\Cat{C}},\, Y,\, Z \in \Obj{\mathcal{C}}}
-        \end{align}
-    \end{itemize}    
-\end{mydef}
 
 \section{組紐付きテンソル圏}
 
@@ -4104,6 +3240,997 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
     \end{enumerate}
     
 \end{proof}
+
+\section{加群圏}
+
+\subsection{左/右加群圏}
+
+\begin{mydef}[label=def:modulecat,breakable]{左/右加群圏}
+    $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r)$ を\hyperref[redef:monoidal-category]{モノイダル圏}とする．
+    \textbf{左 $\Cat{C}$-加群圏} (left $\Cat{C}$-module category) $\Cat{M}$ は，以下のデータからなる：
+    \begin{itemize}
+        \item 圏 $\Cat{M}$
+        \item \textbf{左加群積} (left module product) と呼ばれる関手\footnote{記号として $\oslash$ を使うこともある（参考：\url{https://ncatlab.org/nlab/show/action+of+a+monoidal+category}）．} $\btr \colon \Cat{C} \times \Cat{M} \lto \Cat{M}$
+        \item \textbf{left actor}と呼ばれる\hyperref[def:nat]{自然同型} $\Familyset[\big]{\alpha_{x,\, y,\, m} \colon (x \otimes y) \btr m \lto x \btr (y \btr m)}{x,y \in \Obj{\Cat{C}},\, m \in \Obj{\Cat{M}}}$
+        \item \textbf{left unitor}と呼ばれる\hyperref[def:nat]{自然同型} $\Familyset[\big]{\lambda_{m} \colon 1 \btr m \lto m}{m \in \Obj{\Cat{M}}}$
+    \end{itemize}
+    これらは以下の条件を充たさねばならない：
+    \begin{description}
+        \item[\textbf{(lMod-1)}] $\forall x,\,y,\, z \in \Obj{\Cat{C}},\; \forall m \in \Obj{\Cat{M}}$ に対して以下の図式を可換にする：
+        \begin{flushleft}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                & &\bigl( (x \otimes y) \otimes z \bigr) \btr m \ar[ddl, "a_{x,y,z}\btr \Id_m"']\ar[dr, "\alpha_{x\otimes y,z,m}"] & \\
+                & & &(x\otimes y) \btr (z \btr m) \ar[dd, "\alpha_{x,y,z\btr m}"] \\
+                &\bigl( x \otimes (y \otimes z) \bigr) \btr m \ar[ddr, "\alpha_{x,y\otimes z,m}"'] & & \\
+                & & &x \btr \bigl( y \btr (z \btr m) \bigr)  \\
+                & &x \btr \bigl( (y \otimes z) \btr m \bigr) \ar[ur, "\Id_x \btr \alpha_{y,z,m}"'] &
+            \end{tikzcd}
+        \end{flushleft}
+        \item[\textbf{(lMod-2)}] $\forall x \in \Cat{C},\; \forall m \in \Cat{M}$ に対して以下の図式を可換にする：
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &(x \otimes 1) \btr m \ar[rr, "\alpha_{x,1,m}"]\ar[dr, "r_x \btr \Id_m"'] & &x \btr (1 \btr m) \ar[dl, "\Id_x \btr \textcolor{red}{\lambda_m}"] \\
+                & &x \btr m &
+            \end{tikzcd}
+        \end{center}
+        
+    \end{description}
+
+    \tcblower
+
+    $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r)$ を\hyperref[redef:monoidal-category]{モノイダル圏}とする．
+    \textbf{右 $\Cat{C}$-加群圏} $\Cat{M}$ は，以下のデータからなる：
+    \begin{itemize}
+        \item 圏 $\Cat{M}$
+        \item \textbf{右加群積} (left module product) と呼ばれる関手\footnote{記号として $\oslash$ を使うこともある（参考：\url{https://ncatlab.org/nlab/show/action+of+a+monoidal+category}）．} $\btr \colon \Cat{C} \times \Cat{M} \lto \Cat{M}$
+        \item \textbf{right actor}と呼ばれる\hyperref[def:nat]{自然同型} $\Familyset[\big]{\beta_{m,\, x,\, y} \colon m \btl (x \otimes y) \lto (m \btl x) \btl y}{x,y \in \Obj{\Cat{C}},\, m \in \Obj{\Cat{M}}}$
+        \item \textbf{right unitor}と呼ばれる\hyperref[def:nat]{自然同型} $\Familyset[\big]{\rho_{m} \colon m \btl 1 \lto m}{m \in \Obj{\Cat{M}}}$
+    \end{itemize}
+    これらは以下の条件を充たさねばならない：
+    \begin{description}
+        \item[\textbf{(rMod-1)}] $\forall x,\,y,\, z \in \Obj{\Cat{C}},\; \forall m \in \Obj{\Cat{M}}$ に対して以下の図式を可換にする：
+        \begin{center}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBbAAgB0eAjHI14CsAc0YAKAB4iIeDvC6SAnnIVKAXgEo+-cQCdtIAL6l0mXPkIoATKWLU6TVu0nc9QrtO0jBw1XUsRTguHVNzEAxsPAIiewBmJwYWNkQQPXEpdz8vH1zhFUyxIwKwiIsY6yJyUltklzTOMuLs2T55YKUVXw6NUM1iowqoy1ibElIAFgbU9laczwD2nk6Qrh6h3oEvTVMnGCgxeCJQADMDCA4kWpAcCCQyZzn0vRgcegB9YA5SaVIiqt+mETCMLldHjR7kh7M9XK8BO8vj8yv8VKRNKCzOdLtdELdoYgEjRGPR+DBGAAFMbVdIGcQACxwIBoKXhGR4AEkoJ8PDthMi0RisZFwXjiXcHogpqzGvNER9vr9pH0uqF0SCWSBSeSqTS4nTGczsSAxUgZZKYbKXhzyYqfn8ASYWlyeXsTJQTEA
+            \begin{tikzcd}
+                                                                                                 & m \btl \bigl(x \otimes (y \otimes z)\bigr) \arrow[rd, "{\beta_{m,x,y\otimes z}}"] \arrow[ldd, "{\Id_m \btl a_{x,y,z}}"'] &                                                                    \\
+                                                                                                 &                                                                                                                          & (m \btl x) \btl (y \otimes z) \arrow[dd, "{\beta_{m \btl x,y,z}}"] \\
+            m \btl \bigl((x \otimes y) \otimes z\bigr) \arrow[rdd, "{\beta_{m,x\otimes y, z}}"'] &                                                                                                                          &                                                                    \\
+                                                                                                 &                                                                                                                          & \bigl((m \btl x) \btl y\bigr) \btl z                               \\
+                                                                                                 & \bigl(m \btl (x \otimes y)\bigr) \btl z \arrow[ru, "{\beta_{m,x,y} \btl \Id_z}"]                                         &                                                                   
+            \end{tikzcd}
+        \end{center}
+        \item[\textbf{(rMod-2)}] $\forall x \in \Cat{C},\; \forall m \in \Cat{M}$ に対して以下の図式を可換にする：
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &m \btl (1 \otimes x) \ar[rr, "\beta_{m,1,x}"]\ar[dr, "\Id_m \btl l_x"'] & &(m \btl 1) \btl x \ar[dl, "\textcolor{red}{\rho_m} \btl \Id_x"] \\
+                & &m \btl x &
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+    
+\end{mydef}
+
+$\Cat{C}$ が\hyperref[def:tensorfusion-cat]{多重テンソル圏}である場合は，\hyperref[def:modulecat]{左/右加群積}が射について $\mathbb{K}$-双線形であること，および両方の引数について\hyperref[def:additive-exact]{完全関手}になっていることを要請する\footnote{実際には，第1/第2引数について完全になっていさえいれば残りの引数についても自動的に完全になる~\cite[EXERCISE7.3.2, p.135]{etingof2015tensor}}．
+
+\begin{mydef}[label=def:module-functor,breakable]{加群関手}
+    $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r)$ を\hyperref[redef:monoidal-category]{モノイダル圏}，$(\Cat{M}_i,\, \btr_i,\, \alpha_i,\, \lambda_i) \WHERE i =1,\, 2$ を\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏}とする．
+    \textbf{左 $\Cat{C}$-加群関手} (left $\Cat{C}$-module functor) は，以下のデータからなる：
+    \begin{itemize}
+        \item 関手 $F \colon \Cat{M}_1 \lto \Cat{M}_2$
+        \item \hyperref[def:nat]{自然同型} $\Familyset[\big]{s_{x,m} \colon F(x \btr_1 m) \lto x \btr_2 F(m)}{x \in \Obj{\Cat{C}},\; m \in \Obj{\Cat{M}_1}}$
+    \end{itemize}
+    これらは以下の条件を充たさねばならない：
+    \begin{description}
+        \item[\textbf{(pentagon identity)}] $\forall x,\, y \in \Obj{\Cat{C}},\; \forall m \in \Obj{\Cat{M}_1}$ に対して以下の図式を可換にする：
+        \begin{flushleft}
+            \begin{tikzcd}[row sep=large]
+                & &F \bigl( (x \otimes y) \btr_1 m \bigr) \ar[ddl, "F(\alpha_1{}_{x,y,m})"']\ar[dr, "s_{x\otimes y,m}"] & \\
+                & & &(x \otimes y) \btr_2 F(m) \ar[dd, "\alpha_2{}_{x,y,F(m)}"] \\
+                &F \bigl( x \btr_1 (y \btr_1 m) \bigr) \ar[ddr, "s_{x,y \btr_1 m}"'] & & \\
+                & & &x \btr_2 \bigl( y \btr_2 F(m) \bigr) \\
+                & &x \btr_2 F(y \btr_1 m) \ar[ur, "\Id_x \btr_2 s_{y,m}"'] &
+            \end{tikzcd}
+        \end{flushleft}
+        
+        \item[\textbf{(triangle identity)}] $\forall m \in \Cat{M}_1$ に対して以下の図式を可換にする：
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &F(1 \btr_1 m) \ar[rr, "s_{1,m}"]\ar[dr, "F(\lambda_1{}_m)"'] & &1 \btr_2 F(m) \ar[dl, "\lambda_2{}_{F(m)}"] \\
+                & &F(m) &
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+    
+    \tcblower
+
+    $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r)$ を\hyperref[redef:monoidal-category]{モノイダル圏}，$(\Cat{M}_i,\, \btl_i,\, \beta_i,\, \rho_i) \WHERE i =1,\, 2$ を\hyperref[def:modulecat]{右 $\Cat{C}$-加群圏}とする．
+    \textbf{右 $\Cat{C}$-加群関手} (right $\Cat{C}$-module functor) は，以下のデータからなる：
+    \begin{itemize}
+        \item 関手 $F \colon \Cat{M}_1 \lto \Cat{M}_2$
+        \item \hyperref[def:nat]{自然同型} $\Familyset[\big]{t_{m,x} \colon F(m \btl_1 x) \lto F(m) \btl_2 x}{x \in \Obj{\Cat{C}},\; m \in \Obj{\Cat{M}_1}}$
+    \end{itemize}
+    これらは以下の条件を充たさねばならない：
+    \begin{description}
+        \item[\textbf{(pentagon identity)}] $\forall x,\, y \in \Obj{\Cat{C}},\; \forall m \in \Obj{\Cat{M}_1}$ に対して以下の図式を可換にする：
+        \begin{flushleft}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQAxAHS4CMsA5owAUAWwAEPXjkYB9YuOEAPSVwh5R8cQE8AlFMEAnXSAC+pdJlz5CKAEyli1Ok1bsOY3auly7ilTzqWJpwOibmlth4BEQOAMzODCxsiCAGQsIeol5SMrJ+SunG3nl+2mYWIBhRNkTkpHaJrimc6SJiJXIKSjl8eQraReGV1dYxKGQALE3J7h25XeI9nfk6Zs4wUALwRKAAZoYQokj1IDgQSGQus6k4ssCipIVqGlraphX7h8eIV+dIDmublSUhgOHo+WApnuWV0T1I7xANEY9F4MEYAAUrNFbCBGDA9jhPiADkcTjR-og4sjUeisTVxiBDIIABZEmhJYGcYSg8HyKH3R5KBGmYZfMlUikXRCTDnNdh3B4rboipF42mY7G1VLMgRs4mkn6ys7SwGclqKoWmFZ+HgASSgsnKNLRmoZuN1+tMlFMQA
+            \begin{tikzcd}
+                                                                                  & F\bigl(m \btl_1 (x \otimes y)\bigr) \arrow[rd, "{t_{m,x\otimes y}}"] \arrow[ldd, "{F(\beta_1{}_{m,x,y})}"'] &                                                                \\
+                                                                                  &                                                                                                             & F(m) \btl_2 (x \otimes y) \arrow[dd, "{\beta_2{}_{F(m),x,y}}"] \\
+            F\bigl((m \btl_1 x) \btl_1 y\bigr) \arrow[rdd, "{t_{m \btl_1 x,y}}"'] &                                                                                                             &                                                                \\
+                                                                                  &                                                                                                             & \bigl(F(m) \btl_2 x\bigr) \btl_2 y                             \\
+                                                                                  & F(m \btl_1 x) \btl_2 y \arrow[ru, "{t_{m,x} \btl_2 \Id_y}"']                                                &                                                               
+            \end{tikzcd}
+        \end{flushleft}
+        
+        \item[\textbf{(triangle identity)}] $\forall m \in \Cat{M}_1$ に対して以下の図式を可換にする：
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &F(m \btl_1 1) \ar[rr, "t_{m,1}"]\ar[dr, "F(\rho_1{}_m)"'] & &F(m) \btl_2 1 \ar[dl, "\rho_2{}_{F(m)}"] \\
+                & &F(m) &
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+\end{mydef}
+
+\begin{mydef}[label=def:module-nat,breakable]{加群圏の自然変換}
+    $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r)$ を\hyperref[redef:monoidal-category]{モノイダル圏}，
+    $(\Cat{M}_i,\, \btr_i,\, \alpha_i,\, \lambda_i) \WHERE i=1,\, 2$ を\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏}，
+    $(F_i \colon \Cat{M}_1 \lto \Cat{M}_2,\; s_i) \WHERE i=1,\, 2$ を\hyperref[def:module-functor]{左 $\Cat{C}$-加群関手}とする．
+    このとき，\hyperref[def:nat]{自然変換}
+    \begin{center}
+        \begin{tikzcd}[row sep=large, column sep=large]
+            \Cat{M}_1 \ar[bend left=50,r, "F_1"{name=U, above}] \ar[bend right=50,r, "F_2"{name=D, below}] &\Cat{M}_2
+            \ar[Rightarrow, from=U, to=D, red, "\tau"]
+        \end{tikzcd}
+    \end{center}
+    が\textbf{左 $\Cat{C}$-加群圏の自然変換}であるとは，$\forall x \in \Cat{C},\; \forall m \in \Cat{M}_1$ に対して以下の図式が可換になること：
+    \begin{description}
+        \item[\textbf{(左加群積の保存)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &F_1(x \btr_1 m) \ar[r, "s_1{}_{x,m}"]\ar[d,red,"\tau_{x \btr_1 m}"'] &x \btr_2 F_1(m) \ar[d, red,"\Id_x \btr_2 \tau_m"] \\
+                &F_2(x \btr_1 m) \ar[r, "s_2{}_{x,m}"'] &x \btr_2 F_2(m)
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+    
+    \tcblower
+
+    $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r)$ を\hyperref[redef:monoidal-category]{モノイダル圏}，
+    $(\Cat{M}_i,\, \btl_i,\, \beta_i,\, \rho_i) \WHERE i=1,\, 2$ を\hyperref[def:modulecat]{右 $\Cat{C}$-加群圏}，
+    $(F_i \colon \Cat{M}_1 \lto \Cat{M}_2,\; t_i) \WHERE i=1,\, 2$ を\hyperref[def:module-functor]{右 $\Cat{C}$-加群関手}とする．
+    このとき，\hyperref[def:nat]{自然変換}
+    \begin{center}
+        \begin{tikzcd}[row sep=large, column sep=large]
+            \Cat{M}_1 \ar[bend left=50,r, "F_1"{name=U, above}] \ar[bend right=50,r, "F_2"{name=D, below}] &\Cat{M}_2
+            \ar[Rightarrow, from=U, to=D, red, "\tau"]
+        \end{tikzcd}
+    \end{center}
+    が\textbf{右 $\Cat{C}$-加群圏の自然変換}であるとは，$\forall x \in \Cat{C},\; \forall m \in \Cat{M}_1$ に対して以下の図式が可換になること：
+    \begin{description}
+        \item[\textbf{(右加群積の保存)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &F_1(m \btl_1 x) \ar[r, "t_1{}_{m,x}"]\ar[d,red,"\tau_{m \btl_1 x}"'] &F_1(m) \btl_2 x \ar[d, red,"\tau_m \btl_2 \Id_x"] \\
+                &F_2(m \btl_1 x) \ar[r, "t_2{}_{m,x}"'] &F_2(m) \btr_2 x
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+\end{mydef}
+
+\begin{mydef}[label=def:modulecat-exact]{加群圏の完全性}
+    十分\hyperref[def:finite-abcat]{射影的対象}を持つ\hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
+
+    \hyperref[def:finite-abcat]{局所有限}な\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏} $(\Cat{M},\, \btr,\, \alpha,\, \lambda)$ が\textbf{完全} (exact) であるとは，任意の射影的対象 $p \in \Obj{\Cat{C}}$ および任意の対象 $m \in \Cat{M}$ に対して $p \btr m$ が $\Cat{M}$ の射影的対象になることを言う．
+\end{mydef}
+
+\subsection{両側加群圏}
+
+\begin{mydef}[label=def:bimodulecat,breakable]{両側加群圏}
+    $(\Cat{C}_i,\, \otimes_i,\, 1,\, a_i,\, l_i,\, r_i) \WHERE i =1,\, 2$ を\hyperref[redef:monoidal-category]{モノイダル圏}とする．
+    \textbf{$(\Cat{C}_1,\, \Cat{C}_2)$-両側加群圏} ($(\Cat{C}_1,\, \Cat{C}_2)$-bimodule category) $\Cat{M}$ は，以下のデータからなる：
+    \begin{itemize}
+        \item 圏 $\Cat{M}$
+        \item \textbf{左加群積}と呼ばれる関手 $\btr \colon \Cat{C}_1 \times \Cat{M} \lto \Cat{M}$
+        \item \textbf{右加群積}と呼ばれる関手 $\btl \colon \Cat{M} \times \Cat{C}_2 \lto \Cat{M}$
+        \item \textbf{left actor} と呼ばれる\hyperref[def:nat]{自然同型}
+        \begin{align}
+            \Familyset[\big]{\alpha_{x_1,\, y_1,\, m} \colon (x_1 \otimes y_1) \btr m \lto x_1 \btr (y_1 \btr m)}{x_1,y_1\in \Obj{\Cat{C}_1},\, m \in \Obj{\Cat{M}}}
+        \end{align}
+        \item \textbf{left unitor}と呼ばれる\hyperref[def:nat]{自然同型} $\Familyset[\big]{\lambda_{m} \colon 1 \btr m \lto m}{m \in \Obj{\Cat{M}}}$
+        \item \textbf{right actor} と呼ばれる\hyperref[def:nat]{自然同型}
+        \begin{align}
+            \Familyset[\big]{\beta_{m,\, x_2,\, y_2} \colon m \btl (x_2 \otimes y_2) \lto  (m \btl x_2) \btl y_2}{x_2,y_2 \in \Obj{\Cat{C}_2},\, m \in \Obj{\Cat{M}}}
+        \end{align}
+        \item \textbf{right unitor}と呼ばれる\hyperref[def:nat]{自然同型} $\Familyset[\big]{\rho_{m} \colon m \btl 1 \lto m}{m \in \Obj{\Cat{M}}}$
+        \item \textbf{middle actor} と呼ばれる\hyperref[def:nat]{自然同型}
+        \begin{align}
+            \Familyset[\big]{b_{x_1,\,m,\, x_2} \colon (x_1 \btr m) \btl x_2 \lto  x_1 \btr (m \btl x_2)}{x_1 \in \Obj{\Cat{C}_1},\, x_2 \in \Obj{\Cat{C}_2} m \in \Obj{\Cat{M}}}
+        \end{align}
+    \end{itemize}
+    これらは以下の条件を充たさねばならない：
+    \begin{description}
+        \item[\textbf{(Bimod-1)}] 組 $(\Cat{M},\, \btr,\, \alpha,\, \lambda)$ は\hyperref[def:modulecat]{左 $\Cat{C}_1$-加群圏}である．
+        \item[\textbf{(Bimod-2)}] 組 $(\Cat{M},\, \btl,\, \beta,\, \rho)$ は\hyperref[def:modulecat]{右 $\Cat{C}_2$-加群圏}である．
+        \item[\textbf{(Bimod-3)}] $\forall x_i,\, y_i \in \Obj{\Cat{C}_i},\; \forall m \in \Obj{\Cat{M}}$ に対して以下の図式を可換にする：
+        \begin{flushleft}
+            \begin{tikzcd}[row sep=large]
+                & &\bigl( (x_1 \otimes_1 y_1) \btr m \bigr) \btl x_1 \ar[ddl, "\alpha_{x_1,y_1,m} \btr \Id_{x_1}"']\ar[dr, "b_{x_1\otimes_1 y_1,m,x_2}"] & \\
+                & & &(x_1\otimes_1 y_1) \btr (m \btl x_2) \ar[dd, "\alpha_{x_1,y_1,m\btl x_2}"] \\
+                &\bigl( x_1 \btr (y_1 \btr m) \bigr) \btl x_1 \ar[ddr, "b_{x_1,y_1\btr m,x_2}"'] & & \\
+                & & &x_1 \btr \bigl( y_1 \btr (m \btl x_2) \bigr) \\
+                & &x_1 \btr \bigl( (y_1 \btr m) \btl x_1 \bigr) \ar[ur, "\Id_{x_1} \btr b_{y_1,m,x_2}"'] &
+            \end{tikzcd}%
+        \end{flushleft}
+        \begin{flushleft}
+            \begin{tikzcd}[row sep=large]
+                &                           &x_1 \btr \bigl(m \btl (x_2 \otimes_2 y_2) \bigr) \ar[ddl, "\Id_{x_1} \btr \beta_{m,x_2,y_2}"']& \\
+                &                           &                                                                                              &(x_1 \btr m) \btl (x_2 \otimes_2 y_2) \ar[ul, "b_{x_1,m,x_2\otimes_2 y_2}"']\ar[dd, "\beta_{x_1 \btr m,x_2,y_2}"] \\
+                &x_1 \btr \bigl( (m \btl x_2) \btl y_2 \bigr)  & & \\
+                &                           &                                                                                              &\bigl( (x_1 \btr m) \btl x_2 \bigr) \btl y_2 \ar[dl, "b_{x_1,m,x_2} \btl \Id_{y_2}"] \\
+                &                           &\bigl( x_1 \btr (m \btl x_2) \bigr)  \btl y_2 \ar[uul, "b_{x_1,m\btl x_2,y_2}"]               &
+            \end{tikzcd}%
+        \end{flushleft}
+        
+    \end{description}
+\end{mydef}
+
+\begin{mydef}[label=def:bimod-functor,breakable]{両側加群関手}
+    $(\Cat{C}_i,\, \otimes_i,\, 1,\, a_i,\, l_i,\, r_i) \WHERE i =1,\, 2$ を\hyperref[redef:monoidal-category]{モノイダル圏}とし，
+    $(\Cat{M}_i;\, \btr_i,\, \btl_i;\, \alpha_i,\, \beta_i,\, b_i;\, \lambda_i,\, \rho_i) \WHERE i =1,\, 2$ を\hyperref[def:bimodulecat]{$(\Cat{C}_1,\, \Cat{C}_2)$-両側加群圏}とする．
+    \textbf{両側加群関手} (bimodule functor) とは，以下のデータからなる：
+    \begin{itemize}
+        \item 関手 $F \colon \Cat{M}_1 \lto \Cat{M}_2$
+        \item 自然同型 $\Familyset[\big]{s_{x_1,m} \colon F(x_1 \btr_1 m) \lto x_1 \btr_2 F(m)}{x_1 \in \Obj{\Cat{C}_1},\, m \in \Obj{\Cat{M}}}$
+        \item 自然同型 $\Familyset[\big]{t_{m,x_2} \colon F(m \btl_1 x_2) \lto F(m) \btl_2 x_2}{x_2 \in \Obj{\Cat{C}_2},\, m \in \Obj{\Cat{M}}}$
+    \end{itemize}
+    これらは以下の条件を充たさねばならない：
+    \begin{description}
+        \item[\textbf{(左加群関手)}] 2つ組み $\bigl(F,\, \Familyset[\big]{s_{x_1,m}}{x_1 \in \Obj{\Cat{C}_1},\, m \in \Obj{\Cat{M}}}\bigr)$ は\hyperref[def:module-functor]{左 $\Cat{C}_1$-加群関手}である．
+        \item[\textbf{(右加群関手)}] 2つ組み $\bigl(F,\, \Familyset[\big]{t_{m,x_2}}{x_2 \in \Obj{\Cat{C}_2},\, m \in \Obj{\Cat{M}}}\bigr)$ は\hyperref[def:module-functor]{右 $\Cat{C}_2$-加群関手}である．
+        \item[\textbf{(middle actorに関するhexagon identity)}]
+        $\forall x_1 \in \Obj{\Cat{C}_1},\, \forall m \in \Obj{\Cat{M}},\, \forall x_2 \in \Cat{C}_2$ に対して以下の図式を可換にする：
+        \begin{center}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQAxAHS4CMsA5owAUwgB4B9YgAIevHACcp0gLYBKWXxyNlkgExzBCtSAC+pdJlz5CKPaWLU6TVuw7jlcxcvWb5OvWl9MwsQDGw8AiJyUj0nBhY2RBBJGS8lQI5pYRU-bV0JPRNzSwibaId4lyTOQyEPNK0lGRy8nRl9NTrjENLrKJQyAGYqxPZUvIy-QRF3Xy8AoMLu4tDw-ttkeziaBNdkupEJ9MLpOY0VttP9aTMnGCgBeCJQADMFCBUkGJAcCCQyM4xskcBJgMcmj5SPpTCAaIx6LwYIwAApWSK2ECMGCvHC9EDvT7fGh-JBDXbVNzCXhSYCmMGpUgqaGFUwmeGI5FosoDEAKQQACzxJQJHy+iHJv3+iHsWM5qPR5WS-IEQrhQP2IDgDKkTKuHVZ+MJ4tlpMQABYOUiFTzMSq1RTgSAeABJKA64imSanUHAZmpWEi40AknSgCsjs12vBupUXoWp1d7pjekDoWDiAjUqQlo1NRpejpHtI5xZqbupiAA
+            \begin{tikzcd}
+                                                                                            & F\bigl((x_1 \btr_1 m) \btl_1 x_2\bigr) \arrow[rd, "{t_{x_1 \btr_1 m,x_2}}"] \arrow[ld, "{F(b_1{}_{x_1,m,x_2})}"'] &                                                                               \\
+                F\bigl(x_1 \btr_1 (m \btl_1 x_2)\bigr) \arrow[d, "{s_{x_1,m \btl_1 x_2}}"'] &                                                                                                                   & F(x_1 \btr_1 m) \btl_2 x_2 \arrow[d, "{s_{x_1,m} \btl_2 \Id_{x_2}}"]          \\
+                x_1 \btr_2 F (m \btl_1 x_2) \arrow[rd, "{\Id_{x_1} \btr_2 t_{m,x_1}}"']     &                                                                                                                   & \bigl(x_1 \btr_2 F(m) \bigr) \btl_2 x_2  \arrow[ld, "{b_2{}_{x_1,F(m),x_2}}"] \\
+                                                                                            & x_1 \btr_2 \bigl(F(m) \btl_2 x_2\bigr)                                                                            &                                                                              
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+    
+\end{mydef}
+
+
+\subsection{代数と加群}
+
+\begin{mydef}[label=def:algobj,breakable]{代数対象}
+    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
+    $ \Cat{C}$ の\textbf{代数対象} (algebra object) $x$ とは，以下のデータからなる：
+    \begin{itemize}
+        \item $\Cat{C}$ の対象 $x \in \Obj{\Cat{C}}$ 
+        \item \textbf{乗法} (multiplication) と呼ばれる $\Cat{C}$ の射 $\mu \colon x \otimes x \lto x$
+        \item \textbf{単位} (unit) と呼ばれる $\Cat{C}$ の射 $\upsilon \colon 1 \lto x$
+    \end{itemize}
+    これらは以下の条件を充たさねばならない：
+    \begin{description}
+        \item[\textbf{(associatibity)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+              &  &(x \otimes x) \otimes x \ar[ddl, "\mu \otimes \Id_x"']\ar[dr, "a_{x,x,x}"]  &  \\
+              &  &  &x \otimes (x \otimes x)\ar[dd, "\Id_x \otimes \mu"]  \\
+              &x \otimes x\ar[ddr, "\mu"']  &  &  \\
+              &  &  &x\otimes x  \\
+              &  &x\ar[from=ur, "\mu"]  &
+            \end{tikzcd}
+        \end{center}
+    
+        \item[\textbf{(unitality)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &1 \otimes x \ar[r, "l_x"]\ar[d, "\upsilon \otimes \Id_x"'] &x \ar[d, "\Id_x"] \\
+                &x \otimes x \ar[r, "\mu"'] &x
+            \end{tikzcd}
+        \end{center}
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &x \otimes 1 \ar[r, "r_x"]\ar[d, "\Id_x \otimes \upsilon"'] &x \ar[d, "\Id_x"] \\
+                &x \otimes x \ar[r, "\mu"'] &x
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+    
+     \tcblower
+
+     \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
+    $ \Cat{C}$ の\textbf{余代数対象} (coalgebra object) $y$ とは，以下のデータからなる：
+    \begin{itemize}
+        \item $\Cat{C}$ の対象 $y \in \Obj{\Cat{C}}$ 
+        \item \textbf{余乗法} (comultiplication) と呼ばれる $\Cat{C}$ の射 $\Delta \colon y \lto y \otimes y$
+        \item \textbf{余単位} (counit) と呼ばれる $\Cat{C}$ の射 $\epsilon \colon y \lto 1$
+    \end{itemize}
+    これらは以下の条件を充たさねばならない：
+    \begin{description}
+        \item[\textbf{(coassociatibity)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+              &  &(y \otimes y) \otimes y \ar[from=ddl, "\Delta \otimes \Id_y"]\ar[from=dr, "a_{y,y,y}"']  &  \\
+              &  &  &y \otimes (y \otimes y)\ar[from=dd, "\Id_y \otimes \Delta"']  \\
+              &y \otimes y\ar[from=ddr, "\Delta"]  &  &  \\
+              &  &  &y\otimes y  \\
+              &  &y\ar[ur, "\Delta"']  &
+            \end{tikzcd}
+        \end{center}
+        
+        \item[\textbf{(unitality)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &1 \otimes y \ar[from=r, "l_y"']\ar[from=d, "\epsilon \otimes \Id_y"] &y \ar[from=d, "\Id_y"'] \\
+                &y \otimes y \ar[from=r, "\Delta"] &y
+            \end{tikzcd}
+        \end{center}
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &y \otimes 1 \ar[from=r, "r_y"']\ar[from=d, "\Id_y \otimes \epsilon"] &y \ar[from=d, "\Id_y"'] \\
+                &y \otimes y \ar[from=r, "\Delta"] &y
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+\end{mydef}
+
+ストリング図式で\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$ の \textsf{\textbf{(associatibity)}}, \textsf{\textbf{(unitality)}} を書くと，それぞれ
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\dx}{cos(60)}
+        \pgfmathsetmacro{\dy}{sin(60)}
+        \node[bullet] (m1) at (0,0) {};
+        \node[bullet] (m2) at ($(m1) + (\dx,\dy)$) {};
+        \node[right] () at (m1) {$\mu$};
+        \node[right] () at (m2) {$\mu$};
+        \coordinate (x1) at ($(m1) + (-\dx,-\dy)$);
+        \coordinate (x2) at ($(m1) + (\dx,-\dy)$);
+        \coordinate (x3) at ($(m2) + 2*(\dx,-\dy)$);
+        \coordinate (x4) at ($(m2) + (0,\dy)$);
+        \draw[->-=.5] (x1) -- node[midway, above left] {$x$} (m1);
+        \draw[->-=.5] (m1) -- node[midway, above left] {$x$} (m2);
+        \draw[->-=.5] (m2) -- node[midway, above left] {$x$} (x4);
+        \draw[->-=.5] (x2) -- node[midway, above right] {$x$} (m1);
+        \draw[->-=.5] (x3) -- node[midway, above right] {$x$} (m2);
+    \end{tikzpicture}
+    \quad &= \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\dx}{cos(60)}
+        \pgfmathsetmacro{\dy}{sin(60)}
+        \node[bullet] (m1) at (0,0) {};
+        \node[bullet] (m2) at ($(m1) + (-\dx,\dy)$) {};
+        \node[right] () at (m1) {$\mu$};
+        \node[right] () at (m2) {$\mu$};
+        \coordinate (x1) at ($(m2) + 2*(-\dx,-\dy)$);
+        \coordinate (x2) at ($(m1) + (-\dx,-\dy)$);
+        \coordinate (x3) at ($(m1) + (\dx,-\dy)$);
+        \coordinate (x4) at ($(m2) + (0,\dy)$);
+        \draw[->-=.5] (x1) -- node[midway, above left] {$x$} (m2);
+        \draw[->-=.5] (x2) -- node[midway, above left] {$x$} (m1);
+        \draw[->-=.5] (x3) -- node[midway, above right] {$x$} (m1);
+        \draw[->-=.5] (m1) -- node[midway, above right] {$x$} (m2);
+        \draw[->-=.5] (m2) -- node[midway, above left] {$x$} (x4);
+    \end{tikzpicture} \\
+    & \\
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\dx}{cos(60)}
+        \pgfmathsetmacro{\dy}{sin(60)}
+        \node[bullet] (m1) at (0,0) {};
+        \node[bullet] (m2) at ($(m1) + (\dx,\dy)$) {};
+        \node[below] () at (m1) {$\upsilon$};
+        \node[right] () at (m2) {$\mu$};
+        \coordinate (x1) at ($(m1) + (-\dx,-\dy)$);
+        \coordinate (x2) at ($(m1) + (\dx,-\dy)$);
+        \coordinate (x3) at ($(m2) + 2*(\dx,-\dy)$);
+        \coordinate (x4) at ($(m2) + (0,\dy)$);
+        % \draw[->-=.5] (x1) -- node[midway, above left] {$x$} (m1);
+        \draw[->-=.5] (m1) -- node[midway, above left] {$x$} (m2);
+        \draw[->-=.5] (m2) -- node[midway, above left] {$x$} (x4);
+        % \draw[->-=.5] (x2) -- node[midway, above right] {$x$} (m1);
+        \draw[->-=.5] (x3) -- node[midway, above right] {$x$} (m2);
+    \end{tikzpicture}
+    \quad &= \quad 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\dx}{cos(60)}
+        \pgfmathsetmacro{\dy}{sin(60)}
+        \node[bullet] (m1) at (0,0) {};
+        \node[bullet] (m2) at ($(m1) + (-\dx,\dy)$) {};
+        \node[below] () at (m1) {$\upsilon$};
+        \node[right] () at (m2) {$\mu$};
+        \coordinate (x1) at ($(m2) + 2*(-\dx,-\dy)$);
+        \coordinate (x2) at ($(m1) + (-\dx,-\dy)$);
+        \coordinate (x3) at ($(m1) + (\dx,-\dy)$);
+        \coordinate (x4) at ($(m2) + (0,\dy)$);
+        \draw[->-=.5] (x1) -- node[midway, above left] {$x$} (m2);
+        % \draw[->-=.5] (x2) -- node[midway, above left] {$x$} (m1);
+        % \draw[->-=.5] (x3) -- node[midway, above right] {$x$} (m1);
+        \draw[->-=.5] (m1) -- node[midway, above right] {$x$} (m2);
+        \draw[->-=.5] (m2) -- node[midway, above left] {$x$} (x4);
+    \end{tikzpicture}
+    \quad = \quad 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\dy}{sin(60)}
+        \draw[->-=.5] (0,0) -- node[midway, left] {$x$} (0,3*\dy);
+    \end{tikzpicture}
+\end{align}
+となり，\hyperref[def:algobj]{余代数対象} $(y,\, \Delta,\, \epsilon)$ の \textsf{\textbf{(associatibity)}}, \textsf{\textbf{(unitality)}} を書くと
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\dx}{cos(60)}
+        \pgfmathsetmacro{\dy}{sin(60)}
+        \node[bullet] (m1) at (0,0) {};
+        \node[bullet] (m2) at ($(m1) + (-\dx,\dy)$) {};
+        \node[left] () at (m1) {$\Delta$};
+        \node[left] () at (m2) {$\Delta$};
+        \coordinate (y1) at ($(m1) + (0,-\dy)$);
+        \coordinate (y2) at ($(m1) + 2*(\dx,\dy)$);
+        \coordinate (y3) at ($(m2) + (\dx,\dy)$);
+        \coordinate (y4) at ($(m2) + (-\dx,\dy)$);
+        \draw[->-=.5] (y1) -- node[midway, right] {$y$} (m1);
+        \draw[->-=.5] (m1) -- node[midway, right] {$y$} (y2);
+        \draw[->-=.5] (m1) -- node[midway, left] {$y$} (m2);
+        \draw[->-=.5] (m2) -- node[midway, right] {$y$} (y3);
+        \draw[->-=.5] (m2) -- node[midway, left] {$y$} (y4);
+    \end{tikzpicture}
+    \quad &= \quad 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\dx}{cos(60)}
+        \pgfmathsetmacro{\dy}{sin(60)}
+        \node[bullet] (m1) at (0,0) {};
+        \node[bullet] (m2) at ($(m1) + (\dx,\dy)$) {};
+        \node[left] () at (m1) {$\Delta$};
+        \node[right] () at (m2) {$\Delta$};
+        \coordinate (y1) at ($(m1) + (0,-\dy)$);
+        \coordinate (y2) at ($(m2) + (\dx,\dy)$);
+        \coordinate (y3) at ($(m2) + (-\dx,\dy)$);
+        \coordinate (y4) at ($(m1) + 2*(-\dx,\dy)$);
+        \draw[->-=.5] (y1) -- node[midway, right] {$y$} (m1);
+        \draw[->-=.5] (m2) -- node[midway, right] {$y$} (y2);
+        \draw[->-=.5] (m1) -- node[midway, right] {$y$} (m2);
+        \draw[->-=.5] (m2) -- node[midway, left] {$y$} (y3);
+        \draw[->-=.5] (m1) -- node[midway, left] {$y$} (y4);
+    \end{tikzpicture} \\
+    & \\
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\dx}{cos(60)}
+        \pgfmathsetmacro{\dy}{sin(60)}
+        \node[bullet] (m1) at (0,0) {};
+        \node[bullet] (m2) at ($(m1) + (-\dx,\dy)$) {};
+        \node[left] () at (m1) {$\Delta$};
+        \node[above] () at (m2) {$\epsilon$};
+        \coordinate (y1) at ($(m1) + (0,-\dy)$);
+        \coordinate (y2) at ($(m1) + 2*(\dx,\dy)$);
+        \coordinate (y3) at ($(m2) + (\dx,\dy)$);
+        \coordinate (y4) at ($(m2) + (-\dx,\dy)$);
+        \draw[->-=.5] (y1) -- node[midway, right] {$y$} (m1);
+        \draw[->-=.5] (m1) -- node[midway, right] {$y$} (y2);
+        \draw[->-=.5] (m1) -- node[midway, left] {$y$} (m2);
+        % \draw[->-=.5] (m2) -- node[midway, right] {$y$} (y3);
+        % \draw[->-=.5] (m2) -- node[midway, left] {$y$} (y4);
+    \end{tikzpicture}
+    \quad &= \quad 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\dx}{cos(60)}
+        \pgfmathsetmacro{\dy}{sin(60)}
+        \node[bullet] (m1) at (0,0) {};
+        \node[bullet] (m2) at ($(m1) + (\dx,\dy)$) {};
+        \node[left] () at (m1) {$\Delta$};
+        \node[above] () at (m2) {$\epsilon$};
+        \coordinate (y1) at ($(m1) + (0,-\dy)$);
+        \coordinate (y2) at ($(m2) + (\dx,\dy)$);
+        \coordinate (y3) at ($(m2) + (-\dx,\dy)$);
+        \coordinate (y4) at ($(m1) + 2*(-\dx,\dy)$);
+        \draw[->-=.5] (y1) -- node[midway, right] {$y$} (m1);
+        % \draw[->-=.5] (m2) -- node[midway, right] {$y$} (y2);
+        \draw[->-=.5] (m1) -- node[midway, right] {$y$} (m2);
+        % \draw[->-=.5] (m2) -- node[midway, left] {$y$} (y3);
+        \draw[->-=.5] (m1) -- node[midway, left] {$y$} (y4);
+    \end{tikzpicture}
+    \quad = \quad 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \pgfmathsetmacro{\dy}{sin(60)}
+        \draw[->-=.5] (0,0) -- node[midway, left] {$y$} (0,3*\dy);
+    \end{tikzpicture}
+\end{align}
+となる．
+
+\begin{mydef}[label=def:moduleobj,breakable]{加群対象}
+    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ 
+    および $\Cat{C}$ の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$ を与える．
+    
+    $\Cat{C}$ における，\textbf{左 $\bm{x}$-加群対象} (right $x$-module object) $m$ とは，以下のデータからなる：
+    \begin{itemize}
+        \item $\Cat{C}$ の対象 $m \in \Obj{\Cat{C}}$ 
+        \item \textbf{左作用} (right action) と呼ばれる $\Cat{C}$ の射 $\lambda \colon x \otimes m \lto m$
+    \end{itemize}
+    これらは以下の条件を充たさねばならない：
+    \begin{description}
+        \item[\textbf{(associativity)}]　 
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+              &  &x \otimes (x \otimes m)\ar[ddl, "\Id_x \otimes \lambda"']\ar[dr, "a_{x,x,m}^{-1}"]  &  \\
+              &  &  &(x \otimes x) \otimes m\ar[dd, "\mu \otimes \Id_m"]  \\
+              &x \otimes m \ar[ddr, "\lambda"']  &  &  \\
+              &  &  &x \otimes m  \\
+              &  &m\ar[from=ur, "\lambda"]  &
+            \end{tikzcd}
+        \end{center}
+
+        \item[\textbf{(unitarity)}]　 
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &1 \otimes m \ar[r, "l_m"]\ar[d, "\upsilon \otimes \Id_m"'] &m \ar[d, "\Id_m"] \\
+                &x \otimes m \ar[r, "\lambda"'] &m
+            \end{tikzcd}
+        \end{center}
+        
+    \end{description}
+    
+    \tcblower 
+
+    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ 
+    および $\Cat{C}$ の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$ を与える．
+    
+    $\Cat{C}$ における，\textbf{右 $\bm{x}$-加群対象} (right $x$-module object) $m$ とは，以下のデータからなる：
+    \begin{itemize}
+        \item $\Cat{C}$ の対象 $m \in \Obj{\Cat{C}}$ 
+        \item \textbf{右作用} (right action) と呼ばれる $\Cat{C}$ の射 $\rho \colon m \otimes x \lto m$
+    \end{itemize}
+    これらは以下の条件を充たさねばならない：
+    \begin{description}
+        \item[\textbf{(associativity)}]　 
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+              &  &(m \otimes x) \otimes x\ar[ddl, "\rho \otimes \Id_x"']\ar[dr, "a_{m,x,x}"]  &  \\
+              &  &  &m \otimes (x \otimes x)\ar[dd, "\Id_x \otimes \rho"]  \\
+              &m \otimes x\ar[ddr, "\rho"']  &  &  \\
+              &  &  &m \otimes x  \\
+              &  &m\ar[from=ur, "\rho"]  &
+            \end{tikzcd}
+        \end{center}
+        \item[\textbf{(unitarity)}]　 
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &m \otimes 1 \ar[r, "r_m"]\ar[d, "\Id_m \otimes \upsilon"'] &m \ar[d, "\Id_m"] \\
+                &m \otimes x \ar[r, "\rho"'] &m
+            \end{tikzcd}
+        \end{center}
+        
+    \end{description}
+    
+\end{mydef}
+
+\begin{mydef}[label=def:hom-algmod]{代数および加群の準同型}
+    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ 
+    および $\Cat{C}$ の2つの\hyperref[def:algobj]{代数対象} $(x_i,\, \mu_i,\, \upsilon_i) \WHERE i = 1,\, 2$ を与える．
+
+    このとき，\underline{$\Cat{C}$ の}射 $f \in \Hom{\Cat{C}} (x_1,\, x_2)$ が\textbf{代数準同型} (algebra homomorphism) であるとは，以下の条件を充たすことを言う：
+    \begin{description}
+        \item[\textbf{(乗法の保存)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &x_1 \otimes x_1 \ar[r, "f \otimes f"]\ar[d, "\mu_1"'] &x_2 \otimes x_2 \ar[d, "\mu_2"] \\
+                &x_1 \ar[r, "f"'] &x_2
+            \end{tikzcd}
+        \end{center}
+        
+        \item[\textbf{(単位の保存)}]　
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &1 \ar[rr, "\upsilon_1"]\ar[dr, "\upsilon_2"'] & &A_1 \ar[dl, "f"] \\
+                & &A_2 &
+            \end{tikzcd}
+        \end{center}
+        
+    \end{description}
+    
+    \tcblower
+
+        \begin{itemize}
+            \item \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ 
+            \item $\Cat{C}$ の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$
+            \item $\Cat{C}$ の2つの\hyperref[def:moduleobj]{左 $x$-加群対象} $(m_i,\, \lambda_i) \WHERE i = 1,\, 2$
+        \end{itemize}
+        を与える．
+
+        このとき，\underline{$\Cat{C}$ の}射 $f \in \Hom{\Cat{C}} (m_1,\, m_2)$ が\textbf{左 $x$-加群準同型} (left $x$-module homohorphism) であるとは，以下の条件を充たすことを言う：
+
+        \begin{description}
+            \item[\textbf{(左作用の保存)}]　
+            
+            \begin{center}
+                \begin{tikzcd}[row sep=large, column sep=large]
+                    &x \otimes m_1 \ar[r, "\Id_x \otimes f"]\ar[d, "\lambda_1"'] &x \otimes m_2 \ar[d, "\lambda_2"] \\
+                    &x_1 \ar[r, "f"'] &x_2
+                \end{tikzcd}
+            \end{center}
+            
+        \end{description}
+\end{mydef}
+
+しばらくの間 \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ および $\Cat{C}$ の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$ を1つ固定する．
+
+2つの\hyperref[def:moduleobj]{左 $x$-加群対象} $(m_i,\, \lambda_i) \WHERE i = 1,\, 2$ の間の\hyperref[def:hom-algmod]{左 $x$-加群の準同型}全体がなす集合を $\bm{\Hom{x}(m_1,\, m_2)} \subset \Hom{\Cat{C}} (m_1,\, m_2)$ と書くと，これは部分 $\mathbb{K}$-ベクトル空間をなす．
+さらに準同型の合成は準同型であるから，\hyperref[def:additive-cat]{アーベル圏} $\MODC{\Cat{C}}{x}$ を次のようにして構成することができる：
+\begin{itemize}
+    \item $\Cat{C}$ における\hyperref[def:moduleobj]{左 $x$-加群対象}を対象とする．
+    \item \hyperref[def:hom-algmod]{左 $x$-加群の準同型}を射とする．
+\end{itemize}
+同様にして $\Cat{C}$ における\hyperref[def:moduleobj]{右 $x$-加群対象}がなす圏 $\MODCR{\Cat{C}}{x}$ を定義できる．
+
+\hyperref[def:modulecat]{左加群圏}と $\MODCR{\Cat{C}}{x}$ の間には関係がある．
+今，$\Cat{C}$ における任意の\hyperref[def:moduleobj]{右 $x$-加群対象} $(m,\, \rho)$ および $\Cat{C}$ の任意の対象 $y \in \Obj{\Cat{C}}$ を与える．
+すると，$y \otimes m \in \Obj{\Cat{C}}$ と
+\begin{align}
+    \rho_{y \otimes m} \colon (y \otimes m) \otimes x \xrightarrow{a_{y,m,x}} y \otimes (m \otimes x) \xrightarrow{\Id_y \otimes \rho} y \otimes m
+\end{align}
+の組み $(y \otimes m,\, \rho_{y \otimes m})$ は右 $x$-加群になる．i.e. $(y \otimes m,\, \rho_{y \otimes m}) \in \Obj{\MODCR{\Cat{C}}{x}}$ である．
+この構成により関手
+\begin{align}
+    \label{eq:modc-product}
+    \btr \colon \Cat{C} \times \MODCR{\Cat{C}}{x} \lto \MODCR{\Cat{C}}{x}
+\end{align}
+が定義できる．さらに，$\Cat{C}$ が元々持っていたassociatorとunitorsに関しては，
+$\forall (m,\, \rho) \in \Obj{\MODCR{\Cat{C}}{x}},\; \forall y,\,z \in \Obj{\Cat{C}}$ に対して
+\begin{align}
+    a_{y,z,m} &\colon (y \otimes z) \btr m \lto y \btr (z \btr m) \\
+    l_{y} &\colon 1 \btr m \lto m
+\end{align}
+が自然な\footnote{$a \coloneqq \Familyset[\big]{a_{y,z,m}}{y,z \in \Obj{\Cat{C}},\, m \in \Obj{\MODCR{\Cat{C}}{x}}}$ が\hyperref[def:nat]{自然同型}．}\hyperref[def:hom-algmod]{右 $x$-加群の同型}になる．
+
+\begin{myprop}[label=prop:modc-modcat]{$\MODCR{\Cat{C}}{x}$ は左加群圏}
+    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ および $\Cat{C}$ の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$ を1つ与える．
+
+    このとき，組み\footnote{$\btr \colon \Cat{C} \times \MODCR{\Cat{C}}{x} \lto \MODCR{\Cat{C}}{x}$ は\eqref{eq:modc-product}で定義した関手である．} $(\MODCR{\Cat{C}}{x},\, \btr,\, a,\, l)$ は\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏}である．
+\end{myprop}
+
+\begin{proof}
+    $\forall y,\,z,\, w \in \Obj{\Cat{C}},\; \forall (m,\, \rho) \in \Obj{\MODCR{\Cat{C}}{x}}$ に対して\hyperref[def:modulecat]{\textsf{\textbf{(lMOD-1)}}, \textsf{\textbf{(lMOD-2)}}}が成り立つことを示せば良い．
+\end{proof}
+
+\begin{mydef}[label=def:tensor-overalg]{代数上のテンソル積}
+    \begin{itemize}
+        \item \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ および $\Cat{C}$ の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$
+        \item $\Cat{C}$ における\hyperref[def:moduleobj]{右 $x$-加群対象} $(m,\, \rho) \in \Obj{\MODCR{\Cat{C}}{x}}$
+        \item $\Cat{C}$ における\hyperref[def:moduleobj]{左 $x$-加群対象} $(n,\, \lambda) \in \Obj{\MODR{\Cat{C}}{x}}$
+    \end{itemize}
+    を与える．このとき，$m$ と $n$ の\textbf{$\bm{x}$ 上のテンソル積} (tensor product over $x$) $\bm{m \otimes_x n} \in \Obj{\Cat{C}}$ を，以下の図式の\hyperref[def:eq-coeq]{コイコライザ}として定義する：
+    \begin{center}
+        \begin{tikzcd}[row sep=large, column sep=large]
+            &m \otimes x \otimes n \ar[r, shift left, "\rho \otimes \Id_n"]\ar[r, shift right, "\Id_m \otimes \lambda"'] &m \otimes n \ar[r, red, "\pi"] &\textcolor{red}{m \otimes_x n}
+       \end{tikzcd}
+    \end{center}
+\end{mydef}
+
+\subsection{両側加群}
+
+\begin{mydef}[label=def:bimodobj,breakable]{両側加群}
+    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ 
+    および $\Cat{C}$ の2つの\hyperref[def:algobj]{代数対象} $(x_i,\, \mu_i,\, \upsilon_i)$ を与える．
+    $\Cat{C}$ における\textbf{$(\bm{x_1},\, \bm{x_2})$-両側加群対象} ($(x_1,\, x_2)$-bimodule object) とは，以下のデータからなる：
+    \begin{itemize}
+        \item $\Cat{C}$ の対象 $m \in \Obj{\Cat{C}}$ 
+        \item \textbf{左作用} (left action) と呼ばれる $\Cat{C}$ の射 $\lambda \colon x_1 \otimes m \lto m$
+        \item \textbf{右作用} (right action) と呼ばれる $\Cat{C}$ の射 $\rho \colon m \otimes x_2 \lto m$
+    \end{itemize}
+    これらは以下の条件を充たさねばならない：
+    \begin{description}
+        \item[\textbf{(bimod-1)}] 組 $(m,\, \lambda)$ は $\Cat{C}$ の\hyperref[def:moduleobj]{左 $x_1$-加群対象}
+        \item[\textbf{(bimod-2)}] 組 $(m,\, \rho)$ は $\Cat{C}$ の\hyperref[def:moduleobj]{右 $x_2$-加群対象}
+        \item[\textbf{(bimod-3)}] 以下の図式を可換にする：
+        
+        \begin{center}
+            \begin{tikzcd}[row sep=large]
+              &  &(x_1 \otimes m) \otimes x_2\ar[ddl, "\lambda \otimes \Id_{x_2}"']\ar[dr, "a_{x_1,m,x_2}"]  &  \\
+              &  &  &x_1 \otimes (m \otimes x_2)\ar[dd, "\Id_{x_1} \otimes \rho"]  \\
+              &m \otimes x_2\ar[ddr, "\rho"']  &  &  \\
+              &  &  &x_1 \otimes m  \\
+              &  &m\ar[from=ur, "\lambda"]  &
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+    
+\end{mydef}
+
+\begin{mydef}[label=def:hom-bimod]{両側加群の準同型}
+    \begin{itemize}
+        \item \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ 
+        および $\Cat{C}$ の2つの\hyperref[def:algobj]{代数対象} $(x_i,\, \mu_i,\, \upsilon_i)$
+        \item 2つの\hyperref[def:bimodobj]{$(x_1,\, x_2)$-両側加群対象} $(m_i,\, \lambda_i,\, \rho_i) \WHERE i = 1,\, 2$
+    \end{itemize}
+    を与える．
+    このとき，\underline{$\Cat{C}$ の}射 $ f \colon m_1 \lto m_2$ が\textbf{$(x_1,\, x_2)$ 両側加群の準同型}であるとは，それが\hyperref[def:hom-algmod]{左 $x_1$-加群の準同型}かつ\hyperref[def:hom-algmod]{右 $x_2$-加群の準同型}であることを言う．
+\end{mydef}
+
+しばらくの間 \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ および $\Cat{C}$ の2つの\hyperref[def:algobj]{代数対象} $(x_i,\, \mu_i,\, \upsilon_i)$ を固定する．
+
+2つの\hyperref[def:bimodobj]{$(x_1,\, x_2)$-両側加群対象} $(m_i,\, \lambda_i,\, \rho_i) \WHERE i = 1,\, 2$ の間の\hyperref[def:hom-bimod]{$(x_1,\, x_2)$-両側加群の準同型}全体がなす集合を $\bm{\Hom{x_1 \mhyphen x_2}(m_1,\, m_2)} \subset \Hom{\Cat{C}} (m_1,\, m_2)$ と書くと，これは部分 $\mathbb{K}$-ベクトル空間をなす．
+さらに準同型の合成は準同型であるから，\hyperref[def:additive-cat]{アーベル圏} $\BIMODC{\Cat{C}}{x_1}{x_2}$ を次のようにして構成することができる：
+\begin{itemize}
+    \item $\Cat{C}$ における\hyperref[def:bimodobj]{$(x_1,\, x_2)$-加群対象}を対象とする．
+    \item \hyperref[def:hom-bimod]{$(x_1,\, x_2)$-両側加群の準同型}を射とする．
+\end{itemize}
+同様にして $\Cat{C}$ における\hyperref[def:moduleobj]{右 $x$-加群対象}がなす圏 $\MODCR{\Cat{C}}{x}$ を定義できる．
+
+\begin{mylem}[label=lem:bimod]{両側加群のテンソル積}
+    \begin{itemize}
+        \item \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ 
+        および $\Cat{C}$ の4つの\hyperref[def:algobj]{代数対象} $(x_i,\, \mu_i,\, \upsilon_i) \WHERE  i = 1,\, \dots,\, 4$
+        \item \hyperref[def:bimodobj]{$(x_1,\, x_2)$-両側加群対象} $(m_1,\, \lambda_1,\, \rho_1) \in \Obj{\BIMODC{\Cat{C}}{x_1}{x_2}}$
+        \item \hyperref[def:bimodobj]{$(x_2,\, x_3)$-両側加群対象} $(m_2,\, \lambda_2,\, \rho_2) \in \Obj{\BIMODC{\Cat{C}}{x_2}{x_3}}$
+        \item \hyperref[def:bimodobj]{$(x_3,\, x_4)$-両側加群対象} $(m_3,\, \lambda_3,\, \rho_3) \in \Obj{\BIMODC{\Cat{C}}{x_3}{x_4}}$
+    \end{itemize}
+    を与える．このとき以下が成り立つ：
+    \begin{enumerate}
+        \item $m_1 \otimes_{x_2} m_2$ は自然な $(x_1,\, x_3)$-両側加群対象の構造を持つ．
+        \item 自然な\hyperref[def:hom-bimod]{$(x_1,\, x_4)$-両側加群の同型}
+        \begin{align}
+            \bar{a}_{m_1,m_2,m_3} &\colon (m_1 \otimes_{x_2} m_2) \otimes_{x_3} m_3 \xrightarrow{\cong} m_1 \otimes_{x_2} (m_2 \otimes_{x_3} m_3) \\
+            \bar{l}_{m_1} &\colon x_1 \otimes_{x_1} m_1 \xrightarrow{\cong} m_1 \\
+            \bar{r}_{m_1} &\colon m_1 \otimes_{x_2} x_2 \xrightarrow{\cong} m_1
+        \end{align}
+        が存在する．
+    \end{enumerate}
+\end{mylem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+\end{proof}
+
+$\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$ について，明らかに $(x,\, \mu,\, \mu) \in \BIMODC{\Cat{C}}{x}{x}$ である．
+
+\begin{mydef}[label=def:separable-alg]{分離可能性}
+    \hyperref[def:tensorfusion-cat]{テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ の\hyperref[def:algobj]{代数対象} $(x,\,\mu ,\,\upsilon)$ が\textbf{分離可能} (separable) であるとは，
+    ある\hyperref[def:hom-bimod]{$(x,\, x)$-両側加群の準同型} $\bar{\mu} \colon x \lto x \otimes x$ が存在して $\mu \circ \bar{\mu} = \Id_x$ を充たすことを言う\footnote{補題\ref{lem:bimod}-(1) によって $x \otimes x$ を $(x,\, x)$-両側加群対象と見做す．}．
+\end{mydef}
+
+\hyperref[def:separable-alg]{分離可能性}をストリング図式で表すと
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (a) at (0,0);
+        \coordinate (b1) at (-.5,2);
+        \coordinate (b2) at (.5,2);
+        \coordinate (c) at (0,4);
+        \node[red,bullet] (D) at (barycentric cs:a=1,b1=1,b2=1) {};
+        \node[red,right] at (D) {$\exists \bar{\mu}$};
+        \node[bullet] (M) at (barycentric cs:c=1,b1=1,b2=1) {};
+        \node[right] at (M) {$\mu$};
+        \draw[->-=.5,red] (a) -- node[midway,right] {$x$} (D);
+        \draw[->-=.5,red] (D) to [out=60,in=-90] node[midway,right] {$x$} (b2);
+        \draw[->-=.5,red] (D) to [out=120,in=-90] node[midway,left] {$x$} (b1);
+        \draw[->-=.5] (b1) to [out=90,in=-120] node[midway,left] {$x$} (M);
+        \draw[->-=.5] (b2) to [out=90,in=-60] node[midway,right] {$x$} (M);
+        \draw[->-=.5] (M) -- node[midway,right] {$x$} (c);
+    \end{tikzpicture}
+    &\quad = \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (a) at (0,0);
+        \coordinate (c) at (0,4);
+        \draw[->-=.5] (a) -- node[midway,right] {$x$} (c);
+    \end{tikzpicture}
+\end{align}
+となる．
+
+\begin{myprop}[label=prop:separable-alg]{分離可能性と半単純性}
+    \hyperref[def:tensorfusion-cat]{フュージョン圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ の\hyperref[def:algobj]{代数対象} $(x,\,\mu ,\,\upsilon)$ を与える．
+
+    このときもし $(x,\, \mu,\, \upsilon)$ が\hyperref[def:separable-alg]{分離可能}ならば，\hyperref[def:additive-cat]{アーベル圏} $\MODCR{\Cat{C}}{x}$ は\hyperref[def:semisimple-cat]{半単純}である．
+\end{myprop}
+
+\begin{proof}
+    ~\cite[PROPOSITION7.8.30, p.146]{etingof2015tensor}
+\end{proof}
+
+\begin{mydef}[label=def:commutative-alg]{可換代数}
+    \hyperref[redef:braided-monoidal]{組紐付き}\hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev,\, b)$ を与える．
+    このとき $\Cat{C}$ の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$ が\textbf{可換} (commutative) であるとは，
+    $\mu \circ b_{x,\, x} = m$ が成り立つことを言う．
+\end{mydef}
+
+\hyperref[def:commutative-alg]{可換性}をストリング図式で表すと
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate[bullet,label=right:$\mu$] (m)
+        +(-60:1) coordinate (y_2)
+        +(-120:1) coordinate (y_1)
+        ;
+        \coordinate (x_1) at ($(y_1)+(0,-1)$);
+        \coordinate (x_2) at ($(y_2)+(0,-1)$);
+        \draw[->-=.5] (m) -- node[midway,right] {$x$} ++(0,1);
+        \draw[->-=.5] (y_1) to[out=90,in=-120] node[midway,left] {$x$} (m);
+        \draw[->-=.5] (y_2) to[out=90,in=-60] node[midway,right] {$x$} (m);
+        \BRAID{x_1}{x_2}{y_1}{y_2}
+    \end{tikzpicture}
+    &\quad = \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate[bullet,label=right:$\mu$] (m)
+        +(-60:1) coordinate (y_2)
+        +(-120:1) coordinate (y_1)
+        ;
+        \draw[->-=.5] (m) -- node[midway,right] {$x$} ++(0,1);
+        \draw[->-=.5] (y_1) to[out=90,in=-120] node[midway,left] {$x$} (m);
+        \draw[->-=.5] (y_2) to[out=90,in=-60] node[midway,right] {$x$} (m);
+    \end{tikzpicture}
+\end{align}
+となる．
+
+\subsection{森田同値}
+
+\begin{mydef}[label=def:Morita-equiv]{森田同値}
+    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
+    
+    $\Cat{C}$ の2つの\hyperref[def:algobj]{代数対象} $(x_i,\, \mu_i,\, \upsilon_i) \WHERE i = 1,\, 2$ が\textbf{森田同値} (Morita equivalent) であるとは，\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏}として $\MODC{\Cat{C}}{x_1}$ と $\MODC{\Cat{C}}{x_2}$ が圏同値であることを言う．
+\end{mydef}
+
+\subsection{Frobenius代数}
+
+\begin{mydef}[label=def:Frobenius-alg]{Frobenius代数}
+    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\,r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
+
+    $\Cat{C}$ の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$ が\textbf{Frobenius代数} (Frobenius algebra) であるとは，
+    \begin{itemize}
+        \item \textbf{余乗法} (comultiplication) と呼ばれる $\Cat{C}$ の射 $\Delta \colon x \lto x \otimes x$
+        \item \textbf{余単位} (counit) と呼ばれる $\Cat{C}$ の射 $\epsilon \colon x \lto 1$
+    \end{itemize}
+    が存在して以下を充たすことを言う：
+    \begin{description}
+        \item[\textbf{(Frob-1)}] $(x,\, \Delta,\, \epsilon)$ は $\Cat{C}$ の\hyperref[def:algobj]{余代数対象}である．
+        \item[\textbf{(Frob-2)}] 以下の図式を可換にする：
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &   &x \otimes x \ar[dl, "\Delta \otimes \Id_x"']\ar[d, "\mu"]\ar[dr, "\Id_x \otimes \Delta"] & \\
+                &x \otimes x \otimes x \ar[dr, "\Id_x \otimes \mu"']  &x \ar[d, "\Delta"] &x \otimes x \otimes x \ar[dl, "\mu \otimes \Id_x"] \\
+                & &x \otimes x &
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+    
+\end{mydef}
+
+ストリング図式で\hyperref[def:Frobenius-alg]{\textsf{\textbf{(Frob-2)}}}を書くと次のようになる：
+\begin{align}
+    \label{eq:Frobenius}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate[bullet,label=left:$\Delta$] (delta)
+        ++(60:2) coordinate[bullet,label=right:$\mu$] (mu)
+        ;
+        \draw[-<-=.5] (delta) -- node[midway,right] {$x$} ++(-90:1);
+        \draw[->-=.5] (delta) to[out=120,in=-90] node[midway,left] {$x$} ++(-1,{1+sqrt(3)});
+        \draw[->-=.5] (delta) -- node[midway,below right] {$x$} (mu);
+        \draw[-<-=.5] (mu) to[out=-60,in=90] node[midway,right] {$x$} ++(1,{-1-sqrt(3)});
+        \draw[->-=.5] (mu) -- node[midway,left] {$x$} ++(90:1);
+    \end{tikzpicture}
+    &\quad = 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate[bullet,label=right:$\mu$] (mu)
+        ++(0,2) coordinate[bullet,label=left:$\Delta$] (delta)
+        ;
+        \draw[-<-=.5] (mu) -- node[midway, left] {$x$} ++(-120:1);
+        \draw[-<-=.5] (mu) -- node[midway, right] {$x$} ++(-60:1);
+        \draw[->-=.5] (mu) -- node[midway,right] {$x$} (delta);
+        \draw[->-=.5] (delta) -- node[midway, right] {$x$} ++(60:1);
+        \draw[->-=.5] (delta) -- node[midway, left] {$x$} ++(120:1);
+    \end{tikzpicture}
+    = \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate[bullet,label=right:$\Delta$] (delta)
+        ++(120:2) coordinate[bullet,label=left:$\mu$] (mu)
+        ;
+        \draw[-<-=.5] (delta) -- node[midway,left] {$x$} ++(-90:1);
+        \draw[->-=.5] (delta) to[out=60,in=-90] node[midway,left] {$x$} ++(1,{1+sqrt(3)});
+        \draw[->-=.5] (delta) -- node[midway,above right] {$x$} (mu);
+        \draw[-<-=.5] (mu) to[out=-120,in=90] node[midway,right] {$x$} ++(-1,{-1-sqrt(3)});
+        \draw[->-=.5] (mu) -- node[midway,right] {$x$} ++(90:1);
+    \end{tikzpicture}
+\end{align}
+
+\begin{mydef}[label=def:sym-Frobenius]{対称Frobenius代数}
+    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\,r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
+
+    $\Cat{C}$ の\hyperref[def:Frobenius-alg]{Frobenius代数} $(x,\, \mu,\, \upsilon,\, \Delta,\, \epsilon)$ が\textbf{対称} (symmetric) であるとは，
+    以下の図式を可換にすることを言う：
+    \begin{center}
+        \begin{tikzcd}[row sep=large, column sep=large]
+            &x \ar[r, "\rcoev_x \otimes \Id_x"]\ar[d, "\Id_x \otimes \lcoev_x"'] &\rdual{x} \otimes x \otimes x \ar[d, "\Id_{\rdual{x}} \otimes \mu"] \\
+            &x \otimes x \otimes x^* \ar[d, "\mu \otimes \Id_{x^*}"'] &\rdual{x} \otimes x \ar[d, "\Id_{\rdual{x}} \otimes \epsilon"]\\
+            &x \otimes x^* \ar[r, "\epsilon \otimes \Id_{x^*}"'] &\rdual{x}
+        \end{tikzcd}
+    \end{center}
+\end{mydef}
+
+ストリング図式では
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (a) at (0,0);
+        \coordinate (b1) at (0,2);
+        \coordinate (b2) at (1,2);
+        \coordinate (b3) at (2,2);
+        \coordinate (c1) at (0.5,3);
+        \coordinate (c2) at (2,4);
+        \node[bullet] (M) at (barycentric cs:b1=0.7,b2=0.7,c1=1) {};
+        \node[above right] at (M) {$\mu$};
+        \node[bullet] (E) at (c1) {};
+        \node[above] at (E) {$\epsilon$};
+        \draw[->-=.5] (a) -- node[midway,left] {$x$} (b1);
+        \draw[->-=.5] (b1) to [out=90,in=-150] (M);
+        \draw[->-=.5] (b2) to [out=90,in=-30] (M);
+        \draw[->-=.5] (M) -- (c1);
+        \draw[->-=.5] (c2) -- node[midway, right] {$x^*$} (b3);
+        \LCOEV{b2}{b3}
+    \end{tikzpicture}
+    \quad = \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \coordinate (a) at (2,0);
+        \coordinate (b1) at (0,2);
+        \coordinate (b2) at (1,2);
+        \coordinate (b3) at (2,2);
+        \coordinate (c1) at (0,4);
+        \coordinate (c2) at (1.5,3);
+        \node[bullet] (M) at (barycentric cs:b2=0.7,b3=0.7,c2=1) {};
+        \node[above right] at (M) {$\mu$};
+        \node[bullet] (E) at (c2) {};
+        \node[above] at (E) {$\epsilon$};
+        \draw[->-=.5] (a) -- node[midway,right] {$x$} (b3);
+        \draw[->-=.5] (b2) to [out=90,in=-150] (M);
+        \draw[->-=.5] (b3) to [out=90,in=-30] (M);
+        \draw[->-=.5] (M) -- (c2);
+        \draw[->-=.5] (c1) -- node[midway, left] {$\rdual{x}$} (b1);
+        \RCOEV{b1}{b2}
+    \end{tikzpicture}
+\end{align}
+となる．
+
+\begin{mydef}[label=def:special-Frobenius]{特殊Frobenius代数}
+    \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\,r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
+
+    $\Cat{C}$ の\hyperref[def:Frobenius-alg]{Frobenius代数} $(x,\, \mu,\, \upsilon,\, \Delta,\, \epsilon)$ が\textbf{特殊} (special) であるとは，
+    $\Cat{C}$ の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$ が\hyperref[def:algobj]{余積} $\Delta \colon x \lto x \otimes x$ によって\hyperref[def:separable-alg]{分離可能}であることを言う\footnote{これは~\cite[p.17]{coecke2008quantummeasurementssums}に倣った定義である．ある $\beta_x,\, \beta_1 \in \mathbb{K}^\times$ が存在して $\mu \circ \Delta = \beta_x \Id_x,\; \epsilon \circ \upsilon = \beta_1 \Id_1$ が成り立つことを，special Frobenius algebraの定義とする場合もある~\cite[Definition 3.4-(i)]{Fuchs2002cm}}．
+    i.e. $\mu \circ \Delta = \Id_x$ が成り立つこと．
+\end{mydef}
+
+
+\subsection{加群圏におけるinternal hom}
+
+
+\begin{mydef}[label=def:internal-hom,breakable]{加群圏におけるinternal hom}
+    $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r)$ を\hyperref[redef:monoidal-category]{モノイダル圏}とする．
+    \hyperref[def:modulecat]{左 $\Cat{C}$-加群圏} $(\mathcal{M},\, \btr,\, \alpha,\, \lambda)$ を与える．
+    $\Cat{M}$ の\textbf{internal hom}とは，以下のデータの組のこと：
+    \begin{itemize}
+        \item 関手
+        \begin{align}
+            \multimap \colon \OP{\Cat{M}} \times \Cat{M} \lto \VEC{\mathbb{K}}
+        \end{align}
+        \item 
+        \textbf{currying}と呼ばれる\hyperref[def:nat]{自然同型}
+        \begin{align}
+            \Familyset[\big]{c_{x,\, m_1,\, m_2} \colon \Hom{}(x \btr m_1,\, m_2) \xrightarrow{\cong} \Hom{}(x,\, m_1 \multimap m_2)}{x \in \Obj{\Cat{C}},\, Y,\, Z \in \Obj{\mathcal{C}}}
+        \end{align}
+    \end{itemize}    
+\end{mydef}
+
 
 
 \section{2-群}
