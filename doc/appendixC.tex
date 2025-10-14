@@ -1488,12 +1488,19 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
         \hyperref[def:functor]{関手}のこと．
         \item 位相空間 $X \in \Obj{\TOP}$ の\textbf{特異単体} (singular simplicial set) とは，\hyperref[def:SimpSet]{単体的集合}
         \begin{align}
-            S(X) \colon \OP{\Delta} \lto \SETS,\; [n] \lmto \Hom{\TOP} (\irm{\Delta}{top}^n ,\, X)
+            \Sing(X) \colon \OP{\Delta} &\lto \SETS,\\ 
+            [n] &\lmto \Hom{\TOP} (\irm{\Delta}{top}^n ,\, X), \\
+            \bigl( [m] \xrightarrow{\alpha} [n] \bigr) &\lmto \bigl( \Sing(X)_m \xrightarrow{\irm{\Delta}{top}(\alpha)^*} \Sing(X)_n \bigr) 
         \end{align}
         のこと．
-        \item \hyperref[def:simplicial-top]{特異複体}とは，関手 $S \colon \TOP \lto \sSet,\; X \lmto S(X)$ のこと．
+        \item \hyperref[def:simplicial-top]{特異複体}とは，関手
+        \begin{align}
+            \Sing \colon \TOP &\lto \sSet,\\ 
+            X &\lmto \Sing(X), \\
+            \bigl(X \xrightarrow{f} Y\bigr) &\lmto \bigl( \Sing(X) \xrightarrow{f_*} \Sing(Y) \bigr)
+        \end{align}
+        のこと．
     \end{itemize}
-    
 \end{mydef}
 
 
@@ -1507,27 +1514,31 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     \tcblower
     $\TOP$ における $\colim$ の公式を使うと
     \begin{align}
-        \abs{K} =  \left( \coprod_{[n] \in \Obj{\Delta}} (K_n \times \irm{\Delta}{top}^n)  \right) \bigg/ \Bigl\{\, \bigl(\alpha^*(x),\, t\bigr) \sim \bigl(x,\, \irm{\Delta}{top}(\alpha)(t)\bigr) \bigm| \substack{x \in K_n,\, t \in \irm{\Delta}{top}^m, \\ \alpha \in \Hom{\Delta}([m],\, [n])} \,\Bigr\} 
+        \abs{K} =  \left( \coprod_{[n] \in \Obj{\Delta}} (K_n \times \irm{\Delta}{top}^n)  \right) \bigg/ \Bigl\{\, \bigl([m];\;\alpha^*(x),\, t\bigr) \sim \bigl([n];\;x,\, \irm{\Delta}{top}(\alpha)(t)\bigr) \Bigm| \substack{x \in K_n,\, t \in \irm{\Delta}{top}^m, \\ \alpha \in \Hom{\Delta}([m],\, [n])} \,\Bigr\} 
     \end{align}
     となる．
 \end{mydef}
 
 \begin{myprop}[label=prop:geometry-realization]{}
-    \hyperref[def:simplicial-top]{特異複体} $S \colon \TOP \lto \sSet,\; X \lmto S(X)$ は\hyperref[def:geometric-realization]{幾何学的実現} $\abs{\mhyphen} \colon \sSet \lto \TOP$ の\hyperref[def:adjoint]{右随伴}である．
+    \hyperref[def:simplicial-top]{特異複体} $\Sing \colon \TOP \lto \sSet,\; X \lmto S(X)$ は\hyperref[def:geometric-realization]{幾何学的実現} $\abs{\mhyphen} \colon \sSet \lto \TOP$ の\hyperref[def:adjoint]{右随伴}である．
 \end{myprop}
 
 \begin{proof}
     \hyperref[def:adjoint]{右随伴の定義}を思い出すと，$\forall (K,\, X) \in \Obj{\OP{\sSet} \times \TOP}$ に対して\hyperref[def:nat]{自然同型}
     \begin{align}
-        \Hom{\TOP} (\abs{K},\, X) \cong \Hom{\OP{\sSet}} \bigl(K,\, S(X)\bigr)
+        \Hom{\TOP} (\abs{K},\, X) \cong \Hom{\sSet} \bigl(K,\, \Sing(X)\bigr)
     \end{align}
     が成り立つことを示せば良い．実際，命題\ref{prop:lim-colim-basic}より
     \begin{align}
         \Hom{\TOP} (\abs{K},\, X) = \Hom{\TOP} \bigl( \underset{[n] \in \yo_{/K}}{\colim} \irm{\Delta}{top}^n,\, X \bigr) \cong \underset{[n] \in \yo_{/K}}{\lim} \Hom{\TOP}(\irm{\Delta}{top}^n,\, X)
     \end{align}
-    が，命題\ref{prop:SimpSet-basic}-(3) より
+    が，命題\ref{prop:lim-colim-basic}および命題\ref{prop:SimpSet-basic}-(3), (1) より
     \begin{align}
-        \Hom{\OP{\sSet}} \bigl(K,\, S(X)\bigr) \cong \Hom{\OP{\sSet}} \bigl( \underset{[n] \in \yo_K}{\colim} \Delta^n,\, S(X) \bigr) \cong \underset{[n] \in \yo_{/K}}{\lim} \Hom{\TOP}(\Delta^n,\, X)
+        \Hom{\sSet} \bigl(K,\, \Sing(X)\bigr) 
+        &\cong \Hom{\sSet} \bigl( \underset{[n] \in \yo_K}{\colim} \Delta^n,\, \Sing(X) \bigr) \\
+        &\cong \underset{[n] \in \yo_{/K}}{\lim} \Hom{\sSet}\bigl(\Delta^n,\, \Sing(X)\bigr) \\
+        &\cong \underset{[n] \in \yo_{/K}}{\lim} \Sing(X)_n \\
+        &= \underset{[n] \in \yo_{/K}}{\lim} \Hom{\TOP}(\irm{\Delta}{top}^n,\, X)
     \end{align}
     が言える．
 \end{proof}

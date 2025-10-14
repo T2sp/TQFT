@@ -449,7 +449,7 @@ $C^\infty$ 多様体の $C^\infty$ 構造の定義においては，チャート
         \begin{align}
             (U^n_Z,\, \mathcal{A}_Z)
         \end{align}
-        を対象とする．
+        を対象とする．これを\textbf{basic}と呼ぶ．
 
         \item[(\textbf{射})]　
         
@@ -534,7 +534,7 @@ $C^\infty$ 多様体の $C^\infty$ 構造の定義においては，チャート
 
 \begin{mydef}[label=def:Snglr]{圏 $\Snglr$}
     \begin{itemize}
-        \item \textbf{basic}のなす圏 $\Bsc$ を以下で定義する：
+        \item \hyperref[def:Bsc-induction]{\textbf{basic}}のなす圏 $\Bsc$ を以下で定義する：
         \begin{align}
             \Bsc \coloneqq \bigcup_{k \ge -1} \Bsc_{\le k,\, \le \infty}
         \end{align}
@@ -697,7 +697,7 @@ $(1,\, 1)$-圏とする．$\Kan$ は\hyperref[def:SimpSet]{単体的集合の圏
     \begin{itemize}
         \item $[n] \in \Obj{\Delta}$ を，\hyperref[def:c-smooth]{conically smoothな層状化空間}
         \begin{align}
-            \Delta_e^n \coloneqq \bigl\{\, (x^0,\, \dots,\, x^n) \lto \mathbb{R}^{n+1} \bigm| \sum_{i=0}^n x^i = 1 \,\bigr\} 
+            \Delta_e^n \coloneqq \bigl\{\, (x^0,\, \dots,\, x^n) \in \mathbb{R}^{n+1} \bigm| \sum_{i=0}^n x^i = 1 \,\bigr\} 
         \end{align}
         に対応付ける．
         \item $\alpha \in \Hom{\Delta}([m],\, [n])$ を，\hyperref[def:c-smooth-map]{conically smoothな層状化写像}
@@ -1406,6 +1406,21 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 \end{mydef}
 
 \subsection{$C^\infty$-多様体の接構造との比較}
+
+
+\subsection{{$\BSC$} の計算}
+
+しばらくの間，\hyperref[def:Snglr]{basic} $U \coloneqq \bigl( (\mathbb{R}^n \to [0]) \times \Cone{Z \to P},\, \mathcal{A}_Z \bigr) \in \Obj{\Bsc}$ を1つ固定する．
+これまでと同様に，\hyperref[def:stratified-space]{層状化空間}$\Cone{Z \xrightarrow{s} P} = \bigl(\Cone{Z} \xrightarrow{\Cone{s}} \Cone{P}\bigr)$ の\hyperref[def:str-cone]{コーンポイント}のことを $\mathrm{pt} \in \Cone{Z}$ と書き，$\mathbb{R}^n \times \{\mathrm{pt}\} \subset \mathbb{R}^n \times \Cone{Z}$ のことを $\mathbb{R}^n$ と略記することにする．
+さらに，点 $(0,\, \mathrm{pt}) \in \mathbb{R}^n \times \Cone{Z}$ のことを $0 \in \mathbb{R}^n \times \Cone{Z}$ と略記し，$U$ の\textbf{原点} (origin) と呼ぶことにする．
+
+\begin{marker}
+    以下では，混乱が生じにくい場合は層状化空間 $(X \xrightarrow{s} P)$ の $s$ と $P$ を省略する．
+\end{marker}
+
+
+
+
 
 \section{Disk algebras}
 
