@@ -235,6 +235,7 @@ i.e. 商位相空間
 \hyperref[def:str-cone]{コーンの定義}から，$U$ の点を $(v,\, [t,\, z]) \in \mathbb{R}^n \times \frac{\mathbb{R}_{\ge 0} \times Z}{\{0\} \times Z}$ と表示することができる．
 この表示の下で自己同相
 \begin{align}
+    \label{eq:auto-basic}
     \gamma \colon \mathbb{R}_{> 0} \times T \mathbb{R}^n \times \Cone{Z} &\lto \mathbb{R}_{> 0} \times T \mathbb{R}^n \times \Cone{Z}, \\
     \bigl( t,\, (v,\, p),\, [s,\, z] \bigr) &\lmto \bigl( t,\, (tv + p,\, p),\, [ts,\, z] \bigr)
 \end{align}
@@ -1408,7 +1409,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 \subsection{$C^\infty$-多様体の接構造との比較}
 
 
-\subsection{{$\BSC$} の計算}
+\subsection{{$\BSC$} におけるHom}
 
 しばらくの間，\hyperref[def:Snglr]{basic} $U \coloneqq \bigl( (\mathbb{R}^n \to [0]) \times \Cone{Z \to P},\, \mathcal{A}_Z \bigr) \in \Obj{\Bsc}$ を1つ固定する．
 これまでと同様に，\hyperref[def:stratified-space]{層状化空間}$\Cone{Z \xrightarrow{s} P} = \bigl(\Cone{Z} \xrightarrow{\Cone{s}} \Cone{P}\bigr)$ の\hyperref[def:str-cone]{コーンポイント}のことを $\mathrm{pt} \in \Cone{Z}$ と書き，$\mathbb{R}^n \times \{\mathrm{pt}\} \subset \mathbb{R}^n \times \Cone{Z}$ のことを $\mathbb{R}^n$ と略記することにする．
@@ -1418,8 +1419,159 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
     以下では，混乱が生じにくい場合は層状化空間 $(X \xrightarrow{s} P)$ の $s$ と $P$ を省略する．
 \end{marker}
 
+いま，\hyperref[def:simplicial-top]{特異単体}の変種として，滑らかな（境界付き）多様体 $X$ の\textbf{滑らかな特異単体} (smooth singular simplicial set) と呼ばれる単体的集合を
+\begin{align}
+    \Sing^{\text{sm}}(X) \colon \OP{\Delta} &\lto \SETS, \\
+    [n] &\lmto \Hom{\TOP}(\textcolor{red}{\Delta^n_e},\, X)_{\text{smooth}}, \\
+    \bigl([m] \xrightarrow{\alpha} [n]\bigr) &\lmto \bigl( \Sing^{\text{sm}}(X)_m \xrightarrow{\Delta_e(\alpha)^*} \Sing^{\text{sm}}(X)_n \bigr)
+\end{align}
+と定義する\footnote{滑らかな特異単体と言ったときは\hyperref[def:simplicial-top]{幾何学的 $n$-単体}を用いることが多く，このように定義することは稀だと思う．}．これはKan複体になる．
+ここで\eqref{eq:auto-basic}を思い出して，写像
+\begin{align}
+    \tilde{\gamma} \colon \mathbb{R}_{\ge 0} \times \mathbb{R}^n &\lto \Hom{\Bsc} (U,\, U), \\
+    (t,\, p) &\lmto \Bigl( \bigl( v,\, [s,\, z] \bigr) \mapsto \bigl( tv+p,\, [ts,\, z] \bigr) \Bigr) \eqqcolon \tilde{\gamma}_{[m]}{}_{t,\, p}
+\end{align}
+を考える．これをKan複体の間の射（i.e. 自然変換）
+\begin{align}
+    \label{eq:gamma-Kan}
+    \gamma \colon \Sing^{\text{sm}} (\mathbb{R}_{\ge 0} \times \mathbb{R}^n) &\lto \Hom{\BSC} (U,\, U)
+\end{align}
+へと格上げすることができる．
+実際，$\forall m \ge 0$ に対して，$m$-単体はそれぞれ
+\begin{align}
+    \Sing^{\text{sm}} (\mathbb{R}_{\ge 0} \times \mathbb{R}^n)_m &= \Hom{\TOP} (\Delta_e^m,\, \mathbb{R}_{\ge 0} \times \mathbb{R}^n)_{\text{smooth}}, \\
+    \Hom{\BSC} (U,\, U)_m &= \bigl\{\, f \in \Hom{\Strat}(\Delta^m_e \times U,\, \Delta^m_e \times U) \bigm| \mathrm{proj}_{\Delta^m_e} \circ f = \mathrm{proj}_{\Delta^m_e} \,\bigr\}
+\end{align}
+であったから，
+\begin{align}
+    \gamma_{[m]} \colon \Sing^{\text{sm}} (\mathbb{R}_{\ge 0} \times \mathbb{R}^n)_m &\lto \Hom{\BSC} (U,\, U)_m, \\
+    \Bigl( x \mapsto \bigl( t(x),\, p(x) \bigr)  \Bigr)  &\lmto \Bigl( \bigl(x,\, u\bigr) \mapsto \bigl(x,\, \tilde{\gamma}_{t(x),\, p(x)}(u)\bigr) \Bigr) \eqqcolon \gamma_{t,\, p}
+\end{align}
+と定義すればよい．
 
+さらに，勝手な\hyperref[def:Snglr]{conically smoothな層状化空間} $Z \in \Obj{\Snglr}$ に対して，その\textbf{自己同相群} (automorphism group) 
+\begin{align}
+    \Aut(Z) \colon \OP{\Delta} \lto \SETS
+\end{align}
+を，\hyperref[lem:Kan-enriched]{Kan複体 $\Hom{\SNGLR} (Z,\, Z)$} の\hyperref[def:SimpSet]{部分Kan複体}として次のように定義する：
+\begin{align}
+    \Aut(Z)_m \coloneqq \bigl\{\, f \in \Hom{\SNGLR} (Z,\,Z)_m \bigm| \mathrm{proj}_{\Delta^m_e} \circ f = \mathrm{proj}_{\Delta^m_e},\; \exists f^{-1} \in \Hom{\Snglr} (\Delta^m_e \times Z,\, \Delta^m_e \times Z) \,\bigr\} 
+\end{align}
+なお，$\forall m \ge 0$ に対し集合 $\Aut(Z)_m$ は $(1,\, 1)$-圏 $\Snglr$ における1-射の合成に関して群になるため，Kan複体 $\Aut(Z)$ は\textbf{Kan群} (group Kan complex)\footnote{Kan複体であって，$\OP{\Delta} \lto \GRP$ でもあるもの．従って，homotopy hypothesisより位相群と見做すことができる．}と見做すことができる．
 
+\begin{mydef}[label=def:stratified-GL]{層状化された一般線形群}
+    勝手な\hyperref[def:Snglr]{basic} $U \coloneqq \bigl( (\mathbb{R}^n \to [0]) \times \Cone{Z \to P},\, \mathcal{A}_Z \bigr) \in \Obj{\Bsc}$ を与える．
+
+    \hyperref[lem:Kan-enriched]{Kan複体 $\Hom{\SNGLR} (U,\, U)$} の部分Kan複体
+    \begin{align}
+        \LGL (U) \colon \OP{\Delta} \lto \SETS
+    \end{align}
+    を次のように定義し，\textbf{層状化された一般線形群}と呼ぶ：
+    \begin{align}
+        \LGL(U)_m \coloneqq \bigl\{\, T \in \Hom{\SNGLR} (U,\, U)_m \bigm| \forall (t,\, p) \in \Sing^{\text{sm}}(\mathbb{R}_{\ge 0} \times \mathbb{R}^n)_m,\; T \circ \gamma_{[m]}{}_{t,\, p} = \gamma_{[m]}{}_{t,\, (Tp)_{\mathbb{R}^n}} \circ T  \,\bigr\} 
+    \end{align}
+    ただし，$(Tp)_{\mathbb{R}^n} \coloneqq \mathrm{proj}_{\mathbb{R}^n} \circ T|_{\Delta^m_e \times \mathbb{R}^n \times \{0\}} \circ p \colon \Delta^m_e \lto \mathbb{R}^n$ と略記した．
+    
+    \tcblower
+
+    \hyperref[lem:Kan-enriched]{Kan複体 $\Hom{\SNGLR} (U,\, U)$} の部分Kan複体
+    \begin{align}
+        \LO (U) \colon \OP{\Delta} \lto \SETS
+    \end{align}
+    を次のように定義し，\textbf{層状化された直交群}と呼ぶ：
+    \begin{align}
+        \LO (U) \coloneqq \Sing^{\text{sm}}\bigl(\LO(n)\bigr) \times \Aut(Z)
+    \end{align}
+\end{mydef}
+
+\begin{myexample}[label=ex:ordinary-GL]{通常の一般線形群}
+    $Z = \emptyset$ の場合を考える．このとき $U = \mathbb{R}^n$ なので，Kan複体の射\eqref{eq:gamma-Kan}とは単に
+    \begin{align}
+        \gamma_{[m]} \colon \Bigl( x \mapsto \bigl( t(x),\, p(x) \bigr)  \Bigr)  &\lmto \Bigl( \bigl(x,\, u\bigr) \mapsto \bigl(x,\, t(x)u + p(x)\bigr) \Bigr)
+    \end{align}
+    のことであり，$T \in \LGL(U)_m$ とは $\forall (t,\, p) \in \Sing^{\text{sm}}(\mathbb{R}_{\ge 0} \times \mathbb{R}^n)$ および
+    $\forall (x,\, u) \in \Delta^m_e \times U = \Delta^m_e \times \mathbb{R}^n$ に対して
+    \begin{align}
+        T \circ \gamma_{[m]}{}_{t,\, p}(x,\, u)
+        &= T \bigl(x,\, t(x)u + p(x)\bigr) \\
+        &= \gamma_{[m]}{}_{t,\, \mathrm{proj}_{\mathbb{R}^n} \circ T|_{\mathbb{R}^n} (p)} \circ T (x,\, u) \\
+        &= \Bigl(x,\, t(x)\, \mathrm{proj}_{\mathbb{R}^n} \circ T(x,\, u) + \mathrm{proj}_{\mathbb{R}^n} \circ T\bigl(x,\, p(x)\bigr)  \Bigr) 
+    \end{align}
+    が成り立つことを意味する．i.e. $\forall x \in \Delta^m_e$ に対して，$\tilde{T}_x \coloneqq \mathrm{proj}_{\mathbb{R}^n} \circ T|_{\{x\} \times U} \colon \mathbb{R}^n \lto \mathbb{R}^n$ は線型写像である．
+    \hyperref[def:Snglr]{$(1,\, 1)$-圏 $\Snglr$ の定義}より $T$ は開埋め込みであり，単射である．故に，有限次元ベクトル空間の間の単射線型写像 $\tilde{T}_x$ は全単射でもあり，$\tilde{T}_x \in \LGL(n,\, \mathbb{R})$ だと分かった．
+    この事実は，Kan複体の同型 $\LGL(\mathbb{R}^n) \cong \Sing^{\text{sm}}\bigl(\LGL(n,\, \mathbb{R})\bigr)$ を意味する．
+\end{myexample}
+
+さて，部分Kan複体 $\Aut^0 (U) \subset \Hom{\BSC}^0 (U,\, U) \subset \Hom{\SNGLR} (U,\, U)$ を次のように定義しよう：
+\begin{align}
+    \Hom{\BSC}^0 (U,\, U)_m &\coloneqq \bigl\{\, f \in \Hom{\SNGLR} (U,\, U)_m \bigm| \forall x \in \Delta^m_e,\; f(x,\, 0) = (x,\, 0) \,\bigr\}, \\
+    \Aut^0 (U)_m &\coloneqq \bigl\{\, f \in \Hom{\BSC}^0 (U,\, U)_m \bigm| \forall x \in \Delta^m_e,\; \exists (f|_{\{x\} \times U})^{-1} \in \Hom{\Snglr}(U,\, U) \,\bigr\}
+\end{align}
+
+\begin{mylem}[label=lem:Hom-sub-1]{層状化された一般線形群は原点を保つ自己同相群}
+    \begin{align}
+        \LGL(U) \subset \Aut^0(U) \subset \Hom{\BSC}^0(U,\, U)
+    \end{align}
+\end{mylem}
+
+\begin{proof}
+    $\forall m \ge 0$ および $\forall T \in \LGL(U)_m$ を1つ固定する．
+    $\forall x \in \Delta^m_e$ および $\forall t \in \mathbb{R}_{\ge 0}$ に対して $\gamma_{[m]}{}_{t,\, 0} (x,\, 0) = (x,\, 0)$ が成り立つので，
+    \begin{align}
+        T(x,\, 0) = T \circ \gamma_{[m]}{}_{0,\, 0} (x,\, 0) = \gamma_{[m]}{}_{0,\, 0} \bigl( T(x,\, 0) \bigr) = (x,\, 0)
+    \end{align}
+    が言える．
+    また，\hyperref[def:Snglr]{$(1,\, 1)$-圏 $\Snglr$ の定義}より $T \in \Hom{\Snglr}(\Delta^m_e \times U \lto \Delta^m_e \times U)$ は開埋め込みであるから単射である． 
+    故に $T$ が全射であることを示せば良い．
+\end{proof}
+
+\begin{mylem}[label=lem:Hom-sub-2]{層状化された直交群は一般線形群の部分Kan複体}
+    \begin{align}
+        \LO(U) \subset \LGL(U)
+    \end{align}
+\end{mylem}
+
+\begin{proof}
+    $\forall m \ge 0$ および $\forall T \coloneqq (A,\, f) \in \LO(U)_m = \Sing^{\text{sm}}\bigl( \LO(n) \bigr)_m \times \Aut(Z)_m$ を1つ固定する．
+    まず，$\forall \bigl(x,\, (v,\, [s,\, z]) \bigr) \in \Delta^m_e \times U = \Delta^m_e \times \mathbb{R}^n \times \Cone{Z}$ に対して
+    \begin{align}
+        T\bigl(x,\, (v,\, [s,\, z]) \bigr)
+        &\coloneqq \Bigl( x,\, \bigl(A(x)v,\, [s,\, \mathrm{proj}_Z \circ f(x,\, z)]\bigr) \Bigr) 
+    \end{align}
+    と定めることで $T \in \Hom{\BSC}^0 (U,\, U)_m$ と見做せる．このとき，$\forall (t,\, p) \in \Sing^{\text{sm}} (\mathbb{R}_{\ge 0} \times \mathbb{R}^n)$ に対して
+    \begin{align}
+        T \circ \gamma_{[m]}{}_{t,\, p}\bigl(x,\, (v,\, [s,\, z]) \bigr)
+        &= T \Bigl(x,\, \bigl( t(x)v+p(x),\, [t(x)s,\, z] \bigr)\Bigr) \\
+        &= \Bigl(x,\, \bigl(t(x) A(x)v + A(x)p(x),\, [t(x)s,\, \mathrm{proj}_Z \circ f(x,\, z)]\bigr) \Bigr) \\
+        &= \gamma_{[m]}{}_{t,\, Ap} \Bigl( x,\, \bigl( A(x)v,\, [s,\, \mathrm{proj}_Z \circ f(x,\, z)] \bigr) \Bigr) \\
+        &= \gamma_{[m]}{}_{t,\, (Tp)_{\mathbb{R}^n}} \circ T \bigl(x,\, (v,\, [s,\, z]) \bigr)
+    \end{align}
+    が成り立つため $T \in \LGL(U)_m$ が言えた．
+\end{proof}
+
+\begin{myprop}[label=prop:Hom-htpy-equiv]{}
+    Kan複体の包含写像
+    \begin{align}
+        \LO(U) \overset{i_1}{\hookrightarrow} \LGL(U) \overset{i_2}{\hookrightarrow} \Hom{\BSC}^0 (U,\, U) \overset{i_3}{\hookrightarrow} \Hom{\BSC}(U,\, U)
+    \end{align}
+    は全てKan複体のホモトピー同値である．
+\end{myprop}
+
+\begin{proof}
+    \begin{description}
+        \item[\textbf{$i_1$ のホモトピー逆}]　
+        
+        Gram-Schmidtの正規直交化を行う．
+
+        \item[\textbf{$i_2$ のホモトピー逆}]　
+        
+        射は全て\hyperref[def:c-smooth-map]{conically smooth}なので，$\forall f \in \Hom{\BSC}^0(U,\, U)_m$ の\hyperref[def:c-smooth-along]{微分} $D_0 f \coloneqq Df|_{\mathbb{R}^n \times \{0\} \times \Cone{Z}} \in \Hom{\Snglr}(U,\, U)$ が存在する．この $D_0$ がホモトピー逆を与える．
+
+        \item[\textbf{$i_3$ のホモトピー逆}]　
+        
+        $\gamma$ により原点へ並行移動すれば良い．
+    \end{description}
+\end{proof}
 
 
 \section{Disk algebras}
