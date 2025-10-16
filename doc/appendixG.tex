@@ -1497,7 +1497,11 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
         &= \gamma_{[m]}{}_{t,\, \mathrm{proj}_{\mathbb{R}^n} \circ T|_{\mathbb{R}^n} (p)} \circ T (x,\, u) \\
         &= \Bigl(x,\, t(x)\, \mathrm{proj}_{\mathbb{R}^n} \circ T(x,\, u) + \mathrm{proj}_{\mathbb{R}^n} \circ T\bigl(x,\, p(x)\bigr)  \Bigr) 
     \end{align}
-    が成り立つことを意味する．i.e. $\forall x \in \Delta^m_e$ に対して，$\tilde{T}_x \coloneqq \mathrm{proj}_{\mathbb{R}^n} \circ T|_{\{x\} \times U} \colon \mathbb{R}^n \lto \mathbb{R}^n$ は線型写像である．
+    が成り立つことを意味する．i.e. $\forall x \in \Delta^m_e$ に対して，$\tilde{T}_x \coloneqq \mathrm{proj}_{\mathbb{R}^n} \circ T|_{\{x\} \times U} \colon \mathbb{R}^n \lto \mathbb{R}^n$ とおくと
+    \begin{align}
+        \tilde{T}_x \bigl( t(x) u + p(x) \bigr) = t(x)\, \tilde{T}_x u + \tilde{T}_x p(x)
+    \end{align}
+    が成り立つため，$\tilde{T}_x$ は線型写像である．
     \hyperref[def:Snglr]{$(1,\, 1)$-圏 $\Snglr$ の定義}より $T$ は開埋め込みであり，単射である．故に，有限次元ベクトル空間の間の単射線型写像 $\tilde{T}_x$ は全単射でもあり，$\tilde{T}_x \in \LGL(n,\, \mathbb{R})$ だと分かった．
     この事実は，Kan複体の同型 $\LGL(\mathbb{R}^n) \cong \Sing^{\text{sm}}\bigl(\LGL(n,\, \mathbb{R})\bigr)$ を意味する．
 \end{myexample}
