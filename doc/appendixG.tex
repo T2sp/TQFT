@@ -1406,30 +1406,30 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
     \end{itemize}
 \end{mydef}
 
-\subsection{$C^\infty$-多様体の接構造との比較}
+% \subsection{$C^\infty$-多様体の接構造との比較}
 
 
-\subsection{{$\BSC$} におけるHom}
+\subsection{{$\mathcal{B}\mathrm{sc}$} におけるHom}
 
 しばらくの間，\hyperref[def:Snglr]{basic} $U \coloneqq \bigl( (\mathbb{R}^n \to [0]) \times \Cone{Z \to P},\, \mathcal{A}_Z \bigr) \in \Obj{\Bsc}$ を1つ固定する．
 これまでと同様に，\hyperref[def:stratified-space]{層状化空間}$\Cone{Z \xrightarrow{s} P} = \bigl(\Cone{Z} \xrightarrow{\Cone{s}} \Cone{P}\bigr)$ の\hyperref[def:str-cone]{コーンポイント}のことを $\mathrm{pt} \in \Cone{Z}$ と書き，$\mathbb{R}^n \times \{\mathrm{pt}\} \subset \mathbb{R}^n \times \Cone{Z}$ のことを $\mathbb{R}^n$ と略記することにする．
 さらに，点 $(0,\, \mathrm{pt}) \in \mathbb{R}^n \times \Cone{Z}$ のことを $0 \in \mathbb{R}^n \times \Cone{Z}$ と略記し，$U$ の\textbf{原点} (origin) と呼ぶことにする．
 
 \begin{marker}
-    以下では，混乱が生じにくい場合は層状化空間 $(X \xrightarrow{s} P)$ の $s$ と $P$ を省略する．
+    以下では，混乱が生じにくい場合は層状化空間 $(X \xrightarrow{s} P)$ の $s$ と $P$ を省略する．さらに，\hyperref[def:Sm-induction]{conically smooth atlas}を明示しない．
 \end{marker}
 
-いま，\hyperref[def:simplicial-top]{特異単体}の変種として，滑らかな（境界付き）多様体 $X$ の\textbf{滑らかな特異単体} (smooth singular simplicial set) と呼ばれる単体的集合を
+いま，\hyperref[def:simplicial-top]{特異単体}の変種として，\hyperref[def:c-smooth]{conically smoothな層状化空間} $X \in \Obj{\Strat}$ の\textbf{滑らかな特異単体} (smooth singular simplicial set) と呼ばれる単体的集合を
 \begin{align}
     \Sing^{\text{sm}}(X) \colon \OP{\Delta} &\lto \SETS, \\
-    [n] &\lmto \Hom{\TOP}(\textcolor{red}{\Delta^n_e},\, X)_{\text{smooth}}, \\
+    [n] &\lmto \Hom{\Strat}(\textcolor{red}{\Delta^n_e},\, X), \\
     \bigl([m] \xrightarrow{\alpha} [n]\bigr) &\lmto \bigl( \Sing^{\text{sm}}(X)_m \xrightarrow{\Delta_e(\alpha)^*} \Sing^{\text{sm}}(X)_n \bigr)
 \end{align}
 と定義する\footnote{滑らかな特異単体と言ったときは\hyperref[def:simplicial-top]{幾何学的 $n$-単体}を用いることが多く，このように定義することは稀だと思う．}．これはKan複体になる．
 ここで\eqref{eq:auto-basic}を思い出して，写像
 \begin{align}
     \tilde{\gamma} \colon \mathbb{R}_{\ge 0} \times \mathbb{R}^n &\lto \Hom{\Bsc} (U,\, U), \\
-    (t,\, p) &\lmto \Bigl( \bigl( v,\, [s,\, z] \bigr) \mapsto \bigl( tv+p,\, [ts,\, z] \bigr) \Bigr) \eqqcolon \tilde{\gamma}_{[m]}{}_{t,\, p}
+    (t,\, p) &\lmto \Bigl( \bigl( v,\, [s,\, z] \bigr) \mapsto \bigl( tv+p,\, [ts,\, z] \bigr) \Bigr) \eqqcolon \tilde{\gamma}_{t,\, p}
 \end{align}
 を考える．これをKan複体の間の射（i.e. 自然変換）
 \begin{align}
@@ -1455,12 +1455,12 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 \end{align}
 を，\hyperref[lem:Kan-enriched]{Kan複体 $\Hom{\SNGLR} (Z,\, Z)$} の\hyperref[def:SimpSet]{部分Kan複体}として次のように定義する：
 \begin{align}
-    \Aut(Z)_m \coloneqq \bigl\{\, f \in \Hom{\SNGLR} (Z,\,Z)_m \bigm| \mathrm{proj}_{\Delta^m_e} \circ f = \mathrm{proj}_{\Delta^m_e},\; \exists f^{-1} \in \Hom{\Snglr} (\Delta^m_e \times Z,\, \Delta^m_e \times Z) \,\bigr\} 
+    \Aut(Z)_m \coloneqq \bigl\{\, f \in \Hom{\SNGLR} (Z,\,Z)_m \bigm| \exists f^{-1} \in \Hom{\Snglr} (\Delta^m_e \times Z,\, \Delta^m_e \times Z) \,\bigr\} 
 \end{align}
-なお，$\forall m \ge 0$ に対し集合 $\Aut(Z)_m$ は $(1,\, 1)$-圏 $\Snglr$ における1-射の合成に関して群になるため，Kan複体 $\Aut(Z)$ は\textbf{Kan群} (group Kan complex)\footnote{Kan複体であって，$\OP{\Delta} \lto \GRP$ でもあるもの．従って，homotopy hypothesisより位相群と見做すことができる．}と見做すことができる．
+なお，$\forall m \ge 0$ に対し集合 $\Aut(Z)_m$ は $(1,\, 1)$-圏 $\Snglr$ における1-射の合成に関して群になるため，Kan複体 $\Aut(Z)$ は\textbf{群的なKan複体} (group-like Kan complex)\footnote{Kan複体であって，$\OP{\Delta} \lto \GRP$ でもあるもの．従って，homotopy hypothesisより位相群と見做すことができる．}と見做すことができる．
 
 \begin{mydef}[label=def:stratified-GL]{層状化された一般線形群}
-    勝手な\hyperref[def:Snglr]{basic} $U \coloneqq \bigl( (\mathbb{R}^n \to [0]) \times \Cone{Z \to P},\, \mathcal{A}_Z \bigr) \in \Obj{\Bsc}$ を与える．
+    勝手な\hyperref[def:Snglr]{basic} $U \coloneqq \mathbb{R}^n \times \Cone{Z} \in \Obj{\Bsc}$ を与える．
 
     \hyperref[lem:Kan-enriched]{Kan複体 $\Hom{\SNGLR} (U,\, U)$} の部分Kan複体
     \begin{align}
@@ -1613,7 +1613,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
     \end{description}
 \end{proof}
 
-\subsection{$\BSC$ の構造}
+\subsection{$\mathcal{B}\mathrm{sc}$ の構造}
 
 $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
 \begin{align}
@@ -1655,6 +1655,8 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
 \begin{proof}
     
 \end{proof}
+
+\subsection{tangent classifierの構造}
 
 
 
