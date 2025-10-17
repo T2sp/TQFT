@@ -278,7 +278,7 @@ $C^\infty$ 多様体の $C^\infty$ 構造の定義においては，チャート
     \begin{align}
         \textcolor{red}{\tilde{D}f} \colon \mathbb{R}_{\textcolor{red}{\ge 0}} \times T \mathbb{R}^n \times \Cone{Z} &\lto \mathbb{R}_{\textcolor{red}{\ge 0}} \times T \mathbb{R}^{n'} \times \Cone{Z'}
     \end{align}
-    が存在することを言う：
+    が存在することを言う\footnote{写像 $\gamma^{-1} \circ f_{\Delta} \circ \gamma$ の連続性から，拡張 $\tilde{D}f$ は存在すれば一意かつ連続である．}：
     \begin{center}
         % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACwBGA4ACUAvgH1gnHDAAeOAMYQGEAE7A1MKGOnsA5jAAExMWKMysXeEYAqF7r0HDxAPTAO81uA4DCBGGAALTEQMVJ0TFx8QhQARnIqWkYWNk4efiFRST1ZBWVVDS0dPUMTM08rG3t0pyy3YDAAcnNLbz8A4JawiJAMbDwCIjI4pPpmVkQOR0yXHIA+csr2mpnnbPdlm05-MECQnsiBmKIE0epx1Kna2eypRdMtn1WM9Ybm1vYvbfZd-e6xEltIYEChQAAzNQQLhIABM1BwECQAGZwhCoTDEPCQIikKZepDoSiEUjEHE0SBCZjsbjEMiLilJtN9HQuDxXMAALTkziKLBqRRGcFSTgAERgDBwdE+fIFDhZbLoIGoDDoAglAAUooNYiA1Fh9HwcIdKRi8SSkAlkhM0l8sAxYMBRWJwcqQAwsHs2FA6HA+NowhQxEA
         \begin{tikzcd}
@@ -1440,12 +1440,12 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 実際，$\forall m \ge 0$ に対して，$m$-単体はそれぞれ
 \begin{align}
     \Sing^{\text{sm}} (\mathbb{R}_{\ge 0} \times \mathbb{R}^n)_m &= \Hom{\TOP} (\Delta_e^m,\, \mathbb{R}_{\ge 0} \times \mathbb{R}^n)_{\text{smooth}}, \\
-    \Hom{\BSC} (U,\, U)_m &= \bigl\{\, f \in \Hom{\Strat}(\Delta^m_e \times U,\, \Delta^m_e \times U) \bigm| \mathrm{proj}_{\Delta^m_e} \circ f = \mathrm{proj}_{\Delta^m_e} \,\bigr\}
+    \Hom{\BSC} (U,\, U)_m &= \bigl\{\, f \in \Hom{\Snglr}(\Delta^m_e \times U,\, \Delta^m_e \times U) \bigm| \mathrm{proj}_{\Delta^m_e} \circ f = \mathrm{proj}_{\Delta^m_e} \,\bigr\}
 \end{align}
 であったから，
 \begin{align}
     \gamma_{[m]} \colon \Sing^{\text{sm}} (\mathbb{R}_{\ge 0} \times \mathbb{R}^n)_m &\lto \Hom{\BSC} (U,\, U)_m, \\
-    \Bigl( x \mapsto \bigl( t(x),\, p(x) \bigr)  \Bigr)  &\lmto \Bigl( \bigl(x,\, u\bigr) \mapsto \bigl(x,\, \tilde{\gamma}_{t(x),\, p(x)}(u)\bigr) \Bigr) \eqqcolon \gamma_{t,\, p}
+    \Bigl( x \mapsto \bigl( t(x),\, p(x) \bigr)  \Bigr)  &\lmto \Bigl( \bigl(x,\, u\bigr) \mapsto \bigl(x,\, \tilde{\gamma}_{t(x),\, p(x)}(u)\bigr) \Bigr) \eqqcolon \gamma_{[m]}{}_{t,\, p}
 \end{align}
 と定義すればよい．
 
@@ -1569,13 +1569,93 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 
         \item[\textbf{$i_2$ のホモトピー逆}]　
         
-        射は全て\hyperref[def:c-smooth-map]{conically smooth}なので，$\forall f \in \Hom{\BSC}^0(U,\, U)_m$ の\hyperref[def:c-smooth-along]{微分} $D_0 f \coloneqq Df|_{\mathbb{R}^n \times \{0\} \times \Cone{Z}} \in \Hom{\Snglr}(U,\, U)$ が存在する．この $D_0$ がホモトピー逆を与える．
+        $(\infty,\, 1)$-圏 $\BSC$ の定義において登場する射は全て\hyperref[def:c-smooth-map]{conically smooth}なので，$\forall f \in \Hom{\BSC}^0(U,\, U)_m$ の\hyperref[def:c-smooth-along]{微分}
+        \begin{align}
+            Df \colon T(\Delta^m_e \times \mathbb{R}^n) \times \Cone{Z} \lto T(\Delta^m_e \times \mathbb{R}^n) \times \Cone{Z}
+        \end{align}
+        が存在する\footnote{$\Delta^m_e \approx \mathbb{R}^m$ である．}．
+        このとき，$T(\Delta^m_e \times \mathbb{R}^n) \approx (\Delta^m_e \times \mathbb{R}^n) \times (\Delta^m_e \times \mathbb{R}^n)$ であり，底空間の勝手な元 $(x,\, p) \in \Delta^m_e \times \mathbb{R}^n$ に対して
+        \begin{align}
+            D_{(x,\, p)}f \coloneqq Df|_{\Delta^m_e \times \mathbb{R}^n \times \{(x,\, p)\} \times \Cone{Z}} \in \Hom{\BSC}(U,\, U)_m \subset \Hom{\Snglr} (\Delta^m_e \times U,\, \Delta^m_e \times U)
+        \end{align}
+        とおこう．特に，$D_{(x,\, 0)} f \in \Hom{\BSC}^0(U,\, U)_m$ であることに注意する．
+
+        　$\forall x \in \Delta^m_e$ を1つ固定する．まずは $\forall f \in \Hom{\BSC}^0(U,\, U)_m$ に対して $D_{(x,\, 0)} f \in \LGL(U)_m$ であること，i.e. Kan複体の射
+        \begin{align}
+            D_{0} \colon \Hom{\BSC}^0(U,\, U) \lto \LGL(U)
+        \end{align}
+        が定まることを示そう．
+        実際，$\forall (t,\, p) \in \Sing^{\text{sm}} (\mathbb{R}_{\ge 0} \times \mathbb{R}^n)_m$ に対して
+        \begin{align}
+            D_{(x,\, 0)} f \circ \gamma_{[m]}{}_{t,\, p}
+            &= \Bigl( \lim_{s \to +0} \gamma_{\frac{1}{s},\, 0} \circ f \circ \gamma_{s,\, 0}  \Bigr) \circ \gamma_{t,\, p} \\
+            &= \cdots \\
+            &= \gamma_{[m]}{}_{t,\, D_{(x,\, 0)} f(p)} \circ D_{(x,\, 0)} f
+        \end{align}
+        と計算できる．
+
+        　さらに，\hyperref[def:stratified-GL]{$\LGL(U)$ の定義}から $\forall T \in \LGL(U)_m$ および $\forall t > 0$ に対して
+        \begin{align}
+            \gamma_{[m]}{}_{\frac{1}{t},\, 0} \circ T \circ \gamma_{[m]}{}_{t,\, 0} = T
+        \end{align}
+        が成り立つので，\hyperref[def:c-smooth-along]{微分}の一意性より $D_0 T = T$ だと分かる．i.e. $D_0 \circ i_2 = \Id_{\LGL(U)}$ である．
+        
+        　その上，
+        \begin{align}
+            \Sing^{\text{sm}} ([0,\, 1]) \times \Hom{\BSC}^0 (U,\, U) &\lto \Hom{\BSC}^0 (U,\, U), \\
+            (s,\, f) &\lmto \gamma_{\frac{1}{s},\, 0} \circ f \circ \gamma_{s,\, 0}
+        \end{align}
+        がちょうど $i_2 \circ D_0$ と $\Id_{\Hom{\BSC}^0 (U,\, U)}$ を繋ぐホモトピーになっており，$i_2$ のホモトピー逆が $D_0$ であることが示された．
 
         \item[\textbf{$i_3$ のホモトピー逆}]　
         
         $\gamma$ により原点へ並行移動すれば良い．
     \end{description}
 \end{proof}
+
+\subsection{$\BSC$ の構造}
+
+$(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
+\begin{align}
+    \Obj{[\BSC]} \coloneqq \bigl\{\, [U] \bigm| U \in \Obj{\Bsc} \,\bigr\}
+\end{align}
+と書く．この集合の上には2項関係
+\begin{align}
+    \label{eq:relation-Bsc}
+    \bigl\{\, ([U],\, [V]) \in \Obj{[\BSC]}^{\times 2} \bigm| \Hom{\Bsc} (U,\, V) \neq \empty \,\bigr\} 
+\end{align}
+が定まる．
+
+\begin{mytheo}[label=thm:basic-easy]{Basics are easy}
+    \begin{enumerate}
+        \item $\forall U = \mathbb{R}^n \times \Cone{Z} \in \Obj{\Bsc}$ に対して，Kan複体の包含
+        \begin{align}
+            \LO(\mathbb{R}^n) \times \Aut (Z) \hookrightarrow \Hom{\Bsc}(U,\, U)
+        \end{align}
+        はKan複体のホモトピー同値である．
+        \item $\forall f \in \Hom{\Bsc}(U,\, V)$ に対して，以下のいずれかちょうど1つが真である：
+        \begin{enumerate}
+            \item $f$ は $(\infty,\, 1)$-圏 $\BSC$ における\hyperref[def:isom-infty]{同型射}である．
+            \item $\depth (U) < \depth (V)$
+        \end{enumerate}
+        \item 集合 $\Obj{[\BSC]}$ 上の2項関係\eqref{eq:relation-Bsc}は半順序である．半順序集合 $\Obj{[\BSC]}$ を $(1,\, 1)$-圏と見做し，それを $[\BSC]$ と書く．
+        \item \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+        \begin{align}
+            [\mhyphen] \colon \BSC \lto \Ner{[\BSC]}
+        \end{align}
+        はconservativeである．i.e. $(U \xrightarrow{f} V) \in \BSC_1$ が $(\infty,\, 1)$-圏 $\BSC$ における\hyperref[def:isom-infty]{同型射}であるためには，$U,\, V$ が $(1,\, 1)$-圏 $\Bsc$ において同型であることが必要十分である．
+        \item 写像
+        \begin{align}
+            \depth \colon \Obj{[\BSC]} \lto \mathbb{Z}_{\ge 0}
+        \end{align}
+        は順序を保つ．
+    \end{enumerate}
+\end{mytheo}
+
+\begin{proof}
+    
+\end{proof}
+
 
 
 \section{Disk algebras}
