@@ -3247,7 +3247,7 @@ $a,\, b \in Z_n (X,\, *)$ に対して，系\ref{col:horn-coeq}，命題\ref{pro
 
 ~\cite{nLab}, ~\cite[p.9]{NSS2012}に従い $(\infty,\, 1)$-トポスの定義を概観する\footnote{ここでの定義は不完全なので，詳細は~\cite{nLab}, ~\cite{lurie2008higher}などを参照．}．
 
-\begin{mydef}[label=def:infinity-topos]{$\infty$-トポス}
+\begin{mydef}[label=def:infinity-topos,breakable]{$\infty$-トポス}
     $K$ を\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}とする．
     
     $K$ 上の $\bm{(\infty,\, 1)}$\textbf{-トポス}とは，$(\infty,\, 1)$-圏 $\inftyPsh{K}$ の部分\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
@@ -3265,9 +3265,9 @@ $a,\, b \in Z_n (X,\, *)$ に対して，系\ref{col:horn-coeq}，命題\ref{pro
 
     \tcblower
 
-    もしくは，\hyperref[def:complete]{余完全}\footnote{正確には\textbf{presentable}~\cite[p.372, Def5.5.0.18]{lurie2008higher}}な\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\bm{\mathrm{H}}$ であって以下の公理を充たすもののこと~\cite[p.9, Definition5.4]{NSS2012}：
+    もしくは，\hyperref[def:complete]{余完全}\footnote{正確には\textbf{presentable}~\cite[p.372, Def5.5.0.18]{lurie2008higher}}な\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\bm{\mathrm{H}}$ であって以下の公理を充たすもののこと~\cite[p.9, Definition 2.1]{NSS2012}：
     \begin{description}
-        \item[\textbf{(T1)}] $\forall f \in \Hom{\bm{\mathrm{H}}}(X,\, Y)$ および $\bm{\mathrm{H}}$ における\hyperref[def:diagram]{図式} $D \colon I \lto \bm{\mathrm{H}}_{/Y}$ において，自然な同型
+        \item[\textbf{(T1)}] $\forall f \in \Hom{\bm{\mathrm{H}}}(X,\, Y)$ および $\bm{\mathrm{H}}$ における任意の小さい\hyperref[def:diagram]{図式} $D \colon I \lto \bm{\mathrm{H}}_{/Y}$ において，自然な同型
         \begin{align}
             \colim_{i \in I} \bigl( X \times_Y D(i) \bigr) \cong X \times_Y \colim_{i \in I} D(i)
         \end{align}
@@ -3282,11 +3282,9 @@ $a,\, b \in Z_n (X,\, *)$ に対して，系\ref{col:horn-coeq}，命題\ref{pro
         は図式 $Y \lto X \amalg Y \lrto X$ の引き戻しでもある．i.e. 任意の和がdisjointである．
         \item[\textbf{(T3)}] $\bm{\mathrm{H}}$ における任意のgroupoid objectはdeloopingを持つ．
     \end{description}
-    
 \end{mydef}
 
 % ~\cite{alfonsi2023higher}は命題\ref{prop:nerve-grpd-Psh}を使って $\infty$-トポスを定義している．
-
 
 \section{$(\infty,\, n)$-圏}
 
@@ -3295,6 +3293,7 @@ $a,\, b \in Z_n (X,\, *)$ に対して，系\ref{col:horn-coeq}，命題\ref{pro
 \subsection{Complete Segal space}
 
 \subsection{Theta space}
+
 
 
 \end{document}
