@@ -1615,14 +1615,54 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 
 \subsection{$\mathcal{B}\mathrm{sc}$ の構造}
 
+\begin{mylem}[label=lem:basic-conservative]{}
+    2つの\hyperref[def:Bsc-induction]{basic} $U \coloneqq \mathbb{R}^n \times \Cone{Z},\, V \coloneqq \mathbb{R}^m \times \Cone{W} \in \Obj{\Bsc}$ であって，$\Hom{\Bsc}(U,\, V) \neq \empty$ を充たすものをとる．
+    このとき，以下の条件は全て同値である：
+    \begin{enumerate}
+        \item $\depth(U) = \depth(V)$
+        \item $f \in \Hom{\Bsc}(U,\, V)$ であって，$f(U) \cap \bigl(\mathbb{R}^m \times \{*\}\bigr) \neq \empty$ を充たすものが存在する．
+        \item $(1,\, 1)$-圏 $\Bsc$ における $U$ から $V$ への同型射全体を対象に持つ，\hyperref[lem:Kan-enriched]{Kan複体 $\Hom{\BSC}(U,\, V)$} の\hyperref[def:fullsub-infty]{充満部分Kan複体} $\mathcal{I}\mathrm{so}_{\BSC} (U,\, V) \hookrightarrow \Hom{\BSC}(U,\, V)$ について，その包含写像はKan複体の弱ホモトピー同値である．
+        \item $(1,\, 1)$-圏 $\Bsc$ において $U$ と $V$ は同型である．
+        \item $n=m$ かつ，\hyperref[def:c-smooth]{$(1,\, 1)$-圏 $\Strat$} において $Z$ と $W$ は同型である．
+    \end{enumerate}
+\end{mylem}
+
+\begin{proof}
+    \begin{description}
+        \item[\textbf{(5)$\bm{\Longrightarrow}$(4)}]　
+        
+        明らか．
+
+        \item[\textbf{(4)$\bm{\Longrightarrow}$(3)}]　
+        
+        命題\ref{prop:Hom-htpy-equiv}より従う．
+
+        \item[\textbf{(3)$\bm{\Longrightarrow}$(2)}]　
+        
+
+
+        \item[\textbf{(2)$\bm{\Longrightarrow}$(1)}]　
+        
+        開埋め込み $\mathbb{R}^n \times \Cone{Z} \lto \mathbb{R}^m \times \Cone{W}$ の存在より $\dim(Z) = \dim(W)$ が言える．
+
+        \item[\textbf{(1)$\bm{\Longrightarrow}$(5)}]　
+        
+        $f \in \Hom{\Bsc}(U,\, V)$ を1つとる．すると，\hyperref[def:Bsc-induction]{conically smoothnessの定義}よりconically smoothな層状化開埋め込み
+        $\tilde{f} \in \Hom{\Snglr} (\mathbb{R}^n \times \mathbb{R}_{\ge 0} \times Z,\, \mathbb{R}^n \times \mathbb{R}_{\ge 0} \times W)$ が存在する．
+        $\tilde{f}$ を制限することで，conically smoothな層状化開埋め込み $\bar{f} \in \Hom{\Snglr}\bigl(\{0\} \times \{0\} \times Z,\, \{f(0)\} \times \{0\} \times W\bigr)$ を得る．然るにこのとき $Z$ がコンパクトなので，$\bar{f}(Z) \subset W$ もまたコンパクトである．
+    \end{description}
+    
+\end{proof}
+
+
 $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
 \begin{align}
     \Obj{[\BSC]} \coloneqq \bigl\{\, [U] \bigm| U \in \Obj{\Bsc} \,\bigr\}
 \end{align}
-と書く．この集合の上には2項関係
+と書く．この集合の上には二項関係
 \begin{align}
     \label{eq:relation-Bsc}
-    \bigl\{\, ([U],\, [V]) \in \Obj{[\BSC]}^{\times 2} \bigm| \Hom{\Bsc} (U,\, V) \neq \empty \,\bigr\} 
+    \le \coloneqq \Bigl\{\, \bigl([U],\, [V]\bigr) \in \Obj{[\BSC]}^{\times 2} \Bigm| \Hom{\Bsc} (U,\, V) \neq \emptyset \,\Bigr\} 
 \end{align}
 が定まる．
 
@@ -1630,18 +1670,18 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
     \begin{enumerate}
         \item $\forall U = \mathbb{R}^n \times \Cone{Z} \in \Obj{\Bsc}$ に対して，Kan複体の包含
         \begin{align}
-            \LO(\mathbb{R}^n) \times \Aut (Z) \hookrightarrow \Hom{\Bsc}(U,\, U)
+            \LO(\mathbb{R}^n) \times \Aut (Z) \hookrightarrow \Hom{\BSC}(U,\, U)
         \end{align}
-        はKan複体のホモトピー同値である．
+        はKan複体のホモトピー同値である\footnote{左辺を $\Sing^{\text{sm}}\bigl( \LO(n) \bigr) \times \Aut(Z)$ としても等価な主張である．}．
         \item $\forall f \in \Hom{\Bsc}(U,\, V)$ に対して，以下のいずれかちょうど1つが真である：
         \begin{enumerate}
             \item $f$ は $(\infty,\, 1)$-圏 $\BSC$ における\hyperref[def:isom-infty]{同型射}である．
             \item $\depth (U) < \depth (V)$
         \end{enumerate}
-        \item 集合 $\Obj{[\BSC]}$ 上の2項関係\eqref{eq:relation-Bsc}は半順序である．半順序集合 $\Obj{[\BSC]}$ を $(1,\, 1)$-圏と見做し，それを $[\BSC]$ と書く．
+        \item 集合 $\Obj{[\BSC]}$ 上の二項関係\eqref{eq:relation-Bsc}は半順序である．半順序集合 $\bigl(\Obj{[\BSC]},\, \le \bigr)$ を $(1,\, 1)$-圏と見做し，それを $[\BSC]$ と書く．
         \item \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
         \begin{align}
-            [\,\mhyphen\,] \colon \BSC \lto \Ner{[\BSC]}
+            [\,\mhyphen\,] \colon \BSC \lto \Ner\bigl([\BSC]\bigr)
         \end{align}
         はconservativeである．i.e. $(U \xrightarrow{f} V) \in \BSC_1$ が $(\infty,\, 1)$-圏 $\BSC$ における\hyperref[def:isom-infty]{同型射}であるためには，$U,\, V$ が $(1,\, 1)$-圏 $\Bsc$ において同型であることが必要十分である．
         \item 写像
@@ -1653,6 +1693,9 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
 \end{mytheo}
 
 \begin{proof}
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
     
 \end{proof}
 
@@ -2056,8 +2099,8 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         \begin{center}
             % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BhOnYAeQC+APU4Q8AW3ghBpdJlz5CKAEzkqtRizacefIQHJgIsZOmz52PASIBGUrY31mrRB3YA5GACcABAApOADEASQ8AfQAqAEoZDRgoAHNpFFAAM28ICSQyEBwIJHtNFzY0mTkQDKyc6nykNWLtNzQQagY6ACMYBgAFBWtlEG8sRIALHHL0zOzEIrrEBucmkABHOMEgA
             \begin{tikzcd}
-            \Cat{O}^\otimes \arrow[rr, "f"] \arrow[rd, "p"'] &               & \Cat{O}'{}^\otimes \arrow[ld, "p'"] \\
-                                                             & \Ner (\FIN_*) &                                   
+            \Cat{O}^\otimes \arrow[rr, "f"] \arrow[rd, "p"']    &               & \Cat{O}'{}^\otimes \arrow[ld, "p'"] \\
+                                                                & \Ner (\FIN_*) &                                   
             \end{tikzcd}
         \end{center}
         は可換である．
@@ -2284,7 +2327,6 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
                     と定義される\hyperref[def:inert-active]{activeな射}である\footnote{$1 \le \forall j \le n$ に対して $\rho^j \circ \pi = \alpha_{m_j} \circ \pi_j$ が成り立つ．}．
             \end{description}
         \end{enumerate}
-        
     \end{itemize}
 \end{myprop}
 

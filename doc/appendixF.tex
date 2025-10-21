@@ -504,7 +504,7 @@
         \item 次の図式を考える：
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
-                &\bigl( (X \otimes I) \otimes Y \bigr) \otimes Z \ar[ddd,blue,"a_{X\otimes I,Y,Z}"']\ar[rr,blue,"a_{X,I,Y}\otimes \Id_Z"]\ar[dr,red,"(r_X \otimes \Id_Y) \otimes \Id_Z"'] & &\bigl( X \otimes (1 \otimes Y) \bigr) \otimes Z \ar[dl,red,"(\Id_X \otimes l_Y) \otimes \Id_Z"] \ar[ddd,blue,"a_{X,I\otimes Y,Z}"]\\
+                &\bigl( (X \otimes I) \otimes Y \bigr) \otimes Z \ar[ddd,blue,"a_{X\otimes I,Y,Z}"']\ar[rr,blue,"a_{X,I,Y}\otimes \Id_Z"]\ar[dr,red,"(r_X \otimes \Id_Y) \otimes \Id_Z"'] & &\bigl( X \otimes (I \otimes Y) \bigr) \otimes Z \ar[dl,red,"(\Id_X \otimes l_Y) \otimes \Id_Z"] \ar[ddd,blue,"a_{X,I\otimes Y,Z}"]\\
                 & &(X \otimes Y) \otimes Z \ar[d,red,"a_{X,Y,Z}"] & \\
                 & &X \otimes (Y \otimes Z) & \\
                 &(X \otimes I) \otimes (Y \otimes Z)\ar[ur,red,"r_X \otimes \Id_{Y\otimes Z}"] \ar[dr,blue,"a_{X,I,Y\otimes Z}"'] & &X \otimes \bigl( (I \otimes Y) \otimes Z \bigr) \ar[ul,red,"\Id_X \otimes (l_Y \otimes \Id_Z)"'] \ar[dl,"\Id_X \otimes a_{I,Y,Z}"] \\
@@ -1440,7 +1440,7 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
         \draw[->-=.5] (y_1) -- (y_2);
         \LCOEV{x_1}{x_2}
         \BRAID{y_2}{x_1}{x_3}{y_3}
-        \BRAID{y_2}{x_2}{x_4}{y_3}
+        \rdBRAID{y_2}{x_2}{x_4}{y_3}
     \end{tikzpicture} \\
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
         \path coordinate (y_1)
@@ -1463,7 +1463,7 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
         \LCOEV{x_1}{y_1}
         \draw[-<-=.5] (z_1) -- +(0,-1);
         \ABRAID{x_1}{z_1}{x_2}{y_2}
-        \ABRAID{y_1}{z_1}{x_2}{z_2}
+        \ldABRAID{y_1}{z_1}{x_2}{z_2}
     \end{tikzpicture} \\
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
         \path coordinate[label=above left:$Y$] (y_1)
@@ -1483,7 +1483,7 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
             +(1,0) coordinate (y_2)
             +(3,0) coordinate (z_2)
         ;
-        \BRAID{x_1}{y_1}{x_2}{z_2}
+        \rdBRAID{x_1}{y_1}{x_2}{z_2}
         \BRAID{x_1}{z_1}{y_2}{z_2}
         \LEV{x_2}{y_2}
         \draw[->-=.5] (z_2) -- +(0,1);
@@ -1508,7 +1508,7 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
         ;
         \LEV{y_2}{z_2}
         \draw[->-=.5] (x_2) -- +(0,1);
-        \ABRAID{x_1}{z_1}{x_2}{y_2}
+        \ldABRAID{x_1}{z_1}{x_2}{y_2}
         \ABRAID{y_1}{z_1}{x_2}{z_2}
     \end{tikzpicture}
 \end{align}
@@ -2428,7 +2428,7 @@ $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 上の積\eqref{eq:fusionring}は明らか�
         \draw[->-=.5] (v4) -- node[midway,left] {$u$} (u);
     \end{tikzpicture}
 \end{align}
-ただし，$\forall x,\, y,\, z \in \Simp(\Cat{C})$ に対して定まる $\mathbb{K}$-ベクトル空間 $\Hom{\Cat{C}}(x \otimes y,\, z)$ の基底を $\mathrm{Basis}(x \otimes y,\, z)$ と書いた．
+ただし，$\forall x,\, y,\, z \in \Simp(\Cat{C})$ それぞれに対して定まる $\mathbb{K}$-ベクトル空間 $\Hom{\Cat{C}}(x \otimes y,\, z)$ の基底を1つ固定し，それを $\mathrm{Basis}(x \otimes y,\, z)$ と書いた．
 
 \subsection{ユニタリフュージョン圏}
 
