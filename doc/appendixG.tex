@@ -178,7 +178,41 @@ i.e. 商位相空間
 
 \begin{marker}
     以下では，混乱の恐れがない限り\hyperref[def:stratified-space]{層状化空間} $(X \xrightarrow{s} P)$ の\hyperref[def:str-cone]{コーン}を $\Cone{X \xrightarrow{s} P}$ と略記する．
+    さらに，1点 $[0,\, *] \in \Cone{Z}$ のことを\textbf{コーンポイント}と呼び，$\mathrm{pt}$ と略記する．
 \end{marker}
+
+\begin{mylem}[label=lem:cone-connected]{層状化空間のコーンは連結}
+    \hyperref[def:stratified-space]{層状化空間} $(Z \xrightarrow{s} P)$ の\hyperref[def:str-cone]{コーン} $\Cone{Z \xrightarrow{s} P}$ において，位相空間 $\Cone{Z}$ は弧状連結である\footnote{従って連結でもある}．
+\end{mylem}
+
+\begin{proof}
+    $Z$ を弧状連結成分のdisjoint unionに分割し，$Z = \coprod_{i \in \pi_0(Z)} Z_i$ と書く．
+    いま，位相空間 $\Cone{Z}$ の互いに相異なる2点 $[t_i,\, z_i],\, [t_j,\, z_j] \in \Cone{Z}$ を任意にとる．
+    ただし $z_i \in Z_i,\, z_j \in Z_j$ とする．
+
+    $i=j$ ならば，$z_i$ と $z_j$ を繋ぐ $Z_i = Z_j$ 上の連続曲線 $\varphi \colon [0,\, 1] \lto Z_i$ が存在する．よって連続写像
+    \begin{align}
+        \bar{\varphi} \colon [0,\, 1] &\lto \Cone{Z},\; 
+        s \lmto \bigl[ (1-s)t_i + st_j,\, \varphi(s) \bigr] 
+    \end{align}
+    が $[t_i,\, z_i],\, [t_j,\, z_j]$ を繋ぐ．
+
+    $i \neq j$ とする．このとき，$\Cone{Z}$ 上の連続曲線
+    \begin{align}
+        \varphi_i \colon [0,\, 1] &\lto \Cone{Z},\; s \lmto \bigl[ (1-s)t_i,\, z_i \bigr] \\
+        \varphi_j \colon [0,\, 1] &\lto \Cone{Z},\; s \lmto \bigl[ (1-s)t_j,\, z_j \bigr]
+    \end{align}
+    はそれぞれ $[t_i,\, z_i],\, [t_j,\, z_j]$ とコーンポイント $\mathrm{pt} = [0,\, *] \in \Cone{Z}$ を繋ぐ．故に
+    $\varphi_i$ と $\varphi_j^{-1}$ を繋ぎ合わせて得られる $\Cone{Z}$ 上の連続曲線
+    \begin{align}
+        \varphi_i * \varphi_j^{-1} \colon [0,\, 1] &\lto \Cone{Z},\; 
+        s \lmto \begin{cases}
+            \varphi_i (2s), &s \in [0,\, \frac{1}{2}] \\
+            \varphi_i (2-2s), &s \in [\frac{1}{2},\, 1]
+        \end{cases}
+    \end{align}
+    がちょうど $[t_i,\, z_i],\, [t_j,\, z_j]$ を繋ぐ．
+\end{proof}
 
 
 \begin{mydef}[label=def:Snglr-C0]{$C^0$ 級層状化空間}
@@ -269,7 +303,7 @@ $C^\infty$ 多様体の $C^\infty$ 構造の定義においては，チャート
 次の小節で\textbf{conically smooth structure}の定義を行うが，その際にチャートに対応するものは\textbf{basic} $U = \mathbb{R}^n \times \Cone{Z}$ から着目している\hyperref[def:Snglr-C0]{$C^0$-級層状化空間} $X$ への\hyperref[def:strat-emb]{層状化開埋め込み} $\varphi \colon U \hookrightarrow X$ であり，
 概ね\footnote{コーンポイントをコーンポイントに写さない変換関数も存在しうるので，これだけではいけない．}2つのチャート $\varphi \colon U \hookrightarrow X,\; \psi \colon V \hookrightarrow X$ の間の変換関数 $\psi^{-1} \circ \varphi \colon U \lto V$ に対して\hyperref[def:c-smooth-along]{conically smooth (along $\mathbb{R}^n$)}であることを要請する．
 
-\begin{mydef}[label=def:c-smooth-along]{$\mathbb{R}^n$ に沿ってconically smooth}
+\begin{mydef}[label=def:c-smooth-along,breakable]{$\mathbb{R}^n$ に沿ってconically smooth}
     \begin{itemize}
         \item \hyperref[def:C0-basic]{$C^0$ basic}な $(U \to P_{U}) = (\mathbb{R}^{n} \to [0]) \times \Cone{Z \to P} \in \Obj{\SnglrC}$
         \item \hyperref[def:C0-basic]{$C^0$ basic}な $(U' \to P_{U'}) = (\mathbb{R}^{n'} \to [0]) \times \Cone{Z' \to P'} \in \Obj{\SnglrC}$
@@ -1413,8 +1447,8 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 \subsection{{$\mathcal{B}\mathrm{sc}$} におけるHom}
 
 しばらくの間，\hyperref[def:Snglr]{basic} $U \coloneqq \bigl( (\mathbb{R}^n \to [0]) \times \Cone{Z \to P},\, \mathcal{A}_Z \bigr) \in \Obj{\Bsc}$ を1つ固定する．
-これまでと同様に，\hyperref[def:stratified-space]{層状化空間}$\Cone{Z \xrightarrow{s} P} = \bigl(\Cone{Z} \xrightarrow{\Cone{s}} \Cone{P}\bigr)$ の\hyperref[def:str-cone]{コーンポイント}のことを $\mathrm{pt} \in \Cone{Z}$ と書き，$\mathbb{R}^n \times \{\mathrm{pt}\} \subset \mathbb{R}^n \times \Cone{Z}$ のことを $\mathbb{R}^n$ と略記することにする．
-さらに，点 $(0,\, \mathrm{pt}) \in \mathbb{R}^n \times \Cone{Z}$ のことを $0 \in \mathbb{R}^n \times \Cone{Z}$ と略記し，$U$ の\textbf{原点} (origin) と呼ぶことにする．
+これまでと同様に，\hyperref[def:stratified-space]{層状化空間}$\Cone{Z \xrightarrow{s} P} = \bigl(\Cone{Z} \xrightarrow{\Cone{s}} \Cone{P}\bigr)$ の\hyperref[def:str-cone]{コーンポイント} $[0,\, *] \in \Cone{Z} = \frac{\mathbb{R}_{\ge 0} \times Z}{\{0\} \times Z}$ のことを $\mathrm{pt}$ と書き，$\mathbb{R}^n \times \{\mathrm{pt}\} \subset \mathbb{R}^n \times \Cone{Z}$ のことを $\mathbb{R}^n$ と略記することにする．
+さらに，点 $(0,\, \mathrm{pt}) \in \mathbb{R}^n \times \Cone{Z}$ のことを $\bm{0}$ と略記し，$U$ の\textbf{原点} (origin) と呼ぶことにする．
 
 \begin{marker}
     以下では，混乱が生じにくい場合は層状化空間 $(X \xrightarrow{s} P)$ の $s$ と $P$ を省略する．さらに，\hyperref[def:Sm-induction]{conically smooth atlas}を明示しない．
@@ -1440,7 +1474,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 へと格上げすることができる．
 実際，$\forall m \ge 0$ に対して，$m$-単体はそれぞれ
 \begin{align}
-    \Sing^{\text{sm}} (\mathbb{R}_{\ge 0} \times \mathbb{R}^n)_m &= \Hom{\TOP} (\Delta_e^m,\, \mathbb{R}_{\ge 0} \times \mathbb{R}^n)_{\text{smooth}}, \\
+    \Sing^{\text{sm}} (\mathbb{R}_{\ge 0} \times \mathbb{R}^n)_m &= \Hom{\Strat} (\Delta_e^m,\, \mathbb{R}_{\ge 0} \times \mathbb{R}^n), \\
     \Hom{\BSC} (U,\, U)_m &= \bigl\{\, f \in \Hom{\Snglr}(\Delta^m_e \times U,\, \Delta^m_e \times U) \bigm| \mathrm{proj}_{\Delta^m_e} \circ f = \mathrm{proj}_{\Delta^m_e} \,\bigr\}
 \end{align}
 であったから，
@@ -1456,7 +1490,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 \end{align}
 を，\hyperref[lem:Kan-enriched]{Kan複体 $\Hom{\SNGLR} (Z,\, Z)$} の\hyperref[def:SimpSet]{部分Kan複体}として次のように定義する：
 \begin{align}
-    \Aut(Z)_m \coloneqq \bigl\{\, f \in \Hom{\SNGLR} (Z,\,Z)_m \bigm| \exists f^{-1} \in \Hom{\Snglr} (\Delta^m_e \times Z,\, \Delta^m_e \times Z) \,\bigr\} 
+    \Aut(Z)_m \coloneqq \bigl\{\, f \in \Hom{\SNGLR} (Z,\,Z)_m \bigm| \forall x \in \Delta^m_e,\; \exists (\mathrm{proj}_{Z} \circ f|_{\{x\} \times Z})^{-1} \in \Hom{\Snglr}(Z,\, Z) \,\bigr\} 
 \end{align}
 なお，$\forall m \ge 0$ に対し集合 $\Aut(Z)_m$ は $(1,\, 1)$-圏 $\Snglr$ における1-射の合成に関して群になるため，Kan複体 $\Aut(Z)$ は\textbf{群的なKan複体} (group-like Kan complex)\footnote{Kan複体であって，$\OP{\Delta} \lto \GRP$ でもあるもの．従って，homotopy hypothesisより位相群と見做すことができる．}と見做すことができる．
 
@@ -1468,10 +1502,18 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
         \LGL (U) \colon \OP{\Delta} \lto \SETS
     \end{align}
     を次のように定義し，\textbf{層状化された一般線形群}と呼ぶ：
+    \small
     \begin{align}
-        \LGL(U)_m \coloneqq \bigl\{\, T \in \Hom{\SNGLR} (U,\, U)_m \bigm| \forall (t,\, p) \in \Sing^{\text{sm}}(\mathbb{R}_{\ge 0} \times \mathbb{R}^n)_m,\; T \circ \gamma_{[m]}{}_{t,\, p} = \gamma_{[m]}{}_{t,\, (Tp)_{\mathbb{R}^n}} \circ T  \,\bigr\} 
+        \bm{\LGL(U)_m} \coloneqq \bigl\{\, T \in \Hom{\SNGLR} (U,\, U)_m \bigm| \forall (t,\, p) \in \Sing^{\text{sm}}(\mathbb{R}_{\ge 0} \times \mathbb{R}^n)_m,\; T \circ \gamma_{[m]}{}_{t,\, p} = \gamma_{[m]}{}_{t,\, (Tp)_{\mathbb{R}^n}} \circ T  \,\bigr\} 
     \end{align}
-    ただし，$(Tp)_{\mathbb{R}^n} \coloneqq \mathrm{proj}_{\mathbb{R}^n} \circ T|_{\Delta^m_e \times \mathbb{R}^n \times \{0\}} \circ p \colon \Delta^m_e \lto \mathbb{R}^n$ と略記した．
+    \normalsize
+    ただし，以下の合成写像を $(Tp)_{\mathbb{R}^n} \colon \Delta^m_e \lto \mathbb{R}^n$ と略記した：
+    \scriptsize
+    \begin{align}
+        &\Delta^m_e & &\xrightarrow{\mathrm{diag}} & &\Delta^m_e \times \Delta^m_e & &\xrightarrow{\Id \times p} & &\Delta^m_e \times \mathbb{R}^n & &\xrightarrow{T|_{\Delta^m_e \times \mathbb{R}^n \times \{\mathrm{pt}\}}}  & &\Delta^m_e \times \mathbb{R}^n \times \Cone{Z} & &\xrightarrow{\mathrm{proj}_{\mathbb{R}^n}} \mathbb{R}^n, \\
+        &x & &\lmto & &(x,\, x) & &\lmto & &\bigl( x,\, p(x) \bigr) & &\lmto & &T \bigl( x,\, p(x),\, \mathrm{pt} \bigr) & &\lmto \mathrm{proj}_{\mathbb{R}^n} \circ T\bigl( x,\, p(x),\, \mathrm{pt} \bigr)
+    \end{align}
+    \normalsize
     
     \tcblower
 
@@ -1509,25 +1551,75 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 
 さて，部分Kan複体 $\Aut^0 (U) \subset \Hom{\BSC}^0 (U,\, U) \subset \Hom{\SNGLR} (U,\, U)$ を次のように定義しよう：
 \begin{align}
-    \Hom{\BSC}^0 (U,\, U)_m &\coloneqq \bigl\{\, f \in \Hom{\SNGLR} (U,\, U)_m \bigm| \forall x \in \Delta^m_e,\; f(x,\, 0) = (x,\, 0) \,\bigr\}, \\
-    \Aut^0 (U)_m &\coloneqq \bigl\{\, f \in \Hom{\BSC}^0 (U,\, U)_m \bigm| \forall x \in \Delta^m_e,\; \exists (f|_{\{x\} \times U})^{-1} \in \Hom{\Snglr}(U,\, U) \,\bigr\}
+    \Hom{\BSC}^0 (U,\, U)_m &\coloneqq \bigl\{\, f \in \Hom{\SNGLR} (U,\, U)_m \bigm| \forall x \in \Delta^m_e,\; f(x,\, \bm{0}) = (x,\, \bm{0}) \,\bigr\}, \\
+    \Aut^0 (U)_m &\coloneqq \Aut (U)_m \cap \Hom{\BSC}^0 (U,\, U)_m
 \end{align}
 
 \begin{mylem}[label=lem:Hom-sub-1]{層状化された一般線形群は原点を保つ自己同相群}
     \begin{align}
         \LGL(U) \subset \Aut^0(U) \subset \Hom{\BSC}^0(U,\, U)
     \end{align}
+    さらに，$\forall m \ge 0,\; \forall S,\, T \in \LGL(U)_m$ に対して $S \circ T \in \LGL(U)$ が成り立つ．i.e. $\LGL(U)$ は群的なKan複体である．
 \end{mylem}
 
 \begin{proof}
     $\forall m \ge 0$ および $\forall T \in \LGL(U)_m$ を1つ固定する．
-    $\forall x \in \Delta^m_e$ および $\forall t \in \mathbb{R}_{\ge 0}$ に対して $\gamma_{[m]}{}_{t,\, 0} (x,\, 0) = (x,\, 0)$ が成り立つので，
-    \begin{align}
-        T(x,\, 0) = T \circ \gamma_{[m]}{}_{0,\, 0} (x,\, 0) = \gamma_{[m]}{}_{0,\, 0} \bigl( T(x,\, 0) \bigr) = (x,\, 0)
-    \end{align}
-    が言える．
-    また，\hyperref[def:Snglr]{$(1,\, 1)$-圏 $\Snglr$ の定義}より $T \in \Hom{\Snglr}(\Delta^m_e \times U \lto \Delta^m_e \times U)$ は開埋め込みであるから単射である． 
-    故に $T$ が全射であることを示せば良い．
+    
+    \begin{description}
+        \item[$\bm{T} \bm{\in} \bm{\Hom{\BSC}^0(U,\, U)_m}$]　
+        
+        $\forall x \in \Delta^m_e$ および $\forall t \in \mathbb{R}_{\ge 0}$ に対して $\gamma_{[m]}{}_{t,\, 0} (x,\, \bm{0}) = (x,\, \bm{0})$ が成り立つ\footnote{定数写像 $\Delta^m_e \lto \mathbb{R}_{\ge 0},\, x \lmto  t$ のことを $t$ と略記している．}ので，
+        \begin{align}
+            \bigl( x,\, \mathrm{proj}_{U} \circ T(x,\, \bm{0}) \bigr)
+            &=T(x,\, \bm{0}) \\
+            &= T \circ \gamma_{[m]}{}_{t,\, 0} (x,\, \bm{0}) \\
+            &= \gamma_{[m]}{}_{t,\, (T0)_{\mathbb{R}^n}} \circ T (x,\, \bm{0}) \\
+            &= \gamma_{[m]}{}_{t,\, \mathrm{proj}_{\mathbb{R}^n} \circ T(x,\, \bm{0})}\bigl( x,\, \mathrm{proj}_{U} \circ T(x,\, \bm{0})\bigr) \label{eq:save-origin}
+        \end{align}
+        が言える\footnote{3つ目の等号で登場する $0$ とは，定数写像 $\Delta^m_e \lto \mathbb{R}^n,\, x \lmto 0$ のことである．}．
+        ここで $\mathrm{proj}_{U} \circ T(x,\, \bm{0}) = \bigl( \mathrm{proj}_{\mathbb{R}^n} \circ T(x,\, \bm{0}),\, \mathrm{proj}_{\Cone{Z}} \circ T(x,\, \bm{0}) \bigr) \in U$ であるから，$v_0 \coloneqq \mathrm{proj}_{\mathbb{R}^n} \circ T(x,\, \bm{0}),\, [s_0,\, z_0] \coloneqq \mathrm{proj}_{\Cone{Z}} \circ T(x,\, \bm{0})$ とおくと\eqref{eq:save-origin}は
+        \begin{align}
+            \bigl(v_0,\, [s_0,\, z_0] \bigr)
+            = \bigl( t v_0 + v_0,\, [ts_0,\, z_0] \bigr)
+        \end{align}
+        を意味する．いま $t \in \mathbb{R}_{\ge 0}$ は任意であったから，$v_0 = 0,\, s_0 = 0$ でなくてはいけない．i.e. $T(x,\, 0) = \bigl(x,\, v_0,\, [s_0,\, z_0]\bigr) = (x,\, 0)$ が示された．
+
+        \item[$\bm{T} \bm{\in} \bm{\Aut^0(U,\, U)_m}$]　
+        
+        $\forall x \in \Delta^m_e$ を1つ固定する．
+        \hyperref[def:Snglr]{$(1,\, 1)$-圏 $\Snglr$ の定義}より $T \in \Hom{\Snglr}(\Delta^m_e \times U,\, \Delta^m_e \times U)$ は開埋め込みであるから単射であり，従って $T_x \coloneqq \mathrm{proj}_{U} \circ T|_{\{x\} \times U} \in \Hom{\Snglr}(U,\, U)$ もまた開埋め込みであって単射である．
+        故に $T_x$ が全射であること，i.e. $T_x (U) = U$ であることを示せば十分である．
+        実際，原点の勝手な開近傍 $\bm{0} \in O \subset U$ を $\tilde{\gamma}_{t,\, 0}$ によって拡大することで $U$ の開基を作ることができ，かつ $T \circ \gamma_{t,\, 0} = \gamma_{t,\, 0} \circ T$ が成り立つことが先に示されているので $T_x$ は全射である~\cite[Lemma 4.3.4.]{AFT2014stratified}．
+
+        \item[\textbf{合成について閉じていること}]　
+        
+        $\forall (x,\, p) \in \Delta^m_e \times \mathbb{R}^n$ に対して $(x,\, p,\, \mathrm{pt}) = \gamma_{[m]}{}_{1,\, p}(x,\, \bm{0})$ が成り立つ\footnote{定数写像 $\Delta^m_e \lto \mathbb{R}^n,\; x \lmto p$ のことを $p$ と略記している．}から，
+        \begin{align}
+            T(x,\, p,\, \mathrm{pt})
+            &= T \circ \gamma_{[m]}{}_{1,\, p}(x,\, \bm{0}) \\
+            &= \gamma_{[m]}{}_{1,\, (Tp)_{\mathbb{R}^n}} \circ T(x,\, \bm{0}) \\
+            &= \gamma_{[m]}{}_{1,\, (Tp)_{\mathbb{R}^n}}(x,\, \bm{0}) \in \{x\} \times \mathbb{R}^n \times \{\mathrm{pt}\}
+        \end{align}
+        が言える，i.e. $\LGL(U)_{m}$ の任意の元はコーンポイントを保存することに注意する．
+
+        　ここでもう一つの $\forall S \in \LGL(U)_m$ を固定する．
+        $\forall (t,\, p) \in \Sing^{\text{sm}} (\mathbb{R}_{\ge 0} \times \mathbb{R}^n)_m$ および $\forall x \in \Delta^m_e$ に対して
+        \begin{align}
+            \bigl((S \circ T)p\bigr)_{\mathbb{R}^n}(x)
+            &= \mathrm{proj}_{\mathbb{R}^n} \circ (S \circ T)\bigl( x,\, p(x),\, \mathrm{pt} \bigr) \\
+            &= \mathrm{proj}_{\mathbb{R}^n} \circ S \Bigl(x,\, \mathrm{proj}_{\mathbb{R}^n} \circ T\bigl( x,\, p(x),\, \mathrm{pt} \bigr),\, \mathrm{proj}_{\Cone{Z}} \circ T\bigl( x,\, p(x),\, \mathrm{pt} \bigr) \Bigr) \\
+            &= \mathrm{proj}_{\mathbb{R}^n} \circ S \Bigl(x,\, (Tp)_{\mathbb{R}^n}(x),\, \mathrm{pt} \Bigr) \\
+            &= \bigl( S(Tp)_{\mathbb{R}^n} \bigr)_{\mathbb{R}^n}(x)
+        \end{align}
+        と計算できるため，
+        \begin{align}
+            (S \circ T) \circ \gamma_{[m]}{}_{t,\, p}
+            &= S \circ \gamma_{[m]}{}_{t,\, (Tp)_{\mathbb{R}^n}} \circ T \\
+            &= \gamma_{[m]}{}_{t,\, \bigl(S(Tp)_{\mathbb{R}^n}\bigr)_{\mathbb{R}^n}} \circ S \circ T \\
+            &= \gamma_{[m]}{}_{t,\, \bigl((S\circ T)p\bigr)_{\mathbb{R}^n}} \circ (S \circ T)
+        \end{align}
+        i.e. $S \circ T \in \LGL(U)_m$ が言えた．
+    \end{description}
 \end{proof}
 
 \begin{mylem}[label=lem:Hom-sub-2]{層状化された直交群は一般線形群の部分Kan複体}
@@ -1554,7 +1646,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
     が成り立つため $T \in \LGL(U)_m$ が言えた．
 \end{proof}
 
-\begin{myprop}[label=prop:Hom-htpy-equiv]{}
+\begin{myprop}[label=prop:Hom-htpy-equiv]{$\LO(U)$ へのレトラクション}
     Kan複体の包含写像
     \begin{align}
         \LO(U) \overset{i_1}{\hookrightarrow} \LGL(U) \overset{i_2}{\hookrightarrow} \Hom{\BSC}^0 (U,\, U) \overset{i_3}{\hookrightarrow} \Hom{\BSC}(U,\, U)
@@ -1621,8 +1713,17 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
     このとき，以下の条件は全て同値である：
     \begin{enumerate}
         \item $\depth(U) = \depth(V)$
-        \item $f \in \Hom{\Bsc}(U,\, V)$ であって，$f(U) \cap \bigl(\mathbb{R}^m \times \{*\}\bigr) \neq \empty$ を充たすものが存在する．
-        \item $(1,\, 1)$-圏 $\Bsc$ における $U$ から $V$ への同型射全体を対象に持つ，\hyperref[lem:Kan-enriched]{Kan複体 $\Hom{\BSC}(U,\, V)$} の\hyperref[def:fullsub-infty]{充満部分Kan複体} $\mathcal{I}\mathrm{so}_{\BSC} (U,\, V) \hookrightarrow \Hom{\BSC}(U,\, V)$ について，その包含写像はKan複体の弱ホモトピー同値である．
+        \item $f \in \Hom{\Bsc}(U,\, V)$ であって，$f(U) \cap \bigl(\mathbb{R}^m \times \{*\}\bigr) \neq \emptyset$ を充たすものが存在する．
+        \item \hyperref[lem:Kan-enriched]{Kan複体 $\Hom{\BSC}(U,\, V)$} の\hyperref[def:fullsub-infty]{部分Kan複体}
+        \begin{align}
+            \mathcal{I}\mathrm{so}_{\BSC} (U,\, V) \hookrightarrow \Hom{\BSC}(U,\, V)
+        \end{align}
+        を次のように定義すると，その包含写像はKan複体の弱ホモトピー同値である：
+        \small
+        \begin{align}
+            \bm{\mathcal{I}\mathrm{so}}_{\BSC} \bm{(U,\, V)}_{\bm{m}} \coloneqq \bigl\{\, f \in \Hom{\BSC}(U,\, V)_m \bigm| \forall x \in \Delta^m_e,\, \exists (\mathrm{proj}_V \circ f|_{\{x\} \times U})^{-1} \in \Hom{\Snglr}(V,\, U) \,\bigr\} 
+        \end{align}
+        \normalsize
         \item $(1,\, 1)$-圏 $\Bsc$ において $U$ と $V$ は同型である．
         \item $n=m$ かつ，\hyperref[def:c-smooth]{$(1,\, 1)$-圏 $\Strat$} において $Z$ と $W$ は同型である．
     \end{enumerate}
@@ -1636,11 +1737,11 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 
         \item[\textbf{(4)$\bm{\Longrightarrow}$(3)}]　
         
-        命題\ref{prop:Hom-htpy-equiv}より従う．
+        命題\ref{prop:Hom-htpy-equiv}と同様の議論により従う．
 
         \item[\textbf{(3)$\bm{\Longrightarrow}$(2)}]　
         
-
+        \hyperref[def:Bsc-induction]{$(1,\, 1)$-圏 $\Bsc$ における射の定義}より明らか．
 
         \item[\textbf{(2)$\bm{\Longrightarrow}$(1)}]　
         
@@ -1698,12 +1799,18 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
 
 \begin{proof}
     \begin{enumerate}
-        \item 
+        \item 命題\ref{prop:Hom-htpy-equiv}
+        \item 補題\ref{lem:basic-conservative}の (1), (3), (4) の同値性より明らか．
+        \item 反射律と推移律は自明．対称律は補題\ref{lem:basic-conservative}の (3) (4) の同値性から従う．
+        \item 補題\ref{lem:basic-conservative}より従う．
+        \item 補題\ref{lem:basic-conservative}より従う．
     \end{enumerate}
     
 \end{proof}
 
 \subsection{tangent classifierの構造}
+
+層状化空間の局所的な特異性は\hyperref[def:dim-depth]{局所的深さ}によって特徴付けられる．これにより，局所的深さをとるという操作によって常に別の層状化を考えることができる．
 
 
 
