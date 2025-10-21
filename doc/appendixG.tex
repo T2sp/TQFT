@@ -106,6 +106,7 @@ P \arrow[r, red,"\tilde{f}"']                & P'
 
 圏 $\StTOP$ を，
 \begin{itemize}
+    \label{def:StTop}
     \item 第2可算なHausdorff空間であるような\hyperref[def:stratified-space]{層状化空間}を対象とする
     \item \hyperref[def:strat-emb]{層状化開埋め込み}を射とする
 \end{itemize}
@@ -1649,7 +1650,10 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
         
         $f \in \Hom{\Bsc}(U,\, V)$ を1つとる．すると，\hyperref[def:Bsc-induction]{conically smoothnessの定義}よりconically smoothな層状化開埋め込み
         $\tilde{f} \in \Hom{\Snglr} (\mathbb{R}^n \times \mathbb{R}_{\ge 0} \times Z,\, \mathbb{R}^n \times \mathbb{R}_{\ge 0} \times W)$ が存在する．
-        $\tilde{f}$ を制限することで，conically smoothな層状化開埋め込み $\bar{f} \in \Hom{\Snglr}\bigl(\{0\} \times \{0\} \times Z,\, \{f(0)\} \times \{0\} \times W\bigr)$ を得る．然るにこのとき $Z$ がコンパクトなので，$\bar{f}(Z) \subset W$ もまたコンパクトである．
+        $\tilde{f}$ を制限することで，conically smoothな層状化開埋め込み $\bar{f} \in \Hom{\Snglr}\bigl(\{0\} \times \{0\} \times Z,\, \{f(0)\} \times \{0\} \times W\bigr)$ を得る．
+        このとき $Z$ がコンパクトなので，$\bar{f}(Z) \subset W$ もまたコンパクトである．
+        \hyperref[def:StTop]{$(1,\, 1)$-圏 $\StTOP$ の定義}より $W$ はHausdorff空間なので，$W$ のコンパクト部分空間である $\bar{f}(Z)$ は閉部分集合である．一方 $\bar{f}$ が開埋め込みであることから，$\bar{f}(Z)$ は $W$ の開部分集合でもある．
+        $W$ の開かつ閉な部分集合は，$W$ の連結成分の直和しかない\footnote{位相空間の連結性の定義より，各連結成分における開かつ閉な部分集合は空集合か自分自身のちょうど2つしかない．}．然るにもし $\bar{f}(Z) \subsetneq W$ だとすると，空でない部分集合 $\Cone{\bar{f}(Z)} \subsetneq \Cone{W}$ が開かつ閉となり，$\Cone{W}$ の連結性に矛盾する．よって背理法から $\bar{f}(Z) = W$ であること，i.e. $\bar{f} \colon Z \lto W$ が $(1,\, 1)$-圏 $\Snglr$ における同型射であることが示された．
     \end{description}
     
 \end{proof}
@@ -1662,7 +1666,7 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
 と書く．この集合の上には二項関係
 \begin{align}
     \label{eq:relation-Bsc}
-    \le \coloneqq \Bigl\{\, \bigl([U],\, [V]\bigr) \in \Obj{[\BSC]}^{\times 2} \Bigm| \Hom{\Bsc} (U,\, V) \neq \emptyset \,\Bigr\} 
+    \le \;\coloneqq \Bigl\{\, \bigl([U],\, [V]\bigr) \in \Obj{[\BSC]}^{\times 2} \Bigm| \Hom{\Bsc} (U,\, V) \neq \emptyset \,\Bigr\} 
 \end{align}
 が定まる．
 
