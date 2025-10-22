@@ -1635,12 +1635,19 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
         T\bigl(x,\, (v,\, [s,\, z]) \bigr)
         &\coloneqq \Bigl( x,\, \bigl(A(x)v,\, [s,\, \mathrm{proj}_Z \circ f(x,\, z)]\bigr) \Bigr) 
     \end{align}
-    と定めることで $T \in \Hom{\BSC}^0 (U,\, U)_m$ と見做せる．このとき，$\forall (t,\, p) \in \Sing^{\text{sm}} (\mathbb{R}_{\ge 0} \times \mathbb{R}^n)$ に対して
+    と定めることで $T \in \Hom{\BSC}^0 (U,\, U)_m$ と見做せる．このとき，$\forall (t,\, p) \in \Sing^{\text{sm}} (\mathbb{R}_{\ge 0} \times \mathbb{R}^n)_m$ に対して
+    \begin{align}
+        (Tp)_{\mathbb{R}^n} (x)
+        &= \mathrm{proj}_{\mathbb{R}^n} \circ T \Bigl(x,\, \bigl( p(x),\, [0,\, *] \bigr)  \Bigr) \\
+        &= \mathrm{proj}_{\mathbb{R}^n}\Bigl( x,\, \bigl(A(x)p(x),\, [0,\, *]\bigr) \Bigr) \\
+        &= A(x) p(x)
+    \end{align}
+    および
     \begin{align}
         T \circ \gamma_{[m]}{}_{t,\, p}\bigl(x,\, (v,\, [s,\, z]) \bigr)
         &= T \Bigl(x,\, \bigl( t(x)v+p(x),\, [t(x)s,\, z] \bigr)\Bigr) \\
         &= \Bigl(x,\, \bigl(t(x) A(x)v + A(x)p(x),\, [t(x)s,\, \mathrm{proj}_Z \circ f(x,\, z)]\bigr) \Bigr) \\
-        &= \gamma_{[m]}{}_{t,\, Ap} \Bigl( x,\, \bigl( A(x)v,\, [s,\, \mathrm{proj}_Z \circ f(x,\, z)] \bigr) \Bigr) \\
+        &= \Bigl(x,\, \tilde{\gamma}_{t(x),\, A(x)p(x)}\bigl( A(x)v,\, [s,\, \mathrm{proj}_Z \circ f(x,\, z)] \bigr) \Bigr) \\
         &= \gamma_{[m]}{}_{t,\, (Tp)_{\mathbb{R}^n}} \circ T \bigl(x,\, (v,\, [s,\, z]) \bigr)
     \end{align}
     が成り立つため $T \in \LGL(U)_m$ が言えた．
@@ -1655,10 +1662,92 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 \end{myprop}
 
 \begin{proof}
+    $\forall A \in \LGL(n,\, \mathbb{R}^n)$ を1つとる．$A$ を列ベクトルに分割し，それを $A = [a_1,\, \dots,\, a_n]$ と書こう．
+    このとき，正規直交基底 $e_1,\, \dots,\, e_n \in \mathbb{R}^n$ と上三角行列 $R_A \in \Mat{n}{\mathbb{R}}$ を次のようにして得る（Gram-Schmidtの正規直交化）：
+    \begin{align}
+        e_i &\coloneqq 
+        \begin{cases}
+            \frac{a_1}{\norm{a_1}}, &i=1 \\
+            \frac{a_i - \sum_{k=1}^{i-1} \braket{e_k}{a_i} e_k}{\norm{a_i - \sum_{k=1}^{i-1} \braket{e_k}{a_i} e_k}}, &1 < i \le n
+        \end{cases}
+        \\
+        R_A{}_{ij} &\coloneqq 
+        \begin{cases}
+            \norm{a_1}, &i=j=1 \\
+            \norm{a_i - \sum_{k=1}^{i-1} \braket{e_k}{a_i} e_k}, &1 < i=j \le n \\
+            \braket{e_i}{a_j}, &i < j \\
+            0, &i > j
+        \end{cases}
+    \end{align}
+    ただし $\norm{\cdot}$ は $\mathbb{R}^n$ の標準的なノルムである．
+    ここで $Q_A \coloneqq [e_1,\, \dots,\, e_n]$ とおくと $A = Q_A R_A$ が成り立つ．
+    連続写像
+    \begin{align}
+        \label{def:GrSm}
+        \mathrm{GrSm} \colon \LGL(n,\, \mathbb{R}) &\lto \LO(n), \\
+        A &\lmto Q_A
+    \end{align}
+    は，包含写像 $i_0 \colon \LO(n) \hookrightarrow \LGL(n)$ について $\mathrm{GrSm} \circ i_0 = \Id_{\LO(m)}$ を充たす．
+
     \begin{description}
         \item[\textbf{$i_1$ のホモトピー逆}]　
         
-        Gram-Schmidtの正規直交化を行う．
+        % Gram-Schmidtの正規直交化を行う．
+        % 具体的には，まずKan複体の射
+        % \begin{align}
+        %     r_1 \colon \LGL(U) \lto \LO(U)
+        % \end{align}
+        % を次のように定める：
+        $\forall T \in \LGL(U)_m$ および $\forall \bigl( x,\, (v,\, [0,\, *]) \bigr) \in \Delta^m_e \times \mathbb{R}^n \times \Cone{Z}$ をとる．
+        補題\ref{lem:Hom-sub-1}の証明より $T$ はコーンポイントを保存するから，\exref{ex:ordinary-GL}と同様にして $\forall (t,\, p) \in \Sing^{\text{sm}} (\mathbb{R}_{\ge 0},\, \mathbb{R}^n)_m$ に対して
+        \begin{align}
+            &T \Bigl( x,\, \bigl( t(x)v + p(x),\, [0,\, *] \bigr) \Bigr)  \\
+            &= T \circ \gamma_{[m]}{}_{t,\, p} \bigl( x,\, (v,\, [0,\, *]) \bigr) \\
+            &= \gamma_{[m]}{}_{t,\, (Tp)_{\mathbb{R}^n}} \circ T\bigl( x,\, v,\, [0,\, *] \bigr) \\
+            &= \biggl( x,\, \Bigl( t(x)\, \mathrm{proj}_{\mathbb{R}^n} \circ T \bigl( x,\, v,\, [0,\, *] \bigr) +\mathrm{proj}_{\mathbb{R}^n} \circ T \bigl( x,\, p(x),\, [0,\, *] \bigr),\, [0,\, *]  \Bigr)  \biggr) 
+        \end{align}
+        と計算できる．i.e. $T_x \coloneqq \mathrm{proj}_{\mathbb{R}^n} \circ T|_{\{x\} \times \mathbb{R}^n \times \{[0,\, *]\}} \colon \mathbb{R}^n \lto \mathbb{R}^n$ は線型写像であり，$T$ が開埋め込みであることから $T_x \in \LGL(n,\, \mathbb{R})$ が言える．
+        故に連続写像\eqref{def:GrSm}を $T_x$ に適用することができて，$\mathrm{GrSm}(T_x) \in \LO(n)$ を得る．
+        
+        　一方，$\forall \bigl( x,\, (v,\, [s,\, z]) \bigr) \in \Delta^m_e \times \mathbb{R}^n \times \Cone{Z}$ に対して
+        $\bigl( x,\, (v,\, [s,\, z]) \bigr) = \gamma_{[m]}{}_{s,\, v} \bigl( x,\, (0,\, [1,\, z]) \bigr)$ が成り立つ\footnote{$(s,\, v) \in \Sing^{\text{sm}} (\mathbb{R}_{\ge 0} \times \mathbb{R}^n)$ とは，定数写像 $\Delta^m_e \lto \mathbb{R}_{\ge 0} \times \mathbb{R}^n,\; x \lmto (s,\, v)$ のことである．}ので，
+        \begin{align}
+            &T \bigl( x,\, (v,\, [s,\, z]) \bigr) \\
+            &= T \circ \gamma_{[m]}{}_{s,\, v} \bigl( x,\, (0,\, [1,\, z]) \bigr) \\
+            &= \gamma_{[m]}{}_{s,\, (Tv)_{\mathbb{R}^n}} \circ T \bigl( x,\, (0,\, [1,\, z]) \bigr)
+        \end{align}
+        が言える．故に，
+        \begin{align}
+            \mathrm{proj}_{\Cone{Z}} \circ T \bigl( x,\, (v,\, [s,\, z]) \bigr) \eqqcolon \bigl[ T^{\mathbb{R}_{\ge 0}}_{x,\, v,\, [s,\, z]},\, T^Z_{x,\, v,\, [s,\, z]} \bigr] \in \Cone{Z}
+        \end{align}
+        とおくと
+        \begin{align}
+            \bigl[T^{\mathbb{R}_{\ge 0}}_{x,\, v,\, [s,\, z]},\, T^Z_{x,\, v,\, [s,\, z]}\bigr] &= \bigl[ s\, T^{\mathbb{R}_{\ge 0}}_{x,\, 0,\, [1,\, z]},\, T^Z_{x,\, 0,\, [1,\, z]}\bigr]
+        \end{align}
+        が成り立つ．
+
+        　以上の考察から，写像
+        \begin{align}
+            r_1{}_{[m]} \colon \LGL(U)_m &\lto \LO(U)_m, \\
+            T &\lmto \Bigl( (x,\, v,\, [s,\, z]) \mapsto \bigl( x,\, \mathrm{GrSm}(T_x)(v),\, [s,\, T^Z_{x,\, 0,\, [1,\, z]}] \bigr)  \Bigr) 
+        \end{align}
+        が定まり，Kan複体の射
+        \begin{align}
+            r_1 \colon \LGL(U) \lto \LO(U)
+        \end{align}
+        を構成する．構成より明らかに $r_1 \circ i_1 = \Id_{\LO(U)}$ が成り立つ．その上，Kan複体の射
+        \begin{align}
+            H \in \FUN \bigl(\LGL(U),\, \LGL(U)\bigr)_1 \cong \Hom{\Kan} \bigl(\Sing^{\text{sm}}([0,\, 1]) \times \LGL(U),\, \LGL(U)\bigr)
+        \end{align}
+        の $m$-射の対応 
+        $H_m \colon \Sing^{\text{sm}}([0,\, 1])_m \times \LGL(U)_m \lto \LGL(U)_m$ 
+        を次のように定義すると，$H$ が $\Id_{\LGL(U)}$ と $i_1 \circ r_1$ を繋ぐ\hyperref[def:infty-homotopy-morphism]{ホモトピー}となる．i.e. $r_1$ が $i_1$ のホモトピー逆であることが示された：
+        \footnotesize
+        \begin{align}
+            % \Sing^{\text{sm}}([0,\, 1]) \times \LGL(U) &\lto \LGL(U), \\
+            (t,\, T) &\lmto \biggl( (x,\, v,\, [s,\, z]) \mapsto \Bigl( x,\, \bigl(1-t(x)\bigr)\, T^{\mathbb{R}^n}_{x,\, v,\, [s,\, z]} + t(x) \mathrm{GrSm}(T_x)(v),\, \Bigl[ \bigl(1-t(x)\bigr)s\, T^{\mathbb{R}_{\ge 0}}_{x,\, 0,\, [1,\, z]} + t(x)s,\, T^Z_{x,\, 0,\, [1,\, z]}\Bigr] \Bigr)  \biggr) 
+        \end{align}
+        \normalsize
 
         \item[\textbf{$i_2$ のホモトピー逆}]　
         
@@ -1678,12 +1767,13 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
             D_{0} \colon \Hom{\BSC}^0(U,\, U) \lto \LGL(U)
         \end{align}
         が定まることを示そう．
-        実際，$\forall (t,\, p) \in \Sing^{\text{sm}} (\mathbb{R}_{\ge 0} \times \mathbb{R}^n)_m$ に対して
+        実際，$\forall (t,\, p) \in \Sing^{\text{sm}} (\mathbb{R}_{\ge 0} \times \mathbb{R}^n)_m$ に対して\footnote{ややこしいので $\gamma_{[m]}$ を $\gamma$ と略記している．}
         \begin{align}
             D_{(x,\, 0)} f \circ \gamma_{[m]}{}_{t,\, p}
             &= \Bigl( \lim_{s \to +0} \gamma_{\frac{1}{s},\, 0} \circ f \circ \gamma_{s,\, 0}  \Bigr) \circ \gamma_{t,\, p} \\
+            &= \lim_{s \to +0} \gamma_{\frac{1}{s},\, 0} \circ f \circ \gamma_{ts,\,sp} \\
             &= \cdots \\
-            &= \gamma_{[m]}{}_{t,\, D_{(x,\, 0)} f(p)} \circ D_{(x,\, 0)} f
+            &= \gamma_{[m]}{}_{t,\, (D_{(x,\, 0)} f(p))_{\mathbb{R}^n}} \circ D_{(x,\, 0)} f
         \end{align}
         と計算できる．
 
@@ -1702,7 +1792,12 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 
         \item[\textbf{$i_3$ のホモトピー逆}]　
         
-        $\gamma$ により原点へ並行移動すれば良い．
+        ホモトピー逆は
+        \begin{align}
+            r_3{}_{[m]} \colon \Hom{\BSC}(U,\, U)_m &\lto \Hom{\BSC}^0 (U,\, U)_m, \\
+            f &\lmto \gamma_{[m]}{}_{1,\, - \mathrm{proj}_{\mathbb{R}^n} \circ f|_{\Delta^m_e \times \{0\}}} \circ f
+        \end{align}
+        である．
     \end{description}
 \end{proof}
 
