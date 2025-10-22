@@ -46,7 +46,7 @@ $x \in \bigcup_{\lambda \in \Lambda} U_\lambda$ は
 \begin{mydef}[label=def:stratified-space]{層状化空間・層状化写像}
     $(P,\, \le)$ を半順序集合とし，定義\ref{def:topo-poset}の位相を入れて位相空間にする．
     
-    このとき，位相空間 $X$ が $\bm{P}$\textbf{-層状化}されている ($P$-stratified) とは，連続写像 $s \colon X \lto P$ が存在することを言う．
+    このとき，位相空間 $X$ が $\bm{P}$\textbf{-層状化}されている ($P$-stratified) とは，連続写像 $s \colon X \lto P$ が存在することを言う\footnote{$s$ のことを，$X$ の\textbf{層状化} (stratification) と呼ぶ．}．
     組 $(X,\, s \colon X \lto P)$ のことを\textbf{$\bm{P}$-層状化空間} ($P$-stratified space) と呼ぶ．
     また，$i \in P$ の逆像 $\bm{X_i} \coloneqq s^{-1}(\{i\}) \subset X$ のことを\textbf{$\bm{i}$-層} ($i$-strata) と呼ぶ．
 
@@ -167,6 +167,7 @@ i.e. 商位相空間
 \end{align}
 のこと．従って $\Cone{s} \colon \Cone{X} \lto \Cone{P}$ とは，連続写像\footnote{$\Cone{P}$ の\hyperref[def:topo-poset]{位相 $\mathscr{O}_{\Cone{P}}$}は，$P$ の位相 $\mathscr{O}_{P}$ に1つの開集合 $\{-\infty\} \cup P$ を加えたものである．$\forall U \in \mathscr{O}_{P}$ に対して $\Cone{s}^{-1} (U) = \mathbb{R}_{\textcolor{red}{>0}} \times s^{-1}(U) \in \mathscr{O}_{\Cone{X}}$ で，かつ $\Cone{s}^{-1}(\{-\infty\} \cup P) = \Cone{X} \in \mathscr{O}_{\Cone{X}}$ なので $\Cone{s}$ は連続である．}
 \begin{align}
+    \label{def:stratification-cone}
     \frac{\mathbb{R}_{\ge 0} \times X}{\{0\} \times X} &\lto \Cone{P},\;
     [(t,\, x)] \lmto \begin{cases}
         -\infty, &t = 0 \\
@@ -258,6 +259,30 @@ i.e. 商位相空間
 \end{myexample}
 
 \exref{ex:topomfld}の意味で，\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間}は位相多様体の一般化と見做せる．しかしまだそこには $C^\infty$ 構造を一般化した構造は入っておらず，$C^\infty$ 多様体の一般化とは見做せない．
+
+\begin{mylem}[label=lem:strat-surj]{$C^0$ 級層状化空間の層状化は全射}
+    $\forall (X \xrightarrow{s} P) \in \Obj{\SnglrC}$ に対して，連続写像 $s$ は全射である．
+\end{mylem}
+
+\begin{proof}
+    $s$ が全射であるような\hyperref[def:stratified-space]{層状化空間} $(X \to P)$ 全体が成す充満部分圏を $\Cat{T} \subset \StTOP$ と書く．$\Cat{T}$ が条件 \hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-1)}}-\textsf{\textbf{(Snglr-5)}}}を充たすことを示せば十分である\footnote{これらの条件を充たす最小の $(1,\, 1)$-圏のことを $\SnglrC$ と定義したため，$\SnglrC \subset \Cat{T}$ が言えるのである．}．
+    \begin{description}
+        \item[\textbf{(Snglr-1)}] $(\emptyset \to \emptyset) \in \Obj{\Cat{T}}$ は自明である．
+        \item[\textbf{(Snglr-2)}] $\forall (X \xrightarrow{s} P) \in \Obj{\Cat{T}}$ に対して，\eqref{def:stratification-cone}よりその\hyperref[def:str-cone]{コーン}の層状化は $\Cone{s} \bigl( \Cone{X} \bigr) = s(X) \cup \{-\infty\} = \Cone{P}$ であり，全射である．i.e. $\Cone{X \xrightarrow{s} P} \in \Obj{\Cat{T}}$ である．
+        \item[\textbf{(Snglr-3)}] $\forall (X \xrightarrow{s} P) \in \Obj{\Cat{T}}$ に対して，$(X \times \mathbb{R} \to P) \in \Obj{\StTOP}$ の層状化をあからさまに書くと $(x,\, t) \lmto s(x)$ である．
+        \item[\textbf{(Snglr-4)}] $(X \xrightarrow{s} P) \in \Obj{\Cat{T}}$ かつ $\Hom{\StTOP} \bigl( (U \xrightarrow{s'} P_U),\, (X \xrightarrow{s} P) \bigr) \neq \emptyset$ であるとする．このとき $(f,\, \bar{f}) \in \Hom{\StTOP} \bigl( (U \xrightarrow{s'} P_U),\, (X \xrightarrow{s} P) \bigr)$ は $\TOP$ における以下の図式を可換にする：
+        \begin{center}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAFUQBfU9TXfIRRkAjFVqMWbAAoB9Tjz7Y8BIiPLj6zVohAANbrxAZlgtaTHUtU3dO7iYUAObwioAGYAnCAFskZEBwIJAAmahw6LAY2AAsICABrECtJHRB3Qw9vP0R1QODEAGYU7TYAHTKAIzpPYHcuZJAGOkqYBml+FSEQTywnGJxGiKjY+KTFdOz-cIK86zS4AHJG5tb2zrNdXv7Bia9fUJmkYolS3QQuCi4gA
+            \begin{tikzcd}
+            U \arrow[r, "f", hook] \arrow[d, "s'"'] & X \arrow[d, "s"] \\
+            P_U \arrow[r, "\bar{f}"']         & P               
+            \end{tikzcd}
+        \end{center}
+        % 特に $\bar{f}$ は単射であり，$s$ は全射なので $s'$ も全射でなくてはいけない．
+        \item[\textbf{(Snglr-5)}] 
+    \end{description}
+    
+\end{proof}
 
 \subsection{$C^0$ basic}
 
@@ -1710,7 +1735,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
         故に連続写像\eqref{def:GrSm}を $T_x$ に適用することができて，$\mathrm{GrSm}(T_x) \in \LO(n)$ を得る．
         
         　一方，$\forall \bigl( x,\, (v,\, [s,\, z]) \bigr) \in \Delta^m_e \times \mathbb{R}^n \times \Cone{Z}$ に対して
-        $\bigl( x,\, (v,\, [s,\, z]) \bigr) = \gamma_{[m]}{}_{s,\, v} \bigl( x,\, (0,\, [1,\, z]) \bigr)$ が成り立つ\footnote{$(s,\, v) \in \Sing^{\text{sm}} (\mathbb{R}_{\ge 0} \times \mathbb{R}^n)$ とは，定数写像 $\Delta^m_e \lto \mathbb{R}_{\ge 0} \times \mathbb{R}^n,\; x \lmto (s,\, v)$ のことである．}ので，
+        $\bigl( x,\, (v,\, [s,\, z]) \bigr) = \gamma_{[m]}{}_{s,\, v} \bigl( x,\, (0,\, [1,\, z]) \bigr)$ が成り立つ\footnote{$(s,\, v) \in \Sing^{\text{sm}} (\mathbb{R}_{\ge 0} \times \mathbb{R}^n)_m$ とは，定数写像 $\Delta^m_e \lto \mathbb{R}_{\ge 0} \times \mathbb{R}^n,\; x \lmto (s,\, v)$ のことである．}ので，
         \begin{align}
             &T \bigl( x,\, (v,\, [s,\, z]) \bigr) \\
             &= T \circ \gamma_{[m]}{}_{s,\, v} \bigl( x,\, (0,\, [1,\, z]) \bigr) \\
@@ -1906,6 +1931,51 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
 \subsection{tangent classifierの構造}
 
 層状化空間の局所的な特異性は\hyperref[def:dim-depth]{局所的深さ}によって特徴付けられる．これにより，局所的深さをとるという操作によって常に別の層状化を考えることができる．
+
+集合
+\begin{align}
+    \mathbb{P} \coloneqq \bigl\{\, (k,\, n) \in \mathbb{Z} \times \mathbb{Z} \bigm| -1 \le k \le n \,\bigr\} 
+\end{align}
+の上の半順序 $\le \subset \mathbb{P} \times \mathbb{P}$を次のように定義する：
+\begin{align}
+    (k,\, n) \le (k',\, n') \DEF k \ge k' \AND n \ge n'
+\end{align}
+
+\begin{mylem}[label=lem:strat-depthdim]{局所的深さによる層状化}
+    任意の\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間} $(X \xrightarrow{s} P) \in \Obj{\SnglrC}$ に対して，以下の写像は連続になり，位相空間 $X$ の新しい\hyperref[def:stratified-space]{$\mathbb{P}$-層状化}を与える：
+    \begin{align}
+        s_X \colon X &\lto \mathbb{P},\; x \lmto \bigl( \depth_x(X),\, \dim_x(X) \bigr)
+    \end{align}
+
+    \tcblower
+
+    さらに，$(1,\, 1)$-圏 $\TOP$ における以下の図式を可換にするような，順序を保つ写像 $\textcolor{red}{\bar{s}} \colon P \lto \mathbb{P}$ が一意的に存在する：
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAA0QBfU9TXfIRRkAjFVqMWbAArdeIDNjwEiI8uPrNWiEAB1dAWzo4AFgCMzwaV27iYUAObwioAGYAnCAaRkQOCEhqElpsCNQMdGYwDNL8ykIg7lgOJjhybp7eiL7+SABM1JpSOnAA+pw8GV6B1LmIBSAMWGDaIFB0cCb2IIWSrfpmdO7AcDbhkdGxSoJsSSlpXBRcQA
+        \begin{tikzcd}
+        X \arrow[d, "s"'] \arrow[r, "s_X"] & \mathbb{P} \\
+        P \arrow[ru, red, "\exists! \bar{s}"', dashed]   &           
+        \end{tikzcd}
+    \end{center}
+\end{mylem}
+
+\begin{proof}
+    \begin{description}
+        \item[\textbf{$\bm{s_X}$ の連続性}]　
+        
+        $s_X$ が連続であるような\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間} $(X \to P)$ 全体が成す充満部分圏を $\Cat{T} \subset \SnglrC$ と書く．$\Cat{T}$ が条件 \hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-1)}}-\textsf{\textbf{(Snglr-5)}}}を充たすことを示せば十分である\footnote{これらの条件を充たす最小の $(1,\, 1)$-圏のことを $\SnglrC$ と定義したため，$\Cat{T} \supset \SnglrC$ が言えるのである．}．
+        \begin{description}
+            \item[\textbf{(Snglr-1)}] $(\emptyset \to \emptyset) \in \Obj{\Cat{T}}$ は自明である．
+            \item[\textbf{(Snglr-2)}] 
+            \item[\textbf{(Snglr-3)}] 
+            \item[\textbf{(Snglr-4)}] 
+            \item[\textbf{(Snglr-5)}] 
+        \end{description}
+        \item[\textbf{$\bm{\bar{s}}$ の一意存在}]　
+        
+        補題\ref{lem:strat-surj}より $s \colon X \lto P$ は全射なので明らか．
+    \end{description}
+\end{proof}
 
 
 
