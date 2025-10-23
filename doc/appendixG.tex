@@ -1565,12 +1565,12 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
         &= \gamma_{[m]}{}_{t,\, \mathrm{proj}_{\mathbb{R}^n} \circ T|_{\mathbb{R}^n} (p)} \circ T (x,\, u) \\
         &= \Bigl(x,\, t(x)\, \mathrm{proj}_{\mathbb{R}^n} \circ T(x,\, u) + \mathrm{proj}_{\mathbb{R}^n} \circ T\bigl(x,\, p(x)\bigr)  \Bigr) 
     \end{align}
-    が成り立つことを意味する．i.e. $\forall x \in \Delta^m_e$ に対して，$\tilde{T}_x \coloneqq \mathrm{proj}_{\mathbb{R}^n} \circ T|_{\{x\} \times U} \colon \mathbb{R}^n \lto \mathbb{R}^n$ とおくと
+    が成り立つことを意味する．i.e. $\forall x \in \Delta^m_e$ に対して，$T_x \coloneqq \mathrm{proj}_{\mathbb{R}^n} \circ T|_{\{x\} \times \mathbb{R}^n} \colon \mathbb{R}^n \lto \mathbb{R}^n$ とおくと
     \begin{align}
-        \tilde{T}_x \bigl( t(x) u + p(x) \bigr) = t(x)\, \tilde{T}_x u + \tilde{T}_x p(x)
+        T_x \bigl( t(x) u + p(x) \bigr) = t(x)\, T_x u + T_x p(x)
     \end{align}
-    が成り立つため，$\tilde{T}_x$ は線型写像である．
-    \hyperref[def:Snglr]{$(1,\, 1)$-圏 $\Snglr$ の定義}より $T$ は開埋め込みであり，単射である．故に，有限次元ベクトル空間の間の単射線型写像 $\tilde{T}_x$ は全単射でもあり，$\tilde{T}_x \in \LGL(n,\, \mathbb{R})$ だと分かった．
+    が成り立つため，$T_x$ は線型写像である．
+    \hyperref[def:Snglr]{$(1,\, 1)$-圏 $\Snglr$ の定義}より $T$ は開埋め込みであり，単射である．故に，次元の等しい有限次元ベクトル空間の間の単射線型写像 $T_x$ は全単射でもあり，$T_x \in \LGL(n,\, \mathbb{R})$ だと分かった．
     この事実は，Kan複体の同型 $\LGL(\mathbb{R}^n) \cong \Sing^{\text{sm}}\bigl(\LGL(n,\, \mathbb{R})\bigr)$ を意味する．
 \end{myexample}
 
@@ -1726,10 +1726,10 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
         $\forall T \in \LGL(U)_m$ および $\forall \bigl( x,\, (v,\, [0,\, *]) \bigr) \in \Delta^m_e \times \mathbb{R}^n \times \Cone{Z}$ をとる．
         補題\ref{lem:Hom-sub-1}の証明より $T$ はコーンポイントを保存するから，\exref{ex:ordinary-GL}と同様にして $\forall (t,\, p) \in \Sing^{\text{sm}} (\mathbb{R}_{\ge 0},\, \mathbb{R}^n)_m$ に対して
         \begin{align}
-            &T \Bigl( x,\, \bigl( t(x)v + p(x),\, [0,\, *] \bigr) \Bigr)  \\
+            &\textcolor{red}{T} \Bigl( \textcolor{red}{x},\, \bigl( t(x)v + p(x),\, \textcolor{red}{[0,\, *]} \bigr) \Bigr)  \\
             &= T \circ \gamma_{[m]}{}_{t,\, p} \bigl( x,\, (v,\, [0,\, *]) \bigr) \\
             &= \gamma_{[m]}{}_{t,\, (Tp)_{\mathbb{R}^n}} \circ T\bigl( x,\, v,\, [0,\, *] \bigr) \\
-            &= \biggl( x,\, \Bigl( t(x)\, \mathrm{proj}_{\mathbb{R}^n} \circ T \bigl( x,\, v,\, [0,\, *] \bigr) +\mathrm{proj}_{\mathbb{R}^n} \circ T \bigl( x,\, p(x),\, [0,\, *] \bigr),\, [0,\, *]  \Bigr)  \biggr) 
+            &= \biggl( x,\, \Bigl( t(x)\, \textcolor{red}{\mathrm{proj}_{\mathbb{R}^n} \circ T} \bigl( \textcolor{red}{x},\, v,\, \textcolor{red}{[0,\, *]} \bigr) + \textcolor{red}{\mathrm{proj}_{\mathbb{R}^n} \circ T} \bigl( \textcolor{red}{x},\, p(x),\, \textcolor{red}{[0,\, *]} \bigr),\, [0,\, *]  \Bigr)  \biggr) 
         \end{align}
         と計算できる．i.e. $T_x \coloneqq \mathrm{proj}_{\mathbb{R}^n} \circ T|_{\{x\} \times \mathbb{R}^n \times \{[0,\, *]\}} \colon \mathbb{R}^n \lto \mathbb{R}^n$ は線型写像であり，$T$ が開埋め込みであることから $T_x \in \LGL(n,\, \mathbb{R})$ が言える．
         故に連続写像\eqref{def:GrSm}を $T_x$ に適用することができて，$\mathrm{GrSm}(T_x) \in \LO(n)$ を得る．
@@ -1980,14 +1980,14 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
 補題\ref{lem:basic-conservative}より，\hyperref[def:dim-depth]{局所的深さ}による層状化はほとんど完全に点を含む最小の\hyperref[def:Bsc-induction]{basic}を指定する．
 
 
-\begin{mylem}[label=lem:strat-basic,breakable]{半順序集合 $[\BSC]$ による層状化}
+\begin{mylem}[label=lem:strat-basic,breakable]{半順序集合 {$[\BSC]$} による層状化}
     任意の\hyperref[def:c-smooth]{conically smoothな層状化空間} $(X \xrightarrow{s} P) \in \Obj{\Snglr}$ に対して，以下はwell-definedな連続写像になり，位相空間 $X$ の新しい\hyperref[def:stratified-space]{$[\BSC]$-層状化}を与える：
     \begin{align}
         b_X \colon X \lto [\BSC],\; x \lmto \Bigl[\, \argmax_{U \in \mathcal{U}_x} \bigl(\, \depth_x \colon \mathcal{U}_x \lto \mathbb{Z}_{\ge -1} \bigr) \,\Bigr]
     \end{align}
     ただし，$\forall x \in X$ に対して集合 $\mathcal{U}_x \subset \Obj{\Bsc}$ をで定義した．
     \begin{align}
-        \mathcal{U}_x \coloneqq \bigl\{\, U \in \Obj{\Bsc} \bigm| \exists \iota \in \Hom{\Bsc}(U,\, X),\; x \in \iota(U) \,\bigr\} 
+        \mathcal{U}_x \coloneqq \bigl\{\, U \in \Obj{\Bsc} \bigm| \exists \iota \in \Hom{\Snglr}(U,\, X),\; x \in \iota(U) \,\bigr\} 
     \end{align}
     
     \tcblower
@@ -2004,21 +2004,60 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
 
         \item[\textbf{連続性}]　
         
-        $\depth(X \to P)$ に関する数学的帰納法により示す．まず $\depth(X) = -1$ のとき，$X = \emptyset$ であり自明である．
+        $\depth(X \to P)$ に関する数学的帰納法により示す．$\depth(X) = -1$ のとき，$X = \emptyset$ であり自明である．
 
-        　$\depth(X \to P) \le d$ を充たす全ての $(X \xrightarrow{s} P) \in \Obj{\Snglr}$ についての証明が完了しているとする．
-        まず，$\forall (U \xrightarrow{s} P) = (\mathbb{R}^n \xrightarrow{0} [0]) \times \Cone{Z \xrightarrow{t} Q} \in \Obj{\Bsc_{d+1,\, \le \infty}}$ について写像 $b_U \colon U \lto [\BSC]$ が連続であることを示そう．
-        実際，$\forall x \in \mathbb{R}^n \times \{\mathrm{pt}\} \subset \mathbb{R}^n \times \Cone{Z}$ に対しては
+        　$\forall (X \to P) \in \Obj{\Snglr_{\le d,\, \le \infty}}$ についての証明が完了しているとする．
+        まず，$\forall (U \xrightarrow{s} P) = (\mathbb{R}^n \xrightarrow{0} [0]) \times \Cone{Z \xrightarrow{r} Q} \in \Obj{\Bsc_{d+1,\, \le \infty}}$ について写像 $b_U \colon U \lto [\BSC]$ が連続であることを示そう．
+        
+        $\forall x \in \mathbb{R}^n \times \{\mathrm{pt}\} \subset \mathbb{R}^n \times \Cone{Z}$ に対しては
         $U \in \mathcal{U}_x$ であり，さらに $U_{s(x)} = \bigl(0 \times \Cone{t}\bigr)^{-1}\bigl(\{(0,\, -\infty)\}\bigr) = \mathbb{R}^n \times \{\mathrm{pt}\}$ なので
         \begin{align}
             \depth_x(U \xrightarrow{s} P) 
-            &= \dim_x \bigl( (\mathbb{R}^n \xrightarrow{0} [0]) \times \Cone{Z \xrightarrow{t} Q} \bigr)  - \dim_x (U_{s(x)}) \\
-            &= n + \dim_{\mathrm{pt}} \Cone{Z \xrightarrow{t} Q} - n \\
-            &= \depth_{\mathrm{pt}} \Cone{Z \xrightarrow{t} Q}\\
+            &= \dim_x \bigl( (\mathbb{R}^n \xrightarrow{0} [0]) \times \Cone{Z \to Q} \bigr)  - \dim_x (U_{s(x)}) \\
+            &= n + \dim_{\mathrm{pt}} \Cone{Z \to Q} - n \\
+            &= \depth_{\mathrm{pt}} \bigl( \Cone{Z \to Q} \bigr)\\
             &= \depth(U)
         \end{align}
-        が成り立ち，$b_U(x) = [U]$ であることが分かった．
-        ここで，\hyperref[def:topo-poset]{位相空間 $[\BSC]$} の開集合 $[U] \in \forall W \underset{\text{open}}{\subset} [\Bsc]$ をとる．
+        が成り立ち，$b_U(x) = [U]$ である．
+        一方，$\forall x = \bigl(u,\, (t,\, z)\bigr) \in (\mathbb{R}^n \times \Cone{Z}) \setminus (\mathbb{R}^n \times \{\mathrm{pt}\}) = \mathbb{R}^n \times (\mathbb{R}_{> 0} \times Z)$ に対しては 
+        $\forall (V \xrightarrow{v} P_V) \in \mathcal{U}_x$ について
+        \begin{align}
+            \depth_x (V \xrightarrow{v} P_V) 
+            &= \dim_x (V) - \dim_x (V_{v(x)})
+        \end{align}
+        ここで，層状化開埋め込み $\iota \in \Hom{\Snglr}(V,\, U)$ とは
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRADUQBfU9TXfIRQBGclVqMWbAKrdeIDNjwEiZYePrNWiEAAUA+px58lgoqPXVNUnbu7iYUAObwioAGYAnCAFskZEBwIJFFAuiwGNgALCAgAaxArSW0QAB1U-Bw6OQ9vP0RQoKQAZmoGOgAjGAZdfmUhEAYYdxxEiS02BGMQL19-aiLEACYkjp0aNvKqmrqzHU8sJyjW7t78kcDgxFL2mzTUirpPYHTMui5Jyura0xV5xeX7LiA
+        \begin{tikzcd}
+            V \arrow[r, "\iota", hook] \arrow[d, "v"'] & U \arrow[d, "s"] \\
+            P_V \arrow[r, "\bar{\iota}"']              & P               
+        \end{tikzcd}
+        であって，$\forall p \in P_V$ に対して
+        \begin{align}
+            \iota|_{V_p} \colon V_p \lto U_{\bar{\iota}(p)}
+        \end{align}
+        が位相的開埋め込みになっているものであったことを思い出そう．したがって今回の場合
+        \begin{align}
+            \iota|_{V_{v(x)}} \colon V_{v(x)} \lto U_{\bar{\iota} \circ v(x)} = U_{s(x)}
+        \end{align}
+        は開埋め込みである\footnote{正確には，$V_{v(x)}$ と書いたときは $V_{v \circ \iota^{-1}(x)}$ を意味している．図式の可換性から $U_{\bar{\iota} \circ v \circ \iota^{-1}(x)} = U_{s(x)}$ が分かる．}．故に
+        \begin{align}
+            \dim_x(V_{v(x)}) = \dim_x(U_{s(x)})
+        \end{align}
+        が成り立つ．いま $s(x) = \bigl(0,\, r(z)\bigr)$ であるから
+        $U_{s(x)} = s^{-1} \bigl( \{s(x)\} \bigr) = \mathbb{R}^n \times \mathbb{R}_{> 0} \times Z_{r(z)}$ であり
+        \begin{align}
+            \dim_x(U_{s(x)}) = n + 1 + \dim_z (Z_{r(z)})
+        \end{align}
+        が言える．$\dim_x(V) \le \dim_x(U) = n + \dim_{[t,\, z]} \bigl( \Cone{Z} \bigr)$ を併せて
+        \begin{align}
+            \depth_x (V \xrightarrow{v} P_V) < \dim_{[t,\, z]} \bigl( \Cone{Z} \bigr) - \dim_z (Z_{r(z)}) = \depth_x(U) \le \depth(U)
+        \end{align}
+        が分かった．故に $b_U(x) = [V_0]$ なる $V_0 \in \Obj{\Bsc}$ は $\depth(V_0) < \depth(U)$ を充たすことが分かった．
+        
+        　ここで，\hyperref[def:topo-poset]{位相空間 $[\BSC]$} の勝手な開集合 $\forall W \underset{\text{open}}{\subset} [\Bsc]$ をとる．
+        もし $[U] \notin W$ であるならば，半順序集合 $[\BSC]$ の位相の定義と定理\ref{thm:basic-easy}-(2) より $\forall [V] \in W$ に対して $\depth(U) < \depth(V)$ が成り立つ．よってこのとき $b_U^{-1}(W) = \emptyset$ となって $U$ の開集合である．
+        $[U] \in W$ とする．
+        % 上述の考察より $b_U^{-1}([U]) = \mathbb{R}^n \times \{\mathrm{pt}\}$ である．
     \end{description}
     
 \end{proof}
