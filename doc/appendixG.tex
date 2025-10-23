@@ -1977,6 +1977,51 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
     \end{description}
 \end{proof}
 
+補題\ref{lem:basic-conservative}より，\hyperref[def:dim-depth]{局所的深さ}による層状化はほとんど完全に点を含む最小の\hyperref[def:Bsc-induction]{basic}を指定する．
+
+
+\begin{mylem}[label=lem:strat-basic,breakable]{半順序集合 $[\BSC]$ による層状化}
+    任意の\hyperref[def:c-smooth]{conically smoothな層状化空間} $(X \xrightarrow{s} P) \in \Obj{\Snglr}$ に対して，以下はwell-definedな連続写像になり，位相空間 $X$ の新しい\hyperref[def:stratified-space]{$[\BSC]$-層状化}を与える：
+    \begin{align}
+        b_X \colon X \lto [\BSC],\; x \lmto \Bigl[\, \argmax_{U \in \mathcal{U}_x} \bigl(\, \depth_x \colon \mathcal{U}_x \lto \mathbb{Z}_{\ge -1} \bigr) \,\Bigr]
+    \end{align}
+    ただし，$\forall x \in X$ に対して集合 $\mathcal{U}_x \subset \Obj{\Bsc}$ をで定義した．
+    \begin{align}
+        \mathcal{U}_x \coloneqq \bigl\{\, U \in \Obj{\Bsc} \bigm| \exists \iota \in \Hom{\Bsc}(U,\, X),\; x \in \iota(U) \,\bigr\} 
+    \end{align}
+    
+    \tcblower
+
+    任意の射 $f \in \Hom{\Snglr} (X,\, Y)$ に対して，$b_X = b_Y \circ f$ が成り立つ．
+\end{mylem}
+
+\begin{proof}
+    \begin{description}
+        \item[\textbf{well-definedness}]　
+        
+        $\forall x \in X$ を1つ固定する．$\forall U \in \Cat{U}_x$ に対して，\hyperref[def:dim-depth]{深さの定義}および定理\ref{thm:basic-easy}-(2) より $\depth_x (U) \le \depth (U) \le \depth (X \xrightarrow{s} P) < \infty$ が成り立つので，$U_x \coloneqq \argmax_{U \in \mathcal{U}_x} (\depth_x) \in \mathbb{Z}_{\ge -1}$ は存在する．
+        補題\ref{lem:basic-conservative}から，$\depth_x(U_x) = \depth_x(U'_x)$ ならば $[U_x] = [U'_x]$ であり，写像 $b_x$ がwell-definedであることが示された．
+
+        \item[\textbf{連続性}]　
+        
+        $\depth(X \to P)$ に関する数学的帰納法により示す．まず $\depth(X) = -1$ のとき，$X = \emptyset$ であり自明である．
+
+        　$\depth(X \to P) \le d$ を充たす全ての $(X \xrightarrow{s} P) \in \Obj{\Snglr}$ についての証明が完了しているとする．
+        まず，$\forall (U \xrightarrow{s} P) = (\mathbb{R}^n \xrightarrow{0} [0]) \times \Cone{Z \xrightarrow{t} Q} \in \Obj{\Bsc_{d+1,\, \le \infty}}$ について写像 $b_U \colon U \lto [\BSC]$ が連続であることを示そう．
+        実際，$\forall x \in \mathbb{R}^n \times \{\mathrm{pt}\} \subset \mathbb{R}^n \times \Cone{Z}$ に対しては
+        $U \in \mathcal{U}_x$ であり，さらに $U_{s(x)} = \bigl(0 \times \Cone{t}\bigr)^{-1}\bigl(\{(0,\, -\infty)\}\bigr) = \mathbb{R}^n \times \{\mathrm{pt}\}$ なので
+        \begin{align}
+            \depth_x(U \xrightarrow{s} P) 
+            &= \dim_x \bigl( (\mathbb{R}^n \xrightarrow{0} [0]) \times \Cone{Z \xrightarrow{t} Q} \bigr)  - \dim_x (U_{s(x)}) \\
+            &= n + \dim_{\mathrm{pt}} \Cone{Z \xrightarrow{t} Q} - n \\
+            &= \depth_{\mathrm{pt}} \Cone{Z \xrightarrow{t} Q}\\
+            &= \depth(U)
+        \end{align}
+        が成り立ち，$b_U(x) = [U]$ であることが分かった．
+        ここで，\hyperref[def:topo-poset]{位相空間 $[\BSC]$} の開集合 $[U] \in \forall W \underset{\text{open}}{\subset} [\Bsc]$ をとる．
+    \end{description}
+    
+\end{proof}
 
 
 \section{Disk algebras}
