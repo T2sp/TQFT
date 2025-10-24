@@ -2062,6 +2062,55 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
     
 \end{proof}
 
+\begin{mydef}[label=def:EntrU]{制限されたtangent classifier}
+    $\forall (X \to P) \in \Obj{\Snglr}$ および\hyperref[def:Bsc-induction]{basic} $\forall U = \mathbb{R}^n \times \Cone{Z} \in \Obj{\Bsc}$ を与える．
+    このとき，$(\infty,\, 1)$-圏 $\textcolor{red}{\BSC_{[U]}},\, \textcolor{red}{\ENTRU{[U]}{X}}$ および $(\infty,\, 1)$-圏の関手 $\textcolor{red}{(\tau_X)_{|}} \in \Hom{\sSet}\bigl(\textcolor{red}{\ENTRU{[U]}{X}},\, \ENTR{X}\bigr)$ を
+    以下の\hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏の引き戻し}によって定義する：
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BRAOQBUASsGQBVCgF9gADXEhxpdJlz5CKMgEYqtRizacAQgGUAwgH1hY2fMXY8BImQBMW+s1aIO7AEZYA5g04LCk4fXwAnTisFEAxbFSJ1UmdqV10PZAMTCjlo2OV7FETNFJ13TyNjHJt81WREyhK3PW5+IRk5LRgoX3giUAAzMIgAWyQAVmocCCQAFka0zxw6JlMpKpBBkdnJ6cQAZnmyjPZhgAsATzRTmDBs6w2h0cQyECnx+82nxNfdmY-HpCOHZIA6vOhYBhsU4QCAAa3WnyQ3zeiEc-y2z2BiG+qTKAApOEsVlIAJTmAA+smoDDoXhgDAACko7KoQGE-KccB1xEA
+        \begin{tikzcd}
+        {\textcolor{red}{\ENTRU{[U]}{X}}} \arrow[r] \arrow[d, red, "(\tau_X)_{|}"'] & \ENTR{X} \arrow[d, "\tau_X"]   \\
+        {\textcolor{red}{\BSC_{[U]}}} \arrow[r] \arrow[d]                     & \BSC \arrow[d, "{[\mhyphen]}"] \\
+        {\bigl\{[U]\bigr\}} \arrow[r, hook]                  & {[\BSC]}                      
+        \end{tikzcd}
+    \end{center}
+\end{mydef}
+
+\begin{mydef}[label=def:XU]{$[U]$-層}
+    $\forall (X \to P) \in \Obj{\Snglr}$ および\hyperref[def:Bsc-induction]{basic} $\forall U = \mathbb{R}^n \times \Cone{Z} \in \Obj{\Bsc}$ を与える．
+    このとき位相空間 $\bm{X_{[U]}} \in \Obj{\TOP}$ を，以下の $(1,\, 1)$-圏 $\TOP$ における\hyperref[def:pullback-pushout]{引き戻し}により定義する：
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQANEAX1PU1z5CKMsWp0mrdsgA6MgEIBlAMKUefEBmx4CRcqTE0GLNohByARlgDmjOcGQBVSpZsAnOd3X9tQvRXFjKTMOAH0HZy9ucRgoa3giUAAzNwgAWyQAZhocCCQAJl5k1IzEfRBcpDIJE3YLUK4ikBT0rJy8sqaW0vz2qpz6LEZ2AAsICABrHkpuIA
+        \begin{tikzcd}
+        {X_{[U]}} \arrow[d] \arrow[r]       & X \arrow[d, "b_X"] \\
+        {\bigl\{[U]\bigr\}} \arrow[r, hook] & {[\BSC]}          
+        \end{tikzcd}
+    \end{center}
+\end{mydef}
+
+\begin{mylem}[label=lem:XU-mfd]{$X_{[U]}$ は $C^\infty$ 多様体}
+    層状化空間 $(X_{[U]} \to \bigl\{[U]\bigr\}) \in \Obj{\Snglr}$ は $C^\infty$ 多様体である．
+\end{mylem}
+
+\begin{proof}
+    $\forall (X \to P) \in \Obj{\Snglr}$ および\hyperref[def:Bsc-induction]{basic} $\forall U = \mathbb{R}^n \times \Cone{Z} \in \Obj{\Bsc}$ を与える．
+
+\end{proof}
+
+\begin{mytheo}[label=thm:tangentclassifier]{tangent classifierの局所的な構造}
+    $\forall (X \to P) \in \Obj{\Snglr}$ および\hyperref[def:Bsc-induction]{basic} $\forall U = \mathbb{R}^n \times \Cone{Z} \in \Obj{\Bsc}$ を与える．
+    このとき，
+    \begin{align}
+        \Bigl( \ENTRU{[U]}{X} \xrightarrow{(\tau_X)_{|}} \BSC_{[U]} \lto \BSC_{[\mathbb{R}^n]} \Bigr) 
+        \simeq \Bigl( \Sing(X_{[U]}) \xrightarrow{\tau_{X_{[U]}}} \deloop{\LO(n)} \Bigr) 
+    \end{align}
+    が成り立つ．ただし，左辺では命題\ref{prop:Hom-htpy-equiv}を用いて得られるKan複体の\footnote{もしくは $\Kan$-豊穣圏の}ホモトピー同値 $\BSC_{[U]} \simeq \deloop{\Aut(U)} \simeq \deloop{\LO(U)}$ から誘導されるKan複体の謝 $\BSC_{[U]} \lto \deloop{\LO(n)}$ を用いた．
+\end{mytheo}
+
+\begin{proof}
+    
+\end{proof}
+
 
 \section{Disk algebras}
 
