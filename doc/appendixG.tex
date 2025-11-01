@@ -104,13 +104,16 @@ P \arrow[r, red,"\tilde{f}"']                & P'
     さらに，\hyperref[def:stratified-space]{層状化写像} $(f,\, \tilde{f}) \colon (X,\, s \colon X \lto P) \lto (X',\, s' \colon X' \lto P')$ のことを $f \colon (X \to P) \lto (X' \to P')$ と略記し，連続写像 $\tilde{f} \colon P \lto P'$ のことも $f$ と書く場合がある．
 \end{marker}
 
-圏 $\StTOP$ を，
-\begin{itemize}
-    \label{def:StTop}
-    \item 第2可算なHausdorff空間であるような\hyperref[def:stratified-space]{層状化空間}を対象とする
-    \item \hyperref[def:strat-emb]{層状化開埋め込み}を射とする
-\end{itemize}
-ことで定義する．
+\begin{mydef}[label=def:StTop]{層状化空間と層状化開埋め込みの成す {$(1,\, 1)$} 圏}
+    $(1,\, 1)$-圏 $\StTOP$ を，
+    \begin{itemize}
+        \label{def:StTop}
+        \item 第2可算なHausdorff空間であるような\hyperref[def:stratified-space]{層状化空間}を対象とする
+        \item \hyperref[def:strat-emb]{層状化開埋め込み}を射とする
+    \end{itemize}
+    ことで定義する．
+\end{mydef}
+
 
 \subsection{$C^0$ 級層状化空間}
 
@@ -216,8 +219,8 @@ i.e. 商位相空間
 \end{proof}
 
 
-\begin{mydef}[label=def:Snglr-C0]{$C^0$ 級層状化空間}
-    以下を充たす $\StTOP$ の最小の\hyperref[def:faithful]{充満部分圏}を $\SnglrC$ と書き，圏 $\SnglrC$ の対象を\textbf{$\bm{C^0}$ 級層状化空間} ($C^0$ stratified space) と呼ぶ：
+\begin{mydef}[label=def:Snglr-C0,breakable]{$C^0$ 級層状化空間}
+    以下を充たす \hyperref[def:StTop]{$\StTOP$} の最小の\hyperref[def:faithful]{充満部分圏}を $\bigcap_{\Cat{T}} \Cat{T} \subset \StTOP$ と書く：
     \begin{description}
         \item[\textbf{(Snglr-1)}] $(\emptyset \to \emptyset) \in \Obj{\SnglrC}$
         \item[\textbf{(Snglr-2)}]　
@@ -242,6 +245,10 @@ i.e. 商位相空間
         
         $\IMP$ $(X \to P) \in \Obj{\SnglrC}$
     \end{description}
+    \tcblower
+    $(1,\, 1)$-圏 $\bigcap_{\Cat{T}} \Cat{T}$ の対象のうち，位相空間としてパラコンパクト
+    \footnote{この仮定により，任意の $C^0$ 級層状化空間 $(X \to P)$ において位相空間 $X$ が\textbf{完全正規} (completely normal/hereditarily normal) であることが分かる．この事実は\hyperref[def:covering-dim]{被覆次元}および\hyperref[def:dim-depth]{深さ}を使用する際に有用である．特に，補題\ref{lem:strat-basic}の証明で暗に使用している．}
+    であるもの全体が成す充満部分圏を $\SnglrC \subset \bigcap_{\Cat{T}} \Cat{T} \subset \StTOP$ と書く．$\SnglrC$ の対象を\textbf{$\bm{C^0}$ 級層状化空間} ($C^0$ stratified space) と呼ぶ．
 \end{mydef}
 
 \begin{myexample}[label=ex:topomfld]{位相多様体は $C^0$ 級層状化空間}
