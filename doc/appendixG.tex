@@ -1571,7 +1571,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
         T_x \bigl( t(x) u + p(x) \bigr) = t(x)\, T_x u + T_x p(x)
     \end{align}
     が成り立つため，$T_x$ は線型写像である．
-    \hyperref[def:Snglr]{$(1,\, 1)$-圏 $\Snglr$ の定義}より $T$ は開埋め込みであり，単射である．故に，次元の等しい有限次元ベクトル空間の間の単射線型写像 $T_x$ は全単射でもあり，$T_x \in \LGL(n,\, \mathbb{R})$ だと分かった．
+    \hyperref[def:Snglr]{$(1,\, 1)$-圏 $\Snglr$ の定義}より $T$ は開埋め込みであり，単射である．次元の等しい有限次元ベクトル空間の間の単射線型写像 $T_x$ は全単射でもあり，$T_x \in \LGL(n,\, \mathbb{R})$ だと分かった．
     この事実は，Kan複体の同型 $\LGL(\mathbb{R}^n) \cong \Sing^{\text{sm}}\bigl(\LGL(n,\, \mathbb{R})\bigr)$ を意味する．
 \end{myexample}
 
@@ -1777,31 +1777,70 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 
         \item[\textbf{$i_2$ のホモトピー逆}]　
         
-        $(\infty,\, 1)$-圏 $\BSC$ の定義において登場する射は全て\hyperref[def:c-smooth-map]{conically smooth}なので，$\forall f \in \Hom{\BSC}^0(U,\, U)_m$ の\hyperref[def:c-smooth-along]{微分}
+        $\forall f \in \Hom{\BSC}^0(U,\, U)_m$ および $\forall x \in \Delta^m_e$ に対して，$f_x \coloneqq \mathrm{proj}_U \circ f|_{\{x\} \times U} \in \Hom{\Snglr}^0 (U,\, U)$ とおこう．
+        このとき $(\infty,\, 1)$-圏 $\BSC$ の定義において登場する射は全て\hyperref[def:c-smooth-map]{conically smooth}なので，$f_x$ の\hyperref[def:c-smooth-along]{微分}
         \begin{align}
-            Df \colon T(\Delta^m_e \times \mathbb{R}^n) \times \Cone{Z} \lto T(\Delta^m_e \times \mathbb{R}^n) \times \Cone{Z}
+            Df_x \colon T\mathbb{R}^n \times \Cone{Z} &\lto T\mathbb{R}^n \times \Cone{Z}
         \end{align}
-        が存在する\footnote{$\Delta^m_e \approx \mathbb{R}^m$ である．}．
-        このとき，$T(\Delta^m_e \times \mathbb{R}^n) \approx (\Delta^m_e \times \mathbb{R}^n) \times (\Delta^m_e \times \mathbb{R}^n)$ であり，底空間の勝手な元 $(x,\, p) \in \Delta^m_e \times \mathbb{R}^n$ に対して
+        が存在する．具体的には，
+        \small
         \begin{align}
-            D_{(x,\, p)}f \coloneqq Df|_{\Delta^m_e \times \mathbb{R}^n \times \{(x,\, p)\} \times \Cone{Z}} \in \Hom{\BSC}(U,\, U)_m \subset \Hom{\Snglr} (\Delta^m_e \times U,\, \Delta^m_e \times U)
+            &Df_x \bigl((v,\, p),\, [t,\, z]\bigr) \\
+            &= \lim_{s \to +0} \gamma^{-1} \circ f_x{}_{\Delta} \circ \gamma \bigl(s;\, (v,\, p),\, [t,\, z]\bigr) \\
+            &= \lim_{s \to +0} \gamma^{-1} \circ f_x{}_{\Delta} \bigl(s;\, (sv+p,\, p),\, [st,\, z]\bigr) \\
+            &= \lim_{s \to +0} \gamma^{-1} \bigl(s;\, f_x|_{\mathbb{R}^n}(sv+p),\, f_x(p,\, [st,\, z])\bigr) \\
+            &= \left( \Bigl(\lim_{s \to +0} \frac{f_x|_{\mathbb{R}^n}(sv+p) - \mathrm{proj}_{\mathbb{R}^n} \circ f_x(p,\, [st,\, z])}{s},\, f_x|_{\mathbb{R}^n}(p) \Bigr),\, \mathrm{proj}_{\Cone{Z}} \Bigl(\lim_{s \to +0}\tilde{\gamma}_{\frac{1}{s},\, -\frac{\mathrm{proj}_{\mathbb{R}^n} \circ f_x(p,\, [st,\, z])}{s}} \circ f_x(p,\, [st,\, z])\Bigr) \right) \\
+            &= \left( \Bigl(\lim_{s \to +0} \frac{f_x|_{\mathbb{R}^n}(sv+p) - \mathrm{proj}_{\mathbb{R}^n} \circ f_x(p,\, [st,\, z])}{s},\, f_x|_{\mathbb{R}^n}(p) \Bigr),\, \mathrm{proj}_{\Cone{Z}} \Bigl(\lim_{s \to +0}\tilde{\gamma}_{\frac{1}{s},\, 0} \circ f_x(p,\, [st,\, z])\Bigr) \right)
         \end{align}
-        とおこう．特に，$D_{(x,\, 0)} f \in \Hom{\BSC}^0(U,\, U)_m$ であることに注意する．
+        \normalsize
+        である\footnote{$\tilde{\gamma}$ の定義から，$\forall (t,\, p) \in \mathbb{R}_{\ge 0} \times \mathbb{R}^n$ に対して $\mathrm{proj}_{\Cone{Z}} \circ \tilde{\gamma}_{t,\, p} = \mathrm{proj}_{\Cone{Z}} \circ \tilde{\gamma}_{t,\, 0}$ が成り立つ．}．
+        さらに，$T \mathbb{R}^n \approx \mathbb{R}^n \times \mathbb{R}^n$ の底空間\footnote{第二成分である．}の勝手な元 $p \in \mathbb{R}^n$ に対して
+        % $T(\Delta^m_e \times \mathbb{R}^n) \approx (\Delta^m_e \times \mathbb{R}^n) \times (\Delta^m_e \times \mathbb{R}^n)$ であり，底空間の勝手な元 $(x,\, p) \in \Delta^m_e \times \mathbb{R}^n$ に対して
+        \begin{align}
+            D_{p}f_x &\coloneqq \mathrm{proj}_{\mathbb{R}^n \times \{f_x|_{\mathbb{R}^n} (p)\} \times \Cone{Z}} \circ Df_x|_{\mathbb{R}^n \times \{ p \} \times \Cone{Z}} \in \Hom{\Snglr} (U,\, U), \\
+            D_{p}{}_{[m]}f &\coloneqq \Bigl( \bigl(x,\, u\bigr) \lmto \bigl(x,\, D_{p}f_x(u)\bigr) \Bigr) \in \Hom{\BSC} (U,\, U)_m
+        \end{align}
+        とおこう．特に，$D_{0}{}_{[m]} f \in \Hom{\BSC}^0(U,\, U)_m$ であることに注意する．
+        あからさまには
+        \small
+        \begin{align}
+            &D_0 f_x (v,\, [t,\, z]) \\
+            &= \left( \lim_{s \to +0} \frac{f_x|_{\mathbb{R}^n}(sv) - \mathrm{proj}_{\mathbb{R}^n} \circ f_x(0,\, [st,\, z])}{s},\, \mathrm{proj}_{\Cone{Z}} \Bigl(\lim_{s \to +0}\tilde{\gamma}_{\frac{1}{s},\, 0} \circ f_x(0,\, [st,\, z])\Bigr) \right) \\
+            &= \left( \lim_{s \to +0} \frac{f_x|_{\mathbb{R}^n}(sv) - \mathrm{proj}_{\mathbb{R}^n} \circ f_x(\bm{0})}{s},\, \mathrm{proj}_{\Cone{Z}} \Bigl(\lim_{s \to +0}\tilde{\gamma}_{\frac{1}{s},\, 0} \circ f_x(0,\, [st,\, z])\Bigr) \right) \\
+            &= \left( \lim_{s \to +0} \frac{f_x|_{\mathbb{R}^n}(sv)}{s},\, \mathrm{proj}_{\Cone{Z}} \Bigl(\lim_{s \to +0}\tilde{\gamma}_{\frac{1}{s},\, 0} \circ f_x(0,\, [st,\, z])\Bigr) \right) \\
+            &= \lim_{s \to +0} \tilde{\gamma}_{\frac{1}{s},\, 0} \circ f_x{}_{\Delta} \circ \tilde{\gamma}_{s,\, 0} (v,\, [t,\, z])
+        \end{align}
+        \normalsize
+        と書ける．
 
-        　$\forall x \in \Delta^m_e$ を1つ固定する．まずは $\forall f \in \Hom{\BSC}^0(U,\, U)_m$ に対して $D_{(x,\, 0)} f \in \LGL(U)_m$ であること，i.e. Kan複体の射
+        　以上の準備の下，まず $\forall m \ge 0$ および $\forall f \in \Hom{\BSC}^0(U,\, U)_m$ に対して $D_{0}{}_{[m]} f \in \LGL(U)_m$ であること，i.e. Kan複体の射
         \begin{align}
             D_{0} \colon \Hom{\BSC}^0(U,\, U) \lto \LGL(U)
         \end{align}
         が定まることを示そう．
-        実際，$\forall (t,\, p) \in \Sing^{\text{sm}} (\mathbb{R}_{\ge 0} \times \mathbb{R}^n)_m$ に対して\footnote{ややこしいので $\gamma_{[m]}$ を $\gamma$ と略記している．}
+        実際，$\forall (t,\, p) \in \Sing^{\text{sm}} (\mathbb{R}_{\ge 0} \times \mathbb{R}^n)_m,\, \forall (x,\, u) \in \Delta^m_e \times U$ に対して
         \begin{align}
-            D_{(x,\, 0)} f \circ \gamma_{[m]}{}_{t,\, p}
-            &= \Bigl( \lim_{s \to +0} \gamma_{\frac{1}{s},\, 0} \circ f \circ \gamma_{s,\, 0}  \Bigr) \circ \gamma_{t,\, p} \\
-            &= \lim_{s \to +0} \gamma_{\frac{1}{s},\, 0} \circ f \circ \gamma_{ts,\,sp} \\
-            &= \cdots \\
-            &= \gamma_{[m]}{}_{t,\, (D_{(x,\, 0)} f(p))_{\mathbb{R}^n}} \circ D_{(x,\, 0)} f
+            (D_{0}{}_{[m]} f(p))_{\mathbb{R}^n} (x) 
+            &= \mathrm{proj}_{\mathbb{R}^n} \circ D_{0}{}_{[m]} f \bigl( x,\, p(x),\, \mathrm{pt} \bigr) \\
+            &= \mathrm{proj}_{\mathbb{R}^n} \circ D_0 f_x \bigl( p(x),\, \mathrm{pt} \bigr) \\
+            &= \lim_{s \to +0} \frac{f_x|_{\mathbb{R}^n} \bigl(sp(x)\bigr)}{s}
         \end{align}
-        と計算できる．
+        であるから，
+        \begin{align}
+            &D_{0}{}_{[m]} f \circ \gamma_{[m]}{}_{t,\, p} (x,\, u) \\
+            &= \Bigl( x,\, D_{0}f_x \circ \tilde{\gamma}_{t(x),\, p(x)}(u) \Bigr) \\
+            &= \Bigl( x,\, \bigl(\lim_{s \to +0} \tilde{\gamma}_{\frac{1}{s},\, 0} \circ f_x{}_\Delta \circ \tilde{\gamma}_{s,\, 0} \bigr) \circ \tilde{\gamma}_{t(x),\, p(x)}(u) \Bigr) \\
+            &= \Bigl( x,\, \lim_{s \to +0} \tilde{\gamma}_{\frac{1}{s},\, 0} \circ f_x{}_\Delta \circ \tilde{\gamma}_{t(x)s,\,sp(x)} (u) \Bigr) \\
+            &= \cdots \\
+            &= \Bigl( x,\, \bigl( \lim_{r \to +0} \tilde{\gamma}_{1,\, \frac{f_x|_{\mathbb{R}^n} (rp(x))}{r}} \bigr) \circ \bigl(\lim_{s \to +0} \tilde{\gamma}_{\frac{1}{s},\, 0} \circ \tilde{\gamma}_{1,\, - f_x (sp(x))} \circ f_x{}_{\Delta} \circ \tilde{\gamma}_{t(x) s,\, sp(x)} \bigr)(u) \Bigr)  \\
+            &= \Bigl( x,\, \bigl( \lim_{r \to +0} \tilde{\gamma}_{1,\, \frac{f_x|_{\mathbb{R}^n} (rp(x))}{r}} \bigr) \circ \bigl(\lim_{s \to +0} \tilde{\gamma}_{\frac{1}{s},\, 0} \circ f_x{}_{\Delta} \circ \tilde{\gamma}_{t(x) s,\, 0} \bigr)(u) \Bigr)  \\
+            &= \Bigl( x,\, \bigl( \lim_{r \to +0} \tilde{\gamma}_{1,\, \frac{f_x|_{\mathbb{R}^n} (rp(x))}{r}} \bigr) \circ \bigl(\lim_{s' \to +0} \tilde{\gamma}_{\frac{t(x)}{s'},\, 0} \circ f_x{}_{\Delta} \circ \tilde{\gamma}_{s',\, 0} \bigr)(u) \Bigr)  \\
+            &= \Bigl( x,\, \bigl( \lim_{r \to +0} \tilde{\gamma}_{1,\, \frac{f_x|_{\mathbb{R}^n} (rp(x))}{r}} \circ \gamma_{t(x),\, 0}\bigr) \circ \bigl(\lim_{s' \to +0} \tilde{\gamma}_{\frac{1}{s'},\, 0} \circ f_x{}_{\Delta} \circ \tilde{\gamma}_{s',\, 0} \bigr)(u) \Bigr)  \\
+            &= \Bigl( x,\, \bigl(\lim_{r \to +0} \tilde{\gamma}_{t(x),\, \frac{f_x|_{\mathbb{R}^n} (rp(x))}{r}} \bigr) \circ \bigl(\lim_{s' \to +0} \tilde{\gamma}_{\frac{1}{s'},\, 0} \circ f_x{}_{\Delta} \circ \tilde{\gamma}_{s',\, 0} \bigr)(u) \Bigr)  \\
+            &= \Bigl( x,\, \tilde{\gamma}_{t(x),\, \lim_{r \to +0} \frac{f_x|_{\mathbb{R}^n} (rp(x))}{r}} \circ D_{0}f_x(u) \Bigr)  \\
+            &= \gamma_{[m]}{}_{t,\, (D_{0}{}_{[m]} f(p))_{\mathbb{R}^n}} \circ D_{0}{}_{[m]} f (x,\, u)
+        \end{align}
+        と計算できる\footnote{$\tilde{\gamma}_{t_2,\, p_2} \circ \tilde{\gamma}_{t_1,\, p_1} \bigl(v,\, [s,\, z]\bigr) = \tilde{\gamma}_{t_2,\, p_2}\bigl( t_1 v + p_1,\, [t_1 s,\, z] \bigr) = \bigl( t_2t_1 v + t_2 p_1 + p_2,\, [t_2t_1 s,\, z] \bigr) = \tilde{\gamma}_{t_2t_1,\, t_2 p_1 + p_2} (v,\, [s,\, z])$ である．よって $\tilde{\gamma}^{-1}_{t,\, p} = \tilde{\gamma}_{\frac{1}{t},\, -\frac{p}{t}}$ が成り立つ．}．
 
         　さらに，\hyperref[def:stratified-GL]{$\LGL(U)$ の定義}から $\forall T \in \LGL(U)_m$ および $\forall t > 0$ に対して
         \begin{align}
@@ -2077,7 +2116,7 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
     \end{center}
 \end{mydef}
 
-\begin{mydef}[label=def:XU]{$[U]$-層}
+\begin{mydef}[label=def:XU]{{$[U]$}-層}
     $\forall (X \to P) \in \Obj{\Snglr}$ および\hyperref[def:Bsc-induction]{basic} $\forall U = \mathbb{R}^n \times \Cone{Z} \in \Obj{\Bsc}$ を与える．
     このとき位相空間 $\bm{X_{[U]}} \in \Obj{\TOP}$ を，$(1,\, 1)$-圏 $\TOP$ における\hyperref[def:pullback-pushout]{引き戻し}によって次のように定義する：
     \begin{center}
