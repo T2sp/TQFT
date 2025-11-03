@@ -871,7 +871,7 @@ $\bigl(p_{[n-1]}(\textcolor{blue}{f_0}{}_0),\, \dots,\, \underbrace{\bullet}_{j}
 \underline{$(\infty,\, 1)$-圏 $\Cat{E}$ における}\hyperref[def:horn]{角}の図式
 $\bigl(\textcolor{blue}{f_{0}}{}_0,\, \dots,\, \underbrace{\bullet}_{j},\, \dots,\, \textcolor{blue}{f_0}{}_n\bigr) \in (\Cat{E}_{n-1})^{\times n}$ を埋める $n$-射 $\textcolor{red}{\bar{f}} \in \Cat{E}_n$ が存在することを主張している．
 
-\begin{mydef}[label=def:fullsub-infty]{充満部分{$(\infty,\, 1)$-圏}}
+\begin{mydef}[label=def:fullsub-infty,breakable]{充満部分{$(\infty,\, 1)$-圏}}
     \begin{itemize}
         \item \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\Cat{C}$ の\textbf{部分 $\bm{(\infty,\, 1)}$-圏} (sub $(\infty,\, 1)$-category) とは，
         \hyperref[def:SimpSet]{単体的部分集合} $\Cat{S} \subset \Cat{C}$ であって，その\hyperref[def:SimpSet]{包含写像} $i \colon \Cat{S} \hookrightarrow \Cat{C}$ が\hyperref[def:infy-fib]{内的ファイブレーション}であるようなもののこと\footnote{このとき $\Cat{S}$ は $(\infty,\, 1)$-圏になる~\cite[\href{https://kerodon.net/tag/01CG}{Tag 01CG}]{kerodon}}．
@@ -879,7 +879,12 @@ $\bigl(\textcolor{blue}{f_{0}}{}_0,\, \dots,\, \underbrace{\bullet}_{j},\, \dots
         $\forall n \ge 0$ に対して以下の条件を充たすことを言う：
         \begin{description}
             \item[\textbf{(fullsub)}] 
-            $\forall \sigma \in \Cat{C}_n \cong \Hom{\sSet} (\Delta^n,\, \Cat{C})$ に対して，$\sigma_{[0]}(\Delta^n_0) \subset \Cat{S}_0 \IMP \sigma \in \Cat{S}_n$ が成り立つ．
+            $\forall \sigma \in \Cat{C}_n \cong \Hom{\sSet} (\Delta^n,\, \Cat{C})$ に対して，
+            \begin{align}
+                \sigma_{[0]}(\Delta^n_0) \subset \Cat{S}_0 \IMP \sigma \in \Cat{S}_n
+            \end{align}
+            が成り立つ
+            \footnote{すなわち，$\Cat{C}$ の勝手な $n$-射 $\sigma \in \Cat{C}_n$ を図\ref{fig:1-simp}の方法で図示した際に，そこに出現する全ての頂点が $\Cat{S}_0$ の元であるならば $\sigma \in \Cat{S}_n$ である．}．
         \end{description}
     \end{itemize}
 \end{mydef}
@@ -2160,7 +2165,7 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
         \Bigl( \ENTRU{[U]}{X} \xrightarrow{(\tau_X)_{|}} \BSC_{[U]} \lto \BSC_{[\mathbb{R}^n]} \Bigr) 
         \simeq \Bigl( \Sing(X_{[U]}) \xrightarrow{\tau_{X_{[U]}}} \deloop{\LO(n)} \Bigr) 
     \end{align}
-    が成り立つ．ただし，左辺では命題\ref{prop:Hom-htpy-equiv}を用いて得られるKan複体の\footnote{もしくは $\Kan$-豊穣圏の}ホモトピー同値 $\BSC_{[U]} \simeq \deloop{\Aut(U)} \simeq \deloop{\LO(U)}$ から誘導されるKan複体の謝 $\BSC_{[U]} \lto \deloop{\LO(\mathbb{R}^n)}$ を用いた．
+    が成り立つ．ただし，左辺では命題\ref{prop:Hom-htpy-equiv}を用いて得られるKan複体の\footnote{もしくは $\Kan$-豊穣圏の}ホモトピー同値 $\BSC_{[U]} \simeq \deloop{\Aut(U)} \simeq \deloop{\LO(U)}$ から誘導されるKan複体の射 $\BSC_{[U]} \lto \deloop{\LO(\mathbb{R}^n)}$ を用いた．
 \end{mytheo}
 
 \begin{proof}
@@ -2456,23 +2461,23 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
     \begin{description}
         \item[\textbf{(Op-1)}]　
         
-        任意の\hyperref[def:inert-active]{inertな}射 $f \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $\forall c \in (\Cat{O}^\otimes_{\expval{m}})_0$ に対して，
-        $\Cat{O}^\otimes$ における\hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射 $\bar{f} \colon c \lto c'$ が存在して $p_{[1]}(\bar{f}) = f$ を充たす．
+        任意の\hyperref[def:inert-active]{inertな}射 $\alpha \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $\forall x \in (\Cat{O}^\otimes_{\expval{m}})_0$ に対して，
+        $\Cat{O}^\otimes$ における\hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射 $(x \xrightarrow{\bar{\alpha}} y) \in (\Cat{O}^\otimes)_1$ が存在して $p_{[1]}(\bar{\alpha}) = \alpha$ を充たす．
         
         \item[\textbf{(Op-2)}]　
         
-        $\forall f \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $\forall c \in (\Cat{O}^\otimes_{\expval{m}})_0,\; \forall c' \in (\Cat{O}^\otimes_{\expval{n}})_0$ に対して，
-        \exref{def:rho-i}のinertな射の族 $\Familyset[\big]{\rho^i \in  \Hom{\FIN_*}\bigl( \expval{n},\, \expval{1} \bigr)}{1 \le i \le n}$ に \textsf{\textbf{(Op-1)}} を適用して得られる\hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射の族 $\Familyset[\big]{c' \xrightarrow{\bar{\rho}^i} c'_i \in (\Cat{O}^\otimes)_1}{1 \le i \le n}$ が誘導する\hyperref[def:infinity-1]{Kan複体の関手}
-        \footnote{対象の対応としては $\bar{f} \lmto (\bar{\rho}^1 \circ \bar{f},\, \dots,\, \bar{\rho}^n \circ \bar{f})$ であるが，右辺の\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\Cat{O}^\otimes$ における1-射の合成はup to homotopyでしか定まらないため，この関手はup to homotopyでしか決まらない．}
+        $\forall \alpha \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $\forall x \in (\Cat{O}^\otimes_{\expval{m}})_0,\; \forall y \in (\Cat{O}^\otimes_{\expval{n}})_0$ に対して，
+        \exref{def:rho-i}のinertな射の族 $\Familyset[\big]{\rho^i \in  \Hom{\FIN_*}\bigl( \expval{n},\, \expval{1} \bigr)}{1 \le i \le n}$ に \textsf{\textbf{(Op-1)}} を適用して得られる\hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射の族 $\Familyset[\big]{y \xrightarrow{\bar{\rho}^i} y_i \in (\Cat{O}^\otimes)_1}{1 \le i \le n}$ が誘導する\hyperref[def:infinity-1]{Kan複体の関手}
+        \footnote{対象の対応としては $\bar{\alpha} \lmto (\bar{\rho}^1 \circ \bar{\alpha},\, \dots,\, \bar{\rho}^n \circ \bar{\alpha})$ であるが，右辺の\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\Cat{O}^\otimes$ における1-射の合成はup to homotopyでしか定まらないため，この関手はup to homotopyでしか決まらない．}
         \begin{align}
-            \inftyMap{\Cat{O}^\otimes} (c,\, c')_f \lto \prod_{i=1}^n \inftyMap{\Cat{O}^\otimes} (c,\, c'_i)_{\rho^i \circ f}
+            \inftyMap{\Cat{O}^\otimes} (x,\, y)_\alpha \lto \prod_{i=1}^n \inftyMap{\Cat{O}^\otimes} (x,\, y_i)_{\rho^i \circ \alpha}
         \end{align}
         は，$(\infty,\, 1)$-圏\hyperref[def:Spaces]{$\SPACES$}における\hyperref[def:isom-infty]{同型射}である．
 
         \item[\textbf{(Op-3)}]　
         
-        $\forall c_1,\, \dots,\, c_n \in (\Cat{O}^\otimes_{\expval{1}})_0$ に対して，
-        ある $c \in (\Cat{O}^\otimes_{\expval{n}})_0$ および \hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射 $\widehat{\rho_i} \in \bigl(\inftyMap{\Cat{O}^\otimes} (c,\, c_i)_{\rho^i}\bigr)_0$ が存在する．
+        $\forall x_1,\, \dots,\, x_n \in (\Cat{O}^\otimes_{\expval{1}})_0$ に対して，
+        ある $x \in (\Cat{O}^\otimes_{\expval{n}})_0$ および \hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射 $\widehat{\rho_i} \in \bigl(\inftyMap{\Cat{O}^\otimes} (x,\, x_i)_{\rho^i}\bigr)_0$ が存在する．
     \end{description}
 
     ただし，以下の記法を採用した：
@@ -2489,13 +2494,13 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         \footnote{
             これ自体が $(\infty,\, 1)$-圏である．なお，ファイバーは $(\infty,\, 1)$-圏のpullbackなので一見すると非常に計算が難しいが，幸いにしてこの場合は\hyperref[prop:SimpSet-basic]{$(1,\, 1)$-圏 $\sSet$ におけるpullback}と一致する．
         }．
-        \item $f \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $c \in (\Cat{O}^\otimes_{\expval{m}})_0,\; c' \in (\Cat{O}^\otimes_{\expval{n}})_0$ に対して，
-        $\bar{f} \in \inftyMap{\Cat{O}^\otimes}(c,\, c')_{0}$ であって $p_{[1]}(\bar{f}) = f$ を充たすもの全体から定まる，$\inftyMap{\Cat{O}^\otimes} (c,\, c') \in \SPACES_0$
+        \item $\alpha \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $x \in (\Cat{O}^\otimes_{\expval{m}})_0,\; y \in (\Cat{O}^\otimes_{\expval{n}})_0$ に対して，
+        $\bar{\alpha} \in \inftyMap{\Cat{O}^\otimes}(x,\, y)_{0}$ であって $p_{[1]}(\bar{\alpha}) = \alpha$ を充たすもの全体から定まる，$\inftyMap{\Cat{O}^\otimes} (x,\, y) \in \SPACES_0$
         の
         % \footnote{\hyperref[def:infty-1]{Kan複体} $\Hom{\Cat{O}^\otimes} (c,\, c') \in \SPACES_0$ は，\hyperref[def:infty-Hom]{$(\infty,\, 1)$-圏におけるHom関手} $\inftyMap{\Cat{O}^\otimes} \colon \OP{(\Cat{O}^\otimes)} \times \Cat{O}^\otimes \lto \SPACES$ による対象 $(c,\, c') \in (\OP{(\Cat{O}^\otimes)} \times \Cat{O}^\otimes)_0$ の像である．}
         \hyperref[def:fullsub-infty]{充満部分Kan複体}を
         \begin{align}
-            \bm{\inftyMap{\Cat{O}^\otimes} (c,\, c')_f} \hookrightarrow \inftyMap{\Cat{O}^\otimes} (c,\, c')
+            \bm{\inftyMap{\Cat{O}^\otimes} (x,\, y)_\alpha} \hookrightarrow \inftyMap{\Cat{O}^\otimes} (x,\, y)
         \end{align}
         と書いた．
     \end{itemize}

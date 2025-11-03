@@ -564,7 +564,7 @@ $\SETS$ は\hyperref[def:complete]{双完備}である．
         の\hyperref[def:colim]{余極限}である．
         i.e. 全単射
         \begin{align}
-            \lim_{i \in I} \Hom{\Cat{C}} \bigl( D(i),\, X\bigr) \cong \Hom{\Cat{C}} \bigl(\underset{I}{\colim},\, X \bigr) 
+            \lim_{i \in I} \Hom{\Cat{C}} \bigl( D(i),\, X\bigr) \cong \Hom{\Cat{C}} \bigl(\underset{I}{\colim} D,\, X \bigr) 
         \end{align}
         が存在する．
     \end{enumerate}
@@ -1306,8 +1306,8 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     $K_n \coloneqq K([n])$ とおく．
     \begin{itemize}
         \item $K_n$ の元のことを\textbf{$n$-単体} ($n$-simplex)
-        \item $\partial_i \coloneqq K(d_i) \colon K_{n} \twoheadrightarrow K_{n-1}$ のことを\textbf{面写像} (face map)
-        \item $\sigma_i \coloneqq K(s_i) \colon K_n \hookrightarrow K_{n+1}$ のことを\textbf{縮退写像} (degeneracy map) と呼ぶ．
+        \item $\partial^n_i \coloneqq K(d^n_i) \colon K_{n} \twoheadrightarrow K_{n-1}$ のことを\textbf{面写像} (face map)
+        \item $\sigma^n_i \coloneqq K(s^n_i) \colon K_n \hookrightarrow K_{n+1}$ のことを\textbf{縮退写像} (degeneracy map) と呼ぶ．
     \end{itemize}
     と呼ぶ．これらは以下の\textbf{単体的恒等式} (simplicial identities) を充たす：
     \begin{align}
@@ -2463,7 +2463,7 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
 \end{mydef}
 
 \begin{mylem}[label=def:infty-homotopy-equivalence]{ホモトピックは同値関係}
-    $K$ を\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}，$\Hom{K}(X,\, Y) \subset K_1$ を，対象 $X,\, Y \in K_0$ をそれぞれ始点，終点に持つような1-射全体が成す集合とする．
+    $K$ を\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}，\underline{集合}\footnote{すぐ後に導入する\hyperref[def:Map]{射の空間} $\inftyMap{K}(X,\, Y) \in \Obj{\sSet}$ と混同してはならない！} $\Hom{K}(X,\, Y) \subset K_1$ を，対象 $X,\, Y \in K_0$ をそれぞれ始点，終点に持つような1-射全体が成す集合とする．
     このとき，2項関係
     \begin{align}
         f \simeq g \DEF f,\, g\; \text{を\hyperref[def:infty-homotopy-morphism]{繋ぐホモトピー}が存在}
@@ -2526,18 +2526,212 @@ $K$ を\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}とする．$\forall X,\, Y
     \begin{align}
         \bm{\inftyMap{K} (x,\, y)} \coloneqq \{x\} \times_{\FUN (\{0\},\, K)} \FUN (\Delta^1,\, K) \times_{\FUN (\{1\},\, K)} \{y\} \in \Obj{\sSet}
     \end{align}
-    として定義する~\cite[\href{https://kerodon.net/tag/01J5}{Tag 01J5}]{kerodon}．
+    として定義する\footnote{$\FUN(\{0\},\, K),\, \FUN(\{1\},\, K)$ と書くときは，$\{0\},\, \{1\}$ を1点圏とみなし，その\hyperref[def:nerve]{脈体}を取ることで得られる $(\infty,\, 1)$-圏 $\Ner\bigl(\{0\}\bigr),\, \Ner \bigl( \{1\} \bigr)$ を考えている．}
+    ~\cite[\href{https://kerodon.net/tag/01J5}{Tag 01J5}]{kerodon}．
 \end{mydef}
 
 $(1,\, 1)$-圏 $\sSet$ における引き戻しとは，命題\ref{prop:SimpSet-basic}-(2) の証明より，$n$-単体毎に\hyperref[def:pullback-pushout]{$\SETS$ における引き戻し}を取ることで構成される．
-さらに，\exref{def:infty-Fun}より $\FUN (\Delta^1,\, K)_n = \Hom{\sSet}(\Delta^n \times \Delta^1,\, K)$ であるから，
-単体的集合 $\inftyMap{K} (x,\, y)$ の\hyperref[def:SimpSet]{$n$-単体}とは，集合として具体的に
+さらに，\exref{def:infty-Fun}より $\FUN (\Delta^1,\, K)_n = \Hom{\sSet}(\Delta^n \times \Delta^1,\, K)$ である．
+従って単体的集合 $\inftyMap{K} (x,\, y)$ の\hyperref[def:SimpSet]{$n$-単体} $\inftyMap{K} (x,\, y)_n$ は，
+% 集合として
+% \begin{align}
+%     \inftyMap{K} (x,\, y)_n = \bigl\{\, f \in \Hom{\sSet}(\Delta^n \times \Delta^1,\, K) \bigm| f|_{\Delta^n \times \{0\}} = x,\; f|_{\Delta^n \times \{1\}} = y \,\bigr\} 
+% \end{align}
+% と書ける
+$(1,\, 1)$-圏 $\SETS$ における2重の\hyperref[def:pullback-pushout]{引き戻し}
+\begin{center}
+    % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBpiBdUkANwEMAbAVxiRAB12AJCAW2E5wAyjBwBfABScAIjAY46APTKdSAAgDSAShBjS6TLnyEUZAExVajFm049+gkeKntgABk57VmnXoPY8AiI3UgtqemZWRA5XAA9PXX0QDADjIjNySwibaLs+AXZhUUlOYGJPUm9tRP8jIJQMtyzrKJjgAE8Ev2TDQJNkEKbwltt2LDAAMxx2gFk6NGANSVjK9nV2rQB9N11LGCgAc3giUAmAJz4kAFZqHAgkABZu88vEB9v7xABmW7osBjYAAsIBAANY1EAvXhIDIgO5IMhwv4A6LAsEQqHXD4w54XaGIEJwz7EXGvQnw76k-E3IlINxiChiIA
+    \begin{tikzcd}
+    {\inftyMap{K}(x,\, y)_n} \arrow[rr] \arrow[dd] \arrow[rd] &                                                  & \{y\} \arrow[d, hook,"\sigma^n_0 \circ \cdots \sigma^0_0(y)"]     \\
+                                                              & {\Hom{\sSet}(\Delta^n \times \Delta^1,\, K)} \cong K_1 \arrow[d, "{(\Id_{\Delta^n} \times d^1_1{}_*)^*}"] \arrow[r, "{(\Id_{\Delta^n} \times d^1_0{}_*)^*}"] & {\Hom{\sSet}(\Delta^0 \times \{1\},\, K)} \cong K_0 \\
+    \{x\} \arrow[r, hook, "\sigma^n_0 \circ \cdots \sigma^0_0(x)"]                                     & {\Hom{\sSet}(\Delta^n \times \{0\},\, K)} \cong K_n                    &                          
+    \end{tikzcd}
+\end{center}
+として計算される．i.e. 
 \begin{align}
     \inftyMap{K} (x,\, y)_n = \bigl\{\, f \in \Hom{\sSet}(\Delta^n \times \Delta^1,\, K) \bigm| f|_{\Delta^n \times \{0\}} = x,\; f|_{\Delta^n \times \{1\}} = y \,\bigr\} 
 \end{align}
-と書ける\footnote{右辺に登場する $x \in \Hom{\sSet}(\Delta^n \times \{0\},\, K),\, y \in \Hom{\sSet}(\Delta^n \times \{1\},\, K)$ は記号の濫用である．正確には，\hyperref[lem:Yoneda]{米田の補題}による全単射 $\Hom{\sSet}(\Delta^n \times \{i\},\, K) \cong \Hom{\sSet}(\Delta^n,\, K) \cong K_n$ を用いて $\sigma^n_0 \circ \cdots \circ \sigma^0_0 (x),\, \sigma^n_0 \circ \cdots \circ \sigma^0_0 (y) \in K_n$ を送った先を意味する．図示すると，全ての頂点に $x,\, y$ が載り，全ての部分単体上に $\Id_x,\, \Id_y$ が載った標準 $n$-単体になっている．}．
-特に $\inftyMap{K} (x,\, y)_0 \subset K_1$ と見做すことができるが，これは始点，終点をそれぞれ $x,\, y \in K_0$ に持つような1-射全体の集合と一致する．
-この意味で $\inftyMap{K}(x,\, y)$ は，$(1,\, 1)$-圏におけるHom集合の $(\infty,\, 1)$-圏における対応物である．
+である
+\footnote{右辺に登場する $x \in \Hom{\sSet}(\Delta^n \times \{0\},\, K),\, y \in \Hom{\sSet}(\Delta^n \times \{1\},\, K)$ は記号の濫用である．正確には $\sigma^n_0 \circ \cdots \circ \sigma^0_0 (x),\, \sigma^n_0 \circ \cdots \circ \sigma^0_0 (y) \in K_n$ を意味する．
+    \hyperref[def:SimpSet]{単体的恒等式}より $0 \le \forall j \le \forall n$ に対して $\partial^n_j \bigl( \sigma^n_0 \circ \cdots \sigma^0_0(x) \bigr)=\sigma^{n-1}_0 \circ \cdots \sigma^0_0(x)$ が成り立つから，$\sigma^n_0 \circ \cdots \circ \sigma^0_0 (x) \in K_n$ を図示すると，全ての頂点に $x \in K_0$ が，全ての辺に $\sigma^0_0(x) \eqqcolon \Id_x \in K_1$ が，全ての部分 $1 \le j \le n$-単体に $\sigma^{j-1}_0 \circ \cdots \circ \sigma^0_0(x) \in K_j$ が載った自明な $n$-単体になる．
+}．
+
+\begin{myexample}[label=ex:Map0]{射の空間の対象（0-射）}
+    集合 $\inftyMap{K}(x,\, y)_0$ とは，$(1,\, 1)$-圏 $\SETS$ における2重の\hyperref[def:pullback-pushout]{引き戻し}
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBpiBdUkANwEMAbAVxiRAB12AJCAW2E5wAyjBwBfABScAIjAY46APTKdSAAgDSAShBjS6TLnyEUZAExVajFm049+gkeKntgABk57VmnXoPY8AiI3UgtqemZWRA5XAA9PXX0QDADjIjNySwibaLs+AXZhUUlOYGJPUm9tRP8jIJQMtyzrKJjgAE8Ev2TDQJNkEKbwltt2LDAAMxx2gFk6NGANSVjK9nV2rQB9N11LGCgAc3giUAmAJz4kAFZqHAgkABZu88vEB9v7xABmW7osBjYAAsIBAANY1EAvXhIDIgO5IMhwv4A6LAsEQqHXD4w54XaGIEJwz7EXGvQnw76k-E3IlINxiChiIA
+        \begin{tikzcd}
+        {\inftyMap{K}(x,\, y)_0} \arrow[rr] \arrow[dd] \arrow[rd] &                                                  & \{y\} \arrow[d, hook]     \\
+                                                                  & {\Hom{\sSet}(\Delta^0 \times \Delta^1,\, K)} \cong K_1 \arrow[d, "{(\Id_{\Delta^1} \times d^1_1{}_*)^*}"] \arrow[r, "{(\Id_{\Delta^1} \times d^1_0{}_*)^*}"] & {\Hom{\sSet}(\Delta^0 \times \{1\},\, K)} \cong K_0 \\
+        \{x\} \arrow[r, hook]                                     & {\Hom{\sSet}(\Delta^0 \times \{0\},\, K)} \cong K_0                    &                          
+        \end{tikzcd}
+    \end{center}
+    である．$\SETS$ における引き戻しの公式を用いると，
+    \begin{align}
+        \inftyMap{K}(x,\, y)_0 = \bigl\{\, (x,\, f,\, y) \in \{x\} \times K_1 \times \{y\} \bigm| \partial^1_1 f = x,\; \partial^1_0 f = y \,\bigr\} 
+    \end{align}
+    と計算できる．
+    i.e. 集合としての等号 $\inftyMap{K}(x,\, y)_0 = \Hom{K}(x,\, y)$ が成り立つ\footnote{集合 $\Hom{K}(x,\, y)$ とは，補題\ref{def:infty-homotopy-equivalence}で定義したものである．}．
+    この意味で $\inftyMap{K}(x,\, y)$ は，$(1,\, 1)$-圏におけるHom集合の $(\infty,\, 1)$-圏における対応物である．
+\end{myexample}
+
+\begin{myexample}[label=ex:Map1]{射の空間の1-射}
+    集合 $\inftyMap{K}(x,\, y)_1$ とは，$(1,\, 1)$-圏 $\SETS$ における2重の\hyperref[def:pullback-pushout]{引き戻し}
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBpiBdUkANwEMAbAVxiRAB12AJCAW2E5wAyjBwBfABScAIjAY46APWIACTnl7w17WfKVlOpFQGkAlCDGl0mXPkIoyAJiq1GLNpx79BI8VJ1yCsraGlqcwAAMnJaGJqbagMJEJgD6xBZWIBjYeAREEaTO1PTMrIgc7MAAHtHp1tl2RI7kLsXuZZ58AuzCopIygfohWJpw2sDE0aSxZokpaZZ1trkoTREtbqXlwACeNQuZNjn2yPlrRRse7FhgAGY42wCydGjAxpKVU+xG26bJERYuGBQADm8CIoBuACc+EgAKzUHAQJAAFn2UJhiGRCKRiAAzAi6FgGGwABYQCAAa1qIHRvCQTRAiKQZEZhOJZTJlOptLh2PpaOhdMQ+UZOJZrU2nAAklAhiNtGg6JC8IxlKluYKkCKmXjziVLjK5WF2IrlVhVcQ-hqMfDRVqxBQxEA
+        \begin{tikzcd}
+        {\inftyMap{K}(x,\, y)_1} \arrow[rr] \arrow[dd] \arrow[rd] &                                                                                                                        & \{y\} \arrow[d, hook, "\sigma^0_0(y)"]                            \\
+                                                                  & {\Hom{\sSet}(\Delta^1 \times \Delta^1,\, K)} \arrow[d, "{(\Id_{\Delta^1} \times d^1_1{}_*)^*}"] \arrow[r, "{(\Id_{\Delta^1} \times d^1_0{}_*)^*}"] & {\Hom{\sSet}(\Delta^1 \times \{1\},\, K) \cong K_1} \\
+        \{x\} \arrow[r, hook, "\sigma^0_0(x)"]                                     & {\Hom{\sSet}(\Delta^1 \times \{0\},\, K) \cong K_1}                                                                       &                                                 
+        \end{tikzcd}
+    \end{center}
+    である．
+    ところで，単体的集合の積 $S \times T \colon \OP{\Delta} \lto \SETS$ における面写像とは 
+    \begin{align}
+        \partial^n_j \colon S_n \times T_n &\lto S_{n-1} \times T_{n-1}, \\
+        (x,\, y) &\lmto (\partial^n_j x,\, \partial^n_j y)
+    \end{align}
+    のことであった．故に $f \in \Hom{\sSet}(\Delta^1 \times \Delta^1,\, K)$ は，
+    \begin{align}
+        \Delta^1_0 
+        &= \Hom{\Delta} \bigl( [0],\, [1] \bigr) =
+        \{
+            &0 \colon 0 &\mapsto 0,\\ 
+            &&1 \colon 0 &\mapsto 1
+        &&\}, \\
+        \Delta^1_1
+        &= \Hom{\Delta} \bigl( [1],\, [1] \bigr) = 
+        \{
+            &s^0_0{}^*(0) \colon 0 &\mapsto 0,\; 1 \mapsto 0 \\
+            &&s^0_0{}^*(1) \colon 0 &\mapsto 1,\; 1 \mapsto 1 \\
+            &&\Id_{[1]} \colon 0 &\mapsto 0,\; 1 \mapsto 1
+        &&\}
+    \end{align}
+    とおくと
+    \small
+    \begin{align}
+        f = \quad
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path  coordinate[bullet,label=below left:{$f_{[0]}(0,\,1)$}] (x)
+            +(6,0) coordinate[bullet,label=below right:{$f_{[0]}(1,\,1)$}] (y)
+            +(0,6) coordinate[bullet,label=above left:{$f_{[0]}(0,\,0)$}] (z)
+            +(6,6) coordinate[bullet,label=above right:{$f_{[0]}(1,\,0)$}] (w)
+            ;
+            \begin{scope}[on background layer]
+                \fill[red!20]  (z.center) -- (x.center) -- (y.center) -- cycle;
+                \fill[blue!20] (z.center) -- (w.center) -- (y.center) -- cycle;
+            \end{scope}
+            \node[red] at (barycentric cs:z=1,x=1,y=1) {$f_{[2]}\bigl(s^1_0{}^*(\Id_{[1]}),\, s^1_1{}^* (\Id_{[1]})\bigr)$};
+            \node[blue] at (barycentric cs:z=1,w=1,y=1) {$f_{[2]}\bigl(s^1_1{}^*(\Id_{[1]}),\, s^1_0{}^* (\Id_{[1]})\bigr)$};
+            \draw[->-=.5] (z) --node[midway,left]{$f_{[1]}\bigl(s^0_0{}^*(0),\, \Id_{[1]}\bigr)$} (x);
+            \draw[->-=.5] (z) --node[midway,above]{$f_{[1]}\bigl(\Id_{[1]},\, \Id_{[1]}\bigr)$} (y);
+            \draw[->-=.5] (z) --node[midway,above]{$f_{[1]}\bigl(\Id_{[1]},\, s^0_0{}^*(0)\bigr)$} (w);
+            \draw[->-=.5] (x) --node[midway,below]{$f_{[1]}\bigl(\Id_{[1]},\, s^0_0{}^*(1)\bigr)$} (y);
+            \draw[->-=.5] (w) --node[midway,right]{$f_{[1]}\bigl(s^0_0{}^*(1),\, \Id_{[1]}\bigr)$} (y);
+        \end{tikzpicture}
+    \end{align}
+    \normalsize
+    のように図示できる．ただし，$n \ge 3$ 単体のデータは縮退していて見えない．
+    ここで，定義\ref{def:Map}の脚注および\hyperref[def:nerve]{脈体の定義}から $\{0\}_1 \coloneqq \Ner \bigl( \{0\} \bigr)_1 = \mathrm{Fun}\bigl([1],\, \{0\}\bigr) \cong \bigl\{\, s^0_0 \,\bigr\}$ および $\{1\}_1 \cong \bigl\{\, s^0_0 \,\bigr\}$ が成り立つ．
+    故に
+    \begin{align}
+        \bigl((\Id_{\Delta^1} \times d^1_1{}_*)^* f\bigr)_{[1]} \bigl(\Id_{[1]}\bigr)
+        &= f_{[1]} \circ (\Id_{\Delta^1_2} \times d^1_1{}_*)\bigl(\Id_{[1]},\, s^0_0\bigr) \\
+        &= f_{[1]} \bigl(\Id_{[1]},\, d^1_1 \circ s^0_0\bigr) \\
+        &= f_{[1]} \bigl(\Id_{[1]},\, s^0_0{}^* (0)\bigr), \\
+        \bigl((\Id_{\Delta^1} \times d^1_0{}_*)^* f\bigr)_{[1]} \bigl(\Id_{[1]}\bigr)
+        &= f_{[1]} \circ (\Id_{\Delta^1_2} \times d^1_0{}_*)\bigl(\Id_{[1]},\, s^0_0\bigr) \\
+        &= f_{[1]} \bigl(\Id_{[1]},\, d^1_0 \circ s^0_0\bigr) \\
+        &= f_{[1]} \bigl(\Id_{[1]},\, s^0_0{}^* (1)\bigr)
+    \end{align}
+    であることが分かる\footnote{\hyperref[lem:Yoneda]{米田の補題}より，$(\Id_{\Delta^1} \times d^1_1{}_*)^* f \in \Hom{\sSet}(\Delta^1 \times \{0\},\, K)$ は $\bigl((\Id_{\Delta^1} \times d^1_1{}_*)^* f\bigr)_{[1]} \bigl(\Id_{[1]}\bigr) \in K_1$ と1対1対応する．}．
+    従って $\SETS$ における引き戻しの公式を用いると，$f \in \inftyMap{K}(x,\, y)_1$ は次のように図示できることが分かる：
+    \begin{align}
+        f = \quad
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path  coordinate[bullet,label=below left:{$y$}] (x)
+            +(4,0) coordinate[bullet,label=below right:{$y$}] (y)
+            +(0,4) coordinate[bullet,label=above left:{$x$}] (z)
+            +(4,4) coordinate[bullet,label=above right:{$x$}] (w)
+            ;
+            \begin{scope}[on background layer]
+                \fill[red!20]  (z.center) -- (x.center) -- (y.center) -- cycle;
+                \fill[blue!20] (z.center) -- (w.center) -- (y.center) -- cycle;
+            \end{scope}
+            \node[red] at (barycentric cs:z=1,x=1,y=1) {$f_{[2]}\bigl(s^1_0{}^*(\Id_{[1]}),\, s^1_1{}^* (\Id_{[1]})\bigr)$};
+            \node[blue] at (barycentric cs:z=1,w=1,y=1) {$f_{[2]}\bigl(s^1_1{}^*(\Id_{[1]}),\, s^1_0{}^* (\Id_{[1]})\bigr)$};
+            \draw[->-=.5] (z) -- (x);
+            \draw[->-=.5] (z) -- (y);
+            \draw[->-=.5] (z) -- node[midway,above]{$\sigma^0_0(x) \eqqcolon \Id_x$} (w);
+            \draw[->-=.5] (x) -- node[midway,below]{$\sigma^0_0(y) \eqqcolon \Id_y$} (y);
+            \draw[->-=.5] (w) -- (y);
+        \end{tikzpicture}
+    \end{align}
+    ここから全単射
+    \begin{align}
+        \label{eq:Map1}
+        \inftyMap{K}(x,\, y)_1 \cong \bigl\{\, (\textcolor{red}{\sigma},\, \textcolor{blue}{\tau}) \in K_2^{\times 2} \bigm| \partial^2_1(\textcolor{red}{\sigma}) = \partial^2_1(\textcolor{blue}{\tau}),\; \partial^2_0 (\textcolor{red}{\sigma}) = \Id_y,\; \partial^2_2 (\textcolor{blue}{\tau}) = \Id_x \,\bigr\} 
+    \end{align}
+    が存在することが分かる．
+    \exref{def:infty-Fun}から，単体的集合 $\inftyMap{K}(x,\, y) \in \Obj{\sSet}$ の面写像が
+    \begin{align}
+        \partial^1_j \colon \inftyMap{K}(x,\, y)_1 &\lto \inftyMap{K}(x,\, y)_0 \subset K_1, \\
+        f &\lmto \begin{cases}
+            \partial^2_2 \circ \textcolor{red}{f_{[2]}\bigl(s^1_0{}^*(\Id_{[1]}),\, s^1_1{}^* (\Id_{[1]})\bigr)}, &j=1 \\
+            \partial^2_0 \circ \textcolor{blue}{f_{[2]}\bigl(s^1_1{}^*(\Id_{[1]}),\, s^1_0{}^* (\Id_{[1]})\bigr)}, &j=0
+        \end{cases}
+    \end{align}
+    により与えられることも分かる．
+\end{myexample}
+
+\begin{myexample}[label=ex:Map2]{射の空間の2-射}
+    \exref{ex:Map0}, \exref{ex:Map1}と同様に考察することで，$\forall (x,\, f,\, y) \in \inftyMap{K}(x,\, y)_2 \subset \{x\} \times \Hom{\sSet} (\Delta^2 \times \Delta^1,\, K) \times \{y\}$ が次のように図示できることが分かる：
+    \begin{center}
+        \begin{tikzpicture}
+            \path                coordinate[bullet,label=left:$x$] (x_0)
+            + (0:3)              coordinate[bullet,label=right:$x$] (x_2)
+            + (30:2.5) coordinate[bullet,label=above:$x$] (x_1)
+            ++ (0,-3)            coordinate[bullet,label=left:$y$] (y_0)
+            + (0:3)              coordinate[bullet,label=right:$y$] (y_2)
+            + (30:2.5) coordinate[bullet,label=above right:$y$] (y_1)
+            ;
+            \begin{scope}[on background layer]
+                \fill[gray!20,opacity=.6]  (x_0.center) -- (x_1.center) -- (x_2.center) -- cycle;
+                \fill[gray!40,opacity=.6] (y_0.center) -- (y_1.center) -- (y_2.center) -- cycle;
+            \end{scope}
+            \node[gray] at (barycentric cs:x_0=1,x_1=1,x_2=1) {$\sigma^1_0 \circ \sigma^0_0(x)$};
+            \node[gray] at (barycentric cs:y_0=1,y_1=1,y_2=1) {$\sigma^1_0 \circ \sigma^0_0(y)$};
+            \draw[->-=.5] (x_0) -- (x_1);
+            \draw[->-=.5] (x_0) -- (x_2);
+            \draw[->-=.5] (x_1) -- (x_2);
+            \draw[->-=.5] (y_0) -- (y_1);
+            \draw[->-=.5] (y_0) -- (y_2);
+            \draw[->-=.5] (y_1) -- (y_2);
+
+            \draw[->-=.5] (x_0) -- (y_0);
+            \draw[->-=.5,dashed] (x_0) -- (y_1);
+            \draw[->-=.5] (x_0) -- (y_2);
+            \draw[->-=.5] (x_2) -- (y_2);
+            \draw[->-=.5,dashed] (x_1) -- (y_1);
+            \draw[->-=.5,dashed] (x_1) -- (y_2);
+        \end{tikzpicture}
+    \end{center}
+    このことから，全単射
+    \begin{align}
+        \label{eq:Map2}
+        \inftyMap{K}(x,\, y)_2 \cong \Bigl\{\, (t_0,\, t_1,\, t_2) \in K_3^{\times 3} \Bigm| \substack{\partial^3_1(t_0) = \partial^3_1(t_1),\; \partial^3_2(t_1) = \partial^3_2(t_2) \\ \partial^3_0 (t_0) = \sigma^2_0(\Id_y),\; \partial^3_3 (t_2) = \sigma^2_0(\Id_x)} \,\Bigr\} 
+    \end{align}
+    があることが分かる．一般の $n$ の場合は次のようになる：
+    \begin{align}
+        \label{eq:Mapn}
+        \inftyMap{K}(x,\, y)_n
+        &\cong \Bigl\{\, (\sigma_1,\, \dots,\, \sigma_n) \in K_{n+1}^{\times (n+1)} \Bigm| \substack{1 \le \forall j \le n,\; \partial^{n+1}_j(\sigma_{j-1}) = \partial^{n+1}_j(\sigma_j) \\ \partial^{n+1}_0(\sigma_0) = \sigma^n_0 \circ \cdots \circ \sigma^0_0(y),\; \partial^{n+1}_{n+1} (\sigma_n) = \sigma^{n}_{0} \circ \cdots \circ \sigma^0_0(x)} \,\Bigr\} 
+    \end{align}
+\end{myexample}
+
+
+% 特に $\inftyMap{K} (x,\, y)_0 \subset K_1$ と見做すことができるが，これは始点，終点をそれぞれ $x,\, y \in K_0$ に持つような1-射全体の集合と一致する．
+% この意味で $\inftyMap{K}(x,\, y)$ は，$(1,\, 1)$-圏におけるHom集合の $(\infty,\, 1)$-圏における対応物である．
 
 \begin{myprop}[label=prop:Map-is-Kan]{射の空間はKan複体}
     $(\infty,\, 1)$-圏 $K$ における\hyperref[def:Map]{射の空間} $\inftyMap{K}(x,\, y) \in \Obj{\sSet}$ は\hyperref[def:infinity-1]{Kan複体}である．
@@ -2559,7 +2753,7 @@ $(1,\, 1)$-圏 $\sSet$ における引き戻しとは，命題\ref{prop:SimpSet-
             \inftyMap{K} (x,\, y) \lto \inftyMap{L} \bigl( F_{[0]}(x),\, F_{[0]}(y) \bigr) 
         \end{align}
         が\hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}であることを言う．
-        \item $F$ の\textbf{本質的像} (essential image) とは，$F(x) \in L_0$ の形で書ける $L$ の対象と\hyperref[def:iso-infty]{同型}であるような $L$ の対象全体によって生成される $L$ の\hyperref[def:fullsub-infty]{充満部分 $(\infty,\, 1)$-圏}のこと．
+        \item $F$ の\textbf{本質的像} (essential image) とは，$F(x) \in L_0$ の形で書ける $L$ の対象と\hyperref[def:iso-infty]{同型}であるような $L$ の対象全体によって成される $L$ の\hyperref[def:fullsub-infty]{充満部分 $(\infty,\, 1)$-圏}のこと．
         \item $F$ が\textbf{本質的全射} (essentially surgective) であるとは，$F$ の本質的像が $L$ と一致すること．
     \end{itemize}
 \end{mydef}
@@ -2697,8 +2891,8 @@ $(1,\, 1)$-圏 $\sSet$ における引き戻しとは，命題\ref{prop:SimpSet-
     実際，任意のKan複体 $X,\, Y \in \Obj{\Kan}$ に対して
     \begin{align}
         \FUN(X,\, Y) \colon \OP{\Delta} &\lto \SETS, \\
-        [n] &\lmto \Hom{\sSet}(X \times \Delta^n,\, Y), \\
-        \bigl( [m] \xrightarrow{\alpha} [n] \bigr) &\lmto \bigl( f \mapsto f \circ (\Id_X \times \alpha_*) \bigr) 
+        [n] &\lmto \Hom{\sSet}(\Delta^n \times X,\, Y), \\
+        \bigl( [m] \xrightarrow{\alpha} [n] \bigr) &\lmto \bigl( f \mapsto f \circ (\alpha_* \times \Id_X) \bigr) 
     \end{align}
     なる対応は\hyperref[def:SimpSet]{単体的集合}を成しているため，
     \begin{itemize}
@@ -2708,7 +2902,7 @@ $(1,\, 1)$-圏 $\sSet$ における引き戻しとは，命題\ref{prop:SimpSet-
     と定義することで単体的豊穣圏 $\KAN$ が構成できた．
     特に，
     \begin{align}
-        \Hom{\KAN}(X,\, Y)_0 &= \Hom{\sSet}(X \times \Delta^0,\, Y) \cong \Hom{\sSet}(X,\, Y) = \Hom{\Kan}(X,\, Y)
+        \Hom{\KAN}(X,\, Y)_0 &= \Hom{\sSet}(\Delta^0 \times X,\, Y) \cong \Hom{\sSet}(X,\, Y) = \Hom{\Kan}(X,\, Y)
     \end{align}
     が成り立つ．
 \end{myexample}
@@ -2744,7 +2938,7 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
             \end{cases}
         \end{align}
     \end{itemize}
-    とすることで圏と見做し
+    とすることで $(1,\, 1)$-圏と見做し
     \footnote{
         集合 $P_{ij}$ の上に順序関係
         \begin{align}
@@ -3032,7 +3226,7 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
         \end{tikzpicture}
         \in \hcNer(\Cat{C})_2
     \end{align}
-    と図示する．\hyperref[def:nerve]{$(1,\, 1)$-圏の脈体}の場合と異なり，一般に $f_{1,2} \circ f_{0,1} \neq f_{0,2}$ である点に注意すべきである．i.e. \hyperref[def:nerve-hc]{homotopy coherent nerve} $\hcNer(\Cat{C})$ において\underline{1-射の合成はupto homotopyでしか定まらない}．
+    と図示する．\hyperref[def:nerve]{$(1,\, 1)$-圏の脈体}の場合と異なり，一般に $f_{1,2} \circ f_{0,1} \neq f_{0,2}$ である点に注意すべきである．i.e. \hyperref[def:nerve-hc]{homotopy coherent nerve} $\hcNer(\Cat{C})$ において\underline{1-射の合成はup to homotopyでしか定まらない}．
 \end{myexample}
 
 \begin{mytheo}[label=thm:Kan-enriched]{{$\Kan$}-豊穣圏は{$(\infty,\, 1)$-圏}}
