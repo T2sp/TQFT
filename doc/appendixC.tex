@@ -2719,7 +2719,7 @@ $(1,\, 1)$-圏 $\SETS$ における2重の\hyperref[def:pullback-pushout]{引き
     このことから，全単射
     \begin{align}
         \label{eq:Map2}
-        \inftyMap{K}(x,\, y)_2 \cong \Bigl\{\, (t_0,\, t_1,\, t_2) \in K_3^{\times 3} \Bigm| \substack{\partial^3_1(t_0) = \partial^3_1(t_1),\; \partial^3_2(t_1) = \partial^3_2(t_2) \\ \partial^3_0 (t_0) = \sigma^2_0(\Id_y),\; \partial^3_3 (t_2) = \sigma^2_0(\Id_x)} \,\Bigr\} 
+        \inftyMap{K}(x,\, y)_2 \cong \Bigl\{\, (\sigma_0,\, \sigma_1,\, \sigma_2) \in K_3^{\times 3} \Bigm| \substack{\partial^3_1(\sigma_0) = \partial^3_1(\sigma_1),\; \partial^3_2(\sigma_1) = \partial^3_2(\sigma_2) \\ \partial^3_0 (\sigma_0) = \sigma^1_0(\Id_y),\; \partial^3_3 (\sigma_2) = \sigma^1_0(\Id_x)} \,\Bigr\} 
     \end{align}
     があることが分かる．一般の $n$ の場合は次のようになる：
     \begin{align}
@@ -2772,6 +2772,19 @@ $(1,\, 1)$-圏 $\SETS$ における2重の\hyperref[def:pullback-pushout]{引き
 
 \subsection{$(\infty,\, 1)$-圏における射の合成}
 
+\textbf{Shuffle}と呼ばれる集合を次のように定義する：
+\begin{align}
+    W_{m,\, n} \coloneqq \Bigl\{\, (w_1,\, \dots,\, w_{m+n}) \in \{0,\, 1\}^{\times (m+n)} \Bigm| \#\bigl\{\, i \bigm| w_i=0 \,\bigr\} = m,\; \#\bigl\{\, j \bigm| w_j=1 \,\bigr\} = n \,\Bigr\} 
+\end{align}
+さらに，$\forall w \in W_{m,\, n}$ に対して順序を保つ写像 $\sigma_w \in \Hom{\Delta} \bigl( [m+n],\, [m] \times [n] \bigr)$ を次のように定義する：
+\begin{align}
+    \sigma_w (k) \coloneqq \bigl( \# \{i\mid i \le k,\; w_i = 0\},\, \# \{j\mid j \le k,\; w_j = 1\} \bigr) 
+\end{align}
+これは単射 $\sigma_w{}_* \in \Hom{\sSet}(\Delta^{m+n},\, \Delta^{m} \times \Delta^{n})$ を次のようにして定める：
+\begin{align}
+   (\sigma_w{}_*)_{[p]} \colon \Delta^{m+n}_p &\lto \Delta^{m}_p \times \Delta^{n}_p \cong \Hom{\Delta} \bigl( [p],\, [m] \times [n] \bigr), \\
+    \alpha &\lmto \sigma_w \circ \alpha
+\end{align}
 
 
 \section{単体的豊穣圏とホモトピー論}
