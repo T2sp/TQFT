@@ -444,8 +444,8 @@
             \overset{1}{\bullet} \ar[r,shift left,"f_{12}"]\ar[r,shift right,"g_{12}"'] \&\overset{2}{\bullet}
         } \lto \Cat{C}
     \end{align}
-    の\hyperref[def:lim]{極限}を（存在すれば）\textbf{イコライザ} (equalizer) と呼び，$\bm{\mathrm{Eq}\bigl(D(1),\, D(2)\bigr)}$ と書く．
-    同じ図式の\hyperref[def:colim]{余極限}を（存在すれば）\textbf{コイコライザ} (coequalizer) と呼び，$\bm{\mathrm{Coeq}\bigl(D(1),\, D(2)\bigr)}$ と書く．
+    の\hyperref[def:lim]{極限}を（存在すれば）\textbf{イコライザ} (equalizer) と呼び，$\bm{\mathrm{Eq}\bigl(D(f_{12}),\, D(g_{12})\bigr)}$ と書く．
+    同じ図式の\hyperref[def:colim]{余極限}を（存在すれば）\textbf{コイコライザ} (coequalizer) と呼び，$\bm{\mathrm{Coeq}\bigl(D(f_{12}),\, D(g_{12})\bigr)}$ と書く．
     具体的な圏における例は以下の通りである．ただし，$X \coloneqq D(1),\, Y \coloneqq D(2),\, f \coloneqq D(f_{12}),\, g \coloneqq D(g_{12})$ と書いている：
     \begin{enumerate}
         \item 集合と写像の圏 $\SETS$ におけるイコライザとは，2つの写像 $f,\, g \in \Hom{\SETS} (X,\, Y)$ によって定まる $X$ の部分集合
@@ -1748,7 +1748,7 @@ higher geometry において重要な役割を果たす\hyperref[def:SimpSet]{�
     \begin{description}
         \item[\textbf{($\bar{w}$ はエピ射)}]　
         
-        $w$ がエピ射であることを示す．そのためには $\forall [m] \in \Obj{\OP{\Delta}}$ を1つ固定し，写像 $w_{[m]} \colon \coprod_{0 \le k \le n} \Delta^{n-1} \bigl( [m] \bigr)  \lto \partial \Delta^n \bigl( [m] \bigr) $ が全射であることを示せば良い．
+        $\bar{w}$ がエピ射であることを示す．そのためには $\forall [m] \in \Obj{\OP{\Delta}}$ を1つ固定し，写像 $w_{[m]} \colon \coprod_{0 \le k \le n} \Delta^{n-1} \bigl( [m] \bigr)  \lto \partial \Delta^n \bigl( [m] \bigr) $ が全射であることを示せば良い．
         
         　$\forall \gamma \in \partial \Delta^n\bigl([m]\bigr)$ を1つ固定する．このとき $\gamma \in \Hom{\Delta} \bigl([m],\, [n]\bigr)$ は全射でない．
         i.e. ある $0 \le i \le n$ が存在して，圏 $\Delta$ において $\gamma$ は
@@ -2721,7 +2721,7 @@ $(1,\, 1)$-圏 $\SETS$ における2重の\hyperref[def:pullback-pushout]{引き
         \label{eq:Map2}
         \inftyMap{K}(x,\, y)_2 \cong \Bigl\{\, (\sigma_0,\, \sigma_1,\, \sigma_2) \in K_3^{\times 3} \Bigm| \substack{\partial^3_1(\sigma_0) = \partial^3_1(\sigma_1),\; \partial^3_2(\sigma_1) = \partial^3_2(\sigma_2) \\ \partial^3_0 (\sigma_0) = \sigma^1_0(\Id_y),\; \partial^3_3 (\sigma_2) = \sigma^1_0(\Id_x)} \,\Bigr\} 
     \end{align}
-    があることが分かる．一般の $n$ の場合は次のようになる：
+    の存在が分かる．後に示す系\ref{col:product-coeq}によると，一般の $n$ の場合は次のようになる：
     \begin{align}
         \label{eq:Mapn}
         \inftyMap{K}(x,\, y)_n
@@ -2774,17 +2774,195 @@ $(1,\, 1)$-圏 $\SETS$ における2重の\hyperref[def:pullback-pushout]{引き
 
 \textbf{Shuffle}と呼ばれる集合を次のように定義する：
 \begin{align}
-    W_{m,\, n} \coloneqq \Bigl\{\, (w_1,\, \dots,\, w_{m+n}) \in \{0,\, 1\}^{\times (m+n)} \Bigm| \#\bigl\{\, i \bigm| w_i=0 \,\bigr\} = m,\; \#\bigl\{\, j \bigm| w_j=1 \,\bigr\} = n \,\Bigr\} 
+    W_{m,\, n} \coloneqq \bigl\{\, (w_1,\, \dots,\, w_{m+n}) \in \{0,\, 1\}^{\times (m+n)} \bigm| \# \{\, i \mid w_i = 0 \,\} = m,\; \# \{\, j \mid w_j = 1 \,\} = n \,\bigr\} 
 \end{align}
-さらに，$\forall w \in W_{m,\, n}$ に対して順序を保つ写像 $\sigma_w \in \Hom{\Delta} \bigl( [m+n],\, [m] \times [n] \bigr)$ を次のように定義する：
+$w \in W_{m,\, n}$ は，格子 $\bigl([0,\, m] \times [0,\, n]\bigr) \cap (\mathbb{Z} \times \mathbb{Z})$ 上の $(0,\, 0)$ と $(m,\, n)$ を繋ぐ経路として
 \begin{align}
-    \sigma_w (k) \coloneqq \bigl( \# \{i\mid i \le k,\; w_i = 0\},\, \# \{j\mid j \le k,\; w_j = 1\} \bigr) 
+    (0,\, 1,\, 0,\, 1) \eqqcolon
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (O)
+        ;
+        \draw[->] ($(O)+(-0.2,0)$) -- (2.2,0) node[right] {$x$};
+        \draw[->] ($(O)+(0,0.2)$) -- (0,-2.2) node[below] {$y$};
+        \draw[step=1,gray!40] (O) grid ++(2,-2);
+        \draw[very thick,red] (O) -- node[midway,above] {$w_1$} ++(1,0) -- node[midway,left] {$w_2$} ++(0,-1) -- node[midway,above] {$w_3$} ++(1,0) -- node[midway,right] {$w_4$} ++(0,-1);
+        \node[above left] at (O) {$(0,\, 0)$};
+        \node[below right] at ($(O)+(2,-2)$) {$(m,\, n)$};
+    \end{tikzpicture}
+    \in W_{2,\, 2}
 \end{align}
-これは単射 $\sigma_w{}_* \in \Hom{\sSet}(\Delta^{m+n},\, \Delta^{m} \times \Delta^{n})$ を次のようにして定める：
+のように図示できる．さらに，$\forall w \in W_{m,\, n}$ に対して順序を保つ写像 $\nu_w \in \Hom{\Delta} \bigl( [m+n],\, [m] \times [n] \bigr)$ を次のように定義する：
 \begin{align}
-   (\sigma_w{}_*)_{[p]} \colon \Delta^{m+n}_p &\lto \Delta^{m}_p \times \Delta^{n}_p \cong \Hom{\Delta} \bigl( [p],\, [m] \times [n] \bigr), \\
-    \alpha &\lmto \sigma_w \circ \alpha
+    \nu_w (k) \coloneqq \bigl( \# \{\, i\mid i \le k,\; w_i = 0 \,\},\, \# \{\, j\mid j \le k,\; w_j = 1 \,\} \bigr) 
 \end{align}
+$w=(0,\, 1,\, 0,\, 1) \in W_{2,\, 2},\; k=2 \in [2+2]$ の場合に $\nu_w (k)$ を図示すると
+\begin{align}
+    \nu_{(0,\, 1,\, 0,\, 1)} (2)
+    &= 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (O)
+        ;
+        \draw[->] ($(O)+(-0.2,0)$) -- (2.2,0) node[right] {$x$};
+        \draw[->] ($(O)+(0,0.2)$) -- (0,-2.2) node[below] {$y$};
+        \draw[step=1,gray!40] (O) grid ++(2,-2);
+        \draw[very thick,red] (O) -- ++(1,0) -- ++(0,-1) -- ++(1,0) -- ++(0,-1);
+        \node[above left] at (O) {$(0,\, 0)$};
+        \node[below right] at ($(O)+(2,-2)$) {$(m,\, n)=(2,\, 2)$};
+        \draw[blue,dashed] (0,-2) -- ++(2,2) node[above] {$x+y=2$};
+        \node[blue,bullet] at (1,-1) {};
+    \end{tikzpicture}
+    \\
+    &= (1,\, 1) \in \Lambda_{m,\, n} = [2] \times [2]
+\end{align}
+のようになり，経路 $w$ と直線 $x+y=k$ との交点の座標を与えていることがわかる．
+なお，$\nu_w$ は単射自然変換 $\nu_w{}_* \in \Hom{\sSet}(\Delta^{m+n},\, \Delta^{m} \times \Delta^{n})$ を
+\begin{align}
+   (\nu_w{}_*)_{[p]} \colon \Delta^{m+n}_p &\lto \Delta^{m}_p \times \Delta^{n}_p \cong \Hom{\Delta} \bigl( [p],\, [m] \times [n] \bigr), \\
+    \alpha &\lmto \nu_w \circ \alpha
+\end{align}
+のようにして誘導する．
+
+さらに，
+\begin{align}
+    S_{m,\, n} \coloneqq \bigl\{\, (w,\, k) \in W_{m,\, n} \times \{1,\, \dots,\, m+n-1\} \bigm| w_k = 0,\; w_{k+1} = 1 \,\bigr\}
+\end{align}
+とおき，写像
+\begin{align}
+    \tau_k \colon W_{m,\, n} &\lto W_{m,\, n}, \\
+    (w_1,\, \dots,\, w_{m+n}) &\lmto \bigl( w_1,\, \dots,\, w_{k+1},\, w_k,\, \dots,\, w_{m+n} \bigr)
+\end{align}
+を考える．$(w,\, k) \in S_{m,\, n}$ を図示すると
+\begin{align}
+    (w,\, k) = \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (O)
+        ;
+        \draw[step=1,gray!40] (O) grid ++(3,-3);
+        \draw[white,very thick] (O) rectangle ++(3,-3);
+        \draw[red,very thick] (1,-1) --node[midway, above] {$w_k$} ++(1,0) --node[midway, right] {$w_{k+1}$} ++(0,-1);
+        \draw[red,very thick,dashed] (1,0) -- ++(0,-1);
+        \draw[red,very thick,dashed] (2,-2) -- ++(0,-1);
+        \draw[blue,dashed] (0,-3) -- ++(3,3) node[above]{$x+y=k$};
+    \end{tikzpicture}
+\end{align}
+のようになっている．写像 $\tau_k$ は，図式上で
+\begin{align}
+    \tau_k \colon 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (O)
+        ;
+        \draw[step=1,gray!40] (O) grid ++(3,-3);
+        \draw[white] (O) rectangle ++(3,-3);
+        \draw[red,very thick] (1,-1) -- ++(1,0) -- ++(0,-1);
+        \draw[red,very thick,dashed] (1,0) -- ++(0,-1);
+        \draw[red,very thick,dashed] (2,-2) -- ++(0,-1);
+        \draw[blue,dashed] (0,-3) -- ++(3,3) node[above]{$x+y=k$};
+    \end{tikzpicture}
+    \lmto \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (O)
+        ;
+        \draw[step=1,gray!40] (O) grid ++(3,-3);
+        \draw[white] (O) rectangle ++(3,-3);
+        \draw[red,very thick] (1,-1) -- ++(0,-1) -- ++(1,0);
+        \draw[red,very thick,dashed] (1,0) -- ++(0,-1);
+        \draw[red,very thick,dashed] (2,-2) -- ++(0,-1);
+        \draw[blue,dashed] (0,-3) -- ++(3,3) node[above]{$x+y=k$};
+    \end{tikzpicture}
+\end{align}
+なる変換を引き起こす．
+
+\begin{myprop}[label=prop:product-coeq]{Shuffle product}
+    単体的集合 $\Delta^m \times \Delta^n \in \Obj{\sSet}$ は，$(1,\, 1)$-圏 $\sSet$ における\hyperref[def:eq-coeq]{コイコライザ}である：
+    \begin{center}
+        \begin{tikzcd}[row sep=large, column sep=large]
+            &\coprod_{(w,\, k) \in S_{m,\, n}} \Delta^{m+n-1} \ar[r, shift left, "u"]\ar[r, shift right, "v"'] &\coprod_{w \in W_{m,\, n}} \Delta^{m+n} \ar[r, "q"] &\Delta^m \times \Delta^n
+        \end{tikzcd}
+    \end{center}
+    ただし，自然変換 $u,\, v \in \Hom{\sSet}\left(\coprod_{S_{m,\, n}} \Delta^{m+n-1},\, \coprod_{W_{m,\, n}} \Delta^{m+n}\right)$ および $q \in \Hom{\sSet}\left(\coprod_{W_{m,\, n}} \Delta^{m+n},\, \Delta^{m} \times \Delta^{n}\right)$ は，$\forall [p] \in \Obj{\OP{\Delta}}$ に対して次のように定義した：
+    \begin{align}
+        u_{[p]} \bigl( (w,\, k);\, \sigma \bigr) &\coloneqq \bigl(w;\, d^{m+n}_{k}{}_* (\sigma) \bigr), \\
+        v_{[p]} \bigl( (w,\, k);\, \sigma \bigr) &\coloneqq \bigl(\tau_k(w);\, d^{m+n}_k{}_* (\sigma) \bigr), \\
+        q_{[p]} \bigl( w;\, \sigma \bigr) &\coloneqq (\nu_w{}_*)_{[p]} (\sigma)
+    \end{align}
+\end{myprop}
+
+\begin{proof}
+    $\forall [p] \in \Obj{\OP{\Delta}}$ を1つ固定する．このとき $\forall \bigl( (w,\, k);\, \sigma \bigr) \in \coprod_{S_{m,\, n}} \Delta^{m+n-1}_p$ に対して
+    \begin{align}
+        (q \circ u)_{[p]} \bigl( (w,\, k);\, \sigma \bigr) &= \nu_w \circ d^{m+n}_{k} \circ \sigma, \\
+        (q \circ v)_{[p]} \bigl( (w,\, k);\, \sigma \bigr) &= \nu_{\tau_k(w)} \circ d^{m+n}_{k} \circ \sigma
+    \end{align}
+    が成り立つ．ここで，$S_{m,\, n}$ の定義から 
+    \begin{align}
+        w &= \quad
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (O)
+            ;
+            \draw[step=1,gray!40] (O) grid ++(3,-3);
+            \draw[white] (O) rectangle ++(3,-3);
+            \draw[red,very thick] (1,-1) -- ++(1,0) -- ++(0,-1);
+            \draw[red,very thick,dashed] (1,0) -- ++(0,-1);
+            \draw[red,very thick,dashed] (2,-2) -- ++(0,-1);
+            \draw[blue,dashed] (0,-3) -- ++(3,3) node[above]{$x+y=k$};
+        \end{tikzpicture}, \\
+        \tau_k(w) &= \quad
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (O)
+            ;
+            \draw[step=1,gray!40] (O) grid ++(3,-3);
+            \draw[white] (O) rectangle ++(3,-3);
+            \draw[red,very thick] (1,-1) -- ++(0,-1) -- ++(1,0);
+            \draw[red,very thick,dashed] (1,0) -- ++(0,-1);
+            \draw[red,very thick,dashed] (2,-2) -- ++(0,-1);
+            \draw[blue,dashed] (0,-3) -- ++(3,3) node[above]{$x+y=k$};
+        \end{tikzpicture}
+    \end{align}
+    であり，$\forall x \in [m+n] \setminus \{k\}$ に対して $\nu_w (x) = \nu_{\tau(w)} (x)$ であることが分かる．
+    そのうえ $d^{m+n}_k \bigl( [m+n-1] \bigr) = [m+n] \setminus \{k\}$ なので $\nu_w \circ d^{m+n}_{k} = \nu_{\tau_k(w)} \circ d^{m+n}_{k}$ が成り立ち，
+    $q \circ u = q \circ v$ であることが分かった．
+    従って\hyperref[def:eq-coeq]{コイコライザーの普遍性}から，$(1,\, 1)$-圏 $\sSet$ の可換図式
+    \begin{center}
+        \begin{tikzcd}[row sep=large, column sep=large]
+            &\coprod_{S_{m,\, n}} \Delta^{m+n-1} \ar[r, shift left, "u"]\ar[r, shift right, "v"'] &\coprod_{W_{m,\, n}} \Delta^{m+n} \ar[dr, "q"']\ar[r, "\pi"] &\mathrm{Coeq}(u,\, v)\ar[d, red, dashed, "\exists! \bar{q}"] \\
+            & & &\Delta^m \times \Delta^n
+        \end{tikzcd}
+    \end{center}
+    が成り立つ．後は $\bar{q} \colon \mathrm{Coeq}(u,\, v) \lto \Delta^m \times \Delta^n$ が\hyperref[def:nat]{自然同型}であることを示せば良い．
+
+    \begin{description}
+        \item[\textbf{($\bar{q}$ はエピ射)}]　
+        
+        $\bar{q}$ がエピ射であることを示す．そのためには写像 $q_{[p]} \colon \coprod_{W_{m,\, n}} \Delta^{m+n}_p \lto \Delta^m_p \times \Delta^n_p$ が全射であることを示せば良い．
+        実際，
+        \begin{align}
+            q_{[p]} = \coprod_{w \in W_{m,\, n}} (\nu_w{}_*)_{[p]}
+        \end{align}
+        であるが，図式よりこの写像は明らかに全射である．
+
+        \item[\textbf{($\bar{q}$ はモノ射)}]　
+        
+        写像 $\bar{q}_{[p]} \colon \mathrm{Coeq}(u,\, v)_p  \lto \Delta^m_p \times \Delta^n_p $ が単射であることを示す．
+        $\bar{q}_{[p]}(x) = \bar{q}_{[p]}(y)$ を仮定する．$\pi \colon \coprod_{W_{m,\, n}} \Delta^{m+n} \lto \mathrm{Coeq} (u,\, v)$ はエピなので，$x = \pi_{[p]} (w;\, \sigma_w),\, y = \pi_{[p]} (w',\, \sigma_{w'})$ を充たす $(w;\, \sigma_w),\, (w';\, \sigma_{w'}) \in \coprod_{W_{m,\, n}} \Delta^{m+n}_p$ が存在する．
+        コイコライザの普遍性の図式の可換性から $\nu_w \circ \sigma_w = q_{[p]} (w,\, \sigma_w) = \bar{q}_{[p]}(x) = \bar{q}_{[p]}(y) = q_{[p]} (w',\, \sigma_{w'}) = \nu_{w'} \circ \sigma_{w'}$ が分かる．
+        $\nu_{w}$ は単射なので $w = w'$ ならば $\sigma_w = \sigma_{w'}$ が成り立ち，$x=y$ が言える．
+        
+        　$w\neq w'$ を仮定する．
+    \end{description}
+\end{proof}
+
+\begin{mycol}[label=col:product-coeq]{直積の公式}
+    $\forall K \in \Obj{\sSet}$ に対して，写像
+    \begin{align}
+        \Hom{\sSet}(\Delta^m \times \Delta^n,\, K) &\lto \Bigl\{\, (\sigma_w)_{w \in W_{m,\, n}} \in \prod_{W_{m,\,n}} K_{m+n} \Bigm| \substack{\forall (w,\, k) \in S_{m,\, n},\\ \partial^{m+n}_k(\sigma_w) = \partial^{m+n}_k(\sigma_{\tau_k(w)})} \,\Bigr\}, \\
+        f &\lmto \bigl( f_{[m+n]} \circ (\nu_w{}_*)_{[m+n]}(\Id_{[m+n]}) \bigr)_{w \in W_{m,\, n}} 
+    \end{align}
+    は全単射である．
+\end{mycol}
+
+\begin{proof}
+    命題\ref{prop:product-coeq}に\hyperref[prop:lim-colim-basic]{余極限とHomの交換}と\hyperref[lem:Yoneda]{米田の補題}を適用することで示された．
+\end{proof}
 
 
 \section{単体的豊穣圏とホモトピー論}
