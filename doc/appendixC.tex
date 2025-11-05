@@ -2542,9 +2542,9 @@ $(1,\, 1)$-圏 $\SETS$ における2重の\hyperref[def:pullback-pushout]{引き
 \begin{center}
     % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBpiBdUkANwEMAbAVxiRAB12AJCAW2E5wAyjBwBfABScAIjAY46APTKdSAAgDSAShBjS6TLnyEUZAExVajFm049+gkeKntgABk57VmnXoPY8AiI3UgtqemZWRA5XAA9PXX0QDADjIjNySwibaLs+AXZhUUlOYGJPUm9tRP8jIJQMtyzrKJjgAE8Ev2TDQJNkEKbwltt2LDAAMxx2gFk6NGANSVjK9nV2rQB9N11LGCgAc3giUAmAJz4kAFZqHAgkABZu88vEB9v7xABmW7osBjYAAsIBAANY1EAvXhIDIgO5IMhwv4A6LAsEQqHXD4w54XaGIEJwz7EXGvQnw76k-E3IlINxiChiIA
     \begin{tikzcd}
-    {\inftyMap{K}(x,\, y)_n} \arrow[rr] \arrow[dd] \arrow[rd] &                                                  & \{y\} \arrow[d, hook,"\sigma^n_0 \circ \cdots \sigma^0_0(y)"]     \\
+    {\inftyMap{K}(x,\, y)_n} \arrow[rr] \arrow[dd] \arrow[rd] &                                                  & \{y\} \arrow[d, hook,"\sigma^{n-1}_0 \circ \cdots \sigma^0_0(y)"]     \\
                                                               & {\Hom{\sSet}(\Delta^n \times \Delta^1,\, K)} \arrow[d, "{(\Id_{\Delta^n} \times d^1_1{}_*)^*}"] \arrow[r, "{(\Id_{\Delta^n} \times d^1_0{}_*)^*}"] & {\Hom{\sSet}(\Delta^0 \times \{1\},\, K)} \cong K_n \\
-    \{x\} \arrow[r, hook, "\sigma^n_0 \circ \cdots \sigma^0_0(x)"]                                     & {\Hom{\sSet}(\Delta^n \times \{0\},\, K)} \cong K_n                    &                          
+    \{x\} \arrow[r, hook, "\sigma^{n-1}_0 \circ \cdots \sigma^0_0(x)"]                                     & {\Hom{\sSet}(\Delta^n \times \{0\},\, K)} \cong K_n                    &                          
     \end{tikzcd}
 \end{center}
 として計算される．i.e. 
@@ -2562,7 +2562,7 @@ $(1,\, 1)$-圏 $\SETS$ における2重の\hyperref[def:pullback-pushout]{引き
         % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBpiBdUkANwEMAbAVxiRAB12AJCAW2E5wAyjBwBfABScAIjAY46APTKdSAAgDSAShBjS6TLnyEUZAExVajFm049+gkeKntgABk57VmnXoPY8AiI3UgtqemZWRA5XAA9PXX0QDADjIjNySwibaLs+AXZhUUlOYGJPUm9tRP8jIJQMtyzrKJjgAE8Ev2TDQJNkEKbwltt2LDAAMxx2gFk6NGANSVjK9nV2rQB9N11LGCgAc3giUAmAJz4kAFZqHAgkABZu88vEB9v7xABmW7osBjYAAsIBAANY1EAvXhIDIgO5IMhwv4A6LAsEQqHXD4w54XaGIEJwz7EXGvQnw76k-E3IlINxiChiIA
         \begin{tikzcd}
         {\inftyMap{K}(x,\, y)_0} \arrow[rr] \arrow[dd] \arrow[rd] &                                                  & \{y\} \arrow[d, hook]     \\
-                                                                  & {\Hom{\sSet}(\Delta^0 \times \Delta^1,\, K)} \cong K_1 \arrow[d, "{(\Id_{\Delta^1} \times d^1_1{}_*)^*}"] \arrow[r, "{(\Id_{\Delta^1} \times d^1_0{}_*)^*}"] & {\Hom{\sSet}(\Delta^0 \times \{1\},\, K)} \cong K_0 \\
+                                                                  & {\Hom{\sSet}(\Delta^0 \times \Delta^1,\, K)} \cong K_1 \arrow[d, "{(\Id_{\Delta^0} \times d^1_1{}_*)^*}"] \arrow[r, "{(\Id_{\Delta^0} \times d^1_0{}_*)^*}"] & {\Hom{\sSet}(\Delta^0 \times \{1\},\, K)} \cong K_0 \\
         \{x\} \arrow[r, hook]                                     & {\Hom{\sSet}(\Delta^0 \times \{0\},\, K)} \cong K_0                    &                          
         \end{tikzcd}
     \end{center}
@@ -2721,11 +2721,11 @@ $(1,\, 1)$-圏 $\SETS$ における2重の\hyperref[def:pullback-pushout]{引き
         \label{eq:Map2}
         \inftyMap{K}(x,\, y)_2 \cong \Bigl\{\, (\sigma_0,\, \sigma_1,\, \sigma_2) \in K_3^{\times 3} \Bigm| \substack{\partial^3_1(\sigma_0) = \partial^3_1(\sigma_1),\; \partial^3_2(\sigma_1) = \partial^3_2(\sigma_2) \\ \partial^3_0 (\sigma_0) = \sigma^1_0(\Id_y),\; \partial^3_3 (\sigma_2) = \sigma^1_0(\Id_x)} \,\Bigr\} 
     \end{align}
-    の存在が分かる．後に示す系\ref{col:product-coeq}によると，一般の $n$ の場合は次のようになる：
+    の存在が分かる．後に示す系\ref{col:product-coeq}および補題\ref{lem:n-fold-Map}によると，一般の $n$ の場合は次のようになる：
     \begin{align}
         \label{eq:Mapn}
         \inftyMap{K}(x,\, y)_n
-        &\cong \Bigl\{\, (\sigma_1,\, \dots,\, \sigma_n) \in K_{n+1}^{\times (n+1)} \Bigm| \substack{1 \le \forall j \le n,\; \partial^{n+1}_j(\sigma_{j-1}) = \partial^{n+1}_j(\sigma_j) \\ \partial^{n+1}_0(\sigma_0) = \sigma^n_0 \circ \cdots \circ \sigma^0_0(y),\; \partial^{n+1}_{n+1} (\sigma_n) = \sigma^{n}_{0} \circ \cdots \circ \sigma^0_0(x)} \,\Bigr\} 
+        &\cong \Bigl\{\, (\sigma_0,\, \dots,\, \sigma_n) \in K_{n+1}^{\times (n+1)} \Bigm| \substack{1 \le \forall j \le n,\; \partial^{n+1}_j(\sigma_{j-1}) = \partial^{n+1}_j(\sigma_j) \\ \partial^{n+1}_0(\sigma_0) = \sigma^n_0 \circ \cdots \circ \sigma^0_0(y),\; \partial^{n+1}_{n+1} (\sigma_n) = \sigma^{n}_{0} \circ \cdots \circ \sigma^0_0(x)} \,\Bigr\} 
     \end{align}
 \end{myexample}
 
@@ -2812,7 +2812,7 @@ $w=(0,\, 1,\, 0,\, 1) \in W_{2,\, 2},\; k=2 \in [2+2]$ の場合に $\nu_w (k)$ 
         \node[blue,bullet] at (1,-1) {};
     \end{tikzpicture}
     \\
-    &= (1,\, 1) \in \Lambda_{m,\, n} = [2] \times [2]
+    &= (1,\, 1) \in [2] \times [2]
 \end{align}
 のようになり，経路 $w$ と直線 $x+y=k$ との交点の座標を与えていることがわかる．
 なお，$\nu_w$ は単射自然変換 $\nu_w{}_* \in \Hom{\sSet}(\Delta^{m+n},\, \Delta^{m} \times \Delta^{n})$ を
@@ -2852,7 +2852,7 @@ $w=(0,\, 1,\, 0,\, 1) \in W_{2,\, 2},\; k=2 \in [2+2]$ の場合に $\nu_w (k)$ 
         \path coordinate (O)
         ;
         \draw[step=1,gray!40] (O) grid ++(3,-3);
-        \draw[white] (O) rectangle ++(3,-3);
+        \draw[white,very thick] (O) rectangle ++(3,-3);
         \draw[red,very thick] (1,-1) -- ++(1,0) -- ++(0,-1);
         \draw[red,very thick,dashed] (1,0) -- ++(0,-1);
         \draw[red,very thick,dashed] (2,-2) -- ++(0,-1);
@@ -2863,7 +2863,7 @@ $w=(0,\, 1,\, 0,\, 1) \in W_{2,\, 2},\; k=2 \in [2+2]$ の場合に $\nu_w (k)$ 
         \path coordinate (O)
         ;
         \draw[step=1,gray!40] (O) grid ++(3,-3);
-        \draw[white] (O) rectangle ++(3,-3);
+        \draw[white, very thick] (O) rectangle ++(3,-3);
         \draw[red,very thick] (1,-1) -- ++(0,-1) -- ++(1,0);
         \draw[red,very thick,dashed] (1,0) -- ++(0,-1);
         \draw[red,very thick,dashed] (2,-2) -- ++(0,-1);
@@ -2871,6 +2871,43 @@ $w=(0,\, 1,\, 0,\, 1) \in W_{2,\, 2},\; k=2 \in [2+2]$ の場合に $\nu_w (k)$ 
     \end{tikzpicture}
 \end{align}
 なる変換を引き起こす．
+
+\begin{mylem}[label=lem:product-decomp]{Shuffleによる射の分解}
+    $\forall [p] \in \Obj{\OP{\Delta}}$ および
+    $\forall \textcolor{blue}{(\alpha,\, \beta)} \in \Hom{\Delta} \bigl( [p],\, [m] \times [n] \bigr) \cong \Delta^m_p \times \Delta^n_p$ に対して，
+    ある $\textcolor{red}{\gamma_{\alpha,\, \beta}} \in \Hom{\Delta} \bigl( [p],\, [m+n] \bigr)$ および $\textcolor{red}{w_{\alpha,\, \beta}} \in W_{m,\, n}$ が存在して，$(1,\, 1)$-圏 $\Delta$ における以下の図式を可換にする：
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRGTQpAF9T1Nc+QigCM5KrUYs2yALYUAOgryz4yMF179seAkTIiJ9Zq0TtZAag08JMKAHN4RUADMAThFlIyIHBCRikiZsSi4QbowMAAQAFEqMaAAWdKRKpFFKAEYwOHQAlDx8IO6e3tR+SABM1MbSZkowAB5YcDhwSvZ0srJ0APrA8QxJKWkZCtm53CDUDHTZDAAKArrCIG5Y9ok4ha4eXojVvv6IgbWmIA3NrXBjYEz9AO79g8OpCulZOXTcUzNzMItlkI2OtNttuBRuEA
+        \begin{tikzcd}
+        {[p]} \arrow[r, blue,"{\forall (\alpha,\, \beta)}"] \arrow[d, "{\exists \textcolor{red}{\gamma_{\alpha,\, \beta}}}"'] & {[m]\times[n]} \\
+        {[m+n]} \arrow[ru, "{\exists \nu_{\textcolor{red}{w_{\alpha,\, \beta}}}}"']                                     &               
+        \end{tikzcd}
+    \end{center}
+    さらに，このような $\gamma_{\alpha,\, \beta}$ は常に $\gamma_{\alpha,\, \beta}(x) = \alpha(x) + \beta(x)$ を充たし，一意である．
+\end{mylem}
+
+\begin{proof}
+    $(1,\, 1)$-圏 $\Delta$ の定義から，$\forall (\alpha,\, \beta) \in \Hom{\Delta} \bigl( [p],\, [m] \times [n] \bigr)$ は
+    \begin{align}
+        0 \le \alpha(0) &\le \alpha(1) \le \cdots \le \alpha(p) \le m, \\
+        0 \le \beta(0) &\le \beta(1) \le \cdots \le \beta(p) \le n
+    \end{align}
+    を充たす．従って，格子 $\bigl([0,\, m] \times [0,\, n]\bigr) \cap (\mathbb{Z} \times \mathbb{Z})$ 上の高々 $p+1$ 個の点
+    \begin{align}
+        \bigl( \alpha(0),\, \beta(0) \bigr),\, \cdots \bigl( \alpha(p),\, \beta(p) \bigr)
+    \end{align}
+    を通る経路 $w_{\alpha,\, \beta} \in W_{m,\, n}$ が必ず存在する．ここで，写像
+    \begin{align}
+        \gamma_{\alpha,\, \beta} \colon [p] &\lto [m] \times [n], \\
+        x &\lmto \alpha(x) + \beta(x)
+    \end{align}
+    を考える．$\gamma_{\alpha,\, \beta} \in \Hom{\Delta} \bigl( [p],\, [m+n] \bigr)$ であることは明らかである．その上，$w_{\alpha,\, \beta}$ の図式表示から $\forall x \in [p]$ に対して
+    \begin{align}
+        \nu_{w_{\alpha,\, \beta}} \circ \gamma_{\alpha,\, \beta}(x) = \bigl( \alpha(x),\, \beta(x) \bigr)
+    \end{align}
+    が成り立つことが分かる．
+\end{proof}
+
 
 \begin{myprop}[label=prop:product-coeq]{Shuffle product}
     単体的集合 $\Delta^m \times \Delta^n \in \Obj{\sSet}$ は，$(1,\, 1)$-圏 $\sSet$ における\hyperref[def:eq-coeq]{コイコライザ}である：
@@ -2900,7 +2937,7 @@ $w=(0,\, 1,\, 0,\, 1) \in W_{2,\, 2},\; k=2 \in [2+2]$ の場合に $\nu_w (k)$ 
             \path coordinate (O)
             ;
             \draw[step=1,gray!40] (O) grid ++(3,-3);
-            \draw[white] (O) rectangle ++(3,-3);
+            \draw[white, very thick] (O) rectangle ++(3,-3);
             \draw[red,very thick] (1,-1) -- ++(1,0) -- ++(0,-1);
             \draw[red,very thick,dashed] (1,0) -- ++(0,-1);
             \draw[red,very thick,dashed] (2,-2) -- ++(0,-1);
@@ -2911,7 +2948,7 @@ $w=(0,\, 1,\, 0,\, 1) \in W_{2,\, 2},\; k=2 \in [2+2]$ の場合に $\nu_w (k)$ 
             \path coordinate (O)
             ;
             \draw[step=1,gray!40] (O) grid ++(3,-3);
-            \draw[white] (O) rectangle ++(3,-3);
+            \draw[white, very thick] (O) rectangle ++(3,-3);
             \draw[red,very thick] (1,-1) -- ++(0,-1) -- ++(1,0);
             \draw[red,very thick,dashed] (1,0) -- ++(0,-1);
             \draw[red,very thick,dashed] (2,-2) -- ++(0,-1);
@@ -2928,41 +2965,235 @@ $w=(0,\, 1,\, 0,\, 1) \in W_{2,\, 2},\; k=2 \in [2+2]$ の場合に $\nu_w (k)$ 
             & & &\Delta^m \times \Delta^n
         \end{tikzcd}
     \end{center}
-    が成り立つ．後は $\bar{q} \colon \mathrm{Coeq}(u,\, v) \lto \Delta^m \times \Delta^n$ が\hyperref[def:nat]{自然同型}であることを示せば良い．
+    が成り立つ．後は $\bar{q} \colon \mathrm{Coeq}(u,\, v) \lto \Delta^m \times \Delta^n$ が\hyperref[def:nat]{自然同型}であることを示せば十分である．
+    そのためには，\hyperref[col:Yoneda]{米田の補題}より $\forall K \in \Obj{\sSet}$ に対して写像
+    \begin{align}
+        \bar{q}^* \colon \Hom{\sSet}(\Delta^m \times \Delta^n,\, K) \lto \Hom{\sSet} \bigl( \mathrm{Coeq}(u,\, v),\, K \bigr)
+    \end{align}
+    が全単射であることを示せば良い．
+    \hyperref[prop:lim-colim-basic]{余極限とHomの交換}および\hyperref[lem:Yoneda]{米田の補題}から
+    \begin{align}
+        &\Hom{\sSet} \bigl( \mathrm{Coeq}(u,\, v),\, K \bigr)  \\
+        &\cong \mathrm{Eq} \left( \Hom{\sSet} \left( \coprod_{W_{m,\, n}} \Delta^{m+n},\, K\right) \overset{u^*}{\underset{v^*}{\rightrightarrows}} \Hom{\sSet} \left( \coprod_{S_{m,\, n}} \Delta^{m+n-1},\, K\right)  \right) \\
+        &\cong \mathrm{Eq} \left( \prod_{W_{m,\, n}} \Hom{\sSet} \left( \Delta^{m+n},\, K\right) \overset{u^*}{\underset{v^*}{\rightrightarrows}} \prod_{S_{m,\, n}} \Hom{\sSet} \left(\Delta^{m+n-1},\, K\right)  \right) \\
+        &\cong \mathrm{Eq} \left( \prod_{W_{m,\, n}} K_{m+n} \overset{u^*}{\underset{v^*}{\rightrightarrows}} \prod_{S_{m,\, n}} K_{m+n-1}  \right) \\
+        &= \Bigl\{\, (\sigma_w)_{w \in W_{m,\, n}} \in \prod_{w \in W_{m,\,n}} K_{m+n} \Bigm| \substack{\forall (w,\, k) \in S_{m,\, n},\\ \partial^{m+n}_k(\sigma_w) = \partial^{m+n}_k(\sigma_{\tau_k(w)})} \,\Bigr\} \eqqcolon C_K
+    \end{align}
+    と計算できることに注意する．
+
+    いま，写像 $r \colon C_K \lto \Hom{\sSet}(\Delta^m \times \Delta^n,\, K)$ を次のように構成しよう：
+
+    $\forall (\sigma_w)_{w \in W_{m,\, n}} \in \prod_{w \in W_{m,\,n}} K_{m+n}$ および $\forall [p] \in \Obj{\OP{\Delta}}$ を1つ固定する．
+    このとき，$\forall (\alpha,\, \beta) \in \Delta^m_p \times \Delta^n_p$ に対して補題\ref{lem:product-decomp}を適用することで，
+    写像 $r \bigl( (\sigma_w)_{w \in W_{m,\, n}} \bigr)_{[p]} \colon \Delta^m_p \times \Delta^n_p \lto K_p$ を
+    \begin{align}
+        \label{def:inverse-Shuffle}
+        r \bigl( (\sigma_w)_{w \in W_{m,\, n}} \bigr)_{[p]} (\alpha,\, \beta)
+        &\coloneqq K(\gamma_{\alpha,\, \beta})(\sigma_{w_{\alpha,\, \beta}})
+    \end{align}
+    で定義する
+    \footnote{\hyperref[lem:Yoneda]{米田の補題の証明}に登場した逆写像 $\eta \colon K_{m+n} \lto \Hom{\sSet} (\Delta^{m+n},\, K)$ を用いると，これは自然変換 $\eta(\sigma_{w_{\alpha,\, \beta}}) \circ \gamma_{\alpha,\, \beta}{}_* \in \Hom{\sSet}(\Delta^p,\, K)$ に\hyperref[lem:Yoneda]{米田の補題}を適用して得られる $p$-単体
+        \begin{align}
+            \bigl(\eta(\sigma_{w_{\alpha,\, \beta}}) \circ \gamma_{\alpha,\, \beta}{}_*\bigr)_{[p]} \bigl( \Id_{[p]} \bigr) 
+            &= \eta(\sigma_{w_{\alpha,\, \beta}})_{[m+n]} \bigl(\gamma_{\alpha,\, \beta} \circ \Id_{[p]}\bigr) \\
+            &= K(\gamma_{\alpha,\, \beta})(\sigma_{w_{\alpha,\, \beta}}) \in K_p
+        \end{align}
+        だと分かる．$\gamma_{\alpha,\, \beta} \in \Hom{\Delta} \bigl( [p],\, [m+n] \bigr) = \Hom{\textcolor{red}{\OP{\Delta}}} \bigl( [m+n],\, [p] \bigr)$ であることに注意．
+    }
+    ．
 
     \begin{description}
-        \item[\textbf{($\bar{q}$ はエピ射)}]　
+        \item[$\bm{r}$ \textbf{のwell-definedness}]　
         
-        $\bar{q}$ がエピ射であることを示す．そのためには写像 $q_{[p]} \colon \coprod_{W_{m,\, n}} \Delta^{m+n}_p \lto \Delta^m_p \times \Delta^n_p$ が全射であることを示せば良い．
-        実際，
-        \begin{align}
-            q_{[p]} = \coprod_{w \in W_{m,\, n}} (\nu_w{}_*)_{[p]}
-        \end{align}
-        であるが，図式よりこの写像は明らかに全射である．
+        補題\ref{lem:product-decomp}より $\gamma_{\alpha,\, \beta}$ は一意である．
+        相異なる経路 $w,\, w' \in W_{m,\, n}$ であって，
+        $(\alpha,\, \beta) = \nu_{w} \circ \gamma_{\alpha,\, \beta} = \nu_{w'} \circ \gamma_{\alpha,\, \beta}$ を充たすものをとる．
+        $w,\, w'$ の図式表示から，有限列 $1 \le k_1 \le \cdots \le k_l \le m+n-1$ が存在して $w' = \tau_{k_l} \circ \cdots \circ \tau_{k_1} (w)$ と書けることが分かる．
+        そのうえ，$\gamma_{\alpha,\, \beta}$ の定義から $\{k_1,\, \dots,\, k_l\} \not\subset \gamma_{\alpha,\, \beta} \bigl( [p] \bigr)$ を仮定しても一般性を失わない\footnote{i.e. 高々 $p+1$ 個の点 $\bigl( \alpha(0),\, \beta(0) \bigr),\, \dots,\, \bigl( \alpha(p),\, \beta(p) \bigr)$ を動かさずに経路 $w$ を $w'$ に変形することができる．}．
 
-        \item[\textbf{($\bar{q}$ はモノ射)}]　
+        　$l=1$ とする．$k_1 \notin \gamma_{\alpha,\, \beta} \bigl( [p] \bigr)$ であるから，$\gamma_{\alpha,\, \beta} = d^{m+n}_{k_1} \circ s^{m+n-1}_{k_1} \circ \gamma_{\alpha,\, \beta}$ が成り立つ．
+        必要ならば $w$ と $w'$ を入れ替えることで，常に $(w,\, k_1) \in S_{m,\, n}$ が成り立つようにできる．よって
+        \begin{align}
+            K(\gamma_{\alpha,\, \beta})(\sigma_{w})
+            &= K(d^{m+n}_{k_1} \circ s^{m+n-1}_{k_1} \circ \gamma_{\alpha,\, \beta})(\sigma_w) \\
+            &= K(s^{m+n-1}_{k_1} \circ \gamma_{\alpha,\, \beta}) \circ \partial^{m+n}_{k_1}(\sigma_w) \\
+            &= K(s^{m+n-1}_{k_1} \circ \gamma_{\alpha,\, \beta}) \circ \partial^{m+n}_{k_1}(\sigma_{\tau_{k_1}(w)}) \\
+            &= K(d^{m+n}_{k_1} \circ s^{m+n-1}_{k_1} \circ \gamma_{\alpha,\, \beta})(\sigma_{\tau_{k_1}(w)}) \\
+            &= K(\gamma_{\alpha,\, \beta})(\sigma_{w'})
+        \end{align}
+        が言えた．$l>1$ の場合も同様である．
+
+        \item[$\bm{r}$ \textbf{が自然変換を与えること}]　
         
-        写像 $\bar{q}_{[p]} \colon \mathrm{Coeq}(u,\, v)_p  \lto \Delta^m_p \times \Delta^n_p $ が単射であることを示す．
-        $\bar{q}_{[p]}(x) = \bar{q}_{[p]}(y)$ を仮定する．$\pi \colon \coprod_{W_{m,\, n}} \Delta^{m+n} \lto \mathrm{Coeq} (u,\, v)$ はエピなので，$x = \pi_{[p]} (w;\, \sigma_w),\, y = \pi_{[p]} (w',\, \sigma_{w'})$ を充たす $(w;\, \sigma_w),\, (w';\, \sigma_{w'}) \in \coprod_{W_{m,\, n}} \Delta^{m+n}_p$ が存在する．
-        コイコライザの普遍性の図式の可換性から $\nu_w \circ \sigma_w = q_{[p]} (w,\, \sigma_w) = \bar{q}_{[p]}(x) = \bar{q}_{[p]}(y) = q_{[p]} (w',\, \sigma_{w'}) = \nu_{w'} \circ \sigma_{w'}$ が分かる．
-        $\nu_{w}$ は単射なので $w = w'$ ならば $\sigma_w = \sigma_{w'}$ が成り立ち，$x=y$ が言える．
+        $\forall [q] \in \Obj{\OP{\Delta}}$ および $\forall \phi \in \Hom{\OP{\Delta}} \bigl( [p],\, [q] \bigr)$ をとる．このとき $(\alpha \circ \phi,\, \beta \circ \phi)([q]) \subset (\alpha,\, \beta)([p])$ が成り立つ
+        \footnote{つまり，経路 $w_{\alpha\circ \phi,\, \beta \circ \phi}$ が通らねばならない点は，高々 $p+1$ 個の点 $\bigl( \alpha(0),\, \beta(0) \bigr),\, \dots,\, \bigl( \alpha(p),\, \beta(p) \bigr)$ の部分集合である．経路の分割がより「粗く」なっている．}
+        ため，経路を $w_{\alpha \circ \phi,\, \beta \circ \phi} = w_{\alpha,\, \beta} \in W_{m,\, n}$ と取ることができる．故に
+        \begin{align}
+            K(\phi) \circ r \bigl( (\sigma_w)_{w \in W_{m,\, n}} \bigr)_{[p]} (\alpha,\, \beta) 
+            &= K(\phi) \circ K(\gamma_{\alpha,\, \beta})(\sigma_{w_{\alpha,\, \beta}}) \\
+            &= K(\phi) \circ K(\gamma_{\alpha,\, \beta})(\sigma_{w_{\alpha,\, \beta}}) \\
+            &= K(\gamma_{\alpha,\, \beta} \circ \phi)(\sigma_{w_{\alpha,\, \beta}}) \\
+            &= K(\gamma_{\alpha \circ \phi,\, \beta \circ \phi})(\sigma_{w_{\alpha \circ \phi,\, \beta \circ \phi}}) \\
+            &= r \bigl( (\sigma_w)_{w \in W_{m,\, n}} \bigr)_{[q]} \circ (\phi^* \times \phi^*)(\alpha,\, \beta)
+        \end{align}
+        と計算できて，$r \bigl( (\sigma_w)_{w \in W_{m,\, n}} \bigr) \in \Hom{\sSet} (\Delta^m \times \Delta^n,\, K)$ が示された．
+
+        \item[$\bm{r}$ \textbf{が逆写像であること}]　
         
-        　$w\neq w'$ を仮定する．
+        \begin{align}
+            \bar{q} \circ r \bigl( (\sigma_w)_{w \in W_{m,\, n}} \bigr)
+            &= \Bigl( r \bigl( (\sigma_w)_{w \in W_{m,\, n}} \bigr)_{[m+n]} \circ (\nu_w{}_*)_{[m+n]} (\Id_{[m+n]}) \Bigr)_{w \in W_{m,\, n}} \\
+            &= \Bigl( r \bigl( (\sigma_w)_{w \in W_{m,\, n}} \bigr)_{[m+n]} \circ \nu_w \circ \Id_{[m+n]} \Bigr)_{w \in W_{m,\, n}} \\
+            &= \Bigl( r \bigl( (\sigma_w)_{w \in W_{m,\, n}} \bigr)_{[m+n]} \bigl(\nu_w\bigr) \Bigr)_{w \in W_{m,\, n}} \\
+            &= (\sigma_w)_{w \in W_{m,\, n}}
+        \end{align}
+        と計算でき，さらに $\forall f \in \Hom{\sSet} (\Delta^m \times \Delta^n,\, K)$ に対して
+        \begin{align}
+            r \circ \bar{q} (f)_{[p]} (\alpha,\, \beta)
+            &= r \Bigl( \bigl( f_{[m+n]} \circ (\nu_w{}_*)_{[m+n]}(\Id_{[m+n]}) \bigr)_{w \in W_{m,\, n}}  \Bigr)_{[p]} (\alpha,\, \beta) \\
+            &= K(\gamma_{\alpha,\, \beta})\bigl( f_{[m+n]} \circ (\nu_{w_{\alpha,\, \beta}}{}_*)_{[m+n]}(\Id_{[m+n]}) \bigr) \\
+            &= K(\gamma_{\alpha,\, \beta})\circ f_{[m+n]} (\nu_{w_{\alpha,\, \beta}}) \\
+            &= f_{[p]} \circ (\gamma_{\alpha,\, \beta}^* \times \gamma_{\alpha,\, \beta}^*)(\nu_{w_{\alpha,\, \beta}}) \\
+            &= f_{[p]} (\alpha,\, \beta)
+        \end{align}
+        と計算できる\footnote{$f$ は $\Delta^m \times \Delta^n \Longrightarrow K$ という\hyperref[def:nat]{自然変換}であった．}．
+        i.e. $r$ は $\bar{q}$ の逆写像であり，示された．
     \end{description}
+    % \begin{description}
+    %     \item[\textbf{($\bar{q}$ はエピ射)}]　
+        
+    %     $\bar{q}$ がエピ射であることを示す．そのためには写像 $q_{[p]} \colon \coprod_{W_{m,\, n}} \Delta^{m+n}_p \lto \Delta^m_p \times \Delta^n_p$ が全射であることを示せば良い．
+    %     実際，
+    %     \begin{align}
+    %         q_{[p]} = \coprod_{w \in W_{m,\, n}} (\nu_w{}_*)_{[p]}
+    %     \end{align}
+    %     であるが，図式よりこの写像は明らかに全射である．
+
+    %     \item[\textbf{($\bar{q}$ はモノ射)}]　
+        
+    %     写像 $\bar{q}_{[p]} \colon \mathrm{Coeq}(u,\, v)_p  \lto \Delta^m_p \times \Delta^n_p $ が単射であることを示す．
+    %     $\bar{q}_{[p]}(x) = \bar{q}_{[p]}(y)$ を仮定する．$\pi \colon \coprod_{W_{m,\, n}} \Delta^{m+n} \lto \mathrm{Coeq} (u,\, v)$ はエピなので，$x = \pi_{[p]} (w;\, \sigma_w),\, y = \pi_{[p]} (w',\, \sigma_{w'})$ を充たす $(w;\, \sigma_w),\, (w';\, \sigma_{w'}) \in \coprod_{W_{m,\, n}} \Delta^{m+n}_p$ が存在する．
+    %     コイコライザの普遍性の図式の可換性から $\nu_w \circ \sigma_w = q_{[p]} (w,\, \sigma_w) = \bar{q}_{[p]}(x) = \bar{q}_{[p]}(y) = q_{[p]} (w',\, \sigma_{w'}) = \nu_{w'} \circ \sigma_{w'}$ が分かる．
+    %     $\nu_{w}$ は単射なので $w = w'$ ならば $\sigma_w = \sigma_{w'}$ が成り立ち，$x=y$ が言える．
+        
+    %     　$w\neq w'$ を仮定する．
+    % \end{description}
 \end{proof}
 
 \begin{mycol}[label=col:product-coeq]{直積の公式}
     $\forall K \in \Obj{\sSet}$ に対して，写像
     \begin{align}
-        \Hom{\sSet}(\Delta^m \times \Delta^n,\, K) &\lto \Bigl\{\, (\sigma_w)_{w \in W_{m,\, n}} \in \prod_{W_{m,\,n}} K_{m+n} \Bigm| \substack{\forall (w,\, k) \in S_{m,\, n},\\ \partial^{m+n}_k(\sigma_w) = \partial^{m+n}_k(\sigma_{\tau_k(w)})} \,\Bigr\}, \\
+        \Hom{\sSet}(\Delta^m \times \Delta^n,\, K) &\lto \Bigl\{\, (\sigma_w)_{w \in W_{m,\, n}} \in \prod_{w \in W_{m,\,n}} K_{m+n} \Bigm| \substack{\forall (w,\, k) \in S_{m,\, n},\\ \partial^{m+n}_k(\sigma_w) = \partial^{m+n}_k(\sigma_{\tau_k(w)})} \,\Bigr\}, \\
         f &\lmto \bigl( f_{[m+n]} \circ (\nu_w{}_*)_{[m+n]}(\Id_{[m+n]}) \bigr)_{w \in W_{m,\, n}} 
     \end{align}
-    は全単射である．
+    は全単射である．特に，逆写像は\eqref{def:inverse-Shuffle}で与えられる．
 \end{mycol}
 
 \begin{proof}
-    命題\ref{prop:product-coeq}に\hyperref[prop:lim-colim-basic]{余極限とHomの交換}と\hyperref[lem:Yoneda]{米田の補題}を適用することで示された．
+    命題\ref{prop:product-coeq}の証明における写像 $\bar{q}^*$ が所望の全単射である．
+    % に\hyperref[prop:lim-colim-basic]{余極限とHomの交換}と\hyperref[lem:Yoneda]{米田の補題}を適用することで示された．
 \end{proof}
+
+\begin{mydef}[label=def:n-fold-Map]{{$n$}-fold mapping space}
+    \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $K$ と，その対象 $x_0,\, \dots,\, x_n \in K_0$ を与える．
+    このとき，
+    \begin{align}
+        \inftyMap{K} (x_0,\, \dots,\, x_n) \coloneqq \bigl( \{(x_0,\, \dots,\, x_n)\} \bigr) \times_{\FUN (\{0,\, \dots,\, n\} ,\, K)} \FUN (\Delta^n,\, K)
+    \end{align}
+    とおく~\cite[\href{https://kerodon.net/tag/01PG}{Tag 01PG}]{kerodon}．
+\end{mydef}
+
+Kan複体 $\inftyMap{K} (x_1,\, \dots,\, x_n)$ の $m$-射の集合 $\inftyMap{K} (x_1,\,\dots,\, x_n)$ は，$(1,\, 1)$-圏 $\SETS$ における\hyperref[def:pullback]{引き戻し}
+\begin{center}
+    % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12swAzHATwCydNMADSAXwAUADwD6ARlKdSAAk5QIOOMvZr5YAJRyAtiAml0mXPkIoyCqrUYs2nAEZYA5g07BZirpqGlo6KqoGhh7eAE6cEuaWIBjYeARESo7U9MysiBzsABIQJsCccADKMDjSnAAiMAw4dAB6JurseCbwHcBk4SHaQapg8cNiholWqbYZ5E45rvmcxaXlVTVS9Y3NbR1dPdtNrWDjkxJOMFBe8ESgPDElSGQgOBBIAMwW949miB-UN5IABM2RceQKAGMIGhHlA5MAAFYAXgUEhaYFUW3YAEl4WV2A1jm0JPssN04B18LswHJEcAJHIAFSGFpMqYgB5PRAvIGINFJLl-JSvd6IUHOXJudjQ2HQBEotEYjrYLwmOhyYgtYAmAC0aI6kKwMUhhs02kNxtN5W86paxE1WPkiMm1AYdHcjQACtY0nYQDFvAALHAgQF0LAMNhBiAQADW5goEiAA
+    \begin{tikzcd}[row sep=large,column sep=7em]
+    {\inftyMap{K}(x_1,\, \dots,\, x_n)_m} \arrow[r] \arrow[d]                                                                    & {\Hom{\sSet}(\Delta^m \times \Delta^n,\, K)} \arrow[d, "\coprod_{j=0}^n (\Id_{\Delta^m} \times \iota^n_j{}_*)^*"] \\
+    {\bigl\{(x_0,\, \dots,\, x_n)\bigr\}} \arrow[r, "\prod_{j=0}^n \sigma_0^{m-1} \circ \cdots \circ \sigma^0_0 (x_j)"', hook] & {\Hom{\sSet}(\Delta^m \times \{0,\, \dots,\, n\},\, K) \cong \prod_{j=0}^n K_m}
+    \end{tikzcd}
+\end{center}
+として計算される．ただし，$\iota^n_j \in \Hom{\Delta} \bigl([0],\, [n]\bigr)$ は定数写像 $0 \lmto j$ のこと
+\footnote{$\iota^n_j = d^n_{n} \circ \cdots \circ d^{j+1}_{j+1} \circ \widehat{d^j_j} \circ d^{j}_{j-1} \circ \cdots \circ d^1_0$ と書ける．}
+である．
+
+\begin{mylem}[label=lem:n-fold-Map]{{$n$}-fold mapping spaceの非退化な単体}
+    自然な同型
+    \begin{align}
+        \inftyMap{K} (x_0,\, \dots,\, x_n)_m
+        &\cong \Biggl\{\, (\sigma_w)_{w \in W_{m,\, n}} \in C_K^{m,\, n} \Biggm| \substack{0 \le \forall j \le n, \\ \partial^{m+1}_0 \cdots \partial^{m+j}_{j-1} \circ \partial^{m+j+1}_{m+j+1} \cdots \partial^{m+n}_{m+n}(\sigma_{w_{j}}) = x_j} \,\Biggr\}
+    \end{align}
+    がある．ただし，$\underbrace{\partial^{m+1}_0 \cdots \partial^{m+j}_{j-1}}_{j} \circ \underbrace{\partial^{m+j+1}_{m+j+1} \cdots \partial^{m+n}_{m+n}}_{n-j}$ は，最初の $j$ 個と後ろの $n-j$ 個のそれぞれのかたまりにおいて，左から順に読む．また，
+    \begin{align}
+        C_K^{m,\, n} &\coloneqq \Bigl\{\, (\sigma_w)_{w \in W_{m,\, n}} \in \prod_{w \in W_{m,\,n}} K_{m+n} \Bigm| \substack{\forall (w,\, k) \in S_{m,\, n},\\ \partial^{m+n}_k(\sigma_w) = \partial^{m+n}_k(\sigma_{\tau_k(w)})} \,\Bigr\}, \\
+        w_j &\coloneqq w_{\Id_{[m]},\, j} =
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (O) at (0,0)
+            ;
+            \draw[step=1,gray!40] (O) grid ++(3,-6);
+            \node[above left] at (O) {$(0,\, 0)$};
+            \node[left] at (0,-3) {$(0,\, j)$};
+            \node[above] at (1.5,0) {$\cdots$};
+            \node[left] at (0,-1.5) {$\vdots$};
+            \node[left] at (0,-4.5) {$\vdots$};
+            \node[below right] at (3,-6) {$(m,\, n)$};
+            \draw[very thick,red] (O) -- ++(0,-1) -- ++(0,-1) -- ++(0,-1) -- ++(1,0) -- ++(1,0) -- ++(1,0) -- ++(0,-1) -- ++(0,-1) -- ++(0,-1);
+        \end{tikzpicture}
+        \in W_{m,\, n}
+    \end{align}
+    とおいた．
+\end{mylem}
+
+\begin{proof}
+    系\ref{col:product-coeq}で与えられる自然同型の逆写像 $r$ と\hyperref[lem:Yoneda]{米田の補題}を用いると，
+    \begin{align}
+        \coprod_{j=0}^n (\Id_{\Delta^m} \times \iota^n_j{}_*)^* \colon \Hom{\sSet} (\Delta^m \times \Delta^n,\, K) \lto \Hom{\sSet} (\Delta^m \times \{0,\, \dots,\, n\},\, K)
+    \end{align}
+    の部分は
+    \begin{align}
+        C_K^{m,\, n} &&\xrightarrow{r} &&\Hom{\sSet}(\Delta^m \times \Delta^n,\, K) &&\lto &&\prod_{j=0}^n K_m, \\
+        (\sigma_w)_{w \in W_{m,\, n}} &&\lmto &&\Familyset[\big]{(\alpha,\, \beta) \mapsto K(\gamma_{\alpha,\, \beta})(\sigma_{w_{\alpha,\, \beta}})}{[p] \in \Obj{\OP{\Delta}}} &&\lmto && \bigl( K(\gamma_{\Id_{[m]},\, j})(\sigma_{w_{\Id_{[m]},\, j}}) \bigr)_{j=0} ^n
+    \end{align}
+    と計算できる．
+    \begin{align}
+        \gamma_{\Id_{[m]},\, j} \colon [m] &\lto [m+n], \\
+        x &\lmto x+j
+    \end{align}
+    なので，
+    \begin{align}
+        \gamma_{\Id_{[m]},\, j} = d^{m+n}_{m+n} \circ d^{m+n-1}_{m+n-1} \circ \cdots \circ d^{m+j+1}_{m+j+1} \circ d^{m+j}_{j-1} \circ \cdots \circ d^{m+2}_1 \circ d^{m+1}_0
+    \end{align}
+    と計算できる．よって
+    \begin{align}
+        K(\gamma_{\Id_{[m]},\, j}) = \partial^{m+1}_0 \circ \partial^{m+2}_1 \circ \cdots \circ \partial^{m+j}_{j-1} \circ \partial^{m+j+1}_{m+j+1} \circ \partial^{m+j+2}_{m+j+2} \circ \cdots \circ \partial^{m+n}_{m+n} \colon K_{m+n} \lto K_{m}
+    \end{align}
+    である．
+\end{proof}
+
+$0 \le \forall i < \forall j \le n$ に対して $q^n_{ij} \in \Hom{\Delta} \bigl( [1],\, [n] \bigr)$ を
+\begin{align}
+    q^n_{ij} \colon 0 \lmto i,\; 1 \lmto j
+\end{align}
+と定義する．$q^n_{ij}$ は，自然変換 $q^n_{ij}{}_* \colon \Delta^1 \cong \Ner \bigl( \{i < j\} \bigr) \hookrightarrow \Delta^n$ を定める．
+ここから，制限写像を
+\begin{align}
+    \theta^n_{ij} \coloneqq (\Id_{\Delta^\bullet} \times q^n_{ij}{}_*)^* \in \Hom{\sSet} \bigl( \inftyMap{K}(x_0,\, \dots,\, x_n),\, \inftyMap{K}(x_i,\, x_j) \bigr)
+\end{align}
+と定義する．$m$-射の対応は，補題\ref{lem:n-fold-Map}と同様に系\ref{col:product-coeq}の自然同型を用いて
+\begin{align}
+    C^{m,\, n}_K \xrightarrow{r} \Hom{\sSet} (\Delta^m \times \Delta^n,\, K) \xrightarrow{\theta^n_{ij}{}_{[m]}} \Hom{\sSet} (\Delta^m \times \Delta^1,\, K) \xrightarrow{\bar{q}^*} C^{m,\, 1}_K
+\end{align}
+の順に計算すると
+\begin{align}
+    \bar{q}^* \circ \theta^n_{ij}{}_{[m]} \circ r \bigl( (\sigma_w)_{w \in W_{m,\, n}} \bigr) 
+    &= \bar{q}^* \circ \theta^n_{ij}{}_{[m]} \Bigl(\Familyset[\big]{(\alpha,\, \beta) \mapsto K(\gamma_{\alpha,\, \beta})(\sigma_{w_{\alpha,\, \beta}})}{[p] \in \Obj{\OP{\Delta}}}\Bigr) \\
+    &= \bar{q}^* \Bigl(\Familyset[\big]{(\alpha,\, \beta) \mapsto K(\gamma_{\alpha,\,  q^n_{ij} \circ \beta})(\sigma_{w_{\alpha,\, q^n_{ij} \circ \beta}})}{[p] \in \Obj{\OP{\Delta}}}\Bigr) \\
+    &= \Bigl( K(\gamma_{\omega_w})(\sigma_{w_{\omega_w}}) \Bigr)_{w \in W_{m,\, 1}}
+\end{align}
+となる．ただし，$\omega_w \coloneqq (\Id_{[m]} \times q^n_{ij}) \circ \nu_w \in \Hom{\Delta} \bigl( [m+1],\, [m] \times [n] \bigr)$ とおいた\footnote{$\omega_w = (\Id_{[m]} \times q^n_{ij}) \circ (\nu_w{}_*)_{[m+1]} (\Id_{[m+1]})$ である．}．
+
+
+
+
+
 
 
 \section{単体的豊穣圏とホモトピー論}
