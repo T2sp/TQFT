@@ -3119,7 +3119,7 @@ Kan複体 $\inftyMap{K} (x_1,\, \dots,\, x_n)$ の $m$-射の集合 $\inftyMap{K
     自然な同型
     \begin{align}
         \inftyMap{K} (x_0,\, \dots,\, x_n)_m
-        &\cong \Biggl\{\, (\sigma_w)_{w \in W_{m,\, n}} \in C_K^{m,\, n} \Biggm| \substack{0 \le \forall j \le n, \\ \partial^{m+1}_0 \cdots \partial^{m+j}_{j-1} \circ \partial^{m+j+1}_{m+j+1} \cdots \partial^{m+n}_{m+n}(\sigma_{w_{j}}) = x_j} \,\Biggr\}
+        &\cong \Biggl\{\, (\sigma_w)_{w \in W_{m,\, n}} \in C_K^{m,\, n} \Biggm| \substack{0 \le \forall j \le n, \\ \partial^{m+1}_0 \cdots \partial^{m+j}_{j-1} \circ \partial^{m+j+1}_{m+j+1} \cdots \partial^{m+n}_{m+n}(\sigma_{w_{j}}) = x_j} \,\Biggr\} \eqqcolon M^{m,\, n}_K
     \end{align}
     がある．ただし，$\underbrace{\partial^{m+1}_0 \cdots \partial^{m+j}_{j-1}}_{j} \circ \underbrace{\partial^{m+j+1}_{m+j+1} \cdots \partial^{m+n}_{m+n}}_{n-j}$ は，最初の $j$ 個と後ろの $n-j$ 個のそれぞれのかたまりにおいて，左から順に読む．また，
     \begin{align}
@@ -3175,22 +3175,124 @@ $0 \le \forall i < \forall j \le n$ に対して $q^n_{ij} \in \Hom{\Delta} \big
 と定義する．$q^n_{ij}$ は，自然変換 $q^n_{ij}{}_* \colon \Delta^1 \cong \Ner \bigl( \{i < j\} \bigr) \hookrightarrow \Delta^n$ を定める．
 ここから，制限写像を
 \begin{align}
+    \label{def:restriction}
     \theta^n_{ij} \coloneqq (\Id_{\Delta^\bullet} \times q^n_{ij}{}_*)^* \in \Hom{\sSet} \bigl( \inftyMap{K}(x_0,\, \dots,\, x_n),\, \inftyMap{K}(x_i,\, x_j) \bigr)
 \end{align}
-と定義する．$m$-射の対応は，補題\ref{lem:n-fold-Map}と同様に系\ref{col:product-coeq}の自然同型を用いて
-\begin{align}
-    C^{m,\, n}_K \xrightarrow{r} \Hom{\sSet} (\Delta^m \times \Delta^n,\, K) \xrightarrow{\theta^n_{ij}{}_{[m]}} \Hom{\sSet} (\Delta^m \times \Delta^1,\, K) \xrightarrow{\bar{q}^*} C^{m,\, 1}_K
-\end{align}
-の順に計算すると
-\begin{align}
-    \bar{q}^* \circ \theta^n_{ij}{}_{[m]} \circ r \bigl( (\sigma_w)_{w \in W_{m,\, n}} \bigr) 
-    &= \bar{q}^* \circ \theta^n_{ij}{}_{[m]} \Bigl(\Familyset[\big]{(\alpha,\, \beta) \mapsto K(\gamma_{\alpha,\, \beta})(\sigma_{w_{\alpha,\, \beta}})}{[p] \in \Obj{\OP{\Delta}}}\Bigr) \\
-    &= \bar{q}^* \Bigl(\Familyset[\big]{(\alpha,\, \beta) \mapsto K(\gamma_{\alpha,\,  q^n_{ij} \circ \beta})(\sigma_{w_{\alpha,\, q^n_{ij} \circ \beta}})}{[p] \in \Obj{\OP{\Delta}}}\Bigr) \\
-    &= \Bigl( K(\gamma_{\omega_w})(\sigma_{w_{\omega_w}}) \Bigr)_{w \in W_{m,\, 1}}
-\end{align}
-となる．ただし，$\omega_w \coloneqq (\Id_{[m]} \times q^n_{ij}) \circ \nu_w \in \Hom{\Delta} \bigl( [m+1],\, [m] \times [n] \bigr)$ とおいた\footnote{$\omega_w = (\Id_{[m]} \times q^n_{ij}) \circ (\nu_w{}_*)_{[m+1]} (\Id_{[m+1]})$ である．}．
+と定義する．
 
+\begin{mylem}[label=lem:restrict,breakable]{制限写像の具体形}
+    \hyperref[def:restriction]{制限写像}
+    \begin{align}
+        \theta^n_{ij}{}_{[m]} \colon \inftyMap{K} (x_0,\, \dots,\, x_n)_m \lto \inftyMap{K} (x_i,\, x_j)_m
+    \end{align}
+    は，補題\ref{lem:n-fold-Map}により具体的に次の対応を与える：
+    \begin{align}
+        \theta^n_{ij}{}_{[m]} \colon M^{m,\, n}_K &\lto M^{m,\, 1}_K \\
+        (\sigma_w)_{w \in W_{m,\, n}} &\lmto \Bigl( \partial^k_{ij}(\sigma_{w_k}) \Bigr)_{k=0}^{m+1}
+    \end{align}
+    ただし，
+    \begin{align}
+        w_k &\coloneqq 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (O) at (0,0)
+            ;
+            \draw[step=1,gray!40] (O) grid ++(4,-6);
+            \node[above left] at (O) {$(0,\, 0)$};
+            \node[left] at (0,-2) {$(0,\, i)$};
+            \node[left] at (0,-4) {$(0,\, j)$};
+            \node[above] at (2,0) {$(k,\, 0)$};
+            \node[below right] at (4,-6) {$(m,\, n)$};
+            \draw[very thick,red] (O) -- ++(0,-2) -- ++(2,0) -- ++(0,-2) -- ++(2,0) -- ++(0,-2);
+            \fill[blue!5] (0.5,-0.5) rectangle ++(3,-1);
+            \fill[blue!5] (0.5,-4.5) rectangle ++(3,-1);
+            \fill[blue!5] (0.5,-2.5) rectangle ++(1,-1);
+            \fill[blue!5] (2.5,-2.5) rectangle ++(1,-1);
+        \end{tikzpicture}
+        \in W_{m,\, n}
+    \end{align}
+    および
+    \begin{align}
+        \partial^k_{ij} &\coloneqq \underbrace{\partial^{m+2}_0 \cdots \partial^{m+i+1}_{i-1}}_{i} \circ \underbrace{\partial_{i+k}^{m+i+2} \cdots \partial_{k+j-2}^{m+j}}_{j-i-1} \circ \underbrace{\partial_{j+m+1}^{m+j+1} \cdots \partial_{m+n}^{m+n}}_{n-j} \colon K_{m+n} \lto K_{m+1}
+    \end{align}
+    とおいた．
+\end{mylem}
 
+\begin{proof}
+    補題\ref{lem:n-fold-Map}と同様に系\ref{col:product-coeq}の自然同型を用いて
+    \begin{align}
+        M^{m,\, n}_K \xrightarrow{r} \Hom{\sSet} (\Delta^m \times \Delta^n,\, K) \xrightarrow{\theta^n_{ij}{}_{[m]}} \Hom{\sSet} (\Delta^m \times \Delta^1,\, K) \xrightarrow{\bar{q}^*} M^{m,\, 1}_K
+    \end{align}
+    の順に計算すると
+    \begin{align}
+        \bar{q}^* \circ \theta^n_{ij}{}_{[m]} \circ r \bigl( (\sigma_w)_{w \in W_{m,\, n}} \bigr) 
+        &= \bar{q}^* \circ \theta^n_{ij}{}_{[m]} \Bigl(\Familyset[\big]{(\alpha,\, \beta) \mapsto K(\gamma_{\alpha,\, \beta})(\sigma_{w_{\alpha,\, \beta}})}{[p] \in \Obj{\OP{\Delta}}}\Bigr) \\
+        &= \bar{q}^* \Bigl(\Familyset[\big]{(\alpha,\, \beta) \mapsto K(\gamma_{\alpha,\,  q^n_{ij} \circ \beta})(\sigma_{w_{\alpha,\, q^n_{ij} \circ \beta}})}{[p] \in \Obj{\OP{\Delta}}}\Bigr) \\
+        &= \Bigl( K(\gamma_{\omega_v})(\sigma_{w_{\omega_v}}) \Bigr)_{v \in W_{m,\, 1}}
+    \end{align}
+    となる．ただし，$\omega_v \coloneqq (\Id_{[m]} \times q^n_{ij}) \circ \nu_v \in \Hom{\Delta} \bigl( [m+1],\, [m] \times [n] \bigr)$ とおいた\footnote{$\omega_v = (\Id_{[m]} \times q^n_{ij}) \circ (\nu_v{}_*)_{[m+1]} (\Id_{[m+1]})$ である．}．
+    
+    $\forall v \in W_{m,\, 1}$ を1つ固定する．このとき，ある $0 \le k \le m+1$ が存在して
+    \begin{align}
+        v =         
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (O) at (0,0)
+            ;
+            \draw[step=1,gray!40] (O) grid ++(4,-1);
+            \node[above left] at (O) {$(0,\, 0)$};
+            % \node[left] at (0,-2) {$(0,\, i)$};
+            % \node[left] at (0,-4) {$(0,\, j)$};
+            \node[above] at (2,0) {$(k,\, 0)$};
+            \node[below right] at (4,-1) {$(m,\, 1)$};
+            \node[bullet,white] at (1,-0.5) {};
+            \node[bullet,white] at (3,-0.5) {};
+            \draw[very thick,red] (O) -- ++(2,0) -- ++(0,-1) -- ++(2,0);
+        \end{tikzpicture}
+        \in W_{m,\, 1}
+    \end{align}
+    と書ける．よって $\omega_v \colon [m+1] \lto [m] \times [n]$ を，$m+2$ 個の点
+    $\omega_v(0) < \omega_v(1) < \cdots < \omega_v(m+1)$
+    として格子上に図示すると
+    \begin{align}
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \draw[step=1,gray!40] (0,0) grid ++(4,-6);
+            \path coordinate (O)
+            ++(0,-2) coordinate[bullet] (v_0)
+            ++(2,0) coordinate[bullet,label=below:$\omega_v(k-1)$] (v_1)
+            ++(0,-2) coordinate[bullet,label=above:$\omega_v(k)$] (v_2)
+            ++(2,0) coordinate[bullet,label=above:$\omega_v(m+1)$] (v_3)
+            ;
+            \node[above left] at (O) {$(0,\, 0)$};
+            \node[left] at (0,-2) {$\omega_v(0) = (0,\, i)$};
+            \node[left] at (0,-4) {$(0,\, j)$};
+            \node[above] at (2,0) {$(k,\, 0)$};
+            \node[below right] at (4,-6) {$(m,\, n)$};
+            \node at (1,-2) {$\cdots$};
+            \node at (3,-4) {$\cdots$};
+            % \draw[very thick,red] (O) -- ++(0,-2) -- ++(2,0) -- ++(0,-2) -- ++(2,0) -- ++(0,-2);
+            \fill[white] (0.5,-0.5) rectangle ++(3,-1);
+            \fill[white] (0.5,-4.5) rectangle ++(3,-1);
+            \fill[white] (0.6,-2.6) rectangle ++(0.8,-0.8);
+            \fill[white] (2.6,-2.6) rectangle ++(0.8,-0.8);
+        \end{tikzpicture}
+    \end{align}
+    となる．補題\ref{lem:product-decomp}による $w_{\omega_w} \in W_{m,\, n}$ の構成は，この図から分かるように
+    \begin{align}
+        w_{\omega_w} = w_k
+    \end{align}
+    であり，一意である．さらに
+    \begin{align}
+        \gamma_{\omega_v} \colon [m+1] &\lto [m+n], \\
+        x &\lmto \begin{cases}
+            x+i, &x < k, \\
+            x+j-1, &x \ge k
+        \end{cases}
+    \end{align}
+    であるから，
+    \begin{align}
+        \gamma_{\omega_v} = d_{m+n}^{m+n} \circ \cdots \circ d_{j+m+1}^{m+j+1} \circ d_{k+j-2}^{m+j} \circ \cdots \circ d_{i+k}^{m+i+2} \circ d_{i-1}^{m+i+1} \circ \cdots \circ d_0^{m+2}
+    \end{align}
+    が言えた．
+\end{proof}
 
 
 

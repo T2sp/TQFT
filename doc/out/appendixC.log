@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  6 NOV 2025 04:52
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  6 NOV 2025 06:39
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/t2space/Desktop/Seminors/TQFT/doc/appendixC.tex
@@ -1894,117 +1894,113 @@ LaTeX Warning: Citation `kerodon' on page 57 undefined on input line 3103.
 
 LaTeX Warning: Hyper reference `def:pullback' on page 57 undefined on input line 3106.
 
-[57] [58]
+[57] [58] [59] [60]
 
-LaTeX Warning: Hyper reference `redef:monoidal-category' on page 59 undefined on input line 3204.
-
-
-LaTeX Warning: Hyper reference `def:monoidal-category' on page 59 undefined on input line 3217.
+LaTeX Warning: Hyper reference `redef:monoidal-category' on page 61 undefined on input line 3306.
 
 
-LaTeX Warning: Hyper reference `def:monoidal-category' on page 59 undefined on input line 3229.
-
-[59]
-
-Package tcolorbox Warning: Using nobreak failed. Try to enlarge `lines before break' or set page breaks manually on input line 3238.
-
-[60]
-
-LaTeX Warning: Hyper reference `def:monoidal-category' on page 61 undefined on input line 3279.
+LaTeX Warning: Hyper reference `def:monoidal-category' on page 61 undefined on input line 3319.
 
 
-LaTeX Warning: Hyper reference `redef:monoidal-category' on page 61 undefined on input line 3290.
+LaTeX Warning: Hyper reference `def:monoidal-category' on page 61 undefined on input line 3331.
 
-[61]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 3336.
+[61] [62]
+
+LaTeX Warning: Hyper reference `def:monoidal-category' on page 63 undefined on input line 3381.
+
+
+LaTeX Warning: Hyper reference `redef:monoidal-category' on page 63 undefined on input line 3392.
+
+[63]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 3438.
  (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [62]
-Overfull \hbox (17.65776pt too wide) detected at line 3422
+) [64]
+Overfull \hbox (17.65776pt too wide) detected at line 3524
 [][]
  []
 
-[63] [64] [65] [66] [67]
+[65] [66] [67] [68] [69]
 
-LaTeX Warning: Citation `kerodon' on page 68 undefined on input line 3662.
-
-
-LaTeX Warning: Citation `kerodon' on page 68 undefined on input line 3670.
-
-[68]
-
-LaTeX Warning: Citation `goerss2009simplicial' on page 69 undefined on input line 3752.
-
-[69]
-
-LaTeX Warning: Citation `SChen2024anomaly' on page 70 undefined on input line 3759.
+LaTeX Warning: Citation `kerodon' on page 70 undefined on input line 3764.
 
 
-LaTeX Warning: Citation `SChen2024anomaly' on page 70 undefined on input line 3768.
-
-
-LaTeX Warning: Citation `goerss2009simplicial' on page 70 undefined on input line 3802.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 3805.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\infty' on input line 3805.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 3805.
-
-
-LaTeX Warning: Citation `kerodon' on page 70 undefined on input line 3820.
+LaTeX Warning: Citation `kerodon' on page 70 undefined on input line 3772.
 
 [70]
 
-LaTeX Warning: Citation `kerodon' on page 71 undefined on input line 3843.
-
-
-LaTeX Warning: Citation `nLab' on page 71 undefined on input line 3867.
-
-
-LaTeX Warning: Citation `NSS2012' on page 71 undefined on input line 3867.
-
-
-LaTeX Warning: Citation `nLab' on page 71 undefined on input line 3867.
-
-
-LaTeX Warning: Citation `lurie2008higher' on page 71 undefined on input line 3867.
-
-
-LaTeX Warning: Citation `lurie2008higher' on page 71 undefined on input line 3887.
-
-
-LaTeX Warning: Citation `NSS2012' on page 71 undefined on input line 3887.
+LaTeX Warning: Citation `goerss2009simplicial' on page 71 undefined on input line 3854.
 
 [71]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 3908.
+LaTeX Warning: Citation `SChen2024anomaly' on page 72 undefined on input line 3861.
+
+
+LaTeX Warning: Citation `SChen2024anomaly' on page 72 undefined on input line 3870.
+
+
+LaTeX Warning: Citation `goerss2009simplicial' on page 72 undefined on input line 3904.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\infty' on input line 3908.
+(hyperref)                removing `math shift' on input line 3907.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\leavevmode@ifvmode' on input line 3908.
+(hyperref)                removing `\infty' on input line 3907.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 3907.
+
+
+LaTeX Warning: Citation `kerodon' on page 72 undefined on input line 3922.
+
+[72]
+
+LaTeX Warning: Citation `kerodon' on page 73 undefined on input line 3945.
+
+
+LaTeX Warning: Citation `nLab' on page 73 undefined on input line 3969.
+
+
+LaTeX Warning: Citation `NSS2012' on page 73 undefined on input line 3969.
+
+
+LaTeX Warning: Citation `nLab' on page 73 undefined on input line 3969.
+
+
+LaTeX Warning: Citation `lurie2008higher' on page 73 undefined on input line 3969.
+
+
+LaTeX Warning: Citation `lurie2008higher' on page 73 undefined on input line 3989.
+
+
+LaTeX Warning: Citation `NSS2012' on page 73 undefined on input line 3989.
+
+[73]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 4010.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\infty' on input line 4010.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 4010.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 1.66702pt
-(hyperref)                removed on input line 3908.
+(hyperref)                removed on input line 4010.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 3908.
+(hyperref)                removing `math shift' on input line 4010.
 
-[72] (./out/appendixC.aux)
+[74] (./out/appendixC.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -2018,19 +2014,19 @@ Package rerunfilecheck Info: File `appendixC.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 67449 strings out of 476447
+ 67519 strings out of 476447
  382234,2373549 words of node,token memory allocated
- 39511 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 27 glue, 4 kern, 5 sub_mlist, 1 glyph, 17695 attribute, 62 glue_spec, 1621 attribute_list, 2 write, 14 user_defined, 8 pdf_action nodes
-   avail lists: 1:60,2:87803,3:1752,4:1613,5:831,6:83,7:8090,8:99,9:3734,10:24,11:46
- 87429 multiletter control sequences out of 65536+600000
+ 39703 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 27 glue, 4 kern, 5 sub_mlist, 1 glyph, 17783 attribute, 62 glue_spec, 1629 attribute_list, 2 write, 14 user_defined, 8 pdf_action nodes
+   avail lists: 1:60,2:87707,3:1752,4:1613,5:831,6:83,7:8090,8:99,9:3734,10:24,11:46
+ 87496 multiletter control sequences out of 65536+600000
  196 fonts using 95310951 bytes
  145i,26n,144p,1918b,2056s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman8-bold.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy5.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy6.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/wadalab/dmj/dmjhira.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/euler/eufb10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on appendixC.pdf (72 pages, 999507 bytes).
+Output written on appendixC.pdf (74 pages, 1008825 bytes).
 
-PDF statistics: 1440 PDF objects out of 1440 (max. 8388607)
- 1251 compressed objects within 13 object streams
- 291 named destinations out of 1000 (max. 131072)
+PDF statistics: 1454 PDF objects out of 1728 (max. 8388607)
+ 1263 compressed objects within 13 object streams
+ 294 named destinations out of 1000 (max. 131072)
  72 words of extra memory for PDF output out of 10000 (max. 100000000)
 
