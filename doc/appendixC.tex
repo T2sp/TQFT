@@ -2427,6 +2427,93 @@ $X \colon [n] \lto \Cat{C}$ は関手であるから，$0 \le i < j \le n$ に�
     
 \end{proof}
 
+\subsection{Kan複体のホモトピー同値と弱ホモトピー同値}
+
+\begin{mydef}[label=def:connected]{単体的集合の連結成分}
+    $K \in \Obj{\sSet}$ の\textbf{連結成分} (connected component) とは，$(1,\, 1)$-圏 $\SETS$ における\hyperref[def:eq-coeq]{コイコライザ}
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkB9ARhAF9S6TLnyEU3clVqMWbLsX6CQGbHgJEATJOr1mrRCAA6htFk7EAFOwCU-KTCgBzeEVAAzAE4QAtkgkgcCCQNAXcvX0QyAKDEfzgACyw3HCQAWn9dWQNjNDoPPEYAPW4eRTCfJCjAv2oEpJTY6gY6ACMYBgAFYTUxEA8sR3iUnRl9IxM8goZi8zs+IA
+        \begin{tikzcd}
+        K_1 \arrow[r, "\partial^1_1", shift left] \arrow[r, "\partial^1_0"', shift right] & K_0 \arrow[r] & \bm{\pi_0(K)}
+        \end{tikzcd}
+    \end{center}
+    のこと．
+    あからさまには，$\partial^1_1(e) \sim \partial^1_0(e)\; \forall e \in K_1$ を充たす $K_0$ 上の最小の同値関係 $\sim \;\subset K_0 \times K_0$ による商集合 $\bm{\pi_0(K)} \coloneqq K_0/{\sim}$ のこと．
+\end{mydef}
+
+\begin{mydef}[label=def:hcat-Kan]{{$\KAN$} のホモトピー圏}
+    $(1,\, 1)$-圏 $\htpy{(\KAN)}$ を以下で定義する：
+    \begin{itemize}
+        \item \hyperref[def:KanCplx]{Kan複体}を対象とする
+        \item 任意のKan複体 $X,\, Y$ に対して，Hom集合を
+        \begin{align}
+            \Hom{\htpy{(\KAN)}} (X,\, Y) \coloneqq \pi_0 \bigl( \FUN(X,\, Y) \bigr)
+        \end{align}
+        と定義する．
+        \item 任意のKan複体 $X,\, Y,\, Z$ に対して，射の合成を
+        \begin{align}
+            \circ \colon \Hom{\htpy{(\KAN)}} (Y,\, Z) \times \Hom{\htpy{(\KAN)}} (X,\, Y) &\lto \Hom{\htpy{(\KAN)}} (X,\, Z), \\
+            \bigl( [g],\, [f] \bigr) &\lmto [g \circ f]
+        \end{align}
+        と定義する．
+    \end{itemize}
+\end{mydef}
+
+$X,\, Y$ をKan複体とする．\exref{def:infty-Fun}を思い出すと，$\FUN(X,\, Y)_n = \Hom{\sSet} (\Delta^n \times X,\, Y)$ であった．
+従って\hyperref[def:connected]{$\pi_0$ の定義}から，$\Hom{\htpy{(\KAN)}} (X,\, Y)$ とはコイコライザ
+\begin{center}
+    % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkB9ARhAF9S6TLnyEU3clVqMWbLsX6CQGbHgJEATJOr1mrRCAA6htFk7EAFOwCU-KTCgBzeEVAAzAE4QAtkgkgcCCQNAXcvX0QyAKDEfzgACyw3HCQAWn9dWQNjNDoPPEYAPW4eRTCfJCjAv2oEpJTY6gY6ACMYBgAFYTUxEA8sR3iUnRl9IxM8goZi8zs+IA
+    \begin{tikzcd}
+    {\Hom{\sSet} (\Delta^1 \times X,\, Y)} \arrow[r, "(d^1_1{}_* \times \Id_X)", shift left] \arrow[r, "(d^1_0{}_* \times \Id_X)"', shift right] &{\Hom{\sSet} (\Delta^0 \times X,\, Y) \cong \Hom{\sSet} (X,\, Y)} \arrow[r] & {\pi_0 \bigl( \FUN(X,\, Y) \bigr)}
+    \end{tikzcd}
+\end{center}
+のことである．i.e. 自然変換 $f,\, g \in \Hom{\sSet} (X,\, Y)$ が $[f] = [g] \in \Hom{\htpy{(\KAN)}} (X,\, Y)$ であるためには，
+ある $H \in \Hom{\sSet} (\Delta^1 \times X,\, Y)$ が存在して
+\begin{align}
+    H|_{\{0\} \times X} &= f, \\
+    H|_{\{1\} \times X} &= g
+\end{align}
+を充たすことが必要十分である．このとき，$H$ のことを $f,\, g$ を繋ぐ\textbf{単体的ホモトピー} (simplicial homotopy) と呼ぶ．
+
+\begin{mydef}[label=def:htpy-equiv-Kan]{Kan複体のホモトピー同値}
+    \hyperref[def:KanCplx]{Kan複体} $X,\, Y$ の間の\hyperref[def:nat]{自然変換} $f \in \Hom{\sSet} (X,\, Y)$ を与える．
+    $f$ が\textbf{ホモトピー同値} (homotopy equivalence) であるとは，$[f] \in \Hom{\htpy{(\KAN)}}(X,\, Y)$ が $(1,\, 1)$-圏 $\htpy{(\KAN)}$ の\hyperref[def:iso]{同型射}であることを言う．
+\end{mydef}
+
+定義\ref{def:htpy-equiv-Kan}は，任意の\hyperref[def:SimpSet]{単体的集合}の場合に拡張できる．
+
+\begin{mydef}[label=def:htpy-equiv]{単体的集合のホモトピー同値と弱ホモトピー同値}
+    \hyperref[def:SimpSet]{単体的集合} $X,\, Y$ の間の\hyperref[def:nat]{自然変換} $f \in \Hom{\sSet} (X,\, Y)$ を与える．
+    \begin{itemize}
+        \item $f$ が\textbf{ホモトピー同値} (homotopy equivalence) であるとは，
+        ある自然変換 $g \colon Y \lto X$ が存在して，$[g \circ f] = [\Id_{X}] \in \pi_0 \bigl( \FUN(X,\, X) \bigr)$ 
+        かつ $[f \circ g] = [\Id_{Y}] \in \pi_0 \bigl( \FUN(Y,\, Y) \bigr)$ が成り立つこと．
+        特に，$g$ のことを $f$ の\textbf{単体的ホモトピー逆} (simplicial homotopy inverse) と呼ぶ
+        \footnote{
+            後に定義する\hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}の\textbf{ホモトピー逆}とは\underline{異なる概念である}~\cite[\href{https://kerodon.net/tag/02BT}{Tag 02BT}]{kerodon}．
+            $X,\, Y$ がKan複体のときに限って両者は一致するので，このときに限って両者を区別しない．
+        }．
+
+        \item $f$ が\textbf{弱ホモトピー同値} (weak homotopy equivalence) であるとは，勝手なKan複体 $Z$ に対して，$f$ の前合成が誘導する写像
+        \begin{align}
+            [f^*] \colon \pi_0 \bigl( \FUN(Y,\, Z) \bigr) \lto \pi_0 \bigl( \FUN(X,\, Z) \bigr)
+        \end{align}
+        が全単射であることを言う．
+    \end{itemize}
+\end{mydef}
+
+\begin{myprop}[label=prop:htpy-equiv-Kan]{ホモトピー同値ならば弱ホモトピー同値}
+    \hyperref[def:SimpSet]{単体的集合} $X,\, Y$ の間の\hyperref[def:nat]{自然変換} $f \in \Hom{\sSet} (X,\, Y)$ を与える．
+    \begin{enumerate}
+        \item $f$ が\hyperref[def:htpy-equiv]{ホモトピー同値} $\IMP$ $f$ は\hyperref[def:htpy-equiv]{弱ホモトピー同値}
+        \item $f$ が\hyperref[def:htpy-equiv]{弱ホモトピー同値}かつ $X,\, Y$ が\hyperref[def:KanCplx]{Kan複体} $\IMP$ $f$ は\hyperref[def:htpy-equiv]{ホモトピー同値}
+    \end{enumerate}
+\end{myprop}
+
+\begin{proof}
+    ~\cite[\href{https://kerodon.net/tag/00UB}{Tag 00UB}]{kerodon}
+\end{proof}
+
 \subsection{$(\infty,\, 1)$-圏の圏同値}
 
 \begin{mydef}[label=def:infty-homotopy-morphism,breakable]{1-射の間のホモトピー}
@@ -2502,21 +2589,61 @@ $K$ を\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}とする．$\forall X,\, Y
     \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $K$ を与える．
     \begin{itemize}
         \item 1-射 $f \in K_1$ が\textbf{同型射} (isomorphism) であるとは，$K$ の\hyperref[def:hcat-infty]{ホモトピー圏} $\htpy{K}$ において $[f]$ が\hyperref[def:iso]{同型射}であることを言う．
+        特に，$(1,\, 1)$-圏 $\htpy{K}$ における $[f]$ の\hyperref[def:iso]{逆射} $[g]$ の代表元 $g \in K_1$ のことを，$f$ の\textbf{ホモトピー逆} (homotopy inverse) と呼ぶ．
         \item 対象 $X,\, Y \in K_0$ が\textbf{同型} (isomorphic) であるとは，$X,\, Y$ をそれぞれ始点・終点に持つ $K$ の同型射が存在することを言う．
     \end{itemize}
 \end{mydef}
 
-\begin{mydef}[label=def:hqCat]{{$\qCat$}のホモトピー圏}
-    $(1,\, 1)$-圏 $\htpy{(\qCat)}$ を以下で定義する：
+次に，\hyperref[def:hcat-Kan]{$\htpy(\KAN)$}の $(\infty,\, 1)$-圏における対応物を構成する．
+
+\begin{mydef}[label=def:core]{{$(\infty,\, 1)$}-圏の芯}
+    $K$ を\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}とする．
+    このとき，\hyperref[def:SimpSet]{単体的部分集合} $\bm{K}^{\bm{\cong}} \subset K$ を次のように定義し，$K$ の\textbf{芯} (core) と呼ぶ：
+    \begin{align}
+        K^{\cong}_n \coloneqq \bigl\{\, \sigma \in K_n \cong \Hom{\sSet} (\Delta^n,\, K) \bigm| \forall \alpha \in \Delta^n_1,\; \sigma_{[1]}(\alpha)\; \text{is an \hyperref[def:isom-infty]{isomorphism} in}\, K \,\bigr\} 
+    \end{align}
+\end{mydef}
+
+\begin{mylem}[label=lem:core-is-Kan]{芯はKan複体}
+    $(\infty,\, 1)$-圏 $K$ の\hyperref[def:core]{芯} $K^{\cong}$ は\hyperref[def:KanCplx]{Kan複体}である．
+\end{mylem}
+
+\begin{proof}
+    ~\cite[\href{https://kerodon.net/tag/01H1}{Tag 01H1}]{kerodon}
+\end{proof}
+
+\begin{mydef}[label=def:hqCat]{{$\QCAT$}のホモトピー圏}
+    $(1,\, 1)$-圏 $\htpy{(\QCAT)}$ を以下で定義する：
     \begin{itemize}
         \item \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}を対象とする
-        \item \exref{def:infty-Fun}で構成した $(\infty,\, 1)$-圏 $\FUN(K,\, L)$ の\hyperref[def:hcat-infty]{ホモトピー圏} $\htpy{\bigl(\FUN(K,\, L)\bigr)}$ における対象の\hyperref[def:iso]{同型}類を射とする
+        \item 任意の $(\infty,\, 1)$-圏 $K,\, L$ に対して，Hom集合を
+        \begin{align}
+            \Hom{\htpy{(\QCAT)}} (K,\, L) \coloneqq \pi_0 \bigl( \FUN(K,\, L)^{\cong} \bigr)
+        \end{align}
+        と定義する．
+        i.e. \exref{def:infty-Fun}で構成した $(\infty,\, 1)$-圏 $\FUN(K,\, L)$ の\hyperref[def:hcat-infty]{ホモトピー圏} $\htpy{\bigl(\FUN(K,\, L)\bigr)}$ における対象の\hyperref[def:iso]{同型}類を射とする．
+        \item 任意の $(\infty,\, 1)$-圏 $K,\, L,\, M$ に対して，射の合成を
+        \begin{align}
+            \circ \colon \Hom{\htpy{(\QCAT)}} (L,\, M) \times \Hom{\htpy{(\QCAT)}} (K,\, L) &\lto \Hom{\htpy{(\QCAT)}} (K,\, M), \\
+            \bigl( [g],\, [f] \bigr) &\lmto [g \circ f]
+        \end{align}
+        と定義する．
     \end{itemize}
 \end{mydef}
 
-\begin{mydef}[label=def:equiv-infty]{{$(\infty,\, 1)$}-圏の同値}
-    \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $F \colon K \lto L$ が\textbf{$\bm{(\infty,\, 1)}$-圏同値} (equivalence) であるとは，$[F] \in \Hom{\htpy{(\qCat)}}(K,\, L)$ が同型射であることを言う．
+\begin{mydef}[label=def:equiv-infty,breakable]{{$(\infty,\, 1)$}-圏の同値}
+    \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $F \colon K \lto L$ が\textbf{$\bm{(\infty,\, 1)}$-圏同値} (equivalence) であるとは，$[F] \in \Hom{\htpy{(\QCAT)}}(K,\, L)$ が同型射であることを言う．
+    
+    i.e. ある $(\infty,\, 1)$-圏の関手 $G \colon L \lto K$ が存在して，$G \circ F \in \FUN(K,\, K)_0$ が $\Id_{K} \in \FUN(K,\, K)_0$ と\hyperref[def:isom-infty]{$(\infty,\, 1)$-圏 $\FUN(K,\, K)$ において同型}であり，
+    かつ $F \circ G \in \FUN(L,\, L)_0$ が $\Id_{L} \in \FUN(L,\, L)_0$ と\hyperref[def:isom-infty]{$(\infty,\, 1)$-圏 $\FUN(L,\, L)$ において同型}であることを言う．
+    $G$ のことを $F$ の\textbf{ホモトピー逆} (homotopy inverse) と呼ぶ．
 \end{mydef}
+
+\begin{marker}
+    \hyperref[def:connected]{連結性}と\hyperref[def:isom-infty]{同型}が異なる概念であるために，\hyperref[def:htpy-equiv]{$(\infty,\, 1)$-圏のホモトピー同値}と\hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}は\underline{異なる概念である}~\cite[\href{https://kerodon.net/tag/02BT}{Tag 02BT}]{kerodon}．
+    ゆえに以降では，前者の逆を\textbf{単体的ホモトピー逆}，後者の逆を\textbf{ホモトピー逆}と呼んで区別する．
+    なお，$X,\, Y$ がKan複体のときに限って両者は一致するため，その場合は区別しない．
+\end{marker}
 
 \subsection{射の空間}
 
@@ -2721,11 +2848,11 @@ $(1,\, 1)$-圏 $\SETS$ における2重の\hyperref[def:pullback-pushout]{引き
         \label{eq:Map2}
         \inftyMap{K}(x,\, y)_2 \cong \Bigl\{\, (\sigma_0,\, \sigma_1,\, \sigma_2) \in K_3^{\times 3} \Bigm| \substack{\partial^3_1(\sigma_0) = \partial^3_1(\sigma_1),\; \partial^3_2(\sigma_1) = \partial^3_2(\sigma_2) \\ \partial^3_0 (\sigma_0) = \sigma^1_0(\Id_y),\; \partial^3_3 (\sigma_2) = \sigma^1_0(\Id_x)} \,\Bigr\} 
     \end{align}
-    の存在が分かる．後に示す系\ref{col:product-coeq}および補題\ref{lem:n-fold-Map}によると，一般の $n$ の場合は次のようになる：
+    の存在が分かる．後に示す系\ref{col:product-coeq}および補題\ref{lem:n-fold-Map}によると，一般の $m \ge 0$ の場合は次のようになる：
     \begin{align}
         \label{eq:Mapn}
-        \inftyMap{K}(x,\, y)_n
-        &\cong \Bigl\{\, (\sigma_0,\, \dots,\, \sigma_n) \in K_{n+1}^{\times (n+1)} \Bigm| \substack{1 \le \forall j \le n,\; \partial^{n+1}_j(\sigma_{j-1}) = \partial^{n+1}_j(\sigma_j) \\ \partial^{n+1}_0(\sigma_0) = \sigma^n_0 \circ \cdots \circ \sigma^0_0(y),\; \partial^{n+1}_{n+1} (\sigma_n) = \sigma^{n}_{0} \circ \cdots \circ \sigma^0_0(x)} \,\Bigr\} 
+        \inftyMap{K}(x,\, y)_m
+        &\cong \Bigl\{\, (\sigma_0,\, \dots,\, \sigma_m) \in K_{m+1}^{\times (m+1)} \Bigm| \substack{1 \le \forall j \le m,\; \partial^{m+1}_j(\sigma_{j-1}) = \partial^{m+1}_j(\sigma_j) \\ \partial^{m+1}_0(\sigma_0) = \sigma^m_0 \circ \cdots \circ \sigma^0_0(y),\; \partial^{m+1}_{m+1} (\sigma_m) = \sigma^{m}_{0} \circ \cdots \circ \sigma^0_0(x)} \,\Bigr\} 
     \end{align}
 \end{myexample}
 
@@ -2741,14 +2868,21 @@ $(1,\, 1)$-圏 $\SETS$ における2重の\hyperref[def:pullback-pushout]{引き
     \cite[\href{https://kerodon.net/tag/01JC}{Tag 01JC}]{kerodon}
 \end{proof}
 
-\begin{mydef}[label=def:FF-ES-infty]{忠実充満・本質的全射な{$(\infty,\, 1)$}-圏の関手}
+\begin{mydef}[label=def:FF-ES-infty,breakable]{忠実充満・本質的全射な{$(\infty,\, 1)$}-圏の関手}
     \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
     \begin{align}
         F \colon K \lto L
     \end{align}
     を与える．
     \begin{itemize}
-        \item $F$ が\textbf{忠実充満} (fully faithful) であるとは，$\forall x,\, y \in K_0$ に対して，$F$ が誘導する\hyperref[def:Map]{射の空間}の間の関手
+        \item $F$ が\textbf{忠実充満} (fully faithful) であるとは，$\forall x,\, y \in K_0$ に対して，$F$ が誘導する\hyperref[def:Map]{射の空間}の間の自然変換
+        \footnote{
+            \exref{ex:Map2}の表示を使うと，自然変換 $\varphi \colon \inftyMap{K} (x,\, y) \lto \Map{L} (F_{[0]}(x),\, F_{[0]}(y))$ とは単に
+            \begin{align}
+                \varphi_{[m]} \colon (\sigma_0,\, \dots,\, \sigma_m) \lmto \bigl(F_{[m+1]}(\sigma_0),\, \dots,\, F_{[m+1]}(\sigma_m)\bigr)
+            \end{align}
+            のことである．
+        }
         \begin{align}
             \inftyMap{K} (x,\, y) \lto \inftyMap{L} \bigl( F_{[0]}(x),\, F_{[0]}(y) \bigr) 
         \end{align}
@@ -2772,10 +2906,28 @@ $(1,\, 1)$-圏 $\SETS$ における2重の\hyperref[def:pullback-pushout]{引き
 
 \subsection{$(\infty,\, 1)$-圏における射の合成}
 
-\textbf{Shuffle}と呼ばれる集合を次のように定義する：
-\begin{align}
-    W_{m,\, n} \coloneqq \bigl\{\, (w_1,\, \dots,\, w_{m+n}) \in \{0,\, 1\}^{\times (m+n)} \bigm| \# \{\, i \mid w_i = 0 \,\} = m,\; \# \{\, j \mid w_j = 1 \,\} = n \,\bigr\} 
-\end{align}
+\begin{mydef}[label=def:shuffle,breakable]{Shuffle}
+    \begin{itemize}
+        \item \textbf{Shuffle}と呼ばれる集合を次のように定義する：
+        \begin{align}
+            \bm{W}_{\bm{m},\, \bm{n}} \coloneqq \bigl\{\, (w_1,\, \dots,\, w_{m+n}) \in \{0,\, 1\}^{\times (m+n)} \bigm| \# \{\, i \mid w_i = 0 \,\} = m,\; \# \{\, j \mid w_j = 1 \,\} = n \,\bigr\} 
+        \end{align}
+        \item $\forall w \in W_{m,\, n}$ に対して，順序を保つ写像 $\bm{\nu_w} \in \Hom{\Delta} \bigl( [m+n],\, [m] \times [n] \bigr)$ を次のように定義する：
+        \begin{align}
+            \bm{\nu_w} (k) \coloneqq \bigl( \# \{\, i\mid i \le k,\; w_i = 0 \,\},\, \# \{\, j\mid j \le k,\; w_j = 1 \,\} \bigr) 
+        \end{align}
+        \item 集合 $\bm{S}_{\bm{m},\, \bm{n}}$ を次のように定義する：
+        \begin{align}
+            \bm{S_{m,\, n}} \coloneqq \bigl\{\, (w,\, k) \in W_{m,\, n} \times \{1,\, \dots,\, m+n-1\} \bigm| w_k = 0,\; w_{k+1} = 1 \,\bigr\}
+        \end{align}
+        \item Shuffle上の写像 $\bm{\tau_k}$ を次のように定義する：
+        \begin{align}
+            \bm{\tau_k} \colon W_{m,\, n} &\lto W_{m,\, n}, \\
+            (w_1,\, \dots,\, w_{m+n}) &\lmto \bigl( w_1,\, \dots,\, w_{k+1},\, w_k,\, \dots,\, w_{m+n} \bigr)
+        \end{align}
+    \end{itemize}
+\end{mydef}
+
 $w \in W_{m,\, n}$ は，格子 $\bigl([0,\, m] \times [0,\, n]\bigr) \cap (\mathbb{Z} \times \mathbb{Z})$ 上の $(0,\, 0)$ と $(m,\, n)$ を繋ぐ経路として
 \begin{align}
     (0,\, 1,\, 0,\, 1) \eqqcolon
@@ -2791,11 +2943,7 @@ $w \in W_{m,\, n}$ は，格子 $\bigl([0,\, m] \times [0,\, n]\bigr) \cap (\mat
     \end{tikzpicture}
     \in W_{2,\, 2}
 \end{align}
-のように図示できる．さらに，$\forall w \in W_{m,\, n}$ に対して順序を保つ写像 $\nu_w \in \Hom{\Delta} \bigl( [m+n],\, [m] \times [n] \bigr)$ を次のように定義する：
-\begin{align}
-    \nu_w (k) \coloneqq \bigl( \# \{\, i\mid i \le k,\; w_i = 0 \,\},\, \# \{\, j\mid j \le k,\; w_j = 1 \,\} \bigr) 
-\end{align}
-$w=(0,\, 1,\, 0,\, 1) \in W_{2,\, 2},\; k=2 \in [2+2]$ の場合に $\nu_w (k)$ を図示すると
+のように図示できる．$w=(0,\, 1,\, 0,\, 1),\; k=2$ の場合に $\nu_w (k)$ を図示すると
 \begin{align}
     \nu_{(0,\, 1,\, 0,\, 1)} (2)
     &= 
@@ -2822,16 +2970,7 @@ $w=(0,\, 1,\, 0,\, 1) \in W_{2,\, 2},\; k=2 \in [2+2]$ の場合に $\nu_w (k)$ 
 \end{align}
 のようにして誘導する．
 
-さらに，
-\begin{align}
-    S_{m,\, n} \coloneqq \bigl\{\, (w,\, k) \in W_{m,\, n} \times \{1,\, \dots,\, m+n-1\} \bigm| w_k = 0,\; w_{k+1} = 1 \,\bigr\}
-\end{align}
-とおき，写像
-\begin{align}
-    \tau_k \colon W_{m,\, n} &\lto W_{m,\, n}, \\
-    (w_1,\, \dots,\, w_{m+n}) &\lmto \bigl( w_1,\, \dots,\, w_{k+1},\, w_k,\, \dots,\, w_{m+n} \bigr)
-\end{align}
-を考える．$(w,\, k) \in S_{m,\, n}$ を図示すると
+さらに，$(w,\, k) \in S_{m,\, n}$ を図示すると
 \begin{align}
     (w,\, k) = \quad
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
@@ -3118,8 +3257,8 @@ Kan複体 $\inftyMap{K} (x_1,\, \dots,\, x_n)$ の $m$-射の集合 $\inftyMap{K
 \begin{mylem}[label=lem:n-fold-Map]{{$n$}-fold mapping spaceの非退化な単体}
     自然な同型
     \begin{align}
-        \inftyMap{K} (x_0,\, \dots,\, x_n)_m
-        &\cong \Biggl\{\, (\sigma_w)_{w \in W_{m,\, n}} \in C_K^{m,\, n} \Biggm| \substack{0 \le \forall j \le n, \\ \partial^{m+1}_0 \cdots \partial^{m+j}_{j-1} \circ \partial^{m+j+1}_{m+j+1} \cdots \partial^{m+n}_{m+n}(\sigma_{w_{j}}) = x_j} \,\Biggr\} \eqqcolon M^{m,\, n}_K
+        &\inftyMap{K} (x_0,\, \dots,\, x_n)_m \\
+        &\cong \Biggl\{\, (\sigma_w)_{w \in W_{m,\, n}} \in C_K^{m,\, n} \Biggm| \substack{0 \le \forall j \le n, \\ \partial^{m+1}_0 \cdots \partial^{m+j}_{j-1} \circ \partial^{m+j+1}_{m+j+1} \cdots \partial^{m+n}_{m+n}(\sigma_{w_{j}}) = \sigma^{m-1}_0 \cdots \sigma^0_0(x_j)} \,\Biggr\} \eqqcolon M^{m,\, n}_K
     \end{align}
     がある．ただし，$\underbrace{\partial^{m+1}_0 \cdots \partial^{m+j}_{j-1}}_{j} \circ \underbrace{\partial^{m+j+1}_{m+j+1} \cdots \partial^{m+n}_{m+n}}_{n-j}$ は，最初の $j$ 個と後ろの $n-j$ 個のそれぞれのかたまりにおいて，左から順に読む．また，
     \begin{align}
@@ -3168,6 +3307,153 @@ Kan複体 $\inftyMap{K} (x_1,\, \dots,\, x_n)$ の $m$-射の集合 $\inftyMap{K
     である．
 \end{proof}
 
+\begin{myexample}[label=ex:Map-m1]{集合 {$M^{m,\, 1}_K$}}
+    集合 $M^{m,\, 1}_K$ が，\hyperref[def:Map]{射の空間}の $m$-射の集合と一致することを見よう．
+    まず，
+    \begin{align}
+        W_{m,\, 1} &= 
+        \Biggl\{ 
+            v_k \coloneqq 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (O) at (0,0)
+                ;
+                \draw[step=1,gray!40] (O) grid ++(4,-1);
+                \node[above left] at (O) {$(0,\, 0)$};
+                % \node[left] at (0,-2) {$(0,\, i)$};
+                % \node[left] at (0,-4) {$(0,\, j)$};
+                \node[above] at (2,0) {$(k,\, 0)$};
+                \node[below right] at (4,-1) {$(m,\, 1)$};
+                \node[bullet,white] at (1,-0.5) {};
+                \node[bullet,white] at (3,-0.5) {};
+                \draw[very thick,red] (O) -- ++(2,0) -- ++(0,-1) -- ++(2,0);
+            \end{tikzpicture}
+        \Biggm| 0 \le k \le m\Biggr\}, \\
+        S_{m,\, 1} &= 
+        \bigl\{\, (v_k,\, k) \in W_{m,\, 1} \bigm| 1 \le k \le m \,\bigr\}
+    \end{align}
+    であることに注意する．図式から明らかなように，$\forall (v_k,\, k) \in S_{m,\, 1}$ に対して
+    \begin{align}
+        \tau_k(v_k) = v_{k-1}
+    \end{align}
+    が成り立つ．補題\ref{lem:n-fold-Map}で定義した $w_j$ は
+    \begin{align}
+        w_0 &= v_m, \\
+        w_1 &= v_0
+    \end{align}
+    である．以上をまとめると，補題\ref{lem:n-fold-Map}より
+    \begin{align}
+        M^{m,\, 1}_K = \Bigl\{\, (\sigma_0,\, \dots,\, \sigma_m) \in K_{m+1}^{\times (m+1)} \Bigm| \substack{1 \le \forall k \le m,\; \partial^{m+1}_k (\sigma_k) = \partial^{m+1}_k (\sigma_{k-1}) \\ \partial^{m+1}_{m+1} (\sigma_m) = x_0,\; \partial^{m+1}_0 (\sigma_0) = x_1} \,\Bigr\} 
+    \end{align}
+    であることが分かり，\exref{ex:Map0}, \exref{ex:Map1}, \exref{ex:Map2}の結果を再現する．
+\end{myexample}
+
+\begin{myexample}[label=ex:Map0n]{集合 {$M^{0,\, n}_K$}}
+    $\inftyMap{K}(x_0,\, \dots,\, x_n)$ の対象がどのような形状をしているか調べよう．
+    \begin{align}
+        W_{0,\, n} &= \bigl\{\, v \coloneqq (1,\, 1,\, \dots,\, 1) \in \{0,\, 1\}^{\times n} \,\bigr\}, \\
+        S_{0,\, n} &= \emptyset
+    \end{align}
+    であり，補題\ref{lem:n-fold-Map}で定義した $w_j$ は，$0 \le \forall j \le n$ に対して $w_j = v$ を充たす．
+    従って
+    \begin{align}
+        M^{0,\, n}_K = \Bigl\{\, \sigma \in K_{n} \Bigm| 0 \le \forall j \le n,\; \partial^{1}_{0} \cdots \partial^{j}_{j-1} \circ \partial^{j+1}_{j+1} \cdots \partial^{n}_{n} (\sigma) = x_j \,\Bigr\} 
+    \end{align}
+    である．特に，
+    \begin{align}
+        M^{0,\, 2}_K 
+        &= \Bigl\{\, \sigma \in K_{2} \Bigm| \partial^{1}_{1} \partial^{2}_{2} (\sigma) = x_0,\, \partial^{1}_{0} \partial^{2}_{2} (\sigma) = x_1,\, \partial^{1}_{0} \partial^{2}_{1} (\sigma) = x_2  \,\Bigr\} \\
+        &= \left\{ 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate[bullet,label=below left:$x_0$] (x_0)
+                +(60:2) coordinate[bullet,label=above:$x_1$] (x_1)
+                +(0:2) coordinate[bullet,label=below right:$x_2$] (x_2)
+                ;
+                \begin{scope}[on background layer]
+                    \fill[gray!20] (x_0.center) -- (x_1.center) -- (x_2.center) -- cycle;
+                \end{scope}
+                \node[gray] at (barycentric cs:x_0=1,x_1=1,x_2=1) {$\sigma$};
+                \draw[->-=.5] (x_0) -- (x_1);
+                \draw[->-=.5] (x_0) -- (x_2);
+                \draw[->-=.5] (x_1) -- (x_2);
+            \end{tikzpicture}
+         \right\} 
+    \end{align}
+    となっている．
+\end{myexample}
+
+\begin{myexample}[label=ex:Map-1n]{集合 {$M^{1,\, n}_K$}}
+    $\inftyMap{K}(x_0,\, \dots,\, x_n)$ の $1$-射がどのような形状をしているか調べよう．
+    \begin{align}
+        W_{n,\, 1} &= 
+        \Biggl\{ 
+            v_j \coloneqq 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (O) at (0,0)
+                ;
+                \draw[step=1,gray!40] (O) grid ++(1,-4);
+                \node[above left] at (O) {$(0,\, 0)$};
+                % \node[left] at (0,-2) {$(0,\, i)$};
+                % \node[left] at (0,-4) {$(0,\, j)$};
+                \node[left] at (0,-2) {$(0,\, j)$};
+                \node[below right] at (1,-4) {$(1,\, n)$};
+                % \node[bullet,white] at (1,-0.5) {};
+                % \node[bullet,white] at (3,-0.5) {};
+                \draw[very thick,red] (O) -- ++(0,-2) -- ++(1,0) -- ++(0,-2);
+            \end{tikzpicture}
+        \Biggm| 0 \le j \le n\Biggr\}, \\
+        S_{m,\, 1} &= 
+        \bigl\{\, (v_k,\, k+1) \in W_{m,\, 1} \bigm| 0 \le k \le n-1 \,\bigr\}
+    \end{align}
+    である．図式から明らかなように，$\forall (v_k,\, k+1) \in S_{1,\, n}$ に対して
+    \begin{align}
+        \tau_k(v_k) = v_{k+1}
+    \end{align}
+    が成り立つ．さらに，補題\ref{lem:n-fold-Map}で定義した $w_j$ は，$0 \le \forall j \le n$ に対して $w_j = v_j$ を充たす．
+    以上をまとめると，補題\ref{lem:n-fold-Map}より
+    \begin{align}
+        M^{1,\, n}_K = \Bigl\{\, (\sigma_0,\, \dots,\, \sigma_n) \in K_{n+1}^{\times (n+1)} \Bigm| \substack{0 \le \forall k \le n-1,\; \partial^{n+1}_{k+1} (\sigma_k) = \partial^{n+1}_{k+1} (\sigma_{k+1}) \\ 0 \le \forall j \le n,\; \partial^{2}_{0} \cdots \partial^{j+1}_{j-1} \circ \partial^{j+2}_{j+1} \cdots \partial^{n+1}_{n+1} (\sigma_j) = \sigma^0_0(x_j)} \,\Bigr\} 
+    \end{align}
+    だと分かる．特に，
+    \begin{align}
+        M^{1,\, 2}_K 
+        &= \Bigl\{\, (\sigma_0,\, \sigma_1,\, \sigma_2) \in K_{3}^{\times 3} \Bigm| \substack{\partial^{3}_1 (\sigma_0) = \partial^{3}_1 (\sigma_1),\; \partial^{3}_2 (\sigma_1) = \partial^{3}_2 (\sigma_2) \\ \partial^{2}_{2}\partial^{3}_{3} (\sigma_0) = \sigma^0_0(x_0),\; \partial^2_0\partial^3_3 (\sigma_1) = \sigma^0_0(x_1),\; \partial^2_0 \partial^3_1 (\sigma_2) = \sigma^0_0(x_2)} \,\Bigr\} \\
+        &= \left\{ 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path                coordinate[bullet,label=left:$x_0$] (x_0)
+            + (0:3)              coordinate[bullet,label=right:$x_2$] (x_2)
+            + (30:2.5) coordinate[bullet,label=above:$x_1$] (x_1)
+            ++ (0,-3.5)            coordinate[bullet,label=left:$x_0$] (y_0)
+            + (0:3)              coordinate[bullet,label=right:$x_2$] (y_2)
+            + (30:2.5) coordinate[bullet,label=above right:$x_1$] (y_1)
+            ;
+            \begin{scope}[on background layer]
+                \fill[red!20,opacity=.6]  (x_0.center) -- (y_0.center) -- (y_2.center) -- (y_1.center) -- cycle;
+                \fill[blue!20,opacity=.6] (x_0.center) -- (y_2.center) -- (x_1.center) -- cycle;
+                \fill[DarkGreen!20,opacity=.6] (x_0.center) -- (y_2.center) -- (x_2.center) -- (x_1.center) -- cycle;
+            \end{scope}
+            \node[red] at (barycentric cs:x_0=1,y_0=1,y_2=1) {$\sigma_0$};
+            \node[blue] at (barycentric cs:x_0=1,y_2=1,x_1=1) {$\sigma_1$};
+            \node[DarkGreen] at (barycentric cs:x_1=1,x_2=1,y_2=1) {$\sigma_2$};
+            % \node[gray] at (barycentric cs:y_0=1,y_1=1,y_2=1) {$\sigma^1_0 \circ \sigma^0_0(y)$};
+            \draw[->-=.5] (x_0) -- (x_1);
+            \draw[->-=.5] (x_0) -- (x_2);
+            \draw[->-=.5] (x_1) -- (x_2);
+            \draw[->-=.5,dashed] (y_0) -- (y_1);
+            \draw[->-=.5] (y_0) -- (y_2);
+            \draw[->-=.5,dashed] (y_1) -- (y_2);
+            \draw[->-=.5,very thick] (x_0) -- node[midway,left] {$\Id_{x_0}$} (y_0);
+            \draw[->-=.5,dashed] (x_0) -- (y_1);
+            \draw[->-=.5] (x_0) -- (y_2);
+            \draw[->-=.5,very thick] (x_2) -- node[midway,right] {$\Id_{x_2}$} (y_2);
+            \draw[->-=.5,dashed, very thick] (x_1) -- node[midway,above left] {$\Id_{x_1}$} (y_1);
+            \draw[->-=.5,dashed] (x_1) -- (y_2);
+        \end{tikzpicture}
+        \right\} 
+    \end{align}
+    となっている．
+\end{myexample}
+
+
 $0 \le \forall i < \forall j \le n$ に対して $q^n_{ij} \in \Hom{\Delta} \bigl( [1],\, [n] \bigr)$ を
 \begin{align}
     q^n_{ij} \colon 0 \lmto i,\; 1 \lmto j
@@ -3212,7 +3498,7 @@ $0 \le \forall i < \forall j \le n$ に対して $q^n_{ij} \in \Hom{\Delta} \big
     \end{align}
     および
     \begin{align}
-        \partial^k_{ij} &\coloneqq \underbrace{\partial^{m+2}_0 \cdots \partial^{m+i+1}_{i-1}}_{i} \circ \underbrace{\partial_{i+k}^{m+i+2} \cdots \partial_{k+j-2}^{m+j}}_{j-i-1} \circ \underbrace{\partial_{j+m+1}^{m+j+1} \cdots \partial_{m+n}^{m+n}}_{n-j} \colon K_{m+n} \lto K_{m+1}
+        \partial^k_{ij} &\coloneqq \underbrace{\partial^{m+2}_0 \cdots \partial^{m+i+1}_{i-1}}_{i} \circ \underbrace{\partial_{k+i}^{m+i+2} \cdots \partial_{k+j-2}^{m+j}}_{j-i-1} \circ \underbrace{\partial_{m+j+1}^{m+j+1} \cdots \partial_{m+n}^{m+n}}_{n-j} \colon K_{m+n} \lto K_{m+1}
     \end{align}
     とおいた．
 \end{mylem}
@@ -3289,14 +3575,103 @@ $0 \le \forall i < \forall j \le n$ に対して $q^n_{ij} \in \Hom{\Delta} \big
     \end{align}
     であるから，
     \begin{align}
-        \gamma_{\omega_v} = d_{m+n}^{m+n} \circ \cdots \circ d_{j+m+1}^{m+j+1} \circ d_{k+j-2}^{m+j} \circ \cdots \circ d_{i+k}^{m+i+2} \circ d_{i-1}^{m+i+1} \circ \cdots \circ d_0^{m+2}
+        \gamma_{\omega_v} = d_{m+n}^{m+n} \circ \cdots \circ d_{m+j+1}^{m+j+1} \circ d_{k+j-2}^{m+j} \circ \cdots \circ d_{k+i}^{m+i+2} \circ d_{i-1}^{m+i+1} \circ \cdots \circ d_0^{m+2}
     \end{align}
     が言えた．
 \end{proof}
 
+\begin{myexample}[label=ex:q2]{制限写像 {$\theta^2_{ij}$}}
+    
+\end{myexample}
 
+\begin{mydef}[label=def:triv-Kan-fib]{自明なKanファイブレーション}
+    \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $p \colon K \lto L$ が\textbf{自明なKanファイブレーション} (trivial Kan fibration) であるとは，
+    $\forall n \ge 0$ に対して以下の条件を充たすことを言う：
 
+    \begin{description}
+        \item[\textbf{(Lifting Property)}]　
+        
+        包含 $\iota \in \Hom{\sSet} (\partial \Delta^n,\, \Delta^n)$ について $p \circ \textcolor{blue}{f_0} = \textcolor{blue}{f} \circ \iota$ を充たす任意の $(\textcolor{blue}{f_0},\, \textcolor{blue}{f}) \in \Hom{\sSet}(\partial \Delta^n,\, K) \times \Hom{\sSet} (\Delta^n,\, L)$ に対して，以下の図式を可換にする $\textcolor{red}{\bar{f}} \in \Hom{\sSet} (\Delta^n,\, K)$ が存在する：
+        \begin{center}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB1206AnPRgAScAIjAY46APUIBfUuky58hFGQCMVWoxZsRYidJByF2PASJrSG6vWatEIADJH5IDKeUXym2zocBpI00YKABzeCJQADMeCABbJABmahwIJAAmG217Nxdo2ITEMhBUpKy7XXYoiB5GBgEogH1iPJAY+KRLErTETJAGOgAjMQAFRTMVEB4sUIALHBByvw4qmrqG1vbC4tLELoksBjZZiAgAa0WtCodOfAlLgeGGMY9zB2m5heM2gs6UnuS-SwYByUDocFmIUuvhynBgAA8sHAcHBOINeMAojIHkNRuNPA4GDAol8KDIgA
+            \begin{tikzcd}
+            \partial \Delta^n \arrow[r, blue, "\forall f_0"] \arrow[d, "\iota"', hook]  & K \arrow[d, "p"] \\
+            \Delta^n \arrow[r, blue,"\forall f"'] \arrow[ru, red,"\exists\bar{f}", dashed] & L               
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+\end{mydef}
 
+\begin{myprop}[label=prop:restrict]{制限写像はtrivial Kan fibration}
+    $K$ を $(\infty,\, 1)$-圏とする．
+    このとき，\hyperref[def:restriction]{制限写像}
+    \begin{align}
+        \inftyMap{K} (x_0,\, \dots,\, x_n) \xrightarrow{\prod_{i=1}^n \theta^n_{i-1,\, i}} \prod_{i=1}^n \inftyMap{K} (x_{i-1},\, x_i)
+    \end{align}
+    は\hyperref[def:triv-Kan-fib]{自明なKanファイブレーション}である．
+\end{myprop}
+
+\begin{proof}
+    ~\cite[\href{https://kerodon.net/tag/01PL}{Tag 01PL}]{kerodon}
+\end{proof}
+
+\begin{mycol}[label=col:restrict]{制限写像はホモトピー同値}
+    $K$ を $(\infty,\, 1)$-圏とする．
+    このとき，\hyperref[def:restriction]{制限写像}
+    \begin{align}
+        \inftyMap{K} (x_0,\, \dots,\, x_n) \xrightarrow{\prod_{i=1}^n \theta^n_{i-1,\, i}} \prod_{i=1}^n \inftyMap{K} (x_{i-1},\, x_i)
+    \end{align}
+    は\hyperref[def:KanCplx]{Kan複体}の間の\hyperref[def:htpy-equiv]{ホモトピー同値}である．
+\end{mycol}
+
+\begin{proof}
+    命題\ref{prop:Map-is-Kan}より $\prod_{i=1}^n \inftyMap{K} (x_{i-1},\, x_i)$ はKan複体なので，\hyperref[def:triv-Kan-fib]{自明なKanファイブレーション}の性質より $\inftyMap{K} (x_0,\, \dots,\, x_n)$ もKan複体である．
+    さらに，Kan複体の間の自明なKanファイブレーションはホモトピー同値である~\cite[\href{https://kerodon.net/tag/006Z}{Tag 006Z}]{kerodon}．
+\end{proof}
+
+系\ref{col:restrict}を用いて，$(\infty,\, 1)$-圏における射の合成を次のように定義する．
+然るに，定理\ref{thm:KanCplx}の証明が示唆する通りに，射の合成は一般に\underline{up to homotopy でしか定まらず，$\sSet$ の射としてはill-definedである}！
+
+\begin{mydef}[label=def:Map-comp,breakable]{射の合成}
+    $K$ を\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}，$x,\, y,\, z \in K_0$ をその対象とする．
+    このとき，$(\infty,\, 1)$-圏 \hyperref[def:Spaces]{$\SPACES$} の1-射
+    \begin{align}
+        \circ \colon \inftyMap{K}(y,\, z) \times \inftyMap{K} (x,\, y) \lto \inftyMap{K} (x,\, z)
+    \end{align}
+    を以下で定義する：
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQACAHS6zADMcATwCy9NMADSAXwAUADwD65Uj1IclAJgCU3LngC28PX0GjxU6RwWKyajcu0hppdJlz5CKFcWp0mrOw8psJiEjI2dlwOKvZaTi5u2HgERJoUfgwsbIggwQKhFhFKUerxzn4wUADm8ESg-ABOEAZIKiA4EEjp-tlB+gAWMDj0AHqaisDEmtLOriBNLUhkHV2IPVmBuTwAxliNOyA0jPQARjCMAAruKV4gjVjVAzhzDc2tiO2dy8d8OSBQehwIZQI69LZ5QbDMYTYDkGZ6QzGHg4IYjcaTYjkWbHM4Xa7JTzsB5PF7SSjSIA
+        \begin{tikzcd}
+                                                                                          & {\inftyMap{K}(x,\ y,\, z)} \arrow[rd, "\theta^2_{02}"] \arrow[ld, "\theta^2_{12} \times \theta^2_{01}"', dashed] &                            \\
+        { \inftyMap{K}(y,\, z) \times \inftyMap{K} (x,\, y)} \arrow[rr, red,"\circ"'] &                                                                                                                        & {\inftyMap{K}(x,\, z)}
+        \end{tikzcd}
+    \end{center}
+    ただし，点線の部分は\hyperref[def:htpy-equiv]{ホモトピー逆}をとる\footnote{系\ref{col:restrict}により，ホモトピー逆の存在が保証されている．}ことによって矢印を向きにする\footnote{もしくは，$(1,\, 1)$-圏 \hyperref[def:hcat-Kan]{$\htpy{\KAN}$} においてwell-definedな逆射をとっていると見做すこともできる．}．
+
+    \tcblower
+
+    $f \in \inftyMap{K}(x,\, y)_0,\; g \in \inftyMap{K}(y,\, z)_0$ を与える．
+    \begin{itemize}
+        \item $f$ による\textbf{前合成} (precomposition)
+        \begin{align}
+            [f]^* \colon \inftyMap{K} (y,\, z) \lto \inftyMap{K} (x,\, z)
+        \end{align}
+        を，$(\infty,\, 1)$-圏 \hyperref[def:Spaces]{$\SPACES$} の1-射
+        \begin{align}
+            \inftyMap{K} (y,\, z) \cong \inftyMap{K} (y,\, z) \times \{f\} \hookrightarrow \inftyMap{K}(y,\, z) \times \inftyMap{K} (x,\, y) \xrightarrow{\circ} \inftyMap{K} (x,\, z)
+        \end{align}
+        として定義する．$[f]^*$ は up to homotopy で well-defined である\footnote{もしくは，$(1,\, 1)$-圏 \hyperref[def:hcat-Kan]{$\htpy{\KAN}$} においてwell-defined．}．
+        \item $g$ による\textbf{後合成} (postcomposition)
+        \begin{align}
+            [g]_* \colon \inftyMap{K} (x,\, y) \lto \inftyMap{K} (x,\, z)
+        \end{align}
+        を，$(\infty,\, 1)$-圏 \hyperref[def:Spaces]{$\SPACES$} の1-射
+        \begin{align}
+            \inftyMap{K} (x,\, y) \cong \{g\} \times \inftyMap{K} (x,\, y) \hookrightarrow \inftyMap{K}(y,\, z) \times \inftyMap{K} (x,\, y) \xrightarrow{\circ} \inftyMap{K} (x,\, z)
+        \end{align}
+        として定義する．$[g]_*$ は up to homotopy で well-defined である\footnote{もしくは，$(1,\, 1)$-圏 \hyperref[def:hcat-Kan]{$\htpy{\KAN}$} においてwell-defined．}．
+    \end{itemize}
+\end{mydef}
 
 \section{単体的豊穣圏とホモトピー論}
 
@@ -3335,7 +3710,6 @@ $0 \le \forall i < \forall j \le n$ に対して $q^n_{ij} \in \Hom{\Delta} \big
                 &I \otimes \Hom{\Cat{C}}(x,\,  y) \ar[u, "j_y \otimes \Id_{\Hom{\Cat{C}}(x,\,  y)}"] \ar[ur, "\cong"'] & &\Hom{\Cat{C}}(x,\,  y) \otimes I \ar[u, "\Id_{\Hom{\Cat{C}}(x,\,  y)} \otimes j_x"'] \ar[ul, "\cong"]
             \end{tikzcd}
         \end{center}
-        
     \end{description}
 \end{mydef}
 

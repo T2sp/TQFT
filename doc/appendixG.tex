@@ -848,7 +848,7 @@ $\PshSETS{\OP{\Strat}}$ から $\sSet$ への関手を
     \begin{description}
         \item[\textbf{(lifting property)}]　
         
-        包含 $\iota \in \Hom{\sSet}(\Lambda^n_j,\, \Delta^n)$ に関して $p \circ \textcolor{blue}{f_0} = \textcolor{blue}{f} \circ \iota$ を充たす任意の $(\textcolor{blue}{f_0},\, \textcolor{blue}{f}) \in \Hom{\sSet}(\Lambda^n_j,\, \Cat{E}) \times \Hom{\sSet}(\Delta^n_j,\, \Cat{B})$ に対して，以下の図式を可換にする $\textcolor{red}{\bar{f}} \in \Hom{\sSet}(\Delta^n,\, \Cat{E})$ が存在する：
+        包含 $\iota \in \Hom{\sSet}(\Lambda^n_j,\, \Delta^n)$ に関して $p \circ \textcolor{blue}{f_0} = \textcolor{blue}{f} \circ \iota$ を充たす任意の $(\textcolor{blue}{f_0},\, \textcolor{blue}{f}) \in \Hom{\sSet}(\Lambda^n_j,\, \Cat{E}) \times \Hom{\sSet}(\Delta^n,\, \Cat{B})$ に対して，以下の図式を可換にする $\textcolor{red}{\bar{f}} \in \Hom{\sSet}(\Delta^n,\, \Cat{E})$ が存在する：
         \begin{center}
             % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12AZOgWwCModAHpoA+gCsQAX1LpMufIRRkAjFVqMWbTgBEYDHCLQy5IDNjwEiq0uur1mrRB3YBhOjmAAhaafmWSjbkGo7aLpweXgCiftIaMFAA5vBEoABmAE4QvEhkIDgQSADMDlrOIEn+IFk5SLYFRYgATGVObOkg1Ax0-AYACgpWyiCZWEkAFjjVtbmIpY1IrZrtLiayGdlz+YX11EZYDGwTEBAA1l0r4a74Rpc9fQyDgdYuY5PTGzVbe4vz3VgwBUhHAJolLmEKpx+HRMsB0nEKNIgA
             \begin{tikzcd}[column sep=large,row sep=large]
@@ -1396,7 +1396,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
     対象 $x \in \Cat{C}_0$ に対して
     \begin{align}
         \yo_{[0]}(x)_{[0]} \colon \OP{\Cat{C}}_0 &\lto \SPACES_0, \\
-        y &\lmto \inftyMap{\Cat{C}} (x,\, y)
+        y &\lmto \inftyMap{\Cat{C}} (y,\, x)
     \end{align}
     を充たす\footnote{$(\infty,\, 1)$-圏 $\Cat{C}$ において，対象 $x,\, y \in \Cat{C}_0$ の間の\hyperref[def:Map]{射の空間} $\inftyMap{\Cat{C}}(x,\, y)$ はKan複体を成すのだった~\cite[\href{https://kerodon.net/tag/01JC}{Tag 01JC}]{kerodon}．}ような $(\infty,\, 1)$-圏の関手 $\yo_{[0]}(x) \in \inftyPsh{\Cat{C}}_0 = \Hom{\sSet}(\OP{\Cat{C}},\, \SPACES)$ を対応付けるもののこと\footnote{厳密な構成については~\cite[\href{https://kerodon.net/tag/03NF}{Tag 03NF}]{kerodon}を参照．}．
 \end{mydef}
@@ -1449,7 +1449,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 \begin{mydef}[label=def:B-mfld,breakable]{{$\Cat{B}$}-多様体}
     \begin{itemize}
         \item \textbf{$\bm{(\Cat{B},\, f)}$ 構造}\footnote{~\cite[Definition 1.1.6]{AFT2014stratified}では\textbf{$(\infty,\, 1)$-category of basics}と呼ばれている．}とは，$(\infty,\, 1)$-圏の\hyperref[def:infty-fib]{右ファイブレーション} $(\Cat{B} \xrightarrow{f} \BSC) \in (\RFIB_{\BSC})_0$ のこと．
-        \item $(\Cat{B},\, f)$ 構造 $\Cat{B} \xrightarrow{f} \BSC$ を1つ固定する．このとき，\textbf{$\bm{\Cat{B}}$-多様体} ($\Cat{B}$-manifold) の成す $(\infty,\, 1)$-圏 $\MFLDB{\Cat{B}}$ とは，\hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏のpullback}
+        \item $(\Cat{B},\, f)$ 構造 $\Cat{B} \xrightarrow{f} \BSC$ を1つ固定する．このとき，\textbf{$\bm{\Cat{B}}$-多様体} ($\Cat{B}$-manifold) の成す $(\infty,\, 1)$-圏 $\MFLDB{\Cat{B}}$ とは，$(1,\, 1)$-圏 $\sSet$ における\hyperref[def:pullback-pushout]{引き戻し}
         \begin{center}
             % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BZAMQBkAIgCFgnAMJ0cwIQF8ZIGaXSZc+QigCM5KrUYs2ACk4AlHgEkhAfVHshAZTEyAlNfGTpMgAScAHgCcsAHMACxw6Pz8IAHdgNC9Oe0cFJRAMbDwCIi0NHXpmVkQOdlMLV1sHeUVldLUiMhzqPP1CzjsAOQBxPmMFHRgoQPgiUAAzSIBbJABmahwIJAAmRr0CorCmEGoGOgAjGAYABRUM9RAAkJxk0YmkMhA56aqQMYhJxC17+cQl3Xy2TnGkmCfnGwBGED8gxwlRSLzedwe7xkFBkQA
             \begin{tikzcd}
@@ -1479,7 +1479,10 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 \end{mydef}
 
 % \subsection{$C^\infty$-多様体の接構造との比較}
-
+以降の小節で定義\ref{def:B-mfld}を解読しよう．
+特に，定理\ref{thm:tangentclassifier}により，\hyperref[def:tangent-classifier]{tangent classifier} $\tau_X$ は\hyperref[def:c-smooth]{conically smoothな層状化空間} $X \in \SNGLR_0$ の上に「strataum-wise」に（通常の意味の）接束をアサインしていることが分かる．
+ここで言う「stratum-wise」とは，$X$ が元来持っている\hyperref[def:stratified-space]{層状化}のことではなく，補題\ref{lem:strat-basic}による $X$ の\hyperref[thm:basic-easy]{$[\BSC]$}-層状化によるものである．
+補題\ref{lem:XU-mfd}により，\hyperref[thm:basic-easy]{$[\BSC]$}-層状化による $X$ の $[U] \in [\BSC]$-層はただの $C^\infty$-多様体であることが分かり，その上の\hyperref[prop:tangentbundle]{接束}を考えることができるのである．
 
 \subsection{{$\mathcal{B}\mathrm{sc}$} におけるHom}
 
@@ -2462,27 +2465,28 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         \item[\textbf{(Op-1)}]　
         
         任意の\hyperref[def:inert-active]{inertな}射 $\alpha \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $\forall x \in (\Cat{O}^\otimes_{\expval{m}})_0$ に対して，
-        $\Cat{O}^\otimes$ における\hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射 $(x \xrightarrow{\bar{\alpha}} y) \in (\Cat{O}^\otimes)_1$ が存在して $p_{[1]}(\bar{\alpha}) = \alpha$ を充たす．
+        $\Cat{O}^\otimes$ における\hyperref[def:p-Cart]{$p$-coCartesian}な1-射 $(x \xrightarrow{\bar{\alpha}} y) \in (\Cat{O}^\otimes)_1$ が存在して $p_{[1]}(\bar{\alpha}) = \alpha$ を充たす．
         
         \item[\textbf{(Op-2)}]　
         
         $\forall \alpha \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $\forall x \in (\Cat{O}^\otimes_{\expval{m}})_0,\; \forall y \in (\Cat{O}^\otimes_{\expval{n}})_0$ に対して，
-        \exref{def:rho-i}のinertな射の族 $\Familyset[\big]{\rho^i \in  \Hom{\FIN_*}\bigl( \expval{n},\, \expval{1} \bigr)}{1 \le i \le n}$ に \textsf{\textbf{(Op-1)}} を適用して得られる\hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射の族 $\Familyset[\big]{y \xrightarrow{\bar{\rho}^i} y_i \in (\Cat{O}^\otimes)_1}{1 \le i \le n}$ が誘導する\hyperref[def:infinity-1]{Kan複体の関手}
-        \footnote{対象の対応としては $\bar{\alpha} \lmto (\bar{\rho}^1 \circ \bar{\alpha},\, \dots,\, \bar{\rho}^n \circ \bar{\alpha})$ であるが，右辺の\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\Cat{O}^\otimes$ における1-射の合成はup to homotopyでしか定まらないため，この関手はup to homotopyでしか決まらない．}
+        \exref{def:rho-i}のinertな射の族 $\Familyset[\big]{\rho^i \in  \Hom{\FIN_*}\bigl( \expval{n},\, \expval{1} \bigr)}{1 \le i \le n}$ に \textsf{\textbf{(Op-1)}} を適用して得られる\hyperref[def:p-Cart]{$p$-coCartesian}な1-射の族 $\Familyset[\big]{y \xrightarrow{\bar{\rho}^i} y_i \in (\Cat{O}^\otimes)_1}{1 \le i \le n}$ が誘導する\hyperref[def:infinity-1]{Kan複体の関手}
+        \footnote{つまり，これは $(\bar{\rho}^1,\, \dots,\, \bar{\rho}^n) \in \prod_{i=1}^n \inftyMap{\Cat{O}^\otimes} (y,\, y_i)_0$ による\hyperref[def:Map-comp]{前合成}である．この関手は up to homotopy でしか定まらないのだった．}
         \begin{align}
             \inftyMap{\Cat{O}^\otimes} (x,\, y)_\alpha \lto \prod_{i=1}^n \inftyMap{\Cat{O}^\otimes} (x,\, y_i)_{\rho^i \circ \alpha}
         \end{align}
-        は，$(\infty,\, 1)$-圏\hyperref[def:Spaces]{$\SPACES$}における\hyperref[def:isom-infty]{同型射}である．
+        は\hyperref[def:htpy-equiv]{ホモトピー同値}である．
 
         \item[\textbf{(Op-3)}]　
         
         $\forall x_1,\, \dots,\, x_n \in (\Cat{O}^\otimes_{\expval{1}})_0$ に対して，
-        ある $x \in (\Cat{O}^\otimes_{\expval{n}})_0$ および \hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射 $\widehat{\rho_i} \in \bigl(\inftyMap{\Cat{O}^\otimes} (x,\, x_i)_{\rho^i}\bigr)_0$ が存在する．
+        ある $x \in (\Cat{O}^\otimes_{\expval{n}})_0$ および \hyperref[def:p-Cart]{$p$-coCartesian}な1-射 $\widehat{\rho_i} \in \bigl(\inftyMap{\Cat{O}^\otimes} (x,\, x_i)_{\rho^i}\bigr)_0$ が存在する．
     \end{description}
 
     ただし，以下の記法を採用した：
     \begin{itemize}
-        \item 点 $\expval{n} \in \Ner (\FIN_*)_0$ における\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $p \colon \Cat{O}^\otimes \lto \Ner (\FIN_*)$ の\textbf{ファイバー} $\Cat{O}^{\otimes}_{\expval{n}}$ を，\hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏のpullback}
+        \item 点 $\expval{n} \in \Ner (\FIN_*)_0$ における\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $p \colon \Cat{O}^\otimes \lto \Ner (\FIN_*)$ の\textbf{ファイバー} $\Cat{O}^{\otimes}_{\expval{n}}$ を，
+        \hyperref[prop:SimpSet-basic]{$(1,\, 1)$-圏 $\sSet$ における引き戻し}
         \begin{center}
             % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BhOnYAeQC+APWCcIeALbxBAfTHsYADzT0GwMIMEhBpdJlz5CKMgEYqtRizacefIcPFT4OvSAzY8BIqdLnqataIHOySvAAWAE6SwAByggAUnABiAJKxsgBUAJSu+p5GPuQWgazBnAAiMAw4dMLEOhYwUADmLiigAGaREJJIZCA4EEgAzLpdPX2IA0NIpuMg3b2j1LOIAEyrdFgMbOEQEADWIAFWZSHKqowa2gtLU76DwxunzOdoJyAMdABG1QAKBi8xhAkSwLXCOEagiAA
             \begin{tikzcd}
@@ -2492,7 +2496,7 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         \end{center}
         と定義した
         \footnote{
-            これ自体が $(\infty,\, 1)$-圏である．なお，ファイバーは $(\infty,\, 1)$-圏のpullbackなので一見すると非常に計算が難しいが，幸いにしてこの場合は\hyperref[prop:SimpSet-basic]{$(1,\, 1)$-圏 $\sSet$ におけるpullback}と一致する．
+            これ自体が $(\infty,\, 1)$-圏である．
         }．
         \item $\alpha \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $x \in (\Cat{O}^\otimes_{\expval{m}})_0,\; y \in (\Cat{O}^\otimes_{\expval{n}})_0$ に対して，
         $\bar{\alpha} \in \inftyMap{\Cat{O}^\otimes}(x,\, y)_{0}$ であって $p_{[1]}(\bar{\alpha}) = \alpha$ を充たすもの全体から定まる，$\inftyMap{\Cat{O}^\otimes} (x,\, y) \in \SPACES_0$
@@ -2557,7 +2561,7 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
     このとき，$(\infty,\, 1)$-圏 $\Cat{O}^\otimes$ の1-射 $f \in (\Cat{O}^\otimes)_1$ が\textbf{inert}であるとは，以下の2条件を充たすことを言う：
     \begin{description}
         \item[\textbf{(inert-1)}] $p_{[1]}(f)$ は $(1,\, 1)$-圏 $\FIN_*$ における\hyperref[def:inert-active]{innerな射}である．
-        \item[\textbf{(inert-2)}] $f$ は\hyperref[def:Cart-coCart]{$p$-coCartesian}な1-射である．
+        \item[\textbf{(inert-2)}] $f$ は\hyperref[def:p-Cart]{$p$-coCartesian}な1-射である．
     \end{description}
     
     \tcblower
@@ -2709,7 +2713,7 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
     \label{cond:Op-ord-3}
 
     $\forall c_1,\, \dots,\, c_n \in \Obj{\Cat{O}^\otimes_{\expval{1}}}$ に対して，
-    ある $c \in \Obj{\Cat{O}^\otimes_{\expval{n}}}_0$ および \hyperref[def:Cart-coCart]{$p$-coCartesian}な射 $\widehat{\rho_i} \in \Hom{\Cat{O}^\otimes} (c,\, c_i)_{\rho^i}$ が存在する．
+    ある $c \in \Obj{\Cat{O}^\otimes_{\expval{n}}}_0$ および \hyperref[def:p-Cart]{$p$-coCartesian}な射 $\widehat{\rho_i} \in \Hom{\Cat{O}^\otimes} (c,\, c_i)_{\rho^i}$ が存在する．
 \end{description}
 ここで，$\CAT$ における\hyperref[def:pullback-pushout]{引き戻し}
 \begin{center}
@@ -2736,7 +2740,7 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         \item $\forall x_1,\, \dots,\, x_n,\, y \in \Obj{\Cat{O}}$ に対して，以下の3つ組全体が成す集合を $\Mul{\Cat{O}} \bigl( (x_1,\, \dots,\, x_n),\, y \bigr)$ と定義する．
         \begin{enumerate}
             \item $x_1,\, \dots,\, x_n$ に対して\hyperref[cond:Op-ord-1]{\textsf{\textbf{(Op-ord-3)}}}を適用することにより定まる $X \in \Obj{\Cat{O}^\otimes_{\expval{n}}}$ 
-            \item $x_1,\, \dots,\, x_n$ に対して\hyperref[cond:Op-ord-1]{\textsf{\textbf{(Op-ord-3)}}}を適用することにより定まる\hyperref[def:Cart-coCart]{$p$-coCartesian}な射の族 $\Familyset[\big]{\widehat{\rho_i} \in \Hom{\Cat{O}^\otimes}(X,\, x_i)_{\rho^i}}{1 \le i \le n}$
+            \item $x_1,\, \dots,\, x_n$ に対して\hyperref[cond:Op-ord-1]{\textsf{\textbf{(Op-ord-3)}}}を適用することにより定まる\hyperref[def:p-Cart]{$p$-coCartesian}な射の族 $\Familyset[\big]{\widehat{\rho_i} \in \Hom{\Cat{O}^\otimes}(X,\, x_i)_{\rho^i}}{1 \le i \le n}$
             \item \exref{def:alpha-n}の\hyperref[def:inert-active]{active}な射
             $\alpha_n \in \Hom{\FIN_*} \bigl( \expval{n},\, \expval{1} \bigr)$ およびその上の $\Cat{O}^\otimes$ の射 $F \in \Hom{\Cat{O}^\otimes} (X,\, y)_{\alpha_n}$
         \end{enumerate}
@@ -2753,7 +2757,7 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         を次のように定義する：
         \begin{enumerate}
             \item $X \in \Obj{\Cat{O}^\otimes_{\expval{m_1 + \cdots + m_n}}}$ は，$x^1_1,\, \dots,\, x^n_{m_n} \in \Obj{\Cat{O}}$ に対して\hyperref[cond:Op-ord-1]{\textsf{\textbf{(Op-ord-3)}}}を適用することにより定める．
-            \item \hyperref[def:Cart-coCart]{$p$-coCartesian}な射の族 $\Familyset[\big]{\widehat{\rho^j_{i}} \in \Hom{\Cat{O}^\otimes}(X,\, x^j_i)_{\rho^{i+m_1+\cdots+m_{j-1}}}}{\substack{1 \le j \le n \\ 1 \le i \le m_j}}$ は $x^1_1,\, \dots,\, x^n_{m_n} \in \Obj{\Cat{O}}$ に対して\hyperref[cond:Op-ord-1]{\textsf{\textbf{(Op-ord-3)}}}を適用することにより定める．
+            \item \hyperref[def:p-Cart]{$p$-coCartesian}な射の族 $\Familyset[\big]{\widehat{\rho^j_{i}} \in \Hom{\Cat{O}^\otimes}(X,\, x^j_i)_{\rho^{i+m_1+\cdots+m_{j-1}}}}{\substack{1 \le j \le n \\ 1 \le i \le m_j}}$ は $x^1_1,\, \dots,\, x^n_{m_n} \in \Obj{\Cat{O}}$ に対して\hyperref[cond:Op-ord-1]{\textsf{\textbf{(Op-ord-3)}}}を適用することにより定める．
             \item $\Cat{O}^\otimes$ の射 $G \circ (F^1;\, \dots \, ;\, F^n) \in \Hom{\Cat{O}^\otimes} (X,\, z)_{\alpha_{m_1 + \cdots + m_n}}$ は以下の手順に従って構成する：
             \begin{description}
                 \item[\textbf{(STEP-1)}]　
