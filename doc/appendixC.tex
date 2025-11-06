@@ -3342,7 +3342,7 @@ Kan複体 $\inftyMap{K} (x_1,\, \dots,\, x_n)$ の $m$-射の集合 $\inftyMap{K
     \end{align}
     である．以上をまとめると，補題\ref{lem:n-fold-Map}より
     \begin{align}
-        M^{m,\, 1}_K = \Bigl\{\, (\sigma_0,\, \dots,\, \sigma_m) \in K_{m+1}^{\times (m+1)} \Bigm| \substack{1 \le \forall k \le m,\; \partial^{m+1}_k (\sigma_k) = \partial^{m+1}_k (\sigma_{k-1}) \\ \partial^{m+1}_{m+1} (\sigma_m) = x_0,\; \partial^{m+1}_0 (\sigma_0) = x_1} \,\Bigr\} 
+        M^{m,\, 1}_K = \Bigl\{\, (\sigma_0,\, \dots,\, \sigma_m) \in K_{m+1}^{\times (m+1)} \Bigm| \substack{1 \le \forall k \le m,\; \partial^{m+1}_k (\sigma_k) = \partial^{m+1}_k (\sigma_{k-1}) \\ \partial^{m+1}_{m+1} (\sigma_m) = \sigma^{m-1}_0 \cdots \sigma^{0}_0(x_0),\; \partial^{m+1}_0 (\sigma_0) = \sigma^{m-1}_0 \cdots \sigma^{0}_0(x_1)} \,\Bigr\} 
     \end{align}
     であることが分かり，\exref{ex:Map0}, \exref{ex:Map1}, \exref{ex:Map2}の結果を再現する．
 \end{myexample}
@@ -4150,6 +4150,8 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
 
 \subsection{単体的ホモトピー}
 
+定義\ref{def:htpy-equiv}を，より具体的な形で言い直そう．
+
 \begin{mydef}[label=def:SimpSet-homotopic,breakable]{単体的ホモトピー}
     % \begin{itemize}
     %     \item $f,\, g \in \Hom{\sSet} (X,\, Y)$ を繋ぐ\textbf{ホモトピー}とは，\hyperref[def:SimpSet]{$\sSet$ の射} $\eta \in \Hom{\sSet}(X \times \Delta^1,\, Y)$ であって，以下の $\sSet$ の図式を可換にするもののこと：
@@ -4169,18 +4171,18 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
     $X,\, Y,\, K\in \Obj{\sSet}$ を，$K$ が $X$ の\hyperref[def:SimpSet]{単体的部分集合}となるようにとる．包含射 $i \colon K \hookrightarrow X$ をとる．
     \begin{itemize}
         \item 
-        $f,\, g \in \Hom{\sSet} (X,\, Y)$ を繋ぐ\textbf{ホモトピー}とは，\hyperref[def:SimpSet]{$\sSet$ の射} $\eta \in \Hom{\sSet}(X \times \Delta^1,\, Y)$ であって，以下の $\sSet$ の図式を可換にするもののこと：
+        $f,\, g \in \Hom{\sSet} (X,\, Y)$ を繋ぐ\textbf{単体的ホモトピー} (simplicial homotopy) とは，\hyperref[def:SimpSet]{$\sSet$ の射} $\eta \in \Hom{\sSet}(\Delta^1 \times X,\, Y)$ であって，以下の $\sSet$ の図式を可換にするもののこと：
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
-                &X \cong X \times \Delta^0 \ar[r, "\Id \times d^1_1{}_*"]\ar[dr, "f"'] &X \times \Delta^1 \ar[d, "\eta"] &X \times \Delta^0 \ar[l, "\Id \times d^1_0{}_*"'] \ar[dl, "g"] \\
+                &X \cong \Delta^0 \times X \ar[r, "d^1_1{}_* \times \Id_X"]\ar[dr, "f"'] &\Delta^1 \times X \ar[d, "\eta"] &\Delta^0 \times X \ar[l, "d^1_0{}_* \times \Id_X"'] \ar[dl, "g"] \\
                 & &Y &
             \end{tikzcd}
         \end{center}
         $f,\, g$ を繋ぐホモトピーが存在するとき，$f,\, g$ は互いに\textbf{ホモトピック}であるという．
-        \item $f \circ i = g \circ i \eqqcolon \alpha$ とおく．ホモトピー $\eta \in \Hom{\sSet} (X \times \Delta^1,\, Y)$ が $f$ と $g$ の間の\textbf{$\bm{K}$ に関する相対ホモトピー} (homotopy from $f$ to $g$ (rel $K$)) であるとは，上の可換図式に加えて
+        \item $f \circ i = g \circ i \eqqcolon \alpha$ とおく．ホモトピー $\eta \in \Hom{\sSet} (\Delta^1 \times X,\, Y)$ が $f$ と $g$ の間の\textbf{$\bm{K}$ に関する相対ホモトピー} (homotopy from $f$ to $g$ (rel $K$)) であるとは，上の可換図式に加えて
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
-                 &K \times \Delta^1 \ar[r, hookrightarrow, "i \times \Id"]\ar[d, "\mathrm{pr}"'] &X \times \Delta^1 \ar[d, "\eta"] \\
+                 &K \times \Delta^1 \ar[r, hookrightarrow, "\Id_{\Delta^1} \times i"]\ar[d, "\mathrm{pr}"'] &\Delta^1 \times X \ar[d, "\eta"] \\
                  &K \ar[r, "\alpha"'] &Y
             \end{tikzcd}
         \end{center}
@@ -4211,13 +4213,13 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
     \end{align}
 \end{mydef}
 
-一見するとホモトピーと単体的ホモトピーは別のものに見えるが，実は同じものである．\hyperref[def:SimpSet-homotopic]{単体的ホモトピー} $\Familyset[\big]{h_i \colon X_n \lto Y_{n+1}}{i = 0,\, \dots,\, n,\, n \ge 0}$ が与えられたとする．このとき $\sSet$ の射 $\eta \in \Hom{\sSet}(X \times \Delta^1,\, Y)$ を
+\hyperref[def:SimpSet-homotopic]{単体的ホモトピー} $\Familyset[\big]{h_i \colon X_n \lto Y_{n+1}}{i = 0,\, \dots,\, n,\, n \ge 0}$ が与えられたとする．このとき $\sSet$ の射 $\eta \in \Hom{\sSet}(X \times \Delta^1,\, Y)$ を
 \begin{align}
     \eta_0 &\coloneqq \partial_0 \circ h_0, \\
     \eta_{n+1} &\coloneqq \partial_{n+1} \circ h_n, \\
     \eta_j &\coloneqq \partial_j \circ h_{j} \quad (1\le j \le n)
 \end{align}
-と定義すると，\hyperref[def:colim]{和の普遍性}の図式によって $\eta \in \Hom{\sSet}(X \times \Delta^1,\, Y)$ が定まる．
+と定義すると，\hyperref[def:colim]{和の普遍性}の図式によって $\eta \in \Hom{\sSet}(\Delta^1 \times X,\, Y)$ が定まる．
 
 \begin{myprop}[label=prop:simphomotopy-equiv]{$\infty$-groupoidとホモトピー}
     $X,\, Y \in \Obj{\sSet}$ が\hyperref[def:infinity-1]{$\infty$-groupoid}ならば，\hyperref[def:SimpSet-homotopic]{ホモトピック}は $\Hom{\sSet} (X,\, Y)$ の上の同値関係になる．

@@ -2471,7 +2471,7 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         
         $\forall \alpha \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $\forall x \in (\Cat{O}^\otimes_{\expval{m}})_0,\; \forall y \in (\Cat{O}^\otimes_{\expval{n}})_0$ に対して，
         \exref{def:rho-i}のinertな射の族 $\Familyset[\big]{\rho^i \in  \Hom{\FIN_*}\bigl( \expval{n},\, \expval{1} \bigr)}{1 \le i \le n}$ に \textsf{\textbf{(Op-1)}} を適用して得られる\hyperref[def:p-Cart]{$p$-coCartesian}な1-射の族 $\Familyset[\big]{y \xrightarrow{\bar{\rho}^i} y_i \in (\Cat{O}^\otimes)_1}{1 \le i \le n}$ が誘導する\hyperref[def:infinity-1]{Kan複体の関手}
-        \footnote{つまり，これは $(\bar{\rho}^1,\, \dots,\, \bar{\rho}^n) \in \prod_{i=1}^n \inftyMap{\Cat{O}^\otimes} (y,\, y_i)_0$ による\hyperref[def:Map-comp]{前合成}である．この関手は up to homotopy でしか定まらないのだった．}
+        \footnote{つまり，これは $(\bar{\rho}^1,\, \dots,\, \bar{\rho}^n) \in \prod_{i=1}^n \inftyMap{\Cat{O}^\otimes} (y,\, y_i)_0$ による\hyperref[def:Map-comp]{後合成}である．この関手は up to homotopy でしか定まらないのだった．}
         \begin{align}
             \inftyMap{\Cat{O}^\otimes} (x,\, y)_\alpha \lto \prod_{i=1}^n \inftyMap{\Cat{O}^\otimes} (x,\, y_i)_{\rho^i \circ \alpha}
         \end{align}
@@ -2532,6 +2532,27 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
 \end{mylem}
 
 \begin{proof}
+    まず，$(\infty,\, 1)$-圏の関手\eqref{eq:Segalmap}が具体的にどのように構成されるのかを見よう．
+    \begin{description}
+        \item[\textbf{0-射}]　
+        
+        $\forall x \in (\Cat{O}^\otimes_{\expval{n}})_0$ は，定義から $x \in \Cat{O}^\otimes_0$ かつ $p_{[0]}(x) = \expval{n}$ を充たす．
+        よって\hyperref[def:infty-operad]{\textsf{\textbf{(Op-1)}}}から，inertな射の族 $\Familyset[\big]{\rho^i \in  \Hom{\FIN_*}\bigl( \expval{n},\, \expval{1} \bigr)}{1 \le i \le n}$ の\hyperref[def:p-Cart]{$p$-coCartesian lift} $\Familyset[\big]{x \xrightarrow{\bar{\rho}^i} x_i \in (\Cat{O}^\otimes)_1}{1 \le i \le n}$ が存在する．これにより
+        \begin{align}
+            (\rho^1_{!},\, \dots,\, \rho^n_{!})_{[0]} \colon x \lmto (x_1,\, \dots,\, x_n)
+        \end{align}
+        と定義する\footnote{$p_{[0]} (x_i) = p_{[0]} (\partial^1_0 \bar{\rho}^i) = \partial^1_0 p_{[1]}(\bar{\rho}^i) = \partial^1_0 \rho^i = \expval{1}$ より $x_i \in (\Cat{O}^\otimes_{\expval{1}})_0$ である．}．
+
+        \item[\textbf{$m \ge 1$-射}]　
+        
+        $\forall x,\, y \in (\Cat{O}^\otimes_{\expval{n}})_0$ を固定しよう．
+        このとき\exref{ex:Map-m1}より自然同型
+        \begin{align}
+            \inftyMap{\Cat{O}^\otimes_{\expval{n}}} (x,\, y)_m \cong \Bigl\{\, (\sigma_0,\, \dots,\, \sigma_m) \in (\Cat{O}^\otimes_{\expval{n}})_{m+1}^{\times (m+1)} \Bigm| \substack{1 \le \forall k \le m,\; \partial^{m+1}_k (\sigma_k) = \partial^{m+1}_k (\sigma_{k-1}) \\ \partial^{m+1}_{m+1} (\sigma_m) = \sigma^{m-1}_0 \cdots \sigma^{0}_0(x),\; \partial^{m+1}_0 (\sigma_0) = \sigma^{m-1}_0 \cdots \sigma^{0}_0(y)} \,\Bigr\}
+        \end{align}
+        があるから，結局 $\sigma \in (\Cat{O}^\otimes_{\expval{n}})_{m+1}$ の行き先が指定できれば良い．
+    \end{description}
+    
     \begin{description}
         \item[\textbf{(OP-3)} $\Longrightarrow$ \textbf{(Segal)}]　
         
