@@ -2505,13 +2505,13 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
             % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12swAzHATwCydNME4BhOjmAB5AL4A9ThDwBbeHIAEACgAepTqU38AlAH1OjNAAs6IOaXSZc+QijIBGKrUYs2nbj4hETF2SWl5JXYVLHU4OT0DdiNTe0cQDGw8AiIPcm96ZlZEDnYAERgGHDoFYjSnLNdc0i9qQr8SgN4BYVFOADkYACdtTgAxbjMAKhM5TgAjLABzBm00M2ASCgTdEySjdc3KBNMF5aGTe28YKCX4IlAeIYhVJAAmahwIJABmT7osAw2NYIBAANYgNq+YqlKy2eogJ4vJB5EBfX5QopsNCQkAMOjzSoABWc2TcICGy2sOARSNeiDIaO+iA8Dkez3pjPRiDecm2QA
             \begin{tikzcd}
             {\textcolor{red}{\inftyMap{\Cat{O}^\otimes} (x,\, y)_\alpha}} \arrow[red,d] \arrow[red,r] & \Delta^0 \arrow[d, "\alpha", hook]                            \\
-            {\inftyMap{\Cat{O}^\otimes}(x,\, y)} \arrow[r, "p"']             & {\inftyMap{\Ner(\FIN_*)}\bigl(p_{[0]}(x),\, p_{[0]}(y)\bigr) = \inftyMap{\Ner(\FIN_*)} (\expval{m},\, \expval{n})}
+            {\inftyMap{\Cat{O}^\otimes}(x,\, y)} \arrow[r, "p"']             & {\inftyMap{\Ner(\FIN_*)} \bigl(\expval{m},\, \expval{n}\bigr)}
             \end{tikzcd}
         \end{center}
         と定義した
         \footnote{
             これ自体がKan複体である．なお，下の横向きの射は，定義\ref{def:FF-ES-infty}に登場したものである．
-        }．
+        }\cite[\href{https://kerodon.net/tag/01P2}{Tag 01P2}]{kerodon}．
         % $\bar{\alpha} \in \inftyMap{\Cat{O}^\otimes}(x,\, y)_{0}$ であって $p_{[1]}(\bar{\alpha}) = \alpha$ を充たすもの全体から定まる，$\inftyMap{\Cat{O}^\otimes} (x,\, y) \in \SPACES_0$
         % の
         % % \footnote{\hyperref[def:infty-1]{Kan複体} $\Hom{\Cat{O}^\otimes} (c,\, c') \in \SPACES_0$ は，\hyperref[def:infty-Hom]{$(\infty,\, 1)$-圏におけるHom関手} $\inftyMap{\Cat{O}^\otimes} \colon \OP{(\Cat{O}^\otimes)} \times \Cat{O}^\otimes \lto \SPACES$ による対象 $(c,\, c') \in (\OP{(\Cat{O}^\otimes)} \times \Cat{O}^\otimes)_0$ の像である．}
@@ -2565,11 +2565,14 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         \end{align}
         が成り立つことに注意する．すると，\hyperref[def:Map-comp]{前合成および後合成}により，Kan複体の関手
         \begin{align}
+            \label{def:Segal-map}
             \inftyMap{\Cat{O}^\otimes_{\expval{n}}} (x,\, y) = \inftyMap{\Cat{O}^\otimes}(x,\, y)_{\Id_{\expval{n}}} &\xrightarrow{\prod_{i=1}^n [\bar{\rho}^i_y]_*} \prod_{i=1}^n \inftyMap{\Cat{O}^\otimes} (x,\, y_i)_{\rho^i} \\ 
             &\xleftarrow{\prod_{i=1}^n [\bar{\rho}^i_x]^*} \prod_{i=1}^n \inftyMap{\Cat{O}^\otimes} (x_i,\, y_i)_{\Id_{\expval{1}}} = \prod_{i=1}^n \inftyMap{\Cat{O}^\otimes_{\expval{1}}} (x_i,\, y_i)
         \end{align}
-        が up to homotopy で定まる．\hyperref[def:infty-operad]{\textsf{\textbf{(Op-2)}}}より $\prod_{i=1}^n [\bar{\rho}^i_y]_*$ は\hyperref[def:htpy-equiv]{ホモトピー同値}である．
-        さらに，\hyperref[def:infty-operad]{\textsf{\textbf{(Op-2)}}}より $\bar{\rho}_x^i$ が $p$-coCartesianなので，$[\bar{\rho}^i_x]^*$ は\hyperref[def:htpy-equiv]{ホモトピー同値}である\cite[\href{https://kerodon.net/tag/01U8}{Tag 01U8}]{kerodon}．
+        が up to homotopy で定まる．
+        % \hyperref[def:infty-operad]{\textsf{\textbf{(Op-2)}}}より $\prod_{i=1}^n [\bar{\rho}^i_y]_*$ は\hyperref[def:htpy-equiv]{ホモトピー同値}である．
+        \hyperref[def:infty-operad]{\textsf{\textbf{(Op-1)}}}より $\bar{\rho}_x^i$ が $p$-coCartesianなので，$[\bar{\rho}^i_x]^*$ は\hyperref[def:htpy-equiv]{ホモトピー同値}であり\cite[\href{https://kerodon.net/tag/01U8}{Tag 01U8}]{kerodon}，
+        uo to homotopy で向きを逆にできる．このようにして $\forall m \ge 1$ 射の対応が定まる．
         % このとき\exref{ex:Map-m1}より自然同型
         % \begin{align}
         %     \inftyMap{\Cat{O}^\otimes_{\expval{n}}} (x,\, y)_m \cong \Bigl\{\, (\sigma_0,\, \dots,\, \sigma_m) \in (\Cat{O}^\otimes_{\expval{n}})_{m+1}^{\times (m+1)} \Bigm| \substack{1 \le \forall k \le m,\; \partial^{m+1}_k (\sigma_k) = \partial^{m+1}_k (\sigma_{k-1}) \\ \partial^{m+1}_{m+1} (\sigma_m) = \sigma^{m-1}_0 \cdots \sigma^{0}_0(x),\; \partial^{m+1}_0 (\sigma_0) = \sigma^{m-1}_0 \cdots \sigma^{0}_0(y)} \,\Bigr\}
@@ -2580,20 +2583,10 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
     \begin{description}
         \item[\textbf{(OP-3)} $\Longrightarrow$ \textbf{(Segal)}]　
         
-        　\textsf{\textbf{(OP-3)}}を仮定する．命題\ref{prop:equiv-FF-ES}より，$(\infty,\, 1)$-圏の関手\eqref{eq:Segalmap}が\hyperref[def:FF-ES]{忠実充満かつ本質的全射}であることを示せば良い．
+        　\hyperref[def:infty-operad]{\textsf{\textbf{(OP-3)}}}を仮定する．命題\ref{prop:equiv-FF-ES}より，$(\infty,\, 1)$-圏の関手\eqref{eq:Segalmap}が\hyperref[def:FF-ES]{忠実充満かつ本質的全射}であることを示せば良い．
+        まず，\hyperref[def:infty-operad]{\textsf{\textbf{(OP-2)}}}により\eqref{def:Segal-map}は\hyperref[def:htpy-equiv]{ホモトピー同値}だから，\eqref{eq:Segalmap}は\hyperref[def:FF-ES-infty]{忠実充満}である．
 
-        　$\forall n \ge 0$ および $\forall x,\, y \in (\Cat{O}^\otimes_{\expval{n}})_0$ を固定する．このとき $\Id_{\expval{n}} \in \Hom{\FIN_*} \bigl( \expval{n},\, \expval{n} \bigr)$ に対して\textsf{\textbf{(OP-2)}}を用いることで，
-        ホモトピー同値
-        \begin{align}
-            \inftyMap{\Cat{O}^\otimes_{\expval{n}}}(x,\, y) \simeq \inftyMap{\Cat{O}^\otimes} (x,\, y)_{\Id_{\expval{n}}} \lto \prod_{i=1}^n \inftyMap{\Cat{O}^\otimes} \bigl(x,\, y_i\bigr)_{\rho^i}
-        \end{align}
-        が得られる．さらに，\hyperref[def:Cart-coCart]{$p$-coCartesianな射の定義}からホモトピー同値
-        \begin{align}
-            \prod_{i=1}^n \inftyMap{\Cat{O}^\otimes_{\expval{1}}} \bigl(\rho^i_!{}_{[0]}(x),\, \rho^i_!{}_{[0]}(y)\bigr) \simeq \prod_{i=1}^n \inftyMap{\Cat{O}^\otimes} \bigl(x_i,\, y_i\bigr)_{\Id_{\expval{1}}} \lto \prod_{i=1}^n \inftyMap{\Cat{O}^\otimes} \bigl(x,\, y_i\bigr)_{\rho^i}
-        \end{align}
-        が得られる\footnote{\textsf{\textbf{(OP-2)}}における $y_i \in (\Cat{O}^\otimes_{\expval{1}})_0$ とは，ちょうど $\rho^i_!{}_{[0]}(y)$ のことである．}
-        ため，\eqref{eq:Segalmap}が\hyperref[def:FF-ES-infty]{忠実充満}だと分かった．
-        \hyperref[def:FF-ES-infty]{本質的全射}であることは\textsf{\textbf{(OP-3)}}より従う．
+        \eqref{eq:Segalmap}が\hyperref[def:FF-ES-infty]{本質的全射}であることは\hyperref[def:infty-operad]{\textsf{\textbf{(OP-3)}}}より従う．
 
         \item[\textbf{(OP-3)} $\Longleftarrow$ \textbf{(Segal)}]　
         明らか．
