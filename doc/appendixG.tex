@@ -314,7 +314,7 @@ i.e. $\forall u \in \mathbb{R}^n$ に対して $f (u,\, \mathrm{pt}) \in \mathbb
 $f|_{\mathbb{R}^n} \colon \mathbb{R}^n \times \{\mathrm{pt}\} \lto \mathbb{R}^{n'} \times \{\mathrm{pt}\}$ を $f$ のコーンポイントへの制限として，
 \begin{align}
     f_{\Delta} \colon \mathbb{R}_{\textcolor{red}{>0}} \times T \mathbb{R}^n \times \Cone{Z} &\lto \mathbb{R}_{\textcolor{red}{>0}} \times T \mathbb{R}^{n'} \times \Cone{Z'}, \\
-    \bigl( t,\, v,\, p,\, [s,\, z] \bigr) &\lmto \bigl( t,\, f|_{\mathbb{R}^n}(v),\, f(p,\, [ts,\, z]) \bigr)
+    \bigl( t,\, v,\, p,\, [s,\, z] \bigr) &\lmto \bigl( t,\, f|_{\mathbb{R}^n}(v),\, f(p,\, [s,\, z]) \bigr)
 \end{align}
 とおこう．
 
@@ -620,7 +620,7 @@ $C^\infty$ 多様体の $C^\infty$ 構造の定義においては，チャート
         \begin{description}
             \item[\textbf{(対象)}]　
             
-            \hyperref[def:Snglr-C0]{$C^0$ 級層状化空間} $(X \to P) \in \Obj{\SnglrC}$ およびその\hyperref[def:Sm-induction]{極大アトラス} $\mathcal{A_X} \in \Sm (X \to P)$ の組み $\bigl((X\to P),\, \mathcal{A}_X\bigr)$ を対象とする．
+            \hyperref[def:Snglr-C0]{$C^0$ 級層状化空間} $(X \to P) \in \Obj{\SnglrC}$ およびその\hyperref[def:Sm-induction]{極大アトラス} $\mathcal{A}_X \in \Sm (X \to P)$ の組み $\bigl((X\to P),\, \mathcal{A}_X\bigr)$ を対象とする．
         
             \item[\textbf{(射)}]　
             
@@ -1280,39 +1280,62 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
     \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $D \colon \Cat{I} \lto \Cat{C}$ を与える\footnote{\hyperref[def:diagram]{$(1,\, 1)$-圏の場合}からのアナロジーで，$D$ を図式と見做す．}．
     \begin{itemize}
         \item $D$ の\textbf{limit}とは，\hyperref[def:overcat-infty]{スライス $(\infty,\, 1)$-圏} $\Cat{C}_{/D}$ における\hyperref[def:initial-final-infty]{終対象}のこと．$\bm{\lim D} \in \Cat{C}_0$ と書く．
-        \item $D$ の\textbf{colimit}とは，\hyperref[def:overcat-infty]{スライス $(\infty,\, 1)$-圏} $\Cat{C}_{D/}$ における\hyperref[def:initial-final-infty]{始対象}のこと．$\bm{\colim D} \in \Cat{C}_0$ と書く．
+        \item $D$ の\textbf{colimit}とは，\hyperref[def:overcat-infty]{コスライス $(\infty,\, 1)$-圏} $\Cat{C}_{D/}$ における\hyperref[def:initial-final-infty]{始対象}のこと．$\bm{\colim D} \in \Cat{C}_0$ と書く．
     \end{itemize}
 \end{mydef}
 
 \begin{myexample}[label=def:pullback-infty]{pullback}
-    単体的集合の積 $S \times T \colon \OP{\Delta} \lto \SETS$ における面写像とは 
-    \begin{align}
-        \partial^n_j \colon S_n \times T_n &\lto S_{n-1} \times T_{n-1}, \\
-        (x,\, y) &\lmto (\partial^n_j x,\, \partial^n_j y)
-    \end{align}
-    のことであった．故に，単体的集合 $\Delta^1 \times \Delta^1$ は，$\Delta^1_0 \eqqcolon \{\bullet_0,\, \bullet_1\}$ とおくと
-    \begin{align}
-        \Delta^1 \times \Delta^1 =
-        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-            \path  coordinate[bullet,label=below left:{$(0,\,1)$}] (x)
-            +(1,0) coordinate[bullet,label=below right:{$(1,\,1)$}] (y)
-            +(0,1) coordinate[bullet,label=above left:{$(0,\,0)$}] (z)
-            +(1,1) coordinate[bullet,label=above right:{$(1,\,0)$}] (w)
-            ;
-            \draw[->-=.5] (z) -- (x);
-            \draw[->-=.5] (z) -- (y);
-            \draw[->-=.5] (z) -- (w);
-            \draw[->-=.5] (x) -- (y);
-            \draw[->-=.5] (w) -- (y);
-        \end{tikzpicture}
-    \end{align}
-    と図示できる．ただし，2-射以上は縮退していて見えない．
+    % 単体的集合の積 $S \times T \colon \OP{\Delta} \lto \SETS$ における面写像とは 
+    % \begin{align}
+    %     \partial^n_j \colon S_n \times T_n &\lto S_{n-1} \times T_{n-1}, \\
+    %     (x,\, y) &\lmto (\partial^n_j x,\, \partial^n_j y)
+    % \end{align}
+    % のことであった．
+    % 故に，単体的集合 $\Delta^1 \times \Delta^1$ は，$\Delta^1_0 \eqqcolon \{\bullet_0,\, \bullet_1\}$ とおくと
+    % \begin{align}
+    %     \Delta^1 \times \Delta^1 =
+    %     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+    %         \path  coordinate[bullet,label=below left:{$(0,\,1)$}] (x)
+    %         +(1,0) coordinate[bullet,label=below right:{$(1,\,1)$}] (y)
+    %         +(0,1) coordinate[bullet,label=above left:{$(0,\,0)$}] (z)
+    %         +(1,1) coordinate[bullet,label=above right:{$(1,\,0)$}] (w)
+    %         ;
+    %         \draw[->-=.5] (z) -- (x);
+    %         \draw[->-=.5] (z) -- (y);
+    %         \draw[->-=.5] (z) -- (w);
+    %         \draw[->-=.5] (x) -- (y);
+    %         \draw[->-=.5] (w) -- (y);
+    %     \end{tikzpicture}
+    % \end{align}
+    % と図示できる．ただし，2-射以上は縮退していて見えない．
     
     　\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $D \colon \Delta^1 \times \Delta^1 \lto \Cat{C}$ の\hyperref[def:lim-colim-infty]{limit}のことを（存在すれば）\textbf{pullback}と呼び，
     \begin{align}
         \bm{D(0,\, 1)} \bm{\times}_{\bm{D(1,\, 1)}} \bm{D(1,\, 0)} \coloneqq \lim D \in \Cat{C}_0
     \end{align}
-    と書く．
+    と書く．\exref{ex:Map1}および補題\ref{lem:n-fold-Map}より，$D \in \Hom{\sSet}(\Delta^1 \times \Delta^1,\, \Cat{C})$ は
+    \begin{align}
+        D = \quad
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path  coordinate[bullet,label=below left:{$D_{[0]} (0,\, 1)$}] (x)
+            +(4,0) coordinate[bullet,label=below right:{$D_{[0]} (1,\, 1)$}] (y)
+            +(0,4) coordinate[bullet,label=above left:{$D_{[0]} (0,\, 0)$}] (z)
+            +(4,4) coordinate[bullet,label=above right:{$D_{[0]} (1,\, 0)$}] (w)
+            ;
+            \begin{scope}[on background layer]
+                \fill[red!20]  (z.center) -- (x.center) -- (y.center) -- cycle;
+                \fill[blue!20] (z.center) -- (w.center) -- (y.center) -- cycle;
+            \end{scope}
+            \node[red] at (barycentric cs:z=1,x=1,y=1) {$D_{[2]}\bigl(s^1_0{}^*(\Id_{[1]}),\, s^1_1{}^* (\Id_{[1]})\bigr)$};
+            \node[blue] at (barycentric cs:z=1,w=1,y=1) {$D_{[2]}\bigl(s^1_1{}^*(\Id_{[1]}),\, s^1_0{}^* (\Id_{[1]})\bigr)$};
+            \draw[->-=.5] (z) -- (x);
+            \draw[->-=.5] (z) -- (y);
+            \draw[->-=.5] (z) -- node[midway,above]{$\sigma^0_0(x) \eqqcolon \Id_x$} (w);
+            \draw[->-=.5] (x) -- node[midway,below]{$\sigma^0_0(y) \eqqcolon \Id_y$} (y);
+            \draw[->-=.5] (w) -- (y);
+        \end{tikzpicture}
+    \end{align}
+    と図示できる．
 \end{myexample}
 
 \subsection{Unstraightening construction}
@@ -1480,7 +1503,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 
 % \subsection{$C^\infty$-多様体の接構造との比較}
 以降の小節で定義\ref{def:B-mfld}を解読しよう．
-特に，定理\ref{thm:tangentclassifier}により，\hyperref[def:tangent-classifier]{tangent classifier} $\tau_X$ は\hyperref[def:c-smooth]{conically smoothな層状化空間} $X \in \SNGLR_0$ の上に「strataum-wise」に（通常の意味の）接束をアサインしていることが分かる．
+特に，定理\ref{thm:tangentclassifier}により，\hyperref[def:tangent-classifier]{tangent classifier} $\tau_X$ は\hyperref[def:c-smooth]{conically smoothな層状化空間} $X \in \SNGLR_0$ の上に「stratum-wise」に（通常の意味の）接束をアサインしていることが分かる．
 ここで言う「stratum-wise」とは，$X$ が元来持っている\hyperref[def:stratified-space]{層状化}のことではなく，補題\ref{lem:strat-basic}による $X$ の\hyperref[thm:basic-easy]{$[\BSC]$}-層状化によるものである．
 補題\ref{lem:XU-mfd}により，\hyperref[thm:basic-easy]{$[\BSC]$}-層状化による $X$ の $[U] \in [\BSC]$-層はただの $C^\infty$-多様体であることが分かり，その上の\hyperref[prop:tangentbundle]{接束}を考えることができるのである．
 
@@ -1894,7 +1917,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 \subsection{$\mathcal{B}\mathrm{sc}$ の構造}
 
 \begin{mylem}[label=lem:basic-conservative]{}
-    2つの\hyperref[def:Bsc-induction]{basic} $U \coloneqq \mathbb{R}^n \times \Cone{Z},\, V \coloneqq \mathbb{R}^m \times \Cone{W} \in \Obj{\Bsc}$ であって，$\Hom{\Bsc}(U,\, V) \neq \empty$ を充たすものをとる．
+    2つの\hyperref[def:Bsc-induction]{basic} $U \coloneqq \mathbb{R}^n \times \Cone{Z},\, V \coloneqq \mathbb{R}^m \times \Cone{W} \in \Obj{\Bsc}$ であって，$\Hom{\Bsc}(U,\, V) \neq \emptyset$ を充たすものをとる．
     このとき，以下の条件は全て同値である：
     \begin{enumerate}
         \item $\depth(U) = \depth(V)$
