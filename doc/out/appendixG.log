@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  8 NOV 2025 18:55
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  9 NOV 2025 01:54
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/t2space/Desktop/Seminors/TQFT/doc/appendixG.tex
@@ -2085,122 +2085,268 @@ LaTeX Warning: Hyper reference `def:pullback-pushout' on page 42 undefined on in
 
 [42]
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 2202.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\infty' on input line 2202.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 2202.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 1.66702pt
+(hyperref)                removed on input line 2202.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 2202.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 2202.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\infty' on input line 2202.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 2202.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 1.66702pt
+(hyperref)                removed on input line 2202.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 2202.
+
+
 LaTeX Warning: Hyper reference `def:infinity-1' on page 43 undefined on input line 2206.
 
 [43] [44]
 
-LaTeX Warning: Hyper reference `def:nerve' on page 45 undefined on input line 2266.
+LaTeX Warning: Hyper reference `def:nerve' on page 45 undefined on input line 2271.
 
 [45]
 
-LaTeX Warning: Reference `col:horn-coeq' on page 46 undefined on input line 2367.
+LaTeX Warning: Reference `col:horn-coeq' on page 46 undefined on input line 2372.
 
 
-LaTeX Warning: Reference `col:horn-coeq' on page 46 undefined on input line 2368.
+LaTeX Warning: Reference `col:horn-coeq' on page 46 undefined on input line 2373.
 
 [46]
 
-LaTeX Warning: Hyper reference `def:infinity-1' on page 47 undefined on input line 2482.
+LaTeX Warning: Hyper reference `def:infinity-1' on page 47 undefined on input line 2487.
 
 
-LaTeX Warning: Citation `Lurie2017HA' on page 47 undefined on input line 2486.
+LaTeX Warning: Citation `Lurie2017HA' on page 47 undefined on input line 2491.
 
 
-LaTeX Warning: Hyper reference `def:infinity-1' on page 47 undefined on input line 2496.
+LaTeX Warning: Hyper reference `def:infinity-1' on page 47 undefined on input line 2501.
 
 
-LaTeX Warning: Hyper reference `def:Map-comp' on page 47 undefined on input line 2497.
+LaTeX Warning: Hyper reference `def:Map-comp' on page 47 undefined on input line 2502.
 
 
-LaTeX Warning: Hyper reference `def:htpy-equiv' on page 47 undefined on input line 2501.
+LaTeX Warning: Hyper reference `def:htpy-equiv' on page 47 undefined on input line 2506.
 
 
-LaTeX Warning: Hyper reference `def:infinity-1' on page 47 undefined on input line 2512.
+LaTeX Warning: Hyper reference `def:infinity-1' on page 47 undefined on input line 2517.
 
 
-LaTeX Warning: Hyper reference `prop:SimpSet-basic' on page 47 undefined on input line 2513.
+LaTeX Warning: Hyper reference `prop:SimpSet-basic' on page 47 undefined on input line 2518.
 
 
-LaTeX Warning: Hyper reference `prop:SimpSet-basic' on page 47 undefined on input line 2526.
+LaTeX Warning: Hyper reference `prop:SimpSet-basic' on page 47 undefined on input line 2531.
 
 
-LaTeX Warning: Reference `def:FF-ES-infty' on page 47 undefined on input line 2537.
+LaTeX Warning: Reference `def:FF-ES-infty' on page 47 undefined on input line 2542.
 
 
-LaTeX Warning: Citation `kerodon' on page 47 undefined on input line 2537.
+LaTeX Warning: Citation `kerodon' on page 47 undefined on input line 2542.
 
 [47]
 
-LaTeX Warning: Hyper reference `def:infinity-1' on page 48 undefined on input line 2550.
+LaTeX Warning: Hyper reference `def:infinity-1' on page 48 undefined on input line 2555.
 
 
-LaTeX Warning: Hyper reference `def:infinity-1' on page 48 undefined on input line 2561.
+LaTeX Warning: Hyper reference `def:infinity-1' on page 48 undefined on input line 2566.
 
 
-LaTeX Warning: Hyper reference `def:equiv-infty' on page 48 undefined on input line 2561.
+LaTeX Warning: Hyper reference `def:equiv-infty' on page 48 undefined on input line 2566.
 
 [48]
 
-LaTeX Warning: Hyper reference `def:Map-comp' on page 49 undefined on input line 2589.
+LaTeX Warning: Hyper reference `def:nerve' on page 49 undefined on input line 2593.
 
 
-LaTeX Warning: Hyper reference `def:htpy-equiv' on page 49 undefined on input line 2597.
+LaTeX Warning: Reference `eq:nerve-spine' on page 49 undefined on input line 2593.
 
 
-LaTeX Warning: Citation `kerodon' on page 49 undefined on input line 2597.
+LaTeX Warning: Hyper reference `def:nat' on page 49 undefined on input line 2610.
 
 
-LaTeX Warning: Reference `prop:equiv-FF-ES' on page 49 undefined on input line 2609.
-
-
-LaTeX Warning: Hyper reference `def:FF-ES' on page 49 undefined on input line 2609.
-
-
-LaTeX Warning: Hyper reference `def:htpy-equiv' on page 49 undefined on input line 2610.
-
-
-LaTeX Warning: Hyper reference `def:FF-ES-infty' on page 49 undefined on input line 2610.
+LaTeX Warning: Hyper reference `def:SimpSet' on page 49 undefined on input line 2610.
 
 [49]
 
-LaTeX Warning: Hyper reference `def:FF-ES-infty' on page 50 undefined on input line 2612.
+LaTeX Warning: Hyper reference `def:Map-comp' on page 50 undefined on input line 2696.
 
 
-LaTeX Warning: Hyper reference `def:infinity-1' on page 50 undefined on input line 2631.
+LaTeX Warning: Hyper reference `def:Map-comp' on page 50 undefined on input line 2696.
+
+[50]
+
+LaTeX Warning: Hyper reference `def:Map-comp' on page 51 undefined on input line 2705.
+
+
+LaTeX Warning: Hyper reference `def:htpy-equiv' on page 51 undefined on input line 2715.
+
+
+LaTeX Warning: Citation `kerodon' on page 51 undefined on input line 2715.
+
+
+LaTeX Warning: Reference `prop:equiv-FF-ES' on page 51 undefined on input line 2727.
+
+
+LaTeX Warning: Hyper reference `def:FF-ES' on page 51 undefined on input line 2727.
+
+
+LaTeX Warning: Hyper reference `def:htpy-equiv' on page 51 undefined on input line 2728.
+
+
+LaTeX Warning: Hyper reference `def:FF-ES-infty' on page 51 undefined on input line 2728.
+
+
+LaTeX Warning: Hyper reference `def:FF-ES-infty' on page 51 undefined on input line 2730.
+
+
+LaTeX Warning: Hyper reference `def:infinity-1' on page 51 undefined on input line 2749.
+
+
+LaTeX Warning: Citation `Lurie2017HA' on page 51 undefined on input line 2749.
 
 (load cache: extra_lmsans8-regular.luc)
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 7.3977pt on input line 2643.
+(Font)              scaled to size 7.3977pt on input line 2760.
 LaTeX Font Info:    Font shape `JT3/gt/b/n' in size <8> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 2643.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 2760.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 7.3977pt on input line 2643.
+(Font)              scaled to size 7.3977pt on input line 2760.
 LaTeX Font Info:    Font shape `JY3/gt/b/n' in size <8> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 2643.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 2760.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 7.3977pt on input line 2643.
+(Font)              scaled to size 7.3977pt on input line 2760.
+[51]
 
-Overfull \hbox (16.43033pt too wide) in paragraph at lines 2690--2691
+LaTeX Warning: Citation `Lurie2017HA' on page 52 undefined on input line 2774.
+
+
+LaTeX Warning: Hyper reference `def:Kan' on page 52 undefined on input line 2777.
+
+
+LaTeX Warning: Hyper reference `def:core' on page 52 undefined on input line 2780.
+
+
+LaTeX Warning: Hyper reference `def:infinity-1' on page 52 undefined on input line 2784.
+
+
+LaTeX Warning: Citation `Lurie2017HA' on page 52 undefined on input line 2784.
+
+
+LaTeX Warning: Hyper reference `redef:braided-monoidal' on page 52 undefined on input line 2792.
+
+
+LaTeX Warning: Hyper reference `def:infinity-1' on page 52 undefined on input line 2801.
+
+
+LaTeX Warning: Citation `Lurie2017HA' on page 52 undefined on input line 2807.
+
+
+LaTeX Warning: Citation `Lurie2017HA' on page 52 undefined on input line 2813.
+
+[52]
+
+LaTeX Warning: Citation `Lurie2017HA' on page 53 undefined on input line 2828.
+
+
+LaTeX Warning: Citation `Lurie2017HA' on page 53 undefined on input line 2838.
+
+
+LaTeX Warning: Hyper reference `def:Kan' on page 53 undefined on input line 2841.
+
+
+LaTeX Warning: Hyper reference `def:core' on page 53 undefined on input line 2844.
+
+
+LaTeX Warning: Hyper reference `def:infinity-1' on page 53 undefined on input line 2848.
+
+
+LaTeX Warning: Citation `Lurie2017HA' on page 53 undefined on input line 2848.
+
+[53]
+Overfull \hbox (16.43033pt too wide) in paragraph at lines 2898--2899
  [] 
  []
 
-[50] [51]
+[54] [55]
 
-LaTeX Warning: Hyper reference `def:iso' on page 52 undefined on input line 2771.
+LaTeX Warning: Hyper reference `def:iso' on page 56 undefined on input line 2979.
+
+[56]
+
+LaTeX Warning: Hyper reference `def:pullback-pushout' on page 57 undefined on input line 2987.
+
+[57]
+
+LaTeX Warning: Citation `Haugseng2023iop' on page 58 undefined on input line 3042.
 
 
-LaTeX Warning: Hyper reference `def:pullback-pushout' on page 52 undefined on input line 2779.
-
-[52]
-Overfull \hbox (17.71515pt too wide) detected at line 2833
+Overfull \hbox (17.71515pt too wide) detected at line 3083
 [][]
  []
 
-[53] [54]
+[58]
 
-LaTeX Warning: Citation `Haugseng2023iop' on page 55 undefined on input line 2917.
+LaTeX Warning: Reference `thm:Kan-enriched' on page 59 undefined on input line 3125.
 
-[55] (./out/appendixG.aux)
+
+LaTeX Warning: Hyper reference `def:nerve-hc' on page 59 undefined on input line 3125.
+
+
+LaTeX Warning: Hyper reference `def:infinity-1' on page 59 undefined on input line 3129.
+
+
+LaTeX Warning: Hyper reference `def:SimpSet' on page 59 undefined on input line 3140.
+
+
+LaTeX Warning: Hyper reference `def:nat' on page 59 undefined on input line 3145.
+
+
+Overfull \hbox (16.43033pt too wide) in paragraph at lines 3171--3172
+ [] 
+ []
+
+[59] [60]
+
+LaTeX Warning: Hyper reference `def:SimpCat' on page 61 undefined on input line 3187.
+
+
+LaTeX Warning: Hyper reference `def:enriched' on page 61 undefined on input line 3190.
+
+
+LaTeX Warning: Hyper reference `def:nerve-hc' on page 61 undefined on input line 3210.
+
+
+LaTeX Warning: Hyper reference `def:infinity-1' on page 61 undefined on input line 3210.
+
+[61] [62] (./out/appendixG.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -2213,23 +2359,23 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `appendixG.out' has not changed.
-(rerunfilecheck)             Checksum: 41A5F313C1A90B7C1F30F6692AFA3A79;588.
+(rerunfilecheck)             Checksum: 48D1A165F211CC6F018D7C4D88F74E7F;898.
 )
 
 Here is how much of LuaTeX's memory you used:
- 65078 strings out of 476447
+ 65310 strings out of 476447
  305792,2373549 words of node,token memory allocated
- 32277 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 20 glue, 4 kern, 12 sub_mlist, 1 glyph, 14393 attribute, 62 glue_spec, 1320 attribute_list, 2 write, 14 user_defined, 8 pdf_action nodes
-   avail lists: 1:26,2:69099,3:2309,4:1584,5:940,6:84,7:6351,8:117,9:3819,10:29,11:70
- 85092 multiletter control sequences out of 65536+600000
- 150 fonts using 85139671 bytes
+ 34707 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 20 glue, 4 kern, 10 sub_mlist, 1 glyph, 15506 attribute, 62 glue_spec, 1422 attribute_list, 2 write, 14 user_defined, 9 pdf_action nodes
+   avail lists: 1:26,2:76278,3:2124,4:1584,5:946,6:83,7:6351,8:117,9:3819,10:29,11:93
+ 85304 multiletter control sequences out of 65536+600000
+ 161 fonts using 85806287 bytes
  145i,23n,144p,1918b,1610s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmsans10-regular.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman5-regular.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman8-bold.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy5.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy9.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/wadalab/dmj/dmjhira.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/rsfs/rsfs7.pfb>
-Output written on appendixG.pdf (55 pages, 979940 bytes).
+Output written on appendixG.pdf (62 pages, 1015018 bytes).
 
-PDF statistics: 1187 PDF objects out of 1200 (max. 8388607)
- 1030 compressed objects within 11 object streams
- 262 named destinations out of 1000 (max. 131072)
- 48 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 1270 PDF objects out of 1440 (max. 8388607)
+ 1105 compressed objects within 12 object streams
+ 282 named destinations out of 1000 (max. 131072)
+ 56 words of extra memory for PDF output out of 10000 (max. 100000000)
 
