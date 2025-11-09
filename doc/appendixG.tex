@@ -2792,19 +2792,23 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
 次に，\hyperref[redef:braided-monoidal]{対象モノイダル圏}の $(\infty,\, 1)$-圏論における対応物を考える．
 
 \begin{mydef}[label=def:O-monoidal-infty]{{$\Cat{O}$-モノイダル $(\infty,\, 1)$-圏}}
-    $q \colon \Cat{C}^\otimes \lto \Ner(\FIN_*),\; r \colon \Cat{O}^\otimes \lto \Ner(\FIN_*)$ を\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド}とする．
-    \hyperref[def:infty-operad-map]{$(\infty,\, 1)$-オペラッドの射} $p \colon \Cat{C}^\otimes \lto \Cat{O}^\otimes$ が
+    \begin{itemize}
+        \item \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\Cat{C}^\otimes$
+        \item \hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド} $r \colon \Cat{O}^\otimes \lto \Ner(\FIN_*)$
+    \end{itemize}
+    を与える．
+    \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $p \colon \Cat{C}^\otimes \lto \Cat{O}^\otimes$ が
     \textbf{$\bm{(\infty,\, 1)}$-オペラッドのcoCartesianファイブレーション} (coCartesian fibration of $(\infty,\, 1)$-operads) であるとは，以下の条件を充たすことを言う：
     \begin{description}
         \item[\textbf{(Op-coCart-1)}]　
         
-        $p \colon \Cat{C}^\otimes \lto \Cat{O}^\otimes$ を\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}と見做したとき，\hyperref[def:Cart-coCart]{coCartesianファイブレーション}である．
+        $p \colon \Cat{C}^\otimes \lto \Cat{O}^\otimes$ は\hyperref[def:Cart-coCart]{coCartesianファイブレーション}である．
         
         \item[\textbf{(Op-coCart-2)}]　
         
         $\Cat{C}^\otimes \xrightarrow{p} \Cat{O}^\otimes \xrightarrow{r} \Ner(\FIN_*)$ は\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド}である．
     \end{description}
-    特にこのとき，$p$ は $\Cat{C}^\otimes$ を $\bm{\Cat{O}}$\textbf{-モノイダル $(\infty,\, 1)$-圏}にしている ($p$ exhibits $\Cat{C}^\otimes$ as $\Cat{O}$-monoidal $(\infty,\, 1)$-category) と言う~\cite[Definition 2.1.2.13.]{Lurie2017HA}．
+    特にこのとき，$p$ は $\Cat{C}^\otimes$ を $\bm{\Cat{O}}$\textbf{-モノイダル $(\infty,\, 1)$-圏}にしている ($p$ exhibits $\Cat{C}^\otimes$ as $\Cat{O}$-monoidal $(\infty,\, 1)$-category) と言う\footnote{なお，この定義から $p$ は\hyperref[def:infty-operad-map]{$(\infty,\, 1)$-オペラッドの射}でもあることが分かる~\cite[Remark 2.1.2.14]{lurie2008higher}．}~\cite[Definition 2.1.2.13.]{Lurie2017HA}．
 \end{mydef}
 
 \begin{mydef}[label=def:sym-monoidal-infty]{対象モノイダル {$(\infty,\, 1)$-圏}}

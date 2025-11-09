@@ -2647,6 +2647,10 @@ $K$ を\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}とする．$\forall X,\, Y
 
 \subsection{射の空間}
 
+\begin{marker}
+    ここまでは\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}の\hyperref[def:infinity-1]{対象}のことを $X,\, Y,\, Z,\, \dots$ のように英大文字で書いてきたが，以降では原則として $x,\, y,\, z,\, \dots$ のように英小文字で書くことにする．
+\end{marker}
+
 \begin{mydef}[label=def:Map]{射の空間}
     \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $K$ と，その対象 $x,\, y \in K_0$ を与える．
     $x$ から $y$ へ向かう\textbf{射の空間} (morphism space) を，$(1,\, 1)$-圏 $\sSet$ における引き戻し
@@ -4182,7 +4186,7 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
         \item $f \circ i = g \circ i \eqqcolon \alpha$ とおく．ホモトピー $\eta \in \Hom{\sSet} (\Delta^1 \times X,\, Y)$ が $f$ と $g$ の間の\textbf{$\bm{K}$ に関する相対ホモトピー} (homotopy from $f$ to $g$ (rel $K$)) であるとは，上の可換図式に加えて
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
-                 &K \times \Delta^1 \ar[r, hookrightarrow, "\Id_{\Delta^1} \times i"]\ar[d, "\mathrm{pr}"'] &\Delta^1 \times X \ar[d, "\eta"] \\
+                 &\Delta^1 \times K \ar[r, hookrightarrow, "\Id_{\Delta^1} \times i"]\ar[d, "\mathrm{pr}"'] &\Delta^1 \times X \ar[d, "\eta"] \\
                  &K \ar[r, "\alpha"'] &Y
             \end{tikzcd}
         \end{center}
@@ -4213,7 +4217,7 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
     \end{align}
 \end{mydef}
 
-\hyperref[def:SimpSet-homotopic]{単体的ホモトピー} $\Familyset[\big]{h_i \colon X_n \lto Y_{n+1}}{i = 0,\, \dots,\, n,\, n \ge 0}$ が与えられたとする．このとき $\sSet$ の射 $\eta \in \Hom{\sSet}(X \times \Delta^1,\, Y)$ を
+\hyperref[def:SimpSet-homotopic]{単体的ホモトピー} $\Familyset[\big]{h_i \colon X_n \lto Y_{n+1}}{i = 0,\, \dots,\, n,\, n \ge 0}$ が与えられたとする．このとき $\sSet$ の射 $\eta \in \Hom{\sSet}(\Delta^1 \times X,\, Y)$ を
 \begin{align}
     \eta_0 &\coloneqq \partial_0 \circ h_0, \\
     \eta_{n+1} &\coloneqq \partial_{n+1} \circ h_n, \\
@@ -4346,12 +4350,11 @@ $a,\, b \in Z_n (X,\, *)$ に対して，系\ref{col:horn-coeq}，命題\ref{pro
 
 \begin{mydef}[label=def:infinity-topos,breakable]{$\infty$-トポス}
     $K$ を\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}とする．
-    
-    $K$ 上の $\bm{(\infty,\, 1)}$\textbf{-トポス}とは，$(\infty,\, 1)$-圏 $\inftyPsh{K}$ の部分\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
+    $K$ 上の $\bm{(\infty,\, 1)}$\textbf{-トポス}とは，$(\infty,\, 1)$-圏 $\inftyPsh{K}$ の\hyperref[def:infty-fib]{部分 $(\infty,\, 1)$-圏}
     \begin{align}
         i \colon \bm{\mathrm{H}} \hookrightarrow \inftyPsh{K}
     \end{align}
-    であって，包含 \hyperref[def:infinity-1]{$(\infty,\, 1)$-関手} $i$ が\hyperref[def:colim]{有限極限を保つ}\hyperref[def:adjoint]{左随伴} $(\infty,\, 1)$-関手
+    であって，包含 $(\infty,\, 1)$-関手 $i$ が\hyperref[def:lim-colim-infty]{有限極限}を保つ\hyperref[def:adjoint]{左随伴} $(\infty,\, 1)$-関手
     \begin{center}
         \begin{tikzcd}
             \bm{\mathrm{H}}\ar[r,bend left, hookrightarrow, "i",""{name=A, below}] & \inftyPsh{K}\ar[l,bend left,"\mathrm{lex}",""{name=B,above}] 
@@ -4362,21 +4365,21 @@ $a,\, b \in Z_n (X,\, *)$ に対して，系\ref{col:horn-coeq}，命題\ref{pro
 
     \tcblower
 
-    もしくは，\hyperref[def:complete]{余完全}\footnote{正確には\textbf{presentable}~\cite[p.372, Def5.5.0.18]{lurie2008higher}}な\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\bm{\mathrm{H}}$ であって以下の公理を充たすもののこと~\cite[p.9, Definition 2.1]{NSS2012}：
+    もしくは，\hyperref[def:lim-colim-infty]{余完全}\footnote{正確には\textbf{presentable}~\cite[p.372, Def 5.5.0.18]{lurie2008higher}}な\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\bm{\mathrm{H}}$ であって以下の公理を充たすもののこと~\cite[p.9, Definition 2.1]{NSS2012}：
     \begin{description}
-        \item[\textbf{(T1)}] $\forall f \in \Hom{\bm{\mathrm{H}}}(X,\, Y)$ および $\bm{\mathrm{H}}$ における任意の小さい\hyperref[def:diagram]{図式} $D \colon I \lto \bm{\mathrm{H}}_{/Y}$ において，自然な同型
+        \item[\textbf{(T1)}] $\forall f \in \inftyMap{\bm{\mathrm{H}}}(x,\, y)_0$ および $\bm{\mathrm{H}}$ における任意の小さい\hyperref[def:infinity-1]{図式} $D \colon I \lto \bm{\mathrm{H}}_{/y}$ において，自然な同型
         \begin{align}
-            \colim_{i \in I} \bigl( X \times_Y D(i) \bigr) \cong X \times_Y \colim_{i \in I} D(i)
+            \colim_{i \in I} f^*\bigl( x \times_y D(i) \bigr) \cong x \times_y \colim_{i \in I} D(i)
         \end{align}
-        がある\footnote{$\times_Y$ は引き戻し}．
-        \item[\textbf{(T2)}] $\forall X,\, Y \in \Obj{\bm{\mathrm{H}}}$ に対して，図式 $Y \lrto \emptyset \lto X$ の\hyperref[def:colim]{押し出し}
+        がある\footnote{$\times_Y$ は\hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏 $\bm{H}$ における引き戻し}}．
+        \item[\textbf{(T2)}] $\forall x,\, y \in \bm{\mathrm{H}}_0$ に対して，\hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏 $\bm{H}$ における押し出し}
         \begin{center}
             \begin{tikzcd}[row sep=large, column sep=large]
-                &\emptyset \ar[r, ""]\ar[d, ""'] &X \ar[d, ""] \\
-                &Y \ar[r, ""'] &X \amalg Y
+                &\emptyset \ar[r, ""]\ar[d, ""'] &x \ar[d, ""] \\
+                &y \ar[r, ""'] &x \amalg y
             \end{tikzcd}
         \end{center}
-        は図式 $Y \lto X \amalg Y \lrto X$ の引き戻しでもある．i.e. 任意の和がdisjointである．
+        は，図式 $y \lto x \amalg y \lrto x$ の引き戻しでもある．i.e. 任意の和がdisjointである．
         \item[\textbf{(T3)}] $\bm{\mathrm{H}}$ における任意のgroupoid objectはdeloopingを持つ．
     \end{description}
 \end{mydef}
