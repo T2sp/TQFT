@@ -549,7 +549,8 @@ $C^\infty$ 多様体の $C^\infty$ 構造の定義においては，チャート
     \begin{itemize}
         \item \hyperref[def:Snglr-C0]{$C^0$ 級層状化空間} $\forall (X \to P) \in \Obj{\SnglrC_{\le k+1,\, \le \infty}}$ に対して，$X \to P$ の\textbf{アトラス} (atlas) を族
         \begin{align}
-            \mathcal{A} \coloneqq \Familyset[\Big]{\bigl(U_\alpha \in \Obj{\Bsc_{\le k+1,\, \le \infty}},\, \varphi_\alpha \colon U_\alpha \hookrightarrow (X \to P)\bigr)}{\alpha \in \Lambda} \in \Sm_{\le k+1,\, \le \infty} (X \to P)
+            \mathcal{A} \coloneqq \Familyset[\Big]{(U_\alpha,\, \varphi_\alpha)  \in \Obj{\Bsc_{\le k+1,\, \le \infty}} \times \Hom{\SnglrC_{\le k+1,\, \le \infty}}\bigl(U_\alpha,\, (X \to P)\bigr) }{\alpha \in \Lambda}
+            %  \in \Sm_{\le k+1,\, \le \infty} (X \to P)
         \end{align}
         であって以下の条件を充たすものとして定義する：
         \begin{description}
@@ -2777,7 +2778,7 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
 \hyperref[def:Kan]{$\Kan$}-豊穣圏 $\Opinfty$ を次のように構成する：
 \begin{itemize}
     \item \hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド}を対象とする．
-    \item $\Alg{\Cat{O}}{\Cat{C}}$ の\hyperref[def:core]{芯} $\Alg{\Cat{O}}{\Cat{C}}^{\cong} \in \Obj{\KAN}$ をHom対象とする．
+    \item $\Alg{\Cat{O}}{\Cat{C}}$ の\hyperref[def:core]{芯} $\Alg{\Cat{O}}{\Cat{C}}^{\cong} \in \Obj{\Kan}$ をHom対象とする．
 \end{itemize}
 
 \begin{mydef}[label=def:OPinfty]{{$(\infty,\, 1)$-オペラッドの成す $(\infty,\, 1)$-圏}}
@@ -2789,7 +2790,7 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
 
 \subsection{{$\Cat{O}$-モノイダル $(\infty,\, 1)$-圏}}
 
-次に，\hyperref[redef:braided-monoidal]{対象モノイダル圏}の $(\infty,\, 1)$-圏論における対応物を考える．
+次に，\hyperref[redef:braided-monoidal]{対称モノイダル圏}の $(\infty,\, 1)$-圏論における対応物を考える．
 
 \begin{mydef}[label=def:O-monoidal-infty]{{$\Cat{O}$-モノイダル $(\infty,\, 1)$-圏}}
     \begin{itemize}
@@ -2811,10 +2812,10 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
     特にこのとき，$p$ は $\Cat{C}^\otimes$ を $\bm{\Cat{O}}$\textbf{-モノイダル $(\infty,\, 1)$-圏}にしている ($p$ exhibits $\Cat{C}^\otimes$ as $\Cat{O}$-monoidal $(\infty,\, 1)$-category) と言う\footnote{なお，この定義から $p$ は\hyperref[def:infty-operad-map]{$(\infty,\, 1)$-オペラッドの射}でもあることが分かる~\cite[Remark 2.1.2.14]{lurie2008higher}．}~\cite[Definition 2.1.2.13.]{Lurie2017HA}．
 \end{mydef}
 
-\begin{mydef}[label=def:sym-monoidal-infty]{対象モノイダル {$(\infty,\, 1)$-圏}}
-    \hyperref[def:O-monoidal-infty]{$\Cat{O}$-モノイダル $(\infty,\, 1)$-圏} $\Cat{C}^\otimes \xrightarrow{p} \Cat{O}^\otimes$ において $\Cat{O}^\otimes = \Ner(\FIN_*)$ ならば，$\Cat{C}^\otimes$ は\textbf{対象モノイダル $\bm{(\infty,\, 1)}$-圏} (symmetric monoidal $(\infty,\, 1)$-category) であると言う．
+\begin{mydef}[label=def:sym-monoidal-infty]{対称モノイダル {$(\infty,\, 1)$-圏}}
+    \hyperref[def:O-monoidal-infty]{$\Cat{O}$-モノイダル $(\infty,\, 1)$-圏} $\Cat{C}^\otimes \xrightarrow{p} \Cat{O}^\otimes$ において $\Cat{O}^\otimes = \Ner(\FIN_*)$ ならば，$\Cat{C}^\otimes$ は\textbf{対称モノイダル $\bm{(\infty,\, 1)}$-圏} (symmetric monoidal $(\infty,\, 1)$-category) であると言う．
 
-    i.e. 対象モノイダル $(\infty,\, 1)$-圏とは，\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド} $\Cat{C}^\otimes \lto \Ner(\FIN_*)$ であって\hyperref[def:Cart-coCart]{coCartesianファイブレーション}でもあるもののこと~\cite[Example 2.1.2.18.]{Lurie2017HA}
+    i.e. 対称モノイダル $(\infty,\, 1)$-圏とは，\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド} $\Cat{C}^\otimes \lto \Ner(\FIN_*)$ であって\hyperref[def:Cart-coCart]{coCartesianファイブレーション}でもあるもののこと~\cite[Example 2.1.2.18.]{Lurie2017HA}
 \end{mydef}
 
 \begin{mydef}[label=def:O-monoidal-functor]{{$\Cat{O}$-モノイダル $(\infty,\, 1)$-関手}}
@@ -2832,10 +2833,10 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
     と書く~\cite[Definition 2.1.3.7.]{Lurie2017HA}．
 \end{mydef}
 
-\begin{mydef}[label=def:sym-monoidal-functor]{対象モノイダル {$(\infty,\, 1)$}-関手}
-    \hyperref[def:sym-monoidal-infty]{対象モノイダル $(\infty,\, 1)$-圏} $\Cat{C}^\otimes \lto \Ner(\FIN_*)$,\, $\Cat{D}^\otimes \lto \Ner(\FIN_*)$ の間の
-    \textbf{対象モノイダル $(\infty,\, 1)$-関手} (symmetric monoidal $(\infty,\, 1)$-functor) とは，$f \in \Alg{\Cat{C}}{\Cat{D}}$ であって全ての\hyperref[def:p-Cart]{coCartesianな1-射}を保存するもののこと．
-    対象モノイダル $(\infty,\, 1)$-関手が成す\hyperref[def:fullsub-infty]{充満部分 $(\infty,\, 1)$-圏}を
+\begin{mydef}[label=def:sym-monoidal-functor]{対称モノイダル {$(\infty,\, 1)$}-関手}
+    \hyperref[def:sym-monoidal-infty]{対称モノイダル $(\infty,\, 1)$-圏} $\Cat{C}^\otimes \lto \Ner(\FIN_*)$,\, $\Cat{D}^\otimes \lto \Ner(\FIN_*)$ の間の
+    \textbf{対称モノイダル $(\infty,\, 1)$-関手} (symmetric monoidal $(\infty,\, 1)$-functor) とは，$f \in \Alg{\Cat{C}}{\Cat{D}}$ であって全ての\hyperref[def:p-Cart]{coCartesianな1-射}を保存するもののこと．
+    対称モノイダル $(\infty,\, 1)$-関手が成す\hyperref[def:fullsub-infty]{充満部分 $(\infty,\, 1)$-圏}を
     \begin{align}
         \bm{\FUN^\otimes (\Cat{C},\, \Cat{D})} \subset \FUN_{\FIN_*} (\Cat{C}^\otimes,\, \Cat{D}^\otimes)
     \end{align}
@@ -2845,7 +2846,7 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
 \hyperref[def:Kan]{$\Kan$}-豊穣圏 $\CATinfty^{\otimes}{}^\Delta$ を次のように構成する：
 \begin{itemize}
     \item \hyperref[def:sym-monoidal-infty]{対称モノイダル $(\infty,\, 1)$-圏}を対象とする．
-    \item $\FUN^{\otimes}(\Cat{C},\, \Cat{D})$ の\hyperref[def:core]{芯} $\FUN^{\otimes}(\Cat{C},\, \Cat{D})^{\cong} \in \Obj{\KAN}$ をHom対象とする．
+    \item $\FUN^{\otimes}(\Cat{C},\, \Cat{D})$ の\hyperref[def:core]{芯} $\FUN^{\otimes}(\Cat{C},\, \Cat{D})^{\cong} \in \Obj{\Kan}$ をHom対象とする．
 \end{itemize}
 
 \begin{mydef}[label=def:Cat-infty-sym-mon]{対称モノイダル {$(\infty,\, 1)$}-圏が成す {$(\infty,\, 1)$-圏}}
