@@ -3218,6 +3218,73 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
     
 \end{proof}
 
+\begin{myprop}[label=prop:Op-infty-limit]{}
+    忘却関手
+    \begin{align}
+        \text{forget} \colon \OPinfty \lto \CATinfty{}_{/\Ner(\FIN_*)}
+    \end{align}
+    は，\hyperref[def:lim-colim-infty]{極限}を生成する．
+    i.e. 任意の小さな \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の図式} $D \colon \Cat{K} \lto \OPinfty$ に対して，$\Cat{K} \xrightarrow{D} \OPinfty \xrightarrow{\text{forget}} \CATinfty{}_{/\Ner(\FIN_*)}$ が\hyperref[def:lim-colim-infty]{極限} $\bigl(p \colon \Cat{O} \lto \Ner(\FIN_*)\bigr) \in (\CATinfty{}_{/\Ner(\FIN_*)})_0$ を持つならば，$p$ は\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド}の構造を持ち，かつそれが $\lim_{\Cat{K}} D = \bigl(p \colon \Cat{O} \lto \Ner(\FIN_*)\bigr)$ を充たす．
+\end{myprop}
+
+\begin{proof}
+    ~\cite[Lemma 1.12.]{AFT2014FH}
+\end{proof}
+
+\subsection{{$\otimes$-sifted cocompleteness}}
+
+$p \colon \Cat{V}^\otimes \Ner(\FIN_*)$ を\hyperref[def:sym-monoidal-infty]{対称モノイダル $(\infty,\, 1)$-圏}とする．
+このとき，$\forall n \ge 1$ に対して $\bm{n}$\textbf{-fold テンソル積}と呼ばれる \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}が
+\begin{align}
+    \otimes \colon \Cat{V}^{\times n} \xleftarrow{\simeq} \Cat{V}^\otimes_{\expval{n}} \xrightarrow{\alpha_n{}_!} \Cat{V}
+\end{align}
+のようにして up to homotopy で定まる\footnote{Undelying $(\infty,\, 1)$-category $\Cat{V}$ を $\Cat{V} \coloneqq \Cat{V}^\otimes_{\expval{1}}$ と定義したのだった．}．ただし，$\Cat{V}^{\times n} \xleftarrow{\simeq} \Cat{V}^\otimes_{\expval{n}}$ は\hyperref[lem:Segal-cond]{条件 \textsf{\textbf{(Segal)}}}に登場した\hyperref[def:htpy-equiv]{ホモトピー同値}\eqref{eq:Segalmap}であり，
+$\Cat{V}^\otimes_{\expval{n}} \xrightarrow{\alpha_n{}_!} \Cat{V}$ というのは\hyperref[def:alpha-n]{activeな射 $\alpha_n \in \Hom{\FIN_*} \bigl( \expval{n},\, \expval{1} \bigr)$} が誘導する\footnote{補題\ref{lem:Segal-cond}で $\rho^i$ の\hyperref[def:Cart-coCart]{$p$-coCartesian lift}が関手 $\Cat{O}^\otimes_{\expval{n}} \lto \Cat{O}$ を誘導したのと同じ方法である．} $(\infty,\, 1)$-圏の関手である．
+
+\begin{mydef}[label=def:sifted-infty]{siftedな {$(\infty,\, 1)$-圏}}
+    \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\Cat{K}$ が\textbf{sifted}であるとは，以下の2条件を満たすことを言う：
+    \begin{description}
+        \item[\textbf{(sifted-1)}] $\Cat{K} \neq \emptyset$
+        \item[\textbf{(sifted-2)}] 対角関手 $\mathrm{diag} \colon \Cat{K} \lto \Cat{K} \times \Cat{K}$ が\textbf{cofinal}である．
+        i.e. 任意の\hyperref[def:infty-fib]{右ファイブレーション} $q \colon \Cat{C} \lto \Cat{K} \times \Cat{K}$ に対して，$\mathrm{diag}$ の前合成
+        \begin{align}
+            \mathrm{diag}^* \colon \FUN_{/(\Cat{K} \times \Cat{K})} (\Cat{K} \times \Cat{K},\, \Cat{C}) \lto \FUN_{/(\Cat{K} \times \Cat{K})} (\Cat{K},\, \Cat{C})
+        \end{align}
+        が\hyperref[deftpy-equiv]{ホモトピー同値}である．
+    \end{description}
+    
+\end{mydef}
+
+
+\begin{mydef}[label=def:sifted-colim]{sifted {$(\infty,\, 1)$-colimit}}
+    \hyperref[def:lim-colim-infty]{$(\infty,\, 1)$-圏の colimit} $\colim_{\Cat{K}} (\Cat{K} \xrightarrow{D} \Cat{C})$ が\textbf{sifted}であるとは，
+    図式 $(\infty,\, 1)$-圏 $\Cat{K}$ が\hyperref[def:sifted-infty]{sifted}であることを言う．
+\end{mydef}
+
+
+\begin{mydef}[label=def:tensor-sifted]{{$\otimes$-sifted cocomplete}}
+    \begin{itemize}
+        \item \hyperref[def:sym-monoidal-infty]{対称モノイダル $(\infty,\, 1)$-圏} $p \colon \Cat{V}^\otimes \Ner(\FIN_*)$
+        \item 小さな\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\Cat{K}$
+    \end{itemize}
+    を与える．
+    $\Cat{V}^\otimes$ の対称モノイダル構造が\textbf{形状 $\bm{\Cat{K}}$ のcolimitの上に分布する} (distributes over $\Cat{K}$-shaped colimits) とは，$\forall x \in \Cat{V}_0$ に対して
+    \begin{align}
+        x \otimes (\, \mhyphen \,) \colon \Cat{V} \cong \Delta^0 \times \Cat{V} \xrightarrow{x \times \Id_{\Cat{V}}} \Cat{V} \times \Cat{V} \xrightarrow{\otimes} \Cat{V}
+    \end{align}
+    が，形状 $\bm{\Cat{K}}$ の任意の\hyperref[def:lim-colim-infty]{colimit}を持つ\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $D \colon \Cat{K} \lto \Cat{V}$ と
+    \begin{align}
+        x \otimes (\colim_{\Cat{K}} D) = \colim_{\Cat{K}} (x \otimes D)
+    \end{align}
+    を充たすことを言う．
+
+    \tcblower
+
+    \hyperref[def:sym-monoidal-infty]{対称モノイダル $(\infty,\, 1)$-圏} $p \colon \Cat{V}^\otimes \Ner(\FIN_*)$ が\textbf{ $\bm{\otimes}$-sifted cocomplete} であるとは，
+    それが\hyperref[def:sifted-colim]{sifted-colimit}を持ち，かつ $\Cat{V}$ の対称モノイダル構造がsifted-colimitの上に分布することを言う．
+\end{mydef}
+
+
 \subsection{{$\mathbb{E}_n$-オペラッド}}
 
 \section{Stratified Disk algebras}
