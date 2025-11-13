@@ -320,11 +320,11 @@
             \item 圏 $\mathcal{C}$
             \item \textbf{テンソル積} (tensor product) と呼ばれる関手 $\otimes \colon \mathcal{C} \times \mathcal{C} \lto \mathcal{C}$
             \item \textbf{単位対象} (unit object) $I \in \Obj{\mathcal{C}}$
-            \item \textbf{associator}と呼ばれる\hyperref[def:nat]{自然同値}
+            \item \textbf{associator}と呼ばれる\hyperref[def:nat]{自然同型}
             \begin{align}
                 \Familyset[\big]{a_{X,\, Y,\, Z} \colon (X \otimes Y) \otimes Z \xrightarrow{\cong} X \otimes (Y \otimes Z)}{X,\, Y,\, Z \in \Obj{\mathcal{C}}}
             \end{align}
-            \item \textbf{left/right unitors}と呼ばれる\hyperref[def:nat]{自然同値}
+            \item \textbf{left/right unitors}と呼ばれる\hyperref[def:nat]{自然同型}
             \begin{align}
                 &\Familyset[\big]{l_X \colon I \otimes X \xrightarrow{\cong} X}{X \in \Obj{\mathcal{C}}}, \\
                 &\Familyset[\big]{r_X \colon X \otimes I \xrightarrow{\cong} X}{X \in \Obj{\mathcal{C}}}
@@ -370,14 +370,40 @@
         定義\ref{redef:monoidal-category}で言うモノイダル圏を，\textbf{弱いモノイダル圏} (weak monoidal category) と呼ぶこともある．
     \end{marker}
 
+    定義\ref{redef:monoidal-category}に登場するassociatorを\hyperref[def:nat]{自然変換}として明示的に書くと
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQAdDgYXp2G4BfAARc8AW3iiefASLFZJcab35CQg0uky58hFOVLFqdJq3ZdVc6RKmXZ6zdux4CRQwCYTDFm0ScZNXkOW2V7II0tEAwXPSIPCm8zPwCrRxMYKABzeCJQADMAJwhxJEMQHAgkAGYaH3N-LghQyILi0sQEiqrEWpBGegAjGEYABR1XfRBCrCyACxwQOuSLDmbFXKcQIpKkMm6y5d9V9aUbDbCOAEkoAH1gcLlBVu32vZpKpC6B4bGJuP8M3miyODQCN3ujyEwVC0lOmyiOw65U+nRojCwYBSUAgzEGjDYNDmMHoUCQYGYjEYH3oWEY7EgWKWpmO-noGkogiAA
+        \begin{tikzcd}
+                                                                                                                                     & \Cat{C} \times \Cat{C} \arrow[rd, "\otimes"] \arrow[dd, "a", Rightarrow] &         \\
+        \Cat{C} \times \Cat{C} \times \Cat{C} \arrow[ru, "\otimes \times \Id_{\Cat{C}}"] \arrow[rd, "\Id_{\Cat{C}} \times \otimes"'] &                                                                          & \Cat{C} \\
+                                                                                                                                     & \Cat{C} \times \Cat{C} \arrow[ru, "\otimes"']                            &        
+        \end{tikzcd}
+    \end{center}
+    ということである．同様に，left / right unitors は
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BhOnYLgL4gBpdJlz5CKAIzkqtRizacefQcPkwoAc3hFQAMwBOEALZIyIHBCSyQAIxhgoSAMyW4ACywGcSALR29MysiCAAkgAEnBB4pvCcpNHspp4AnmieTsKiIMZmFtTWttSOzgHu1F4+foh2DHSODAAK4ngEbEZY2p5+1MFKYZzhUAD6wCq8-AJCAhQCQA
+        \begin{tikzcd}[row sep=large,column sep=large]
+        \Cat{C} \arrow[r, "{I \otimes\, \mhyphen}"{name=U,above}, bend left, shift left] \arrow[r, "\Id_{\Cat{C}}"'{name=D,below}, bend right, shift right] & \Cat{C}
+        \ar[Rightarrow, from=U, to=D, "l"]
+        \end{tikzcd}
+    \end{center}
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BhOnYLgL4gBpdJlz5CKAIzkqtRizacefQcPkwoAc3hFQAMwBOEALZIyIHBCSyQAIxhgoSAMyW4ACywGcSALR29MysiCAAkgAEnBB4pvCcpNHspp4AnmieTsKiIMZmFtTWttSOzgHu1F4+foh2DHSODAAK4ngEbEZY2p5+1MFKYZzhUAD6wCq8-AJCAhQCQA
+        \begin{tikzcd}[row sep=large,column sep=large]
+        \Cat{C} \arrow[r, "{\mhyphen\, \otimes I}"{name=U,above}, bend left, shift left] \arrow[r, "\Id_{\Cat{C}}"'{name=D,below}, bend right, shift right] & \Cat{C}
+        \ar[Rightarrow, from=U, to=D, "r"]
+        \end{tikzcd}
+    \end{center}
+    という自然変換である．
+
     \begin{myexample}[label=ex:Cat-monidal]{$\CAT$ のモノイダル構造}
         $\CAT$ を小圏と関手が成す圏とする．このとき，関手
         \begin{align}
             \times \colon \CAT \times \CAT \lto \CAT
         \end{align}
-        を $\Obj{\Cat{C} \times \Cat{D}} \coloneqq \Obj{\Cat{C}} \times \Obj{\Cat{D}}$ により定めると，組み $(\CAT,\, \times,\, I)$ は\hyperref[redef:monoidal-category]{厳密なモノイダル圏}になる．ただし $I$ はただ1つの対象 $\bullet$ を持ち，$\Hom{I}(\bullet,\,\bullet) = \{\Id_{\bullet}\}$ とする圏である\footnote{これは $\CAT$ の\hyperref[def:colim]{終対象}でもある．}
+        を $\Obj{\Cat{C} \times \Cat{D}} \coloneqq \Obj{\Cat{C}} \times \Obj{\Cat{D}}$ により定めると，組み $(\CAT,\, \times,\, I)$ は\hyperref[redef:monoidal-category]{厳密なモノイダル圏}になる．ただし $I$ はただ1つの対象 $\bullet$ を持ち，$\Hom{I}(\bullet,\,\bullet) = \{\Id_{\bullet}\}$ とする圏である
+        \footnote{$I$ は $\CAT$ の\hyperref[def:colim]{終対象}でもある．}
     \end{myexample}
-
 
     \begin{mydef}[label=redef:monidal-functor,breakable]{モノイダル関手}
         2つの\hyperref[def:monoidal-category]{モノイダル圏} $(\Cat{C},\, \otimes_{\Cat{C}},\, I_{\Cat{C}},\, a^{\Cat{C}},\, l^{\Cat{C}},\, r^{\Cat{C}}),\, (\Cat{D},\, \otimes_{\Cat{D}},\, I_{\Cat{D}},\, a^{\Cat{D}},\, l^{\Cat{D}},\, r^{\Cat{D}})$ の間の関手
@@ -537,7 +563,7 @@
 \subsection{rigidなモノイダル圏}
 
 \begin{mydef}[label=redef:dual,breakable]{双対}
-    \hyperref[def:monoidal-category]{モノイダル圏} $(\mathcal{C},\, \otimes,\, I,\, a,\, l,\, r)$ およびその任意の対象 $X,\, X^* \in \Obj{\mathcal{C}}$ を与える．
+    \hyperref[redef:monoidal-category]{モノイダル圏} $(\mathcal{C},\, \otimes,\, I,\, a,\, l,\, r)$ およびその任意の対象 $X,\, X^* \in \Obj{\mathcal{C}}$ を与える．
     $X^*$ が $X$ の\textbf{左双対} (left dual) であるとは，
     \begin{itemize}
         \item \textbf{coevaluation}と呼ばれる射
@@ -762,6 +788,146 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
 %     $X^*$ が $X$ の\hyperref[redef:dual]{左双対}であるならば，$X$ は $X^*$ に関して $\rev_{X^*} = \lev_{X},\; \rcoev_{X^*} = \lcoev_{X}$ とした\hyperref[redef:dual]{右双対}となっている．
 %     従って，\hyperref[redef:dual]{左/右双対}をもつ任意の $X$ に対して $\rdual{(X^*)} \cong X \cong X \cong (\rdual{X})^*$ が成り立つ．
 % \end{marker}
+
+\begin{myprop}[label=prop:dual-unique]{双対の一意性}
+    \hyperref[redef:monoidal-category]{モノイダル圏} $(\mathcal{C},\, \otimes,\, I,\, a,\, l,\, r)$ およびその対象 $X \in \Obj{\Cat{C}}$ を与える．
+    \begin{enumerate}
+        \item もし $X$ が\hyperref[redef:dual]{左双対} $X^* \in \Obj{\Cat{C}}$ を持つならば，それは一意的に定まる同型を除いて一意である．
+        \item もし $X$ が\hyperref[redef:dual]{右双対} $\rdual{X} \in \Obj{\Cat{C}}$ を持つならば，それは一意的に定まる同型を除いて一意である．
+    \end{enumerate}
+\end{myprop}
+
+\begin{proof}
+    証明は全く同様なので，(1) のみ示す．
+    $X$ の2つの\hyperref[redef:dual]{左双対} $X_1^*,\, X_2^* \in \Obj{\Cat{C}}$ および，それらの coevaluation / evaluation をそれぞれ $c_1,\, e_1,\, c_2,\, e_2$ とおく．
+    このとき，$\Cat{C}$ の2つの射
+    \begin{align}
+        \alpha \colon &X_1^* \xrightarrow{r^{-1}_{X_1^*}} X_1^* \otimes I \xrightarrow{\Id_{X_1^*} \otimes c_2} X_1^* \otimes (X \otimes X_2^*) \xrightarrow{a^{-1}_{X_1^*,X,X_2^*}} (X_1^* \otimes X) \otimes X_2^* \xrightarrow{e_1 \otimes \Id_{X_2^*}} I \otimes X_2^* \xrightarrow{l_{X_2^*}} X_2^*, \\
+        \beta \colon &X_2^* \xrightarrow{r^{-1}_{X_2^*}} X_2^* \otimes I \xrightarrow{\Id_{X_2^*} \otimes c_1} X_2^* \otimes (X \otimes X_1^*) \xrightarrow{a^{-1}_{X_2^*,X,X_1^*}} (X_2^* \otimes X) \otimes X_1^* \xrightarrow{e_2 \otimes \Id_{X_1^*}} I \otimes X_1^* \xrightarrow{l_{X_1^*}} X_1^*
+    \end{align}
+    が互いに逆であることを示そう．
+    
+    実際，ストリング図式で書くと
+    \begin{align}
+        \alpha
+        &=
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (x_1)
+            +(1,0) coordinate[label=left:$X$] (x_2)
+            +(2,0) coordinate (x_3)
+            ;
+            \node[above] at (0.5,0.6) {$e_1$};
+            \node[below] at (1.5,-0.6) {$c_2$};
+            \REV{x_1}{x_2}
+            \RCOEV{x_2}{x_3}
+            \draw[->-=.5] (x_1) -- node[midway,left] {$X_1^*$} ++(0,-1);
+            \draw[-<-=.5] (x_3) -- node[midway,right] {$X_2^*$} ++(0,1);
+        \end{tikzpicture}, \\
+        \beta
+        &=
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (x_1)
+            +(1,0) coordinate[label=left:$X$] (x_2)
+            +(2,0) coordinate (x_3)
+            ;
+            \node[above] at (0.5,0.6) {$e_2$};
+            \node[below] at (1.5,-0.6) {$c_1$};
+            \REV{x_1}{x_2}
+            \RCOEV{x_2}{x_3}
+            \draw[->-=.5] (x_1) -- node[midway,left] {$X_2^*$} ++(0,-1);
+            \draw[-<-=.5] (x_3) -- node[midway,right] {$X_1^*$} ++(0,1);
+        \end{tikzpicture}
+    \end{align}
+    であるから，$\otimes$ が\hyperref[def:functor]{関手}であること\footnote{従って，$\Id$ を適当に挿入することで，ストリングを上下に自由自在に伸縮させることができる！}\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equiations)}}}より
+    \begin{align}
+        \beta \circ \alpha &= 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (x_1)
+            ++(1,0) coordinate (x_2)
+            ++(1,0) coordinate (x_3)
+            ++(0,2) coordinate (y_1)
+            ++(1,0) coordinate (y_2)
+            ++(1,0) coordinate (y_3)
+            ;
+            \draw[->-=.5] (x_1) -- node[midway,left] {$X_1^*$} ++(0,-1);
+            \REV{x_1}{x_2}
+            \RCOEV{x_2}{x_3}
+            \draw[-<-=.5] (x_3) -- (y_1);
+            \REV{y_1}{y_2}
+            \RCOEV{y_2}{y_3}
+            \draw[-<-=.5] (y_3) -- node[midway,right] {$X_1^*$} ++(0,1);
+        \end{tikzpicture} \\
+        &= 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (x_1)
+            ++(1,0) coordinate (x_2)
+            ++(0,-1) coordinate (y_1)
+            ++(1,0) coordinate (y_2)
+            ++(1,0) coordinate (y_3)
+            ++(0,-1) coordinate (z_1)
+            ++(1,0) coordinate (z_2)
+            ;
+            \node[above] at ($(x_1) + (0.5,0.6)$) {$e_1$};
+            \node[below] at ($(y_1) + (0.5,-0.6)$) {$c_2$};
+            \node[above] at ($(y_2) + (0.5,0.6)$) {$e_2$};
+            \node[below] at ($(z_1) + (0.5,-0.6)$) {$c_1$};
+            \draw[->-=.5] (x_1) -- node[midway,left] {$X_1^*$} ++(0,-3);
+            \REV{x_1}{x_2}
+            \draw[-<-=.5] (x_2) -- (y_1);
+            \RCOEV{y_1}{y_2}
+            \REV{y_2}{y_3}
+            \draw[-<-=.5] (y_3) -- (z_1);
+            \RCOEV{z_1}{z_2}
+            \draw[-<-=.5] (z_2) -- node[midway,right] {$X_1^*$} ++(0,3);
+        \end{tikzpicture} \\
+        &= \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \draw[->-=.5] (0,0) -- node[midway,left] {$X_1^*$} ++(0,-2);
+        \end{tikzpicture} \\
+        &= \Id_{X_1^*}
+    \end{align}
+    と計算できる．$\alpha \circ \beta = \Id_{X_2^*}$ も同様である．
+
+    さらに，$\Hom{\Cat{C}} (X_1^*,\, X_2^*)$ の元であって\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equiations)}}}を保存するもの\footnote{i.e. $f \in  \Hom{\Cat{C}} (X_1^*,\, X_2^*)$ であって3つ組 $\bigl(X_1^*,\, e_2 \circ (f \otimes \Id_{X}),\, c_1\bigr),\; \bigl( X_2^*,\, e_2,\, (\Id_X \otimes f) \circ c_1 \bigr)$ がどちらも $X$ の左双対を与えるもの．}は $\alpha$ しか存在しないことも分かる．
+    % $\Cat{C}$ における図式
+    % \begin{center}
+    %     % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAA0B9ARgD0AqEAF9S6TLnyEUZblVqMWbLn37suAJgHDRIDNjwEiZdXPrNWiDp02CRY-ZKLdSJ6mcWWNAtTy13d4gZSyOoupgoWVira9hKGKM6UbhFKvqrKfjp6ccHOssnmqSo+Nj7R-tlBRKH58oWeaWV+cjBQAObwRKAAZgBOEAC2SGQgOBBIAKwFHiAAOrMAklAABADGPDEgfYOT1GNIAGzTkfNLa9bLp1BXm9tDiEej44gA7MdsV1fLMNY3-ndIN5PJAAFnelh+3D+OgBiBG+0QzjqMy+63UIGoDDoACMYAwAAqBRyWXpYNoACxwt369yRCNCyMikJumJxeMJDniIFJFKp-xpSAZCIAzOC5osVutuBiQFjcQSiVyeZTqTtEKLgYgwYy2D91CzZWyFZypNyySr+Wq6c9Hu4ThLPhLztLLfdHiKxcyHd6lsIKEIgA
+    %     \begin{tikzcd}
+    %     X_1^* \arrow[r, red, "\Id c_1"] \arrow[d, blue, "\Id c_2"']            & X_1^*XX_1^* \arrow[d, red, "\Id c_2 \Id\Id"]                                &                                 \\
+    %     X_1^*XX_2^* \arrow[d, blue,"e_1\Id"'] \arrow[r, "\Id\Id\Id c_1"] & X_1^*XX_2^*XX_1^* \arrow[r, red,"\Id\Id e_2\Id"] \arrow[d, "e_1\Id\Id\Id"] & X_1^*XX_1^* \arrow[d, red, "e_1\Id"] \\
+    %     X_2^* \arrow[r, blue, "\Id c_1"']                                 & X_2^*XX_1^* \arrow[r, blue,"e_2\Id"']                                       & X_1^*                          
+    %     \end{tikzcd}
+    % \end{center}
+    % において，青色の部分は $\beta \circ \alpha$ に等しく，\hyperref[def:dual]{\textsf{\textbf{(zig-zag identity)}}}より赤色の部分は $\Id_{X_1^*}$ に等しい．ただし，$\otimes,\, a,\, l,\, r$ を省略した．
+    % 故にこの図式が可換であること示せば $\beta \circ \alpha = \Id_{X_1^*}$ が言える．まず左上の四角形
+    % \begin{center}
+    %     % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAA0B9ARgD0AqEAF9S6TLnyEUZblVqMWbLn37suAJgHDRIDNjwEi3cnPrNWiDjwFrrgkWP2SjpWdTOLLymxp93hcjBQAObwRKAAZgBOEAC2SGQgOBBI6u4KFiAAOlkAklAABADGPNqRMfGIaUkpiADM6eZsOfnFnOoFLVBdZSDRcQnUyUjG8k2WXW3qINQMdABGMAwACuIGUiBRWMEAFji9-ZWjw-WNntl53ZeTJdwBQkA
+    %     \begin{tikzcd}
+    %     X_1^* \arrow[r, "\Id c_1"] \arrow[d, "\Id c_2"'] & X_1^*XX_1^* \arrow[d, "\Id c_2 \Id\Id"] \\
+    %     X_1^*XX_2^* \arrow[r, "\Id\Id\Id c_1"]           & X_1^*XX_2^*XX_1^*                      
+    %     \end{tikzcd}
+    % \end{center}
+    % の部分に注目する．$\otimes$ が\hyperref[def:functor]{関手}であることから
+    % \begin{align}
+    %     (\Id_{X_1^*} \otimes c_2 \otimes \Id_{X} \otimes \Id_{X_1^*}) \circ (\Id_{X_1^*} \otimes c_1)
+    %     &= \bigl((\Id_{X_1^*} \otimes c_2) \otimes (\Id_{X} \otimes \Id_{X_1^*})\bigr) \circ (\Id_{X_1^*} \otimes c_1) \\
+    %     &= \bigl((\Id_{X_1^*} \otimes c_2) \circ \Id_{X_1^*}\bigr) \otimes \bigl((\Id_{X} \otimes \Id_{X_1^*}) \circ c_1 \bigr) \\
+    %     &= (\Id_{X_1^*} \otimes c_2) \otimes c_1 \\
+    %     &= \bigl((\Id_{X_1^*} \otimes \Id_{X} \otimes \Id_{X_2^*}) \circ (\Id_{X_1^*} \otimes c_2)\bigr) \otimes (c_1 \circ \Id_{I}) \\
+    %     &= \bigl((\Id_{X_1^*} \otimes \Id_{X} \otimes \Id_{X_2^*}) \otimes c_1 \bigr) \circ (\Id_{X_1^*} \otimes c_2)
+    % \end{align}
+    % が成り立ち\footnote{この式変形は，ストリング図式としては横並びの紐を独立に上下方向に伸縮する変形に対応する．}，可換である．同様の議論から下の行の2つの四角形が可換であることがわかる．
+
+    % 同様の議論から添字を入れ替えた $\Cat{C}$ の図式
+    % \begin{center}
+    %     % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAA0B9AJgD0AqEAF9S6TLnyEUZAIxVajFmy59+7LjIHDRIDNjwEiZbvPrNWiDp02CRY-ZKIzSJ6maWWNA9Ty13d4gZSyNwupooWVqra9hKGKM5ybhHKvmpe6WkxAQ7xyM6Uyeapqj7R-npxwaFJCsWeaWV+8jBQAObwRKAAZgBOEAC2SGQgOBBIAGxFHiAAOrMAklAABADGPNl9g5PUY0gArNOR80tr1ssnUJeb-UOIh6PjiADsR2yXF4srMNbX-lt3V6PJAAFjelh+3E+Sxu20QIz2iGcdRmH3WMhA1AYdAARjAGAAFQKOSy9LBtAAWOFhd2RiNCKMikOuWNx+KJuSkIDJlOp-1uSAZiIAzOC5l8ztxMSBsXjCcT4tzyVSaUhRcDEGDGWwfjJoVBpbL2QquTyVfy4XSng93Mcvpc0RsLXcHiKhBQhEA
+    %     \begin{tikzcd}
+    %     X_2^* \arrow[r, "\Id c_2"] \arrow[d, "\Id c_1"']            & X_2^*XX_2^* \arrow[d, "\Id c_1 \Id\Id"]                 &                                  \\
+    %     X_2^*XX_1^* \arrow[d, "e_2\Id"'] \arrow[r, "\Id\Id\Id c_2"] & X_2^*XX_1^*XX_2^* \arrow[r, "\Id \Id e_1\Id"] \arrow[d] & X_2^*XX_2^* \arrow[d, "e_2 \Id"] \\
+    %     X_1^* \arrow[r, "\Id c_2"']                                 & X_1^*XX_2^* \arrow[r, "e_1 \Id"']                       & X_2^*                           
+    %     \end{tikzcd}
+    % \end{center}
+    % もまた可換であり，$\alpha \circ \beta = \Id_{X_2^*}$ だと分かった．
+\end{proof}
 
 \begin{mydef}[label=redef:rigid]{rigidなモノイダル圏}
     \hyperref[def:monoidal-category]{モノイダル圏} $(\Cat{C},\, \otimes,\, I,\, a,\, l,\, r)$ が\textbf{rigid}であるとは，$\forall X \in \Obj{\mathcal{C}}$ が\hyperref[redef:dual]{左・右双対}を持つことを言う．
@@ -1736,7 +1902,7 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
         \item 単位対象は $1 \coloneqq \mathbb{K}$ とする\footnote{$1_G \in G$ 成分以外が全て $0$}
         \item $a_{g_1,g_2,g_3} \coloneqq 1,\; l_{g} \coloneqq 1,\, r_g \coloneqq 1$
     \end{itemize}
-    によって定義する．\underline{$G$ が有限群ならば} $\Cat{C}_G$ は\hyperref[def:tensorfusion-cat]{フュージョン圏}である．
+    によって定義する．\underline{$G$ が有限群ならば} $\VEC{G}$ は\hyperref[def:tensorfusion-cat]{フュージョン圏}である．
 \end{myexample}
 
 \begin{myexample}[label=def:CGa]{圏 $\Cat{C}_G^\alpha$ と $\mathrm{Vec}^\alpha_G$}
@@ -3250,7 +3416,7 @@ $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 上の積\eqref{eq:fusionring}は明らか�
     \textbf{左 $\Cat{C}$-加群圏} (left $\Cat{C}$-module category) $\Cat{M}$ は，以下のデータからなる：
     \begin{itemize}
         \item 圏 $\Cat{M}$
-        \item \textbf{左加群積} (left module product) と呼ばれる関手\footnote{記号として $\oslash$ を使うこともある（参考：\url{https://ncatlab.org/nlab/show/action+of+a+monoidal+category}）．} $\btr \colon \Cat{C} \times \Cat{M} \lto \Cat{M}$
+        \item \textbf{左加群積} (left module product) と呼ばれる関手\footnote{記号として $\oslash$ を使うこともある．\LaTeX コマンドは \texttt{\textbackslash oslash} である（参考：\url{https://ncatlab.org/nlab/show/action+of+a+monoidal+category}）．} $\btr \colon \Cat{C} \times \Cat{M} \lto \Cat{M}$
         \item \textbf{left actor}と呼ばれる\hyperref[def:nat]{自然同型} $\Familyset[\big]{\alpha_{x,\, y,\, m} \colon (x \otimes y) \btr m \lto x \btr (y \btr m)}{x,y \in \Obj{\Cat{C}},\, m \in \Obj{\Cat{M}}}$
         \item \textbf{left unitor}と呼ばれる\hyperref[def:nat]{自然同型} $\Familyset[\big]{\lambda_{m} \colon 1 \btr m \lto m}{m \in \Obj{\Cat{M}}}$
     \end{itemize}
@@ -3282,7 +3448,7 @@ $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 上の積\eqref{eq:fusionring}は明らか�
     \textbf{右 $\Cat{C}$-加群圏} $\Cat{M}$ は，以下のデータからなる：
     \begin{itemize}
         \item 圏 $\Cat{M}$
-        \item \textbf{右加群積} (left module product) と呼ばれる関手\footnote{記号として $\oslash$ を使うこともある（参考：\url{https://ncatlab.org/nlab/show/action+of+a+monoidal+category}）．} $\btr \colon \Cat{C} \times \Cat{M} \lto \Cat{M}$
+        \item \textbf{右加群積} (right module product) と呼ばれる関手\footnote{記号として $\oslash$ を使うこともある（参考：\url{https://ncatlab.org/nlab/show/action+of+a+monoidal+category}）．} $\btr \colon \Cat{C} \times \Cat{M} \lto \Cat{M}$
         \item \textbf{right actor}と呼ばれる\hyperref[def:nat]{自然同型} $\Familyset[\big]{\beta_{m,\, x,\, y} \colon m \btl (x \otimes y) \lto (m \btl x) \btl y}{x,y \in \Obj{\Cat{C}},\, m \in \Obj{\Cat{M}}}$
         \item \textbf{right unitor}と呼ばれる\hyperref[def:nat]{自然同型} $\Familyset[\big]{\rho_{m} \colon m \btl 1 \lto m}{m \in \Obj{\Cat{M}}}$
     \end{itemize}
@@ -3507,7 +3673,7 @@ $\Cat{C}$ が\hyperref[def:tensorfusion-cat]{多重テンソル圏}である場�
 \end{mydef}
 
 
-\subsection{代数と加群}
+\subsection{テンソル圏における代数対象と加群対象}
 
 \begin{mydef}[label=def:algobj,breakable]{代数対象}
     \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
@@ -3922,7 +4088,7 @@ $\forall (m,\, \rho) \in \Obj{\MODCR{\Cat{C}}{x}},\; \forall y,\,z \in \Obj{\Cat
     \end{center}
 \end{mydef}
 
-\subsection{両側加群}
+\subsection{テンソル圏における両側加群対象}
 
 \begin{mydef}[label=def:bimodobj,breakable]{両側加群}
     \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ 
@@ -4231,6 +4397,158 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
     \end{itemize}    
 \end{mydef}
 
+\section{Drinfeld中心}
+
+\begin{mydef}[label=def:Drinfeld-center]{Drinfeld中心}
+    \hyperref[redef:monoidal-category]{モノイダル圏}$(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r)$ の\textbf{Drinfeldセンター} (Drinfeld center) とは，
+    以下のようにして構成される $(1,\, 1)$-圏 $\Dri{\Cat{C}}$ のこと：
+    \begin{itemize}
+        \item $Z \in \Cat{C}$ と\hyperref[def:nat]{自然同型} $\gamma_Z = \Familyset[\big]{\gamma_{Z,\, x} \colon x \otimes Z \xrightarrow{\cong} Z \otimes x}{x \in \Obj{\Cat{C}}}$ の2つ組を対象に持つ．
+        ただし，$\gamma_Z$ は $\forall x,\, y \in \Obj{\Cat{C}}$ に対して以下の図式を可換にしなくてはいけない：
+        \begin{description}
+            \item[\textbf{(Half-braiding)}]　
+            
+            \begin{center}
+                % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAoAPAAgB1eIeALbxuATwCUfAcNEAtEAF9S6TLnyEUZAIxVajFmznTBWEXG5cTsi5KUqQGbHgJFt5PfWatEIHv1NzSzFrM1EALwl7VWcNIgAmD2ovQ19-GTCLdmMAm3Eo5Rj1VxRE3WSDHw50wPkpXMzxaMc1F01kd3L9bzZs0KDOeoygsSU9GCgAc3giUAAzACcIISQyEBwIJETu1JA6AH1gTlIxUnDFZsXl1eoNpHcdqv5JuiEhA+A5Uhq8sQvqBh0ABGMAYAAVWnFfAssJMABY4S5LFaIACst02iAeKSqH3C3xOF0KICuKIALBikOjHmxnq93ocvpxFP1RPwAJJQfajYmkpAAZkpiApNN8H2O+L+AD1gABabREhx8xDbO6IQWikAcrk-Rp0t4fL5-MaKIA
+                \begin{tikzcd}
+                (x \otimes y) \otimes Z \arrow[r, "{a_{x,y,z}}"] \arrow[d, "{\gamma_{Z,x \otimes y}}"'] & x \otimes (y \otimes z) \arrow[r, "{\Id_x \otimes \gamma_{Z,y}}"] & x \otimes (Z \otimes y) \arrow[d, "{a_{x,z,y}^{-1}}"]             \\
+                Z \otimes (x \otimes y)                                                                 & (Z \otimes x) \otimes y \arrow[l, "{a_{z,x,y}}"]                  & (x \otimes Z) \otimes y \arrow[l, "{\gamma_{Z,x} \otimes \Id_y}"]
+                \end{tikzcd}
+            \end{center}
+        \end{description}
+        \item $\forall (Z,\, \gamma_Z),\, (W,\, \gamma_W) \in \Obj{\Dri{\Cat{C}}}$ に対して，射の集合を
+        \begin{align}
+            &\Hom{\Dri{\Cat{C}}} \bigl( (Z,\, \gamma_Z),\, (W,\, \gamma_W) \bigr) \\
+            &\coloneqq \bigl\{\, f \in \Hom{\Cat{C}}(Z,\, W) \bigm| \forall x \in \Obj{\Cat{C}},\; (f \otimes \Id_x) \circ \gamma_Z = \gamma_W \circ (\Id_x \otimes f) \,\bigr\} 
+        \end{align}
+        と定義する．
+        \item 射の合成は $\Cat{C}$ のものを引き継ぐ．
+    \end{itemize}
+\end{mydef}
+
+以降では，\hyperref[def:Drinfeld-center]{Drinfeld中心}の対象をストリング図式で
+\begin{align}
+    (Z,\, \gamma_Z) \eqqcolon \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (a)
+        +(1,0) coordinate[label=above right:$Z$] (b)
+        +(0,2) coordinate (c)
+        +(1,2) coordinate (d)
+        ;
+        \DRI{a}{b}{c}{d}
+    \end{tikzpicture} \in \Obj{\Dri{\Cat{C}}}
+\end{align}
+と図示する．このとき $\forall f \in \Hom{\Dri{\Cat{C}}} \bigl( (Z,\, \gamma_Z),\, (W,\, \gamma_W) \bigr)$ は，$\forall x \in \Obj{\Cat{C}}$ に対して
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (a)
+        +(1,0) coordinate[label=above right:$Z$] (b)
+        +(0,2) coordinate (c)
+        +(1,2) coordinate (d)
+        ;
+        \DRI{a}{b}{c}{d}
+        \draw[->-=.5,double] (c) -- node[midway,right] {$W$} ++(0,1);
+        \draw[->-=.5] (d) -- node[midway,right] {$x$} ++(0,1);
+        \node[bullet] at (c) {};
+        \node[left] at (c) {$f$};
+    \end{tikzpicture}
+    &= 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (a)
+        +(1,0) coordinate[label=above right:$W$] (b)
+        +(0,2) coordinate (c)
+        +(1,2) coordinate (d)
+        ;
+        \DRI{a}{b}{c}{d}
+        \draw[-<-=.5,double] (b) -- node[midway,right] {$Z$} ++(0,-1);
+        \draw[-<-=.5] (a) -- node[midway,left] {$x$} ++(0,-1);
+        \node[bullet] at (b) {};
+        \node[left] at (b) {$f$};
+    \end{tikzpicture}
+\end{align}
+を充たす．\hyperref[def:Drinfeld-center]{\textsf{\textbf{(Half-braiding)}}}は
+\begin{align}
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path
+        coordinate[label=above left:$x$] (x_2)
+        +(2,0) coordinate[label=above right:$y$] (y_2)
+        +(3,0) coordinate[label=above right:$Z$] (z_2)
+        ++(0,2) coordinate (x_3)
+        +(2,0) coordinate (z_3)
+        +(3,0) coordinate (y_3)
+        ++(0,1) coordinate (x_4)
+        +(1,0) coordinate (z_4)
+        +(3,0) coordinate (y_4)
+        ++(0,2) coordinate[label=below left:$Z$] (z_5)
+        +(1,0) coordinate[label=below left:$x$] (x_5)
+        +(3,0) coordinate[label=below right:$y$] (y_5)
+        ;
+        % braiding
+        \DRI{y_2}{z_2}{z_3}{y_3}
+        \draw[->-=.5] (x_2) -- (x_3);
+        % associator
+        \draw[->-=.5] (x_3) -- (x_4);
+        \draw[->-=.5,double] (z_3) .. controls +(0,1) and +(0,-1) .. (z_4);
+        \draw[->-=.5] (y_3) -- (y_4);
+        % braiding
+        \draw[->-=.5] (y_4) -- (y_5);
+        \DRI{x_4}{z_4}{z_5}{x_5}
+    \end{tikzpicture}
+    &\quad =  \quad 
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path 
+        coordinate[label=above left:$x$] (x_2)
+        +(2,0) coordinate[label=above right:$y$] (y_2)
+        +(3,0) coordinate[label=above right:$Z$] (z_2)
+        ++(0,1) coordinate (x_3)
+        +(0.3,0) coordinate (y_3)
+        +(3,0) coordinate (z_3)
+        ++(0,3) coordinate (z_4)
+        +(2.7,0) coordinate (x_4)
+        +(3,0) coordinate (y_4)
+        ++(0,1) coordinate[label=below left:$Z$]  (z_5)
+        +(1,0) coordinate[label=below left:$x$] (x_5)
+        +(3,0) coordinate[label=below right:$y$] (y_5)
+        ;
+        % associator
+        \draw[->-=.5] (x_2) -- (x_3);
+        \draw[->-=.5] (y_2) .. controls +(0,1) and +(0,-1) .. (y_3);
+        \draw[->-=.5,double] (z_2) -- (z_3);
+        % braiding
+        \begin{scope}
+            \coordinate (CENTER_1) at ($0.5*(x_3) + 0.5*(x_4)$);
+            \coordinate (CENTER_2) at ($0.5*(z_3) + 0.5*(z_4)$);
+            \coordinate (CENTER_3) at ($0.5*(y_3) + 0.5*(y_4)$);
+            \coordinate (CENTER_4) at ($0.5*(z_3) + 0.5*(z_4)$);
+            \draw[->-=.75,name path=BRAID_1,spath/save=BRAID_1] (x_3) .. controls (x_3 |- CENTER_1) and (x_4 |- CENTER_1) .. (x_4);
+            \draw[->-=.75,name path=BRAID_3,spath/save=BRAID_1] (y_3) .. controls (y_3 |- CENTER_3) and (y_4 |- CENTER_3) .. (y_4);
+            \draw[->-=.75,name path=BRAID_2,double] (z_3) .. controls (z_3 |- CENTER_2) and (z_4 |- CENTER_2) .. (z_4);
+            \clip[name intersections={of=BRAID_1 and BRAID_2}] (intersection-1) circle (20pt);
+            \draw[spath/use=BRAID_1,white,ultra thick,double=black,double distance=0.4pt];
+            \draw[spath/use=BRAID_3,white,ultra thick,double=black,double distance=0.4pt];
+        \end{scope}
+        % associator
+        \draw[->-=.5,double] (z_4) -- (z_5);
+        \draw[->-=.5] (x_4) .. controls +(0,1) and +(0,-1) .. (x_5);
+        \draw[->-=.5] (y_4) -- (y_5);
+    \end{tikzpicture}
+\end{align}
+を意味する．2つ目の\hyperref[redef:braided-monoidal]{\textsf{\textbf{(hexagon equiations)}}}との類似に注目されたい．
+
+次の命題は，証明の構成が極めて重要である．
+
+\begin{myprop}[label=prop:Drinfeld-center]{Drinfeld中心の構造}
+    \begin{enumerate}
+        \item \hyperref[redef:monoidal-category]{モノイダル圏}$(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r)$ の\hyperref[def:Drinfeld-center]{Drinfeld中心} $\Dri{\Cat{C}}$ は\hyperref[redef:braided-monoidal]{組紐付きモノイダル圏}の構造を持つ．
+        \item \hyperref[def:tensorfusion-cat]{フュージョン圏}$(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ の\hyperref[def:Drinfeld-center]{Drinfeld中心} $\Dri{\Cat{C}}$ は\hyperref[redef:braided-monoidal]{組紐付き}\hyperref[def:tensorfusion-cat]{フュージョン圏}の構造を持つ．
+    \end{enumerate}
+\end{myprop}
+
+\begin{proof}
+    \begin{enumerate}
+        \item
+    \end{enumerate}
+\end{proof}
 
 
 \section{2-群}
