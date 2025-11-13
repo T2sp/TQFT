@@ -4403,7 +4403,7 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
     \hyperref[redef:monoidal-category]{モノイダル圏}$(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r)$ の\textbf{Drinfeldセンター} (Drinfeld center) とは，
     以下のようにして構成される $(1,\, 1)$-圏 $\Dri{\Cat{C}}$ のこと：
     \begin{itemize}
-        \item $Z \in \Cat{C}$ と\hyperref[def:nat]{自然同型} $\gamma_Z = \Familyset[\big]{\gamma_{Z,\, x} \colon x \otimes Z \xrightarrow{\cong} Z \otimes x}{x \in \Obj{\Cat{C}}}$ の2つ組を対象に持つ．
+        \item $Z \in \Cat{C}$ と\hyperref[def:nat]{自然同型} $\gamma_Z = \Familyset[\big]{\gamma_{Z,\, x} \colon x \otimes Z \xrightarrow{\cong} Z \otimes x}{x \in \Obj{\Cat{C}}}$ の2つ組 $(Z,\, \gamma_Z)$ を対象に持つ．
         ただし，$\gamma_Z$ は $\forall x,\, y \in \Obj{\Cat{C}}$ に対して以下の図式を可換にしなくてはいけない：
         \begin{description}
             \item[\textbf{(Half-braiding)}]　
@@ -4411,8 +4411,8 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
             \begin{center}
                 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAoAPAAgB1eIeALbxuATwCUfAcNEAtEAF9S6TLnyEUZAIxVajFmznTBWEXG5cTsi5KUqQGbHgJFt5PfWatEIHv1NzSzFrM1EALwl7VWcNIgAmD2ovQ19-GTCLdmMAm3Eo5Rj1VxRE3WSDHw50wPkpXMzxaMc1F01kd3L9bzZs0KDOeoygsSU9GCgAc3giUAAzACcIISQyEBwIJETu1JA6AH1gTlIxUnDFZsXl1eoNpHcdqv5JuiEhA+A5Uhq8sQvqBh0ABGMAYAAVWnFfAssJMABY4S5LFaIACst02iAeKSqH3C3xOF0KICuKIALBikOjHmxnq93ocvpxFP1RPwAJJQfajYmkpAAZkpiApNN8H2O+L+AD1gABabREhx8xDbO6IQWikAcrk-Rp0t4fL5-MaKIA
                 \begin{tikzcd}
-                (x \otimes y) \otimes Z \arrow[r, "{a_{x,y,z}}"] \arrow[d, "{\gamma_{Z,x \otimes y}}"'] & x \otimes (y \otimes z) \arrow[r, "{\Id_x \otimes \gamma_{Z,y}}"] & x \otimes (Z \otimes y) \arrow[d, "{a_{x,z,y}^{-1}}"]             \\
-                Z \otimes (x \otimes y)                                                                 & (Z \otimes x) \otimes y \arrow[l, "{a_{z,x,y}}"]                  & (x \otimes Z) \otimes y \arrow[l, "{\gamma_{Z,x} \otimes \Id_y}"]
+                (x \otimes y) \otimes Z \arrow[r, "{a_{x,y,Z}}"] \arrow[d, "{\gamma_{Z,x \otimes y}}"'] & x \otimes (y \otimes z) \arrow[r, "{\Id_x \otimes \gamma_{Z,y}}"] & x \otimes (Z \otimes y) \arrow[d, "{a_{x,Z,y}^{-1}}"]             \\
+                Z \otimes (x \otimes y)                                                                 & (Z \otimes x) \otimes y \arrow[l, "{a_{Z,x,y}}"]                  & (x \otimes Z) \otimes y \arrow[l, "{\gamma_{Z,x} \otimes \Id_y}"]
                 \end{tikzcd}
             \end{center}
         \end{description}
