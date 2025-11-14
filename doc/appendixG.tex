@@ -1229,6 +1229,7 @@ $S \star T$ の\hyperref[def:SimpSet]{面写像}は $n \ge 1,\, 0 \le j \le n$ �
 
 同様に，$(\infty,\, 1)$-圏 $\Cat{C}_{/X}$ の1-射 $f \in (\Cat{C}_{/X})_1 = \Hom{p}(\Delta^1 \star \textcolor{blue}{\Delta^0},\, \Cat{C})$ とは，\exref{ex:join-1}より
 \begin{align}
+    \label{eq:slice-1mor}
     f =     
     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
         \path coordinate[bullet,blue,label=below:$X$] (x)
@@ -1270,18 +1271,28 @@ $(\infty,\, 1)$-圏 $\Cat{C}_{/X}$ の $n$-射も同様に図示できる．
 後の議論のため，先取りして $(\infty,\, 1)$-圏におけるlimit/colimitを定義しておこう．
 $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category}を採用する場合，これは\textbf{homotopy limit/colimit}と呼ばれることもある．
 
+\begin{mydef}[label=def:left-right-cone]{左/右錐}
+    $(\infty,\, 1)$-圏 $\Cat{C}$ を与える．
+    \begin{itemize}
+        \item \hyperref[def:Simp-Join]{join}によって得られる $(\infty,\, 1)$-圏 $\Delta^0 \star \Cat{C}$ のことを $\Cat{C}$ の\textbf{左錐} (left cone) と呼び，$\leftCone{\Cat{C}}$ と書く．
+        \item \hyperref[def:Simp-Join]{join}によって得られる $(\infty,\, 1)$-圏 $\Cat{C} \star \Delta^0$ のことを $\Cat{C}$ の\textbf{右錐} (right cone) と呼び，$\rightCone{\Cat{C}}$ と書く．
+    \end{itemize}
+\end{mydef}
+
 \begin{mydef}[label=def:initial-final-infty]{{$(\infty,\, 1)$}-圏における始対象と終対象}
     \begin{itemize}
-        \item \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\Cat{C}$ における対象 $x \in \Cat{C}_0$ が\textbf{始対象} (initial object) であるとは，\hyperref[def:hcat-infty]{ホモトピー圏} $\htpy{\Cat{C}}$ における始対象\footnote{$(1,\, 1)$-圏の\textbf{始対象}とは，空の図式における\hyperref[def:colim]{余極限}のこと．}であること．
-        \item \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\Cat{C}$ における対象 $x \in \Cat{C}_0$ が\textbf{終対象} (final object) であるとは，\hyperref[def:hcat-infty]{ホモトピー圏} $\htpy{\Cat{C}}$ における終対象\footnote{$(1,\, 1)$-圏の\textbf{終対象}とは，空の図式における\hyperref[def:lim]{極限}のこと．}であること．
+        \item \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\Cat{C}$ における対象 $x_0 \in \Cat{C}_0$ が\textbf{始対象} (initial object) であるとは，$\forall x \in \Cat{C}_0$ に対して\hyperref[def:Map]{射の空間} $\inftyMap{\Cat{C}} (x_0,\, x) \in \Obj{\Kan}$ が $\Delta^0$ と\hyperref[def:htpy-Kan]{ホモトピー同値}であること．
+        % \hyperref[def:hcat-infty]{ホモトピー圏} $\htpy{\Cat{C}}$ における始対象\footnote{$(1,\, 1)$-圏の\textbf{始対象}とは，空の図式における\hyperref[def:colim]{余極限}のこと．}であること．
+        \item \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\Cat{C}$ における対象 $x_0 \in \Cat{C}_0$ が\textbf{終対象} (final object) であるとは，$\forall x \in \Cat{C}_0$ に対して\hyperref[def:Map]{射の空間} $\inftyMap{\Cat{C}} (x,\, x_0) \in \Obj{\Kan}$ が $\Delta^0$ と\hyperref[def:htpy-Kan]{ホモトピー同値}であること．
+        % それが\hyperref[def:hcat-infty]{ホモトピー圏} $\htpy{\Cat{C}}$ における終対象\footnote{$(1,\, 1)$-圏の\textbf{終対象}とは，空の図式における\hyperref[def:lim]{極限}のこと．}であること．
     \end{itemize}
 \end{mydef}
 
 \begin{mydef}[label=def:lim-colim-infty]{{$(\infty,\, 1)$}-圏のlimit/colimit}
     \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $D \colon \Cat{I} \lto \Cat{C}$ を与える\footnote{\hyperref[def:diagram]{$(1,\, 1)$-圏の場合}からのアナロジーで，$D$ を図式と見做す．}．
     \begin{itemize}
-        \item $D$ の\textbf{limit}とは，\hyperref[def:overcat-infty]{スライス $(\infty,\, 1)$-圏} $\Cat{C}_{/D}$ における\hyperref[def:initial-final-infty]{終対象}のこと．$\bm{\lim D} \in \Cat{C}_0$ と書く．
-        \item $D$ の\textbf{colimit}とは，\hyperref[def:overcat-infty]{コスライス $(\infty,\, 1)$-圏} $\Cat{C}_{D/}$ における\hyperref[def:initial-final-infty]{始対象}のこと．$\bm{\colim D} \in \Cat{C}_0$ と書く．
+        \item $D$ の\textbf{limit}とは，\hyperref[def:overcat-infty]{スライス $(\infty,\, 1)$-圏} $\Cat{C}_{/D}$ における\hyperref[def:initial-final-infty]{終対象}のこと．$\bm{\lim D} \in (\Cat{C}_{/D})_0 = \Hom{D} (\leftCone{\Cat{I}},\, \Cat{C})$ と書く．
+        \item $D$ の\textbf{colimit}とは，\hyperref[def:overcat-infty]{コスライス $(\infty,\, 1)$-圏} $\Cat{C}_{D/}$ における\hyperref[def:initial-final-infty]{始対象}のこと．$\bm{\colim D} \in (\Cat{C}_{D/})_0 = \Hom{D} (\rightCone{\Cat{I}},\, \Cat{C})$ と書く．
     \end{itemize}
 \end{mydef}
 
@@ -1312,31 +1323,32 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
     
     　\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $D \colon \Delta^1 \times \Delta^1 \lto \Cat{C}$ の\hyperref[def:lim-colim-infty]{limit}のことを（存在すれば）\textbf{pullback}と呼び，
     \begin{align}
-        \bm{D(0,\, 1)} \bm{\times}_{\bm{D(1,\, 1)}} \bm{D(1,\, 0)} \coloneqq \lim D \in \Cat{C}_0
+        \bm{D(0,\, 1)} \bm{\times}_{\bm{D(1,\, 1)}} \bm{D(1,\, 0)} \coloneqq \lim D
     \end{align}
-    と書く．\exref{ex:Map1}および補題\ref{lem:n-fold-Map}より，$D \in \Hom{\sSet}(\Delta^1 \times \Delta^1,\, \Cat{C})$ は
-    \begin{align}
-        D = \quad
-        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-            \path  coordinate[bullet,label=below left:{$D_{[0]} (0,\, 1)$}] (x)
-            +(4,0) coordinate[bullet,label=below right:{$D_{[0]} (1,\, 1)$}] (y)
-            +(0,4) coordinate[bullet,label=above left:{$D_{[0]} (0,\, 0)$}] (z)
-            +(4,4) coordinate[bullet,label=above right:{$D_{[0]} (1,\, 0)$}] (w)
-            ;
-            \begin{scope}[on background layer]
-                \fill[red!20]  (z.center) -- (x.center) -- (y.center) -- cycle;
-                \fill[blue!20] (z.center) -- (w.center) -- (y.center) -- cycle;
-            \end{scope}
-            \node[red] at (barycentric cs:z=1,x=1,y=1) {$D_{[2]}\bigl(s^1_0{}^*(\Id_{[1]}),\, s^1_1{}^* (\Id_{[1]})\bigr)$};
-            \node[blue] at (barycentric cs:z=1,w=1,y=1) {$D_{[2]}\bigl(s^1_1{}^*(\Id_{[1]}),\, s^1_0{}^* (\Id_{[1]})\bigr)$};
-            \draw[->-=.5] (z) -- (x);
-            \draw[->-=.5] (z) -- (y);
-            \draw[->-=.5] (z) -- node[midway,above]{$\sigma^0_0(x) \eqqcolon \Id_x$} (w);
-            \draw[->-=.5] (x) -- node[midway,below]{$\sigma^0_0(y) \eqqcolon \Id_y$} (y);
-            \draw[->-=.5] (w) -- (y);
-        \end{tikzpicture}
-    \end{align}
-    と図示できる．
+    と書く．
+    % \exref{ex:Map1}および補題\ref{lem:n-fold-Map}より，$D \in \Hom{\sSet}(\Delta^1 \times \Delta^1,\, \Cat{C})$ は
+    % \begin{align}
+    %     D = \quad
+    %     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+    %         \path  coordinate[bullet,label=below left:{$D_{[0]} (0,\, 1)$}] (x)
+    %         +(4,0) coordinate[bullet,label=below right:{$D_{[0]} (1,\, 1)$}] (y)
+    %         +(0,4) coordinate[bullet,label=above left:{$D_{[0]} (0,\, 0)$}] (z)
+    %         +(4,4) coordinate[bullet,label=above right:{$D_{[0]} (1,\, 0)$}] (w)
+    %         ;
+    %         \begin{scope}[on background layer]
+    %             \fill[red!20]  (z.center) -- (x.center) -- (y.center) -- cycle;
+    %             \fill[blue!20] (z.center) -- (w.center) -- (y.center) -- cycle;
+    %         \end{scope}
+    %         \node[red] at (barycentric cs:z=1,x=1,y=1) {$D_{[2]}\bigl(s^1_0{}^*(\Id_{[1]}),\, s^1_1{}^* (\Id_{[1]})\bigr)$};
+    %         \node[blue] at (barycentric cs:z=1,w=1,y=1) {$D_{[2]}\bigl(s^1_1{}^*(\Id_{[1]}),\, s^1_0{}^* (\Id_{[1]})\bigr)$};
+    %         \draw[->-=.5] (z) -- (x);
+    %         \draw[->-=.5] (z) -- (y);
+    %         \draw[->-=.5] (z) -- node[midway,above]{$\sigma^0_0(x) \eqqcolon \Id_x$} (w);
+    %         \draw[->-=.5] (x) -- node[midway,below]{$\sigma^0_0(y) \eqqcolon \Id_y$} (y);
+    %         \draw[->-=.5] (w) -- (y);
+    %     \end{tikzpicture}
+    % \end{align}
+    % と図示できる．従って\exref{ex:join-2}から，$D(0,\, 1) \times_{D(1,\, 1)} D(1,\, 0)$ とは次のように図示できる：
 \end{myexample}
 
 \subsection{Unstraightening construction}
@@ -3231,11 +3243,94 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         \text{forget} \colon \OPinfty \lto \CATinfty{}_{/\Ner(\FIN_*)}
     \end{align}
     は，\hyperref[def:lim-colim-infty]{極限}を生成する (creates limits)．
-    i.e. 任意の小さな \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の図式} $D \colon \Cat{K} \lto \OPinfty$ に対して，$\Cat{K} \xrightarrow{D} \OPinfty \xrightarrow{\text{forget}} \CATinfty{}_{/\Ner(\FIN_*)}$ が\hyperref[def:lim-colim-infty]{極限} $\bigl(p \colon \Cat{O} \lto \Ner(\FIN_*)\bigr) \in (\CATinfty{}_{/\Ner(\FIN_*)})_0$ を持つならば，$p$ は\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド}の構造を持ち，かつそれが $\lim_{\Cat{K}} D = \bigl(p \colon \Cat{O} \lto \Ner(\FIN_*)\bigr)$ を充たす．
+    i.e. 任意の小さな \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の図式} $D \colon \Cat{K} \lto \OPinfty$ に対して，$\Cat{K} \xrightarrow{D} \OPinfty \xrightarrow{\text{forget}} \CATinfty{}_{/\Ner(\FIN_*)}$ が\hyperref[def:lim-colim-infty]{極限} $(p \colon \Cat{O} \lto \Ner(\FIN_*)) \in (\CATinfty{}_{/\Ner(\FIN_*)})_0$ を持つ
+    \footnote{正確に言うと，極限 $\lim_{\Cat{K}} (\mathrm{forget} \circ D) \in \Hom{\mathrm{forget} \circ D} (\leftCone{\Cat{K}},\, \CATinfty{}_{/\Ner(\FIN_*)})$ のコーンポイントのことを $p \colon \Cat{O} \lto \Ner(\FIN_*)$ と書いている．}
+    ならば，
+    $p$ は\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド}の構造を持ち，かつそれが $D$ の極限と一致する．
+    ~\cite[Lemma 1.12.]{AFT2014FH}
  \end{myprop}
 
 \begin{proof}
-    ~\cite[Lemma 1.12.]{AFT2014FH}
+    忘却関手を $F \colon \OPinfty \lto \CATinfty{}_{/\Ner(\FIN_*)}$ と略記する．
+    小さな \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の図式} $D \colon \Cat{K} \lto \OPinfty$ であって，
+    $\Cat{K} \xrightarrow{D} \OPinfty \xrightarrow{F} \CATinfty{}_{/\Ner(\FIN_*)}$ が\hyperref[def:lim-colim-infty]{極限} $\lim_{\Cat{K}} (F \circ D) \in \Hom{F \circ D} (\leftCone{\Cat{K}},\, \CATinfty{}_{/\Ner(\FIN_*)})$ を持つものを1つ固定する．
+    
+    $\forall k \in \Cat{K}_0$ に対して $D_{[0]}(k) \eqqcolon \bigl(p_k \colon \Oper{\Cat{O}}_k \lto \Ner(\FIN_*)\bigr) \in (\OPinfty)_0$ とおく．
+    さらに，
+    $\leftCone{\Cat{K}} \xrightarrow{\lim_{\Cat{K}} (F \circ D)} \CATinfty{}_{/\Ner(\FIN_*)}$
+    のコーンポイントを $p \colon \Cat{O} \lto \Ner(\FIN_*)$ と書き，コーンポイントと $D_{[0]}(k)$ を繋ぐ $\CATinfty{}_{/\Ner(\FIN_*)}$ の1-射を
+    \begin{align}
+        \sigma_k \coloneqq \lim_{\Cat{K}} (F \circ D)_{[1]}|_{\Delta^0_0 \times \Cat{K}_0} \bigl( \{0\} \to k \bigr) \in \inftyMap{\CATinfty{}_{/\Ner(\FIN_*)}} (p,\, p_k)_0
+    \end{align}
+    と書く．\eqref{eq:slice-1mor}から，これは $\CATinfty$ において
+    \begin{align}
+        \sigma_k = 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate[bullet,label=below:$\Ner(\FIN_*)$] (x)
+        +(120:3) coordinate[bullet,label=left:$\Cat{O}$] (y)
+        +(60:3) coordinate[bullet,label=right:$\Oper{\Cat{O}}_k$] (z)
+        ;
+        \draw[->-=.5] (y) -- (z);
+        \draw[->-=.5] (y) -- (x);
+        \draw[->-=.5] (z) -- (x);
+         \node[gray] at (barycentric cs:x=1,y=1,z=1) {$\sigma_k$};
+                \begin{scope}[on background layer]
+                    \fill[gray!20] (x.center) -- (y.center) -- (z.center);
+                \end{scope}
+        % \fill[red!20] (x) -- (y) -- (z) -- cycle;
+    \end{tikzpicture}
+    \in \CATinfty{}_2
+    \end{align}
+    と図示できる．故に，$f_k \coloneqq \partial^2_2 (\sigma_k) \in \bigl(\FUN(\Cat{O},\, \Oper{\Cat{O}}_k)^{\cong}\bigr)_0 \subset \Hom{\sSet} (\Cat{O},\, \Oper{\Cat{O}}_k)$ とおくと便利である．
+
+    以下で $p$ が\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド}であることを示す．
+    \begin{description}
+        \item[\textbf{(Op-1)}]　
+        
+        勝手な\hyperref[def:inert-active]{inertな射} $\alpha \in \Hom{\FIN_*} \bigl( \expval{m},\, \expval{n} \bigr)$ および $x \in (\Cat{O}_{\expval{m}})_0$ を1つ固定する．
+        このとき，$\Cat{O}$ における $\alpha$ の\hyperref[def:Cart-coCart]{$p$-coCartesian lift}全体が成す空間
+        \begin{align}
+            \inftyMap{\Cat{O}}^\mathrm{coCart} (x,\, \mhyphen\,)_\alpha \subset \FUN (\Delta^1,\, \Cat{O})
+        \end{align}
+        を構成しよう．
+
+        　まず，\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+        \begin{align}
+            \mathrm{coCart} \colon \Cat{K} \xrightarrow{D} \OPinfty \xrightarrow{F} \CATinfty{}_{/\Ner(\FIN_*)} \lto \CATinfty
+        \end{align}
+        を，$k \in \Cat{K}_0$ の行き先が $(1,\, 1)$-圏 $\sSet$ の引き戻し
+        \begin{center}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQAdDgW3pwAsATt2ABjCAGF6gnAAoAjgEoAviGWl0mXPkIoyAJmp0mrdl2AB5LqvWbseAkXKlDNBizaJOHC2hjAuKRxLZWUAfQBrYHCAjhgADzR3YG5QtQ0QDHsdJwojd1MvLgAxAFUAOQA9WJwE4PEpGVCAAi4AIywAc0ZZLgARGEYcekrnLlJWnz9YoJDwiPauwUUw2KY0fnobDKztRxR9F3yTT29YhKSmFOVrdLs93WRDgGZjjzMOcphBXo5igElymEAFSKO6ZLQOR7OV5uE4fXz+QJ8OaRcG7KG5YhvQpnLjrTa3WwQ7L7J55OHvIp-CrVLi1eL1STSHChX4DIYjMYcCZcREzFEWUKRMHEjE5A6kbGU3FcLBgABmOAAngBZehoWJfH4lQEglSTDrdX4XZKpUjjSamq5gG4cI3LNRGGBQTrwIigBWCCDcJDOEA4CBIQ4B+hYRjsfgQCARcFen1IZ40QPB4nx32IMgBoOIchp70ZrMpxDPfMJxAh4sANjLGYALMmcwBWZNhiNeKMxuMFpBVxtIFuh8OR6MRJg4bvlys5uu1xP9xAAdjnJYXAA4V4uFwBOVvDjujycZtc7mWnNAgGiMehtQYABUhEpAgi6-AnykoyiAA
+            \begin{tikzcd}
+                                                   & \{\alpha\} \arrow[r, hook]                                                                            & {\inftyMap{\Ner(\FIN_*)} \bigl(\expval{m},\, \expval{n}\bigr)}      \\
+            \mathrm{coCart}_{[0]}(k) \arrow[d] \arrow[r] & {\FUN^{\text{coCart}} \bigl(\Delta^1,\, \Oper{\Cat{O}}_k\bigr)_{\alpha}} \arrow[d] \arrow[u] \arrow[r] & {\FUN^{\text{coCart}}(\Delta^1,\, \Oper{\Cat{O}}_k)} \arrow[u, "p_k"'] \\
+            \{x\} \arrow[r, hook, "f_k"']                  & {\FUN^{\text{coCart}} \bigl(\{0\},\, \Oper{\Cat{O}}_k\bigr)_{\alpha}} = \Oper{\Cat{O}}_k{}_{\expval{m}} \arrow[d] \arrow[r]                                                    & \{\expval{m}\} \arrow[d, hook]                                      \\
+                                                   & \Oper{\Cat{O}}_k \arrow[r, "p_k"']                                                                      & \Ner(\FIN_*)                                                       
+            \end{tikzcd}
+        \end{center}
+        となるように構成する．特に\hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}
+        \begin{align}
+            \{O\} \times_{\Cat{O}_{\expval{m}}} \FUN (\Delta^1,\, \Cat{O})_\alpha \xrightarrow{\simeq}\lim_{k \in \Cat{K}} \Bigl( \{x\} \times_{\Oper{\Cat{O}_k}{}_{\expval{m}}} \FUN(\Delta^1,\, \Oper{\Cat{O}}_k)_{\alpha} \Bigr) 
+        \end{align}
+        が存在するので，
+        \begin{align}
+            \inftyMap{\Cat{O}}^\mathrm{coCart} (x,\, \mhyphen\,)_\alpha \coloneqq \lim_{\Cat{K}} \bigl( \mathcal{K} \xrightarrow{\mathrm{coCart}} \CATinfty \bigr)
+        \end{align}
+        と定義する．定義から明らかに $f \in \bigl(\inftyMap{\Cat{O}}^\mathrm{coCart} (x,\, \mhyphen\,)_\alpha\bigr)_0 \subset \Cat{O}_1$ は\hyperref[def:p-Cart]{$p$-coCartesian}である．
+
+        \item[\textbf{(Op-2)}]　
+        
+        極限は有限積と交換するので明らか．
+
+        \item[\textbf{(Op-3)}]　
+        
+        補題\ref{lem:Segal-cond}より，\hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}
+        \begin{align}
+            \Cat{O}_{\expval{n}} \xrightarrow{\simeq} (\Cat{O}_{\expval{1}})^{\times n}
+        \end{align}
+        を示せば良いが，これも極限が有限積と交換するので明らかである．
+    \end{description}
+
 \end{proof}
 
 \subsection{{$\otimes$-sifted cocompleteness}}
@@ -3271,7 +3366,7 @@ $\Cat{V}^\otimes_{\expval{n}} \xrightarrow{\alpha_n{}_!} \Cat{V}$ というの�
 
 \begin{mydef}[label=def:tensor-sifted]{{$\otimes$-sifted cocomplete}}
     \begin{itemize}
-        \item \hyperref[def:sym-monoidal-infty]{対称モノイダル $(\infty,\, 1)$-圏} $p \colon \Cat{V}^\otimes \Ner(\FIN_*)$
+        \item \hyperref[def:sym-monoidal-infty]{対称モノイダル $(\infty,\, 1)$-圏} $p \colon \Cat{V}^\otimes \lto \Ner(\FIN_*)$
         \item 小さな\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\Cat{K}$
     \end{itemize}
     を与える．
@@ -3290,6 +3385,9 @@ $\Cat{V}^\otimes_{\expval{n}} \xrightarrow{\alpha_n{}_!} \Cat{V}$ というの�
     \hyperref[def:sym-monoidal-infty]{対称モノイダル $(\infty,\, 1)$-圏} $p \colon \Cat{V}^\otimes \lto \Ner(\FIN_*)$ が\textbf{ $\bm{\otimes}$-sifted cocomplete} であるとは，
     それが\hyperref[def:sifted-colim]{sifted-colimit}を持ち，かつ $\Cat{V}$ の対称モノイダル構造がsifted-colimitの上に分布することを言う．
 \end{mydef}
+
+\subsection{デカルト / 余デカルト対称モノイダル構造}
+
 
 
 \subsection{{$\mathbb{E}_n$-オペラッド}}
