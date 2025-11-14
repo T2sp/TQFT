@@ -2333,7 +2333,7 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
                    \end{tikzpicture}
         \end{align}
         を充たす唯一の自然変換である．
-        \item $\Cat{E}$ の1-射 $(x \xrightarrow{f} y) \in \Cat{E}_1$ が以下の条件を充たすとき，$f$ は\textbf{$\bm{p}$-coCartesian}であると言う：
+        \item $\Cat{E}$ の1-射 $(x \xrightarrow{f} y) \in \Cat{E}_1$ が以下の条件を充たすとき，$f$ は\textbf{$\bm{p}$-coCartesian}である\footnote{もしくは，なぜか $p$-coCartesian morphism とは呼ばずに $\bm{p}$\textbf{-coCartesian edge} と呼ぶことが多い．}と言う：
         \begin{description}
             \item[\textbf{(coCartesian)}] 
             
@@ -2465,6 +2465,7 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
             
             $\bar{f}$ は\hyperref[def:p-Cart]{$p$-Cartesian}である．
         \end{description}
+        特に，$\bar{f}$ のことを $f$ の $\bm{p}$\textbf{-Cartesian lift}と呼ぶ．
         \item $p$ が\textbf{余デカルトファイブレーション} (coCartesian fibration) であるとは，
         \begin{itemize}
             \item $\Cat{B}$ の任意の1射 $(x \xrightarrow{f} y) \in \Cat{B}_1$ 
@@ -2480,6 +2481,7 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
             
             $\bar{f}$ は\hyperref[def:p-Cart]{$p$-coCartesian}である．
         \end{description}
+        特に，$\bar{f}$ のことを $f$ の $\bm{p}$\textbf{-coCartesian lift}と呼ぶ．
     \end{itemize}
 \end{mydef}
 
@@ -3228,9 +3230,9 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
     \begin{align}
         \text{forget} \colon \OPinfty \lto \CATinfty{}_{/\Ner(\FIN_*)}
     \end{align}
-    は，\hyperref[def:lim-colim-infty]{極限}を生成する．
+    は，\hyperref[def:lim-colim-infty]{極限}を生成する (creates limits)．
     i.e. 任意の小さな \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の図式} $D \colon \Cat{K} \lto \OPinfty$ に対して，$\Cat{K} \xrightarrow{D} \OPinfty \xrightarrow{\text{forget}} \CATinfty{}_{/\Ner(\FIN_*)}$ が\hyperref[def:lim-colim-infty]{極限} $\bigl(p \colon \Cat{O} \lto \Ner(\FIN_*)\bigr) \in (\CATinfty{}_{/\Ner(\FIN_*)})_0$ を持つならば，$p$ は\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド}の構造を持ち，かつそれが $\lim_{\Cat{K}} D = \bigl(p \colon \Cat{O} \lto \Ner(\FIN_*)\bigr)$ を充たす．
-\end{myprop}
+ \end{myprop}
 
 \begin{proof}
     ~\cite[Lemma 1.12.]{AFT2014FH}
@@ -3238,7 +3240,7 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
 
 \subsection{{$\otimes$-sifted cocompleteness}}
 
-$p \colon \Cat{V}^\otimes \Ner(\FIN_*)$ を\hyperref[def:sym-monoidal-infty]{対称モノイダル $(\infty,\, 1)$-圏}とする．
+$p \colon \Cat{V}^\otimes \lto \Ner(\FIN_*)$ を\hyperref[def:sym-monoidal-infty]{対称モノイダル $(\infty,\, 1)$-圏}とする．
 このとき，$\forall n \ge 1$ に対して $\bm{n}$\textbf{-fold テンソル積}と呼ばれる \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}が
 \begin{align}
     \otimes \colon \Cat{V}^{\times n} \xleftarrow{\simeq} \Cat{V}^\otimes_{\expval{n}} \xrightarrow{\alpha_n{}_!} \Cat{V}
