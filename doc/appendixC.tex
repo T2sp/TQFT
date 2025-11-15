@@ -102,7 +102,7 @@
 \subsection{圏と関手}
 
 \begin{mydef}[label=def:category, breakable]{圏}
-	\textbf{圏} (category) $\Cat{C}$ とは，以下の4種類のデータからなる：
+	\textbf{圏}\footnote{後に定義する\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}と区別するために，$\bm{(1,\, 1)}$\textbf{-圏}と呼ばれることもある．} (category) $\Cat{C}$ とは，以下の4種類のデータからなる：
 	\begin{itemize}
 		\item \textbf{対象} (object) と呼ばれる要素の集まり\footnote{$\Obj{\Cat{C}}$ は，集合論では扱えないほど大きなものになっても良い．}
 		\begin{align}
@@ -234,6 +234,11 @@
     \end{tikzcd}
 \end{center}
 と書くことがある．    
+
+\begin{mydef}[label=def:equiv-1Cat]{{$(1,\, 1)$}-圏同値}
+    \hyperref[def:functor]{関手} $F \colon \Cat{C} \lto \Cat{D}$ が圏 $\Cat{C},\, \Cat{D}$ の間の\textbf{圏同値}\footnote{後に定義する\hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}と比較すると面白い．} (equivalence) であるとは，
+    ある関手 $G \colon \Cat{D} \lto \Cat{C}$ および\hyperref[def:nat]{自然変換} $G \circ F \cong \Id_{\Cat{C}},\; F \circ G \cong \Id_{\Cat{D}}$ が存在することを言う．
+\end{mydef}
 
 \subsection{極限と余極限}
 

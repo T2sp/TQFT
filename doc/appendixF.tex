@@ -838,7 +838,8 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
             \draw[-<-=.5] (x_3) -- node[midway,right] {$X_1^*$} ++(0,1);
         \end{tikzpicture}
     \end{align}
-    であるから，$\otimes$ が\hyperref[def:functor]{関手}であること\footnote{従って，$\Id$ を適当に挿入することで，ストリングを上下に自由自在に伸縮させることができる！}\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equiations)}}}より
+    であるから，$\otimes$ が\hyperref[def:functor]{関手}であること\footnote{従って，$\Id$ を適当に挿入することで，ストリングを上下に自由自在に伸縮させることができる！}
+    および\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equiations)}}}より
     \begin{align}
         \beta \circ \alpha &= 
         \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
@@ -1417,7 +1418,7 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
 
 \begin{mydef}[label=def:braided-monoidal-functor]{組紐付きモノイダル関手}
     2つの\hyperref[redef:braided-monoidal]{組紐付きモノイダル圏} 
-    $(\Cat{C},\, \otimes_{\Cat{C}},\, I_{\Cat{C}},\, a^{\Cat{C}},\, l^{\Cat{C}},\, r^{\Cat{C}},\, b^{\Cat{C}}),\, (\Cat{D},\, \otimes_{\Cat{D}},\, I_{\Cat{D}},\, a^{\Cat{D}},\, l^{\Cat{D}},\, r^{\Cat{D}},\, b^{\Cat{D}})$ の間の\hyperref[def:monidal-functor]{弱いモノイダル関手}
+    $(\Cat{C},\, \otimes_{\Cat{C}},\, I_{\Cat{C}},\, a^{\Cat{C}},\, l^{\Cat{C}},\, r^{\Cat{C}},\, b^{\Cat{C}}),\, (\Cat{D},\, \otimes_{\Cat{D}},\, I_{\Cat{D}},\, a^{\Cat{D}},\, l^{\Cat{D}},\, r^{\Cat{D}},\, b^{\Cat{D}})$ の間の\hyperref[redef:monidal-functor]{弱いモノイダル関手}
     $(F \colon \Cat{C} \lto \Cat{D},\; \varepsilon,\, \mu)$ が\textbf{弱い組紐付きモノイダル関手} (lax braided monoidal functor) であるとは，
     $\forall X,\, Y \in \Obj{\Cat{C}}$ に対して以下の図式が可換になること：
 
@@ -1427,6 +1428,12 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
             &F(X \otimes_{\Cat{C}} Y) \ar[rr, "F(b^{\Cat{C}}_{X,\, Y})"] & &F(Y \otimes_{\Cat{C}}X)
         \end{tikzcd}
     \end{center}
+
+    \tcblower
+
+    つの\hyperref[redef:braided-monoidal]{組紐付きモノイダル圏} 
+    $(\Cat{C},\, \otimes_{\Cat{C}},\, I_{\Cat{C}},\, a^{\Cat{C}},\, l^{\Cat{C}},\, r^{\Cat{C}},\, b^{\Cat{C}}),\, (\Cat{D},\, \otimes_{\Cat{D}},\, I_{\Cat{D}},\, a^{\Cat{D}},\, l^{\Cat{D}},\, r^{\Cat{D}},\, b^{\Cat{D}})$ 
+    の間の\textbf{組紐付きモノイダル同値} (braided monoidal equivalence) とは，弱い組紐付きモノイダル関手 $(F \colon \Cat{C} \lto \Cat{D},\; \varepsilon,\, \mu)$ であって関手 $F \colon \Cat{C} \lto \Cat{D}$ が\hyperref[def:equiv-1Cat]{圏同値}でもあるもののことを言う．
 \end{mydef}
 
 \begin{myprop}[label=prop:YBeq]{Yang-Baxter方程式}
@@ -2339,8 +2346,8 @@ $f \in \End_{\mathbb{C}} (x)$ に対してトレースを定義するために�
         \path coordinate[bullet,label=right:$p_{x}$] (A)
         +(1,0) coordinate (B)
         +(0,0.3) coordinate[label=left:$x^{**}$]
-        +(0,-0.3) coordinate[label=left:$x^*$]
-        +(1,0) coordinate[label=right:$x$];
+        +(0,-0.3) coordinate[label=left:$x$]
+        +(1,0) coordinate[label=right:$x^*$];
         \REV{A}{B}
         \LCOEV{A}{B}
         \end{tikzpicture}\right)^{**}
@@ -4418,7 +4425,7 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
         \end{description}
         \item $\forall (Z,\, \gamma_Z),\, (W,\, \gamma_W) \in \Obj{\Dri{\Cat{C}}}$ に対して，射の集合を
         \begin{align}
-            &\Hom{\Dri{\Cat{C}}} \bigl( (Z,\, \gamma_Z),\, (W,\, \gamma_W) \bigr) \\
+            &\bm{\Hom{\Dri{\Cat{C}}}} \bm{\bigl( (Z,\, \gamma_Z),\, (W,\, \gamma_W) \bigr)} \\
             &\coloneqq \bigl\{\, f \in \Hom{\Cat{C}}(Z,\, W) \bigm| \forall x \in \Obj{\Cat{C}},\; (f \otimes \Id_x) \circ \gamma_Z = \gamma_W \circ (\Id_x \otimes f) \,\bigr\} 
         \end{align}
         と定義する．
@@ -4537,6 +4544,8 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
 
 次の命題は，証明の構成が極めて重要である．
 
+\subsection{Drinfeld中心の構造}
+
 \begin{myprop}[label=prop:Drinfeld-center]{Drinfeld中心の構造}
     \begin{enumerate}
         \item \hyperref[redef:monoidal-category]{モノイダル圏}$(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r)$ の\hyperref[def:Drinfeld-center]{Drinfeld中心} $\Dri{\Cat{C}}$ は\hyperref[redef:braided-monoidal]{組紐付きモノイダル圏}の構造を持つ．
@@ -4545,10 +4554,96 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
 \end{myprop}
 
 \begin{proof}
+    $\forall (Z,\, \gamma_Z),\, (W,\, \gamma_W) \in \Obj{\Dri{\Cat{C}}}$ をとる．
+    \hyperref[def:nat]{自然同型} 
+    \begin{align}
+        \gamma_{Z \otimes W} = \Familyset[\big]{\gamma_{Z\otimes W,\, x} \colon x \otimes (Z \otimes W) \xrightarrow{\cong} (Z \otimes W) \otimes x}{x \in \Obj{\Cat{C}}}
+    \end{align}
+    を，$\forall x \in \Obj{\Cat{C}}$ に対して $\Cat{C}$ における可換図式
+    \begin{center}
+        \begin{tikzcd}[row sep=large, column sep=large]
+        x \otimes (Z \otimes W) \arrow[d, red,"{\gamma_{Z \otimes W,\, x}}"'] \arrow[r, "{a^{-1}_{x,Z,W}}"] & (x \otimes Z) \otimes W \arrow[r, "{\gamma_{Z,\, x} \otimes \Id_W}"] & (Z \otimes x) \otimes W \arrow[d, "{a_{Z,x,W}}"]                     \\
+        (Z \otimes W) \otimes x                                                                         & Z \otimes (W \otimes x) \arrow[l, "{a^{-1}_{Z,W,x}}"]                & Z \otimes (x \otimes W) \arrow[l, "{\Id_Z \otimes \gamma_{W,\, x}}"]
+        \end{tikzcd}
+    \end{center}
+    により定義する．ストリング図式で描くと
+    \begin{align}
+        \gamma_{Z \otimes W,\, x}
+        = 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate[label=above left:$x$] (x_1)
+            +(1,0) coordinate[label=above right:$Z$] (Z_1)
+            +(2,0) coordinate[label=above right:$W$] (W_1)
+            ++(0,1) coordinate (Z_2)
+            +(1,0) coordinate (x_2)
+            +(2,0) coordinate (W_2)
+            ++(0,1) coordinate (Z_3)
+            +(1,0) coordinate (W_3)
+            +(2,0) coordinate (x_3)
+            ;
+            \DRI{x_1}{Z_1}{Z_2}{x_2}
+            \draw[->-=.5,double] (W_1) -- (W_2);
+            \draw[->-=.5,double] (Z_2) -- (Z_3);
+            \DRI{x_2}{W_2}{W_3}{x_3}
+        \end{tikzpicture}
+    \end{align}
+    となる．$\gamma_{Z \otimes W}$ は明らかに\hyperref[def:Drinfeld-center]{\textsf{\textbf{(Half-braiding)}}}を充たす．よって $(Z \otimes W,\, \gamma_{Z \otimes W}) \in \Obj{\Dri{\Cat{C}}}$ である．
     \begin{enumerate}
-        \item
+        \item 
+        いま，関手 
+        \begin{align}
+            \otimes^{\Dri{\Cat{C}}} \colon \Dri{\Cat{C}} \times \Dri{\Cat{C}} \lto \Dri{\Cat{C}}
+        \end{align}
+        を次のように構成しよう：
+        \begin{align}
+            (Z,\, \gamma_Z) \otimes^{\Dri{\Cat{C}}} (W,\, \gamma_W)
+            &\coloneqq (Z \otimes W,\, \gamma_{Z \otimes W}), \\
+            f \otimes^{\Dri{\Cat{C}}} g &\coloneqq f \otimes g
+        \end{align}
+        さらに，$I^{\Dri{\Cat{C}}} \coloneqq (I,\, l^{-1} \circ r) \in \Obj{\Dri{\Cat{C}}}$ および
+        \begin{align}
+            a^{\Dri{\Cat{C}}}_{(X,\, \gamma_X),\, (Y,\, \gamma_Y),\, (Z,\, \gamma_Z)} &\coloneqq a_{X,\, Y,\, Z}, \\
+            l^{\Dri{\Cat{C}}}_{(Z,\, \gamma_Z)} &\coloneqq l_{Z}, \\
+            r^{\Dri{\Cat{C}}}_{(Z,\, \gamma_Z)} &\coloneqq r_{Z}
+        \end{align}
+        と定義すると，これらは \hyperref[redef:monoidal-category]{\textsf{\textbf{(triangle diagram)}}}および\hyperref[redef:monoidal-category]{\textsf{\textbf{(pentgon diagram)}}}を可換にする．
+        i.e. 5つ組 $\bigl( \Dri{\Cat{C}},\, \otimes^{\Dri{\Cat{C}}},\, I^{\Dri{\Cat{C}}},\, a^{\Dri{\Cat{C}}},\, l^{\Dri{\Cat{C}}},\, r^{\Dri{\Cat{C}}} \bigr)$ は\hyperref[redef:monoidal-category]{モノイダル圏}である．
+
+        　ここで，$\Dri{\Cat{C}}$ における自然同型
+        \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BhOnYLgL4gBpdJlz5CKAIzkqtRizacefQcPkwoAc3hFQAMwBOEALZIyIHBCSyQAIxhgoSAMyW4ACywGcSALR29MysiCAAkgAEnBB4pvCcpNHspp4AnmieTsKiIMZmFtTWttSOzgHu1F4+foh2DHSODAAK4ngEbEZY2p5+1MFKYZzhUAD6wCq8-AJCAhQCQA
+            \begin{tikzcd}[row sep=large,column sep=large]
+                \Dri{\Cat{C}} \times \Dri{\Cat{C}} \arrow[r, "{\otimes}"{name=U,above}, bend left, shift left] \arrow[r, "\otimes \circ \mathrm{swap}"'{name=D,below}, bend right, shift right] & \Dri{\Cat{C}}
+                \ar[Rightarrow, from=U, to=D, "b^{\Dri{\Cat{C}}}"]
+            \end{tikzcd}
+        \end{center}
+        を次のように定義する：
+        \begin{align}
+            b^{\Dri{\Cat{C}}}_{(Z,\, \gamma_Z),\, (W,\, \gamma_W)} 
+            &\coloneqq \gamma_{W,\, Z} 
+        \end{align}
+        実際 $b^{\Dri{\Cat{C}}}_{(Z,\, \gamma_Z),\, (W,\, \gamma_W)} \in \Hom{\Dri{\Cat{C}}} \bigl( (Z \otimes W,\, \gamma_{Z\otimes W}),\, (W \otimes Z,\, \gamma_{W \otimes Z}) \bigr)$ であることが，命題\ref{prop:YBeq}の証明と全く同様にして分かる\footnote{命題\ref{prop:YBeq}の証明で使用したのは二番目の\hyperref[redef:braided-monoidal]{\textsf{\textbf{(hexagon diagrams)}}}の可換性のみであったため，\hyperref[def:Drinfeld-center]{\textsf{\textbf{(Half-braiding)}}}で置き換えることができる．}．
+        条件 \hyperref[def:Drinfeld-center]{\textsf{\textbf{(Half-braiding)}}} から，$\Dri{\Cat{C}}$ において $b^{\Dri{\Cat{C}}}$ が\hyperref[redef:braided-monoidal]{\textsf{\textbf{(hexagon diagrams)}}}を可換にすることが分かる．
+        i.e. 6つ組 $\bigl( \Dri{\Cat{C}},\, \otimes^{\Dri{\Cat{C}}},\, I^{\Dri{\Cat{C}}},\, a^{\Dri{\Cat{C}}},\, l^{\Dri{\Cat{C}}},\, r^{\Dri{\Cat{C}}},\, b^{\Dri{\Cat{C}}} \bigr)$ は\hyperref[redef:braided-monoidal]{組紐付きモノイダル圏}である．
+
+        \item 
     \end{enumerate}
 \end{proof}
+
+\subsection{組紐の逆転とDrinfeld中心}
+
+\begin{mydef}[label=def:rev-braided]{逆転した組紐付きモノイダル圏}
+    \hyperref[redef:braided-monoidal]{組紐付きモノイダル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, b)$ を与える．
+    $\Cat{C}$ の\textbf{逆転した組紐付きモノイダル圏} (reversed braided monoidal category) とは，以下の6つのデータからなる：
+    \begin{itemize}
+        \item \hyperref[redef:monoidal-category]{モノイダル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r)$
+        \item \hyperref[def:nat]{自然同型}
+        \begin{align}
+            \revMon{b} \coloneqq \Familyset[\big]{b_{y,\, x}^{-1} \colon x \otimes y \xrightarrow{\cong} y \otimes x}{x,\, y \in \Obj{\Cat{C}}}
+        \end{align}
+    \end{itemize}
+    特に，\hyperref[redef:braided-monoidal]{組紐付きモノイダル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \revMon{b})$ のことを $\bm{\revMon{\Cat{C}}}$ と略記する．
+\end{mydef}
 
 
 \section{2-群}
