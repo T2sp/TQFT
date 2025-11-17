@@ -227,7 +227,8 @@
             \begin{align}
                 0 = X_0 \subset X_1 \subset \cdots \subset X_{n-1} \subset X_n = X
             \end{align}
-            であって $X_i/X_{i-1} \coloneqq \Coker (X_{i-1} \hookrightarrow X_i) \quad (\forall i)$ が\hyperref[def:semisimple-cat]{単純対象}であるようなもの（\textbf{Jordan-H\"{o}lder列}と言う）が存在することを言う．このときの $n$ を $X$ の\textbf{長さ} (length) と呼ぶ\footnote{Jordan-H\"{o}lderの定理~\cite[THEOREM 1.5.4, p.5]{etingof2015tensor}から，$X$ の任意のJordan-H\"{o}lder列は存在すれば同一の長さを持つ．}．
+            であって $X_i/X_{i-1} \coloneqq \Coker (X_{i-1} \hookrightarrow X_i) \quad (1 \le \forall i \le n)$ が\hyperref[def:semisimple-cat]{単純対象}であるようなもの（\textbf{Jordan-H\"{o}lder列}と言う）が存在することを言う．このときの $n$ を $X$ の\textbf{長さ} (length) と呼ぶ
+            \footnote{Jordan-H\"{o}lderの定理~\cite[THEOREM 1.5.4, p.5]{etingof2015tensor}から，$X$ の任意のJordan-H\"{o}lder列は存在すれば同一の長さを持つ．}．
         \end{itemize}
         以下，\hyperref[def:additive-cat]{アーベル圏} $\Cat{C}$ は\hyperref[def:additive-cat]{$\mathbb{K}$-線形}であるとする．
         \begin{itemize}
@@ -240,11 +241,12 @@
             \begin{description}
                 \item[\textbf{(Fin-1)}] $\forall X,\, Y \in \Obj{\Cat{C}}$ に対して，$\mathbb{K}$-ベクトル空間 $\Hom{\Cat{C}}(X,\, Y)$ が有限次元
                 \item[\textbf{(Fin-2)}] $\forall X \in \Obj{\Cat{C}}$ が有限長を持つ．
-                \item[\textbf{(Fin-3)}] $\forall X \in \Obj{\Cat{C}}$ が射影的被覆\footnote{$P \in \Obj{\Cat{C}}$ が\textbf{射影的} (projective) であるとは，関手 $\Hom{\Cat{C}}(P,\, \mhyphen)$ が完全関手であることを言う．$X \in \Obj{\Cat{C}}$ の\textbf{射影的被覆} (projective cover) とは，射影的対象 $P_X \in \Obj{\Cat{C}}$ とエピ射 $p_X \colon P_X \lto X$ の組み $(P_X,\, p_X)$ であって，任意の射影的対象 $\textcolor{blue}{P} \in \Obj{\Cat{C}}$ およびエピ射 $\textcolor{blue}{p} \colon \textcolor{blue}{P} \lto X$ に対してあるエピ射 $\textcolor{red}{h} \colon \textcolor{blue}{P} \lto P_X$ が存在して $p_X \circ \textcolor{red}{h} = p$ を充たすようなもののこと．}を持つ．
+                \item[\textbf{(Fin-3)}] $\Obj{\Cat{C}}$ の任意の\hyperref[def:semisimple-cat]{単純対象}が射影的被覆
+                \footnote{$P \in \Obj{\Cat{C}}$ が\textbf{射影的} (projective) であるとは，関手 $\Hom{\Cat{C}}(P,\, \mhyphen) \colon \Cat{C} \lto \VEC{\mathbb{K}}$ が完全関手であることを言う．$X \in \Obj{\Cat{C}}$ の\textbf{射影的被覆} (projective cover) とは，射影的対象 $P_X \in \Obj{\Cat{C}}$ とエピ射 $p_X \colon P_X \lto X$ の組み $(P_X,\, p_X)$ であって，任意の射影的対象 $\textcolor{blue}{P} \in \Obj{\Cat{C}}$ およびエピ射 $\textcolor{blue}{p} \colon \textcolor{blue}{P} \lto X$ に対してあるエピ射 $\textcolor{red}{h} \colon \textcolor{blue}{P} \lto P_X$ が存在して $p_X \circ \textcolor{red}{h} = p$ を充たすようなもののこと．}
+                を持つ．i.e. $\Cat{C}$ は\textbf{十分射影的対象を持つ} (has enough projectives)
                 \item[\textbf{(Fin-4)}] 単純対象の同型類が有限個である．
             \end{description}
         \end{itemize}
-        
     \end{mydef}
 
     \subsection{ダガー構造・ユニタリ構造・$C^*$-構造}
@@ -3622,11 +3624,11 @@ $\Cat{C}$ が\hyperref[def:tensorfusion-cat]{多重テンソル圏}である場�
     \end{description}
 \end{mydef}
 
-\begin{mydef}[label=def:modulecat-exact]{加群圏の完全性}
-    十分\hyperref[def:finite-abcat]{射影的対象}を持つ\hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
+% \begin{mydef}[label=def:modulecat-exact]{加群圏の完全性}
+%     十分\hyperref[def:finite-abcat]{射影的対象}を持つ\hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ を与える．
 
-    \hyperref[def:finite-abcat]{局所有限}な\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏} $(\Cat{M},\, \btr,\, \alpha,\, \lambda)$ が\textbf{完全} (exact) であるとは，任意の射影的対象 $p \in \Obj{\Cat{C}}$ および任意の対象 $m \in \Cat{M}$ に対して $p \btr m$ が $\Cat{M}$ の射影的対象になることを言う．
-\end{mydef}
+%     \hyperref[def:finite-abcat]{局所有限}な\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏} $(\Cat{M},\, \btr,\, \alpha,\, \lambda)$ が\textbf{完全} (exact) であるとは，任意の射影的対象 $p \in \Obj{\Cat{C}}$ および任意の対象 $m \in \Cat{M}$ に対して $p \btr m$ が $\Cat{M}$ の射影的対象になることを言う．
+% \end{mydef}
 
 \subsection{両側加群圏}
 
@@ -4113,7 +4115,7 @@ $\forall (m,\, \rho) \in \Obj{\MODCR{\Cat{C}}{x}},\; \forall y,\,z \in \Obj{\Cat
     \begin{itemize}
         \item \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$ および $\Cat{C}$ の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon)$
         \item $\Cat{C}$ における\hyperref[def:moduleobj]{右 $x$-加群対象} $(m,\, \rho) \in \Obj{\MODCR{\Cat{C}}{x}}$
-        \item $\Cat{C}$ における\hyperref[def:moduleobj]{左 $x$-加群対象} $(n,\, \lambda) \in \Obj{\MODR{\Cat{C}}{x}}$
+        \item $\Cat{C}$ における\hyperref[def:moduleobj]{左 $x$-加群対象} $(n,\, \lambda) \in \Obj{\MODCR{\Cat{C}}{x}}$
     \end{itemize}
     を与える．このとき，$m$ と $n$ の\textbf{$\bm{x}$ 上のテンソル積} (tensor product over $x$) $\bm{m \otimes_x n} \in \Obj{\Cat{C}}$ を，以下の図式の\hyperref[def:eq-coeq]{コイコライザ}として定義する：
     \begin{center}
@@ -4432,6 +4434,186 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
     \end{itemize}    
 \end{mydef}
 
+\subsection{加群圏の完全可約性}
+
+\begin{marker}
+    混乱防止のため，以降では次の略記を行うことがある：
+    \begin{itemize}
+        \item \hyperref[def:modulecat]{左 $\Cat{C}$-加群圏} $(\Cat{M},\, \btr,\, \alpha,\, \lambda)$ のことを $\LModCat{\Cat{M}}{\Cat{C}}$ と書く．
+        \item \hyperref[def:modulecat]{右 $\Cat{C}$-加群圏} $(\Cat{M},\, \btl,\, \beta,\, \rho)$ のことを $\RModCat{\Cat{M}}{\Cat{C}}$ と書く．
+        \item \hyperref[def:bimodulecat]{$(\Cat{C}_1,\, \Cat{C}_2)$-加群圏} $(\Cat{M},\, \btr,\, \btl,\, \alpha,\, \beta,\, \lambda,\, \rho,\, b)$ のことを $\BiModCat{\Cat{M}}{\Cat{C}_1}{\Cat{C}_2}$ と書く．
+    \end{itemize}
+\end{marker}
+
+\begin{mydef}[label=def:modulecat-exact,breakable]{完全な加群圏}
+    \begin{itemize}
+        \item 十分射影的対象を持つ
+            \footnote{\hyperref[def:additive-cat]{$\mathbb{K}$-線形なアーベル圏} $\Cat{C}$ が\textbf{十分射影的対象を持つ} (has enough projectives) とは，$\forall x \in \Simp(\Cat{C})$ が\hyperref[def:finite-abcat]{射影的被覆}を持つこと．}
+            \hyperref[def:tensorfusion-cat]{多重テンソル圏} $\Cat{C}$
+        \item \hyperref[def:finite-abcat]{局所有限}な\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏} $\LModCat{\Cat{M}}{\Cat{C}}$
+        \item \hyperref[def:finite-abcat]{局所有限}な\hyperref[def:modulecat]{右 $\Cat{C}$-加群圏} $\RModCat{\Cat{M}}{\Cat{C}}$
+    \end{itemize}
+    を与える．このとき，
+    \begin{itemize}
+        \item $\LModCat{\Cat{M}}{\Cat{C}}$ が\textbf{完全} (exact) であるとは，任意の\hyperref[def:finite-abcat]{射影的対象} $p \in \Obj{\Cat{C}}$ および $\forall m \in \Obj{\LModCat{\Cat{M}}{\Cat{C}}}$ に対して，$p \btr m \in \Obj{\LModCat{\Cat{M}}{\Cat{C}}}$ が射影的対象であることを言う．
+        \item $\RModCat{\Cat{M}}{\Cat{C}}$ が\textbf{完全} (exact) であるとは，任意の\hyperref[def:finite-abcat]{射影的対象} $p \in \Obj{\Cat{C}}$ および $\forall m \in \Obj{\RModCat{\Cat{M}}{\Cat{C}}}$ に対して，$m \btl p \in \Obj{\LModCat{\Cat{M}}{\Cat{C}}}$ が射影的対象であることを言う．
+    \end{itemize}
+    
+    \tcblower
+
+    \begin{itemize}
+        \item 十分射影的対象を持つ\hyperref[def:tensorfusion-cat]{多重テンソル圏} $\Cat{C}_1,\, \Cat{C}_2$
+        \item \hyperref[def:finite-abcat]{局所有限}な\hyperref[def:bimodulecat]{$(\Cat{C}_1,\, \Cat{C}_2)$-加群圏} $\BiModCat{\Cat{M}}{\Cat{C}_1}{\Cat{C}_2}$
+    \end{itemize}
+    を与える．このとき，$\BiModCat{\Cat{M}}{\Cat{C}_1}{\Cat{C}_2}$ が\textbf{完全} (exact) であるとは，任意の\hyperref[def:finite-abcat]{射影的対象} $p_i \in \Obj{\Cat{C}_i}$ および $\forall m \in \Obj{\BiModCat{\Cat{M}}{\Cat{C}_1}{\Cat{C}_2}}$ に対して，$p_1 \btr m \btl p_2 \in \Obj{\BiModCat{\Cat{M}}{\Cat{C}_1}{\Cat{C}_2}}$ が射影的対象であることを言う．
+\end{mydef}
+
+\begin{mylem}[label=lem:mod-exact]{半単純な加群圏は完全}
+    十分射影的対象を持つ\hyperref[def:tensorfusion-cat]{多重テンソル圏} $\Cat{C}_1,\, \Cat{C}_2$ を与える．
+    このとき，局所有限かつ半単純な\hyperref[def:modulecat]{左，右}，\hyperref[def:bimodulecat]{両側}加群圏 $\LModCat{\Cat{M}}{\Cat{C}_1},\, \RModCat{\Cat{M}}{\Cat{C}_2},\, \BiModCat{\Cat{M}}{\Cat{C}_1}{\Cat{C}_2}$ は全て\hyperref[def:modulecat-exact]{完全}である．
+\end{mylem}
+
+\begin{proof}
+    局所有限かつ半単純な\hyperref[def:additive-cat]{$\mathbb{K}$-線形なアーベル圏}の任意の対象は\hyperref[def:finite-abcat]{射影的}である．
+\end{proof}
+
+\begin{mydef}[label=def:modulecat-indecomposable]{既約な加群圏}
+    \begin{itemize}
+        \item 十分射影的対象を持つ\hyperref[def:tensorfusion-cat]{多重テンソル圏} $\Cat{C}_1,\, \Cat{C}_2$
+        \item \hyperref[def:finite-abcat]{局所有限}な\hyperref[def:modulecat]{左，右}，\hyperref[def:bimodulecat]{両側}加群圏 $\LModCat{\Cat{M}}{\Cat{C}_1},\, \RModCat{\Cat{M}}{\Cat{C}_2},\, \BiModCat{\Cat{M}}{\Cat{C}_1}{\Cat{C}_2}$
+    \end{itemize}
+    を与える．このとき，
+    \begin{itemize}
+        \item  $\LModCat{\Cat{M}}{\Cat{C}_1}$ が\textbf{既約} (indecomposable) であるとは，それが非自明な\hyperref[def:modulecat]{左 $\Cat{C}_1$-加群圏}の直和に\hyperref[def:equiv-1Cat]{圏同値}\underline{でない}ことを言う．
+        \item  $\RModCat{\Cat{M}}{\Cat{C}_2}$ が\textbf{既約} (indecomposable) であるとは，それが非自明な\hyperref[def:modulecat]{右 $\Cat{C}_2$-加群圏}の直和に\hyperref[def:equiv-1Cat]{圏同値}\underline{でない}ことを言う．
+        \item  $\BiModCat{\Cat{M}}{\Cat{C}_1}{\Cat{C}_2}$ が\textbf{既約} (indecomposable) であるとは，それが非自明な\hyperref[def:bimodulecat]{$(\Cat{C}_1,\, \Cat{C}_2)$-両側加群圏}の直和に\hyperref[def:equiv-1Cat]{圏同値}\underline{でない}ことを言う．
+    \end{itemize}
+\end{mydef}
+
+\begin{mytheo}[label=thm:modulecat-complete-reducible]{完全な加群圏の完全可約性}
+    十分射影的対象を持つ\hyperref[def:tensorfusion-cat]{多重テンソル圏} $\Cat{C}_1,\, \Cat{C}_2$ を与える．
+    このとき，任意の\hyperref[def:modulecat-exact]{完全}な\hyperref[def:modulecat]{左，右}，\hyperref[def:bimodulecat]{両側}加群圏 $\LModCat{\Cat{M}}{\Cat{C}_1},\, \RModCat{\Cat{M}}{\Cat{C}_2},\, \BiModCat{\Cat{M}}{\Cat{C}_1}{\Cat{C}_2}$ は，
+    それぞれ\hyperref[def:moduleat-indecomposable]{既約}な左，右，両側加群圏の直和で書ける．
+\end{mytheo}
+
+\begin{proof}
+    ~\cite[PROPOSITION 7.6.7.]{etingof2015tensor}
+\end{proof}
+
+\subsection{加群関手の成すテンソル圏}
+
+\begin{mydef}[label=def:module-Fun,breakable]{加群関手の圏}
+    \begin{itemize}
+        \item \hyperref[def:tensorfusion-cat]{多重テンソル圏} $\Cat{C}_1,\, \Cat{C}_2$
+        \item \hyperref[def:modulecat-exact]{完全}な\hyperref[def:modulecat]{左，右}，\hyperref[def:bimodulecat]{両側}加群圏 $\LModCat{\Cat{M}_i}{\Cat{C}_1},\, \RModCat{\Cat{M}_i}{\Cat{C}_2},\, \BiModCat{\Cat{M}_i}{\Cat{C}_1}{\Cat{C}_2}\; (i=1,\, 2)$
+    \end{itemize}
+    を与える．このとき，
+    \begin{enumerate}
+        \item $(1,\, 1)$-圏 $\LModFun{\Cat{C}_1} (\LModCat{\Cat{M}_1}{\Cat{C}_1},\, \LModCat{\Cat{M}_2}{\Cat{C}_1})$ を次のように定義する：
+        \begin{itemize}
+            \item \hyperref[def:module-functor]{左 $\Cat{C}_1$-加群関手} $\LModCat{\Cat{M}_1}{\Cat{C}_1} \lto \LModCat{\Cat{M}_2}{\Cat{C}_1}$ を対象とする．
+            \item \hyperref[def:module-functor]{左 $\Cat{C}_1$-加群自然変換}を射とする．
+        \end{itemize}
+
+        \item $(1,\, 1)$-圏 $\RModFun{\Cat{C}_2} (\RModCat{\Cat{M}_1}{\Cat{C}_2},\, \RModCat{\Cat{M}_2}{\Cat{C}_2})$ を次のように定義する：
+        \begin{itemize}
+            \item \hyperref[def:module-functor]{右 $\Cat{C}_2$-加群関手} $\RModCat{\Cat{M}_1}{\Cat{C}_2} \lto \RModCat{\Cat{M}_2}{\Cat{C}_2}$ を対象とする．
+            \item \hyperref[def:module-functor]{右 $\Cat{C}_2$-加群自然変換}を射とする．
+        \end{itemize}
+
+        \item $(1,\, 1)$-圏 $\BiModFun{\Cat{C}_1}{\Cat{C}_2} (\BiModCat{\Cat{M}_1}{\Cat{C}_1}{\Cat{C}_2},\, \BiModCat{\Cat{M}_2}{\Cat{C}_1}{\Cat{C}_2})$ を次のように定義する：
+        \begin{itemize}
+            \item \hyperref[def:bimod-functor]{$(\Cat{C}_1,\, \Cat{C}_2)$-加群関手} $\BiModCat{\Cat{M}_1}{\Cat{C}_1}{\Cat{C}_2} \lto \BiModCat{\Cat{M}_2}{\Cat{C}_1}{\Cat{C}_2}$ を対象とする．
+            \item \hyperref[def:module-functor]{$(\Cat{C}_1,\, \Cat{C}_2)$-両側加群自然変換}を射とする．
+        \end{itemize}
+    \end{enumerate}
+\end{mydef}
+
+\begin{marker}
+    定義\ref{def:module-Fun}において，加群圏の\hyperref[def:modulecat-exact]{完全性}の条件を外すと，モノイダル圏 $\LModFun{\Cat{C}} (\LModCat{\Cat{M}}{\Cat{C}},\, \LModCat{\Cat{M}}{\Cat{C}})$ がrigidになってくれないなどの様々な弊害が生じる~\cite[p.154]{etingof2015tensor}．
+    ゆえに，以降では特に断らない限り\hyperref[def:modulecat-exact]{完全}な加群圏のみを考える．
+\end{marker}
+
+\begin{mylem}[label=lem:exact-Fun]{}
+    \begin{itemize}
+        \item \hyperref[def:tensorfusion-cat]{多重テンソル圏} $\Cat{C}_1,\, \Cat{C}_2$
+        \item \hyperref[def:modulecat-exact]{完全}な\hyperref[def:modulecat]{左，右}，\hyperref[def:bimodulecat]{両側}加群圏 $\LModCat{\Cat{M}_i}{\Cat{C}_1},\, \RModCat{\Cat{M}_i}{\Cat{C}_2},\, \BiModCat{\Cat{M}_i}{\Cat{C}_1}{\Cat{C}_2}\; (i=1,\, 2)$
+    \end{itemize}
+    を与える．このとき，3つの $(1,\, 1)$-圏
+    % \hyperref[def:module-Fun]{
+    \begin{align}
+        &\LModFun{\Cat{C}_1} (\LModCat{\Cat{M}_1}{\Cat{C}_1}, \LModCat{\Cat{M}_2}{\Cat{C}_1}), &&\RModFun{\Cat{C}_2} (\RModCat{\Cat{M}_1}{\Cat{C}_2},\, \RModCat{\Cat{M}_2}{\Cat{C}_2}), &&\BiModFun{\Cat{C}_1}{\Cat{C}_2} (\BiModCat{\Cat{M}_1}{\Cat{C}_1}{\Cat{C}_2},\, \BiModCat{\Cat{M}_2}{\Cat{C}_1}{\Cat{C}_2})
+    \end{align}
+    の全てについて以下が成り立つ：
+    \begin{enumerate}
+        \item 任意の対象が\hyperref[def:adjoint]{左/右随伴}を持つ．
+        \item \hyperref[def:additive-cat]{$\mathbb{K}$-線形アーベル圏}である．
+        \item $\Cat{C}_1,\, \Cat{C}_2$ が\hyperref[def:finite-abcat]{有限}ならば，\hyperref[def:finite-abcat]{有限な $\mathbb{K}$-線形アーベル圏}である．
+    \end{enumerate}
+\end{mylem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item ~\cite[LEMMA 7.11.4.]{etingof2015tensor}
+        \item ~\cite[PROPOSITION 7.11.1.]{etingof2015tensor}
+        \item ~\cite[PROPOSITION 7.11.6.]{etingof2015tensor}
+    \end{enumerate}
+\end{proof}
+
+\begin{myprop}[label=prop:module-End]{{$\Fun(\Cat{M},\, \Cat{M})$} の多重テンソル圏としての構造}
+    \begin{itemize}
+        \item \hyperref[def:tensorfusion-cat]{多重テンソル圏} $\Cat{C}_1,\, \Cat{C}_2$
+        \item \hyperref[def:modulecat-exact]{完全}な\hyperref[def:modulecat]{左，右}，\hyperref[def:bimodulecat]{両側}加群圏 $\LModCat{\Cat{M}}{\Cat{C}_1},\, \RModCat{\Cat{M}}{\Cat{C}_2},\, \BiModCat{\Cat{M}}{\Cat{C}_1}{\Cat{C}_2}$
+    \end{itemize}
+    を与える．このとき，3つの $(1,\, 1)$-圏
+    \begin{align}
+        &\LModFun{\Cat{C}_1} (\LModCat{\Cat{M}}{\Cat{C}_1}, \LModCat{\Cat{M}}{\Cat{C}_1}), &&\RModFun{\Cat{C}_2} (\RModCat{\Cat{M}}{\Cat{C}_2},\, \RModCat{\Cat{M}}{\Cat{C}_2}), &&\BiModFun{\Cat{C}_1}{\Cat{C}_2} (\BiModCat{\Cat{M}_1}{\Cat{C}_1}{\Cat{C}_2},\, \BiModCat{\Cat{M}}{\Cat{C}_1}{\Cat{C}_2})
+    \end{align}
+    の全てについて以下が成り立つ：
+    \begin{enumerate}
+        \item 関手の合成をテンソル積，恒等関手を単位対象とする\hyperref[redef:monoidal-category]{モノイダル圏}を成す．
+        \item (1) のモノイダル構造に関して，\hyperref[def:adjoint]{随伴}の \hyperref[def:unit-counit-adjunction]{counit / unit} をそれぞれ\hyperref[redef:dual]{evaluation / coevaluation}とする\hyperref[redef:rigid]{rigidなモノイダル圏}を成す．
+        \item $\Cat{C}_1,\, \Cat{C}_2$ が\hyperref[def:finite-abcat]{有限}ならば，\hyperref[def:finite-abcat]{有限}な\hyperref[def:tensorfusion-cat]{多重テンソル圏}である．
+        \item $\Cat{C}_1,\, \Cat{C}_2$ が\hyperref[def:finite-abcat]{有限}かつ $\Cat{M}$ が\hyperref[def:modulecat-indecomposable]{既約}ならば，\hyperref[def:finite-abcat]{有限}な\hyperref[def:tensorfusion-cat]{テンソル圏}である．
+    \end{enumerate}
+\end{myprop}
+
+\begin{proof}
+    証明は全く同様なので，左 $\Cat{C}$-加群圏 $\LModCat{\Cat{M}}{\Cat{C}}$ の場合にのみ示す．
+    \begin{enumerate}
+        \item 合成の\hyperref[def:category]{結合則}から明らか．
+        \item 補題\ref{lem:exact-Fun}-(1) より，任意の対象 $F$ に対して常にその左随伴 $F^* \dashv F$ が存在する．
+        このとき\hyperref[def:adjoint]{随伴の定義}および補題\ref{lem:rigid-Hom}から，$\forall m,\, n \in \Obj{\LModCat{\Cat{M}}{\Cat{C}}}$ および $\forall x\in \Obj{\Cat{C}}$ に対して
+        \begin{align}
+            \Hom{\LModCat{\Cat{M}}{\Cat{C}}} \bigl(m,\, F^*(x \btr n)\bigr)
+            &\cong \Hom{\LModCat{\Cat{M}}{\Cat{C}}} \bigl(F(m),\, x \btr n\bigr) \\
+            &\cong \Hom{\LModCat{\Cat{M}}{\Cat{C}}} \bigl(x^* \btr F(m),\, n\bigr) \\
+            &\cong \Hom{\LModCat{\Cat{M}}{\Cat{C}}} \bigl(F(x^* \btr m),\, n\bigr) &&\because F\; \text{is a \hyperref[def:module-functor]{module functor}} \\
+            &\cong \Hom{\LModCat{\Cat{M}}{\Cat{C}}} \bigl(x^* \btr m,\, F^*(n)\bigr) \\
+            &\cong \Hom{\LModCat{\Cat{M}}{\Cat{C}}} \bigl(m,\, x \btr F^*(n)\bigr)
+        \end{align}
+        が成り立つ．故に\hyperref[col:Yoneda]{米田の補題}から自然同型 $F^* (x \btr n) \cong x \btr F^*(n)$ が存在し，$F \in \LModFun{\Cat{C}} (\LModCat{\Cat{M}}{\Cat{C}},\, \LModCat{\Cat{M}}{\Cat{C}})$ であることが分かった．        
+        % counit / unit of adjunction が取れる．
+        \hyperref[redef:monoidal-category]{\textsf{\textbf{(zig-zag equiations)}}}はtriangle identity より明らか．
+        \item (2) および補題\ref{lem:exact-Fun}-(3) から従う．
+        \item 定理\ref{thm:modulecat-complete-reducible}より従う．詳細は~\cite[LEMMA 7.12.6.]{etingof2015tensor} を参照．
+    \end{enumerate}
+\end{proof}
+
+\begin{mydef}[label=def:module-End]{双対テンソル圏}
+    \begin{itemize}
+        \item \hyperref[def:finite-abcat]{有限}な\hyperref[def:tensorfusion-cat]{多重テンソル圏} $\Cat{C}_1,\, \Cat{C}_2$
+        \item \hyperref[def:modulecat-exact]{完全}な\hyperref[def:modulecat]{左，右}，\hyperref[def:bimodulecat]{両側}加群圏 $\LModCat{\Cat{M}}{\Cat{C}_1},\, \RModCat{\Cat{M}}{\Cat{C}_2},\, \BiModCat{\Cat{M}}{\Cat{C}_1}{\Cat{C}_2}$
+    \end{itemize}
+    を与える．このとき命題\ref{prop:module-End}-(3) により得られる\hyperref[def:finite-abcat]{有限}な\hyperref[def:tensorfusion-cat]{多重テンソル圏}をそれぞれ
+    \begin{align}
+        \LModEnd{\Cat{C}_1} (\LModCat{\Cat{M}}{\Cat{C}_1})&\coloneqq \LModFun{\Cat{C}_1} (\LModCat{\Cat{M}}{\Cat{C}_1}, \LModCat{\Cat{M}}{\Cat{C}_1}), \\
+        \RModEnd{\Cat{C}_2} (\RModCat{\Cat{M}}{\Cat{C}_2})&\coloneqq \RModFun{\Cat{C}_2} (\RModCat{\Cat{M}}{\Cat{C}_2},\, \RModCat{\Cat{M}}{\Cat{C}_2}),\\ 
+        \BiModEnd{\Cat{C}_1}{\Cat{C}_2} (\BiModCat{\Cat{M}}{\Cat{C}_1}{\Cat{C}_2}) &\coloneqq \BiModFun{\Cat{C}_1}{\Cat{C}_2} (\BiModCat{\Cat{M}}{\Cat{C}_1}{\Cat{C}_2},\, \BiModCat{\Cat{M}}{\Cat{C}_1}{\Cat{C}_2})
+    \end{align}
+    とおき，$\Cat{M}$ による $\Cat{C}_i$ の\textbf{双対テンソル圏} (dual tensor category to $\Cat{C}_i$ with respect to $\Cat{M}$) と呼ぶ．
+\end{mydef}
+
 \section{Drinfeld中心}
 
 \begin{mydef}[label=def:Drinfeld-center]{Drinfeld中心}
@@ -4439,10 +4621,11 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
     以下のようにして構成される $(1,\, 1)$-圏 $\Dri{\Cat{C}}$ のこと：
     \begin{itemize}
         \item $Z \in \Cat{C}$ と\hyperref[def:nat]{自然同型} $\gamma_Z = \Familyset[\big]{\gamma_{Z,\, x} \colon x \otimes Z \xrightarrow{\cong} Z \otimes x}{x \in \Obj{\Cat{C}}}$ の2つ組 $(Z,\, \gamma_Z)$ を対象に持つ．
-        ただし，$\gamma_Z$ は $\forall x,\, y \in \Obj{\Cat{C}}$ に対して以下の図式を可換にしなくてはいけない：
+        ただし，$\gamma_Z$ は以下の条件を充たさねばならない：
         \begin{description}
             \item[\textbf{(Half-braiding)}]　
             
+            $\forall x,\, y \in \Obj{\Cat{C}}$ に対して以下の図式を可換にする：
             \begin{center}
                 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAoAPAAgB1eIeALbxuATwCUfAcNEAtEAF9S6TLnyEUZAIxVajFmznTBWEXG5cTsi5KUqQGbHgJFt5PfWatEIHv1NzSzFrM1EALwl7VWcNIgAmD2ovQ19-GTCLdmMAm3Eo5Rj1VxRE3WSDHw50wPkpXMzxaMc1F01kd3L9bzZs0KDOeoygsSU9GCgAc3giUAAzACcIISQyEBwIJETu1JA6AH1gTlIxUnDFZsXl1eoNpHcdqv5JuiEhA+A5Uhq8sQvqBh0ABGMAYAAVWnFfAssJMABY4S5LFaIACst02iAeKSqH3C3xOF0KICuKIALBikOjHmxnq93ocvpxFP1RPwAJJQfajYmkpAAZkpiApNN8H2O+L+AD1gABabREhx8xDbO6IQWikAcrk-Rp0t4fL5-MaKIA
                 \begin{tikzcd}
@@ -4570,9 +4753,10 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
 \end{align}
 を意味する．2つ目の\hyperref[redef:braided-monoidal]{\textsf{\textbf{(hexagon equiations)}}}との類似に注目されたい．
 
-次の命題は，証明の構成が極めて重要である．
-
 \subsection{Drinfeld中心の構造}
+
+
+次の命題は，証明の構成が極めて重要である．
 
 \begin{myprop}[label=prop:Drinfeld-center]{Drinfeld中心の構造}
     \begin{enumerate}
@@ -4743,8 +4927,7 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
 
 \begin{mytheo}[label=thm:factorizable]{分解可能なテンソル圏}
     $\Cat{C}$ を\hyperref[redef:braided-monoidal]{組紐付き}\hyperref[def:tensorfusion-cat]{フュージョン圏}とする．
-
-    このとき，\hyperref[def:braided-monoidal-functor]{組紐つきモノイダル関手}\hyperref[def:faithful]{忠実充満}が\hyperref[def:braided-monoidal-functor]{組紐付きモノイダル同値}であるための必要十分条件は，
+    このとき，\hyperref[def:faithful]{忠実充満}な\hyperref[def:braided-monoidal-functor]{組紐つきモノイダル関手} \eqref{def:decomposer} が\hyperref[def:braided-monoidal-functor]{組紐付きテンソル同値}であるための必要十分条件は，
     $\Cat{C}$ が\hyperref[def:nondegen-BFC]{非退化}であることである．
 \end{mytheo}
 
@@ -4752,8 +4935,95 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
     ~\cite[Proposition 3.7]{DGNO2009BFC}
 \end{proof}
 
+\subsection{左加群圏とDrinfeld中心}
+
+\begin{mytheo}[label=thm:module-center]{}
+    \begin{itemize}
+        \item \hyperref[redef:braided-monoidal]{組紐付き}\hyperref[def:tensorfusion-cat]{フュージョン圏} $\Cat{C}$
+        \item \hyperref[def:modulecat-indecomposable]{既約}な\hyperref[def:modulecat]{右 $\Cat{C}$-加群圏} $\RModCat{\Cat{M}}{\Cat{C}}$
+    \end{itemize}
+    を与える．このとき，\hyperref[def:braided-monoidal-functor]{組紐付きテンソル同値}
+    \begin{align}
+        \Dri{\Cat{C}} \cong \Dri{\RModEnd{\Cat{C}}(\RModCat{\Cat{M}}{\Cat{C}})}
+    \end{align}
+    がある．
+\end{mytheo}
+
+\begin{proof}
+    ~\cite[COROLLARY 7.16.2.]{etingof2015tensor}
+\end{proof}
+
+
 
 \subsection{中心的関手}
+
+$\Cat{C}$ を\hyperref[redef:monoidal-category]{モノイダル圏}とする．
+\hyperref[def:Drinfeld-center]{Drinfeld中心の定義}から，常に忘却関手
+\begin{align}
+    \forget \colon \Dri{\Cat{C}} &\lto \Cat{C}, \\
+    (Z,\, \gamma_Z) &\lmto Z
+\end{align}
+を考えることができる．
+
+\begin{mydef}[label=def:central-functor,breakable]{中心的関手}
+    \begin{itemize}
+        \item \hyperref[def:finite-abcat]{有限}の\hyperref[redef:braided-monoidal]{組紐付き}\hyperref[def:tensorfusion-cat]{テンソル圏} $\Cat{C}$ 
+        \item \hyperref[def:finite-abcat]{有限}の\hyperref[def:tensorfusion-cat]{テンソル圏} $\Cat{A}$
+        \item \hyperref[def:tensor-functor]{テンソル関手} $F \colon \Cat{C} \lto \Cat{A}$
+    \end{itemize}
+    を与える．
+    このとき，$F$ の\textbf{中心構造} (central structure) とは，
+    ある\hyperref[def:braided-monoidal-functor]{組紐つき}\hyperref[def:tensor-functor]{テンソル関手} $\bar{F} \colon \Cat{C} \lto \Dri{\Cat{A}}$ であって
+    $F = \forget \circ \bar{F}$ を充たすもののこと．
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQAdDgYXp2G4BfEINLpMufIRTkK1Ok1bsuvfgEFho8djwEis4vIYs2iThwAiAJyzAVfYBs3yYUAObwioAGZWIAWyQyEBwIJAAmGmMlMy4AI3orYAAxTTEQXwCImlCkWQUTZQ5vCCsPHBF0zMDEYNzEfMZ6OJhGAAUJXWkQGzcACwqoxVMQZJFKQSA
+        \begin{tikzcd}
+                                                    & \Dri{\Cat{A}} \arrow[d, "\forget"] \\
+        \Cat{C} \arrow[ru, "\bar{F}"] \arrow[r, "F"'] & \Cat{A}                           
+        \end{tikzcd}
+    \end{center}
+    \textbf{中心的関手} (central functor) とは，組み $(F,\, \bar{F})$ のこと．
+    \tcblower
+
+    同じことだが，$F$ の\textbf{中心構造}とは\hyperref[def:nat]{自然同型}
+    \begin{align}
+        \gamma = \Familyset[\big]{\gamma_{X,\, a} \colon a \otimes F(X) \xrightarrow{\cong} F(X) \otimes a}{a \in \Obj{\Cat{A}},\, X \in \Cat{C}}
+    \end{align}
+    であって以下の条件を充たすもののこと\footnote{この自然同型 $\gamma$ により，$\bar{F}(X) \coloneqq \bigl( F(X),\, \gamma_{X,\, (\, \mhyphen \,)} \bigr)  \in \Obj{\Dri{\Cat{A}}}$ として $\bar{F} \colon \Cat{C} \lto \Dri{\Cat{A}}$ が定まる}：
+    \begin{description}
+        \item[\textbf{(central-1)}]
+        $\forall X \in \Cat{C}$ および $\forall a,\, b \in \Cat{A}$ に対して，以下の $\Cat{A}$ の図式を可換にする\footnote{この条件は\hyperref[def:Drinfeld-center]{\textsf{\textbf{(Half-braiding)}}}に対応する．}：
+        \begin{center}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAo6ACAHR4jwBbeFwBGASl78hIgGLsAGuJABfUuky58hFAEZyVWoxZtufAVmFwporAHMG7UVItWu8pX1t2ATsrUa2HgERABMBtT0zKyIIGbSliJe9o4ekuYy1qLJvv7qIBhB2mGkuoZRJrE5jvGucoriOX4umWKq+YVaIXql5cYxINXsaS2J1nRN6Qluou2BXTokvZH9bCMZY1ycozP+hjBQdvBEoABmPhCCSGQgOBBIAKzUDHSiMAwACprBOiA+9gALHAgFbRNh8Ox0QSCOgAfWAClIfFIE2mIlEKjmIHOl2u1DuSH0RjBsToAD1gHwAMJ0HDAACCKhU8LopFEpDSTKxOKuiCJBMQ4WJlUGPAAklBYbVWhCoTD4YjkWJMQFsRdeUKBQBmUEizgU6m0hlMlkchpslTiCkAWl0KvyPKQOtu90QABZnq93l8it0-oDgbqBrLoXCEUieKQuHQVDskuLJbNVY73fjXU9hQNyZSeDS6YzmcA0iiLaoKCogA
+            \begin{tikzcd}
+            (a \otimes b) \otimes F(X) \arrow[d, "{\gamma_{X,\,a\otimes b}}"'] \arrow[r, "{a^{\Cat{A}}_{a,b,F(X)}}"] & a \otimes \bigl(b \otimes F(X)\bigr) \arrow[r, "{\Id_a \otimes \gamma_{X,\, b}}"] & a \otimes \bigl(F(X) \otimes b\bigr) \arrow[d, "{(a^{\Cat{A}}_{a,F(X),b})^{-1}}"]  \\
+            F(X) \otimes (a \otimes b)                                                                                & \bigl(F(X) \otimes a\bigr) \otimes b \arrow[l, "{a^{\Cat{A}}_{F(X),a,b}}"]        & \bigl(a \otimes F(X)\bigr) \otimes b \arrow[l, "{\gamma_{X,\, a} \otimes \Id_b}"']
+            \end{tikzcd}
+        \end{center}
+        
+        \item[\textbf{(central-2)}]
+        $\forall X,\, Y \in \Cat{C}$ および $\forall a \in \Cat{A}$ に対して，以下の $\Cat{A}$ の図式を可換にする\footnote{この条件は $\bar{F}$ が\hyperref[def:tensor-functor]{テンソル関手}であるという条件に対応する．より正確には，条件\hyperref[def:tensor-functor]{\textsf{\textbf{(TF-2)}}}のうち $\bar{F}(X \otimes^{\Cat{C}} Y) = \bar{F}(X) \otimes^{\Dri{\Cat{A}}} \bar{F}(Y)$ の，half-braidingの部分の等号に対応する（命題\ref{prop:Drinfeld-center}-(1) の証明における $\otimes^{\Dri{\Cat{A}}}$ の構成も参照）．}：
+        \begin{center}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkR6ACAHW4jwC28TgDEAFAA0efQcICaAShABfUuky58hFOVLFqdJq3Zde-LELjSARlgDmjMeIkLp5y6LGLetuwCclVXVsPAIiMgAmAwYWNkQQZzdZK0Uki2F6FTUQDBCtIl0AZmijOJAfe0dnVzNkz29uXwC0j0ygnI1Q7WQI0mKaGON46pbhCocnLxqZdKt6cYCs4M0wlF6ogdL2EdrZm0qxUxmPcQamwOzcle7e-U3Y9nHHI-dhaoXp16tTi+Wuol6VHuQ3KjQOO2OGQ+o2+UxUBhgUDs8CIoAAZn4IAIkGQQDgIEheoYHvFeHZ6AIBPQAPrAKS7DxyUi8UicejKEA0Rj0awwRgABU6+XifnsAAscEsQBisUhCjR8YTgWUALyckDc3kCoWrDUwNGS9oy7GIXR4gmIXGDVXqzV8wV5XWiuwSqXGuUKi0AFmV7EOAD1gLwAML0HDAACCymUtOqpB+pHZCkDAFpyByjZiTWbFYgAGy++IBoPcUPhqMx4D0eOSBQ1xTKZPANMZ7Lu-OepAAdkLoPJlJpdOZ3FZ7Jh0gAklBY1NW+is0gAKydxA+4kg3hTmcuZTjskUqm0pkstlz6ULxA981L3v0QMhsOR6PbuvVn4ZyjKIA
+            \begin{tikzcd}[column sep=large, row sep=large]
+                                                                            & a \otimes \bigl(F(X) \otimes F(Y)\bigr) \arrow[ld, "="'] \arrow[r, "{(a^{\Cat{A}}_{a,F(X),F(Y)})^{-1}}"] & \bigl(a \otimes F(X)\bigr) \otimes F(Y) \arrow[d, "{\gamma_{X,\, a} \otimes \Id_{F(Y)}}"] \\
+            a \otimes F(X \otimes Y) \arrow[d, "{\gamma_{X \otimes Y,\, a}}"'] &                                                                                                          & \bigl(F(X) \otimes a\bigr) \otimes F(Y) \arrow[d, "{a^{\Cat{A}}_{F(X),a,F(Y)}}"]          \\
+            F(X \otimes Y) \otimes a                                           &                                                                                                          & F(X) \otimes \bigl(a \otimes F(Y)\bigr) \arrow[d, "{\Id_{F(X)} \otimes \gamma_{Y,\, a}}"] \\
+                                                                            & \bigl(F(X) \otimes F(Y)\bigr) \otimes a \arrow[lu, "="]  & F(X) \otimes \bigl(F(Y) \otimes a\bigr)     \arrow[l, "{(a^{\Cat{A}}_{F(X),F(Y),a})^{-1}}"]                                             
+            \end{tikzcd}
+        \end{center}
+        
+        \item[\textbf{(central-3)}] 
+        $\forall X,\, Y \in \Cat{C}$ に対して，以下の $\Cat{A}$ の図式を可換にする\footnote{この条件は\hyperref[def:tensor-functor]{テンソル関手} $\bar{F}$ が\hyperref[def:braided-monoidal-functor]{組紐付きモノイダル関手}であるという条件に対応する（命題\ref{prop:Drinfeld-center}-(1) の証明における $b^{\Dri{\Cat{A}}}$ の構成も参照）．}：
+        \begin{center}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRADEAKADQEoACADqCIeALbx+XAJq8QAX1LpMufIRRkAjFVqMWbLtyEjxk2QqUgM2PASKbS26vWatEHTtOOisEuPz4LZRs1e3IdF313GQFhHz8pHjl5HRgoAHN4IlAAMwAnCDEkMhAcCCQHXVc2AF4QagY6ACMYBgAFFVt1EDysdIALHCCQfMKK6jKkACYG5taOkLt3XoGh5z03DyaAPWBhAGE6HGB9+XkAfWBuUmFSfml5ZMtRosQAZgnyxBmqqJA6xS5AqvEqTd7raruYTpOhiMR0S4xG6CO7ceQKCjyIA
+            \begin{tikzcd}
+            F(X) \otimes F(Y) \arrow[d, "="'] \arrow[r, "{\gamma_{F(Y),\, X}}"] & F(Y) \otimes F(X) \arrow[d, "="] \\
+            F(X \otimes Y) \arrow[r, "{F(b^{\Cat{C}}_{X,\, Y})}"']              & F(Y \otimes X)                  
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+\end{mydef}
 
 
 
