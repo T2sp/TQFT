@@ -1431,7 +1431,7 @@ $\rcoev,\, \rev$ に対する\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equa
 
     \tcblower
 
-    つの\hyperref[redef:braided-monoidal]{組紐付きモノイダル圏} 
+    2つの\hyperref[redef:braided-monoidal]{組紐付きモノイダル圏} 
     $(\Cat{C},\, \otimes_{\Cat{C}},\, I_{\Cat{C}},\, a^{\Cat{C}},\, l^{\Cat{C}},\, r^{\Cat{C}},\, b^{\Cat{C}}),\, (\Cat{D},\, \otimes_{\Cat{D}},\, I_{\Cat{D}},\, a^{\Cat{D}},\, l^{\Cat{D}},\, r^{\Cat{D}},\, b^{\Cat{D}})$ 
     の間の\textbf{組紐付きモノイダル同値} (braided monoidal equivalence) とは，弱い組紐付きモノイダル関手 $(F \colon \Cat{C} \lto \Cat{D},\; \varepsilon,\, \mu)$ であって関手 $F \colon \Cat{C} \lto \Cat{D}$ が\hyperref[def:equiv-1Cat]{圏同値}でもあるもののことを言う．
 \end{mydef}
@@ -2790,47 +2790,6 @@ $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 上の積\eqref{eq:fusionring}は明らか�
     命題\ref{prop:pseudo-unitary}および\ref{prop:unitaryfusion}によって，\hyperref[def:UFC]{ユニタリフュージョン圏}においては一致することが保証されている．
 \end{marker}
 
-\subsection{Deligneのテンソル積}
-
-\begin{mydef}[label=def:DeligneProduct]{Deligneのテンソル積}
-    $\Cat{C},\, \Cat{D}$ を\hyperref[def:finite-abcat]{局所有限}な\hyperref[def:additive-cat]{$\mathbb{K}$-線形アーベル圏}とする．
-    \textbf{Deligneのテンソル積} (Deligne's tensor product) とは，以下の性質をみたす\hyperref[def:additive-cat]{$\mathbb{K}$-線形アーベル圏} $\bm{\Cat{C} \boxtimes \Cat{D}}$ と双\hyperref[def:additive-exact]{右完全関手} $\boxtimes \colon \Cat{C} \times \Cat{D} \lto \Cat{C} \boxtimes \Cat{D}$ の組み $(\Cat{C} \boxtimes \Cat{D},\, \boxtimes)$ のこと：
-    \begin{description}
-        \item[\textbf{(普遍性)}]　
-        
-        任意の双右完全関手 $\textcolor{blue}{F} \colon \Cat{C} \times \Cat{D} \lto \textcolor{blue}{\Cat{A}}$ に対し，ある双右完全関手 $\textcolor{red}{\bar{F}} \colon \Cat{C} \boxtimes \Cat{D} \lto \textcolor{blue}{\Cat{A}}$ が一意的に存在して $\textcolor{red}{\bar{F}} \circ \boxtimes = \textcolor{blue}{F}$ を充たす．
-        \begin{center}
-                    % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BhOnYLgL4ACTngC28Ed17AAIgJADS6TLnyEUARnJVajFm1EwAHjgDGEBhABOwAEbMYA4Jx58AggIVKV2PASIyTV16R0NpPkEpOwhTLAk4KTc5b10YKABzeCJQADNrCDEkMhAcCCQAJmpQg0QOdhi4hJBqBjo7GAYABVV-DRBrLAyACxxFZRB8wuLqMqRtPTC6gDFxvIKixCrS8sQFto7u3vU2QZGx6v1WOs4TLDgcOABCaLpbZdSBIA
-            \begin{tikzcd}
-            \Cat{C} \times \Cat{D} \arrow[d, "\boxtimes"'] \arrow[r, blue, "\forall F"] & \textcolor{blue}{\Cat{A}} \\
-            \Cat{C} \boxtimes \Cat{D} \arrow[ru, red, "\exists! \bar{F}"']     &                          
-            \end{tikzcd}
-        \end{center}
-    \end{description}
-\end{mydef}
-
-\begin{myprop}[label=prop:DeligneProduct]{Deligneのテンソル積の基本性質}
-    \begin{enumerate}
-        \item \hyperref[def:DeligneProduct]{Deligneのテンソル積}は存在し，それ自身が\hyperref[def:finite-abcat]{局所有限}な\hyperref[def:additive-cat]{$\mathbb{K}$-線形アーベル圏}になる．
-        \item 関手 $\boxtimes \colon \Cat{C} \times \Cat{D} \lto \Cat{C} \boxtimes \Cat{D}$ は双\hyperref[def:additive-exact]{完全}であり，
-        \begin{align}
-            \Hom{\Cat{C}} (x_1,\, y_1) \otimes_{\mathbb{K}} \Hom{\Cat{C}} (x_2,\, y_2) \cong \Hom{\Cat{C} \boxtimes \Cat{D}} (x_1 \boxtimes x_2,\, y_1 \boxtimes y_2)
-        \end{align}
-        を充たす．
-        \item $\Cat{C},\, \Cat{D}$ が\hyperref[def:ringcat]{(多重) 環圏}/\hyperref[def:tensorfusion-cat]{(多重) テンソル圏}ならば $\Cat{C} \boxtimes \Cat{D}$ は\hyperref[def:ringcat]{(多重) 環圏}/\hyperref[def:tensorfusion-cat]{(多重) テンソル圏}である．
-    \end{enumerate}
-    
-\end{myprop}
-
-\begin{proof}
-    \begin{enumerate}
-        \item ~\cite[PROPOSITION 1.11.2., p.15]{etingof2015tensor}
-        \item ~\cite[PROPOSITION 1.11.2., p.15]{etingof2015tensor}
-        \item ~\cite[PROPOSITION 4.6.1., p.73]{etingof2015tensor}
-    \end{enumerate}
-    
-\end{proof}
-
 \section{組紐付きテンソル圏}
 
 \subsection{リボン構造と旋回構造の関係}
@@ -3413,6 +3372,75 @@ $\mathbb{Z}^{\oplus \Simp(\Cat{C})}$ 上の積\eqref{eq:fusionring}は明らか�
     \end{enumerate}
     
 \end{proof}
+
+\section{Deligneのテンソル積}
+
+\begin{mydef}[label=def:DeligneProduct]{Deligneのテンソル積}
+    $\Cat{C},\, \Cat{D}$ を\hyperref[def:finite-abcat]{局所有限}な\hyperref[def:additive-cat]{$\mathbb{K}$-線形アーベル圏}とする．
+    \textbf{Deligneのテンソル積} (Deligne's tensor product) とは，以下の性質をみたす\hyperref[def:additive-cat]{$\mathbb{K}$-線形アーベル圏} $\bm{\Cat{C} \boxtimes \Cat{D}}$ と双\hyperref[def:additive-exact]{右完全関手} $\boxtimes \colon \Cat{C} \times \Cat{D} \lto \Cat{C} \boxtimes \Cat{D}$ の組み $(\Cat{C} \boxtimes \Cat{D},\, \boxtimes)$ のこと：
+    \begin{description}
+        \item[\textbf{(普遍性)}]　
+        
+        任意の双右完全関手 $\textcolor{blue}{F} \colon \Cat{C} \times \Cat{D} \lto \textcolor{blue}{\Cat{A}}$ に対し，ある双右完全関手 $\textcolor{red}{\bar{F}} \colon \Cat{C} \boxtimes \Cat{D} \lto \textcolor{blue}{\Cat{A}}$ が一意的に存在して $\textcolor{red}{\bar{F}} \circ \boxtimes = \textcolor{blue}{F}$ を充たす．
+        \begin{center}
+                    % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BhOnYLgL4ACTngC28Ed17AAIgJADS6TLnyEUARnJVajFm1EwAHjgDGEBhABOwAEbMYA4Jx58AggIVKV2PASIyTV16R0NpPkEpOwhTLAk4KTc5b10YKABzeCJQADNrCDEkMhAcCCQAJmpQg0QOdhi4hJBqBjo7GAYABVV-DRBrLAyACxxFZRB8wuLqMqRtPTC6gDFxvIKixCrS8sQFto7u3vU2QZGx6v1WOs4TLDgcOABCaLpbZdSBIA
+            \begin{tikzcd}
+            \Cat{C} \times \Cat{D} \arrow[d, "\boxtimes"'] \arrow[r, blue, "\forall F"] & \textcolor{blue}{\Cat{A}} \\
+            \Cat{C} \boxtimes \Cat{D} \arrow[ru, red, "\exists! \bar{F}"']     &                          
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+\end{mydef}
+
+\begin{myprop}[label=prop:DeligneProduct]{Deligneのテンソル積の基本性質}
+    \begin{enumerate}
+        \item \hyperref[def:DeligneProduct]{Deligneのテンソル積}は存在し，それ自身が\hyperref[def:finite-abcat]{局所有限}な\hyperref[def:additive-cat]{$\mathbb{K}$-線形アーベル圏}になる．
+        \item 関手 $\boxtimes \colon \Cat{C} \times \Cat{D} \lto \Cat{C} \boxtimes \Cat{D}$ は双\hyperref[def:additive-exact]{完全}であり，
+        \begin{align}
+            \Hom{\Cat{C}} (x_1,\, y_1) \otimes_{\mathbb{K}} \Hom{\Cat{C}} (x_2,\, y_2) \cong \Hom{\Cat{C} \boxtimes \Cat{D}} (x_1 \boxtimes x_2,\, y_1 \boxtimes y_2)
+        \end{align}
+        を充たす．
+        \item $\Cat{C},\, \Cat{D}$ が\hyperref[def:ringcat]{(多重) 環圏}/\hyperref[def:tensorfusion-cat]{(多重) テンソル圏}ならば $\Cat{C} \boxtimes \Cat{D}$ は\hyperref[def:ringcat]{(多重) 環圏}/\hyperref[def:tensorfusion-cat]{(多重) テンソル圏}である．
+            特に，$\Cat{C} \boxtimes \Cat{D}$ の\hyperref[redef:monoidal-category]{モノイダル圏}としての構造は次のようにして定まる：
+            \begin{align}
+                (x_1 \boxtimes y_1) \otimes^{\Cat{C} \boxtimes \Cat{D}} (x_2 \boxtimes y_2) &\coloneqq (x_1 \otimes^{\Cat{C}} x_2) \boxtimes (y_1 \otimes^{\Cat{D}} y_2), \\
+                1_{\Cat{C} \boxtimes \Cat{D}} &\coloneqq 1_{\Cat{C}} \boxtimes 1_{\Cat{D}}, \\
+                a^{\Cat{C} \boxtimes \Cat{D}}_{x_1 \boxtimes y_1,\, x_2 \boxtimes y_2,\, x_3 \boxtimes y_3} &\coloneqq a^{\Cat{C}}_{x_1,\, x_2,\, x_3} \boxtimes a^{\Cat{D}}_{y_1,\, y_2,\, y_3}, \\
+                l^{\Cat{C} \boxtimes \Cat{D}}_{x \boxtimes y} &\coloneqq l^{\Cat{C}}_x \boxtimes l^{\Cat{D}}_y \\
+                r^{\Cat{C} \boxtimes \Cat{D}}_{x \boxtimes y} &\coloneqq r^{\Cat{C}}_x \boxtimes r^{\Cat{D}}_y
+            \end{align}
+        \item $\Cat{C},\, \Cat{D}$ が\hyperref[def:spherical]{球状}\hyperref[def:tensorfusion-cat]{テンソル圏}ならば $\Cat{C} \boxtimes \Cat{D}$ は\hyperref[def:spherical]{球状}\hyperref[def:tensorfusion-cat]{テンソル圏}である．
+            特に，$\Cat{C} \boxtimes \Cat{D}$ の\hyperref[def:spherical]{球状構造} $p^{\Cat{C} \boxtimes \Cat{D}}$ は次のようにして定まる：
+            \begin{align}
+                p^{\Cat{C} \boxtimes \Cat{D}}_{x \boxtimes y} \coloneqq p^{\Cat{C}}_x \boxtimes p^{\Cat{D}}_y
+            \end{align}
+        \item $\Cat{C},\, \Cat{D}$ が\hyperref[redef:braided-monoidal]{組紐付き}\hyperref[def:ringcat]{(多重) 環圏}/\hyperref[def:tensorfusion-cat]{(多重) テンソル圏}ならば $\Cat{C} \boxtimes \Cat{D}$ は\hyperref[redef:braided-monoidal]{組紐付き}\hyperref[def:ringcat]{(多重) 環圏}/\hyperref[def:tensorfusion-cat]{(多重) テンソル圏}である．
+            特に，$\Cat{C} \boxtimes \Cat{D}$ の\hyperref[redef:braided-monoidal]{組紐} $b^{\Cat{C} \boxtimes \Cat{D}}$ は次のようにして定まる：
+            \begin{align}
+                b^{\Cat{C} \boxtimes \Cat{D}}_{x_1 \boxtimes y_1,\, x_2 \boxtimes y_2} 
+                &\coloneqq b^{\Cat{C}}_{x_1,\, x_2} \boxtimes b^{\Cat{D}}_{y_1,\, y_2}
+            \end{align}
+        \item $\Cat{C},\, \Cat{D}$ が\hyperref[def:ribbon]{リボン}\hyperref[def:ringcat]{(多重) 環圏}/\hyperref[def:tensorfusion-cat]{(多重) テンソル圏}ならば $\Cat{C} \boxtimes \Cat{D}$ は\hyperref[def:ribbon]{リボン}\hyperref[def:ringcat]{(多重) 環圏}/\hyperref[def:tensorfusion-cat]{(多重) テンソル圏}である．
+            特に，$\Cat{C} \boxtimes \Cat{D}$ の\hyperref[def:ribbon]{リボン構造} $\theta^{\Cat{C} \boxtimes \Cat{D}}$ は次のようにして定まる：
+            \begin{align}
+                \theta^{\Cat{C} \boxtimes \Cat{D}}_{x \boxtimes y} \coloneqq \theta^{\Cat{C}}_x \boxtimes \theta^{\Cat{D}}_y 
+            \end{align}
+    \end{enumerate}
+\end{myprop}
+
+\begin{proof}
+    \begin{enumerate}
+        \item ~\cite[PROPOSITION 1.11.2., p.15]{etingof2015tensor}
+        \item ~\cite[PROPOSITION 1.11.2., p.15]{etingof2015tensor}
+        \item ~\cite[PROPOSITION 4.6.1., p.73]{etingof2015tensor}
+        \item
+        \item
+        \item
+    \end{enumerate}
+\end{proof}
+
+
+
 
 \section{加群圏}
 
@@ -4600,14 +4628,14 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
             &\coloneqq (Z \otimes W,\, \gamma_{Z \otimes W}), \\
             f \otimes^{\Dri{\Cat{C}}} g &\coloneqq f \otimes g
         \end{align}
-        さらに，$I^{\Dri{\Cat{C}}} \coloneqq (I,\, l^{-1} \circ r) \in \Obj{\Dri{\Cat{C}}}$ および
+        さらに，$1^{\Dri{\Cat{C}}} \coloneqq (1,\, l^{-1} \circ r) \in \Obj{\Dri{\Cat{C}}}$ および
         \begin{align}
             a^{\Dri{\Cat{C}}}_{(X,\, \gamma_X),\, (Y,\, \gamma_Y),\, (Z,\, \gamma_Z)} &\coloneqq a_{X,\, Y,\, Z}, \\
             l^{\Dri{\Cat{C}}}_{(Z,\, \gamma_Z)} &\coloneqq l_{Z}, \\
             r^{\Dri{\Cat{C}}}_{(Z,\, \gamma_Z)} &\coloneqq r_{Z}
         \end{align}
         と定義すると，これらは \hyperref[redef:monoidal-category]{\textsf{\textbf{(triangle diagram)}}}および\hyperref[redef:monoidal-category]{\textsf{\textbf{(pentgon diagram)}}}を可換にする．
-        i.e. 5つ組 $\bigl( \Dri{\Cat{C}},\, \otimes^{\Dri{\Cat{C}}},\, I^{\Dri{\Cat{C}}},\, a^{\Dri{\Cat{C}}},\, l^{\Dri{\Cat{C}}},\, r^{\Dri{\Cat{C}}} \bigr)$ は\hyperref[redef:monoidal-category]{モノイダル圏}である．
+        i.e. 5つ組 $\bigl( \Dri{\Cat{C}},\, \otimes^{\Dri{\Cat{C}}},\, 1^{\Dri{\Cat{C}}},\, a^{\Dri{\Cat{C}}},\, l^{\Dri{\Cat{C}}},\, r^{\Dri{\Cat{C}}} \bigr)$ は\hyperref[redef:monoidal-category]{モノイダル圏}である．
 
         　ここで，$\Dri{\Cat{C}}$ における自然同型
         \begin{center}
@@ -4624,7 +4652,7 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
         \end{align}
         実際 $b^{\Dri{\Cat{C}}}_{(Z,\, \gamma_Z),\, (W,\, \gamma_W)} \in \Hom{\Dri{\Cat{C}}} \bigl( (Z \otimes W,\, \gamma_{Z\otimes W}),\, (W \otimes Z,\, \gamma_{W \otimes Z}) \bigr)$ であることが，命題\ref{prop:YBeq}の証明と全く同様にして分かる\footnote{命題\ref{prop:YBeq}の証明で使用したのは二番目の\hyperref[redef:braided-monoidal]{\textsf{\textbf{(hexagon diagrams)}}}の可換性のみであったため，\hyperref[def:Drinfeld-center]{\textsf{\textbf{(Half-braiding)}}}で置き換えることができる．}．
         条件 \hyperref[def:Drinfeld-center]{\textsf{\textbf{(Half-braiding)}}} から，$\Dri{\Cat{C}}$ において $b^{\Dri{\Cat{C}}}$ が\hyperref[redef:braided-monoidal]{\textsf{\textbf{(hexagon diagrams)}}}を可換にすることが分かる．
-        i.e. 6つ組 $\bigl( \Dri{\Cat{C}},\, \otimes^{\Dri{\Cat{C}}},\, I^{\Dri{\Cat{C}}},\, a^{\Dri{\Cat{C}}},\, l^{\Dri{\Cat{C}}},\, r^{\Dri{\Cat{C}}},\, b^{\Dri{\Cat{C}}} \bigr)$ は\hyperref[redef:braided-monoidal]{組紐付きモノイダル圏}である．
+        i.e. 6つ組 $\bigl( \Dri{\Cat{C}},\, \otimes^{\Dri{\Cat{C}}},\, 1^{\Dri{\Cat{C}}},\, a^{\Dri{\Cat{C}}},\, l^{\Dri{\Cat{C}}},\, r^{\Dri{\Cat{C}}},\, b^{\Dri{\Cat{C}}} \bigr)$ は\hyperref[redef:braided-monoidal]{組紐付きモノイダル圏}である．
 
         \item 
     \end{enumerate}
@@ -4644,6 +4672,89 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
     \end{itemize}
     特に，\hyperref[redef:braided-monoidal]{組紐付きモノイダル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \revMon{b})$ のことを $\bm{\revMon{\Cat{C}}}$ と略記する．
 \end{mydef}
+
+\begin{mylem}[label=lem:rev-center]{}
+    \hyperref[redef:braided-monoidal]{組紐付きモノイダル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, b)$ を与える．
+    \begin{enumerate}
+        \item 以下の関手は\hyperref[def:faithful]{忠実充満}な\hyperref[def:braided-monoidal-functor]{組紐付きモノイダル関手}である：
+        \begin{align}
+            G_+ \colon \Cat{C} &\lto \Dri{\Cat{C}}, \\
+            x &\lmto (x,\, b_{(\, \mhyphen \,),\, x}), \\
+            (x \xrightarrow{f} y) &\lmto \bigl( (x,\, b_{(\, \mhyphen \,),\, x}) \xrightarrow{f} (y,\, b_{(\, \mhyphen \,),\, y}) \bigr) 
+        \end{align}
+        \item 以下の関手は\hyperref[def:faithful]{忠実充満}な\hyperref[def:braided-monoidal-functor]{組紐付きモノイダル関手}である：
+        \begin{align}
+            G_- \colon \revMon{\Cat{C}} &\lto \Dri{\Cat{C}}, \\
+            x &\lmto (x,\, b^{-1}_{x,\, \mhyphen}), \\
+            (x \xrightarrow{f} y) &\lmto \bigl( (x,\, b^{-1}_{x,\, (\, \mhyphen \,)}) \xrightarrow{f} (y,\, b^{-1}_{y,\, (\, \mhyphen \,)}) \bigr) 
+        \end{align}
+    \end{enumerate}
+\end{mylem}
+
+\begin{proof}
+    証明は全く同様なので (1) についてのみ示す．
+
+    まず，$G_+ \colon \Cat{C} \lto \Dri{\Cat{C}}$ がwell-definedであることを示そう．
+    実際\hyperref[redef:braided-monoidal]{\textsf{\textbf{(hexagon equiations)}}}より，$\forall x \in \Obj{\Cat{C}}$ に対して自然同型
+    \begin{align}
+        b_{(\, \mhyphen \,),\, x} \coloneqq \Familyset[\big]{b_{y,\, x} \colon y \otimes x \xrightarrow{\cong} x \otimes y }{y \in \Obj{\Cat{C}}}
+    \end{align}
+    は \hyperref[def:Drinfeld-center]{\textsf{\textbf{(Half-braiding)}}} を充たすので　$G_+(x) \in \Obj{\Dri{\Cat{C}}}$ である．
+    さらに $b \colon \otimes \Longrightarrow \otimes \circ \mathrm{swap}$ は\hyperref[def:nat]{自然同型}だから，
+    $\forall z \in \Obj{\Cat{C}}$ および $\forall f \in \Hom{\Cat{C}} (X,\, Y)$ に対して
+    \begin{align}
+        \label{eq:nat-braiding}
+        (f \otimes \Id_z) \circ b_{z,\, x} = b_{z,\, y} \circ (\Id_z \otimes f)
+    \end{align}
+    が成り立つ．i.e. $G_+(f) \coloneqq f \in \Hom{\Dri{\Cat{C}}} \bigl( (x,\, b_{(\, \mhyphen \,),\, x}),\, (y,\, b_{(\, \mhyphen \,),\, y}) \bigr)$ である．
+
+    次に，$G_+$ が\hyperref[def:braided-monoidal-functor]{組紐つきモノイダル関手}であることを示す．
+    $G_+(1) = (1,\, b_{(\, \mhyphen \,),\, 1})$ であるが，補題\ref{lem:dual-braid}-(1) より $b_{((\, \mhyphen \,),\, 1)} = l^{-1} \circ r$ が成り立つ．よって命題\ref{prop:Drinfeld-center}-(1) の証明における $1_{\Dri{\Cat{C}}}$ の構成から $1_{\Dri{\Cat{C}}} = G_+(1_{\Cat{C}})$ が分かる．
+    さらに，$\forall x,\, y \in \Obj{\Cat{C}}$ に対して $G_+(x \otimes y) = (x \otimes y,\, b_{(\, \mhyphen \,),\, x \otimes y})$ であるが，\hyperref[redef:braided-monoidal]{\textsf{\textbf{(hexiagon equiations)}}}および命題\ref{prop:Drinfeld-center}-(1) の証明における $\otimes^{\Dri{\Cat{C}}}$ の構成から
+    \begin{align}
+        b_{(\, \mhyphen \,),\, x \otimes y}
+        &= a^{-1}_{x,\, y,\, (\, \mhyphen \,)} \circ (\Id_x \otimes b_{(\, \mhyphen \,),\, y}) \circ a_{x,\, (\, \mhyphen \,),\, y} \circ (b_{(\, \mhyphen \,),\, x} \otimes \Id_y) \circ a^{-1}_{(\, \mhyphen \,),\, x,\, y} \\
+        &= b_{(\, \mhyphen \,),\, x} \otimes^{\Dri{\Cat{C}}} b_{(\, \mhyphen \,),\, y}
+    \end{align}
+    が言える．i.e. $G_+$ は\hyperref[redef:monidal-functor]{強いモノイダル関手}である．
+    そのうえ，命題\ref{prop:Drinfeld-center}-(1) の証明における $b^{\Dri{\Cat{C}}}$ の構成から
+    \begin{align}
+        b^{\Dri{\Cat{C}}}_{(x,\, b_{(\, \mhyphen \,),\, x}),\, (y,\, b_{(\, \mhyphen \,),\, y})} = b_{x,\, y} = G_+(b_{x,\, y})
+    \end{align}
+    が言えるので，$G_+$ が強い\hyperref[def:braided-monoidal-functor]{組紐つきモノイダル関手}であることが分かった．
+
+    最後に，$G_+$ が\hyperref[def:faithful]{忠実充満}であること，i.e. $\forall x,\, y \in \Obj{\Cat{C}}$ に対して写像
+    \begin{align}
+        \Hom{\Cat{C}} (x,\, y) &\lto \Hom{\Dri{\Cat{C}}} \bigl( (x,\, b_{(\, \mhyphen \,),\, x}),\, (y,\, b_{(\, \mhyphen \,),\, y}) \bigr), \\
+        f &\lto G_+(f)
+    \end{align}
+    が全単射であることを示す．
+    実際 $\forall z \in \Obj{\Cat{C}}$ および $\forall f \in \Hom{\Cat{C}} (X,\, Y)$ に対して \eqref{eq:nat-braiding} が成り立つことから，$\Hom{\Dri{\Cat{C}}} \bigl( (x,\, b_{(\, \mhyphen \,),\, x}),\, (y,\, b_{(\, \mhyphen \,),\, y}) \bigr) = \Hom{\Cat{C}} (x,\, y)$ が分かる．
+\end{proof}
+
+補題\ref{lem:rev-center}より，忠実充満な強い\hyperref[def:braided-monoidal-functor]{組紐つきモノイダル関手}
+\begin{align}
+    \label{def:decomposer}
+    G \colon \Cat{C} \boxtimes \revMon{\Cat{C}} &\lto \Dri{\Cat{C}}, \\
+    x \boxtimes y &\lmto G_+(x) \otimes^{\Dri{\Cat{C}}} G_-(y), \\
+    f \boxtimes g &\lmto G_+(f) \otimes^{\Dri{\Cat{C}}} G_-(g)
+\end{align}
+が定まる．
+
+\begin{mytheo}[label=thm:factorizable]{分解可能なテンソル圏}
+    $\Cat{C}$ を\hyperref[redef:braided-monoidal]{組紐付き}\hyperref[def:tensorfusion-cat]{フュージョン圏}とする．
+
+    このとき，\hyperref[def:braided-monoidal-functor]{組紐つきモノイダル関手}\hyperref[def:faithful]{忠実充満}が\hyperref[def:braided-monoidal-functor]{組紐付きモノイダル同値}であるための必要十分条件は，
+    $\Cat{C}$ が\hyperref[def:nondegen-BFC]{非退化}であることである．
+\end{mytheo}
+
+\begin{proof}
+    ~\cite[Proposition 3.7]{DGNO2009BFC}
+\end{proof}
+
+
+\subsection{中心的関手}
+
 
 
 \section{2-群}
