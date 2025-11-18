@@ -1108,7 +1108,7 @@ $\tau \in \Hom{\PshSETS{\Cat{C}}}\bigl( \Hom{\Cat{C}}(\, \mhyphen\,,\, X)\bigr)$
 \end{proof}
 
 
-\begin{mydef}[label=def:unit-counit-adjunction,breakable]{unit / counit of adjunction}
+\begin{mydef}[label=def:unit-counit-adjunction,breakable]{unit / counit of an adjunction}
     \hyperref[def:adjoint]{随伴関手}の組み
     \begin{center}
         \begin{tikzcd}
@@ -1120,31 +1120,143 @@ $\tau \in \Hom{\PshSETS{\Cat{C}}}\bigl( \Hom{\Cat{C}}(\, \mhyphen\,,\, X)\bigr)$
     \begin{center}
         \begin{tikzcd}[row sep=large, column sep=large]
             \OP{\Cat{C}} \times \Cat{D} \ar[bend left=50,r, "\Hom{\Cat{D}} \bigl( F(\mhyphen){,}\, \mhyphen \bigr)"{name=U, above}] \ar[bend right=50,r, "\Hom{\Cat{C}} \bigl( \mhyphen{,}\, G(\mhyphen) \bigr)"{name=D, below}] &\SETS
-            \ar[Rightarrow, "\widetilde{(\mhyphen)}", from=U, to=D]
+            \ar[Rightarrow, "\alpha", from=U, to=D]
         \end{tikzcd}
     \end{center}
     と書く．
     \begin{enumerate}
-        \item $\forall x \in \Obj{\Cat{C}}$ に対して
+        \item $\forall c \in \Obj{\Cat{C}}$ に対して
         \begin{align}
-            \eta_x \coloneqq \widetilde{\Id_{F(x)}} \in \Hom{\Cat{C}} \bigl( x,\, G \circ F(x) \bigr)
+            \eta_c \coloneqq \alpha_{c,\, F(c)}(\Id_{F(c)}) \in \Hom{\Cat{C}} \bigl( c,\, G \circ F(c) \bigr)
         \end{align}
-        とおく．これは自然変換
+        とおく．後述するようにこれは自然変換
         \begin{align}
-            \eta \coloneqq \Familyset[\big]{\eta_x}{x \in \Obj{\Cat{C}}} \colon \Id_{\Cat{C}} \Longrightarrow G \circ F
+            \eta \coloneqq \Familyset[\big]{\eta_c}{c \in \Obj{\Cat{C}}} \colon \Id_{\Cat{C}} \Longrightarrow G \circ F
         \end{align}
-        を成し，\textbf{unit of adjunction} と呼ばれる．
-        \item $\forall y \in \Obj{\Cat{C}}$ に対して
+        を成し，随伴 $F \dashv G$ の\textbf{unit}と呼ばれる．
+        \item $\forall d \in \Obj{\Cat{D}}$ に対して
         \begin{align}
-            \epsilon_y \coloneqq \widetilde{\Id_{G(y)}} \in \Hom{\Cat{C}} \bigl( F \circ G (y),\, y \bigr)
+            \epsilon_d \coloneqq \alpha_{G(d),\, d}^{-1}(\Id_{G(d)}) \in \Hom{\Cat{D}} \bigl( F \circ G (d),\, d \bigr)
         \end{align}
-        とおく．これは自然変換
+        とおく．後述するようにこれは自然変換
         \begin{align}
-            \epsilon \coloneqq \Familyset[\big]{\epsilon_y}{y \in \Obj{\Cat{C}}} \colon F \circ G \Longrightarrow \Id_{\Cat{D}}
+            \epsilon \coloneqq \Familyset[\big]{\epsilon_d}{d \in \Obj{\Cat{C}}} \colon F \circ G \Longrightarrow \Id_{\Cat{D}}
         \end{align}
-        を成し，\textbf{counit of adjunction} と呼ばれる．
+        を成し，随伴 $F \dashv G$ の\textbf{counit} と呼ばれる．
     \end{enumerate}
 \end{mydef}
+
+\begin{myprop}[label=prop:unit-counit,breakable]{Triangle identities}
+    % \hyperref[def:adjoint]{随伴関手}の組み
+    % \begin{center}
+    %     \begin{tikzcd}
+    %         \Cat{C}\ar[r,bend left,"F",""{name=A, below}] & \Cat{D}\ar[l,bend left,"G",""{name=B,above}] 
+    %         \ar[from=A, to=B, symbol=\dashv]
+    %         \end{tikzcd}
+    % \end{center}
+    % を与える．随伴の定義に登場する\hyperref[def:nat]{自然同型}を
+    % \begin{center}
+    %     \begin{tikzcd}[row sep=large, column sep=large]
+    %         \OP{\Cat{C}} \times \Cat{D} \ar[bend left=50,r, "\Hom{\Cat{D}} \bigl( F(\mhyphen){,}\, \mhyphen \bigr)"{name=U, above}] \ar[bend right=50,r, "\Hom{\Cat{C}} \bigl( \mhyphen{,}\, G(\mhyphen) \bigr)"{name=D, below}] &\SETS
+    %         \ar[Rightarrow, "\widetilde{(\mhyphen)}", from=U, to=D]
+    %     \end{tikzcd}
+    % \end{center}
+    % と書く．
+    \begin{enumerate}
+        \item $\forall c \in \Obj{\Cat{C}},\, \forall d \in \Obj{\Cat{D}}$ および $\forall f \in \Hom{\Cat{D}} \bigl( F(c),\, d \bigr),\, \forall g \in \Hom{\Cat{C}} \bigl( c,\, G(d) \bigr)$ に対して
+        \begin{align}
+            \alpha_{c,\, d}(f) &= G(f) \circ \eta_c, \\
+            \alpha_{c,\, d}^{-1}(g) &= \epsilon_d \circ F(g)
+        \end{align}
+        が成り立つ．
+        \item 定義\ref{def:unit-counit-adjunction}の $\eta,\, \epsilon$ は\hyperref[def:nat]{自然変換}である．
+        \item $\forall c \in \Obj{\Cat{C}},\, \forall d \in \Obj{\Cat{D}}$ に対して以下の2つの図式は可換である：
+        \begin{description}
+            \item[\textbf{(triangle identities)}]　
+            
+            \begin{center}
+                % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRADEAKAYwEoQAvqXSZc+QigCM5KrUYs27AAQAdFdywAnbkoDiq9Vp1c+g4SAzY8BItMmz6zVog49+A2TCgBzeEVAAZpoQALZIZCA4EEjSck6KnGowOHQA+qZCgcFhiLFRSABM1I4KLklo2AwEqcAmvAJmWaHh1PmIRSAMdABGMAwACqLWEiCaWN4AFjggxfLOIGoAklA1dQ0eAkA
+                \begin{tikzcd}
+                F(c) \arrow[r, "F(\eta_c)"] \arrow[rd, "\Id_{F(c)}"'] & F \circ G \circ F(c) \arrow[d, "\epsilon_{F(c)}"] \\
+                                                                    & F(c)                                             
+                \end{tikzcd}
+            \end{center}
+            
+            \begin{center}
+                % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAHEAKKAShAF9S6TLnyEUARnJVajFm3YACADrKAxlgBOaxQDEV6rTq68BQkBmx4CRKRJn1mrRB259+MmFADm8IqAAzTQgAWyQyEBwIJClZJzZVGBw6AH1gEx5+M0DgsMRYqKQAJmpHeRcuRLRsBgI0qH53cyDQ8OpCxBKQBjoAIxgGAAURa3EQTSxvAAscEFK5ZxBVAEkoNN1ONUyBCn4gA
+                \begin{tikzcd}
+                G(d) \arrow[r, "\eta_{G(d)}"] \arrow[rd, "\Id_{G(d)}"'] & G \circ F \circ G(d) \arrow[d, "G(\epsilon_{d})"] \\
+                                                                        & G(d)                                             
+                \end{tikzcd}
+            \end{center}
+        \end{description}
+    \end{enumerate}
+\end{myprop}
+
+\begin{proof}
+    \begin{enumerate}
+        \item $(1,\, 1)$-圏 $\SETS$ の図式
+        \begin{center}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12AJCAW2E4BhOjmAARAL4TOAIywBzBgAoAYkoDGASlKdSAAjVbZCgE6aQE0uky58hFGQCMVWoxZtOPfkJHipxxVUNbV09KACzCysQDGw8AiJHchd6ZlZEDm4+AXZhUUEpPQDldR12fQBxIvZ1LBN1A2CI80trOLtE0mdqVPcMz2yffMLijTLKpShNZosXGCh5eCJQADMTPiQyEBwIJCSQBjoZGAYABRt4+xATBQALHBAet3SQNRXNAH0AKijV9d5NtQdkgAExPNIedgAdywsDwDFgwCUnF4twAnmhbjAwJoJB9gKVQoZcb8QGsNogwdtdogAMzgvogCpKd7fUnkgGIfbAunUQ7HM4XDoZG7ye6PVwQ-rQ2EweGI5HsVEYrE4vEE8ZhCSzCRAA
+            \begin{tikzcd}
+            {\Hom{\Cat{D}}\bigl(F(c),\, F(c)\bigr)} \arrow[d, "f_*"'] \arrow[r, "{\alpha_{c,\, F(c)}}"] & {\Hom{\Cat{C}} \bigl(c,\, G \circ F(c)\bigr)} \arrow[d, "G(f)_*"] \\
+            {\Hom{\Cat{D}}\bigl(F(c),\, d\bigr)} \arrow[r, "{\alpha_{c,\, d}}"']                           & {\Hom{\Cat{C}} \bigl(c,\, G(d)\bigr)}                            
+            \end{tikzcd}
+        \end{center}
+        を考える．$\alpha$ が自然同型なのでこの図式は可換である．故に $\Id_{F(c)} \in \Hom{\Cat{D}} \bigl( F(c),\, F(c) \bigr)$ から出発して図式を追跡すると
+        \begin{align}
+            G(f)_* \circ \alpha_{c,\, F(c)} (\Id_{F(c)})
+            &= G(f) \circ \eta_c \\
+            &= \alpha_{c,\, d} \circ f_*(\Id_{F(c)}) \\
+            &= \alpha_{c,\, d}(f)
+        \end{align}
+        が分かる．
+        同様に，$(1,\, 1)$-圏 $\SETS$ の可換図式
+        \begin{center}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12AJCAW2E4BhOjmCCAvuM4AjLAHMGACgDiiqAEpSnUgAJVGmfIBO6kONLpMufIRRkAjFVqMWbTj35CRYyYYWKAYy12XX11PxMzCxAMbDwCIntyJ3pmVkQObj4BdmFRABFJHT8lADFi9gCsIwC9QM1tHSgI03NLOJtE0kdqVNcM92yvAqKSxVL64N1m9lk5SPEnGCg5eCJQADMjPiQyEBwIJCSQBjppGAYABSt42xAjeQALHBBel3SQOQA9ACooze2vF21AOSAATG80m52Iw0I86AB9YBhKZNcRfYAAWns4n+IC2O0QEP2h0QAGZIf0QBM5OpfniCUDySDScdTucrjdOhkHnJnq9nFCBjCGHDEcAgo0oOisTizBRxEA
+            \begin{tikzcd}
+            {\Hom{\Cat{C}}\bigl(G(d),\, G(d)\bigr)} \arrow[d, "g^*"'] \arrow[r, "{\alpha_{G(d),\, d}^{-1}}"] & {\Hom{\Cat{D}} \bigl(F \circ G(c),\, d\bigr)} \arrow[d, "F(g)^*"]          \\
+            {\Hom{\Cat{C}}\bigl(c,\, G(d)\bigr)}  \arrow[r, "{\alpha_{c,\, d}^{-1}}"']                                                           & {\Hom{\Cat{D}} \bigl(F(c),\, d\bigr)}
+            \end{tikzcd}
+        \end{center}
+        から $\alpha_{c,\, d}^{-1}(g) = \epsilon_d \circ F(g)$ が分かる．
+
+        \item $\forall f \in \Hom{\Cat{C}} (c_1,\, c_2)$ を1つ固定する．示すべきは $\Cat{C}$ の図式
+        \begin{center}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGMB9ARhAF9S6TLnyEU3clVqMWbLgCZ+gkBmx4CRMtyn1mrRCADiAAgA6p9lgBO7YwDEAFF24BKJULWiiE7dV2yDE3NLG3snTnk3PikYKABzeCJQADMrCABbJDIQHAgkCWk9NmT3EFSMpHlqXKQAZj8ZfSMzC2tbR2S3agY6ACMYBgAFYXUxECssOIALHFLyzMRsmsQqwoCQcxgcOk5gZz4Qbr6B4c8NAwnp2YEUtIWC5fq1ps3t3YUD6L4gA
+            \begin{tikzcd}
+            c_1 \arrow[r, "f"] \arrow[d, "\eta_{c_1}"'] & c_2 \arrow[d, "\eta_{c_2}"] \\
+            G \circ F(c_1) \arrow[r, "G \circ F(f)"']   & G \circ F(c_2)             
+            \end{tikzcd}
+        \end{center}
+        が可換になることである．ここで，$(1,\, 1)$-圏 $\SETS$ の図式
+        \begin{center}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12AJCAW2E4BhOjmAARAL4TOAIywBzBgAoAYkoDGAfQBMASlKdSAAjVa9shQCddICaXSZc+QijIBGKrUYs2nHvyERcSkLRVUNTTd9QxMI83Y5eWtbexAMbDwCIjdyT3pmVkQObj4BdmFRQSkjUOUzA3ZjAHEa9nUsS3VYs11Q5LsHDOds0g9qfJ8iv1LAyuraiJyYls52zu6dXoSrGwlPGCh5eCJQADNLPiQyEBwIJByQBjoZGAYABUdMlxBLBQALHAgcbeQogNSnXQAPQAVCkzhdeFdqLckNpgQVfOwAO5YWB4BiwYBKTi8P4ATzQfxgYF0Ek0wHqMVMmwkcJA50uiDRNzuiAAzOjJuyYWyOYjEA8UfzqE8Xu9PsMir95ACgV4MVNsbiYPjCcT2KSKVSaXSGZEGsZmXpWXsJEA
+            \begin{tikzcd}
+            {\Hom{\Cat{D}}\bigl(F(c_2),\, F(c_2)\bigr)} \arrow[d, "F(f)^*"'] \arrow[r, "{\alpha_{c_2,\, F(c_2)}}"] & {\Hom{\Cat{C}} \bigl(c_2,\, G \circ F(c_2)\bigr)} \arrow[d, "f^*"] \\
+            {\Hom{\Cat{D}}\bigl(F(c_1),\, F(c_2)\bigr)} \arrow[r, "{\alpha_{c_1,\, F(c_2)}}"']                     & {\Hom{\Cat{C}} \bigl(c_1,\, G \circ F(c_2)\bigr)}                 
+            \end{tikzcd}
+        \end{center}
+        を考える．$\alpha$ が自然同型なのでことから，この図式は可換である．
+        故に $\Id_{F(c_2)} \in \Hom{\Cat{D}}\bigl(F(c_2),\, F(c_2)\bigr)$ から出発して図式を追跡すると
+        \begin{align}
+            f^* \circ \alpha_{c_2,\, F(c_2)} (\Id_{F(c_2)})
+            &= \eta_{c_2} \circ f \\
+            &= \alpha_{c_1,\, F(c_2)} \circ F(f)^* (\Id_{F(c_2)}) \\
+            &= \alpha_{c_1,\, F(c_2)}\bigl(F(f)\bigr) \\
+            &= G \circ F(f) \circ \eta_{c_1} &&\because\; \text{(1)}
+        \end{align}
+        が分かった．$\epsilon$ についても同様である．
+
+        \item $\eta_c \in \Hom{\Cat{C}} \Bigl(c,\, G \bigl(F (c)\bigr)\Bigr)$ に対して (1) を適用することで
+        \begin{align}
+            \alpha^{-1}_{c,\, F(c)} (\eta_c) = \epsilon_{F(c)} \circ F(\eta_c)
+        \end{align}
+        が分かるが，$\eta_c = \alpha_{c,\, F(c)}(\Id_{F(c)})$ なので $\Id_{F(c)} = \epsilon_{F(c)} \circ F(\eta_c)$ が言えた．
+        同様に $\epsilon_d \in \Hom{\Cat{D}} \Bigl( F \bigl( G(d) \bigr),\, d \Bigr)$ に対して (1) を適用することで $\Id_{G(d)} = G(\epsilon_d) \circ \eta_{G(d)}$ が分かる．
+    \end{enumerate}
+\end{proof}
+
 
 \subsection{Kan拡張}
 

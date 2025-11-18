@@ -403,6 +403,18 @@ title=系~\thetcbcounter: #2,#1}
 \DeclareFontShape{U}{min}{m}{n}{<-> udmj30}{}
 \newcommand\yo{\!\text{\usefont{U}{min}{m}{n}\symbol{'207}}\!}
 
+
+%% TikZ commands
+\newcommand{\Ellipse}[3]{
+	\draw[thick] #1 arc(-180:0:{#2} and {#3});
+	\draw[thick] ($ #1 + 2*(#2,0)$) arc(0:180:{#2} and {#3});
+}
+
+\newcommand{\halfDottedEllipse}[3]{
+	\draw[thick] #1 arc(-180:0:{#2} and {#3});
+	\draw[thick, dotted] ($ #1 + 2*(#2,0)$) arc(0:180:{#2} and {#3});
+}
+
 %% file division
 \usepackage{subfiles}
 

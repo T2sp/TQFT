@@ -4441,7 +4441,7 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
     \begin{itemize}
         \item \hyperref[def:modulecat]{左 $\Cat{C}$-加群圏} $(\Cat{M},\, \btr,\, \alpha,\, \lambda)$ のことを $\LModCat{\Cat{M}}{\Cat{C}}$ と書く．
         \item \hyperref[def:modulecat]{右 $\Cat{C}$-加群圏} $(\Cat{M},\, \btl,\, \beta,\, \rho)$ のことを $\RModCat{\Cat{M}}{\Cat{C}}$ と書く．
-        \item \hyperref[def:bimodulecat]{$(\Cat{C}_1,\, \Cat{C}_2)$-加群圏} $(\Cat{M},\, \btr,\, \btl,\, \alpha,\, \beta,\, \lambda,\, \rho,\, b)$ のことを $\BiModCat{\Cat{M}}{\Cat{C}_1}{\Cat{C}_2}$ と書く．
+        \item \hyperref[def:bimodulecat]{$(\Cat{C}_1,\, \Cat{C}_2)$-両側加群圏} $(\Cat{M},\, \btr,\, \btl,\, \alpha,\, \beta,\, \lambda,\, \rho,\, b)$ のことを $\BiModCat{\Cat{M}}{\Cat{C}_1}{\Cat{C}_2}$ と書く．
     \end{itemize}
 \end{marker}
 
@@ -4463,7 +4463,7 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
 
     \begin{itemize}
         \item 十分射影的対象を持つ\hyperref[def:tensorfusion-cat]{多重テンソル圏} $\Cat{C}_1,\, \Cat{C}_2$
-        \item \hyperref[def:finite-abcat]{局所有限}な\hyperref[def:bimodulecat]{$(\Cat{C}_1,\, \Cat{C}_2)$-加群圏} $\BiModCat{\Cat{M}}{\Cat{C}_1}{\Cat{C}_2}$
+        \item \hyperref[def:finite-abcat]{局所有限}な\hyperref[def:bimodulecat]{$(\Cat{C}_1,\, \Cat{C}_2)$-両側加群圏} $\BiModCat{\Cat{M}}{\Cat{C}_1}{\Cat{C}_2}$
     \end{itemize}
     を与える．このとき，$\BiModCat{\Cat{M}}{\Cat{C}_1}{\Cat{C}_2}$ が\textbf{完全} (exact) であるとは，任意の\hyperref[def:finite-abcat]{射影的対象} $p_i \in \Obj{\Cat{C}_i}$ および $\forall m \in \Obj{\BiModCat{\Cat{M}}{\Cat{C}_1}{\Cat{C}_2}}$ に対して，$p_1 \btr m \btl p_2 \in \Obj{\BiModCat{\Cat{M}}{\Cat{C}_1}{\Cat{C}_2}}$ が射影的対象であることを言う．
 \end{mydef}
@@ -4530,6 +4530,10 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
 \end{mydef}
 
 \begin{marker}
+    煩雑さを回避するため，以下では $\Fun$ の引数の中では\hyperref[def:modulecat]{左，右}，\hyperref[def:bimodulecat]{両側}加群圏 $\LModCat{\Cat{M}}{\Cat{C}_1},\, \RModCat{\Cat{M}}{\Cat{C}_2},\, \BiModCat{\Cat{M}}{\Cat{C}_1}{\Cat{C}_2}$ を全て $\Cat{M}$ と書く．
+\end{marker}
+
+\begin{marker}
     定義\ref{def:module-Fun}において，加群圏の\hyperref[def:modulecat-exact]{完全性}の条件を外すと，モノイダル圏 $\LModFun{\Cat{C}} (\LModCat{\Cat{M}}{\Cat{C}},\, \LModCat{\Cat{M}}{\Cat{C}})$ がrigidになってくれないなどの様々な弊害が生じる~\cite[p.154]{etingof2015tensor}．
     ゆえに，以降では特に断らない限り\hyperref[def:modulecat-exact]{完全}な加群圏のみを考える．
 \end{marker}
@@ -4542,7 +4546,7 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
     を与える．このとき，3つの $(1,\, 1)$-圏
     % \hyperref[def:module-Fun]{
     \begin{align}
-        &\LModFun{\Cat{C}_1} (\LModCat{\Cat{M}_1}{\Cat{C}_1}, \LModCat{\Cat{M}_2}{\Cat{C}_1}), &&\RModFun{\Cat{C}_2} (\RModCat{\Cat{M}_1}{\Cat{C}_2},\, \RModCat{\Cat{M}_2}{\Cat{C}_2}), &&\BiModFun{\Cat{C}_1}{\Cat{C}_2} (\BiModCat{\Cat{M}_1}{\Cat{C}_1}{\Cat{C}_2},\, \BiModCat{\Cat{M}_2}{\Cat{C}_1}{\Cat{C}_2})
+        &\LModFun{\Cat{C}_1} (\Cat{M}_1, \Cat{M}_2), &&\RModFun{\Cat{C}_2} (\Cat{M}_1,\, \Cat{M}_2), &&\BiModFun{\Cat{C}_1}{\Cat{C}_2} (\Cat{M}_1,\, \Cat{M}_2)
     \end{align}
     の全てについて以下が成り立つ：
     \begin{enumerate}
@@ -4567,7 +4571,7 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
     \end{itemize}
     を与える．このとき，3つの $(1,\, 1)$-圏
     \begin{align}
-        &\LModFun{\Cat{C}_1} (\LModCat{\Cat{M}}{\Cat{C}_1}, \LModCat{\Cat{M}}{\Cat{C}_1}), &&\RModFun{\Cat{C}_2} (\RModCat{\Cat{M}}{\Cat{C}_2},\, \RModCat{\Cat{M}}{\Cat{C}_2}), &&\BiModFun{\Cat{C}_1}{\Cat{C}_2} (\BiModCat{\Cat{M}_1}{\Cat{C}_1}{\Cat{C}_2},\, \BiModCat{\Cat{M}}{\Cat{C}_1}{\Cat{C}_2})
+        &\LModFun{\Cat{C}_1} (\Cat{M}, \Cat{M}), &&\RModFun{\Cat{C}_2} (\Cat{M},\, \Cat{M}), &&\BiModFun{\Cat{C}_1}{\Cat{C}_2} (\Cat{M},\, \Cat{M})
     \end{align}
     の全てについて以下が成り立つ：
     \begin{enumerate}
@@ -4581,8 +4585,81 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
 \begin{proof}
     証明は全く同様なので，左 $\Cat{C}$-加群圏 $\LModCat{\Cat{M}}{\Cat{C}}$ の場合にのみ示す．
     \begin{enumerate}
-        \item 合成の\hyperref[def:category]{結合則}から明らか．
-        \item 補題\ref{lem:exact-Fun}-(1) より，任意の対象 $F$ に対して常にその左随伴 $F^* \dashv F$ が存在する．
+        \item \hyperref[redef:monoidal-category]{テンソル積} $\otimes^{\LModFun{\Cat{C}}(\Cat{M},\, \Cat{M})} \colon \LModFun{\Cat{C}}(\Cat{M},\, \Cat{M})^{\times 2} \lto \LModFun{\Cat{C}}(\Cat{M},\, \Cat{M})$ を，次のように定義する：
+        \begin{itemize}
+            \item $\forall F,\, G \in \Obj{\Cat{\LModFun{\Cat{C}}(\Cat{M},\, \Cat{M})}}$ に対して
+            \begin{align}
+                F \otimes^{\LModFun{\Cat{C}}(\Cat{M},\, \Cat{M})} G \coloneqq F \circ G \in \Obj{\LModFun{\Cat{C}}(\Cat{M},\, \Cat{M})}
+            \end{align}
+            と定義する．
+            \item $\forall \tau \in \Hom{\Cat{\LModFun{\Cat{C}}(\Cat{M},\, \Cat{M})}} (F,\, F'),\; \forall \tau' \in \Hom{\Cat{\LModFun{\Cat{C}}(\Cat{M},\, \Cat{M})}} (G,\, G')$ に対して
+            \begin{align}
+                \tau \otimes^{\LModFun{\Cat{C}}(\Cat{M},\, \Cat{M})} \tau' \coloneqq &\Familyset[\Big]{F\bigl(G(m)\bigr) \xrightarrow{F(\tau'_m)} F\bigl(G'(m)\bigr) \xrightarrow{\tau_{G'(m)}} F'\bigl( G'(m) \bigr)  }{m \in \Obj{\Cat{M}}} \\
+                &\in \Hom{\LModFun{\Cat{C}}(\Cat{M},\, \Cat{M})} (F \circ G,\, F' \circ G')
+            \end{align}
+            と定義する．
+        \end{itemize}
+        $\otimes^{\LModFun{\Cat{C}}(\Cat{M},\, \Cat{M})}$ が関手であることを示そう．
+        まず，4つの\hyperref[def:module-nat]{左 $\Cat{C}$-加群の自然変換}を
+        \begin{align}
+            F &\xRightarrow{\tau} F' \xRightarrow{\tau'} F'', \\
+            G &\xRightarrow{\sigma} G' \xRightarrow{\sigma'} G''
+        \end{align}
+        のようにとる．$\tau$ は自然変換なので $\forall m \in \Obj{\Cat{M}}$ に対して $\tau_{G''(m)} \circ F(\sigma'_m) = F'(\sigma'_m) \circ \tau_{G'(m)}$ が成り立つ．
+        故に
+        \begin{align}
+            &(\tau' \circ \tau) \otimes^{\LModFun{\Cat{C}}(\Cat{M},\, \Cat{M})} (\sigma' \circ \sigma) \\
+            &= \Familyset[\big]{FG(m) \xrightarrow{F(\sigma_m)} FG'(m) \textcolor{red}{\xrightarrow{F(\sigma'_m)}} FG''(m) \textcolor{red}{\xrightarrow{\tau_{G''(m)}}} F'G''(m) \xrightarrow{\tau'_{G''(m)}} F''G''(m)}{m \in \Obj{\Cat{M}}} \\
+            &= \Familyset[\big]{FG(m) \xrightarrow{F(\sigma_m)} FG'(m) \textcolor{red}{\xrightarrow{\tau_{G'(m)}}} F'G'(m) \textcolor{red}{\xrightarrow{F'(\sigma'_m)}} F'G''(m) \xrightarrow{\tau'_{G''(m)}} F''G''(m)}{m \in \Obj{\Cat{M}}} \\
+            &= (\tau' \otimes^{\LModFun{\Cat{C}}(\Cat{M},\, \Cat{M})} \sigma') \circ (\tau \otimes^{\LModFun{\Cat{C}}(\Cat{M},\, \Cat{M})} \sigma)
+        \end{align}
+        が成り立ち，$\otimes^{\LModFun{\Cat{C}}(\Cat{M},\, \Cat{M})}$ が関手であることが示された．
+        関手の合成の結合則から，3つ組 $\bigl(\LModFun{\Cat{C}}(\Cat{M},\, \Cat{M}),\, \otimes^{\LModFun{\Cat{C}}(\Cat{M},\, \Cat{M})},\, \Id_{\Cat{M}} \bigr)$ が\hyperref[redef:monoidal-category]{厳密なモノイダル圏}を成すことが分かる．
+        以下では $\otimes^{\LModFun{\Cat{C}}(\Cat{M},\, \Cat{M})}$ を $\otimes$ と略記する．
+
+        \hrule
+
+        　ここで新しい記号を導入しておくと便利である．
+
+        \begin{mydef}[label=def:whiskering]{whiskering}
+            \hyperref[def:functor]{関手} $F,\, G,\, H_1,\, H_2$ および\hyperref[def:nat]{自然変換} $\tau$ を
+            \begin{center}
+                % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BhOnYLgL4gBpdJlz5CKAIzkqtRizacefACJCRY7HgJEATHOr1mrRB269gAUU2iQGHZKIBmIwtPLLfAGKb5MFAA5vBEoABmAE4QALZIZCA4EEiyHkrmPsL2UbFIhonJiG5pZiAA4lkR0XGIqUl51ABGMGBQSC4JcAAWWOE4SAC0qSbpIAASAPrSlSA5NXWF+c2tgx3U3b39tcaKpZP6INQMdM0MAAriulIgkVhBXf0CFAJAA
+                \begin{tikzcd}
+                \Cat{C} \arrow[r, "F"] & \Cat{D} \arrow[r, "H_1"{name=U, above}, bend left, shift left] \arrow[r, "H_2"{name=D, below}, bend right, shift right] & \Cat{E} \arrow[r, "G"] & \Cat{F}
+                \ar[Rightarrow, "\tau", from=U, to=D]
+                \end{tikzcd}
+            \end{center}
+            のように与える．
+            このとき，$\tau$ の\textbf{wiskering}を
+            \begin{align}
+                \bm{\tau \cdot F} &\coloneqq \Familyset[\big]{\tau_{F(m)} \colon H_1 \circ F(m) \lto H_2 \circ F(m)}{m \in \Obj{\Cat{M}}}, \\
+                \bm{G \cdot \tau} &\coloneqq \Familyset[\big]{G(\tau_{m}) \colon G \circ H_1(m) \lto G \circ H_2(m)}{m \in \Obj{\Cat{M}}}
+            \end{align}
+            で定義する．$\tau \cdot F,\, G \cdot \tau$ は自然変換である．
+        \end{mydef}
+        
+        $\tau \cdot F$ は
+        \begin{center}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BhOnYLgL4gBpdJlz5CKAIzkqtRizacefACJCRY7HgJEATHOr1mrRB269gAUU2iQGHZKIBmIwtPLLfAGKb5MFAA5vBEoABmAE4QALZIZCA4EEiyHkrmPsL2UbFIhonJiG5pZiAA4lkR0XGIqUl51ABGMGBQSC4JcAAWWOE4SAC0qSbpIAASAPrSlSA5NXWF+c2tgx3U3b39tcaKpZP6INQMdM0MAAriulIgkVhBXf0CFAJAA
+            \begin{tikzcd}
+            \Cat{C} \arrow[r,red, "F"] & \Cat{D} \arrow[r,red, "H_1"{name=U, above}, bend left, shift left] \arrow[r, red, "H_2"{name=D, below}, bend right, shift right] & \Cat{E} \arrow[r, "G"] & \Cat{F}
+            \ar[Rightarrow,red, "\tau", from=U, to=D]
+            \end{tikzcd}
+        \end{center}
+        の赤色の部分を，$G \cdot \tau$ は
+                \begin{center}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BhOnYLgL4gBpdJlz5CKAIzkqtRizacefACJCRY7HgJEATHOr1mrRB269gAUU2iQGHZKIBmIwtPLLfAGKb5MFAA5vBEoABmAE4QALZIZCA4EEiyHkrmPsL2UbFIhonJiG5pZiAA4lkR0XGIqUl51ABGMGBQSC4JcAAWWOE4SAC0qSbpIAASAPrSlSA5NXWF+c2tgx3U3b39tcaKpZP6INQMdM0MAAriulIgkVhBXf0CFAJAA
+            \begin{tikzcd}
+            \Cat{C} \arrow[r,"F"] & \Cat{D} \arrow[r,blue, "H_1"{name=U, above}, bend left, shift left] \arrow[r, blue, "H_2"{name=D, below}, bend right, shift right] & \Cat{E} \arrow[r, blue, "G"] & \Cat{F}
+            \ar[Rightarrow,blue, "\tau", from=U, to=D]
+            \end{tikzcd}
+        \end{center}
+        の青色の部分を表している．
+
+        \hrule
+
+        \item 補題\ref{lem:exact-Fun}-(1) より，$\forall F \in \Obj{\LModFun{\Cat{C}} (\Cat{M},\, \Cat{M})}$ に対して常にその左随伴 $F^* \dashv F$ が存在する．
         このとき\hyperref[def:adjoint]{随伴の定義}および補題\ref{lem:rigid-Hom}から，$\forall m,\, n \in \Obj{\LModCat{\Cat{M}}{\Cat{C}}}$ および $\forall x\in \Obj{\Cat{C}}$ に対して
         \begin{align}
             \Hom{\LModCat{\Cat{M}}{\Cat{C}}} \bigl(m,\, F^*(x \btr n)\bigr)
@@ -4592,9 +4669,30 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
             &\cong \Hom{\LModCat{\Cat{M}}{\Cat{C}}} \bigl(x^* \btr m,\, F^*(n)\bigr) \\
             &\cong \Hom{\LModCat{\Cat{M}}{\Cat{C}}} \bigl(m,\, x \btr F^*(n)\bigr)
         \end{align}
-        が成り立つ．故に\hyperref[col:Yoneda]{米田の補題}から自然同型 $F^* (x \btr n) \cong x \btr F^*(n)$ が存在し，$F^* \in \LModFun{\Cat{C}} (\LModCat{\Cat{M}}{\Cat{C}},\, \LModCat{\Cat{M}}{\Cat{C}})$ であることが分かった．        
+        が成り立つ．故に\hyperref[col:Yoneda]{米田の補題}から自然同型 $F^* (x \btr n) \cong x \btr F^*(n)$ が存在し，$F^* \in \Obj{\LModFun{\Cat{C}} (\Cat{M},\, \Cat{M})}$ であることが分かった．
+        右随伴 $F \vdash \rdual{F}$ についても同様に $\rdual{F} \in \Obj{\LModFun{\Cat{C}} (\Cat{M},\, \Cat{M})}$ が分かる．
         % counit / unit of adjunction が取れる．
-        \hyperref[redef:monoidal-category]{\textsf{\textbf{(zig-zag equiations)}}}はtriangle identity より明らか．
+
+        　ここで，\hyperref[def:adjoint]{随伴} $F^* \dashv F$ の\hyperref[def:unit-counit-adjunction]{unit, counit}によりそれぞれ自然変換
+        \begin{align}
+            \eta^F &\in \Hom{\LModFun{\Cat{C}} (\Cat{M},\, \Cat{M})} (\Id_{\Cat{M}},\, F \otimes F^*), \\
+            \epsilon^F &\in \Hom{\LModFun{\Cat{C}} (\Cat{M},\, \Cat{M})} (F^* \otimes F,\, \Id_{\Cat{M}})
+        \end{align}
+        が定まる．
+        いま，3つ組 $(F^*,\, \eta^F,\, \epsilon^F)$ が $F$ の\hyperref[redef:dual]{左双対}になっていることを示そう．
+        実際，\hyperref[prop:unit-counit]{\textsf{\textbf{(triangle identity)}}}より
+        \begin{align}
+            \Id_F 
+            &= ( F \cdot \epsilon^F ) \circ (\eta^F \cdot F) \\
+            &= (\Id_F \cdot \Id_{\Cat{M}}) \circ ( F \cdot \epsilon^F ) \circ (\eta^F \cdot F) \circ (\Id_{\Cat{M}} \cdot \Id_F) \\
+            &= (\Id_F \otimes \epsilon^F) \circ (\eta^F \otimes \Id_F) , \\
+            \Id_{F^*} 
+            &= \bigl( \epsilon^F \cdot F^*\bigr) \circ (F^* \cdot \eta^F) \\
+            &= \bigl( \epsilon^F \cdot F^*\bigr) \circ (\Id_{\Cat{M}} \cdot \Id_{F^*}) \circ (\Id_{F^*} \cdot \Id_{\Cat{M}}) \circ (F^* \cdot \eta^F) \\
+            &= (\epsilon^F \otimes \Id_{F^*}) \circ (\Id_{F^*} \otimes \eta^F)
+        \end{align}
+        と計算できるので，\hyperref[redef:dual]{\textsf{\textbf{(zig-zag-identity)}}}が示された．
+        同様に\hyperref[def:adjoint]{右随伴} $F \vdash \rdual{F}$ に関する\hyperref[def:unit-counit-adjunction]{unit, counit}をとることで，$F$ の\hyperref[redef:dual]{右双対}が与えられる．
         \item (2) および補題\ref{lem:exact-Fun}-(3) から従う．
         \item 定理\ref{thm:modulecat-complete-reducible}より従う．詳細は~\cite[LEMMA 7.12.6.]{etingof2015tensor} を参照．
     \end{enumerate}
@@ -4607,9 +4705,9 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
     \end{itemize}
     を与える．このとき命題\ref{prop:module-End}-(3) により得られる\hyperref[def:finite-abcat]{有限}な\hyperref[def:tensorfusion-cat]{多重テンソル圏}をそれぞれ
     \begin{align}
-        \LModEnd{\Cat{C}_1} (\LModCat{\Cat{M}}{\Cat{C}_1})&\coloneqq \LModFun{\Cat{C}_1} (\LModCat{\Cat{M}}{\Cat{C}_1}, \LModCat{\Cat{M}}{\Cat{C}_1}), \\
-        \RModEnd{\Cat{C}_2} (\RModCat{\Cat{M}}{\Cat{C}_2})&\coloneqq \RModFun{\Cat{C}_2} (\RModCat{\Cat{M}}{\Cat{C}_2},\, \RModCat{\Cat{M}}{\Cat{C}_2}),\\ 
-        \BiModEnd{\Cat{C}_1}{\Cat{C}_2} (\BiModCat{\Cat{M}}{\Cat{C}_1}{\Cat{C}_2}) &\coloneqq \BiModFun{\Cat{C}_1}{\Cat{C}_2} (\BiModCat{\Cat{M}}{\Cat{C}_1}{\Cat{C}_2},\, \BiModCat{\Cat{M}}{\Cat{C}_1}{\Cat{C}_2})
+        \LModEnd{\Cat{C}_1} (\Cat{M})&\coloneqq \LModFun{\Cat{C}_1} (\Cat{M},\,\Cat{M}), \\
+        \RModEnd{\Cat{C}_2} (\Cat{M})&\coloneqq \RModFun{\Cat{C}_2} (\Cat{M},\,\Cat{M}),\\ 
+        \BiModEnd{\Cat{C}_1}{\Cat{C}_2} (\Cat{M}) &\coloneqq \BiModFun{\Cat{C}_1}{\Cat{C}_2} (\Cat{M},\, \Cat{M})
     \end{align}
     とおき，$\Cat{M}$ による $\Cat{C}_i$ の\textbf{双対テンソル圏} (dual tensor category to $\Cat{C}_i$ with respect to $\Cat{M}$) と呼ぶ．
 \end{mydef}
@@ -5025,7 +5123,127 @@ $\Cat{C}$ を\hyperref[redef:monoidal-category]{モノイダル圏}とする．
     \end{description}
 \end{mydef}
 
+\subsection{圏論的トレース}
 
+圏論的トレースの理論は，~\cite{henriques2015categorifiedtracemoduletensor}によって大きく発展した．
+
+\begin{mydef}[label=def:cat-trace]{圏論的トレース}
+    \begin{itemize}
+        \item \hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{A},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$
+        \item 圏 $\Cat{C}$
+    \end{itemize}
+    を与える．\textbf{圏論的トレース} (categorified trace) は，以下のデータからなる：
+    \begin{itemize}
+        \item 関手 $\Tr \colon \Cat{A} \lto \Cat{C}$
+        \item \textbf{traciator}と呼ばれる\hyperref[def:nat]{自然同型}
+        \begin{align}
+            \Familyset[\big]{\tau_{x,\, y} \colon \Tr(x \otimes y) \xrightarrow{\cong} \Tr(y \otimes x)}{x,\,y \in \Obj{\Cat{A}}}
+        \end{align}
+    \end{itemize}
+    これらは以下の条件を充たさねばならない：
+    \begin{description}
+        \item[\textbf{(Tr)}]　
+        
+        $\forall x,\, y,\, z \in \Obj{\Cat{A}}$ について，$\Cat{C}$ における以下の図式を可換にする：
+        \begin{center}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12AVAJ04CMsAcwYAKAB4ACThDwBbeJNEBPae1lYFcSQC8AlAOE89IAL6l0mXPkIoyARiq1GLNp16GRolWo1bder7yiuKexmYWIBjYeARE9uRO9MysiBzcfOyCXhJBmorKgTLB2jphJuaWMTZEAEyJ1Mmuae6Z2WI6ef65xfnaheURVdZxKPWOjS6p6R5ZwmKinb3+4gbqJZLKg5VRVrG2yAkTziluGZ5iqsuKi10ha9nhpk4wUELwRKAAZjwQckhkEA4CBIBInZrpHB0JgAfWA4lIW3WfV0phA1AYdH4MAYAAU9jU0jxhAALHBDEA-P4A6jApD1cHTVqiOhwhHKUg6UwAPWAAFp7KYKpEqf9EAy6YgAMyTU4tdhQ2Hw679TlonaipAyoEgxAAFllEOZrOAOlI7J5-MFwu+vzFBp1SAArIamQroXCysiVoi0RisTj8dVRiBiUIyRTNYgXY7EGCmm7eCy4RyzeJLQKhWYKKYgA
+            \begin{tikzcd}
+            \Tr\bigl(x \otimes (y \otimes z)\bigr) \arrow[d, "{\tau_{x,y\otimes z}}"'] \arrow[r, "{\Tr(a_{x,y,z}^{-1})}"] & \Tr\bigl((x \otimes y) \otimes z\bigr) \arrow[r, "{\tau_{x\otimes y,z}}"] & \Tr\bigl(z \otimes (x \otimes y)\bigr) \arrow[d, "{\Tr(a_{z,x,y}^{-1})}"] \\
+            \Tr\bigl((y \otimes z) \otimes x\bigr)                                                                        & \Tr\bigl(y \otimes (z \otimes x)\bigr) \arrow[l, "{\Tr(a_{y,z,x}^{-1})}"] & \Tr\bigl((z \otimes x)\otimes y\bigr) \arrow[l, "{\tau_{z\otimes x,y}}"']
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+\end{mydef}
+
+圏論的トレース $\Tr \colon \Cat{A} \to \Cat{C}$ をストリング図式で描くときは，$\Cat{A}$ のストリング図式が描かれている平面を円筒状に「丸める」ことで表現する~\cite[p.14]{henriques2015categorifiedtracemoduletensor}：
+\begin{align}
+    \Tr \left(\,
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            % plane
+            \draw[thick] (-1,0) rectangle ++(2,2);
+            % string
+            \draw[->-=.5] (0,0) -- node[midway,right] {$x$} ++(0,1) node[bullet] (f) {};
+            \draw[->-=.5] (f.center) -- node[midway,right] {$y$} ++(0,1);
+        \end{tikzpicture}
+     \,\right) 
+     \quad \eqqcolon \quad
+     \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+    % cylinder
+        \pgfmathsetmacro{\R}{0.6}
+        \pgfmathsetmacro{\r}{0.2}
+        \pgfmathsetmacro{\h}{2}
+        \halfDottedEllipse{(0,0)}{\R}{\r}
+        \Ellipse{(0,\h)}{\R}{\r}
+        \draw[thick] (0,0) -- (0,\h);
+        \draw[thick] ({2*\R},0) -- ({2*\R},\h);
+        % string
+        \draw[->-=.5] (\R,-\r) -- node[midway,right] {$x$} ++(0,1) node[bullet] (f) {};
+        \draw[->-=.5] (f.center) -- node[midway,right] {$y$} ++(0,1);
+        \node[left] at (f) {$f$};
+    \end{tikzpicture}
+    \in \Hom{\Cat{A}} \bigl( \Tr(x),\, \Tr(y) \bigr)
+\end{align}
+特に，\hyperref[def:categorialTr]{traciator}は次のように図示する：
+\begin{align}
+    \tau_{x,\, y} 
+    &\eqqcolon \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        % cylinder
+        \pgfmathsetmacro{\R}{0.6}
+        \pgfmathsetmacro{\r}{0.2}
+        \pgfmathsetmacro{\h}{2}
+        \halfDottedEllipse{(0,0)}{\R}{\r}
+        \Ellipse{(0,\h)}{\R}{\r}
+        \draw[thick] (0,0) -- (0,\h);
+        \draw[thick] ({2*\R},0) -- ({2*\R},\h);
+        % string
+        \draw[->-=.5] ({\R - .2},-\r)  node[above left] {$x$} .. controls +(0,1) and +(0,-1) .. ++(.4,\h);
+        \draw[->-=.5] ({\R + .2},-\r)  node[above right] {$y$} .. controls +(90:.5) and +(-135:.2) .. ({2*\R},{.4*\h});
+        \draw[->-=.5] (0,{.6*\h}) .. controls +(45:.2) and +(-90:.5) .. ({\R - .2},{\h - \r});
+        \draw[dashed] ({2*\R},{.4*\h}) -- (0,{.6*\h});
+    \end{tikzpicture},
+    &\tau_{y,\, x}^{-1}
+    &\eqqcolon \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        % cylinder
+        \pgfmathsetmacro{\R}{0.6}
+        \pgfmathsetmacro{\r}{0.2}
+        \pgfmathsetmacro{\h}{2}
+        \halfDottedEllipse{(0,0)}{\R}{\r}
+        \Ellipse{(0,\h)}{\R}{\r}
+        \draw[thick] (0,0) -- (0,\h);
+        \draw[thick] ({2*\R},0) -- ({2*\R},\h);
+        % string
+        \draw[->-=.5] ({\R + .2},-\r)  node[above right] {$y$} .. controls +(0,1) and +(0,-1) .. ++(-.4,\h);
+        \draw[->-=.5] ({\R - .2},-\r)  node[above left] {$x$} .. controls +(90:.5) and +(-45:.2) .. (0,{.4*\h});
+        \draw[->-=.5] ({2*\R},{.6*\h}) .. controls +(135:.2) and +(-90:.5) .. ({\R + .2},{\h - \r});
+        \draw[dashed] (0,{.4*\h}) -- ({2*\R},{.6*\h});
+    \end{tikzpicture}
+\end{align}
+
+\begin{myprop}[label=prop:associated-categorialTr]{中心的関手に同伴する圏論的トレース}
+    \begin{itemize}
+        \item \hyperref[def:finite-abcat]{有限}の\hyperref[def:pivotal]{旋回構造}付き\hyperref[redef:braided-monoidal]{組紐}付き\hyperref[def:tensorfusion-cat]{テンソル圏} $\Cat{C}$ 
+        \item \hyperref[def:finite-abcat]{有限}の\hyperref[def:pivotal]{旋回構造}付き\hyperref[def:tensorfusion-cat]{テンソル圏} $\Cat{A}$
+        \item \hyperref[def:central-functor]{中心的関手} $F \colon \Cat{C} \lto \Cat{A}$
+    \end{itemize}
+    を与える．このとき，$F$ の\hyperref[def:adjoint]{右随伴} 
+    \begin{center}
+        \begin{tikzcd}
+            \Cat{C}\ar[r,bend left,"F",""{name=A, below}] & \Cat{A}\ar[l,bend left,"\Tr_{\Cat{C}}",""{name=B,above}] 
+            \ar[from=A, to=B, symbol=\dashv]
+            \end{tikzcd}
+    \end{center}
+    は\hyperref[def:categorialTr]{圏論的トレース}である~\cite[4.4]{henriques2015categorifiedtracemoduletensor}．
+\end{myprop}
+
+\begin{proof}
+    
+\end{proof}
+
+\subsection{Lagrangian代数と加群圏}
+
+ 
 
 \section{2-群}
 
