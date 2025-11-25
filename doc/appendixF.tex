@@ -5147,15 +5147,15 @@ $\Cat{C}$ を\hyperref[redef:monoidal-category]{モノイダル圏}とする．
         $\forall x,\, y,\, z \in \Obj{\Cat{A}}$ について，$\Cat{C}$ における以下の図式を可換にする：
         \begin{center}
             % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12AVAJ04CMsAcwYAKAB4ACThDwBbeJNEBPae1lYFcSQC8AlAOE89IAL6l0mXPkIoyARiq1GLNp16GRolWo1bder7yiuKexmYWIBjYeARE9uRO9MysiBzcfOyCXhJBmorKgTLB2jphJuaWMTZEAEyJ1Mmuae6Z2WI6ef65xfnaheURVdZxKPWOjS6p6R5ZwmKinb3+4gbqJZLKg5VRVrG2yAkTziluGZ5iqsuKi10ha9nhpk4wUELwRKAAZjwQckhkEA4CBIBInZrpHB0JgAfWA4lIW3WfV0phA1AYdH4MAYAAU9jU0jxhAALHBDEA-P4A6jApD1cHTVqiOhwhHKUg6UwAPWAAFp7KYKpEqf9EAy6YgAMyTU4tdhQ2Hw679TlonaipAyoEgxAAFllEOZrOAOlI7J5-MFwu+vzFBp1SAArIamQroXCysiVoi0RisTj8dVRiBiUIyRTNYgXY7EGCmm7eCy4RyzeJLQKhWYKKYgA
-            \begin{tikzcd}
+            \begin{tikzcd}[row sep=large, column sep=large]
             \Tr\bigl(x \otimes (y \otimes z)\bigr) \arrow[d, "{\tau_{x,y\otimes z}}"'] \arrow[r, "{\Tr(a_{x,y,z}^{-1})}"] & \Tr\bigl((x \otimes y) \otimes z\bigr) \arrow[r, "{\tau_{x\otimes y,z}}"] & \Tr\bigl(z \otimes (x \otimes y)\bigr) \arrow[d, "{\Tr(a_{z,x,y}^{-1})}"] \\
-            \Tr\bigl((y \otimes z) \otimes x\bigr)                                                                        & \Tr\bigl(y \otimes (z \otimes x)\bigr) \arrow[l, "{\Tr(a_{y,z,x}^{-1})}"] & \Tr\bigl((z \otimes x)\otimes y\bigr) \arrow[l, "{\tau_{z\otimes x,y}}"']
+            \Tr\bigl((y \otimes z) \otimes x\bigr)                                                                        & \Tr\bigl(y \otimes (z \otimes x)\bigr) \arrow[l, "{\Tr(a_{y,z,x}^{-1})}"] & \Tr\bigl((z \otimes x)\otimes y\bigr) \arrow[l, "{\tau_{z\otimes x,y}}"]
             \end{tikzcd}
         \end{center}
     \end{description}
 \end{mydef}
 
-圏論的トレース $\Tr \colon \Cat{A} \to \Cat{C}$ をストリング図式で描くときは，$\Cat{A}$ のストリング図式が描かれている平面を円筒状に「丸める」ことで表現する~\cite[p.14]{henriques2015categorifiedtracemoduletensor}：
+圏論的トレース $\Tr \colon \Cat{A} \lto \Cat{C}$ をストリング図式で描くときは，$\Cat{A}$ のストリング図式が描かれている平面を円筒状に「丸める」ことで表現する~\cite[p.14]{henriques2015categorifiedtracemoduletensor}：
 \begin{align}
     \Tr \left(\,
         \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
@@ -5181,7 +5181,7 @@ $\Cat{C}$ を\hyperref[redef:monoidal-category]{モノイダル圏}とする．
         \draw[->-=.5] (f.center) -- node[midway,right] {$y$} ++(0,1);
         \node[left] at (f) {$f$};
     \end{tikzpicture}
-    \in \Hom{\Cat{A}} \bigl( \Tr(x),\, \Tr(y) \bigr)
+    \quad \in \Hom{\Cat{C}} \bigl( \Tr(x),\, \Tr(y) \bigr)
 \end{align}
 特に，\hyperref[def:categorialTr]{traciator}は次のように図示する：
 \begin{align}
