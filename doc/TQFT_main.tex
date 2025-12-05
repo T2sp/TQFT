@@ -3,12 +3,9 @@
 %%%%%%%%%%packages%%%%%%%%%%
 %% colors and links
 \usepackage[svgnames]{xcolor}
-\usepackage[
-    colorlinks,citecolor=DarkGreen,linkcolor=DeepPink,linktocpage,unicode,
-    pdfauthor={高間俊至},
-    pdftitle={位相的場の理論　ノート}
-    ]{hyperref} 
+\usepackage{hyperref}
 \usepackage{xurl}
+
 %% equations
 %%%% math
 \usepackage{amsmath,amsfonts,amssymb,amsthm}
@@ -158,6 +155,13 @@
 \usepackage{mymonoidalcat}
 
 %%%%%%%%%%optional settings%%%%%%%%%%
+
+%%%%%hyperref%%%%%
+\hypersetup{
+    colorlinks,citecolor=DarkGreen,linkcolor=DeepPink,linktocpage,unicode,
+    pdfauthor={Toshinori Takama},
+    pdftitle={A note on TQFT}
+}
 
 %%%%%図表並列%%%%%
 \makeatletter
@@ -402,7 +406,6 @@ title=系~\thetcbcounter: #2,#1}
 \DeclareFontFamily{U}{min}{}
 \DeclareFontShape{U}{min}{m}{n}{<-> udmj30}{}
 \newcommand\yo{\!\text{\usefont{U}{min}{m}{n}\symbol{'207}}\!}
-
 
 %% TikZ commands
 \newcommand{\Ellipse}[3]{
