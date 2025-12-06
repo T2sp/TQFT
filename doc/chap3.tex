@@ -543,16 +543,16 @@
     \begin{itemize}
         \item $\mathcal{C}$ が\textbf{左に閉じている} (left closed) とは，\textbf{internal hom functor}と呼ばれる関手
         \begin{align}
-            \multimap \colon \mathcal{C}^{\mathrm{op}} \times \mathcal{C} \lto \SETS
+            \multimap \colon \mathcal{C}^{\mathrm{op}} \times \mathcal{C} \lto \Cat{C}
         \end{align}
         と，\textbf{currying}と呼ばれる自然同型
         \begin{align}
-            \Familyset[\big]{c_{X,\, Y,\, Z} \colon \Hom{}(X \otimes Y,\, Z) \xrightarrow{\cong} \Hom{}(X,\, Y \multimap Z)}{X,\, Y,\, Z \in \Obj{\mathcal{C}}}
+            \Familyset[\big]{c_{X,\, Y,\, Z} \colon \Hom{\Cat{C}}(X \otimes Y,\, Z) \xrightarrow{\cong} \Hom{\Cat{C}}(X,\, Y \multimap Z)}{X,\, Y,\, Z \in \Obj{\mathcal{C}}}
         \end{align}
         の2つが存在することを言う．
         \item $\mathcal{C}$ が\textbf{右に閉じている} (right closed) とは，\textbf{internal hom functor}と呼ばれる関手と，\textbf{currying}と呼ばれる自然同型
         \begin{align}
-            \Familyset[\big]{c_{X,\, Y,\, Z} \colon \Hom{}(X \otimes Y,\, Z) \xrightarrow{\cong} \Hom{}(Y,\, X \multimap Z)}{X,\, Y,\, Z \in \Obj{\mathcal{C}}}
+            \Familyset[\big]{c_{X,\, Y,\, Z} \colon \Hom{\Cat{C}}(X \otimes Y,\, Z) \xrightarrow{\cong} \Hom{\Cat{C}}(Y,\, X \multimap Z)}{X,\, Y,\, Z \in \Obj{\mathcal{C}}}
         \end{align}
         の2つが存在することを言う．
     \end{itemize}
@@ -3702,15 +3702,17 @@ $\BIMODC{\Cat{C}}{\textcolor{red}{A}}{\textcolor{red}{A}}$ のassociatorとunito
 \begin{mytheo}[label=thm:modulecat]{加群圏の特徴付け}
     \begin{itemize}
         \item \hyperref[def:finite-abcat]{有限}な\hyperref[def:tensorfusion-cat]{多重テンソル圏} $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev)$
-        \item 既約かつ\hyperref[def:modulecat-exact]{完全}な\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏} $(\Cat{M},\, \btr,\, \alpha,\, \lambda)$\footnote{~\cite[p.152]{etingof2015tensor}}
+        \item \hyperref[def:modulecat-indecomposable]{既約}かつ\hyperref[def:modulecat-exact]{完全}な\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏} $(\Cat{M},\, \btr,\, \alpha,\, \lambda)$
+        % \footnote{~\cite[p.152]{etingof2015tensor}}
         \item 勝手な $\Cat{M}$ の対象 $m \in \Obj{\Cat{M}}$
     \end{itemize}
     を与える．このとき $\Cat{M}$ の\hyperref[def:internal-hom]{internal hom functor} $\multimap \colon \OP{\Cat{M}} \times \Cat{M} \lto \Cat{C}$ に関して $m \multimap m$ は $\Cat{C}$ における\hyperref[def:algobj]{代数対象}になり，
     関手
     \begin{align}
-        F \colon \Cat{M} \lto \MODCR{\Cat{C}}{(m \multimap m)},\; n \lmto m \multimap n
+        F \colon \Cat{M} &\lto \MODCR{\Cat{C}}{(m \multimap m)},\\ 
+        n &\lmto m \multimap n
     \end{align}
-    は\hyperref[def:modulecat]{左 $\Cat{C}$-加群圏}の同値である．
+    は\hyperref[def:module-functor]{左 $\Cat{C}$-加群圏同値}である．
 
 \end{mytheo}
 

@@ -4424,12 +4424,12 @@ $\Cat{C}$ の任意の\hyperref[def:algobj]{代数対象} $(x,\, \mu,\, \upsilon
     \begin{itemize}
         \item 関手
         \begin{align}
-            \multimap \colon \OP{\Cat{M}} \times \Cat{M} \lto \VEC{\mathbb{K}}
+            \multimap \colon \OP{\Cat{M}} \times \Cat{M} \lto \Cat{C}
         \end{align}
         \item 
         \textbf{currying}と呼ばれる\hyperref[def:nat]{自然同型}
         \begin{align}
-            \Familyset[\big]{c_{x,\, m_1,\, m_2} \colon \Hom{}(x \btr m_1,\, m_2) \xrightarrow{\cong} \Hom{}(x,\, m_1 \multimap m_2)}{x \in \Obj{\Cat{C}},\, Y,\, Z \in \Obj{\mathcal{C}}}
+            \Familyset[\big]{c_{x,\, m_1,\, m_2} \colon \Hom{\Cat{M}}(x \btr m_1,\, m_2) \xrightarrow{\cong} \Hom{\Cat{C}}(x,\, m_1 \multimap m_2)}{x \in \Obj{\Cat{C}},\, Y,\, Z \in \Obj{\mathcal{C}}}
         \end{align}
     \end{itemize}    
 \end{mydef}
