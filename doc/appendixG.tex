@@ -185,6 +185,8 @@ i.e. 商位相空間
     さらに，1点 $[0,\, *] \in \Cone{Z}$ のことを\textbf{コーンポイント}と呼び，$\mathrm{pt}$ と略記する．
 \end{marker}
 
+素材となる層状化空間 $(Z \xrightarrow{s} P)$ が連結でなくとも，位相空間 $\Cone{Z}$ においてはコーンポイントを経由することができるので，弧状連結になる．
+
 \begin{mylem}[label=lem:cone-connected]{層状化空間のコーンは連結}
     \hyperref[def:stratified-space]{層状化空間} $(Z \xrightarrow{s} P)$ の\hyperref[def:str-cone]{コーン} $\Cone{Z \xrightarrow{s} P}$ において，位相空間 $\Cone{Z}$ は弧状連結である\footnote{従って連結でもある}．
 \end{mylem}
@@ -218,6 +220,208 @@ i.e. 商位相空間
     がちょうど $[t_i,\, z_i],\, [t_j,\, z_j]$ を繋ぐ．
 \end{proof}
 
+\begin{myexample}[label=ex:Cone-dim1]{次元1のコーン}
+    \hyperref[def:covering-dim]{次元} $0$ のコンパクトな\hyperref[def:stratified-space]{層状化空間}とは，有限個の点のdisjoint unionのことである．
+    これらのコーンを図示すると，
+    \begin{align}
+        \Cone{\underset{1}{\bullet} \cdots \underset{n}{\bullet}}
+        &=\quad
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \node[bullet] (O) at (0,0) {};
+            \foreach \q in {0,60,...,300} {
+                \draw[very thick] (O) -- ++(\q:2);
+            }
+            \node[below right] at (-120:2) {$1$};
+            \node[below left] at (-60:2) {$n$};
+            \foreach \q in {-30,30,...,210} {
+                \node[rotate={\q + 90}] at ($(O)+(\q:1.5)$) {$\cdots$};
+            }
+        \end{tikzpicture}
+    \end{align}
+    のようになる．ただし，コーンポイントは中心の点である．
+\end{myexample}
+
+\begin{myexample}[label=ex:Cone-dim2]{次元2のコーン}
+    \hyperref[def:covering-dim]{次元} $1$ のコンパクトな\hyperref[def:stratified-space]{層状化空間}とは，閉じた非空な無向グラフのことである．
+    特に，頂点のない連結かつコンパクトな無向グラフは $S^1$ と同相であり，これの\hyperref[def:str-cone]{コーン}をとることで得られる2次元の層状化空間は次のように図示できる：
+    % これらのコーンを図示すると，
+    \begin{align}
+        \label{fig:Cone-S1}
+        \Cone{S^1}
+        &=\quad
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate[bullet] (O)
+            ;
+            \draw[dashed] (O.center) circle (0.5);
+            \begin{scope}[on background layer]
+                \fill[gray!20] (O.center) circle (1);
+            \end{scope}
+        \end{tikzpicture}
+    \end{align}
+    さらに，$n$ 個の頂点が付いた $S^1$ のコーンを図示すると次のようになる：
+    \begin{align}
+        \Cone{
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (O)
+                ;
+                % contour
+                \draw[gray] (O) circle (1);
+                % spoke
+                \foreach \q in {0,60,...,300} {
+                    \node[vertex] at ($(O)+(\q:1)$) {};
+                }
+                \node[below left] at (-120:1) {$1$};
+                \node[below right] at (-60:1) {$n$};
+                \foreach \q in {-30,30,...,210} {
+                    \node[rotate={\q + 90}] at ($(O)+(\q:1.2)$) {$\cdots$};
+                }
+            \end{tikzpicture}
+        }
+        &= \quad
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate[bullet] (O)
+            ;
+            % contour
+            \draw[dashed] (O.center) circle (1);
+            % spoke
+            \foreach \q in {0,60,...,300} {
+                \draw[very thick] (O.center) -- ++(\q:2);
+            }
+            \node[below right] at (-120:2) {$1$};
+            \node[below left] at (-60:2) {$n$};
+            \foreach \q in {-30,30,...,210} {
+                \node[rotate={\q + 90}] at ($(O.center)+(\q:1.2)$) {$\cdots$};
+            }
+            % background
+            \begin{scope}[on background layer]
+                \fill[gray!20] (O.center) circle (2);
+            \end{scope}
+        \end{tikzpicture}
+    \end{align}
+    他にも，例えば4面体の1-骨格のコーンを図示すると次のようになる：
+    \begin{align}
+        \Cone{ 
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \pgfmathsetmacro{\a}{2}
+                \path coordinate (O)
+                +(90:\a) coordinate (P_1)
+                +(0:{0.8*\a}) coordinate (P_2)
+                +(-160:\a) coordinate (P_3)
+                +(-60:\a) coordinate (P_4)
+                ;
+                % edges
+                \draw[gray,name path=e_12] (P_1) -- (P_2);
+                \draw[gray,name path=e_13] (P_1) -- (P_3);
+                \draw[gray,name path=e_14,spath/save=e_14] (P_1) -- (P_4);
+                \draw[gray,name path=e_23] (P_2) -- (P_3);
+                \draw[gray,name path=e_24] (P_2) -- (P_4);
+                \draw[gray,name path=e_34] (P_3) -- (P_4);
+                \begin{scope}
+                    % \draw[gray,save named path=e_14] (P_1) -- (P_4);
+                    % \draw[gray,save named path=e_23] (P_2) -- (P_3);
+                    \clip[name intersections={of=e_14 and e_23}] (intersection-1) circle (5pt);
+                    \draw[spath/use=e_14,white,ultra thick,double=gray,double distance=0.4pt];
+                \end{scope}
+                % vertices
+                \foreach \i in {1,...,4} {
+                    \node[vertex] at (P_\i) {};
+                }
+            \end{tikzpicture}
+        } 
+        &= \quad
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \pgfmathsetmacro{\a}{4}
+            \pgfmathsetmacro{\b}{2}
+            \path coordinate (O)
+            +(90:\a) coordinate (P_1)
+            +(0:{0.8*\a}) coordinate (P_2)
+            +(-160:\a) coordinate (P_3)
+            +(-60:\a) coordinate (P_4)
+            +(90:\b) coordinate (Q_1)
+            +(0:{0.8*\b}) coordinate (Q_2)
+            +(-160:\b) coordinate (Q_3)
+            +(-60:\b) coordinate (Q_4)
+            ;
+            % Link
+            \draw[gray,dashed] (Q_1) -- (Q_2);
+            \draw[gray,dashed] (Q_1) -- (Q_3);
+            \draw[gray,dashed] (Q_1) -- (Q_4);
+            \draw[gray,dashed] (Q_2) -- (Q_3);
+            \draw[gray,dashed] (Q_2) -- (Q_4);
+            \draw[gray,dashed] (Q_3) -- (Q_4);
+            % edges
+            \draw[gray,name path=e_12] (P_1) -- (P_2);
+            \draw[gray,name path=e_13] (P_1) -- (P_3);
+            \draw[gray,name path=e_14,spath/save=e_14] (P_1) -- (P_4);
+            \draw[gray,dotted,name path=e_23] (P_2) -- (P_3);
+            \draw[gray,name path=e_24] (P_2) -- (P_4);
+            \draw[gray,name path=e_34] (P_3) -- (P_4);
+            \draw[very thick,name path=e_1] (O) -- (P_1);
+            \draw[very thick,name path=e_2,spath/save=e_2] (O) -- (P_2);
+            \draw[very thick,name path=e_3] (O) -- (P_3);
+            \draw[very thick,name path=e_4,spath/save=e_4] (O) -- (P_4);
+            \begin{scope}
+                \clip (P_1) -- (O) -- (P_4) -- cycle;
+                \draw[spath/use=e_2,white,ultra thick];
+                \draw[spath/use=e_2,dotted,very thick];
+            \end{scope}
+            \begin{scope}
+                \clip[name intersections={of=e_14 and e_23}] (intersection-1) circle (5pt);
+                \draw[spath/use=e_14,white,ultra thick,double=gray,double distance=0.4pt];
+            \end{scope}
+            \begin{scope}
+                \clip[name intersections={of=e_14 and e_2}] (intersection-1) circle (5pt);
+                \draw[spath/use=e_14,white,ultra thick,double=gray,double distance=0.4pt];
+            \end{scope}
+            \begin{scope}
+                \clip[name intersections={of=e_23 and e_4}] (intersection-1) circle (5pt);
+                \draw[spath/use=e_4,white,ultra thick,double=black,double distance=1.2pt];
+            \end{scope}
+            % vertex
+            \node[bullet] at (O) {};
+            % faces
+            \fill[fill=green,opacity=0.1,save named path=f_12] (P_1) -- (O) -- (P_2) -- cycle;
+            \fill[fill=red,opacity=0.1,save named path=f_13] (P_1) -- (O) -- (P_3) -- cycle;
+            \fill[fill=blue,opacity=0.1,save named path=f_14] (P_1) -- (O) -- (P_4) -- cycle;
+            \fill[fill=DarkGreen,opacity=0.1,save named path=f_23] (P_2) -- (O) -- (P_3) -- cycle;
+            \fill[fill=DarkOrange,opacity=0.1,save named path=f_24] (P_2) -- (O) -- (P_4) -- cycle;
+            \fill[fill=LightSlateBlue,opacity=0.1,save named path=f_34] (P_3) -- (O) -- (P_4) -- cycle;
+        \end{tikzpicture}
+    \end{align}
+    なお，$\Cone{Z \xrightarrow{s} P}$ において，$Z$ の連結成分毎の次元が互いに異なる場合を考えることもできる．例えば $Z = S^1 \amalg \{\mathrm{pt}\}$ のとき，
+    \begin{align}
+        \Cone{
+            \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                \path coordinate (O)
+                +(2,0) coordinate (p)
+                ;
+                \draw[gray] (O) circle (1);
+                \node[vertex] at (p) {};
+            \end{tikzpicture}
+        } 
+        &= \quad
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (O)
+            +(2,0) coordinate (p)
+            ;
+            % line
+            \draw[very thick] (O) -- (p);
+            \begin{scope}
+                \clip (O) ellipse (1 and 2);
+                \draw[white, ultra thick] (O) -- (p);
+                \draw[dotted, very thick] (O) -- (p);
+            \end{scope}
+            % cone
+            \begin{scope}
+                \fill[gray!20,opacity=0.6] (O) ellipse (1 and 2);
+            \end{scope}
+            \draw[gray,dashed] (O) ellipse (0.5 and 1);
+            % cone point
+            \node[bullet] at (O) {};
+        \end{tikzpicture}
+    \end{align}
+    のように図示できる．
+\end{myexample}
 
 \begin{mydef}[label=def:Snglr-C0,breakable]{$C^0$ 級層状化空間}
     以下を充たす \hyperref[def:StTop]{$\StTOP$} の最小の\hyperref[def:faithful]{充満部分圏}を $\bigcap_{\Cat{T}} \Cat{T} \subset \StTOP$ と書く：
@@ -268,27 +472,54 @@ i.e. 商位相空間
 \exref{ex:topomfld}の意味で，\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間}は位相多様体の一般化と見做せる．しかしまだそこには $C^\infty$ 構造を一般化した構造は入っておらず，$C^\infty$ 多様体の一般化とは見做せない．
 
 \begin{mylem}[label=lem:strat-surj]{$C^0$ 級層状化空間の層状化は全射}
-    $\forall (X \xrightarrow{s} P) \in \Obj{\SnglrC}$ に対して，連続写像 $s$ は全射である．
+    \textcolor{red}{$\forall (X \xrightarrow{s} P) \in \Obj{\SnglrC}$ に対して，連続写像 $s$ は全射である．}\footnote{(2025/12/6) ~\cite[Remark 2.1.18.]{AFT2014stratified}の証明のスケッチには反例があると思われる．}
 \end{mylem}
 
 \begin{proof}
     $s$ が全射であるような\hyperref[def:stratified-space]{層状化空間} $(X \to P)$ 全体が成す充満部分圏を $\Cat{T} \subset \StTOP$ と書く．$\Cat{T}$ が条件 \hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-1)}}-\textsf{\textbf{(Snglr-5)}}}を充たすことを示せば十分である\footnote{これらの条件を充たす最小の $(1,\, 1)$-圏のことを $\SnglrC$ と定義したため，$\SnglrC \subset \Cat{T}$ が言えるのである．}．
+
     \begin{description}
         \item[\textbf{(Snglr-1)}] $(\emptyset \to \emptyset) \in \Obj{\Cat{T}}$ は自明である．
-        \item[\textbf{(Snglr-2)}] $\forall (X \xrightarrow{s} P) \in \Obj{\Cat{T}}$ に対して，\eqref{def:stratification-cone}よりその\hyperref[def:str-cone]{コーン}の層状化は $\Cone{s} \bigl( \Cone{X} \bigr) = s(X) \cup \{-\infty\} = \Cone{P}$ であり，全射である．i.e. $\Cone{X \xrightarrow{s} P} \in \Obj{\Cat{T}}$ である．
-        \item[\textbf{(Snglr-3)}] $\forall (X \xrightarrow{s} P) \in \Obj{\Cat{T}}$ に対して，$(X \times \mathbb{R} \to P) \in \Obj{\StTOP}$ の層状化をあからさまに書くと $(x,\, t) \lmto s(x)$ である．
-        \item[\textbf{(Snglr-4)}] $(X \xrightarrow{s} P) \in \Obj{\Cat{T}}$ かつ $\Hom{\StTOP} \bigl( (U \xrightarrow{s'} P_U),\, (X \xrightarrow{s} P) \bigr) \neq \emptyset$ であるとする．このとき $(f,\, \bar{f}) \in \Hom{\StTOP} \bigl( (U \xrightarrow{s'} P_U),\, (X \xrightarrow{s} P) \bigr)$ は $\TOP$ における以下の図式を可換にする：
-        \begin{center}
-            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAFUQBfU9TXfIRRkAjFVqMWbAAoB9Tjz7Y8BIiPLj6zVohAANbrxAZlgtaTHUtU3dO7iYUAObwioAGYAnCAFskZEBwIJAAmahw6LAY2AAsICABrECtJHRB3Qw9vP0R1QODEAGYU7TYAHTKAIzpPYHcuZJAGOkqYBml+FSEQTywnGJxGiKjY+KTFdOz-cIK86zS4AHJG5tb2zrNdXv7Bia9fUJmkYolS3QQuCi4gA
-            \begin{tikzcd}
-            U \arrow[r, "f", hook] \arrow[d, "s'"'] & X \arrow[d, "s"] \\
-            P_U \arrow[r, "\bar{f}"']         & P               
-            \end{tikzcd}
-        \end{center}
+        \item[\textbf{(Snglr-2)}] $\forall (X \xrightarrow{s} P) \in \Obj{\Cat{T}}$ に対して，\eqref{def:stratification-cone}よりその\hyperref[def:str-cone]{コーン}の層状化は $\Cone{s} \bigl( \Cone{X} \bigr) = s(X) \cup \{-\infty\} = P \cup \{-\infty\} = \Cone{P}$ を充たし，全射である．
+        i.e. $\Cone{X \xrightarrow{s} P} \in \Obj{\Cat{T}}$ である．
+        \item[\textbf{(Snglr-3)}] $\forall (X \xrightarrow{s} P) \in \Obj{\Cat{T}}$ に対して，$(X \times \mathbb{R} \to P) \in \Obj{\StTOP}$ の層状化をあからさまに書くと $(x,\, t) \lmto s(x)$ であり，全射である．i.e. $(X \times \mathbb{R} \to P) \in \Obj{\Cat{T}}$ である．
+        \item[\textbf{(Snglr-4)}] 
+        \textcolor{red}{反例が存在する．}
+        $X \coloneqq \{x\},\; U \coloneqq \{u\},\; P \coloneqq \{p\},\, P_U \coloneqq \{p_0,\; p_1\}$ とおき，
+        \begin{align}
+            s \colon X &\lto P,\; x \lmto p \\
+            s_U \colon U &\lto P_U,\; u \lmto p_0
+        \end{align}
+        とおく．$P_U$ の半順序集合としての構造は，$\le\; \coloneqq \bigl\{ (p_0,\, p_0),\, (p_1,\, p_1)\bigr\} \subset P_U \times P_U$ と定める．
+        このとき $s,\, s_U$ は定義\ref{def:topo-poset}の位相に関してどちらも連続写像であり，$(X \xrightarrow{s} P) \in \Obj{\Cat{T}},\; (U \xrightarrow{s_U} P_U) \in \Obj{\StTOP}$ である．
+        
+        ここで，連続写像
+        \begin{align}
+            i \colon U &\lto X,\; u \lmto x \\
+            \bar{i} \colon P_U &\lto P,\; q \lmto p
+        \end{align}
+        は $(i,\, \bar{i}) \in \Hom{\StTOP} \bigl( (U \xrightarrow{s_U} P_U),\, (X \xrightarrow{s} P) \bigr)$ を充たすので $\Hom{\StTOP} \bigl( (U \xrightarrow{s_U} P_U),\, (X \xrightarrow{s} P) \bigr) \neq \emptyset$ だが，明らかに $(U \xrightarrow{s_U} P_U) \in \Obj{\Cat{T}}$ である．
+        % $(X \xrightarrow{s} P) \in \Obj{\Cat{T}}$ かつ $\Hom{\StTOP} \bigl( (U \xrightarrow{s'} P_U),\, (X \xrightarrow{s} P) \bigr) \neq \emptyset$ であるとする．
+        % このとき $(f,\, \bar{f}) \in \Hom{\StTOP} \bigl( (U \xrightarrow{s'} P_U),\, (X \xrightarrow{s} P) \bigr)$ は $\TOP$ における以下の図式を可換にする：
+        % \begin{center}
+        %     % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAFUQBfU9TXfIRRkAjFVqMWbAAoB9Tjz7Y8BIiPLj6zVohAANbrxAZlgtaTHUtU3dO7iYUAObwioAGYAnCAFskZEBwIJAAmahw6LAY2AAsICABrECtJHRB3Qw9vP0R1QODEAGYU7TYAHTKAIzpPYHcuZJAGOkqYBml+FSEQTywnGJxGiKjY+KTFdOz-cIK86zS4AHJG5tb2zrNdXv7Bia9fUJmkYolS3QQuCi4gA
+        %     \begin{tikzcd}
+        %     U \arrow[r, "f", hook] \arrow[d, "s'"'] & X \arrow[d, "s"] \\
+        %     P_U \arrow[r, "\bar{f}"']         & P               
+        %     \end{tikzcd}
+        % \end{center}
+        % 仮定より $s$ は全射なので，$\forall p \in P_U$ に対して $X_{\bar{f}(p)} \neq \emptyset$ である．
+        % 特に，$(1,\, 1)$-圏 \hyperref[def:StTop]{$\StTOP$} の定義から $(f,\, \bar{f})$ は\hyperref[def:strat-emb]{層状化開埋め込み}なので，$\forall p \in P_U$ に対して
+        % $f|_{U_p} \colon U_p \lto X_{\bar{f}(p)}$ は位相的開埋め込みである．
+        % 仮定より $s$ は全射なので 
         % 特に $\bar{f}$ は単射であり，$s$ は全射なので $s'$ も全射でなくてはいけない．
         \item[\textbf{(Snglr-5)}] 
+        $(X \xrightarrow{s} P) \in \Obj{\StTOP}$ が開被覆 $\Familyset[\Big]{(i_\lambda,\, \bar{i}_\lambda) \in \Hom{\StTOP} \bigl( (U_\lambda \xrightarrow{s_\lambda} P_\lambda),\, (X \xrightarrow{s} P)\bigr)}{\lambda \in \Lambda}$ を持ち，かつ $\forall \lambda \in \Lambda$ に対して $(U_\lambda \xrightarrow{s_\lambda} P_\lambda) \in \Obj{\Cat{T}}$ であるとする．
+        このとき，族 $\Familyset[\big]{\bar{i}_\lambda \colon P_\lambda \lto P}{\lambda \in \Lambda}$ は $P$ の開被覆であり，$\forall p \in P$ に対してある $\lambda \in \Lambda$ が存在して，$p \in \bar{i}_\lambda (P_\lambda)$ を充たす．
+        さらに仮定より $s_\lambda \colon U_\lambda \lto P_\lambda$ は全射なので，ある $u_\lambda \in U_\lambda$ が存在して $p = \bar{i}_\lambda \circ s_\lambda (u_\lambda)$ を充たす．
+        $(1,\, 1)$-圏 \hyperref[def:StTop]{$\StTOP$ の定義}から $(i_\lambda,\, \bar{i}_\lambda)$ は\hyperref[def:strat-emb]{層状化開埋め込み}なので，
+        $p = \bar{i}_\lambda \circ s_\lambda (u_\lambda) = s \circ i_\lambda (u_\lambda) \in s(X)$ だと分かる．i.e. $P = s(X)$ であり，$(X \xrightarrow{s} P) \in \Obj{\Cat{T}}$ が示された．
     \end{description}
-    
 \end{proof}
 
 \subsection{$C^0$ basic}
@@ -1822,7 +2053,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
         \footnotesize
         \begin{align}
             % \Sing^{\text{sm}}([0,\, 1]) \times \LGL(U) &\lto \LGL(U), \\
-            (t,\, T) &\lmto \biggl( (x,\, v,\, [s,\, z]) \mapsto \Bigl( x,\, \bigl(1-t(x)\bigr)\, T^{\mathbb{R}^n}_{x,\, v,\, [s,\, z]} + t(x) \mathrm{GrSm}(T_x)(v),\, \Bigl[ \bigl(1-t(x)\bigr)s\, T^{\mathbb{R}_{\ge 0}}_{x,\, 0,\, [1,\, z]} + t(x)s,\, T^Z_{x,\, 0,\, [1,\, z]}\Bigr] \Bigr)  \biggr) 
+            (t,\, T) &\lmto \biggl( (x,\, v,\, [s,\, z]) \mapsto \Bigl( x,\, \bigl(1-t(x)\bigr)\, T^{\mathbb{R}^n}_{x,\, v,\, [s,\, z]} + t(x) \mathrm{GrSm}(T_x)(v),\, \Bigl[ \bigl(1-t(x)\bigr) T^{\mathbb{R}_{\ge 0}}_{x,\, 0,\, [1,\, z]} + t(x)s,\, T^Z_{x,\, 0,\, [1,\, z]}\Bigr] \Bigr)  \biggr) 
         \end{align}
         \normalsize
 
@@ -2074,7 +2305,7 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
         \end{description}
         \item[\textbf{$\bm{\bar{s}}$ の一意存在}]　
         
-        補題\ref{lem:strat-surj}より $s \colon X \lto P$ は全射なので明らか．
+        % 補題\ref{lem:strat-surj}より $s \colon X \lto P$ は全射なので明らか．
     \end{description}
 \end{proof}
 
