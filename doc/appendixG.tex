@@ -424,30 +424,30 @@ i.e. 商位相空間
 \end{myexample}
 
 \begin{mydef}[label=def:Snglr-C0,breakable]{$C^0$ 級層状化空間}
-    以下を充たす \hyperref[def:StTop]{$\StTOP$} の最小の\hyperref[def:faithful]{充満部分圏}を $\bigcap_{\Cat{T}} \Cat{T} \subset \StTOP$ と書く：
+    以下を充たす \hyperref[def:StTop]{$\StTOP$} の\hyperref[def:faithful]{充満部分圏} $\Cat{T}$ のうち最小のものを $\bigcap_{\Cat{T}} \Cat{T} \subset \StTOP$ と書く：
     \begin{description}
-        \item[\textbf{(Snglr-1)}] $(\emptyset \to \emptyset) \in \Obj{\SnglrC}$
+        \item[\textbf{(Snglr-1)}] $(\emptyset \to \emptyset) \in \Obj{\Cat{T}}$
         \item[\textbf{(Snglr-2)}]　
         
-        $(X \to P) \in \Obj{\SnglrC}$ かつ $X,\, P$ が位相空間としてコンパクト 
+        $(X \to P) \in \Obj{\Cat{T}}$ かつ $X,\, P$ が位相空間としてコンパクト 
         
-        $\IMP$ $\Cone{X \to P} \in \Obj{\SnglrC}$
+        $\IMP$ $\Cone{X \to P} \in \Obj{\Cat{T}}$
         
         \item[\textbf{(Snglr-3)}]　
         
-        $(X \to P) \in \Obj{\SnglrC}$ $\IMP$ $(X \times \mathbb{R} \to P) \in \Obj{\SnglrC}$\footnote{$X \times \mathbb{R}$ の層状化は，連続写像 $X \times \mathbb{R} \lto X,\; (x,\, t) \lmto x$ を前もって合成することにより定める．}
+        $(X \to P) \in \Obj{\Cat{T}}$ $\IMP$ $(X \times \mathbb{R} \to P) \in \Obj{\Cat{T}}$\footnote{$X \times \mathbb{R}$ の層状化は，連続写像 $X \times \mathbb{R} \lto X,\; (x,\, t) \lmto x$ を前もって合成することにより定める．}
         
         \item[\textbf{(Snglr-4)}]　
         
-        $(X \to P) \in \Obj{\SnglrC}$ かつ $\Hom{\StTOP} \bigl( (U \to P_U),\, (X \to P) \bigr) \neq \emptyset$ 
+        $(X \to P) \in \Obj{\Cat{T}}$ かつ $\Hom{\StTOP} \bigl( (U \to P_U),\, (X \to P) \bigr) \neq \emptyset$ 
         
-        $\IMP$ $(U \to P_U) \in \Obj{\SnglrC}$
+        $\IMP$ $(U \to P_U) \in \Obj{\Cat{T}}$
         
         \item[\textbf{(Snglr-5)}]　 
         
-        $(X \to P) \in \Obj{\StTOP}$ が開被覆 $\Familyset[\big]{(U_\lambda \to P_\lambda) \lto (X \to P)}{\lambda \in \Lambda}$\footnote{i.e. $\Familyset[\big]{U_\lambda}{\lambda \in \Lambda},\; \Familyset[\big]{P_\lambda}{\lambda \in \Lambda}$ が，それぞれ位相空間 $X,\, P$ の開被覆を成す．} を持ち，かつ $\forall \lambda \in \Lambda$ に対して $(U_\lambda \to P_\lambda) \in \Obj{\SnglrC}$ 
+        $(X \to P) \in \Obj{\StTOP}$ が開被覆 $\Familyset[\big]{(U_\lambda \to P_\lambda) \lto (X \to P)}{\lambda \in \Lambda}$\footnote{i.e. $\Familyset[\big]{U_\lambda}{\lambda \in \Lambda},\; \Familyset[\big]{P_\lambda}{\lambda \in \Lambda}$ が，それぞれ位相空間 $X,\, P$ の開被覆を成す．} を持ち，かつ $\forall \lambda \in \Lambda$ に対して $(U_\lambda \to P_\lambda) \in \Obj{\Cat{T}}$ 
         
-        $\IMP$ $(X \to P) \in \Obj{\SnglrC}$
+        $\IMP$ $(X \to P) \in \Obj{\Cat{T}}$
     \end{description}
     \tcblower
     $(1,\, 1)$-圏 $\bigcap_{\Cat{T}} \Cat{T}$ の対象のうち，位相空間としてパラコンパクト
@@ -2298,10 +2298,43 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
         $s_X$ が連続であるような\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間} $(X \to P)$ 全体が成す充満部分圏を $\Cat{T} \subset \SnglrC$ と書く．$\Cat{T}$ が条件 \hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-1)}}-\textsf{\textbf{(Snglr-5)}}}を充たすことを示せば十分である\footnote{これらの条件を充たす最小の $(1,\, 1)$-圏のことを $\SnglrC$ と定義したため，$\Cat{T} \supset \SnglrC$ が言えるのである．}．
         \begin{description}
             \item[\textbf{(Snglr-1)}] $(\emptyset \to \emptyset) \in \Obj{\Cat{T}}$ は自明である．
-            \item[\textbf{(Snglr-2)}] 
-            \item[\textbf{(Snglr-3)}] 
-            \item[\textbf{(Snglr-4)}] 
-            \item[\textbf{(Snglr-5)}] 
+            \item[\textbf{(Snglr-2)}] コンパクトな $(X \xrightarrow{s} P) \in \Obj{\Cat{T}}$ を与える．
+            \hyperref[def:str-cone]{コーンの定義}から，$\forall [t,\, x] \in \Cone{X} \setminus \{\mathrm{pt}\}$ に対して $s_{\Cone{X}} \bigl( [t,\, x] \bigr) = \bigl(\depth_x(X),\, \dim_x(X) + 1\bigr)$ が成り立つ．
+            故に写像 $s_{\Cone{X}}|_{\Cone{X} \setminus \{\mathrm{pt}\}} \colon \Cone{X} \setminus \{\mathrm{pt}\} \lto \mathbb{P}$ は連続写像の合成
+            \begin{align}
+                \Cone{X} \setminus \{\mathrm{pt}\} = \mathbb{R}_{> 0} \times X \xrightarrow{\mathrm{proj}_X} X \xrightarrow{s_X} \mathbb{P} \xrightarrow{+(0,\, 1)} \mathbb{P}
+            \end{align}
+            と等しく，連続である．
+            
+            ところで，\exref{ex:depth-Cone}から $\mathrm{pt} \in \Cone{X}$ に対しては $s_{\Cone{X}} (\mathrm{pt}) = \bigl(\dim (X) + 1,\, \dim (X) + 1\bigr)$ が成り立つ．
+            故に $\mathbb{P}$ において $s_{\Cone{X}} (\mathrm{pt}) \le s_{\Cone{X}} \bigl( \Cone{X} \setminus \{\mathrm{pt}\} \bigr)$ が成り立つ．
+            従って勝手な開集合 $Q \subset \mathbb{P}$ に対して，もし $s_{\Cone{X}} (\mathrm{pt}) \notin Q$ ならば $s_{\Cone{X}}^{-1} (Q) = (s_{\Cone{X}}|_{\Cone{X} \setminus \{\mathrm{pt}\}})^{-1} (Q)$ が，
+            もし $s_{\Cone{X}} (\mathrm{pt}) \in Q$ ならば
+            $s_{\Cone{X}}^{-1} (Q) = \{\mathrm{pt}\} \cup \bigl( \Cone{X} \setminus \{\mathrm{pt}\} \bigr) = \Cone{X}$ 
+            が成り立つので，$s_{\Cone{X}}^{-1} (Q)$ が開集合であること，i.e. $s_{\Cone{X}}$ が連続写像であることが示された．
+
+            \item[\textbf{(Snglr-3)}] $\forall (X \to P) \in \Obj{\Cat{T}}$ を1つ固定する．
+            このとき，\exref{ex:depth-Cone}から $\forall (x,\, t) \in X \times \mathbb{R}$ に対して $s_{X \times \mathbb{R}} (x,\, t) = \bigl( \depth_x(X),\, \dim_x(X) + 1 \bigr)$ が成り立つ．
+            i.e. 写像 $s_{X \times \mathbb{R}} \colon X \times \mathbb{R} \lto \mathbb{P}$ は連続写像の合成
+            \begin{align}
+                X \times \mathbb{R} \xrightarrow{\mathrm{proj}_X} X \xrightarrow{s_X} \mathbb{P} \xrightarrow{+(0,\, 1)} \mathbb{P}
+            \end{align}
+            に等しく，連続である．
+
+            \item[\textbf{(Snglr-4)}] $\forall (X \xrightarrow{s} P) \in \Obj{\Cat{T}}$ および $\Hom{\StTOP} \bigl( (U \to P_U),\, (X \to P) \bigr) \neq \emptyset$ を充たす勝手な$(U \xrightarrow{u} P_U) \in \Obj{\SnglrC}$を固定する． 
+            このとき\hyperref[def:strat-emb]{層状化開埋め込み} $(i,\, \bar{i}) \in \Hom{\StTOP} \bigl( (U \to P_U),\, (X \to P) \bigr) \neq \emptyset$ をとると，開埋め込みが\hyperref[def:dim-depth]{局所的次元}を保存すること\footnote{\hyperref[def:Snglr-C0]{$\SnglrC$ の定義から} $\SnglrC$ の対象はパラコンパクトなので．}から
+            $s_{U} \colon U \lto \mathbb{P}$ は連続写像の合成
+            \begin{align}
+                U \overset{i}{\hookrightarrow} X \xrightarrow{s} P \xrightarrow{\bar{s}} \mathbb{P}
+            \end{align}
+            に等しく，連続である．
+            \item[\textbf{(Snglr-5)}] $\Cat{T}$ 内に開被覆 $\Familyset[\big]{(i_\lambda,\, \bar{i}_\lambda) \in \Hom{\StTOP} \bigl( (U_\lambda \xrightarrow{s_\lambda} P_\lambda),\, (X \xrightarrow{s} P) \bigr) }{\lambda \in \Lambda}$ を持つような\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間} $(X \xrightarrow{s} P) \in \Obj{\SnglrC}$ を与える．
+            このとき，勝手な開集合 $Q \subset \mathbb{P}$ に対して
+            \begin{align}
+                s_X^{-1} (Q)
+                &= \bigcup_{\lambda \in \Lambda} i_\lambda \Bigl(U_\lambda \cap i_\lambda^{-1} \bigl( s_X^{-1}(Q) \bigr) \Bigr)
+            \end{align}
+            が成り立つが，$i_\lambda \Bigl(U_\lambda \cap i_\lambda^{-1} \bigl( s_X^{-1}(Q) \bigr) \Bigr) \subset X$ は開なので $s_X^{-1} (Q)$ は $X$ の開集合である．i.e. $s_X$ は連続写像である．
         \end{description}
         \item[\textbf{$\bm{\bar{s}}$ の一意存在}]　
         
