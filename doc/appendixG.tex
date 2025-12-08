@@ -2505,6 +2505,29 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
     
 \end{proof}
 
+\subsection{接構造の具体例}
+
+\begin{mydef}[label=def:sieve]{篩}
+    \hyperref[def:Kan]{$\Kan$}-\hyperref[def:enriched]{豊穣圏} $\Cat{C}$ を与える．
+    このとき充満部分豊穣圏 $\Cat{L} \subset \Cat{C}$ が\textbf{篩} (sieve) であるとは，
+    $\forall x \in \Obj{\Cat{C}},\; \forall l \in \Obj{\Cat{L}}$ に対して
+    \begin{align}
+        \Hom{\Cat{C}} (x,\, l) \neq \emptyset \IMP x \in \Obj{\Cat{L}}
+    \end{align}
+    が成り立つことをいう．
+
+    \tcblower
+
+    \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\Cat{C}$ を与える．
+    このとき\hyperref[def:fullsub-infty]{充満部分 $(\infty,\, 1)$-圏} $\Cat{L} \subset \Cat{C}$ が\textbf{篩} (sieve) であるとは，包含写像が\hyperref[def:infty-fib]{右ファイブレーション}であることを言う．
+
+    もしくは同じ事だが，$\forall x \in \Cat{C}_0,\; \forall l \in \Cat{L}_0$ に対して
+    \begin{align}
+        \inftyMap{\Cat{C}} (x,\, l) \neq \emptyset \IMP x \in \Cat{L}_0
+    \end{align}
+    が成り立つことを言う．
+\end{mydef}
+
 
 \section{{$(\infty,\, 1)$}-オペラッドと対称モノイダル {$(\infty,\, 1)$-圏}}
 
