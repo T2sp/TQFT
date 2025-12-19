@@ -47,7 +47,8 @@
     3dtools,
     knots,
     celtic,
-    hobby
+    hobby,
+    shapes.misc
 }
 \tikzset{%
     symbol/.style={%
@@ -102,7 +103,13 @@
         minimum size=1.2ex,path picture={
             \draw[opacity=1,black,-,#1] (-0.5ex,-0.5ex) -- (0.5ex,-0.5ex) -- (0.5ex,0.5ex);%
         }
-    }
+    },
+    cross/.style={
+        cross out, draw, 
+        minimum size=2*(#1-\pgflinewidth), 
+        inner sep=0pt, outer sep=0pt
+    },
+    cross/.default={1pt}
 }
 \pgfdeclarelayer{background}
 \pgfdeclarelayer{foreground}

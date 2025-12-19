@@ -498,21 +498,8 @@ i.e. 商位相空間
             i \colon U &\lto X,\; u \lmto x \\
             \bar{i} \colon P_U &\lto P,\; q \lmto p
         \end{align}
-        は $(i,\, \bar{i}) \in \Hom{\StTOP} \bigl( (U \xrightarrow{s_U} P_U),\, (X \xrightarrow{s} P) \bigr)$ を充たすので $\Hom{\StTOP} \bigl( (U \xrightarrow{s_U} P_U),\, (X \xrightarrow{s} P) \bigr) \neq \emptyset$ だが，明らかに $(U \xrightarrow{s_U} P_U) \in \Obj{\Cat{T}}$ である．
-        % $(X \xrightarrow{s} P) \in \Obj{\Cat{T}}$ かつ $\Hom{\StTOP} \bigl( (U \xrightarrow{s'} P_U),\, (X \xrightarrow{s} P) \bigr) \neq \emptyset$ であるとする．
-        % このとき $(f,\, \bar{f}) \in \Hom{\StTOP} \bigl( (U \xrightarrow{s'} P_U),\, (X \xrightarrow{s} P) \bigr)$ は $\TOP$ における以下の図式を可換にする：
-        % \begin{center}
-        %     % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAFUQBfU9TXfIRRkAjFVqMWbAAoB9Tjz7Y8BIiPLj6zVohAANbrxAZlgtaTHUtU3dO7iYUAObwioAGYAnCAFskZEBwIJAAmahw6LAY2AAsICABrECtJHRB3Qw9vP0R1QODEAGYU7TYAHTKAIzpPYHcuZJAGOkqYBml+FSEQTywnGJxGiKjY+KTFdOz-cIK86zS4AHJG5tb2zrNdXv7Bia9fUJmkYolS3QQuCi4gA
-        %     \begin{tikzcd}
-        %     U \arrow[r, "f", hook] \arrow[d, "s'"'] & X \arrow[d, "s"] \\
-        %     P_U \arrow[r, "\bar{f}"']         & P               
-        %     \end{tikzcd}
-        % \end{center}
-        % 仮定より $s$ は全射なので，$\forall p \in P_U$ に対して $X_{\bar{f}(p)} \neq \emptyset$ である．
-        % 特に，$(1,\, 1)$-圏 \hyperref[def:StTop]{$\StTOP$} の定義から $(f,\, \bar{f})$ は\hyperref[def:strat-emb]{層状化開埋め込み}なので，$\forall p \in P_U$ に対して
-        % $f|_{U_p} \colon U_p \lto X_{\bar{f}(p)}$ は位相的開埋め込みである．
-        % 仮定より $s$ は全射なので 
-        % 特に $\bar{f}$ は単射であり，$s$ は全射なので $s'$ も全射でなくてはいけない．
+        は $(i,\, \bar{i}) \in \Hom{\StTOP} \bigl( (U \xrightarrow{s_U} P_U),\, (X \xrightarrow{s} P) \bigr)$ を充たすので $\Hom{\StTOP} \bigl( (U \xrightarrow{s_U} P_U),\, (X \xrightarrow{s} P) \bigr) \neq \emptyset$ だが，明らかに $(U \xrightarrow{s_U} P_U) \notin \Obj{\Cat{T}}$ である．
+
         \item[\textbf{(Snglr-5)}] 
         $(X \xrightarrow{s} P) \in \Obj{\StTOP}$ が開被覆 $\Familyset[\Big]{(i_\lambda,\, \bar{i}_\lambda) \in \Hom{\StTOP} \bigl( (U_\lambda \xrightarrow{s_\lambda} P_\lambda),\, (X \xrightarrow{s} P)\bigr)}{\lambda \in \Lambda}$ を持ち，かつ $\forall \lambda \in \Lambda$ に対して $(U_\lambda \xrightarrow{s_\lambda} P_\lambda) \in \Obj{\Cat{T}}$ であるとする．
         このとき，族 $\Familyset[\big]{\bar{i}_\lambda \colon P_\lambda \lto P}{\lambda \in \Lambda}$ は $P$ の開被覆であり，$\forall p \in P$ に対してある $\lambda \in \Lambda$ が存在して，$p \in \bar{i}_\lambda (P_\lambda)$ を充たす．
@@ -541,7 +528,7 @@ i.e. 商位相空間
 
 さらに，もう1つの\hyperref[def:C0-basic]{$C^0$ basic}な $(U' \to P_{U'}) = (\mathbb{R}^{n'} \to [0]) \times \Cone{Z' \to P'} \in \Obj{\SnglrC}$ および
 $f \in \Hom{\SnglrC} \bigl( (U \to P_{U}),\, (U' \to P_{U'})  \bigr)$ をとる．ただし，$f$ はコーンポイントをコーンポイントへ写す，
-i.e. $\forall u \in \mathbb{R}^n$ に対して $f (u,\, \mathrm{pt}) \in \mathbb{R}^{n'} \times \{\mathrm{pt}\}$ が成り立つことを仮定する．
+i.e. $f (\mathbb{R}^n \times \{\mathrm{pt}\}) \in \mathbb{R}^{n'} \times \{\mathrm{pt}\}$ が成り立つことを仮定する．
 $f|_{\mathbb{R}^n} \colon \mathbb{R}^n \times \{\mathrm{pt}\} \lto \mathbb{R}^{n'} \times \{\mathrm{pt}\}$ を $f$ のコーンポイントへの制限として，
 \begin{align}
     f_{\Delta} \colon \mathbb{R}_{\textcolor{red}{>0}} \times T \mathbb{R}^n \times \Cone{Z} &\lto \mathbb{R}_{\textcolor{red}{>0}} \times T \mathbb{R}^{n'} \times \Cone{Z'}, \\
@@ -2348,7 +2335,7 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
 \begin{mylem}[label=lem:strat-basic,breakable]{半順序集合 {$\OP{[\BSC]}$} による層状化}
     任意の\hyperref[def:c-smooth]{conically smoothな層状化空間} $(X \xrightarrow{s} P) \in \Obj{\Snglr}$ に対して，以下はwell-definedな連続写像になり，位相空間 $X$ の新しい\hyperref[def:stratified-space]{$\OP{[\BSC]}$-層状化}を与える：
     \begin{align}
-        b_X \colon X \lto \OP{[\BSC]},\; x \lmto \Bigl[\, \argmax_{U \in \mathcal{U}_x} \bigl(\, \depth_x \colon \mathcal{U}_x \lto \mathbb{Z}_{\ge -1} \bigr) \,\Bigr]
+        b_X \colon X \lto \OP{[\BSC]},\; x \lmto \Bigl[\, \argmax_{U \in \mathcal{U}_x} \bigl(\, \depth \colon \mathcal{U}_x \lto \mathbb{Z}_{\ge -1} \bigr) \,\Bigr]
     \end{align}
     ただし，$\forall x \in X$ に対して集合 $\mathcal{U}_x \subset \Obj{\Bsc}$ を以下で定義した．
     \begin{align}
