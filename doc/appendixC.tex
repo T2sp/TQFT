@@ -4087,7 +4087,7 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
     を返す写像である．
 \end{myexample}
 
-後に紹介する定理\ref{thm:Kan-enriched}と併せて，次に定義する\hyperref[def:nerve-hc]{homotopy coherent nerve}は非自明な\footnote{命題\ref{prop:nerve}の適用範囲外（i.e. 本質的に $(1,\, 1)$-圏とは異なる）であるような $(\infty,\, 1)$-圏という意味である．}\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}を構成する非常に便利なツールとなる．
+後に紹介する定理\ref{thm:Kan-enriched}, \ref{thm:Map-hcNer}と併せることで，次に定義する\hyperref[def:nerve-hc]{homotopy coherent nerve}は非自明な\footnote{命題\ref{prop:nerve}の適用範囲外（i.e. 本質的に $(1,\, 1)$-圏とは異なる）であるような $(\infty,\, 1)$-圏という意味である．}\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}を構成する非常に便利なツールとなる．
 
 \begin{mydef}[label=def:nerve-hc,breakable]{homotopy coherentな脈体}
     \hyperref[def:SimpCat]{単体的豊穣圏} $\Cat{C} \in \Obj{\sCat}$ の\textbf{homotopy coherent nerve}
@@ -4296,6 +4296,21 @@ $(Q,\, \le)$ を半順序集合とする．このとき\hyperref[def:SimpCat]{�
 
 \begin{proof}
     ~\cite[\href{https://kerodon.net/tag/00LJ}{Tag 00LJ}]{kerodon}
+\end{proof}
+
+\begin{mytheo}[label=thm:Map-hcNer]{Homotopy coherent nerveの射の空間はもとの Hom Kan複体とホモトピー同値}
+    \hyperref[def:Kan]{$\Kan$}-\hyperref[def:enriched]{豊穣圏} $\Cat{C} \in \Obj{\sCat}$
+    および $\Cat{C}$ の対象 $x,\, y \in \Obj{\Cat{C}}$ を与える．
+    
+    このとき，$\Cat{C}$ の\hyperref[def:enriched]{Hom対象} $\Hom{\Cat{C}}(x,\, y) \in \Obj{\KAN}$ と $(\infty,\, 1)$-圏 $\hcNer(\Cat{C})$ の\hyperref[def:Map]{射の空間} $\inftyMap{\hcNer(\Cat{C})}(x,\, y)$ の間に\hyperref[def:htpy-equiv-Kan]{Kan複体のホモトピー同値}
+    \begin{align}
+        \Hom{\Cat{C}}(x,\, y) \simeq \inftyMap{\hcNer(\Cat{C})} (x,\, y)
+    \end{align}
+    が存在する．
+\end{mytheo}
+
+\begin{proof}
+    ~\cite[\href{https://kerodon.net/tag/01LE}{Tag 01LE}]{kerodon}
 \end{proof}
 
 \begin{myexample}[label=def:Spaces]{空間の成す {$(\infty,\, 1)$}-圏}

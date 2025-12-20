@@ -87,9 +87,10 @@ P \arrow[r, red,"\tilde{f}"']                & P'
 特に $X$ を位相多様体とするとき，$[n]$-層状化空間 $(X,\, s \colon X \lto [n])$ の $i$-層 $X_i$ とは，多様体 $X$ 上の余次元 $d-i$ のdefectを全て集めてきたものだと見做せる．
 
 \begin{mydef}[label=def:strat-emb]{層状化開埋め込み}
-    \hyperref[def:stratified-space]{層状化写像} $(f,\, \tilde{f}) \colon (X,\, s \colon X \lto P) \lto (X',\, s' \colon X' \lto P')$ が\textbf{層状化開埋め込み} (stratified open embedding) であるとは，以下の2条件を充たすことを言う：
+    \hyperref[def:stratified-space]{層状化写像} $(f,\, \tilde{f}) \colon (X,\, s \colon X \lto P) \lto (X',\, s' \colon X' \lto P')$ が\textbf{層状化開埋め込み} (stratified open embedding) であるとは，以下の3条件を充たすことを言う：
     \begin{enumerate}
         \item 連続写像 $f \colon X \lto X'$ は位相的開埋め込みである\footnote{i.e. $f \colon X \lto f(X)$ が同相写像かつ $f(X) \subset Y$ が開集合}
+        \item 連続写像 $\bar{f} \colon P \lto P'$ は位相的開埋め込みである．
         \item $\forall p \in P$ に対して，$f$ の \hyperref[def:stratified-space]{$p$-strata}への制限
         \footnote{\hyperref[def:stratified-space]{層状化写像}の定義に登場する図式の可換性より，$\forall x \in X_p$ に対して $s' \bigl( f(x) \bigr) = s' \circ f (x) = \tilde{f} \circ s (x) = \tilde{f}(p)$，i.e. $f(x) \in s'{}^{-1} \bigl( \{\tilde{f}(p)\} \bigr) = X'_{\tilde{f}(p)}$ が分かる．}
         \begin{align}
@@ -457,7 +458,7 @@ i.e. 商位相空間
 
 \begin{myexample}[label=ex:topomfld]{位相多様体は $C^0$ 級層状化空間}
     \hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-1)}}}より，$* \coloneqq \Cone{\emptyset \to \emptyset} \in \Obj{\SnglrC}$ である．
-    \hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-3)}}}より，$\forall n \ge 0$ に対して $\mathbb{R}^n = (\mathbb{R}^n \to [0]) \in \Obj{\SnglrC}$ であることが帰納的に分かる．
+    \hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-3)}}}より，$\forall n \ge 0$ に対して $\mathbb{R}^n = * \times (\mathbb{R}^n \to [0]) \in \Obj{\SnglrC}$ であることが帰納的に分かる．
     $\mathbb{R}^n$ の任意の開集合 $U \hookrightarrow \mathbb{R}^n$ に対して，
     \begin{center}
             \begin{tikzcd}
@@ -471,43 +472,52 @@ i.e. 商位相空間
 
 \exref{ex:topomfld}の意味で，\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間}は位相多様体の一般化と見做せる．しかしまだそこには $C^\infty$ 構造を一般化した構造は入っておらず，$C^\infty$ 多様体の一般化とは見做せない．
 
-\begin{mylem}[label=lem:strat-surj]{$C^0$ 級層状化空間の層状化は全射}
-    \textcolor{red}{$\forall (X \xrightarrow{s} P) \in \Obj{\SnglrC}$ に対して，連続写像 $s$ は全射である．}\footnote{(2025/12/6) ~\cite[Remark 2.1.18.]{AFT2014stratified}の証明のスケッチには反例があると思われる．}
-\end{mylem}
+% \begin{mylem}[label=lem:strat-surj]{$C^0$ 級層状化空間の層状化は全射}
+%     \textcolor{red}{$\forall (X \xrightarrow{s} P) \in \Obj{\SnglrC}$ に対して，連続写像 $s$ は全射である．}\footnote{(2025/12/6) ~\cite[Remark 2.1.18.]{AFT2014stratified}の証明のスケッチには反例があると思われる．}
+% \end{mylem}
 
-\begin{proof}
-    $s$ が全射であるような\hyperref[def:stratified-space]{層状化空間} $(X \to P)$ 全体が成す充満部分圏を $\Cat{T} \subset \StTOP$ と書く．$\Cat{T}$ が条件 \hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-1)}}-\textsf{\textbf{(Snglr-5)}}}を充たすことを示せば十分である\footnote{これらの条件を充たす最小の $(1,\, 1)$-圏のことを $\SnglrC$ と定義したため，$\SnglrC \subset \Cat{T}$ が言えるのである．}．
+% \begin{proof}
+%     $s$ が全射であるような\hyperref[def:stratified-space]{層状化空間} $(X \to P)$ 全体が成す充満部分圏を $\Cat{T} \subset \StTOP$ と書く．$\Cat{T}$ が条件 \hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-1)}}-\textsf{\textbf{(Snglr-5)}}}を充たすことを示せば十分である\footnote{これらの条件を充たす最小の $(1,\, 1)$-圏のことを $\SnglrC$ と定義したため，$\SnglrC \subset \Cat{T}$ が言えるのである．}．
 
-    \begin{description}
-        \item[\textbf{(Snglr-1)}] $(\emptyset \to \emptyset) \in \Obj{\Cat{T}}$ は自明である．
-        \item[\textbf{(Snglr-2)}] $\forall (X \xrightarrow{s} P) \in \Obj{\Cat{T}}$ に対して，\eqref{def:stratification-cone}よりその\hyperref[def:str-cone]{コーン}の層状化は $\Cone{s} \bigl( \Cone{X} \bigr) = s(X) \cup \{-\infty\} = P \cup \{-\infty\} = \Cone{P}$ を充たし，全射である．
-        i.e. $\Cone{X \xrightarrow{s} P} \in \Obj{\Cat{T}}$ である．
-        \item[\textbf{(Snglr-3)}] $\forall (X \xrightarrow{s} P) \in \Obj{\Cat{T}}$ に対して，$(X \times \mathbb{R} \to P) \in \Obj{\StTOP}$ の層状化をあからさまに書くと $(x,\, t) \lmto s(x)$ であり，全射である．i.e. $(X \times \mathbb{R} \to P) \in \Obj{\Cat{T}}$ である．
-        \item[\textbf{(Snglr-4)}] 
-        \textcolor{red}{反例が存在する．}
-        $X \coloneqq \{x\},\; U \coloneqq \{u\},\; P \coloneqq \{p\},\, P_U \coloneqq \{p_0,\; p_1\}$ とおき，
-        \begin{align}
-            s \colon X &\lto P,\; x \lmto p \\
-            s_U \colon U &\lto P_U,\; u \lmto p_0
-        \end{align}
-        とおく．$P_U$ の半順序集合としての構造は，$\le\; \coloneqq \bigl\{ (p_0,\, p_0),\, (p_1,\, p_1)\bigr\} \subset P_U \times P_U$ と定める．
-        このとき $s,\, s_U$ は定義\ref{def:topo-poset}の位相に関してどちらも連続写像であり，$(X \xrightarrow{s} P) \in \Obj{\Cat{T}},\; (U \xrightarrow{s_U} P_U) \in \Obj{\StTOP}$ である．
+%     \begin{description}
+%         \item[\textbf{(Snglr-1)}] $(\emptyset \to \emptyset) \in \Obj{\Cat{T}}$ は自明である．
+%         \item[\textbf{(Snglr-2)}] $\forall (X \xrightarrow{s} P) \in \Obj{\Cat{T}}$ に対して，\eqref{def:stratification-cone}よりその\hyperref[def:str-cone]{コーン}の層状化は $\Cone{s} \bigl( \Cone{X} \bigr) = s(X) \cup \{-\infty\} = P \cup \{-\infty\} = \Cone{P}$ を充たし，全射である．
+%         i.e. $\Cone{X \xrightarrow{s} P} \in \Obj{\Cat{T}}$ である．
+%         \item[\textbf{(Snglr-3)}] $\forall (X \xrightarrow{s} P) \in \Obj{\Cat{T}}$ に対して，$(X \times \mathbb{R} \to P) \in \Obj{\StTOP}$ の層状化をあからさまに書くと $(x,\, t) \lmto s(x)$ であり，全射である．i.e. $(X \times \mathbb{R} \to P) \in \Obj{\Cat{T}}$ である．
+%         \item[\textbf{(Snglr-4)}] 
+%         % \textcolor{red}{反例が存在する．}
+%         % $X \coloneqq \{x\},\; U \coloneqq \{u\},\; P \coloneqq \{p\},\, P_U \coloneqq \{p_0,\; p_1\}$ とおき，
+%         % \begin{align}
+%         %     s \colon X &\lto P,\; x \lmto p \\
+%         %     s_U \colon U &\lto P_U,\; u \lmto p_0
+%         % \end{align}
+%         % とおく．$P_U$ の半順序集合としての構造は，$\le\; \coloneqq \bigl\{ (p_0,\, p_0),\, (p_1,\, p_1)\bigr\} \subset P_U \times P_U$ と定める．
+%         % このとき $s,\, s_U$ は定義\ref{def:topo-poset}の位相に関してどちらも連続写像であり，$(X \xrightarrow{s} P) \in \Obj{\Cat{T}},\; (U \xrightarrow{s_U} P_U) \in \Obj{\StTOP}$ である．
         
-        ここで，連続写像
-        \begin{align}
-            i \colon U &\lto X,\; u \lmto x \\
-            \bar{i} \colon P_U &\lto P,\; q \lmto p
-        \end{align}
-        は $(i,\, \bar{i}) \in \Hom{\StTOP} \bigl( (U \xrightarrow{s_U} P_U),\, (X \xrightarrow{s} P) \bigr)$ を充たすので $\Hom{\StTOP} \bigl( (U \xrightarrow{s_U} P_U),\, (X \xrightarrow{s} P) \bigr) \neq \emptyset$ だが，明らかに $(U \xrightarrow{s_U} P_U) \notin \Obj{\Cat{T}}$ である．
+%         % ここで，連続写像
+%         % \begin{align}
+%         %     i \colon U &\lto X,\; u \lmto x \\
+%         %     \bar{i} \colon P_U &\lto P,\; q \lmto p
+%         % \end{align}
+%         % は $(i,\, \bar{i}) \in \Hom{\StTOP} \bigl( (U \xrightarrow{s_U} P_U),\, (X \xrightarrow{s} P) \bigr)$ を充たすので $\Hom{\StTOP} \bigl( (U \xrightarrow{s_U} P_U),\, (X \xrightarrow{s} P) \bigr) \neq \emptyset$ だが，明らかに $(U \xrightarrow{s_U} P_U) \notin \Obj{\Cat{T}}$ である．
+%         % $(X \xrightarrow{s} P) \in \Obj{\Cat{T}}$ および $(U \xrightarrow{s_U} P_U) \in \Obj{\SnglrC}$ について 
+%         % $\Hom{\StTOP} \bigl( (U \to P_U),\, (X \to P) \bigr) \neq \emptyset$ が成り立っているとする．
+%         % このとき\hyperref[def:strat-emb]{層状化開埋め込み}
+%         % % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAFUQBfU9TXfIRQBGclVqMWbABrdeIDNjwEio4ePrNWiEAAU5fJYKJl11TVJ26A+py7iYUAObwioAGYAnCAFskZEBwIJFFAuiwGNgALCAgAaxBzSW0QLAMQL18kAGZqIKQAJjzwyJ0Y+MSJLTYAHRqAIzpPYCwuSoY6epgGXX5lIRBPLCconHTMv0QA-MRcqssQOFt2zu7eoxUdIZGxng9vSdCZovmUhHsuIA
+%         % \begin{tikzcd}
+%         % U \arrow[r, "i", hook] \arrow[d, "s_U"'] & X \arrow[d, "s"] \\
+%         % P_U \arrow[r, "\bar{i}"', hook]          & P               
+%         % \end{tikzcd}
+%         % が存在する．
 
-        \item[\textbf{(Snglr-5)}] 
-        $(X \xrightarrow{s} P) \in \Obj{\StTOP}$ が開被覆 $\Familyset[\Big]{(i_\lambda,\, \bar{i}_\lambda) \in \Hom{\StTOP} \bigl( (U_\lambda \xrightarrow{s_\lambda} P_\lambda),\, (X \xrightarrow{s} P)\bigr)}{\lambda \in \Lambda}$ を持ち，かつ $\forall \lambda \in \Lambda$ に対して $(U_\lambda \xrightarrow{s_\lambda} P_\lambda) \in \Obj{\Cat{T}}$ であるとする．
-        このとき，族 $\Familyset[\big]{\bar{i}_\lambda \colon P_\lambda \lto P}{\lambda \in \Lambda}$ は $P$ の開被覆であり，$\forall p \in P$ に対してある $\lambda \in \Lambda$ が存在して，$p \in \bar{i}_\lambda (P_\lambda)$ を充たす．
-        さらに仮定より $s_\lambda \colon U_\lambda \lto P_\lambda$ は全射なので，ある $u_\lambda \in U_\lambda$ が存在して $p = \bar{i}_\lambda \circ s_\lambda (u_\lambda)$ を充たす．
-        $(1,\, 1)$-圏 \hyperref[def:StTop]{$\StTOP$ の定義}から $(i_\lambda,\, \bar{i}_\lambda)$ は\hyperref[def:strat-emb]{層状化開埋め込み}なので，
-        $p = \bar{i}_\lambda \circ s_\lambda (u_\lambda) = s \circ i_\lambda (u_\lambda) \in s(X)$ だと分かる．i.e. $P = s(X)$ であり，$(X \xrightarrow{s} P) \in \Obj{\Cat{T}}$ が示された．
-    \end{description}
-\end{proof}
+%         \item[\textbf{(Snglr-5)}] 
+%         $(X \xrightarrow{s} P) \in \Obj{\StTOP}$ が開被覆 $\Familyset[\Big]{(i_\lambda,\, \bar{i}_\lambda) \in \Hom{\StTOP} \bigl( (U_\lambda \xrightarrow{s_\lambda} P_\lambda),\, (X \xrightarrow{s} P)\bigr)}{\lambda \in \Lambda}$ を持ち，かつ $\forall \lambda \in \Lambda$ に対して $(U_\lambda \xrightarrow{s_\lambda} P_\lambda) \in \Obj{\Cat{T}}$ であるとする．
+%         このとき，族 $\Familyset[\big]{\bar{i}_\lambda \colon P_\lambda \lto P}{\lambda \in \Lambda}$ は $P$ の開被覆であり，$\forall p \in P$ に対してある $\lambda \in \Lambda$ が存在して，$p \in \bar{i}_\lambda (P_\lambda)$ を充たす．
+%         さらに仮定より $s_\lambda \colon U_\lambda \lto P_\lambda$ は全射なので，ある $u_\lambda \in U_\lambda$ が存在して $p = \bar{i}_\lambda \circ s_\lambda (u_\lambda)$ を充たす．
+%         $(1,\, 1)$-圏 \hyperref[def:StTop]{$\StTOP$ の定義}から $(i_\lambda,\, \bar{i}_\lambda)$ は\hyperref[def:strat-emb]{層状化開埋め込み}なので，
+%         $p = \bar{i}_\lambda \circ s_\lambda (u_\lambda) = s \circ i_\lambda (u_\lambda) \in s(X)$ だと分かる．i.e. $P = s(X)$ であり，$(X \xrightarrow{s} P) \in \Obj{\Cat{T}}$ が示された．
+%     \end{description}
+% \end{proof}
 
 \subsection{$C^0$ basic}
 
@@ -928,7 +938,7 @@ $C^\infty$ 多様体の $C^\infty$ 構造の定義においては，チャート
             \begin{center}
                 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAFUB9YAHR8bQALOgF8ABHzwBbeGIBi3PgOEiQI0uky58hFGQCMVWoxZsuvfgyGi1GkBmx4CRfaUPV6zVohAAhW5qOOi7kRp6mPgCiakYwUADm8ESgAGYAThBSSGQgOBBIAMzUOHRYDGyCEBAA1iAeJt4gfPRpQliKltaq6qkZWYiuufmIAEzFpeU+lTUBIOmZ2cXDg+GNfFJ0OIJpUsBoGQBWIpz6dSAMdABGMAwAClpOuiBpWPGCOLPz-UVDSGPGXjYfDQWBiIiAA
                 \begin{tikzcd}
-                U_{\alpha} \times F_{\alpha} \arrow[r, "\varphi_{\alpha}", hook] \arrow[d, "\mathrm{proj}_1"'] & E \arrow[d, "\pi"] \\
+                U_{\alpha} \times F_{\alpha} \arrow[dr, phantom," " {pullback}, very near start, color=black] \arrow[r, "\varphi_{\alpha}", hook] \arrow[d, "\mathrm{proj}_1"'] & E \arrow[d, "\pi"] \\
                 U_{\alpha} \arrow[r, hook]                                                                     & B                 
                 \end{tikzcd}
             \end{center}
@@ -1089,6 +1099,27 @@ $\PshSETS{\Strat}$ から $\sSet$ への関手を
 $\bigl(p_{[n-1]}(\textcolor{blue}{f_0}{}_0),\, \dots,\, \underbrace{\bullet}_{j},\, \dots,\, p_{[n-1]}(\textcolor{blue}{f_0}{}_n)\bigr) \in (\Cat{B}_{n-1})^{\times n}$ を $n$-射 $\textcolor{blue}{f} \in \Cat{B}_n$ が埋めているならば，
 \underline{$(\infty,\, 1)$-圏 $\Cat{E}$ における}\hyperref[def:horn]{角}の図式
 $\bigl(\textcolor{blue}{f_{0}}{}_0,\, \dots,\, \underbrace{\bullet}_{j},\, \dots,\, \textcolor{blue}{f_0}{}_n\bigr) \in (\Cat{E}_{n-1})^{\times n}$ を埋める $n$-射 $\textcolor{red}{\bar{f}} \in \Cat{E}_n$ が存在することを主張している．
+
+\begin{mydef}[label=def:isofibration]{アイソファイブレーション}
+    $p \colon \Cat{E} \lto \Cat{B}$ を\hyperref[def:infty-fib]{内的ファイブレーション}とする．
+    $p$ が\textbf{アイソファイブレーション} (isofibration) であるとは，
+    $\Cat{E}$ における任意の対象 $x \in \Cat{E}_0$ および $\Cat{B}$ における任意の\hyperref[def:isom-infty]{同型射} $\bigl(y \xrightarrow{f} p_{[0]}(x)\bigr) \in \mathcal{B}_1$ に対して，$\Cat{E}$ の同型射 $\bigl( \bar{y} \xrightarrow{\bar{f}} x\bigr) \in \mathcal{E}_1$ が存在して $p_{[1]}(\bar{f}) = f$ を充たすこと\footnote{$\Cat{B}$ の同型射が $\Cat{E}$ の同型射に持ち上がるということ．}．
+\end{mydef}
+
+一般に，定義\ref{def:triv-Kan-fib}, \ref{def:infty-fib}, \ref{def:isofibration}の間には次の関係がある~\cite[\href{https://kerodon.net/tag/01GP}{Tag 01GP}]{kerodon}：
+\begin{figure}[H]
+    \centering
+    % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQAdDnGADx2BcAFgE80MAE4SYAM2SwZiHBKy0AtAGl6YNTKwAjSsGWqsTAARaw5vfon08BAL5OQT0uky58hFGWLUdEys7Fw8-IIcouJSsvKyiFhgMjgiugZGVjYG9o5gLm4eIBjYeUQATKTlgQwsbIic3HwCwmKS0nIKicmp6YbAKgDmQjjZdg4+Be6epT5E5FU1wfWN4S1RbbGdCUkpabZGjLKjtrmTrtPFXmV+pADMS3WhTRGtMR3xilhwEKcTBEZvr8cv98hciiVvAQiGQACyPEINMLNSLRdpxLq7XoHYBJMCSMZnZwXQIwKCDeBEUAyCQQAC2SAWIBwECQZBAjCSKygEGY+iOIBoQhg9CgSDAzEYjBoOHoWEY7Eg+MK1NpDMQ7JZSDuNE5yoaPL5AqFIrFiAlUplcoVDSVbEuNPpbJlrMQlQ5XPYhv5bBNovFkulzOtioI9qKjvVOuZrthus9Bt5PsFIGF-vNgat8tDyodaqQ7q1iDjHv1IG9xtTpoDluD2dtYZVIEjSBLRYArPGyxXfVX0xag7L6+BG05KE4gA
+    \begin{tikzcd}
+                                                                            & {\text{\hyperref[def:triv-Kan-fib]{trivial Kan fibration}}} \arrow[d, Rightarrow]              &                                                                           \\
+                                                                            & {\text{\hyperref[def:infty-fib]{Kan fibration}}} \arrow[ld, Rightarrow] \arrow[rd, Rightarrow] &                                                                           \\
+    {\text{\hyperref[def:infty-fib]{left fibration}}} \arrow[rd, Rightarrow] &                                                                                                & {\text{\hyperref[def:infty-fib]{right fibration}}} \arrow[ld, Rightarrow] \\
+                                                                            & {\text{\hyperref[def:isofibration]{isofibration}}} \arrow[d, Rightarrow]                       &                                                                           \\
+                                                                            & {\text{\hyperref[def:infty-fib]{inner fibration}}}                                             &                                                                          
+    \end{tikzcd}
+    \caption{$(\infty,\, 1)$-圏における種々のファイブレーションの関係．$A \IMP B$ は $A$ ならば $B$ を意味する．}
+    \label{fig:infty-fib}
+\end{figure}%
 
 \begin{mydef}[label=def:fullsub-infty,breakable]{充満部分{$(\infty,\, 1)$-圏}}
     \begin{itemize}
@@ -1514,6 +1545,8 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
     \end{itemize}
 \end{mydef}
 
+以降で登場する\hyperref[def:lim-colim-infty]{$(\infty,\, 1)$-圏のlimit}は，$(\infty,\, 1)$-圏の成す $(\infty,\, 1)$-圏 $\CATinfty$ に値をとる図式 $D \colon \Cat{I} \lto \CATinfty$ に関するものがほとんどである．
+
 \begin{myexample}[label=def:pullback-infty]{pullback}
     % 単体的集合の積 $S \times T \colon \OP{\Delta} \lto \SETS$ における面写像とは 
     % \begin{align}
@@ -1539,7 +1572,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
     % \end{align}
     % と図示できる．ただし，2-射以上は縮退していて見えない．
     
-    　\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $D \colon \Delta^1 \times \Delta^1 \lto \Cat{C}$ の\hyperref[def:lim-colim-infty]{limit}のことを（存在すれば）\textbf{pullback}と呼び，
+    　\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $D \colon (\Delta^1 \times \Delta^1) \setminus \bigl\{(0,\, 0)\bigr\} \lto \Cat{C}$ の\hyperref[def:lim-colim-infty]{limit}のことを（存在すれば）\textbf{pullback}と呼び，
     \begin{align}
         \bm{D(0,\, 1)} \bm{\times}_{\bm{D(1,\, 1)}} \bm{D(1,\, 0)} \coloneqq \lim D
     \end{align}
@@ -1569,6 +1602,77 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
     % と図示できる．従って\exref{ex:join-2}から，$D(0,\, 1) \times_{D(1,\, 1)} D(1,\, 0)$ とは次のように図示できる：
 \end{myexample}
 
+\exref{def:pullback-infty}は，今後種々の $(\infty,\, 1)$-圏の定義に用いるため，具体的な公式を紹介しておこう．
+$(\infty,\, 1)$-圏 $\Cat{C}$ に対して，
+\textbf{射の $(\infty,\, 1)$-圏} (arrow category) $\FUN(\Delta^1,\, \Cat{C})$ のうち\hyperref[def:isom-infty]{同型射}全体が成す\hyperref[def:fullsub-infty]{充満部分 $(\infty,\, 1)$-圏}を
+\begin{align}
+    \ISOM(\Cat{C}) \hookrightarrow \FUN(\Delta^1,\, \Cat{C})
+\end{align}
+と書く．
+
+\begin{mylem}[label=lem:pullback-infty]{{$(\infty,\, 1)$}-圏の引き戻しの公式}
+    \begin{itemize}
+        \item \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\Cat{C},\, \Cat{C}_0,\, \Cat{C}_1$
+        \item \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $F_0 \colon \Cat{C}_0 \lto \Cat{C},\; F_1 \colon \Cat{C}_1 \lto \Cat{C}$
+    \end{itemize}
+    を与える．さらに，$(\infty,\, 1)$-圏\footnote{~\cite[\href{https://kerodon.net/tag/0330}{Tag 0330}]{kerodon}よりこれは $(\infty,\, 1)$-圏である．} $\Cat{C}_0 \htimes_{\Cat{C}} \Cat{C}_1$ を，$(1,\, 1)$-圏 $\sSet$ における\hyperref[def:pullback-pushout]{引き戻し}
+    \begin{align}
+        \label{eq:htpy-pullback}
+        \Cat{C}_0 \htimes_{\Cat{C}} \Cat{C}_1 \coloneqq \Cat{C}_0 \times_{\FUN (\{0\},\, \Cat{C})} \ISOM(\Cat{C}) \times_{\FUN(\{1\},\, \Cat{C})} \Cat{C}_1
+    \end{align}
+    として定義する~\cite[\href{https://kerodon.net/tag/032Z}{Tag 032Z}]{kerodon}．
+    このとき，$\Cat{C}_0 \htimes_{\Cat{C}} \Cat{C}_1$ は $(\infty,\, 1)$-圏 $\CATinfty$ における図式 $\Cat{C}_0 \xrightarrow{F_0} \Cat{C} \xleftarrow{F_1} \Cat{C}_1$ の\hyperref[def:lim-colim-infty]{limit}を与える．
+    i.e. $\sSet$ における可換図式
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQAdDgYXp2G4BfAPrEQg0uky58hFOQrU6TVuy69+Q8ZJAZseAkQXElDFm0ScefASPLap+2UTImaZ1ZfU2hogARcABZ4ALbwwsDemoKCAdbRwvaCSjBQAObwRKAAZgBOECFIAEw0OBBICsrm7ABiiQ4geQVIZCBlFe4qFiB1YjSM9ABGMIwACtIGciC5WGnBDU2FiADMpeWIrR7dXCF8gbkhwGj5AFYikfG2ooIg-UMj406GljNzOAv5S6tt6yVVnlZdjh9odjhAzhEoldyDdkoIgA
+        \begin{tikzcd}
+        \Cat{C}_0 \htimes_{\Cat{C}} \Cat{C}_1 \arrow[d, "\mathrm{proj}_{\Cat{C}_0}"'] \arrow[r, "\mathrm{proj}_{\Cat{C}_1}"] & \Cat{C}_1 \arrow[d, "F_1"] \\
+        \Cat{C}_0 \arrow[r, "F_0"']                                                                                          & \Cat{C}                   
+        \end{tikzcd}
+    \end{center}
+    は\hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏の引き戻し}を与える．
+\end{mylem}
+
+\begin{proof}
+    
+\end{proof}
+
+\eqref{eq:htpy-pullback}をより具体的に書くと，これは $\sSet$ における2重の引き戻し
+\begin{center}
+    % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoAmAXVJADcBDAGwFcYkQAdDgYXp2G4BfAPrEQg0uky58hFAEYK1Ok1bsuAMQCqAOS4AjLAHNGACi7BiXCV1IACLr35CDxgE4BKcZJAZseAiJFeWUGFjZETg4ASQBlAHkAWXMePgFBLwkpf1kiclJiUNUIqKd04XlvbJlAlHyQmjC1SM1dVxMU4HlrUlsHVOdBds8q32kAuRICovD1AfLifoALPABbeGFgRzShQX6yoQrxZRgoI3giUAAzNwhVpABWGhwIJGIskBu7t+fXxEUVLNIhpRCAaIx6PoYIwAArjXKRNzGFajL73RD5EAvJAApolFLRKCbLgAEWhOHoAD0DMxGIwYDg9lw1vA7FBKfIKsARAAqDyUnmo27ozHYxAAFkaxXYBKJWw4ZMYFOpHH0tPpjP6LLgbI5om5wj5AqF30QAGZfkhJYDmiAQZUPmjHpbzY7hc6sX9yIJKIIgA
+    \begin{tikzcd}
+    \Cat{C}_0 \htimes_{\Cat{C}} \Cat{C}_1 \arrow[dd] \arrow[rr] \arrow[rd] &             \arrow[dr, phantom," " {pullback}, very near start, color=black]                                                                                                                 & \Cat{C}_1 \arrow[d, "F_1"]         \\
+                                    \arrow[dr, phantom," " {pullback}, very near start, color=black]      & \ISOM(\Cat{C}) \arrow[d, "(\Id_{\Delta^\bullet} \times d^1_1{}_*)^*"] \arrow[r, "(\Id_{\Delta^\bullet} \times d^1_0{}_*)^*"] & {\FUN\bigl(\{1\},\, \Cat{C}\bigr) \cong \Cat{C}} \\
+    \Cat{C}_0 \arrow[r, "F_0"']                                            & {\FUN\bigl(\{0\},\, \Cat{C}\bigr) \cong \Cat{C}}                                                                                          &                                   
+    \end{tikzcd}
+\end{center}
+のことである．
+命題\ref{prop:SimpSet-basic}-(2) の証明より，$(1,\, 1)$-圏 $\sSet$ における引き戻しとは $n$-単体毎に\hyperref[def:pullback-pushout]{$\SETS$ における引き戻し}を取ることで構成されるから，この引き戻しは具体的に計算できる．
+
+\begin{mylem}[label=lem:pullback-iso]{{$(\infty,\, 1)$-圏}の引き戻しとアイソファイブレーション}
+    \begin{itemize}
+        \item \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\Cat{C},\, \Cat{C}_0,\, \Cat{C}_1$
+        \item \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $F_0 \colon \Cat{C}_0 \lto \Cat{C},\; F_1 \colon \Cat{C}_1 \lto \Cat{C}$
+    \end{itemize}
+    を与える．このとき $F_0,\, F_1$ の少なくともどちらか一方が\hyperref[def:isofibration]{アイソファイブレーション}ならば，
+    \hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}
+    \begin{align}
+        \Cat{C}_0 \times_{\Cat{C}} \Cat{C}_1 \overset{\simeq}{\hookrightarrow} \Cat{C}_0 \htimes_{\Cat{C}} \Cat{C}_1
+    \end{align}
+    がある．ただし，$\Cat{C}_0 \times_{\Cat{C}} \Cat{C}_1$ は $(1,\, 1)$-圏 $\sSet$ における引き戻しである．
+\end{mylem}
+
+\begin{proof}
+    ~\cite[\href{https://kerodon.net/tag/033T}{Tag 033T}]{kerodon}
+\end{proof}
+
+補題\ref{lem:pullback-infty}と補題\ref{lem:pullback-iso}を併せると，$(\infty,\, 1)$-圏 $\CATinfty$ の図式 $\Cat{C}_0 \xrightarrow{F_0} \Cat{C} \xleftarrow{F_1} \Cat{C}_1$ において $F_0,\, F_1$ のどちらか一方が\hyperref[def:isofibration]{アイソファイブレーション}ならば，
+その図式の\hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏の引き戻し}は\textbf{単に $(1,\, 1)$-圏 $\sSet$ における引き戻しとして（up to equivalenceで）計算できることが分かる！}
+この事実は実用上極めて便利である．
+実際，後に $F_0,\, F_1$ のどちらか一方が\hyperref[def:infty-fib]{右ファイブレーション}である場合が頻発するが，その際の計算では常に補題\ref{lem:pullback-iso}を用いる．
+
+
+
 \subsection{Unstraightening construction}
 
 \begin{mytheo}[label=thm:unstraightening]{unstraightening construction}
@@ -1587,11 +1691,11 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
     は，次のようにして構成される (\textbf{unstraightening construction})：
     \begin{description}
         \item[\textbf{対象}] 
-        $F \in \inftyPsh{\Cat{B}}_0$ に対して，\hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏のpullback}
+        $F \in \inftyPsh{\Cat{B}}_0$ に対して，\hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏の引き戻し}
         \begin{center}
             % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BVMACgDEAlCAC+pdJlz5CKAIzkqtRizacAygAUAggGEAomoD6wAPQAqEaPEgM2PASLzZi+s1aIO7TboNWJd6SIyZ2pXFQ9OHTocYAAhSxFFGCgAc3giUAAzACcIAFskAGZqHAgkACZqBjoAIxgGDUl7GRBsrBSACxwQUOV3EH4-EBz8pHkQUoret1V2HBgADxjMiGy0nATrEYLEMgmyxEKxLNydvcnEWUSRIA
             \begin{tikzcd}
-            \textcolor{red}{\Un(F)} \arrow[red,d] \arrow[r] & \SPACES_{/*} \arrow[d, "\text{forget}"] \\
+            \textcolor{red}{\Un(F)} \arrow[dr, phantom," " {pullback}, very near start, color=black] \arrow[red,d] \arrow[r] & \SPACES_{/*} \arrow[d, "\text{forget}"] \\
             \Cat{B} \arrow[r, "F"']    & \SPACES                                
             \end{tikzcd}
         \end{center}
@@ -1635,7 +1739,7 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 \begin{center}
     % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BVMACgDEAlCAC+pdJlz5CKAIzkqtRizacAygAUAggGEAomoD6wAPQAqEaPEgM2PASLzZi+s1aIO7TboNWJd6SIyZ2pXFQ9OHTocYAAhSxFFGCgAc3giUAAzACcIAFskAGZqHAgkACZqBjoAIxgGDUl7GRBsrBSACxwQUOV3EH4-EBz8pHkQUoret1V2HBgADxjMiGy0nATrEYLEMgmyxEKxLNydvcnEWUSRIA
     \begin{tikzcd}[column sep=large]
-    \Tw(\Cat{C}) \arrow[d, "\mathrm{pr}"'] \arrow[r] & \SPACES_{*/} \arrow[d, "\text{forget}"] \\
+    \Tw(\Cat{C}) \arrow[dr, phantom," " {pullback}, very near start, color=black] \arrow[d, "\mathrm{pr}"'] \arrow[r] & \SPACES_{*/} \arrow[d, "\text{forget}"] \\
     \OP{\Cat{C}} \times \Cat{C} \arrow[r, red, "\inftyMap{\Cat{C}} \coloneqq \St(\mathrm{pr})"']    & \SPACES                                
     \end{tikzcd}
 \end{center}
@@ -1703,15 +1807,18 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 \begin{mydef}[label=def:B-mfld,breakable]{{$\Cat{B}$}-多様体}
     \begin{itemize}
         \item \textbf{$\bm{(\Cat{B},\, f)}$ 構造}\footnote{~\cite[Definition 1.1.6]{AFT2014stratified}では\textbf{$(\infty,\, 1)$-category of basics}と呼ばれている．}とは，$(\infty,\, 1)$-圏の\hyperref[def:infty-fib]{右ファイブレーション} $(\Cat{B} \xrightarrow{f} \BSC) \in (\RFIB_{\BSC})_0$ のこと．
-        \item $(\Cat{B},\, f)$ 構造 $\Cat{B} \xrightarrow{f} \BSC$ を1つ固定する．このとき，\textbf{$\bm{\Cat{B}}$-多様体} ($\Cat{B}$-manifold) の成す $(\infty,\, 1)$-圏 $\MFLDB{\Cat{B}}$ とは，$(1,\, 1)$-圏 $\sSet$ における\hyperref[def:pullback-pushout]{引き戻し}
+        \item $(\Cat{B},\, f)$ 構造 $\Cat{B} \xrightarrow{f} \BSC$ を1つ固定する．このとき，\textbf{$\bm{\Cat{B}}$-多様体} ($\Cat{B}$-manifold) の成す $(\infty,\, 1)$-圏 $\MFLDB{\Cat{B}}$ とは，
+        \hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏の引き戻し}
         \begin{center}
             % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BZAMQBkAIgCFgnAMJ0cwIQF8ZIGaXSZc+QigCM5KrUYs2ACk4AlHgEkhAfVHshAZTEyAlNfGTpMgAScAHgCcsAHMACxw6Pz8IAHdgNC9Oe0cFJRAMbDwCIi0NHXpmVkQOdlMLV1sHeUVldLUiMhzqPP1CzjsAOQBxPmMFHRgoQPgiUAAzSIBbJABmahwIJAAmRr0CorCmEGoGOgAjGAYABRUM9RAAkJxk0YmkMhA56aqQMYhJxC17+cQl3Xy2TnGkmCfnGwBGED8gxwlRSLzedwe7xkFBkQA
             \begin{tikzcd}
-            \MFLDB{\Cat{B}} \arrow[d] \arrow[r] & (\RFIB_{\BSC})_{/f} \arrow[d, "\mathrm{forget}"] \\
+            \MFLDB{\Cat{B}} \arrow[dr, phantom," " {pullback}, very near start, color=black] \arrow[d] \arrow[r] & (\RFIB_{\BSC})_{/f} \arrow[d, "\mathrm{forget}"] \\
             \SNGLR \arrow[r, "\tau"']           & \RFIB_{\BSC}                                                              
             \end{tikzcd}
         \end{center}
-        のこと．特に，$\MFLDB{\Cat{B}}_0$ の元は以下の2つのデータから成り，\textbf{$\bm{\Cat{B}}$-多様体}と呼ばれる：
+        のこと
+        \footnote{実際には~\cite[\href{https://kerodon.net/tag/018F}{Tag 018F}]{kerodon}より $(\RFIB_{\BSC})_{/f} \lto \RFIB_{\BSC}$ が\hyperref[def:infty-fib]{右ファイブレーション}（したがって図\ref{fig:infty-fib}より\hyperref[def:isofibration]{アイソファイブレーション}）なので，補題\ref{lem:pullback-infty}, \ref{lem:pullback-iso}からこの $(\infty,\, 1)$-圏の引き戻しは $(1,\, 1)$-圏 $\sSet$ の引き戻しとして計算できる．}．
+        特に，$\MFLDB{\Cat{B}}_0$ の元は以下の2つのデータから成り，\textbf{$\bm{\Cat{B}}$-多様体}と呼ばれる：
         \begin{itemize}
             \item \hyperref[def:c-smooth]{conically smoothな層状化空間} $X \in \SNGLR_0$
             \item \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手} $g \colon \ENTR{X} \lto \Cat{B}$
@@ -1784,9 +1891,10 @@ $(\infty,\, 1)$-圏のモデルとして\hyperref[def:infinity-1]{quasi-category
 \end{align}
 を，\hyperref[lem:Kan-enriched]{Kan複体 $\Hom{\SNGLR} (Z,\, Z)$} の\hyperref[def:SimpSet]{部分Kan複体}として次のように定義する：
 \begin{align}
+    \label{def:Kan-Aut}
     \Aut(Z)_m \coloneqq \bigl\{\, f \in \Hom{\SNGLR} (Z,\,Z)_m \bigm| \forall x \in \Delta^m_e,\; \exists (\mathrm{proj}_{Z} \circ f|_{\{x\} \times Z})^{-1} \in \Hom{\Snglr}(Z,\, Z) \,\bigr\} 
 \end{align}
-なお，$\forall m \ge 0$ に対し集合 $\Aut(Z)_m$ は $(1,\, 1)$-圏 $\Snglr$ における1-射の合成に関して群になるため，Kan複体 $\Aut(Z)$ は\textbf{群的なKan複体} (group-like Kan complex)\footnote{Kan複体であって，$\OP{\Delta} \lto \GRP$ でもあるもの．従って，homotopy hypothesisより位相群と見做すことができる．}と見做すことができる．
+なお，$\forall m \ge 0$ に対し集合 $\Aut(Z)_m$ は $(1,\, 1)$-圏 $\Snglr$ における1-射の合成に関して群になるため，Kan複体 $\Aut(Z)$ は\textbf{群的なKan複体} (group-like Kan complex)\footnote{Kan複体であって，$\OP{\Delta} \lto \GRP$ でもあるもの．従って，homotopy hypothesisより位相群と見做すことができる．}と見做すことができる．\label{def:Kan-group}
 
 \begin{mydef}[label=def:stratified-GL]{層状化された一般線形群}
     勝手な\hyperref[def:Snglr]{basic} $U \coloneqq \mathbb{R}^n \times \Cone{Z} \in \Obj{\Bsc}$ を与える．
@@ -2203,12 +2311,15 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
 \begin{align}
     \Obj{[\BSC]} \coloneqq \bigl\{\, [U] \bigm| U \in \Obj{\Bsc} \,\bigr\}
 \end{align}
-と書く．この集合の上には二項関係
+と書く．この集合の元を\textbf{特異性タイプ} (singularity type) と呼ぼう．
+集合 $\Obj{[\BSC]}$ の上には二項関係
 \begin{align}
     \label{eq:relation-Bsc}
     \le \;\coloneqq \Bigl\{\, \bigl([U],\, [V]\bigr) \in \Obj{[\BSC]}^{\times 2} \Bigm| \Hom{\Bsc} (U,\, V) \neq \emptyset \,\Bigr\} 
 \end{align}
 が定まる．
+定理\ref{thm:basic-easy}は，特異性タイプが開埋め込みについて半順序集合を成し，さらにそれが\hyperref[def:Bsc-induction]{basic}の\hyperref[def:dim-depth]{深さ}によって特徴付けられることを主張する．
+% この定理の直感は次の絵が物語っている：
 
 \begin{mytheo}[label=thm:basic-easy]{Basics are easy}
     \begin{enumerate}
@@ -2230,7 +2341,7 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
         はconservativeである．i.e. $(U \xrightarrow{f} V) \in \BSC_1$ が $(\infty,\, 1)$-圏 $\BSC$ における\hyperref[def:isom-infty]{同型射}であるためには，$U,\, V$ が $(1,\, 1)$-圏 $\Bsc$ において同型であることが必要十分である．
         \item 写像
         \begin{align}
-            \depth \colon \Obj{[\BSC]} \lto \mathbb{Z}_{\ge 0}
+            \depth \colon \Obj{[\BSC]} \lto \mathbb{Z}_{\ge -1}
         \end{align}
         は順序を保つ．
     \end{enumerate}
@@ -2240,14 +2351,15 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
     \begin{enumerate}
         \item 命題\ref{prop:Hom-htpy-equiv}
         \item 補題\ref{lem:basic-conservative}の (1), (3), (4) の同値性より明らか．
-        \item 反射律と推移律は自明．対称律は補題\ref{lem:basic-conservative}の (3) (4) の同値性から従う．
+        \item 反射律と推移律は自明．対称律は補題\ref{lem:basic-conservative}の (3) と (4) の同値性から従う．
         \item 補題\ref{lem:basic-conservative}より従う．
         \item 補題\ref{lem:basic-conservative}より従う．
     \end{enumerate}
-    
 \end{proof}
 
-\subsection{tangent classifierの構造}
+
+
+\subsection{tangent classifierの局所的構造}
 
 層状化空間の局所的な特異性は\hyperref[def:dim-depth]{局所的深さ}によって特徴付けられる．これにより，局所的深さをとるという操作によって常に別の層状化を考えることができる．
 
@@ -2263,103 +2375,181 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
 \begin{mylem}[label=lem:strat-depthdim]{局所的深さによる層状化}
     任意の\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間} $(X \xrightarrow{s} P) \in \Obj{\SnglrC}$ に対して，以下の写像は連続になり，位相空間 $X$ の新しい\hyperref[def:stratified-space]{$\mathbb{P}$-層状化}を与える：
     \begin{align}
-        s_X \colon X &\lto \mathbb{P},\; x \lmto \bigl( \depth_x(X),\, \dim_x(X) \bigr)
+        \sigma_X \colon X &\lto \mathbb{P},\; x \lmto \bigl( \depth_x(X),\, \dim_x(X) \bigr)
     \end{align}
 
     \tcblower
 
-    さらに，$(1,\, 1)$-圏 $\TOP$ における以下の図式を可換にするような，順序を保つ写像 $\textcolor{red}{\bar{s}} \colon P \lto \mathbb{P}$ が一意的に存在する：
+    さらに，$(1,\, 1)$-圏 $\TOP$ における以下の図式を可換にするような，順序を保つ写像 $\textcolor{red}{\bar{s}} \colon P \lto \mathbb{P}$ が存在する：
     \begin{center}
         % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAA0QBfU9TXfIRRkAjFVqMWbAArdeIDNjwEiI8uPrNWiEAB1dAWzo4AFgCMzwaV27iYUAObwioAGYAnCAaRkQOCEhqElpsCNQMdGYwDNL8ykIg7lgOJjhybp7eiL7+SABM1JpSOnAA+pw8GV6B1LmIBSAMWGDaIFB0cCb2IIWSrfpmdO7AcDbhkdGxSoJsSSlpXBRcQA
         \begin{tikzcd}
-        X \arrow[d, "s"'] \arrow[r, "s_X"] & \mathbb{P} \\
-        P \arrow[ru, red, "\exists! \bar{s}"', dashed]   &           
+        X \arrow[d, "s"'] \arrow[r, "\sigma_X"] & \mathbb{P} \\
+        P \arrow[ru, red, "\exists \bar{s}"', dashed]   &           
         \end{tikzcd}
     \end{center}
 \end{mylem}
 
 \begin{proof}
+    $\sigma_X$ が連続であるような\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間} $(X \to P)$ 全体が成す充満部分圏を $\Cat{T} \subset \SnglrC$ と書く．$\Cat{T}$ が条件 \hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-1)}}-\textsf{\textbf{(Snglr-5)}}}を充たすことを示せば十分である\footnote{これらの条件を充たす最小の $(1,\, 1)$-圏のことを $\SnglrC$ と定義したため，$\Cat{T} \supset \SnglrC$ が言えるのである．}．
     \begin{description}
-        \item[\textbf{$\bm{s_X}$ の連続性}]　
+        \item[\textbf{(Snglr-1)}] $(\emptyset \to \emptyset) \in \Obj{\Cat{T}}$ は自明である．
+        \item[\textbf{(Snglr-2)}] コンパクトな $(X \xrightarrow{s} P) \in \Obj{\Cat{T}}$ を与える．
+        \hyperref[def:str-cone]{コーンの定義}から，$\forall [t,\, x] \in \Cone{X} \setminus \{\mathrm{pt}\}$ に対して $\sigma_{\Cone{X}} \bigl( [t,\, x] \bigr) = \bigl(\depth_x(X),\, \dim_x(X) + 1\bigr)$ が成り立つ．
+        故に写像 $\sigma_{\Cone{X}}|_{\Cone{X} \setminus \{\mathrm{pt}\}} \colon \Cone{X} \setminus \{\mathrm{pt}\} \lto \mathbb{P}$ は連続写像の合成
+        \begin{align}
+            \Cone{X} \setminus \{\mathrm{pt}\} = \mathbb{R}_{> 0} \times X \xrightarrow{\mathrm{proj}_X} X \xrightarrow{\sigma_X} \mathbb{P} \xrightarrow{+(0,\, 1)} \mathbb{P}
+        \end{align}
+        と等しく，連続である．
         
-        $s_X$ が連続であるような\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間} $(X \to P)$ 全体が成す充満部分圏を $\Cat{T} \subset \SnglrC$ と書く．$\Cat{T}$ が条件 \hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-1)}}-\textsf{\textbf{(Snglr-5)}}}を充たすことを示せば十分である\footnote{これらの条件を充たす最小の $(1,\, 1)$-圏のことを $\SnglrC$ と定義したため，$\Cat{T} \supset \SnglrC$ が言えるのである．}．
-        \begin{description}
-            \item[\textbf{(Snglr-1)}] $(\emptyset \to \emptyset) \in \Obj{\Cat{T}}$ は自明である．
-            \item[\textbf{(Snglr-2)}] コンパクトな $(X \xrightarrow{s} P) \in \Obj{\Cat{T}}$ を与える．
-            \hyperref[def:str-cone]{コーンの定義}から，$\forall [t,\, x] \in \Cone{X} \setminus \{\mathrm{pt}\}$ に対して $s_{\Cone{X}} \bigl( [t,\, x] \bigr) = \bigl(\depth_x(X),\, \dim_x(X) + 1\bigr)$ が成り立つ．
-            故に写像 $s_{\Cone{X}}|_{\Cone{X} \setminus \{\mathrm{pt}\}} \colon \Cone{X} \setminus \{\mathrm{pt}\} \lto \mathbb{P}$ は連続写像の合成
-            \begin{align}
-                \Cone{X} \setminus \{\mathrm{pt}\} = \mathbb{R}_{> 0} \times X \xrightarrow{\mathrm{proj}_X} X \xrightarrow{s_X} \mathbb{P} \xrightarrow{+(0,\, 1)} \mathbb{P}
-            \end{align}
-            と等しく，連続である．
-            
-            ところで，\exref{ex:depth-Cone}から $\mathrm{pt} \in \Cone{X}$ に対しては $s_{\Cone{X}} (\mathrm{pt}) = \bigl(\dim (X) + 1,\, \dim (X) + 1\bigr)$ が成り立つ．
-            故に $\mathbb{P}$ において $s_{\Cone{X}} (\mathrm{pt}) \le s_{\Cone{X}} \bigl( \Cone{X} \setminus \{\mathrm{pt}\} \bigr)$ が成り立つ．
-            従って勝手な開集合 $Q \subset \mathbb{P}$ に対して，もし $s_{\Cone{X}} (\mathrm{pt}) \notin Q$ ならば $s_{\Cone{X}}^{-1} (Q) = (s_{\Cone{X}}|_{\Cone{X} \setminus \{\mathrm{pt}\}})^{-1} (Q)$ が，
-            もし $s_{\Cone{X}} (\mathrm{pt}) \in Q$ ならば
-            $s_{\Cone{X}}^{-1} (Q) = \{\mathrm{pt}\} \cup \bigl( \Cone{X} \setminus \{\mathrm{pt}\} \bigr) = \Cone{X}$ 
-            が成り立つので，$s_{\Cone{X}}^{-1} (Q)$ が開集合であること，i.e. $s_{\Cone{X}}$ が連続写像であることが示された．
+        ところで，\exref{ex:depth-Cone}から $\mathrm{pt} \in \Cone{X}$ に対しては $\sigma_{\Cone{X}} (\mathrm{pt}) = \bigl(\dim (X) + 1,\, \dim (X) + 1\bigr)$ が成り立つ．
+        故に $\mathbb{P}$ において $\sigma_{\Cone{X}} (\mathrm{pt}) \le \sigma_{\Cone{X}} \bigl( \Cone{X} \setminus \{\mathrm{pt}\} \bigr)$ が成り立つ．
+        従って勝手な開集合 $Q \subset \mathbb{P}$ に対して，もし $\sigma_{\Cone{X}} (\mathrm{pt}) \notin Q$ ならば $\sigma_{\Cone{X}}^{-1} (Q) = (\sigma_{\Cone{X}}|_{\Cone{X} \setminus \{\mathrm{pt}\}})^{-1} (Q)$ が，
+        もし $\sigma_{\Cone{X}} (\mathrm{pt}) \in Q$ ならば
+        $\sigma_{\Cone{X}}^{-1} (Q) = \{\mathrm{pt}\} \cup \bigl( \Cone{X} \setminus \{\mathrm{pt}\} \bigr) = \Cone{X}$ 
+        が成り立つので，$\sigma_{\Cone{X}}^{-1} (Q)$ が開集合であること，i.e. $\sigma_{\Cone{X}}$ が連続写像であることが示された．
 
-            \item[\textbf{(Snglr-3)}] $\forall (X \to P) \in \Obj{\Cat{T}}$ を1つ固定する．
-            このとき，\exref{ex:depth-Cone}から $\forall (x,\, t) \in X \times \mathbb{R}$ に対して $s_{X \times \mathbb{R}} (x,\, t) = \bigl( \depth_x(X),\, \dim_x(X) + 1 \bigr)$ が成り立つ．
-            i.e. 写像 $s_{X \times \mathbb{R}} \colon X \times \mathbb{R} \lto \mathbb{P}$ は連続写像の合成
-            \begin{align}
-                X \times \mathbb{R} \xrightarrow{\mathrm{proj}_X} X \xrightarrow{s_X} \mathbb{P} \xrightarrow{+(0,\, 1)} \mathbb{P}
-            \end{align}
-            に等しく，連続である．
+        \item[\textbf{(Snglr-3)}] $\forall (X \to P) \in \Obj{\Cat{T}}$ を1つ固定する．
+        このとき，\exref{ex:depth-Cone}から $\forall (x,\, t) \in X \times \mathbb{R}$ に対して $\sigma_{X \times \mathbb{R}} (x,\, t) = \bigl( \depth_x(X),\, \dim_x(X) + 1 \bigr)$ が成り立つ．
+        i.e. 写像 $\sigma_{X \times \mathbb{R}} \colon X \times \mathbb{R} \lto \mathbb{P}$ は連続写像の合成
+        \begin{align}
+            X \times \mathbb{R} \xrightarrow{\mathrm{proj}_X} X \xrightarrow{\sigma_X} \mathbb{P} \xrightarrow{+(0,\, 1)} \mathbb{P}
+        \end{align}
+        に等しく，連続である．
 
-            \item[\textbf{(Snglr-4)}] $\forall (X \xrightarrow{s} P) \in \Obj{\Cat{T}}$ および $\Hom{\StTOP} \bigl( (U \to P_U),\, (X \to P) \bigr) \neq \emptyset$ を充たす勝手な$(U \xrightarrow{u} P_U) \in \Obj{\SnglrC}$を固定する． 
-            このとき\hyperref[def:strat-emb]{層状化開埋め込み} $(i,\, \bar{i}) \in \Hom{\StTOP} \bigl( (U \to P_U),\, (X \to P) \bigr) \neq \emptyset$ をとると，開埋め込みが\hyperref[def:dim-depth]{局所的次元}を保存すること\footnote{\hyperref[def:Snglr-C0]{$\SnglrC$ の定義から} $\SnglrC$ の対象はパラコンパクトなので．}から
-            $s_{U} \colon U \lto \mathbb{P}$ は連続写像の合成
-            \begin{align}
-                U \overset{i}{\hookrightarrow} X \xrightarrow{s} P \xrightarrow{\bar{s}} \mathbb{P}
-            \end{align}
-            に等しく，連続である．
-            \item[\textbf{(Snglr-5)}] $\Cat{T}$ 内に開被覆 $\Familyset[\big]{(i_\lambda,\, \bar{i}_\lambda) \in \Hom{\StTOP} \bigl( (U_\lambda \xrightarrow{s_\lambda} P_\lambda),\, (X \xrightarrow{s} P) \bigr) }{\lambda \in \Lambda}$ を持つような\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間} $(X \xrightarrow{s} P) \in \Obj{\SnglrC}$ を与える．
-            このとき，勝手な開集合 $Q \subset \mathbb{P}$ に対して
-            \begin{align}
-                s_X^{-1} (Q)
-                &= \bigcup_{\lambda \in \Lambda} i_\lambda \Bigl(U_\lambda \cap i_\lambda^{-1} \bigl( s_X^{-1}(Q) \bigr) \Bigr)
-            \end{align}
-            が成り立つが，$i_\lambda \Bigl(U_\lambda \cap i_\lambda^{-1} \bigl( s_X^{-1}(Q) \bigr) \Bigr) \subset X$ は開なので $s_X^{-1} (Q)$ は $X$ の開集合である．i.e. $s_X$ は連続写像である．
-        \end{description}
-        \item[\textbf{$\bm{\bar{s}}$ の一意存在}]　
-        
-        % 補題\ref{lem:strat-surj}より $s \colon X \lto P$ は全射なので明らか．
+        \item[\textbf{(Snglr-4)}] $\forall (X \xrightarrow{s} P) \in \Obj{\Cat{T}}$ および $\Hom{\StTOP} \bigl( (U \to P_U),\, (X \to P) \bigr) \neq \emptyset$ を充たす勝手な$(U \xrightarrow{u} P_U) \in \Obj{\SnglrC}$を固定する． 
+        このとき\hyperref[def:strat-emb]{層状化開埋め込み} $(i,\, \bar{i}) \in \Hom{\StTOP} \bigl( (U \to P_U),\, (X \to P) \bigr) \neq \emptyset$ をとると，開埋め込みが\hyperref[def:dim-depth]{局所的次元}を保存すること\footnote{\hyperref[def:Snglr-C0]{$\SnglrC$ の定義から} $\SnglrC$ の対象はパラコンパクトなので．}から
+        $\sigma_{U} \colon U \lto \mathbb{P}$ は連続写像の合成
+        \begin{align}
+            U \overset{i}{\hookrightarrow} X \xrightarrow{s} P \xrightarrow{\bar{s}} \mathbb{P}
+        \end{align}
+        に等しく，連続である．
+        \item[\textbf{(Snglr-5)}] $\Cat{T}$ 内に開被覆 $\Familyset[\big]{(i_\lambda,\, \bar{i}_\lambda) \in \Hom{\StTOP} \bigl( (U_\lambda \xrightarrow{\sigma_\lambda} P_\lambda),\, (X \xrightarrow{s} P) \bigr) }{\lambda \in \Lambda}$ を持つような\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間} $(X \xrightarrow{s} P) \in \Obj{\SnglrC}$ を与える．
+        このとき，勝手な開集合 $Q \subset \mathbb{P}$ に対して
+        \begin{align}
+            \sigma_X^{-1} (Q)
+            &= \bigcup_{\lambda \in \Lambda} i_\lambda \Bigl(U_\lambda \cap i_\lambda^{-1} \bigl( \sigma_X^{-1}(Q) \bigr) \Bigr)
+        \end{align}
+        が成り立つが，$i_\lambda \Bigl(U_\lambda \cap i_\lambda^{-1} \bigl( \sigma_X^{-1}(Q) \bigr) \Bigr) \subset X$ は開なので $\sigma_X^{-1} (Q)$ は $X$ の開集合である．i.e. $\sigma_X$ は連続写像である．
     \end{description}
+    % \begin{description}
+    %     \item[\textbf{$\bm{\sigma_X}$ の連続性}]　
+        
+
+    %     \item[\textbf{$\bm{\bar{s}}$ の一意存在}]　
+        
+    %     % 補題\ref{lem:strat-surj}より $s \colon X \lto P$ は全射なので明らか．
+    % \end{description}
 \end{proof}
 
-補題\ref{lem:basic-conservative}より，\hyperref[def:dim-depth]{局所的深さ}による層状化はほとんど完全に点を含む最小の\hyperref[def:Bsc-induction]{basic}を指定する．
+補題\ref{lem:basic-conservative}および定理\ref{thm:basic-easy}より，補題\ref{lem:strat-depthdim}で定義した局所的深さによる層状化 $s_X \colon X \lto \mathbb{P}$ は，$X$ の各点における特異性タイプをほぼ完全に指定する．
+従って，そもそも値域を $\OP{[\BSC]}$ そのものに持つような層状化 $\alpha_X \colon X \lto \OP{[\BSC]}$ を考えることができる．
+次に示す補題\ref{lem:strat-basic}における $\alpha_X$ の構成は，直感的には次のようなものである．
 
+いま $X$ として，赤道上に\hyperref[def:dim-depth]{局所的深さ}がそれぞれ $1,\, 2$ であるような\hyperref[def:stratified-space]{層}を持つ2次元球面を考え，
+3点 $x,\, y,\, z \in X$ を下の図のようにとる．
+\begin{align}
+    \label{ex:S2withDefect}
+    X = \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (O)
+        ;
+        \shade[ball color = lightgray,opacity = .4] (O) circle (2);
+        % 1-strata
+        \halfDottedEllipse{(180:2)}{2}{0.5}
+        % 0-strata
+        \node[bullet] (pt) at ($(O)+(0,-0.5)$) {};
+        % points
+        \draw (60:1.5) node[cross=3pt,red] (x) {};
+        \draw (-160:1.2) node[cross=3pt,blue] (y) {};
+        \draw (pt.center) node[cross=3pt,green] (z) {};
+        \node[above,red] at (x) {$x$};
+        \node[above,blue] at (y) {$y$};
+        \node[above right,DarkGreen] at (z) {$z$};
+        % embedding
+        \draw[rotate around={-30:(x)}, dashed] (x) ellipse (0.5 and 0.3);
+        \draw[rotate around={90:(y)}, dashed] (y) ellipse (0.5 and 0.4);
+        \draw[dashed] (z) circle (0.5);
+    \end{tikzpicture}
+\end{align}
+このとき，$\alpha_X$ が各点に割り当てる特異性タイプが
+\begin{align}
+    \alpha_X (\textcolor{red}{x})
+    &= \left[ 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \fill[gray!20,opacity=.4] (0,0) circle (1);
+            \node[cross=3pt,red] (x) at (0,0) {};
+            \node[above,red] at (x) {$0$};
+        \end{tikzpicture}
+     \right] = [\mathbb{R}^2], \\
+     \alpha_X (\textcolor{blue}{y})
+     &= \left[ 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \fill[gray!20,opacity=.4] (0,0) circle (1);
+            \draw[thick] (180:1) -- (0:1);
+            \node[cross=3pt,blue] (y) at (0,0) {};
+            \node[above,blue] at (y) {$(0,\, \mathrm{pt})$};
+        \end{tikzpicture}
+      \right] = [\mathbb{R} \times \Cone{\bullet \amalg \bullet}], \\
+      \alpha_X (\textcolor{DarkGreen}{z})
+      &= \left[ 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \fill[gray!20,opacity=.4] (0,0) circle (1);
+            \draw[thick] (180:1) -- (0:1);
+            \node[bullet] at (0,0) {};
+            \node[cross=3pt,green] (z) at (0,0) {};
+            \node[above right,DarkGreen] at (z) {$\mathrm{pt}$};
+        \end{tikzpicture}
+       \right] = \left[ 
+            \Cone{
+                \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+                    \draw[gray] (0,0) circle (.5);
+                    % spoke
+                    \foreach \q in {0,180} {
+                        \node[vertex] at (\q:.5) {};
+                    }
+                \end{tikzpicture}
+            }
+        \right] 
+\end{align}
+となるように $\alpha_X$ を構成するのである．
 
 \begin{mylem}[label=lem:strat-basic,breakable]{半順序集合 {$\OP{[\BSC]}$} による層状化}
     任意の\hyperref[def:c-smooth]{conically smoothな層状化空間} $(X \xrightarrow{s} P) \in \Obj{\Snglr}$ に対して，以下はwell-definedな連続写像になり，位相空間 $X$ の新しい\hyperref[def:stratified-space]{$\OP{[\BSC]}$-層状化}を与える：
     \begin{align}
-        b_X \colon X \lto \OP{[\BSC]},\; x \lmto \Bigl[\, \argmax_{U \in \mathcal{U}_x} \bigl(\, \depth \colon \mathcal{U}_x \lto \mathbb{Z}_{\ge -1} \bigr) \,\Bigr]
+        \alpha_X \colon X \lto \OP{[\BSC]},\; x \lmto \Bigl[\, \argmax_{U \in \mathcal{U}_x} \bigl(\, \depth \colon \mathcal{U}_x \lto \mathbb{Z}_{\ge -1} \bigr) \,\Bigr]
     \end{align}
     ただし，$\forall x \in X$ に対して集合 $\mathcal{U}_x \subset \Obj{\Bsc}$ を以下で定義した．
     \begin{align}
         \mathcal{U}_x \coloneqq \bigl\{\, U \in \Obj{\Bsc} \bigm| \exists \iota \in \Hom{\Snglr}(U,\, X),\; x = \iota(\bm{0}) \,\bigr\} 
     \end{align}
-    
+    さらに，$\alpha_X \colon X \lto \OP{[\BSC]}$ は補題\ref{lem:strat-depthdim}による層状化 $\sigma_X \colon X \lto \mathbb{P}$ を次のように分解する：
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAA0QBfU9TXfIRQBGclVqMWbADrSAtnRwALAEYrgABS7deIDNjwEiZYePrNWiELIDyG4MlkAhAMoBhCtq7iYUAObwRKAAZgBOEHJIZCA4EEiiEhYy0th+CgD6nDwh4ZGI0bFIAEzU5lJWsoxoSnSZINQMdCowDBr8hkIgoVh+Sjg6ORHF1IWICWWWIAAUsrBoyqSypAAEs1hyAJT1II3Nre2CbN29-d5cQA
+        \begin{tikzcd}
+            X \arrow[r, "\sigma_X"] \arrow[d, "\alpha_X"']  & \mathbb{P} \\
+            {\OP{[\BSC]}} \arrow[ru, "{(\depth,\, \dim)}"'] &           
+        \end{tikzcd}
+    \end{center}
+
     \tcblower
 
-    任意の射 $f \in \Hom{\Snglr} (X,\, Y)$ に対して，$b_X = b_Y \circ f$ が成り立つ．
+    任意の射 $f \in \Hom{\Snglr} (X,\, Y)$ に対して，$\alpha_X = \alpha_Y \circ f$ が成り立つ．
 \end{mylem}
 
 \begin{proof}
     余計な煩雑さを回避するために，以下の証明において\hyperref[def:Sm-induction]{conically smooth atlas}は常に省略する．
     
-    $\forall x \in X$ を1つ固定する．$\forall U \in \Cat{U}_x$ に対して，\hyperref[def:dim-depth]{深さの定義}より $\depth_x (U) = \depth (U) \le \depth (X \xrightarrow{s} P) < \infty$ が成り立つので，$U_x \coloneqq \argmax_{U \in \mathcal{U}_x} (\depth_x) \in \mathbb{Z}_{\ge -1}$ は存在する．
-    補題\ref{lem:basic-conservative}より $\depth_x(U_x) = \depth_x(U'_x)$ ならば $[U_x] = [U'_x]$ であり，写像 $b_X$ がwell-definedであることが示された．
+    $\forall x \in X$ を1つ固定する．$\forall U \in \Cat{U}_x$ に対して，\hyperref[def:dim-depth]{深さの定義}より $\depth_x (U) = \depth (U) \le \depth (X \xrightarrow{s} P) < \infty$ が成り立つので，$U_x \coloneqq \argmax_{U \in \mathcal{U}_x} (\depth) \in \mathcal{U}_x$ は存在する．
+    補題\ref{lem:basic-conservative}より $\depth_x(U_x) = \depth_x(U'_x)$ ならば $[U_x] = [U'_x]$ であり，写像 $\alpha_X$ がwell-definedであることが示された．
 
-    次に $b_X$ の連続性を $\depth(X \to P)$ に関する数学的帰納法により示す．$\depth(X \to P) = -1$ のとき，$X = \emptyset$ であり自明である．
+    次に $\alpha_X$ の連続性を $\depth(X \to P)$ に関する数学的帰納法により示す．$\depth(X \to P) = -1$ のとき，$X = \emptyset$ であり自明である．
     $\forall (X \to P) \in \Obj{\Snglr_{\le d,\, \le \infty}}$ についての証明が完了しているとする．
 
     \begin{description}
         \item[\textbf{basicに関する連続性}]　
 
-        まず，$\forall (U \xrightarrow{s} P) = (\mathbb{R}^n \xrightarrow{0} [0]) \times \Cone{Z \xrightarrow{r} Q} \in \Obj{\Bsc_{d+1,\, \le \infty}}$ について写像 $b_U \colon U \lto [\BSC]$ が連続であることを示そう．
+        まず，$\forall (U \xrightarrow{s} P) = (\mathbb{R}^n \xrightarrow{0} [0]) \times \Cone{Z \xrightarrow{r} Q} \in \Obj{\Bsc_{d+1,\, \le \infty}}$ について写像 $\alpha_U \colon U \lto [\BSC]$ が連続であることを示そう．
         
         　まず $\forall x \in \mathbb{R}^n \times \{\mathrm{pt}\} \subset \mathbb{R}^n \times \Cone{Z} = U$ に対しては
         $U \in \mathcal{U}_x$ であり，さらに $U_{s(x)} = s^{-1}\bigl(\{(0,\, -\infty)\}\bigr) = \mathbb{R}^n \times \{\mathrm{pt}\}$ なので
@@ -2370,8 +2560,8 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
             &= \depth_{\mathrm{pt}} \bigl( \Cone{Z \to Q} \bigr)\\
             &= \depth(U)
         \end{align}
-        が成り立ち，$b_U(x) = [U]$ と計算できる．
-        一方で，$\forall x = \bigl(u,\, (t,\, z)\bigr) \in U \setminus (\mathbb{R}^n \times \{\mathrm{pt}\}) = \mathbb{R}^n \times (\mathbb{R}_{> 0} \times Z)$ に対して $b_U(x)$ を計算しよう．
+        が成り立ち，$\alpha_U(x) = [U]$ と計算できる．
+        一方で，$\forall x = \bigl(u,\, (t,\, z)\bigr) \in U \setminus (\mathbb{R}^n \times \{\mathrm{pt}\}) = \mathbb{R}^n \times (\mathbb{R}_{> 0} \times Z)$ に対して $\alpha_U(x)$ を計算しよう．
         $\forall (V \xrightarrow{v} P_V) \in \mathcal{U}_x$ に対して，層状化開埋め込み $(\iota,\, \bar{\iota}) \in \Hom{\Snglr}(V,\, U)$ とは
         % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRADUQBfU9TXfIRQBGclVqMWbAKrdeIDNjwEiZYePrNWiEAAUA+px58lgoqPXVNUnbu7iYUAObwioAGYAnCAFskZEBwIJFFAuiwGNgALCAgAaxArSW0QAB1U-Bw6OQ9vP0RQoKQAZmoGOgAjGAZdfmUhEAYYdxxEiS02BGMQL19-aiLEACYkjp0aNvKqmrqzHU8sJyjW7t78kcDgxFL2mzTUirpPYHTMui5Jyura0xV5xeX7LiA
         $(1,\, 1)$-圏 $\TOP$ の可換図式
@@ -2408,55 +2598,149 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
             &= \depth_x(U)  \\
             &\le \depth(U)
         \end{align}
-        が分かった．故に $b_U(x) = [V_0]$ なる $V_0 \in \Obj{\Bsc}$ は常に $\depth(V_0) < \depth(U)$ を充たすことが分かった．
+        が分かった．故に $\alpha_U(x) = [V_0]$ なる $V_0 \in \Obj{\Bsc}$ は常に $\depth(V_0) < \depth(U)$ を充たすことが分かった．
         
-        　ここで，位相空間 $\OP{[\BSC]}$ の勝手な開集合 $\forall W \subset \OP{[\BSC]}$ をとる．
-        もし $[U] \in W$ ならば，\hyperref[def:topo-poset]{半順序集合 $\OP{[\BSC]}$ の位相の定義}から $\forall [V] \in \OP{[\BSC]}$ に対して 
+        　ここで，位相空間 $\OP{[\BSC]}$ の勝手な開集合 $\forall \mathcal{W} \subset \OP{[\BSC]}$ をとる．
+        もし $[U] \in \mathcal{W}$ ならば，\hyperref[def:topo-poset]{半順序集合 $\OP{[\BSC]}$ の位相の定義}から $\forall [V] \in \OP{[\BSC]}$ に対して 
         \begin{align}
-            [U] \le [V] \IFF \Hom{\Bsc}\bigl([V],\, [U]\bigr) \neq \emptyset \IMP [V] \in W
+            [U] \le [V] \IFF \Hom{\Bsc}\bigl([V],\, [U]\bigr) \neq \emptyset \IMP [V] \in \mathcal{W}
         \end{align}
-        が成り立つ\footnote{順序\eqref{eq:relation-Bsc}の $\mathrm{op}$ をとっていることに注意！}．
-        故に補題\ref{lem:basic-conservative}および定理\ref{thm:basic-easy}-(2) より，$W$ は $\depth(V) \le \depth(U)$ を充たす全ての $[V] \in \OP{[\BSC]}$ を含む． 
-        従って $b_U^{-1}(W) = U$ であり，$b_U^{-1}(W)$ が $U$ の開集合であることが分かった．
-        一方でもし $[U] \notin W$ であるならば，\hyperref[def:topo-poset]{半順序集合 $\OP{[\BSC]}$ の位相の定義}からある $[V] \in W$ が存在して
-        $[U] \le [V] \IFF \Hom{\Bsc}\bigl([V],\, [U]\bigr) \neq \emptyset$ を充たす．そのような $[V]$ のうち最小のものを $[V_0]$ と書くと $W = \bigl\{\, [V] \in \OP{[\BSC]} \bigm| [V_0] \le [V] \,\bigr\}$ であり，かつ定理\ref{thm:basic-easy}-(2) より $\depth (U) > \depth (V_0)$ でなくてはいけない．
-        故に帰納法の仮定が使えて，$b_U^{-1}(W) \subset \mathbb{R}^n \times \mathbb{R}_{> 0} \times Z \subset U$ が $U$ の開集合であることが分かった．
+        が成り立つ\footnote{半順序\eqref{eq:relation-Bsc}の $\mathrm{op}$ をとっていることに注意！}．
+        故に補題\ref{lem:basic-conservative}および定理\ref{thm:basic-easy}-(2) より，$\mathcal{W}$ は $\depth(V) \le \depth(U)$ を充たす全ての $[V] \in \OP{[\BSC]}$ を含む． 
+        従って $\alpha_U^{-1}(\mathcal{W}) = U$ であり，$\alpha_U^{-1}(\mathcal{W})$ が $U$ の開集合であることが分かった．
+        一方でもし $[U] \notin \mathcal{W}$ であるならば，\hyperref[def:topo-poset]{半順序集合 $\OP{[\BSC]}$ の位相の定義}からある $[V] \in \mathcal{W}$ が存在して
+        $[U] \lneq [V] \IFF \Hom{\Bsc}\bigl([V],\, [U]\bigr) \neq \emptyset$ を充たす．そのような $[V]$ のうち最小のものを $[V_0]$ と書くと $\mathcal{W} = \bigl\{\, [V] \in \OP{[\BSC]} \bigm| [V_0] \le [V] \,\bigr\}$ であり，かつ定理\ref{thm:basic-easy}-(2) より $\depth (U) > \depth (V_0)$ でなくてはいけない．
+        故に帰納法の仮定が使えて，$\alpha_U^{-1}(\mathcal{W}) \subset \mathbb{R}^n \times \mathbb{R}_{> 0} \times Z \subset U$ が $U$ の開集合であることが分かった．
 
         \item[\textbf{一般の $\bm{X \to P}$ に関する連続性}]　
         
         $(X \to P)$ の，\hyperref[def:Bsc-induction]{basic}による開被覆 $\Familyset[\big]{i_\lambda \in \Hom{\Snglr} (U_\lambda,\, X)}{\lambda \in \Lambda}$ をとる\footnote{\hyperref[def:Sm-induction]{conically smooth atlas}が少なくとも1つ存在するので，開被覆は存在する．}．
-        $\forall \lambda \in \Lambda$ に対して，$i_\lambda$ が位相的開埋め込みであることから $b_{U_\lambda} = b_X \circ i_\lambda \colon U_\lambda \lto \OP{[\BSC]}$ が成り立つことに注意する．
+        $\forall \lambda \in \Lambda$ に対して，$i_\lambda$ が層状化開埋め込みなので $\alpha_{U_\lambda} = \alpha_X \circ i_\lambda \colon U_\lambda \lto \OP{[\BSC]}$ が成り立つことに注意する．
 
-        　ここで位相空間 $\OP{[\BSC]}$ の勝手な開集合 $\forall W \subset \OP{[\BSC]}$ をとる．すると
+        　ここで位相空間 $\OP{[\BSC]}$ の勝手な開集合 $\forall \mathcal{W} \subset \OP{[\BSC]}$ をとる．すると
         \begin{align}
-            b_X^{-1} (W) \cap i_\lambda (U_\lambda) 
-            &= i_\lambda \bigl( (b_X \circ i_\lambda)^{-1} (W) \bigr) \\
-            &= i_\lambda \bigl( (b_{U_\lambda})^{-1} (W) \bigr)
+            \alpha_X^{-1} (\mathcal{W}) \cap i_\lambda (U_\lambda) 
+            &= i_\lambda \bigl( (\alpha_X \circ i_\lambda)^{-1} (\mathcal{W}) \bigr) \\
+            &= i_\lambda \bigl( (\alpha_{U_\lambda})^{-1} (\mathcal{W}) \bigr)
         \end{align}
-        と書ける．ところで，basicの場合の証明より $b_{U_\lambda} \colon U_\lambda \lto \OP{[\BSC]}$ は連続であるから，$(b_{U_\lambda})^{-1} (W)$ は $U_\lambda$ の開集合である．
-        そのうえ $i_\lambda$ が開埋め込みであることから $b_X^{-1} (W) \cap i_\lambda (U_\lambda)$ は $X$ の開集合であり，
+        と書ける．ところで，basicの場合の証明より $\alpha_{U_\lambda} \colon U_\lambda \lto \OP{[\BSC]}$ は連続であるから，$(\alpha_{U_\lambda})^{-1} (\mathcal{W})$ は $U_\lambda$ の開集合である．
+        そのうえ $i_\lambda$ が開埋め込みであることから $\alpha_X^{-1} (\mathcal{W}) \cap i_\lambda (U_\lambda)$ は $X$ の開集合であり，
         \begin{align}
-            b_X^{-1} (W) = \bigcup_{\lambda \in \Lambda} b_X^{-1} (W) \cap i_\lambda (U_\lambda) 
+            \alpha_X^{-1} (\mathcal{W}) = \bigcup_{\lambda \in \Lambda} \alpha_X^{-1} (\mathcal{W}) \cap i_\lambda (U_\lambda) 
         \end{align}
         が $X$ の開集合であることが示された．
-        % 上述の考察より $b_U^{-1}([U]) = \mathbb{R}^n \times \{\mathrm{pt}\}$ である．
+        % 上述の考察より $\alpha_U^{-1}([U]) = \mathbb{R}^n \times \{\mathrm{pt}\}$ である．
     \end{description}
     
+    $\alpha_X$ の定義から，$\forall x \in X$ に対して
+    \begin{align}
+        \sigma_X(x) 
+        &= \bigl(\depth_x(X),\, \dim_x(X)\bigr) \\
+        &= \bigl(\depth(\alpha_X(x)),\, \depth(\alpha_X(x)) \bigr)
+    \end{align}
+    が成り立つことは明らかである．
 \end{proof}
 
 \begin{mydef}[label=def:EntrU]{制限されたtangent classifier}
     $\forall (X \to P) \in \Obj{\Snglr}$ および\hyperref[def:Bsc-induction]{basic} $\forall U = \mathbb{R}^n \times \Cone{Z} \in \Obj{\Bsc}$ を与える．
-    このとき，$(\infty,\, 1)$-圏 $\textcolor{red}{\BSC_{[U]}},\, \textcolor{red}{\ENTRU{[U]}{X}}$ および $(\infty,\, 1)$-圏の関手 $\textcolor{red}{(\tau_X)_{|}} \in \Hom{\sSet}\bigl(\textcolor{red}{\ENTRU{[U]}{X}},\, \ENTR{X}\bigr)$ を
-    以下の\hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏の引き戻し}によって定義する：
+    このとき，$(\infty,\, 1)$-圏 $\textcolor{red}{\BSC_{[U]}},\, \textcolor{red}{\ENTRU{[U]}{X}}$ および $(\infty,\, 1)$-圏の関手 $\textcolor{red}{(\tau_X)_{|}} \in \Hom{\sSet}\bigl(\textcolor{red}{\ENTRU{[U]}{X}},\, \textcolor{red}{\BSC_{[U]}}\bigr)$ を
+    以下の\hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏の引き戻し}によって次のように定義する
+    ：
     \begin{center}
         % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BRAOQBUASsGQBVCgF9gADXEhxpdJlz5CKMgEYqtRizacAQgGUAwgH1hY2fMXY8BImQBMW+s1aIO7AEZYA5g04LCk4fXwAnTisFEAxbFSJ1UmdqV10PZAMTCjlo2OV7FETNFJ13TyNjHJt81WREyhK3PW5+IRk5LRgoX3giUAAzMIgAWyQAVmocCCQAFka0zxw6JlMpKpBBkdnJ6cQAZnmyjPZhgAsATzRTmDBs6w2h0cQyECnx+82nxNfdmY-HpCOHZIA6vOhYBhsU4QCAAa3WnyQ3zeiEc-y2z2BiG+qTKAApOEsVlIAJTmAA+smoDDoXhgDAACko7KoQGE-KccB1xEA
         \begin{tikzcd}
-        {\textcolor{red}{\ENTRU{[U]}{X}}} \arrow[r] \arrow[d, red, "(\tau_X)_{|}"'] & \ENTR{X} \arrow[d, "\tau_X"]   \\
-        {\textcolor{red}{\BSC_{[U]}}} \arrow[r] \arrow[d]                     & \BSC \arrow[d, "{[\mhyphen]}"] \\
+        {\textcolor{red}{\ENTRU{[U]}{X}}} \arrow[dr, phantom," " {pullback}, very near start, color=black] \arrow[r] \arrow[d, red, "(\tau_X)_{|}"'] & \ENTR{X} \arrow[d, "\tau_X"]   \\
+        {\textcolor{red}{\BSC_{[U]}}} \arrow[dr, phantom," " {pullback}, very near start, color=black] \arrow[r] \arrow[d]                     & \BSC \arrow[d, "{[\, \mhyphen \,]}"] \\
         {\bigl\{[U]\bigr\}} \arrow[r, hook]                  & {\Ner\bigl([\BSC]\bigr)}                      
         \end{tikzcd}
     \end{center}
 \end{mydef}
+
+まず，\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\BSC_{[U]}$ の構造を詳細に調べよう．
+定理\ref{thm:basic-easy}-(4) より $\BSC \xrightarrow{[\, \mhyphen \,]} \Ner \bigl( [\BSC] \bigr)$ は\hyperref[def:isofibration]{アイソファイブレーション}なので，補題\ref{lem:pullback-infty}, \ref{lem:pullback-iso}から $(\infty,\, 1)$-圏の引き戻し
+\begin{center}
+    % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQAdDgERkZ3oA9YiAC+pdJlz5CKchWp0mrdlwByMAE5cARlgDmjABTIuAIQDKAYUq6DmgJRiJIDNjwEi84ooYs2iJwcllbOku4yRGQ+NH4qgebWAPrAyACqlKJiijBQ+vBEoABmmhAAtkhkIDgQSPLV9FiM7AAWEBAA1iCxygEg6ZTdIIz0OnwAClIesiCaBi04YSAl5UgAzDQ1SABM4sWlFYjbm7WI9XF9phykAARcZS0AnmgtMGB314N7ywfrJ5WiTJAA
+    \begin{tikzcd}
+    {\BSC_{[U]}} \arrow[r] \arrow[d] \arrow[dr, phantom," " {pullback}, very near start, color=black]  & \BSC \arrow[d, "{[\, \mhyphen \,]}"] \\
+    \Delta^0 \arrow[r, "{[U]}"', hook] & {\Ner\bigl([\BSC]\bigr)}            
+    \end{tikzcd}
+\end{center}
+は，$(1,\, 1)$-圏 $\sSet$ の引き戻しとして計算できる．よって
+\begin{align}
+    (\BSC_{[U]})_0 = \bigl\{\, V \in \Obj{\Bsc} \bigm| V \in [U] \,\bigr\} 
+\end{align}
+である．さらに定理\ref{thm:Map-hcNer}より，$\BSC_{[U]}$ の\hyperref[def:Map]{射の空間}について\hyperref[def:htpy-equiv-Kan]{Kan複体のホモトピー同値}
+\begin{align}
+    \inftyMap{\BSC_{[U]}} (V,\, W) \simeq \Hom{\BSC} (V,\, W) \simeq \inftyMap{\BSC} (V,\, W)
+\end{align}
+が成り立つ．故に補題\ref{lem:basic-conservative}および定理\ref{thm:basic-easy}から，\hyperref[def:Kan-group]{群的なKan複体}の\hyperref[def:htpy-equiv-Kan]{ホモトピー同値}
+\begin{align}
+    \label{eq:htpy-equiv-BAut2BscU}
+    \deloop{\Aut(U)} \overset{\simeq}{\hookrightarrow} \BSC_{[U]}
+\end{align}
+が存在することがわかる．ただし，群的なKan複体 \hyperref[def:Kan-Aut]{$\Aut(U)$} の\textbf{delooping}と呼ばれるKan複体 $\deloop{\Aut(U)}$ を次のように定義した
+\footnote{より正確には，対象が1点で\hyperref[def:enriched]{Hom対象}が $\Aut(U) \in \Obj{\Kan}$ であるような $\Kan$-豊穣圏に\hyperref[def:nerve-hc]{homotopy coherent nerve}を適用して得られる $(\infty,\, 1)$-圏（特に，この場合は群的なKan複体）のことである．この構成は，\hyperref[def:delooping-groupoid]{群のdelooping groupoid}の構成を素朴に一般化したものだと見做せる．}：
+\begin{align}
+    \deloop{\Aut(U)} \coloneqq \hcNer \biggl( 
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRACoQBfKkGKAObwioAGYAnCAFskZEDgizqDCBDREAjAA4yoxnBi8GdAEYwGABUy58hRCHFYBACxwhq9Zq3sAdHwEEmHAAKAFUASm4KLiA
+        \begin{tikzcd}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        * \arrow["\Aut(U)"', loop, distance=2em, in=125, out=55]
+        \end{tikzcd}
+     \biggr) 
+\end{align}
+
+次に，$(\infty,\, 1)$-圏 $\ENTRU{[U]}{X}$ の構造を詳細に調べる．
+~\cite[\href{https://kerodon.net/tag/018F}{Tag 018F}]{kerodon}より $\tau_X$ が\hyperref[def:infty-fib]{右ファイブレーション}（したがって図\ref{fig:infty-fib}より\hyperref[def:isofibration]{アイソファイブレーション}）なので，補題\ref{lem:pullback-infty}, \ref{lem:pullback-iso}から $(\infty,\, 1)$-圏の引き戻し
+\begin{center}
+    % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BRAOQBUASsGQBVCgF9gADXEhxpdJlz5CKMgEYqtRizacAQgGUAwgH1hY2fMXY8BImQBMW+s1aIO7AEZYA5g04LCk4fXwAnTisFEAxbFSJ1UmdqV10PZAMTCjlo2OV7FETNFJ13TyNjHJt81WREyhK3PW5+IRk5LRgoX3giUAAzMIgAWyQAVmocCCQAFka0zxw6JlMpKpBBkdnJ6cQAZnmyjPZhgAsATzRTmDBs6w2h0cQyECnx+82nxNfdmY-HpCOHZIA6vOhYBhsU4QCAAa3WnyQ3zeiEc-y2z2BiG+qTKAApOEsVlIAJTmAA+smoDDoXhgDAACko7KoQGE-KccB1xEA
+    \begin{tikzcd}
+    {\ENTRU{[U]}{X}} \arrow[dr, phantom," " {pullback}, very near start, color=black] \arrow[r] \arrow[d, "(\tau_X)_{|}"'] & \ENTR{X} \arrow[d, "\tau_X"]   \\
+    {\BSC_{[U]}} \arrow[r]                    & \BSC
+    \end{tikzcd}
+\end{center}
+は $(1,\, 1)$-圏 $\sSet$ の引き戻しとして計算できる．よってまず
+\begin{align}
+    (\ENTRU{[U]}{X})_0 = \bigcup_{V \in [U]} \Hom{\Snglr} (V,\, X)
+\end{align}
+である．$n$-単体は
+\begin{align}
+    (\ENTRU{[U]}{X})_n 
+    &\cong \Hom{X} (\Delta^n \star \Delta^0,\, \BSC_{[U]}) \\
+    &\cong \bigl\{\, H \in \Hom{\sSet} \bigl(\Delta^{n+1},\, \BSC_{[U]}\bigr) \bigm| H|_{\{n+1\}} = X \,\bigr\} \label{eq:EntrU-simplex}
+\end{align}
+であり\footnote{ただし，$X$ へ向かう射は $\BSC_{[U]}$ ではなく $\SNGLR_{[U]}$ 内でとらなくてはいけない．}，$X$ を除く頂点に $[U]$ の元が載る形になる．例えば\exref{ex:join-1}および\exref{ex:hcNer-2}より，$\ENTRU{[U]}{X}$ の $1$-単体は
+\begin{align}
+    (\ENTRU{[U]}{X})_1 \cong \left\{\, 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate[bullet,label=below:$X$] (X)
+            +(120:2) coordinate[bullet,label=above left:$V$] (V)
+            +(60:2) coordinate[bullet,label=above right:$W$] (W)
+            ;
+            \begin{scope}[on background layer]
+                \fill[gray!20] (V.center) -- (W.center) -- (X.center) --cycle;
+            \end{scope}
+            % \node[gray] at (barycentric cs:X=1,V=1,W=1) {$H$};
+            \draw[->,gray,double] ($(W) + (-150:.3)$) -- node[midway,above left] {$H$} ($(W) + (-150:1.5)$);
+            \draw[->-=.5] (V.center) -- node[midway,left] {$\iota_V$} (X.center);
+            \draw[->-=.5] (W.center) -- node[midway,right] {$\iota_W$} (X.center);
+            \draw[->-=.5] (V.center) -- node[midway,above] {$f$} (W.center);
+        \end{tikzpicture}
+     \middle| \substack{
+        V,\, W \in [U],\\ 
+        \iota_V \in \Hom{\Snglr} (V,\, X), \\ 
+        \iota_W \in \Hom{\Snglr} (W,\, X), \\ 
+        f \in \Hom{\BSC} (V,\, W)_0, \\   
+        H \in \Hom{\SNGLR}(V,\, X)_1, \\ 
+        H|_{\{(1,\, 0)\} \times V} = \iota_W \circ f,\; H|_{\{(0,\, 1)\} \times V} = \iota_V
+        } 
+    \,\right\} 
+\end{align}
+のようになっている．i.e. $\ENTRU{[U]}{X}$ の1-射とは，以下のデータの組である：
+\begin{itemize}
+    \item $U$ と同じ特異性タイプを持つ\hyperref[def:Bsc-induction]{basic} $V,\, W \in \Obj{\Bsc}$
+    \item \hyperref[def:Snglr]{Conically smooth}な\hyperref[def:strat-emb]{層状化開埋め込み} $\iota_V \in \Hom{\Snglr}(V,\, X),\; \iota_W \in \Hom{\Snglr} (W,\, X),\; f \in \Hom{\Snglr} (V,\, W)$
+    \item $\iota_W \circ f$ と $\iota_V$ を繋ぐアイソトピー $H \in \Hom{\Snglr} (\Delta^1_e \times V,\, \Delta^1_e \times X)$
+\end{itemize}
 
 \begin{mydef}[label=def:XU]{{$[U]$}-層}
     $\forall (X \to P) \in \Obj{\Snglr}$ および\hyperref[def:Bsc-induction]{basic} $\forall U = \mathbb{R}^n \times \Cone{Z} \in \Obj{\Bsc}$ を与える．
@@ -2464,19 +2748,118 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
     \begin{center}
         % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQANEAX1PU1z5CKMsWp0mrdsgA6MgEIBlAMKUefEBmx4CRcqTE0GLNohByARlgDmjOcGQBVSpZsAnOd3X9tQvRXFjKTMOAH0HZy9ucRgoa3giUAAzNwgAWyQAZhocCCQAJl5k1IzEfRBcpDIJE3YLUK4ikBT0rJy8sqaW0vz2qpz6LEZ2AAsICABrHkpuIA
         \begin{tikzcd}
-        {X_{[U]}} \arrow[d] \arrow[r]       & X \arrow[d, "b_X"] \\
+        {X_{[U]}} \arrow[dr, phantom," " {pullback}, very near start, color=black] \arrow[d] \arrow[r]       & X \arrow[d, "\alpha_X"] \\
         {\bigl\{[U]\bigr\}} \arrow[r, hook] & {\OP{[\BSC]}}          
         \end{tikzcd}
     \end{center}
 \end{mydef}
 
+つまり，$X_{[U]}$ とは補題\ref{lem:strat-basic}で構成した $\OP{[\BSC]}$-層状化 $(X \xrightarrow{\alpha_X} \OP{[\BSC]})$ の，特異性タイプ $[U] \in \OP{[\BSC]}$ 上のファイバーである．
+例えば
+\begin{align}
+    X = \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (O)
+        ;
+        \shade[ball color = lightgray,opacity = .4] (O) circle (2);
+        % 1-strata
+        \halfDottedEllipse{(180:2)}{2}{0.5}
+        % 0-strata
+        \node[bullet] (pt) at ($(O)+(0,-0.5)$) {};
+    \end{tikzpicture}
+\end{align}
+の場合，空でない $X_{[U]}$ は
+\begin{align}
+    \left( 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (O)
+            ;
+            \shade[ball color = lightgray,opacity = .4] (O) circle (2);
+            % 1-strata
+            \halfDottedEllipse{(180:2)}{2}{0.5}
+            % 0-strata
+            \node[bullet] (pt) at ($(O)+(0,-0.5)$) {};
+        \end{tikzpicture}
+     \right)_{[\mathbb{R}^2]} 
+    &= \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \path coordinate (N)
+        +(0,-1.5) coordinate (S)
+        ;
+        % northern hemisphere
+        \begin{scope}
+            \clip ($(N)+(0:2)$) arc(0:180:2) ($(N)+(180:2)$) arc(-180:0:2 and .5) --cycle;
+            \shade[ball color = lightgray,opacity = .4] (N) circle (2);
+        \end{scope}
+        \draw[gray,thin,dotted] ($(N)+(0:2)$) arc(0:180:2 and 0.5);
+        \draw[gray,thin,dashed] ($(N)+(0:2)$) arc(0:-180:2 and 0.5);
+        % southern hemisphere
+        \begin{scope}
+            \clip ($(S)+(0:2)$) arc(0:180:2 and .5) ($(S)+(180:2)$) arc(180:360:2) --cycle;
+            \shade[ball color=lightgray,opacity=.4] (S) circle (2);
+        \end{scope}
+        \draw[gray,thin,dashed] (S) ellipse (2 and .5);
+    \end{tikzpicture}
+    \quad \approx \mathbb{R}^2 \amalg \mathbb{R}^2, \\
+    \left( 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (O)
+            ;
+            \shade[ball color = lightgray,opacity = .4] (O) circle (2);
+            % 1-strata
+            \halfDottedEllipse{(180:2)}{2}{0.5}
+            % 0-strata
+            \node[bullet] (pt) at ($(O)+(0,-0.5)$) {};
+        \end{tikzpicture}
+     \right)_{\left[ 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)},scale=.25]
+            \fill[gray,opacity=.4] (0,0) circle (1);
+            \draw[thick] (180:1) -- (0:1);
+        \end{tikzpicture}
+      \right]}
+    &=\quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \Ellipse{(0,0)}{2}{.5}
+        \fill[white] (2,-.5) circle (3pt);
+        \draw[dotted] (2,-.5) circle (3pt);
+    \end{tikzpicture}
+    \quad \approx \mathbb{R}, \\
+    \left( 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+            \path coordinate (O)
+            ;
+            \shade[ball color = lightgray,opacity = .4] (O) circle (2);
+            % 1-strata
+            \halfDottedEllipse{(180:2)}{2}{0.5}
+            % 0-strata
+            \node[bullet] (pt) at ($(O)+(0,-0.5)$) {};
+        \end{tikzpicture}
+     \right)_{
+        \left[ 
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)},scale=.25]
+            \fill[gray,opacity=.4] (0,0) circle (1);
+            \draw[thick] (180:1) -- (0:1);
+            \node[vertex] at (0,0) {};
+        \end{tikzpicture}
+        \right]
+    }
+    &= \quad
+    \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        \draw[white] (0,0) ellipse (2 and .5);
+        \node[bullet] at (0,-.5) {};
+    \end{tikzpicture}
+\end{align}
+の3つである．$X_{[U]}$ 自身は $C^\infty$ 多様体であることに注意しよう．
+
 \begin{mylem}[label=lem:XU-mfd]{$X_{[U]}$ は $C^\infty$ 多様体}
-    層状化空間 $(X_{[U]} \to \bigl\{[U]\bigr\}) \in \Obj{\Snglr}$ は $C^\infty$ 多様体である．
+    層状化空間 $(X_{[U]} \to \bigl\{[U]\bigr\}) \in \Obj{\Snglr}$ は $\dim (U) - \depth (U)$ 次元の $C^\infty$ 多様体である．
 \end{mylem}
 
 \begin{proof}
-
+    ~\cite[Corollary]{AFT2014stratified}
 \end{proof}
+
+
 
 \begin{mytheo}[label=thm:tangentclassifier]{tangent classifierの局所的な構造}
     $\forall (X \to P) \in \Obj{\Snglr}$ および\hyperref[def:Bsc-induction]{basic} $\forall U = \mathbb{R}^n \times \Cone{Z} \in \Obj{\Bsc}$ を与える．
@@ -2838,7 +3221,7 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         \begin{center}
             % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BhOnYAeQC+APWCcIeALbxBAfTHsYADzT0GwMIMEhBpdJlz5CKMgEYqtRizacefIcPFT4OvSAzY8BIqdLnqataIHOySvAAWAE6SwAByggAUnABiAJKxsgBUAJSu+p5GPuQWgazBnAAiMAw4dMLEOhYwUADmLiigAGaREJJIZCA4EEgAzLpdPX2IA0NIpuMg3b2j1LOIAEyrdFgMbOEQEADWIAFWZSHKqowa2gtLU76DwxunzOdoJyAMdABG1QAKBi8xhAkSwLXCOEagiAA
             \begin{tikzcd}
-            \textcolor{red}{\Cat{O}^{\otimes}_{\expval{n}}} \arrow[red, r] \arrow[red,d] & \Delta^0 \arrow[d, "\expval{n}", hook] \\
+            \textcolor{red}{\Cat{O}^{\otimes}_{\expval{n}}} \arrow[dr, phantom," " {pullback}, very near start, color=black] \arrow[red, r] \arrow[red,d] & \Delta^0 \arrow[d, "\expval{n}", hook] \\
             \Cat{O}^\otimes \arrow[r, "p"']                    & \Ner (\FIN_*)                    
             \end{tikzcd}
         \end{center}
@@ -2851,7 +3234,7 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         \begin{center}
             % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12swAzHATwCydNME4BhOjmAB5AL4A9ThDwBbeHIAEACgAepTqU38AlAH1OjNAAs6IOaXSZc+QijIBGKrUYs2nbj4hETF2SWl5JXYVLHU4OT0DdiNTe0cQDGw8AiIPcm96ZlZEDnYAERgGHDoFYjSnLNdc0i9qQr8SgN4BYVFOADkYACdtTgAxbjMAKhM5TgAjLABzBm00M2ASCgTdEySjdc3KBNMF5aGTe28YKCX4IlAeIYhVJAAmahwIJABmT7osAw2NYIBAANYgNq+YqlKy2eogJ4vJB5EBfX5QopsNCQkAMOjzSoABWc2TcICGy2sOARSNeiDIaO+iA8Dkez3pjPRiDecm2QA
             \begin{tikzcd}
-            {\textcolor{red}{\inftyMap{\Cat{O}^\otimes} (x,\, y)_\alpha}} \arrow[red,d] \arrow[red,r] & \Delta^0 \arrow[d, "\alpha", hook]                            \\
+            {\textcolor{red}{\inftyMap{\Cat{O}^\otimes} (x,\, y)_\alpha}} \arrow[dr, phantom," " {pullback}, very near start, color=black] \arrow[red,d] \arrow[red,r] & \Delta^0 \arrow[d, "\alpha", hook]                            \\
             {\inftyMap{\Cat{O}^\otimes}(x,\, y)} \arrow[r, "p"']             & {\inftyMap{\Ner(\FIN_*)} \bigl(\expval{m},\, \expval{n}\bigr)}
             \end{tikzcd}
         \end{center}
@@ -2929,9 +3312,9 @@ $(\infty,\, 1)$-圏 \underline{$\Cat{B}$ において}角の図式が2-射 $\tex
         である．このとき $f^i \coloneqq \partial^2_1 (\sigma_f)$ とおくと，$p$ が\hyperref[def:nat]{自然変換}であることと\hyperref[def:SimpSet]{単体的恒等式}から
         \begin{align}
             p_{[1]} (f^i) 
-            &= p_{[1]} \circ \partial^2_1 (\sigma_f) \\
-            &= \partial^2_1 \circ p_{[1]}(\sigma_f) \\
-            &= \rho^i, \\
+            &= p_{[1]} \circ \partial^2_1 (\sigma_f)
+            = \partial^2_1 \circ p_{[1]}(\sigma_f)
+            = \rho^i, \\
             \partial^1_1 (f^i) 
             % &= \partial^1_1 \circ \partial^2_1 (f^i) \\
             % &= \partial^1_1 \circ \partial^2_2 (f^i) \\
