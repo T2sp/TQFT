@@ -429,6 +429,9 @@ title=系~\thetcbcounter: #2,#1}
 	\draw[thick] #1 arc(-180:0:{#2} and {#3});
 	\draw[thick, dotted] ($ #1 + 2*(#2,0)$) arc(0:180:{#2} and {#3});
 }
+\newcommand{\pullback}{
+    \arrow[dr, phantom," " {pullback}, very near start, color=black]
+}
 
 %% file division
 \usepackage{subfiles}

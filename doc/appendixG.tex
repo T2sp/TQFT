@@ -1406,6 +1406,17 @@ $S \star T$ の\hyperref[def:SimpSet]{面写像}は $n \ge 1,\, 0 \le j \le n$ �
     のようになる．
 \end{myexample}
 
+\begin{myexample}[label=ex:joint-n]{join $\Delta^n \star \Delta^0$}
+    \exref{ex:join-0}, \exref{ex:join-1}, \exref{ex:join-2}で見てきた通り，$\Delta^n \star \Delta^0$ とは，$\Delta^n$ に1つ頂点を付け足してそれをもともとあった $\Delta^n$ の全ての頂点と繋ぎ，内部を $n+1$-単体で埋めることによって構成される．
+    故に，自然同型 $\Delta^n \star \Delta^0 \cong \Delta^{n+1}$ がある．特に $\Delta^0$ の頂点は $\Delta^{n+1}$ の頂点 $\{n+1\} \in \Delta^{n+1}_0$ に埋め込まれている．
+    % この自然同型を明示的に書くと以下の通り：
+    % \begin{align}
+    %     (\Delta^n \star \Delta^0)_m &\lto \Delta^{n+1}_m, \\
+    %     \bigl( [i];\, (x,\, y) \bigr) &\lto 
+    % \end{align}
+\end{myexample}
+
+
 \begin{mylem}[label=lem:join-infty]{{$(\infty,\, 1)$}-圏同士のjoinは{$(\infty,\, 1)$}-圏}
     \hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}同士の\hyperref[def:Simp-Join]{join}は $(\infty,\, 1)$-圏である．
 \end{mylem}
@@ -1511,7 +1522,7 @@ $(\infty,\, 1)$-圏 $\Cat{C}_{/X}$ の $n$-射も同様に図示できる．
         f &\lmto f|_{\Delta^n}
     \end{align}
     $n = 0,\, 1,\, 2$ の場合，i.e. \exref{ex:join-0}, \exref{ex:join-1}, \exref{ex:join-2}の図式においては，ちょうど $X \in \Cat{C}_0$ に対応する青色の頂点（コーンポイント）を除去する操作に対応している．
-    \eqref{eq:forget}の定義は\hyperref[def:infty-fib]{右ファイブレーション}になっている．
+    \eqref{eq:forget}の定義は\hyperref[def:infty-fib]{右ファイブレーション}である~\cite[\href{https://kerodon.net/tag/018F}{Tag 018F}]{kerodon}．
 \end{myexample}
 
 
@@ -1622,7 +1633,7 @@ $(\infty,\, 1)$-圏 $\Cat{C}$ に対して，
     \end{align}
     として定義する~\cite[\href{https://kerodon.net/tag/032Z}{Tag 032Z}]{kerodon}．
     このとき，$\Cat{C}_0 \htimes_{\Cat{C}} \Cat{C}_1$ は $(\infty,\, 1)$-圏 $\CATinfty$ における図式 $\Cat{C}_0 \xrightarrow{F_0} \Cat{C} \xleftarrow{F_1} \Cat{C}_1$ の\hyperref[def:lim-colim-infty]{limit}を与える．
-    i.e. $\sSet$ における可換図式
+    i.e. $\sSet$ における図式\footnote{up to isomorphism で可換なのであって，可換とは限らない！}
     \begin{center}
         % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQAdDgYXp2G4BfAPrEQg0uky58hFOQrU6TVuy69+Q8ZJAZseAkQXElDFm0ScefASPLap+2UTImaZ1ZfU2hogARcABZ4ALbwwsDemoKCAdbRwvaCSjBQAObwRKAAZgBOECFIAEw0OBBICsrm7ABiiQ4geQVIZCBlFe4qFiB1YjSM9ABGMIwACtIGciC5WGnBDU2FiADMpeWIrR7dXCF8gbkhwGj5AFYikfG2ooIg-UMj406GljNzOAv5S6tt6yVVnlZdjh9odjhAzhEoldyDdkoIgA
         \begin{tikzcd}
@@ -1817,7 +1828,7 @@ $(\infty,\, 1)$-圏 $\Cat{C}$ に対して，
             \end{tikzcd}
         \end{center}
         のこと
-        \footnote{実際には~\cite[\href{https://kerodon.net/tag/018F}{Tag 018F}]{kerodon}より $(\RFIB_{\BSC})_{/f} \lto \RFIB_{\BSC}$ が\hyperref[def:infty-fib]{右ファイブレーション}（したがって図\ref{fig:infty-fib}より\hyperref[def:isofibration]{アイソファイブレーション}）なので，補題\ref{lem:pullback-infty}, \ref{lem:pullback-iso}からこの $(\infty,\, 1)$-圏の引き戻しは $(1,\, 1)$-圏 $\sSet$ の引き戻しとして計算できる．}．
+        \footnote{実際には\exref{def:infty-forget}より $(\RFIB_{\BSC})_{/f} \lto \RFIB_{\BSC}$ が\hyperref[def:infty-fib]{右ファイブレーション}（したがって図\ref{fig:infty-fib}より\hyperref[def:isofibration]{アイソファイブレーション}）なので，補題\ref{lem:pullback-infty}, \ref{lem:pullback-iso}からこの $(\infty,\, 1)$-圏の引き戻しは $(1,\, 1)$-圏 $\sSet$ の引き戻しとして計算できる．}．
         特に，$\MFLDB{\Cat{B}}_0$ の元は以下の2つのデータから成り，\textbf{$\bm{\Cat{B}}$-多様体}と呼ばれる：
         \begin{itemize}
             \item \hyperref[def:c-smooth]{conically smoothな層状化空間} $X \in \SNGLR_0$
@@ -2311,7 +2322,7 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
 \begin{align}
     \Obj{[\BSC]} \coloneqq \bigl\{\, [U] \bigm| U \in \Obj{\Bsc} \,\bigr\}
 \end{align}
-と書く．この集合の元を\textbf{特異性タイプ} (singularity type) と呼ぼう．
+と書く．この集合の元を\textbf{特異性タイプ} (singularity type) と呼ぼう．\label{def:singularity-type}
 集合 $\Obj{[\BSC]}$ の上には二項関係
 \begin{align}
     \label{eq:relation-Bsc}
@@ -2442,9 +2453,11 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
     % \end{description}
 \end{proof}
 
-補題\ref{lem:basic-conservative}および定理\ref{thm:basic-easy}より，補題\ref{lem:strat-depthdim}で定義した局所的深さによる層状化 $s_X \colon X \lto \mathbb{P}$ は，$X$ の各点における特異性タイプをほぼ完全に指定する．
-従って，そもそも値域を $\OP{[\BSC]}$ そのものに持つような層状化 $\alpha_X \colon X \lto \OP{[\BSC]}$ を考えることができる．
-次に示す補題\ref{lem:strat-basic}における $\alpha_X$ の構成は，直感的には次のようなものである．
+補題\ref{lem:basic-conservative}および定理\ref{thm:basic-easy}より，補題\ref{lem:strat-depthdim}で定義した局所的深さによる層状化 $s_X \colon X \lto \mathbb{P}$ は，$X$ の各点における\hyperref[def:singularity-type]{特異性タイプ}を特徴づける．
+しかるに，同じ深さだが異なる\hyperref[def:singularity-type]{特異性タイプ}を検出することができない．
+従って，そもそも値域を $\OP{[\BSC]}$ そのものに持つような層状化 $\alpha_X \colon X \lto \OP{[\BSC]}$ があれば実用上便利である．
+補題\ref{lem:strat-basic}においてそのような $\alpha_X$ を構成しよう．
+直感的には，補題\ref{lem:strat-basic}の構成とは次のようなものである．
 
 いま $X$ として，赤道上に\hyperref[def:dim-depth]{局所的深さ}がそれぞれ $1,\, 2$ であるような\hyperref[def:stratified-space]{層}を持つ2次元球面を考え，
 3点 $x,\, y,\, z \in X$ を下の図のようにとる．
@@ -2650,7 +2663,7 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
         % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BRAOQBUASsGQBVCgF9gADXEhxpdJlz5CKMgEYqtRizacAQgGUAwgH1hY2fMXY8BImQBMW+s1aIO7AEZYA5g04LCk4fXwAnTisFEAxbFSJ1UmdqV10PZAMTCjlo2OV7FETNFJ13TyNjHJt81WREyhK3PW5+IRk5LRgoX3giUAAzMIgAWyQAVmocCCQAFka0zxw6JlMpKpBBkdnJ6cQAZnmyjPZhgAsATzRTmDBs6w2h0cQyECnx+82nxNfdmY-HpCOHZIA6vOhYBhsU4QCAAa3WnyQ3zeiEc-y2z2BiG+qTKAApOEsVlIAJTmAA+smoDDoXhgDAACko7KoQGE-KccB1xEA
         \begin{tikzcd}
         {\textcolor{red}{\ENTRU{[U]}{X}}} \arrow[dr, phantom," " {pullback}, very near start, color=black] \arrow[r] \arrow[d, red, "(\tau_X)_{|}"'] & \ENTR{X} \arrow[d, "\tau_X"]   \\
-        {\textcolor{red}{\BSC_{[U]}}} \arrow[dr, phantom," " {pullback}, very near start, color=black] \arrow[r] \arrow[d]                     & \BSC \arrow[d, "{[\, \mhyphen \,]}"] \\
+        {\textcolor{red}{\BSC_{[U]}}} \arrow[dr, phantom," " {pullback}, very near start, color=black] \arrow[r] \arrow[d]                     &\BSC \arrow[d, "{[\, \mhyphen \,]}"] \\
         {\bigl\{[U]\bigr\}} \arrow[r, hook]                  & {\Ner\bigl([\BSC]\bigr)}                      
         \end{tikzcd}
     \end{center}
@@ -2658,10 +2671,11 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
 
 まず，\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\BSC_{[U]}$ の構造を詳細に調べよう．
 定理\ref{thm:basic-easy}-(4) より $\BSC \xrightarrow{[\, \mhyphen \,]} \Ner \bigl( [\BSC] \bigr)$ は\hyperref[def:isofibration]{アイソファイブレーション}なので，補題\ref{lem:pullback-infty}, \ref{lem:pullback-iso}から $(\infty,\, 1)$-圏の引き戻し
+\footnote{混乱防止のため，\hyperref[def:Strat-infty]{$\Kan$-豊穣圏 $\BSC$} およびその\hyperref[def:nerve-hc]{homotopy coherent nerve} $\hcNer (\BSC)$ を区別した．}
 \begin{center}
     % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQAdDgERkZ3oA9YiAC+pdJlz5CKchWp0mrdlwByMAE5cARlgDmjABTIuAIQDKAYUq6DmgJRiJIDNjwEi84ooYs2iJwcllbOku4yRGQ+NH4qgebWAPrAyACqlKJiijBQ+vBEoABmmhAAtkhkIDgQSPLV9FiM7AAWEBAA1iCxygEg6ZTdIIz0OnwAClIesiCaBi04YSAl5UgAzDQ1SABM4sWlFYjbm7WI9XF9phykAARcZS0AnmgtMGB314N7ywfrJ5WiTJAA
     \begin{tikzcd}
-    {\BSC_{[U]}} \arrow[r] \arrow[d] \arrow[dr, phantom," " {pullback}, very near start, color=black]  & \BSC \arrow[d, "{[\, \mhyphen \,]}"] \\
+    {\BSC_{[U]}} \arrow[r] \arrow[d] \arrow[dr, phantom," " {pullback}, very near start, color=black]  & \hcNer(\BSC) \arrow[d, "{[\, \mhyphen \,]}"] \\
     \Delta^0 \arrow[r, "{[U]}"', hook] & {\Ner\bigl([\BSC]\bigr)}            
     \end{tikzcd}
 \end{center}
@@ -2671,7 +2685,8 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
 \end{align}
 である．さらに定理\ref{thm:Map-hcNer}より，$\BSC_{[U]}$ の\hyperref[def:Map]{射の空間}について\hyperref[def:htpy-equiv-Kan]{Kan複体のホモトピー同値}
 \begin{align}
-    \inftyMap{\BSC_{[U]}} (V,\, W) \simeq \Hom{\BSC} (V,\, W) \simeq \inftyMap{\BSC} (V,\, W)
+    \label{eq:Map-BscU}
+    \inftyMap{\BSC_{[U]}} (V,\, W) \simeq \Hom{\BSC} (V,\, W) \simeq \inftyMap{\hcNer(\BSC)} (V,\, W)
 \end{align}
 が成り立つ．故に補題\ref{lem:basic-conservative}および定理\ref{thm:basic-easy}から，\hyperref[def:Kan-group]{群的なKan複体}の\hyperref[def:htpy-equiv-Kan]{ホモトピー同値}
 \begin{align}
@@ -2695,22 +2710,26 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
     % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BRAOQBUASsGQBVCgF9gADXEhxpdJlz5CKMgEYqtRizacAQgGUAwgH1hY2fMXY8BImQBMW+s1aIO7AEZYA5g04LCk4fXwAnTisFEAxbFSJ1UmdqV10PZAMTCjlo2OV7FETNFJ13TyNjHJt81WREyhK3PW5+IRk5LRgoX3giUAAzMIgAWyQAVmocCCQAFka0zxw6JlMpKpBBkdnJ6cQAZnmyjPZhgAsATzRTmDBs6w2h0cQyECnx+82nxNfdmY-HpCOHZIA6vOhYBhsU4QCAAa3WnyQ3zeiEc-y2z2BiG+qTKAApOEsVlIAJTmAA+smoDDoXhgDAACko7KoQGE-KccB1xEA
     \begin{tikzcd}
     {\ENTRU{[U]}{X}} \arrow[dr, phantom," " {pullback}, very near start, color=black] \arrow[r] \arrow[d, "(\tau_X)_{|}"'] & \ENTR{X} \arrow[d, "\tau_X"]   \\
-    {\BSC_{[U]}} \arrow[r]                    & \BSC
+    {\BSC_{[U]}} \arrow[r]                    & \hcNer(\BSC)
     \end{tikzcd}
 \end{center}
-は $(1,\, 1)$-圏 $\sSet$ の引き戻しとして計算できる．よってまず
+は $(1,\, 1)$-圏 $\sSet$ の引き戻しとして計算できる．
+故に\exref{ex:join-2}および定義\ref{def:nerve-hc}から，$\ENTRU{[U]}{X}$ の $n$-単体は
 \begin{align}
-    (\ENTRU{[U]}{X})_0 = \bigcup_{V \in [U]} \Hom{\Snglr} (V,\, X)
+    \ENTRU{[U]}{X}_n 
+    &\cong (\BSC_{[U]}{}_{/X})_n \\
+    &\cong \Bigl\{\, H \in \Hom{\sSet} \bigl(\Delta^{n+1},\, \hcNer(\SNGLR)\bigr) \Bigm| \substack{H_{[0]}\bigl(\{n+1\}\bigr) = X,\\ H_{[0]} \bigl( \{i\} \bigr) \in [U]\; (0\le \forall i \le n)}  \,\Bigr\} \\
+    &= \Bigl\{\, H \in \Hom{\sCat} \bigl(\mathfrak{C}[n+1],\, \SNGLR\bigr) \Bigm| \substack{H_{0}(n+1) = X,\\ H_{0} (i) \in [U]\; (0\le \forall i \le n)}  \,\Bigr\} \label{eq:EntrU-simplex}
 \end{align}
-である．$n$-単体は
+であり，$X$ を除く頂点に\hyperref[def:singularity-type]{特異性タイプ} $[U]$ の\hyperref[def:Bsc-induction]{basic}が載る形になる．
+例えば $0$-単体は
 \begin{align}
-    (\ENTRU{[U]}{X})_n 
-    &\cong \Hom{X} (\Delta^n \star \Delta^0,\, \BSC_{[U]}) \\
-    &\cong \bigl\{\, H \in \Hom{\sSet} \bigl(\Delta^{n+1},\, \BSC_{[U]}\bigr) \bigm| H|_{\{n+1\}} = X \,\bigr\} \label{eq:EntrU-simplex}
+    \ENTRU{[U]}{X}_0 = \bigcup_{V \in [U]} \Hom{\Snglr} (V,\, X)
 \end{align}
-であり\footnote{ただし，$X$ へ向かう射は $\BSC_{[U]}$ ではなく $\SNGLR_{[U]}$ 内でとらなくてはいけない．}，$X$ を除く頂点に $[U]$ の元が載る形になる．例えば\exref{ex:join-1}および\exref{ex:hcNer-2}より，$\ENTRU{[U]}{X}$ の $1$-単体は
+である．
+$1$-単体は\exref{ex:hcNer-2}より
 \begin{align}
-    (\ENTRU{[U]}{X})_1 \cong \left\{\, 
+    \ENTRU{[U]}{X}_1 \cong \left\{\, 
         \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
             \path coordinate[bullet,label=below:$X$] (X)
             +(120:2) coordinate[bullet,label=above left:$V$] (V)
@@ -2720,7 +2739,7 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
                 \fill[gray!20] (V.center) -- (W.center) -- (X.center) --cycle;
             \end{scope}
             % \node[gray] at (barycentric cs:X=1,V=1,W=1) {$H$};
-            \draw[->,gray,double] ($(W) + (-150:.3)$) -- node[midway,above left] {$H$} ($(W) + (-150:1.5)$);
+            \draw[->,gray,double] ($(W) + (-150:.3)$) -- node[midway,inner sep=1pt] {$H$} ($(W) + (-150:1.5)$);
             \draw[->-=.5] (V.center) -- node[midway,left] {$\iota_V$} (X.center);
             \draw[->-=.5] (W.center) -- node[midway,right] {$\iota_W$} (X.center);
             \draw[->-=.5] (V.center) -- node[midway,above] {$f$} (W.center);
@@ -2735,12 +2754,21 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
         } 
     \,\right\} 
 \end{align}
-のようになっている．i.e. $\ENTRU{[U]}{X}$ の1-射とは，以下のデータの組である：
+であることがわかる．i.e. $\ENTRU{[U]}{X}$ の1-射とは，以下のデータの組である：
 \begin{itemize}
-    \item $U$ と同じ特異性タイプを持つ\hyperref[def:Bsc-induction]{basic} $V,\, W \in \Obj{\Bsc}$
-    \item \hyperref[def:Snglr]{Conically smooth}な\hyperref[def:strat-emb]{層状化開埋め込み} $\iota_V \in \Hom{\Snglr}(V,\, X),\; \iota_W \in \Hom{\Snglr} (W,\, X),\; f \in \Hom{\Snglr} (V,\, W)$
-    \item $\iota_W \circ f$ と $\iota_V$ を繋ぐアイソトピー $H \in \Hom{\Snglr} (\Delta^1_e \times V,\, \Delta^1_e \times X)$
+    \item 特異性タイプが $[U]$ の\hyperref[def:Bsc-induction]{basic} $V,\, W \in \Obj{\Bsc}$
+    \item 3つの\hyperref[def:strat-emb]{層状化開埋め込み} $\iota_V \in \Hom{\Snglr}(V,\, X),\; \iota_W \in \Hom{\Snglr} (W,\, X),\; f \in \Hom{\Snglr} (V,\, W)$
+    \item $\iota_W \circ f$ と $\iota_V$ を繋ぐアイソトピー\footnote{より正確には，$\mathrm{proj}_X \circ H \in \Hom{\Snglr} (\Delta^1_e \times V,\, X)$ がアイソトピーである．} $H \in \Hom{\Snglr} (\Delta^1_e \times V,\, \Delta^1_e \times X)$
 \end{itemize}
+
+以上の考察から，$(\infty,\, 1)$-圏 $\ENTRU{[U]}{X}$ とは直観的には，
+\begin{itemize}
+    \item $(X \to P)$ 上に与えられた\hyperref[def:Sm-induction]{conically smooth アトラス} $\Sm(X \to P)$ に属するチャート $(V,\, V \overset{\iota_V}{\hookrightarrow} X) \in \Sm(X \to P)$ のうち，特異性タイプが $[U]$ であるものを対象に持つ．
+    \item \hyperref[def:singularity-type]{特異性タイプ}が $[U]$ であるチャート $V \overset{\iota_V}{\hookrightarrow} X$ の間のアイソトピーを1-射に持つ．
+    \item アイソトピーの間のアイソトピーを2-射に持つ．
+    \item $\cdots$
+\end{itemize}
+ような $(\infty,\, 1)$-圏であることが分かった．
 
 \begin{mydef}[label=def:XU]{{$[U]$}-層}
     $\forall (X \to P) \in \Obj{\Snglr}$ および\hyperref[def:Bsc-induction]{basic} $\forall U = \mathbb{R}^n \times \Cone{Z} \in \Obj{\Bsc}$ を与える．
@@ -2859,7 +2887,59 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
     ~\cite[Corollary]{AFT2014stratified}
 \end{proof}
 
+ここで，$\BSC_{[U]}$ の\hyperref[def:fullsub-infty]{部分 $(\infty,\, 1)$-圏} $\BSC^0_{[U]}$ を，対象は全く同一だが，\hyperref[def:Map]{射の空間}を原点を保つ層状化開埋め込みに制限したものとして定義する．
+すると $\forall V,\, W \in (\BSC^0_{[U]})_0 = (\BSC_{[U]})_0$ に対して，定理\ref{thm:basic-easy}および\eqref{eq:Map-BscU}より\hyperref[def:htpy-equiv-Kan]{Kan複体のホモトピー同値}
+\begin{align}
+    \inftyMap{\BSC^0_{[U]}}(V,\, W) = \Hom{\BSC}^0 (V,\, W) \simeq \Hom{\BSC} (V,\, W) = \inftyMap{\BSC_{[U]}} (V,\, W)
+\end{align}
+が成り立つから，\hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}
+\begin{align}
+    \label{eq:equiv-BscU2BscU0}
+    \BSC^0_{[U]} \overset{\simeq}{\hookrightarrow} \BSC_{[U]}
+\end{align}
+が成り立つ\footnote{包含写像 $\BSC^0_{[U]} \hookrightarrow \BSC_{[U]}$ に命題\ref{prop:equiv-FF-ES}を適用した．}．
 
+さらに，$(\infty,\, 1)$-圏 $\ENTER^0_{[U]}(X)$ を $(\infty,\, 1)$-圏の引き戻し\footnote{\hyperref[def:infty-fib]{右ファイブレーション}は引き戻しについて安定なので $(\tau_X)_|$ もまた右ファイブレーションである．よって補題\ref{lem:pullback-infty}, \ref{lem:pullback-iso}から，この $(\infty,\, 1)$-圏の引き戻しは実際には $\sSet$ の引き戻しとして計算できる．}
+\begin{center}
+    % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQAdDgIQGUBhAHrEA+sGQBVSgF8Q00uky58hFOQrU6TVuy59+YyTLkKQGbHgJF1xTQxZtEnDgFEAcgBUAShPFTpwAAasvKKFipEZLY09jpOXO4eLl7Chv4AFIEAlHKaMFAA5vBEoABmAE4QALZIAMw0OBBIxKEgFdXNDU2I6iA49FiM7AAWEBAA1iAx2o7O2FUwAI5TIIz0AEYwjAAKSpaqIOVYBcM4JmWVNYgATF1IvbGz6Vz9zCLZYgA+IabtV-V9brXaQyIA
+    \begin{tikzcd}
+    {\ENTER^0_{[U]}(X)} \pullback \arrow[d] \arrow[r]   & {\ENTRU{[U]}{X}} \arrow[d, "(\tau_X)_{|}"] \\
+    {\BSC^0_{[U]}} \arrow[r, "\simeq"', hook] & {\BSC_{[U]}}                              
+    \end{tikzcd}
+\end{center}
+により定義する．引き戻しは $(\infty,\, 1)$-圏同値を保存するので，$\ENTER^0_{[U]}(X) \simeq \ENTRU{[U]}{X}$ が成り立つ．
+\eqref{eq:EntrU-simplex}より，$\ENTER^0_{[U]}(X)$ の $n$-射は
+\begin{align}
+    \ENTER^0_{[U]}(X)_n 
+    &\cong (\BSC^0_{[U]}{}_{/X})_n \\
+    &\cong \Biggl\{\, H \in \Hom{\sSet} \bigl(\Delta^{n+1},\, \hcNer(\SNGLR)\bigr) \Biggm| \substack{H_{[0]}\bigl(\{n+1\}\bigr) = X,\\ H_{[0]} \bigl( \{i\} \bigr) \in [U]\; (0\le \forall i \le n), \\ H|_{\Delta^{n+1}\setminus \{n+1\}}\; \text{preserves}\; \bm{0}} \,\Biggr\} \\
+    &= \Biggl\{\, H \in \Hom{\sCat} \bigl(\mathfrak{C}[n+1],\, \SNGLR\bigr) \Biggm| 
+        \substack{
+            H_{0}(n+1) = X,\\ 
+            H_{0} (i) \in [U]\; (0\le \forall i \le n), \\
+            H_{i,j} \bigl(\Ner(P_{ij})\bigr) \subset \Hom{\BSC}^0 \bigl( H_0(i),\, H_0(j) \bigr)\; (0 \le \forall i \le \forall j \le n)
+            }  \,\Biggr\}
+\end{align}
+となっている．
+
+ここで，$(\infty,\, 1)$-圏の関手
+\begin{align}
+    \mathrm{ev}_{\bm{0}} \colon \ENTER^0_{[U]} (X) \lto \Sing^{\text{sm}} (X)
+\end{align}
+を，$\forall n \ge 0$ に対して
+\begin{align}
+    \label{eq:eval0}
+    \mathrm{ev}_{\bm{0}}{}_{[n]} \colon \ENTER^0_{[U]}(X)_n &\lto \Sing^{\text{sm}}(X) = \Hom{\Snglr} (\Delta^n_e,\, X), \\
+    H &\lmto \bigl( x \mapsto \mathrm{proj}_{X} \circ H_{[n+1]}(\Id_{[n+1]})(x,\, \bm{0})\bigr)
+\end{align}
+と定義する．$H_{[n+1]}(\Id_{[n+1]}) \in \Hom{\SNGLR} \bigl( H_{[0]}(\{0\}),\, X \bigr)_{n} \subset  \Hom{\Snglr} \bigl(\Delta^n_e \times H_{[0]}(\{0\}),\; \Delta^n_e \times X\bigr)$ であることに注意する．
+いま $H_{[0]}(\{0\}) \in [U]$ であるから，$\forall x \in \Delta^n_e$ に対して
+\begin{align}
+    \mathrm{proj}_X \circ H_{[n+1]}(\Id_{[n+1]}) (x,\, \mhyphen \,)
+    &\in \Hom{\Snglr} \bigl( H_{[0]} (\{0\}),\, X \bigr) 
+\end{align}
+である．よって\hyperref[lem:strat-basic]{$\alpha_X$ の構成}より，$\mathrm{proj}_X \circ H_{[n+1]}(\Id_{[n+1]}) (x,\, \bm{0}) \in X_{[U]}$ が言える．
+i.e. $(\infty,\, 1)$-圏の関手 $\mathrm{ev}_{\bm{0}}$ は $\Sing^{\text{sm}} (X_{[U]})$ に値をとる．
 
 \begin{mytheo}[label=thm:tangentclassifier]{tangent classifierの局所的な構造}
     $\forall (X \to P) \in \Obj{\Snglr}$ および\hyperref[def:Bsc-induction]{basic} $\forall U = \mathbb{R}^n \times \Cone{Z} \in \Obj{\Bsc}$ を与える．
