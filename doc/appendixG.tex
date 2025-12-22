@@ -2370,7 +2370,7 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
 
 
 
-\subsection{tangent classifierの局所的構造}
+\subsection{特異性タイプによる層状化}
 
 層状化空間の局所的な特異性は\hyperref[def:dim-depth]{局所的深さ}によって特徴付けられる．これにより，局所的深さをとるという操作によって常に別の層状化を考えることができる．
 
@@ -2654,6 +2654,8 @@ $(1,\, 1)$-圏 $\Bsc$ における対象の同型類が成す集合を
     が成り立つことは明らかである．
 \end{proof}
 
+\section{tangent classifierの局所的構造}
+
 \begin{mydef}[label=def:EntrU]{制限されたtangent classifier}
     $\forall (X \to P) \in \Obj{\Snglr}$ および\hyperref[def:Bsc-induction]{basic} $\forall U = \mathbb{R}^n \times \Cone{Z} \in \Obj{\Bsc}$ を与える．
     このとき，$(\infty,\, 1)$-圏 $\textcolor{red}{\BSC_{[U]}},\, \textcolor{red}{\ENTRU{[U]}{X}}$ および $(\infty,\, 1)$-圏の関手 $\textcolor{red}{(\tau_X)_{|}} \in \Hom{\sSet}\bigl(\textcolor{red}{\ENTRU{[U]}{X}},\, \textcolor{red}{\BSC_{[U]}}\bigr)$ を
@@ -2884,7 +2886,7 @@ $1$-単体は\exref{ex:hcNer-2}より
 \end{mylem}
 
 \begin{proof}
-    ~\cite[Corollary]{AFT2014stratified}
+    ~\cite[Corollary 3.4.5]{AFT2014stratified}
 \end{proof}
 
 ここで，$\BSC_{[U]}$ の\hyperref[def:fullsub-infty]{部分 $(\infty,\, 1)$-圏} $\BSC^0_{[U]}$ を，対象は全く同一だが，\hyperref[def:Map]{射の空間}を原点を保つ層状化開埋め込みに制限したものとして定義する．
@@ -2952,7 +2954,44 @@ i.e. $(\infty,\, 1)$-圏の関手 $\mathrm{ev}_{\bm{0}}$ は $\Sing^{\text{sm}} 
 \end{mytheo}
 
 \begin{proof}
-    
+    \eqref{eq:htpy-equiv-BAut2BscU}, \eqref{eq:equiv-BscU2BscU0}より，\hyperref[def:htpy-equiv-Kan]{Kan複体のホモトピー同値}
+    \begin{align}
+        \deloop{\Aut(U)} \overset{\simeq}{\hookrightarrow} \BSC^0_{[U]} \overset{\simeq}{\hookrightarrow} \BSC_{[U]}
+    \end{align}
+    がある．故に，$(\infty,\, 1)$-圏の引き戻しの図式
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BlLMAcwB6wTjhgAPHMDgBbAL6yAFAA0A+sGQBVCrICUIWaXSZc+QigCM5KrUYs2nAKIA5ACoOASkJHjJAIygM8mqa2so6AAScaEwMDL50AMYA1vqGIBjYeAREAExW1PTMrIgc7M5unsTBWopKEVExcYkpBkaZpkQAzPk2RfZlru4a6jXASrKR7NGx8cmpbSbZKAAsPYV2JY6DY7Lz6cZZZsir5tbrxaUAQlwAwnsZi0fdpwW2F5zXN9Xa9wcdKHkXr0NldbgIqiMfq19u0lshLEDzv1YAwIBA0MJ2ABBJg4BQaHS7aEPQ5dUg5M5vfqfNScaR0HAAC18vmA7lkAigROsMCgfHgRFAADMAE4QaRIVYgHAQJAAVlefU27BwdCYKiUe1F4qQ3WlssQADZFSCFCI1RqdGoAD5EtLaiVG6gy+XQh2650G5ZusWOgDsnqQxuldCwDDYjLRKRN73Y2GkMAAjlrfUgAByBxABkNhiNRkAx-rxpMpnWISz6pB5HPhkqRiDR4EXLAqHKlx0Vl2INM+svVrt+3uO-sGvWq3N1-OFkot8ztpCdg1kJv9elMkXSYAwGiyWnsXyb4jyAsgBh0XwwBgABT+SxAIqwfEZOHnTsriAAnLJtEA
+        \begin{tikzcd}
+        {\Sing^{\text{sm}}(X_{[U]})} & {\ENTER^{\text{bdl}}_{[U]}(X)} \pullback \arrow[r, "i_2", hook] \arrow[d] \arrow[l, "\mathrm{ev}_{\bm{0}}"'] & {\ENTER^0_{[U]}(X)}\pullback \arrow[d] \arrow[r, "i_1", hook] & {\ENTRU{[U]}{X} \pullback} \arrow[d, "(\tau_X)_{|}"] \arrow[r] & \ENTR{X} \arrow[d, "\tau_X"] \\
+                                    & \deloop{\Aut(U)} \arrow[r, "\simeq", hook]                                                                   & {\BSC^0_{[U]}} \arrow[r, "\simeq", hook]                       & {\BSC_{[U]}} \arrow[r] \arrow[d]                               & \BSC                         \\
+                                    &                                                                                                              &                                                                & \BSC_{[\mathbb{R}^{\dim(U) - \depth(U)}]}                                            &                             
+        \end{tikzcd}
+    \end{center}
+    を書くことができる\footnote{$\tau_X$ が\hyperref[def:infty-fib]{右ファイブレーション}なので，同じ行の縦の矢印は全て\hyperref[def:infty-fib]{右ファイブレーション}である．}．引き戻しは \hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}を保存するので，$i_1,\, i_2$ はどちらも$(\infty,\, 1)$-圏同値である．
+    よって，$\mathrm{ev}_{\bm{0}}$ が\hyperref[def:htpy-equiv-Kan]{Kan複体のホモトピー同値}であることを示せば十分である．
+    そのためには，$\forall x \in X_{[U]} = \Sing^{\text{sm}}(X_{[U]})_0$ に対して，
+    $\mathrm{ev}_{\bm{0}}$ の $x$ 上のファイバー
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQAdD4ADy4F8Q-Uuky58hFOQrU6TVuy4BlLGADmAPWBccMHjmBwAtv34AKABoB9YMgCqlfgEohIkBmx4CRacVkMWNkRODgBRADkAFVCAJS0dPQMAIyhGUxt7R0sXYVFPCSIyPxoAhWCuCOi47Q5dfWAUtP4Mh3MLJwACLjRmRkYk+gBjAGshWRgoNXgiUAAzACcIIyQyEBwIJGk1+ixGdgALCAhR3JAFpaQAJhp1zZL5IJCjehx9+aNgGFpmmqSP4lMrjmi2WiAAzDcNogAW5zqCIWsoZd+I4gA
+        \begin{tikzcd}
+        {\ENTER^{\text{bdl}}_{[U]}(X)_x \pullback} \arrow[d] \arrow[r] & {\ENTER^{\text{bdl}}_{[U]}(X)} \arrow[d, "\mathrm{ev}_{\bm{0}}"] \\
+        \{x\} \arrow[r, hook]                                        & {\Sing^{\text{sm}}(X_{[U]})}                                    
+        \end{tikzcd}
+    \end{center}
+    が可縮（i.e. $\Delta^0$ に\hyperref[def:htpy-equiv-Kan]{Kan複体のホモトピー同値}）であることを示せば十分である~\cite[\href{https://kerodon.net/tag/00X1}{Tag 00X1}]{kerodon}．
+    ところで，もし勝手な有限\footnote{非退化な単体が高々有限個} $(\infty,\, 1)$-圏 $\textcolor{blue}{\Cat{K}}$ および勝手な $(\infty,\, 1)$-圏の関手 $\textcolor{blue}{F} \colon \textcolor{blue}{\Cat{K}} \lto \ENTER^{\text{bdl}}_{[U]}(X)_x$ に対して以下の持ち上げ性質が成り立つならば $\ENTER^{\text{bdl}}_{[U]}(X)_x$ が可縮
+    \footnote{正確には\textbf{弱可縮} (weakly contractible) だが，命題\ref{prop:htpy-equiv-Kan}よりKan複体の場合は両者の概念は一致する．}
+    になることが知られている~\cite[Fact 9.3.9.]{Haugseng2025intro}：
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQAdDgUQDkAVbgCUAesC44YADxzAARlEYBfJQH1gyAKqUlACgAaASlVSQS0uky58hFOQrU6TVuwnScAYwiMIAJ3ksMEriHADC9LIA0ipmFiAY2HgERPbEjgyBrhyMMABmOKEEMCGSMl4+-nKBwVzhUSpKZo4wUADm8ESgub4QALZIZCA4EEj2TpmIIABisV09-YiDw0gATDQ49FiM7AAWEBAA1rMg3X2r6yOIY4xYYGyTUPRwOy0gNBkuk1xy9P5TjTRGPQ5DBGAAFKxJWwgXxYVo7HBNJRAA
+        \begin{tikzcd}
+        \textcolor{blue}{\forall\Cat{K}} \arrow[r, blue, "\forall F"] \arrow[d, hook]            & {\ENTER^{\text{bdl}}_{[U]}(X)_x} \\
+        \leftCone{\textcolor{blue}{\Cat{K}}} \arrow[ru, red, "\exists \bar{F}"', dashed] &                                 
+        \end{tikzcd}
+    \end{center}
+    故に，以下ではこの持ち上げ性質を示そう．
+
+
 \end{proof}
 
 \subsection{接構造の具体例}
