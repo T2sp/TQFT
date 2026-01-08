@@ -109,7 +109,13 @@
         minimum size=2*(#1-\pgflinewidth), 
         inner sep=0pt, outer sep=0pt
     },
-    cross/.default={1pt}
+    cross/.default={1pt},
+    band/.style={
+        double=white,double distance=5pt
+    },
+    core/.style={
+        blue,thick
+    }
 }
 \pgfdeclarelayer{background}
 \pgfdeclarelayer{foreground}
