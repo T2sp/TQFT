@@ -1,6 +1,5 @@
-def:monoidal-functor	appendixF.tex	4745	\hyperref[def:monoidal-functor]{モノイダル関手}
-def:second-countable	appendixB.tex	88	\hyperref[def:second-countable]{第2可算}
-def.reltopo	chap2.tex	645	\hyperref[def.reltopo]{相対位相}
-diffmani	appendixB.tex	137	\hyperref[diffmani]{$C^\infty$ チャート}
-diffmani	appendixB.tex	33	\hyperref[diffmani]{$C^\infty$ チャート}
-thm.metrictopo	appendixB.tex	41	\hyperref[thm.metrictopo]{Euclid位相}
+def:FF-ES	appendixG.tex	3548	\hyperref[def:FF-ES]{忠実充満かつ本質的全射}
+def:htpy-Kan	appendixG.tex	1544	\hyperref[def:htpy-Kan]{ホモトピー同値}
+def:htpy-Kan	appendixG.tex	1546	\hyperref[def:htpy-Kan]{ホモトピー同値}
+def:infy-fib	appendixG.tex	1127	\hyperref[def:infy-fib]{内的ファイブレーション}
+deftpy-equiv	appendixG.tex	4161	\hyperref[deftpy-equiv]{ホモトピー同値}

@@ -1,1819 +1,467 @@
-ax:Atiyah-TQFT	chap3.tex	998	\hyperref[ax:Atiyah-TQFT]{TQFT}
-ax:G-mod	chap3.tex	2345	\hyperref[ax:G-mod]{左 $G$ 加群}
-ax:G-mod	chap3.tex	2366	\hyperref[ax:G-mod]{$G$ 加群}
-ax:G-mod	chap3.tex	2377	\hyperref[ax:G-mod]{$G$ 加群}
-ax:G-mod	chap3.tex	2626	\hyperref[ax:G-mod]{$G$ 加群}
-ax:symcat-2d-0form	chap3.tex	3499	\hyperref[ax:symcat-2d-0form]{$0$-form symmetry}
-ax:symcat-2d-0form	chap3.tex	3530	\hyperref[ax:symcat-2d-0form]{$0$-form symmetry}
-ax:symcat-2d-0form	chap3.tex	3696	\hyperref[ax:symcat-2d-0form]{対称性}
-ax:symcat-2d-0form	chap3.tex	3737	\hyperref[ax:symcat-2d-0form]{対称性}
-ax:symcat-2d-0form	chap3.tex	3745	\hyperref[ax:symcat-2d-0form]{有限対称性}
-cmtd:lim	appendixC.tex	534	\hyperref[cmtd:lim]{極限の普遍性}
-cmtd:lim	appendixC.tex	577	\hyperref[cmtd:lim]{極限の普遍性}
-col:Yoneda	appendixC.tex	1043	\hyperref[col:Yoneda]{米田の補題の系}
-col:Yoneda	appendixC.tex	1112	\hyperref[col:Yoneda]{米田の補題の系}
-col:Yoneda	chap4.tex	952	\hyperref[col:Yoneda]{米田の補題}
-def:2cat	appendixF.tex	4360	\hyperref[def:2cat]{2-圏}
-def:2cat	appendixF.tex	4363	\hyperref[def:2cat]{$2$-圏}
-def:2cat	appendixF.tex	4508	\hyperref[def:2cat]{2圏}
-def:2cat	appendixF.tex	4843	\hyperref[def:2cat]{2-圏}
-def:additive-cat	appendixF.tex	1599	\hyperref[def:additive-cat]{$\mathbb{K}
-def:additive-cat	appendixF.tex	1632	\hyperref[def:additive-cat]{アーベル圏}
-def:additive-cat	appendixF.tex	1653	\hyperref[def:additive-cat]{$\mathbb{K}
-def:additive-cat	appendixF.tex	1668	\hyperref[def:additive-cat]{$\mathbb{K}
-def:additive-cat	appendixF.tex	1673	\hyperref[def:additive-cat]{$\mathbb{K}
-def:additive-cat	appendixF.tex	172	\hyperref[def:additive-cat]{加法圏}
-def:additive-cat	appendixF.tex	177	\hyperref[def:additive-cat]{$\mathbb{K}
-def:additive-cat	appendixF.tex	181	\hyperref[def:additive-cat]{アーベル圏}
-def:additive-cat	appendixF.tex	205	\hyperref[def:additive-cat]{アーベル圏}
-def:additive-cat	appendixF.tex	212	\hyperref[def:additive-cat]{アーベル圏}
-def:additive-cat	appendixF.tex	224	\hyperref[def:additive-cat]{アーベル圏}
-def:additive-cat	appendixF.tex	232	\hyperref[def:additive-cat]{アーベル圏}
-def:additive-cat	appendixF.tex	232	\hyperref[def:additive-cat]{$\mathbb{K}
-def:additive-cat	appendixF.tex	2623	\hyperref[def:additive-cat]{$\mathbb{K}
-def:additive-cat	appendixF.tex	2624	\hyperref[def:additive-cat]{$\mathbb{K}
-def:additive-cat	appendixF.tex	2635	\hyperref[def:additive-cat]{$\mathbb{K}
-def:additive-cat	appendixF.tex	265	\hyperref[def:additive-cat]{$\mathbb{C}
-def:additive-cat	appendixF.tex	306	\hyperref[def:additive-cat]{$\mathbb{C}
-def:additive-cat	appendixF.tex	3193	\hyperref[def:additive-cat]{アーベル圏}
-def:additive-cat	appendixF.tex	3287	\hyperref[def:additive-cat]{アーベル圏}
-def:additive-cat	appendixF.tex	3358	\hyperref[def:additive-cat]{アーベル圏}
-def:additive-cat	appendixF.tex	49	\hyperref[def:additive-cat]{$\mathbb{C}
-def:additive-cat	appendixF.tex	533	\hyperref[def:additive-cat]{$\mathbb{C}
-def:additive-cat	chap3.tex	3780	\hyperref[def:additive-cat]{アーベル圏の定義}
-def:additive-cat	chap3.tex	3782	\hyperref[def:additive-cat]{アーベル圏の定義}
-def:additive-cat	chap3.tex	3814	\hyperref[def:additive-cat]{$\mathbb{K}
-def:additive-cat	chap3.tex	3817	\hyperref[def:additive-cat]{$\mathbb{K}
-def:additive-cat	chap4.tex	505	\hyperref[def:additive-cat]{$\mathbb{C}
-def:additive-cat	chap4.tex	516	\hyperref[def:additive-cat]{$\mathbb{C}
-def:additive-cat	chap4.tex	619	\hyperref[def:additive-cat]{アーベル圏}
-def:additive-cat	chap4.tex	640	\hyperref[def:additive-cat]{アーベル圏}
-def:additive-exact	appendixF.tex	1612	\hyperref[def:additive-exact]{完全}
-def:additive-exact	appendixF.tex	1783	\hyperref[def:additive-exact]{$\mathbb{K}
-def:additive-exact	appendixF.tex	1785	\hyperref[def:additive-exact]{完全}
-def:additive-exact	appendixF.tex	2624	\hyperref[def:additive-exact]{右完全関手}
-def:additive-exact	appendixF.tex	2636	\hyperref[def:additive-exact]{完全}
-def:additive-exact	appendixF.tex	2714	\hyperref[def:additive-exact]{完全関手}
-def:adjoint	appendixC.tex	1022	\hyperref[def:adjoint]{$F \dashv G$}
-def:adjoint	appendixC.tex	1028	\hyperref[def:adjoint]{随伴の定義}
-def:adjoint	appendixC.tex	1179	\hyperref[def:adjoint]{$i_{!}
-def:adjoint	appendixC.tex	1459	\hyperref[def:adjoint]{右随伴}
-def:adjoint	appendixC.tex	1463	\hyperref[def:adjoint]{右随伴の定義}
-def:adjoint	appendixC.tex	2915	\hyperref[def:adjoint]{左随伴}
-def:adjoint	chap3.tex	3903	\hyperref[def:adjoint]{左随伴関手}
-def:algobj	appendixF.tex	2911	\hyperref[def:algobj]{代数対象}
-def:algobj	appendixF.tex	2990	\hyperref[def:algobj]{余代数対象}
-def:algobj	appendixF.tex	3073	\hyperref[def:algobj]{代数対象}
-def:algobj	appendixF.tex	3107	\hyperref[def:algobj]{代数対象}
-def:algobj	appendixF.tex	3142	\hyperref[def:algobj]{代数対象}
-def:algobj	appendixF.tex	3170	\hyperref[def:algobj]{代数対象}
-def:algobj	appendixF.tex	3190	\hyperref[def:algobj]{代数対象}
-def:algobj	appendixF.tex	3221	\hyperref[def:algobj]{代数対象}
-def:algobj	appendixF.tex	3232	\hyperref[def:algobj]{代数対象}
-def:algobj	appendixF.tex	3248	\hyperref[def:algobj]{代数対象}
-def:algobj	appendixF.tex	3277	\hyperref[def:algobj]{代数対象}
-def:algobj	appendixF.tex	3284	\hyperref[def:algobj]{代数対象}
-def:algobj	appendixF.tex	3297	\hyperref[def:algobj]{代数対象}
-def:algobj	appendixF.tex	3321	\hyperref[def:algobj]{代数対象}
-def:algobj	appendixF.tex	3324	\hyperref[def:algobj]{代数対象}
-def:algobj	appendixF.tex	3356	\hyperref[def:algobj]{代数対象}
-def:algobj	appendixF.tex	3370	\hyperref[def:algobj]{代数対象}
-def:algobj	appendixF.tex	3378	\hyperref[def:algobj]{代数対象}
-def:algobj	appendixF.tex	3385	\hyperref[def:algobj]{余代数対象}
-def:algobj	appendixF.tex	3495	\hyperref[def:algobj]{代数対象}
-def:algobj	appendixF.tex	3495	\hyperref[def:algobj]{余積}
-def:algobj	chap3.tex	3425	\hyperref[def:algobj]{代数対象}
-def:algobj	chap3.tex	3455	\hyperref[def:algobj]{余代数対称}
-def:algobj	chap3.tex	3708	\hyperref[def:algobj]{代数対象}
-def:anomalousQP	chap4.tex	212	\hyperref[def:anomalousQP]{アノマリー}
-def:anomalousQP	chap4.tex	869	\hyperref[def:anomalousQP]{アノマリーを持たない}
-def:anomalousQP	chap4.tex	892	\hyperref[def:anomalousQP]{アノマリー}
-def:anomalousQP	chap4.tex	901	\hyperref[def:anomalousQP]{アノマリーを持たない}
-def:anomalousQP	chap4.tex	905	\hyperref[def:anomalousQP]{アノマリー}
-def:anomaly-formal	chap3.tex	1895	\hyperref[def:anomaly-formal]{アノマリー}
-def:associated-vect	chap2.tex	1946	\hyperref[def:associated-vect]{同伴ベクトル束}
-def:associated-vect	chap2.tex	1976	\hyperref[def:associated-vect]{同伴ベクトル束}
-def:associated-vect	chap2.tex	1988	\hyperref[def:associated-vect]{同伴ベクトル束}
-def:associated-vect	chap2.tex	2193	\hyperref[def:associated-vect]{同伴ベクトル束}
-def:associated-vect	chap2.tex	2398	\hyperref[def:associated-vect]{同伴ベクトル束}
-def:associated-vect	chap2.tex	3431	\hyperref[def:associated-vect]{同伴ベクトル束}
-def:associated-vect	chap2.tex	3980	\hyperref[def:associated-vect]{同伴ベクトル束}
-def:associated-vect	chap2.tex	924	\hyperref[def:associated-vect]{同伴ベクトル束}
-def:associated-vect	chap3.tex	2433	\hyperref[def:associated-vect]{同伴ベクトル束}
-def:BF	chap3.tex	2790	\hyperref[def:BF]{$BF$-理論}
-def:BF	chap3.tex	2824	\hyperref[def:BF]{$BF$-理論}
-def:BF	chap3.tex	7738	\hyperref[def:BF]{$BF$-理論}
-def:BF	chap3.tex	7807	\hyperref[def:BF]{$BF$-理論}
-def:bimodobj	appendixF.tex	3278	\hyperref[def:bimodobj]{$(x_1,\, x_2)$-両側加群対象}
-def:bimodobj	appendixF.tex	3286	\hyperref[def:bimodobj]{$(x_1,\, x_2)$-両側加群対象}
-def:bimodobj	appendixF.tex	3289	\hyperref[def:bimodobj]{$(x_1,\, x_2)$-加群対象}
-def:bimodobj	appendixF.tex	3298	\hyperref[def:bimodobj]{$(x_1,\, x_2)$-両側加群対象}
-def:bimodobj	appendixF.tex	3299	\hyperref[def:bimodobj]{$(x_2,\, x_3)$-両側加群対象}
-def:bimodobj	appendixF.tex	3300	\hyperref[def:bimodobj]{$(x_3,\, x_4)$-両側加群対象}
-def:bimodobj	chap3.tex	3502	\hyperref[def:bimodobj]{$(A,\, A)$-両側加群対象}
-def:bimodobj	chap3.tex	3524	\hyperref[def:bimodobj]{条件\textsf{\textbf{(bimod-1)}
-def:bimodobj	chap3.tex	3524	\hyperref[def:bimodobj]{$(A,\, A)$-両側加群対象}
-def:bimodobj	chap3.tex	3666	\hyperref[def:bimodobj]{\textsf{\textbf{(bimod-3)}
-def:bimodulecat	chap3.tex	3728	\hyperref[def:bimodulecat]{$(\Cat{C}
-def:bimodulecat	chap3.tex	3731	\hyperref[def:bimodulecat]{$(\Cat{C}
-def:blat-G-equiv	chap5.tex	124	\hyperref[def:blat-G-equiv]{$G$-対称な格子模型}
-def:blat-G-equiv	chap5.tex	138	\hyperref[def:blat-G-equiv]{$G$-同変な量子相}
-def:blat-G-equiv	chap5.tex	180	\hyperref[def:blat-G-equiv]{$G$-対称}
-def:bosonic-lattice-model	chap4.tex	123	\hyperref[def:bosonic-lattice-model]{bosonicな量子系}
-def:bosonic-lattice-model	chap4.tex	140	\hyperref[def:bosonic-lattice-model]{bosonicな量子系}
-def:bosonic-lattice-model	chap4.tex	147	\hyperref[def:bosonic-lattice-model]{熱力学極限}
-def:bosonic-lattice-model	chap4.tex	155	\hyperref[def:bosonic-lattice-model]{熱力学極限}
-def:bosonic-lattice-model	chap4.tex	167	\hyperref[def:bosonic-lattice-model]{bosonicな格子模型}
-def:bosonic-lattice-model	chap4.tex	177	\hyperref[def:bosonic-lattice-model]{bosonicな格子模型}
-def:bosonic-lattice-model	chap4.tex	183	\hyperref[def:bosonic-lattice-model]{bosonicな格子模型}
-def:bosonic-lattice-model	chap4.tex	207	\hyperref[def:bosonic-lattice-model]{局所的な格子模型}
-def:bosonic-lattice-model	chap4.tex	258	\hyperref[def:bosonic-lattice-model]{格子模型}
-def:bosonic-lattice-model	chap4.tex	62	\hyperref[def:bosonic-lattice-model]{格子模型の列}
-def:bosonic-lattice-model	chap4.tex	66	\hyperref[def:bosonic-lattice-model]{bosonicな量子系}
-def:bosonic-lattice-model	chap5.tex	129	\hyperref[def:bosonic-lattice-model]{bosonicかつ $G$-対称な格子模型}
-def:bosonic-lattice-model	chap5.tex	138	\hyperref[def:bosonic-lattice-model]{bosonic}
-def:bosonic-lattice-model	chap5.tex	22	\hyperref[def:bosonic-lattice-model]{bosonic}
-def:bosonic-lattice-model	chap5.tex	22	\hyperref[def:bosonic-lattice-model]{bosonicな格子模型}
-def:bosonic-lattice-model	chap5.tex	32	\hyperref[def:bosonic-lattice-model]{bosonic}
-def:bosonic-lattice-model	chap5.tex	33	\hyperref[def:bosonic-lattice-model]{bosonicな格子模型}
-def:bosonic-lattice-model	chap5.tex	58	\hyperref[def:bosonic-lattice-model]{bosonic}
-def:bosonic-lattice-model	chap5.tex	88	\hyperref[def:bosonic-lattice-model]{bosonicな格子模型}
-def:braided-monoidal	chap3.tex	17	\hyperref[def:braided-monoidal]{対称モノイダル圏}
-def:braided-monoidal	chap3.tex	338	\hyperref[def:braided-monoidal]{\textsf{\textbf{(hexagon diagrams)}
-def:braided-monoidal	chap3.tex	452	\hyperref[def:braided-monoidal]{対称モノイダル圏}
-def:braided-monoidal	chap3.tex	991	\hyperref[def:braided-monoidal]{対称モノイダル圏}
-def:braided-monoidal	chap4.tex	847	\hyperref[def:braided-monoidal]{組紐付き}
-def:Bsc-induction	appendixG.tex	493	\hyperref[def:Bsc-induction]{圏 $\Bsc_{\le k+1,\, \le \infty}
-def:c-smooth	appendixG.tex	1244	\hyperref[def:c-smooth]{conically smoothな層状化空間}
-def:c-smooth	appendixG.tex	1262	\hyperref[def:c-smooth]{conically smoothな層状化空間}
-def:c-smooth	appendixG.tex	1275	\hyperref[def:c-smooth]{conically smoothな層状化空間}
-def:c-smooth	appendixG.tex	1296	\hyperref[def:c-smooth]{conically smoothな層状化空間}
-def:c-smooth	appendixG.tex	694	\hyperref[def:c-smooth]{conically smoothな層状化空間}
-def:c-smooth-along	appendixG.tex	266	\hyperref[def:c-smooth-along]{conically smooth (along $\mathbb{R}
-def:c-smooth-along	appendixG.tex	297	\hyperref[def:c-smooth-along]{conically smooth}
-def:c-smooth-along	appendixG.tex	466	\hyperref[def:c-smooth-along]{$\mathbb{R}
-def:c-smooth-along	appendixG.tex	583	\hyperref[def:c-smooth-along]{$\mathbb{R}
-def:c-smooth-map	appendixG.tex	602	\hyperref[def:c-smooth-map]{conically smooth map}
-def:c-smooth-map	appendixG.tex	622	\hyperref[def:c-smooth-map]{conically smooth map}
-def:c-smooth-map	appendixG.tex	631	\hyperref[def:c-smooth-map]{conically smoothな層状化写像}
-def:c-smooth-map	appendixG.tex	651	\hyperref[def:c-smooth-map]{conically smoothな層状化写像}
-def:c-smooth-map	appendixG.tex	657	\hyperref[def:c-smooth-map]{conically smoothな層状化写像}
-def:c-smooth-map	appendixG.tex	699	\hyperref[def:c-smooth-map]{conically smoothな層状化写像}
-def:c-smooth-map	appendixG.tex	719	\hyperref[def:c-smooth-map]{conically smoothな層状化写像}
-def:C0-basic	appendixG.tex	232	\hyperref[def:C0-basic]{$C^0$ basic}
-def:C0-basic	appendixG.tex	241	\hyperref[def:C0-basic]{$C^0$ basic}
-def:C0-basic	appendixG.tex	263	\hyperref[def:C0-basic]{$C^0$ basic}
-def:C0-basic	appendixG.tex	270	\hyperref[def:C0-basic]{$C^0$ basic}
-def:C0-basic	appendixG.tex	271	\hyperref[def:C0-basic]{$C^0$ basic}
-def:C0-basic	appendixG.tex	364	\hyperref[def:C0-basic]{$C^0$ basic}
-def:C0-basic	appendixG.tex	440	\hyperref[def:C0-basic]{$C^0$ basic}
-def:C0-basic	appendixG.tex	445	\hyperref[def:C0-basic]{$C^0$ basic}
-def:C0-basic	appendixG.tex	566	\hyperref[def:C0-basic]{$C^0$ basic}
-def:Cartesian-fib	appendixG.tex	1463	\hyperref[def:Cartesian-fib]{\textsf{\textbf{(coCart-2)}
-def:Cartesian-fib	appendixG.tex	1499	\hyperref[def:Cartesian-fib]{\textsf{\textbf{(coCart-2)}
-def:category	appendixC.tex	143	\hyperref[def:category]{圏}
-def:category	appendixC.tex	165	\hyperref[def:category]{圏}
-def:category	appendixC.tex	1810	\hyperref[def:category]{圏}
-def:category	appendixC.tex	2090	\hyperref[def:category]{圏}
-def:category	appendixC.tex	2157	\hyperref[def:category]{圏}
-def:category	appendixC.tex	2275	\hyperref[def:category]{小圏}
-def:category	appendixC.tex	659	\hyperref[def:category]{圏の定義}
-def:category	appendixF.tex	4624	\hyperref[def:category]{圏の公理}
-def:category	chap4.tex	505	\hyperref[def:category]{圏}
-def:Cech-cobaundarymap	chap3.tex	2708	\hyperref[def:Cech-cobaundarymap]{\v{C}
-def:characteristic-class-polynomial	chap2.tex	4198	\hyperref[def:characteristic-class-polynomial]{特性類}
-def:characteristic-class-polynomial	chap2.tex	4202	\hyperref[def:characteristic-class-polynomial]{特性類}
-def:closed-monoidal	chap3.tex	773	\hyperref[def:closed-monoidal]{閉圏}
-def:closed-monoidal	chap3.tex	773	\hyperref[def:closed-monoidal]{internal hom functor}
-def:closed-monoidal	chap3.tex	792	\hyperref[def:closed-monoidal]{閉圏}
-def:closed-monoidal	chap3.tex	792	\hyperref[def:closed-monoidal]{internal hom functor}
-def:closed-monoidal	chap3.tex	796	\hyperref[def:closed-monoidal]{閉圏}
-def:coCone	appendixC.tex	363	\hyperref[def:coCone]{余錐の射}
-def:coCone	chap3.tex	3791	\hyperref[def:coCone]{余錐}
-def:coCone	chap3.tex	3796	\hyperref[def:coCone]{余錐}
-def:codv-pbun	chap2.tex	3333	\hyperref[def:codv-pbun]{共変微分}
-def:codv-pbun	chap2.tex	4021	\hyperref[def:codv-pbun]{主束上の共変微分の定義}
-def:colim	appendixC.tex	1027	\hyperref[def:colim]{余極限}
-def:colim	appendixC.tex	1396	\hyperref[def:colim]{余極限}
-def:colim	appendixC.tex	1445	\hyperref[def:colim]{余極限}
-def:colim	appendixC.tex	2783	\hyperref[def:colim]{和の普遍性}
-def:colim	appendixC.tex	2915	\hyperref[def:colim]{有限極限を保つ}
-def:colim	appendixC.tex	2933	\hyperref[def:colim]{押し出し}
-def:colim	appendixC.tex	386	\hyperref[def:colim]{余極限}
-def:colim	appendixC.tex	439	\hyperref[def:colim]{余極限}
-def:colim	appendixC.tex	476	\hyperref[def:colim]{余極限}
-def:colim	appendixC.tex	481	\hyperref[def:colim]{余極限}
-def:colim	appendixC.tex	509	\hyperref[def:colim]{余極限}
-def:colim	appendixC.tex	563	\hyperref[def:colim]{余極限}
-def:colim	appendixC.tex	989	\hyperref[def:colim]{余極限}
-def:colim	appendixF.tex	3236	\hyperref[def:colim]{コイコライザ}
-def:colim	appendixF.tex	378	\hyperref[def:colim]{終対象}
-def:colim	appendixG.tex	1180	\hyperref[def:colim]{余極限}
-def:coloring	chap3.tex	5547	\hyperref[def:coloring]{彩色}
-def:coloring	chap3.tex	6322	\hyperref[def:coloring]{彩色}
-def:coloring-bdy	chap3.tex	6863	\hyperref[def:coloring-bdy]{境界付き彩色}
-def:coloring-bdy	chap3.tex	7223	\hyperref[def:coloring-bdy]{境界付き彩色}
-def:compact	chap3.tex	17	\hyperref[def:compact]{rigid}
-def:complete	appendixC.tex	1152	\hyperref[def:complete]{双完備}
-def:complete	appendixC.tex	1360	\hyperref[def:complete]{双完備}
-def:complete	appendixC.tex	2926	\hyperref[def:complete]{余完全}
-def:complete	appendixC.tex	484	\hyperref[def:complete]{双完備}
-def:complete	appendixC.tex	489	\hyperref[def:complete]{完備}
-def:complete	appendixC.tex	502	\hyperref[def:complete]{余完備}
-def:complete-vecf	appendixB.tex	1110	\hyperref[def:complete-vecf]{完備}
-def:complete-vecf	chap2.tex	1174	\hyperref[def:complete-vecf]{完備}
-def:complete-vecf	chap2.tex	1438	\hyperref[def:complete-vecf]{完備}
-def:Cone	appendixC.tex	299	\hyperref[def:Cone]{錐の射}
-def:Cone	appendixC.tex	536	\hyperref[def:Cone]{錐}
-def:Cone	appendixC.tex	536	\hyperref[def:Cone]{錐の定義}
-def:Cone	appendixC.tex	543	\hyperref[def:Cone]{錐}
-def:Cone	appendixC.tex	543	\hyperref[def:Cone]{錐の射}
-def:Cone	appendixC.tex	817	\hyperref[def:Cone]{錐}
-def:Cone	appendixC.tex	835	\hyperref[def:Cone]{錐の定義}
-def:connection	chap2.tex	1762	\hyperref[def:connection]{接続の定義}
-def:connection	chap2.tex	1763	\hyperref[def:connection]{接続形式}
-def:connection	chap2.tex	1768	\hyperref[def:connection]{接続形式}
-def:connection	chap2.tex	1772	\hyperref[def:connection]{接続}
-def:connection	chap2.tex	1799	\hyperref[def:connection]{\textbf{\textsf{(CF-2)}
-def:connection	chap2.tex	1812	\hyperref[def:connection]{接続形式}
-def:connection	chap2.tex	1823	\hyperref[def:connection]{接続}
-def:connection	chap2.tex	1834	\hyperref[def:connection]{\textbf{\textsf{(CF-1)}
-def:connection	chap2.tex	1881	\hyperref[def:connection]{\textbf{\textsf{(C-2)}
-def:connection	chap2.tex	1935	\hyperref[def:connection]{垂直}
-def:connection	chap2.tex	2185	\hyperref[def:connection]{接続形式}
-def:connection	chap2.tex	2191	\hyperref[def:connection]{接続形式}
-def:connection	chap2.tex	2410	\hyperref[def:connection]{接続形式}
-def:connection	chap2.tex	2454	\hyperref[def:connection]{主束上の接続}
-def:connection	chap2.tex	2622	\hyperref[def:connection]{接続形式}
-def:connection	chap2.tex	2623	\hyperref[def:connection]{接続形式}
-def:connection	chap2.tex	2665	\hyperref[def:connection]{接続形式の公理}
-def:connection	chap2.tex	2754	\hyperref[def:connection]{接続形式}
-def:connection	chap2.tex	2756	\hyperref[def:connection]{接続形式の公理}
-def:connection	chap2.tex	2783	\hyperref[def:connection]{接続形式}
-def:connection	chap2.tex	2795	\hyperref[def:connection]{接続形式}
-def:connection	chap2.tex	2815	\hyperref[def:connection]{接続形式}
-def:connection	chap2.tex	2939	\hyperref[def:connection]{接続形式}
-def:connection	chap2.tex	3038	\hyperref[def:connection]{接続形式}
-def:connection	chap2.tex	3055	\hyperref[def:connection]{接続形式}
-def:connection	chap2.tex	3072	\hyperref[def:connection]{接続形式}
-def:connection	chap2.tex	3133	\hyperref[def:connection]{接続形式の定義}
-def:connection	chap2.tex	3189	\hyperref[def:connection]{接続形式}
-def:connection	chap2.tex	3204	\hyperref[def:connection]{接続形式}
-def:connection	chap2.tex	3405	\hyperref[def:connection]{水平部分空間の右不変性}
-def:connection	chap2.tex	3429	\hyperref[def:connection]{接続形式}
-def:connection	chap2.tex	3809	\hyperref[def:connection]{接続形式}
-def:connection	chap2.tex	3846	\hyperref[def:connection]{接続形式}
-def:connection	chap2.tex	3932	\hyperref[def:connection]{接続形式}
-def:connection	chap2.tex	3946	\hyperref[def:connection]{接続形式}
-def:connection	chap2.tex	4042	\hyperref[def:connection]{接続形式}
-def:connection	chap2.tex	4075	\hyperref[def:connection]{接続形式}
-def:connection	chap2.tex	4114	\hyperref[def:connection]{主束 $\mathrm{Fr}
-def:connection	chap3.tex	2436	\hyperref[def:connection]{接続形式}
-def:connection	chap3.tex	2485	\hyperref[def:connection]{接続}
-def:connection	chap3.tex	2587	\hyperref[def:connection]{垂直部分空間}
-def:connection	chap3.tex	2715	\hyperref[def:connection]{接続形式}
-def:connection-vect	chap2.tex	2185	\hyperref[def:connection-vect]{ベクトル束上の接続}
-def:connection-vect	chap2.tex	2205	\hyperref[def:connection-vect]{ベクトル束 $E$ 上の接続}
-def:connection-vect	chap2.tex	2211	\hyperref[def:connection-vect]{共変外微分}
-def:connection-vect	chap2.tex	2308	\hyperref[def:connection-vect]{Leibniz則}
-def:connection-vect	chap2.tex	2375	\hyperref[def:connection-vect]{共変外微分の定義}
-def:connection-vect	chap2.tex	2410	\hyperref[def:connection-vect]{接続}
-def:connection-vect	chap2.tex	2413	\hyperref[def:connection-vect]{沿った共変微分}
-def:connection-vect	chap2.tex	3200	\hyperref[def:connection-vect]{ベクトル束上の共変微分の定義}
-def:connection-vect	chap2.tex	3437	\hyperref[def:connection-vect]{ベクトル束 $E$ 上の接続}
-def:connection-vect	chap2.tex	3602	\hyperref[def:connection-vect]{ベクトル束上の共変微分の定義}
-def:connection-vect	chap2.tex	3629	\hyperref[def:connection-vect]{ベクトル束 $E$ 上の接続}
-def:connection-vect	chap2.tex	3647	\hyperref[def:connection-vect]{ベクトル束上の接続}
-def:connection-vect	chap2.tex	3784	\hyperref[def:connection-vect]{ベクトル束上の共変外微分の定義}
-def:connection-vect	chap2.tex	4114	\hyperref[def:connection-vect]{ベクトル束 $E$ 上の接続}
-def:connection-vect	chap2.tex	4117	\hyperref[def:connection-vect]{ベクトル束 $E$ 上の接続}
-def:connection-vect	chap2.tex	4473	\hyperref[def:connection-vect]{接続}
-def:coord-vecf	appendixB.tex	435	\hyperref[def:coord-vecf]{座標ベクトル場}
-def:covering-dim	appendixG.tex	321	\hyperref[def:covering-dim]{被覆次元}
-def:covering-dim	appendixG.tex	353	\hyperref[def:covering-dim]{被覆次元}
-def:crossed-module	appendixF.tex	4559	\hyperref[def:crossed-module]{交差加群}
-def:crossed-module	appendixF.tex	4576	\hyperref[def:crossed-module]{交差加群}
-def:crossed-module	appendixF.tex	4649	\hyperref[def:crossed-module]{Crossed moduleの定義}
-def:crossed-module	appendixF.tex	4691	\hyperref[def:crossed-module]{交差加群}
-def:crossed-module	chap3.tex	3150	\hyperref[def:crossed-module]{交差加群}
-def:curvature	chap2.tex	3073	\hyperref[def:curvature]{曲率形式}
-def:curvature	chap2.tex	3094	\hyperref[def:curvature]{曲率形式}
-def:curvature	chap2.tex	3347	\hyperref[def:curvature]{曲率形式}
-def:curvature	chap2.tex	3933	\hyperref[def:curvature]{曲率形式}
-def:curvature	chap2.tex	3947	\hyperref[def:curvature]{曲率形式}
-def:curvature	chap2.tex	4076	\hyperref[def:curvature]{曲率形式}
-def:dagger-monoidal	appendixF.tex	50	\hyperref[def:dagger-monoidal]{dagger}
-def:Deligne-Beilinson	chap3.tex	2734	\hyperref[def:Deligne-Beilinson]{Deligne-Beilinsonコチェイン}
-def:Deligne-Beilinson	chap3.tex	2898	\hyperref[def:Deligne-Beilinson]{Deligne-Beilinson $2$-コサイクル}
-def:DeligneProduct	appendixF.tex	2635	\hyperref[def:DeligneProduct]{Deligneのテンソル積}
-def:DeligneProduct	chap3.tex	3731	\hyperref[def:DeligneProduct]{Deligneのテンソル積}
-def:diagram	appendixC.tex	1005	\hyperref[def:diagram]{図式}
-def:diagram	appendixC.tex	1383	\hyperref[def:diagram]{図式}
-def:diagram	appendixC.tex	251	\hyperref[def:diagram]{図式}
-def:diagram	appendixC.tex	2928	\hyperref[def:diagram]{図式}
-def:diagram	appendixC.tex	293	\hyperref[def:diagram]{図式}
-def:diagram	appendixC.tex	315	\hyperref[def:diagram]{図式}
-def:diagram	appendixC.tex	357	\hyperref[def:diagram]{図式}
-def:diagram	appendixC.tex	379	\hyperref[def:diagram]{図式}
-def:diagram	appendixC.tex	432	\hyperref[def:diagram]{図式}
-def:diagram	appendixC.tex	460	\hyperref[def:diagram]{図式}
-def:diagram	appendixC.tex	469	\hyperref[def:diagram]{図式}
-def:diagram	appendixC.tex	481	\hyperref[def:diagram]{図式}
-def:diagram	appendixC.tex	487	\hyperref[def:diagram]{図式}
-def:diagram	appendixC.tex	750	\hyperref[def:diagram]{図式}
-def:diagram	appendixC.tex	851	\hyperref[def:diagram]{図式}
-def:diagram	appendixC.tex	989	\hyperref[def:diagram]{図式}
-def:diagram	appendixG.tex	1186	\hyperref[def:diagram]{$(1,\, 1)$-圏の場合}
-def:diagram	chap3.tex	3796	\hyperref[def:diagram]{図式}
-def:diff-rep	chap2.tex	2195	\hyperref[def:diff-rep]{微分表現}
-def:Dijkgraaf-Witten	chap3.tex	2685	\hyperref[def:Dijkgraaf-Witten]{Dijkgraaf-Witten理論}
-def:Dijkgraaf-Witten	chap3.tex	2878	\hyperref[def:Dijkgraaf-Witten]{Dijkgraaf-Witten理論}
-def:Dijkgraaf-Witten	chap3.tex	3221	\hyperref[def:Dijkgraaf-Witten]{Dijkgraaf-Witten}
-def:Dijkgraaf-Witten	chap5.tex	148	\hyperref[def:Dijkgraaf-Witten]{Dijkgraaf-Witten理論}
-def:Dijkgraaf-Witten	chap5.tex	209	\hyperref[def:Dijkgraaf-Witten]{Dijkgraaf-Witten理論}
-def:Dijkgraaf-Witten	chap5.tex	229	\hyperref[def:Dijkgraaf-Witten]{Dijkgraaf-Witten理論}
-def:dim-depth	appendixG.tex	387	\hyperref[def:dim-depth]{次元}
-def:dim-depth	appendixG.tex	387	\hyperref[def:dim-depth]{深さ}
-def:dim-depth	appendixG.tex	446	\hyperref[def:dim-depth]{depthの定義}
-def:dim-depth	appendixG.tex	567	\hyperref[def:dim-depth]{$\depth (Y)$}
-def:dim-depth	appendixG.tex	657	\hyperref[def:dim-depth]{$\depth (E)$}
-def:dual	appendixF.tex	2488	\hyperref[def:dual]{左双対}
-def:dual	appendixF.tex	2493	\hyperref[def:dual]{\textsf{\textbf{(zig-zag equations)}
-def:dual	chap3.tex	657	\hyperref[def:dual]{\textsf{\textbf{(zig-zag equations)}
-def:dual	chap3.tex	728	\hyperref[def:dual]{左・右双対}
-def:dual	chap3.tex	733	\hyperref[def:dual]{双対}
-def:dual	chap3.tex	734	\hyperref[def:dual]{unit, counit}
-def:dual	chap3.tex	779	\hyperref[def:dual]{双対}
-def:dual	chap3.tex	781	\hyperref[def:dual]{unit}
-def:dual	chap3.tex	786	\hyperref[def:dual]{counit}
-def:dual	chap4.tex	696	\hyperref[def:dual]{左双対}
-def:dual	chap4.tex	701	\hyperref[def:dual]{\textsf{\textbf{(zig-zag equations)}
-def:enriched	appendixC.tex	2484	\hyperref[def:enriched]{$V$-豊穣圏}
-def:enriched	appendixC.tex	2531	\hyperref[def:enriched]{豊穣圏}
-def:enriched	appendixC.tex	2533	\hyperref[def:enriched]{豊穣圏}
-def:enriched	appendixG.tex	742	\hyperref[def:enriched]{$\Kan$-豊穣圏}
-def:enriched-functor	appendixC.tex	2533	\hyperref[def:enriched-functor]{豊穣関手}
-def:enriched-functor	appendixC.tex	2696	\hyperref[def:enriched-functor]{豊穣関手}
-def:eq-coeq	appendixC.tex	1621	\hyperref[def:eq-coeq]{コイコライザ}
-def:eq-coeq	appendixC.tex	1671	\hyperref[def:eq-coeq]{コイコライザの普遍性}
-def:eq-coeq	appendixC.tex	1751	\hyperref[def:eq-coeq]{コイコライザ}
-def:eq-coeq	appendixG.tex	156	\hyperref[def:eq-coeq]{コイコライザ}
-def:equiv-infty	appendixG.tex	829	\hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}
-def:exp	chap2.tex	1382	\hyperref[def:exp]{指数写像}
-def:F-related	appendixB.tex	1128	\hyperref[def:F-related]{$L_g$-related}
-def:F-related	appendixB.tex	443	\hyperref[def:F-related]{$F$-related}
-def:F-related	appendixB.tex	459	\hyperref[def:F-related]{$F$-related}
-def:F-related	appendixB.tex	556	\hyperref[def:F-related]{$F$-related}
-def:F-related	appendixB.tex	651	\hyperref[def:F-related]{$F$-related}
-def:F-related	chap2.tex	1020	\hyperref[def:F-related]{$L_g$-related}
-def:F-related	chap2.tex	1105	\hyperref[def:F-related]{$F$-related}
-def:F-related	chap2.tex	1177	\hyperref[def:F-related]{$L_g$-related}
-def:F-related	chap2.tex	1269	\hyperref[def:F-related]{$L_g$-related}
-def:F-related	chap2.tex	1506	\hyperref[def:F-related]{-related}
-def:F-related	chap2.tex	3004	\hyperref[def:F-related]{$R_g$-related}
-def:F-related	chap2.tex	994	\hyperref[def:F-related]{$L_g$-related}
-def:F-symbol	chap3.tex	3218	\hyperref[def:F-symbol]{$F$-symbol}
-def:F-symbol	chap3.tex	7499	\hyperref[def:F-symbol]{\textbf{F-シンボル}
-def:faithful	appendixC.tex	1517	\hyperref[def:faithful]{充満}
-def:faithful	appendixC.tex	1520	\hyperref[def:faithful]{充満}
-def:faithful	appendixC.tex	1908	\hyperref[def:faithful]{忠実充満関手}
-def:faithful	appendixC.tex	696	\hyperref[def:faithful]{埋め込み}
-def:faithful	appendixF.tex	1785	\hyperref[def:faithful]{忠実}
-def:faithful	appendixF.tex	4781	\hyperref[def:faithful]{充満部分圏}
-def:faithful	appendixG.tex	184	\hyperref[def:faithful]{充満部分圏}
-def:field-strength	chap3.tex	2748	\hyperref[def:field-strength]{ゲージ場の強さ}
-def:finite-abcat	appendixF.tex	1599	\hyperref[def:finite-abcat]{局所有限}
-def:finite-abcat	appendixF.tex	1631	\hyperref[def:finite-abcat]{有限性}
-def:finite-abcat	appendixF.tex	1653	\hyperref[def:finite-abcat]{局所有限}
-def:finite-abcat	appendixF.tex	1668	\hyperref[def:finite-abcat]{半単純}
-def:finite-abcat	appendixF.tex	1668	\hyperref[def:finite-abcat]{有限}
-def:finite-abcat	appendixF.tex	1673	\hyperref[def:finite-abcat]{半単純}
-def:finite-abcat	appendixF.tex	1673	\hyperref[def:finite-abcat]{有限}
-def:finite-abcat	appendixF.tex	2366	\hyperref[def:finite-abcat]{有限}
-def:finite-abcat	appendixF.tex	2623	\hyperref[def:finite-abcat]{局所有限}
-def:finite-abcat	appendixF.tex	2635	\hyperref[def:finite-abcat]{局所有限}
-def:finite-abcat	appendixF.tex	2773	\hyperref[def:finite-abcat]{射影的対象}
-def:finite-abcat	appendixF.tex	2775	\hyperref[def:finite-abcat]{局所有限}
-def:finite-abcat	appendixF.tex	54	\hyperref[def:finite-abcat]{locally finite}
-def:finite-abcat	appendixF.tex	61	\hyperref[def:finite-abcat]{finite}
-def:finite-abcat	chap3.tex	3216	\hyperref[def:finite-abcat]{有限性}
-def:finite-abcat	chap3.tex	3704	\hyperref[def:finite-abcat]{有限}
-def:finite-abcat	chap3.tex	3757	\hyperref[def:finite-abcat]{有限}
-def:finite-abcat	chap3.tex	3785	\hyperref[def:finite-abcat]{有限}
-def:finite-abcat	chap3.tex	4004	\hyperref[def:finite-abcat]{有限性}
-def:finite-abcat	chap4.tex	516	\hyperref[def:finite-abcat]{有限}
-def:flat-connection-homotopy	chap3.tex	2523	\hyperref[def:flat-connection-homotopy]{平坦接続}
-def:flat-connection-homotopy	chap3.tex	2604	\hyperref[def:flat-connection-homotopy]{平坦接続}
-def:flat-connection-homotopy	chap3.tex	2799	\hyperref[def:flat-connection-homotopy]{平坦接続}
-def:flat-connection-homotopy	chap5.tex	210	\hyperref[def:flat-connection-homotopy]{平坦接続}
-def:FPdim	appendixF.tex	2583	\hyperref[def:FPdim]{Frobenius-Perron次元}
-def:FPdim	appendixF.tex	2616	\hyperref[def:FPdim]{Frobenius-Perron次元}
-def:framebundle	chap2.tex	4105	\hyperref[def:framebundle]{フレーム束}
-def:Frobenius-alg	appendixF.tex	3398	\hyperref[def:Frobenius-alg]{\textsf{\textbf{(Frob-2)}
-def:Frobenius-alg	appendixF.tex	3438	\hyperref[def:Frobenius-alg]{Frobenius代数}
-def:Frobenius-alg	appendixF.tex	3494	\hyperref[def:Frobenius-alg]{Frobenius代数}
-def:Frobenius-alg	chap3.tex	3360	\hyperref[def:Frobenius-alg]{Frobenius代数}
-def:Frobenius-alg	chap3.tex	3393	\hyperref[def:Frobenius-alg]{\textsf{\textbf{(Frob-2)}
-def:Frobenius-alg	chap3.tex	3468	\hyperref[def:Frobenius-alg]{Frobenius代数}
-def:functor	appendixC.tex	1022	\hyperref[def:functor]{関手}
-def:functor	appendixC.tex	1431	\hyperref[def:functor]{関手}
-def:functor	appendixC.tex	189	\hyperref[def:functor]{関手}
-def:functor	appendixC.tex	1959	\hyperref[def:functor]{関手}
-def:functor	appendixC.tex	207	\hyperref[def:functor]{関手}
-def:functor	appendixC.tex	243	\hyperref[def:functor]{関手}
-def:functor	appendixC.tex	586	\hyperref[def:functor]{関手}
-def:functor	appendixC.tex	621	\hyperref[def:functor]{関手}
-def:functor	appendixC.tex	962	\hyperref[def:functor]{関手}
-def:fundamental-vecf	chap2.tex	1506	\hyperref[def:fundamental-vecf]{基本ベクトル場}
-def:fundamental-vecf	chap2.tex	1529	\hyperref[def:fundamental-vecf]{右作用 $\btl$ の無限小生成子}
-def:fundamental-vecf	chap2.tex	1561	\hyperref[def:fundamental-vecf]{基本ベクトル場}
-def:fundamental-vecf	chap2.tex	1591	\hyperref[def:fundamental-vecf]{右作用軌道}
-def:fundamental-vecf	chap2.tex	1656	\hyperref[def:fundamental-vecf]{右作用移動}
-def:fundamental-vecf	chap2.tex	1715	\hyperref[def:fundamental-vecf]{基本ベクトル場}
-def:fundamental-vecf	chap2.tex	1718	\hyperref[def:fundamental-vecf]{右作用 $\btl \colon P \times G \lto P$ の無限小生成子}
-def:fundamental-vecf	chap2.tex	1780	\hyperref[def:fundamental-vecf]{右作用 $\btl \colon P \times G \lto P$ の無限小生成子}
-def:fundamental-vecf	chap2.tex	1908	\hyperref[def:fundamental-vecf]{右作用移動}
-def:fundamental-vecf	chap2.tex	2241	\hyperref[def:fundamental-vecf]{基本ベクトル場}
-def:fundamental-vecf	chap2.tex	2996	\hyperref[def:fundamental-vecf]{基本ベクトル場の定義}
-def:fundamental-vecf	chap2.tex	3115	\hyperref[def:fundamental-vecf]{基本ベクトル場}
-def:fundamental-vecf	chap2.tex	3127	\hyperref[def:fundamental-vecf]{思い出す}
-def:fundamental-vecf	chap2.tex	3227	\hyperref[def:fundamental-vecf]{基本ベクトル場}
-def:gapped	chap4.tex	123	\hyperref[def:gapped]{gapped}
-def:gapped	chap4.tex	140	\hyperref[def:gapped]{gapped}
-def:gapped	chap4.tex	227	\hyperref[def:gapped]{gappedな量子系}
-def:gapped	chap4.tex	248	\hyperref[def:gapped]{gapped}
-def:gapped	chap4.tex	556	\hyperref[def:gapped]{基底状態の縮退度}
-def:gapped	chap4.tex	580	\hyperref[def:gapped]{ギャップ}
-def:gapped	chap5.tex	138	\hyperref[def:gapped]{gapped}
-def:gapped	chap5.tex	22	\hyperref[def:gapped]{gapped}
-def:gapped	chap5.tex	24	\hyperref[def:gapped]{gapped}
-def:gapped	chap5.tex	32	\hyperref[def:gapped]{gapped}
-def:gapped	chap5.tex	58	\hyperref[def:gapped]{gapped}
-def:gappedQL	chap4.tex	140	\hyperref[def:gappedQL]{gappedな量子液体}
-def:gappedQL	chap4.tex	147	\hyperref[def:gappedQL]{gappedな量子液体}
-def:gappedQL	chap4.tex	154	\hyperref[def:gappedQL]{gappedな量子液体}
-def:gappedQL	chap4.tex	155	\hyperref[def:gappedQL]{gappedな量子液体}
-def:gappedQL	chap4.tex	172	\hyperref[def:gappedQL]{gappedな量子液体}
-def:gappedQL	chap4.tex	184	\hyperref[def:gappedQL]{gappedな量子液体}
-def:gappedQL	chap4.tex	246	\hyperref[def:gappedQL]{gappedな量子液体}
-def:gauge-field	chap3.tex	2485	\hyperref[def:gauge-field]{ゲージ場}
-def:gauging	chap3.tex	3499	\hyperref[def:gauging]{ゲージ化}
-def:gauging	chap3.tex	3580	\hyperref[def:gauging]{ゲージ化}
-def:gauging	chap3.tex	3695	\hyperref[def:gauging]{ゲージ化}
-def:gauging	chap3.tex	3737	\hyperref[def:gauging]{ゲージ化}
-def:geometric-realization	appendixC.tex	1459	\hyperref[def:geometric-realization]{幾何学的実現}
-def:geometric-realization	appendixC.tex	1778	\hyperref[def:geometric-realization]{幾何学的実現}
-def:Gequiv-bqp	chap5.tex	141	\hyperref[def:Gequiv-bqp]{量子相}
-def:Gequiv-bqp	chap5.tex	153	\hyperref[def:Gequiv-bqp]{$G$-対称な格子模型}
-def:global-flow	appendixB.tex	1082	\hyperref[def:global-flow]{大域的なフロー}
-def:global-flow	appendixB.tex	826	\hyperref[def:global-flow]{大域的フロー}
-def:global-flow	appendixB.tex	846	\hyperref[def:global-flow]{大域的フロー}
-def:global-flow	chap2.tex	1175	\hyperref[def:global-flow]{大域的なフロー}
-def:global-flow	chap2.tex	1468	\hyperref[def:global-flow]{大域的フロー}
-def:good-cover	appendixA.tex	223	\hyperref[def:good-cover]{良い被覆}
-def:good-cover	appendixA.tex	322	\hyperref[def:good-cover]{良い被覆}
-def:good-cover	chap3.tex	2690	\hyperref[def:good-cover]{良い被覆}
-def:good-cover	chap3.tex	2703	\hyperref[def:good-cover]{良い被覆}
-def:good-cover	chap3.tex	2777	\hyperref[def:good-cover]{良い被覆}
-def:good-cover	chap3.tex	3152	\hyperref[def:good-cover]{good cover}
-def:graph-bdy	chap3.tex	5206	\hyperref[def:graph-bdy]{境界グラフ}
-def:graph-bdy	chap3.tex	5216	\hyperref[def:graph-bdy]{$\partial$-円筒境界を持つ}
-def:graph-bdy	chap3.tex	6819	\hyperref[def:graph-bdy]{境界グラフ}
-def:graph-bdy	chap3.tex	6933	\hyperref[def:graph-bdy]{境界グラフ}
-def:graph-bdy	chap3.tex	7203	\hyperref[def:graph-bdy]{円筒境界}
-def:group-cohomology	chap3.tex	2624	\hyperref[def:group-cohomology]{群コホモロジー}
-def:group-cohomology	chap3.tex	2640	\hyperref[def:group-cohomology]{群コホモロジーの定義}
-def:groupoid	appendixC.tex	2286	\hyperref[def:groupoid]{groupoid}
-def:groupoid	appendixC.tex	2341	\hyperref[def:groupoid]{groupoid}
-def:groupoid	chap1.tex	164	\hyperref[def:groupoid]{亜群}
-def:groupoid	chap3.tex	2428	\hyperref[def:groupoid]{groupoid}
-def:groupoid	chap3.tex	2484	\hyperref[def:groupoid]{groupoid}
-def:hcat-infty	appendixC.tex	2422	\hyperref[def:hcat-infty]{ホモトピー圏}
-def:hcat-infty	appendixC.tex	2431	\hyperref[def:hcat-infty]{ホモトピー圏}
-def:hcat-infty	appendixG.tex	1180	\hyperref[def:hcat-infty]{ホモトピー圏}
-def:hcat-infty	appendixG.tex	1181	\hyperref[def:hcat-infty]{ホモトピー圏}
-def:hom-algmod	appendixF.tex	3192	\hyperref[def:hom-algmod]{左 $x$-加群の準同型}
-def:hom-algmod	appendixF.tex	3196	\hyperref[def:hom-algmod]{左 $x$-加群の準同型}
-def:hom-algmod	appendixF.tex	3218	\hyperref[def:hom-algmod]{右 $x$-加群の同型}
-def:hom-algmod	appendixF.tex	3281	\hyperref[def:hom-algmod]{左 $x_1$-加群の準同型}
-def:hom-algmod	appendixF.tex	3281	\hyperref[def:hom-algmod]{右 $x_2$-加群の準同型}
-def:hom-bimod	appendixF.tex	3286	\hyperref[def:hom-bimod]{$(x_1,\, x_2)$-両側加群の準同型}
-def:hom-bimod	appendixF.tex	3290	\hyperref[def:hom-bimod]{$(x_1,\, x_2)$-両側加群の準同型}
-def:hom-bimod	appendixF.tex	3305	\hyperref[def:hom-bimod]{$(x_1,\, x_4)$-両側加群の同型}
-def:hom-bimod	appendixF.tex	3325	\hyperref[def:hom-bimod]{$(x,\, x)$-両側加群の準同型}
-def:hom-bimod	chap3.tex	3527	\hyperref[def:hom-bimod]{$(A,\, A)$-両側加群}
-def:hom2G	appendixF.tex	4731	\hyperref[def:hom2G]{同型}
-def:hom2G	appendixF.tex	4759	\hyperref[def:hom2G]{2群の準同型}
-def:horizontal-lift-curve	chap2.tex	2819	\hyperref[def:horizontal-lift-curve]{水平持ち上げ}
-def:horizontal-lift-curve	chap2.tex	2911	\hyperref[def:horizontal-lift-curve]{水平持ち上げ}
-def:horizontal-lift-curve	chap2.tex	2970	\hyperref[def:horizontal-lift-curve]{水平持ち上げ}
-def:horizontal-lift-curve	chap2.tex	3437	\hyperref[def:horizontal-lift-curve]{水平持ち上げ}
-def:horizontal-lift-curve	chap2.tex	3444	\hyperref[def:horizontal-lift-curve]{水平持ち上げ}
-def:horizontal-lift-curve	chap2.tex	3541	\hyperref[def:horizontal-lift-curve]{水平持ち上げ}
-def:horizontal-lift-curve	chap2.tex	3833	\hyperref[def:horizontal-lift-curve]{水平持ち上げ}
-def:horizontal-lift-curve	chap2.tex	3837	\hyperref[def:horizontal-lift-curve]{水平持ち上げ}
-def:horizontal-lift-curve	chap3.tex	2472	\hyperref[def:horizontal-lift-curve]{水平持ち上げ}
-def:horizontal-lift-vecf	chap2.tex	2957	\hyperref[def:horizontal-lift-vecf]{\textbf{\textsf{(HV-1)}
-def:horizontal-lift-vecf	chap2.tex	2979	\hyperref[def:horizontal-lift-vecf]{\textbf{\textsf{(HV-1)}
-def:horizontal-lift-vecf	chap2.tex	3025	\hyperref[def:horizontal-lift-vecf]{\textsf{\textbf{(HV-1)}
-def:horizontal-lift-vecf	chap2.tex	3059	\hyperref[def:horizontal-lift-vecf]{水平持ち上げ}
-def:horizontal-lift-vecf	chap2.tex	3115	\hyperref[def:horizontal-lift-vecf]{水平持ち上げ}
-def:horizontal-lift-vecf	chap2.tex	3227	\hyperref[def:horizontal-lift-vecf]{水平持ち上げ}
-def:horn	appendixC.tex	1526	\hyperref[def:horn]{角}
-def:horn	appendixC.tex	1621	\hyperref[def:horn]{境界}
-def:horn	appendixC.tex	1751	\hyperref[def:horn]{角}
-def:horn	appendixC.tex	1778	\hyperref[def:horn]{角，背骨}
-def:horn	appendixC.tex	2055	\hyperref[def:horn]{内部角}
-def:horn	appendixG.tex	797	\hyperref[def:horn]{角}
-def:horn	appendixG.tex	799	\hyperref[def:horn]{角}
-def:horn	chap3.tex	3084	\hyperref[def:horn]{角}
-def:IFT	chap3.tex	1895	\hyperref[def:IFT]{IFT}
-def:infinity-1	appendixC.tex	2077	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
-def:infinity-1	appendixC.tex	2090	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
-def:infinity-1	appendixC.tex	2286	\hyperref[def:infinity-1]{$\infty$-groupoid}
-def:infinity-1	appendixC.tex	2294	\hyperref[def:infinity-1]{$\infty$-groupoid}
-def:infinity-1	appendixC.tex	2364	\hyperref[def:infinity-1]{始点と終点}
-def:infinity-1	appendixC.tex	2364	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
-def:infinity-1	appendixC.tex	2384	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
-def:infinity-1	appendixC.tex	2396	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
-def:infinity-1	appendixC.tex	2410	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
-def:infinity-1	appendixC.tex	2420	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
-def:infinity-1	appendixC.tex	2430	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
-def:infinity-1	appendixC.tex	2436	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
-def:infinity-1	appendixC.tex	2710	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
-def:infinity-1	appendixC.tex	2786	\hyperref[def:infinity-1]{$\infty$-groupoid}
-def:infinity-1	appendixC.tex	2809	\hyperref[def:infinity-1]{Kan条件}
-def:infinity-1	appendixC.tex	2855	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
-def:infinity-1	appendixC.tex	2867	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏 $K$ の射}
-def:infinity-1	appendixC.tex	2872	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
-def:infinity-1	appendixC.tex	2873	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
-def:infinity-1	appendixC.tex	2883	\hyperref[def:infinity-1]{対象}
-def:infinity-1	appendixC.tex	2909	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
-def:infinity-1	appendixC.tex	2911	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
-def:infinity-1	appendixC.tex	2915	\hyperref[def:infinity-1]{$(\infty,\, 1)$-関手}
-def:infinity-1	appendixC.tex	2926	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
-def:infinity-1	appendixG.tex	1082	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
-def:infinity-1	appendixG.tex	1090	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
-def:infinity-1	appendixG.tex	1090	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
-def:infinity-1	appendixG.tex	1135	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
-def:infinity-1	appendixG.tex	1176	\hyperref[def:infinity-1]{quasi-category}
-def:infinity-1	appendixG.tex	1180	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
-def:infinity-1	appendixG.tex	1181	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
-def:infinity-1	appendixG.tex	1186	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
-def:infinity-1	appendixG.tex	1217	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
-def:infinity-1	appendixG.tex	1230	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
-def:infinity-1	appendixG.tex	1234	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
-def:infinity-1	appendixG.tex	1254	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
-def:infinity-1	appendixG.tex	1297	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
-def:infinity-1	appendixG.tex	1321	\hyperref[def:infinity-1]{quasi-category}
-def:infinity-1	appendixG.tex	775	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
-def:infinity-1	chap3.tex	2964	\hyperref[def:infinity-1]{$\infty$-圏}
-def:infinity-1	chap3.tex	3064	\hyperref[def:infinity-1]{$\infty$-groupoid}
-def:infinity-1	chap3.tex	3125	\hyperref[def:infinity-1]{$\infty$-groupoid}
-def:infinity-presheaf	appendixG.tex	1234	\hyperref[def:infinity-presheaf]{$(\infty,\, 1)$-前層の成す $(\infty,\, 1)$-圏}
-def:infinity-topos	chap3.tex	2933	\hyperref[def:infinity-topos]{$\infty$-トポス}
-def:infty-fib	appendixG.tex	1275	\hyperref[def:infty-fib]{右ファイブレーション}
-def:infty-fib	appendixG.tex	1285	\hyperref[def:infty-fib]{右ファイブレーション}
-def:infty-fib	appendixG.tex	1370	\hyperref[def:infty-fib]{内的ファイブレーション}
-def:infty-fib	appendixG.tex	797	\hyperref[def:infty-fib]{\textsf{\textbf{(lifting property)}
-def:infty-fib	appendixG.tex	802	\hyperref[def:infty-fib]{右ファイブレーション}
-def:infty-fib	appendixG.tex	821	\hyperref[def:infty-fib]{右ファイブレーション}
-def:infty-homotopy-morphism	appendixC.tex	2387	\hyperref[def:infty-homotopy-morphism]{繋ぐホモトピー}
-def:infty-homotopy-morphism	appendixG.tex	1169	\hyperref[def:infty-homotopy-morphism]{homotopy}
-def:initial-final-infty	appendixG.tex	1188	\hyperref[def:initial-final-infty]{終対象}
-def:initial-final-infty	appendixG.tex	1189	\hyperref[def:initial-final-infty]{始対象}
-def:integral-curve	appendixB.tex	1143	\hyperref[def:integral-curve]{積分曲線}
-def:integral-curve	appendixB.tex	640	\hyperref[def:integral-curve]{積分曲線}
-def:integral-curve	appendixB.tex	652	\hyperref[def:integral-curve]{積分曲線}
-def:integral-curve	appendixB.tex	695	\hyperref[def:integral-curve]{積分曲線}
-def:integral-curve	appendixB.tex	785	\hyperref[def:integral-curve]{積分曲線}
-def:integral-curve	appendixB.tex	799	\hyperref[def:integral-curve]{積分曲線}
-def:integral-curve	appendixB.tex	842	\hyperref[def:integral-curve]{積分曲線}
-def:integral-curve	appendixB.tex	846	\hyperref[def:integral-curve]{積分曲線}
-def:integral-curve	appendixB.tex	884	\hyperref[def:integral-curve]{積分曲線}
-def:integral-curve	appendixB.tex	914	\hyperref[def:integral-curve]{積分曲線}
-def:integral-curve	appendixB.tex	962	\hyperref[def:integral-curve]{積分曲線の定義}
-def:internal-hom	chap3.tex	3708	\hyperref[def:internal-hom]{internal hom functor}
-def:invariant	chap2.tex	3948	\hyperref[def:invariant]{$k$ 次不変多項式}
-def:invariant	chap2.tex	4005	\hyperref[def:invariant]{$\Adj (G)$-不変性}
-def:invariant	chap2.tex	4055	\hyperref[def:invariant]{$\Adj(G)$-不変 $k$ 次多項式}
-def:invariant	chap2.tex	4077	\hyperref[def:invariant]{$k$ 次不変多項式}
-def:invariant	chap2.tex	4088	\hyperref[def:invariant]{$\Adj(G)$-不変性}
-def:invariant	chap2.tex	4202	\hyperref[def:invariant]{$\Adj(G)$-不変な多項式}
-def:invariant	chap2.tex	4264	\hyperref[def:invariant]{$\Adj(\LGL (n,\, \mathbb{K}
-def:invariant	chap2.tex	4298	\hyperref[def:invariant]{$\Adj(\LGL(n,\, \mathbb{K}
-def:invariant	chap2.tex	4377	\hyperref[def:invariant]{$\Adj\bigl(\LGL(n,\, \mathbb{R}
-def:iso	appendixC.tex	1003	\hyperref[def:iso]{同型}
-def:iso	appendixC.tex	1019	\hyperref[def:iso]{同型}
-def:iso	appendixC.tex	1036	\hyperref[def:iso]{自然同型}
-def:iso	appendixC.tex	1104	\hyperref[def:iso]{同型}
-def:iso	appendixC.tex	2096	\hyperref[def:iso]{同型}
-def:iso	appendixC.tex	226	\hyperref[def:iso]{同型射}
-def:iso	appendixC.tex	2422	\hyperref[def:iso]{同型射}
-def:iso	appendixC.tex	2431	\hyperref[def:iso]{同型}
-def:iso	appendixC.tex	717	\hyperref[def:iso]{同型}
-def:iso	appendixC.tex	732	\hyperref[def:iso]{同型射}
-def:iso	appendixC.tex	740	\hyperref[def:iso]{同型射}
-def:iso	appendixF.tex	4385	\hyperref[def:iso]{対象の同型}
-def:iso	appendixF.tex	4393	\hyperref[def:iso]{同型射}
-def:iso	appendixF.tex	4394	\hyperref[def:iso]{可逆}
-def:iso	appendixF.tex	4394	\hyperref[def:iso]{同型射}
-def:iso	appendixF.tex	4395	\hyperref[def:iso]{同型射}
-def:iso	appendixF.tex	4408	\hyperref[def:iso]{同型射}
-def:KanCplx	appendixC.tex	2060	\hyperref[def:KanCplx]{弱Kan複体}
-def:KanCplx	appendixC.tex	2062	\hyperref[def:KanCplx]{Kan複体}
-def:KanCplx	appendixC.tex	2097	\hyperref[def:KanCplx]{弱Kan条件}
-def:KanCplx	appendixC.tex	2136	\hyperref[def:KanCplx]{弱Kan条件}
-def:KanCplx	appendixC.tex	2178	\hyperref[def:KanCplx]{弱Kan条件}
-def:KanCplx	appendixC.tex	2208	\hyperref[def:KanCplx]{弱Kan条件}
-def:KanCplx	appendixC.tex	2257	\hyperref[def:KanCplx]{弱Kan条件}
-def:KanCplx	appendixC.tex	2295	\hyperref[def:KanCplx]{Kan条件}
-def:KanCplx	appendixC.tex	2328	\hyperref[def:KanCplx]{Kan条件}
-def:KanCplx	appendixC.tex	2406	\hyperref[def:KanCplx]{\textsf{\textbf{(Kan)}
-def:KanCplx	appendixC.tex	2550	\hyperref[def:KanCplx]{Kan複体}
-def:KanCplx	appendixG.tex	682	\hyperref[def:KanCplx]{Kan複体}
-def:KanCplx	appendixG.tex	734	\hyperref[def:KanCplx]{Kan複体}
-def:Kanext	appendixC.tex	1517	\hyperref[def:Kanext]{左Kan拡張}
-def:Kanext	appendixC.tex	1520	\hyperref[def:Kanext]{右Kan拡張}
-def:Kanext	appendixG.tex	537	\hyperref[def:Kanext]{右Kan拡張}
-def:left-invariant	appendixB.tex	1128	\hyperref[def:left-invariant]{左不変ベクトル場}
-def:left-invariant	chap2.tex	1149	\hyperref[def:left-invariant]{左不変ベクトル場}
-def:left-invariant	chap2.tex	1177	\hyperref[def:left-invariant]{左不変ベクトル場の定義}
-def:left-invariant	chap2.tex	1269	\hyperref[def:left-invariant]{左不変ベクトル場の定義}
-def:left-invariant	chap2.tex	1515	\hyperref[def:left-invariant]{左不変ベクトル場}
-def:Lie-action	appendixB.tex	764	\hyperref[def:Lie-action]{左作用}
-def:Lie-action	chap2.tex	1444	\hyperref[def:Lie-action]{右から作用}
-def:Lie-action	chap2.tex	1746	\hyperref[def:Lie-action]{自由}
-def:Lie-action	chap2.tex	405	\hyperref[def:Lie-action]{効果的に作用}
-def:Lie-action	chap2.tex	410	\hyperref[def:Lie-action]{左作用}
-def:Lie-action	chap2.tex	618	\hyperref[def:Lie-action]{左作用}
-def:Lie-action	chap2.tex	627	\hyperref[def:Lie-action]{左作用}
-def:Lie-action	chap2.tex	698	\hyperref[def:Lie-action]{左作用}
-def:Lie-action	chap2.tex	705	\hyperref[def:Lie-action]{自由な右作用}
-def:Lie-action	chap2.tex	755	\hyperref[def:Lie-action]{自由に作用}
-def:Lie-action	chap2.tex	838	\hyperref[def:Lie-action]{左作用}
-def:Lie-action	chap2.tex	911	\hyperref[def:Lie-action]{左作用}
-def:Lie-action	chap3.tex	2119	\hyperref[def:Lie-action]{自由な}
-def:Lie-adj	chap2.tex	1419	\hyperref[def:Lie-adj]{随伴表現}
-def:Lie-adj	chap2.tex	1681	\hyperref[def:Lie-adj]{随伴表現}
-def:Lie-adj	chap2.tex	1874	\hyperref[def:Lie-adj]{定義}
-def:Lie-adj	chap2.tex	2895	\hyperref[def:Lie-adj]{$\Adj$ の定義}
-def:Lie-bracket	appendixB.tex	532	\hyperref[def:Lie-bracket]{Lieブラケット}
-def:Lie-bracket	appendixB.tex	535	\hyperref[def:Lie-bracket]{Lieブラケット}
-def:Lie-bracket	chap2.tex	1003	\hyperref[def:Lie-bracket]{Lieブラケット}
-def:Liedv	appendixB.tex	1193	\hyperref[def:Liedv]{Lie微分}
-def:Liedv	chap2.tex	1406	\hyperref[def:Liedv]{Lie微分の定義}
-def:Liedv	chap2.tex	2242	\hyperref[def:Liedv]{Lie微分の定義}
-def:Liedv	chap2.tex	3128	\hyperref[def:Liedv]{Lie微分の定義}
-def:lim	appendixC.tex	1005	\hyperref[def:lim]{極限}
-def:lim	appendixC.tex	1389	\hyperref[def:lim]{極限}
-def:lim	appendixC.tex	385	\hyperref[def:lim]{極限}
-def:lim	appendixC.tex	438	\hyperref[def:lim]{極限}
-def:lim	appendixC.tex	467	\hyperref[def:lim]{極限}
-def:lim	appendixC.tex	481	\hyperref[def:lim]{極限}
-def:lim	appendixC.tex	496	\hyperref[def:lim]{極限}
-def:lim	appendixC.tex	520	\hyperref[def:lim]{極限}
-def:lim	appendixC.tex	556	\hyperref[def:lim]{極限の普遍性}
-def:lim	appendixC.tex	750	\hyperref[def:lim]{極限}
-def:lim	appendixC.tex	837	\hyperref[def:lim]{極限の普遍性}
-def:lim	appendixG.tex	1181	\hyperref[def:lim]{極限}
-def:lim	chap3.tex	7326	\hyperref[def:lim]{極限}
-def:lim-colim-infty	appendixG.tex	1217	\hyperref[def:lim-colim-infty]{limit}
-def:linkedG	chap3.tex	6038	\hyperref[def:linkedG]{絡みグラフ}
-def:linkedG	chap3.tex	6075	\hyperref[def:linkedG]{絡みグラフ}
-def:linkedG	chap3.tex	6349	\hyperref[def:linkedG]{絡みグラフ}
-def:linkedG	chap3.tex	6742	\hyperref[def:linkedG]{絡みグラフ}
-def:linkedG	chap3.tex	7068	\hyperref[def:linkedG]{絡みグラフ}
-def:loc-diffeo	appendixD.tex	367	\hyperref[def:loc-diffeo]{局所微分同相写像}
-def:loc-diffeo	appendixD.tex	368	\hyperref[def:loc-diffeo]{局所微分同相}
-def:loc-diffeo	appendixD.tex	380	\hyperref[def:loc-diffeo]{局所微分同相写像の定義}
-def:loc-diffeo	appendixD.tex	626	\hyperref[def:loc-diffeo]{局所微分同相写像}
-def:local-flow	appendixB.tex	1105	\hyperref[def:local-flow]{\textbf{\textsf{(LF-2)}
-def:local-flow	appendixB.tex	1166	\hyperref[def:local-flow]{フローの定義域}
-def:local-flow	appendixB.tex	912	\hyperref[def:local-flow]{フローの定義域の定義}
-def:local-flow	appendixB.tex	921	\hyperref[def:local-flow]{フローの定義域の定義}
-def:local-flow	appendixB.tex	923	\hyperref[def:local-flow]{局所的フローの定義}
-def:local-flow	appendixB.tex	927	\hyperref[def:local-flow]{極大局所フロー}
-def:local-flow	appendixB.tex	931	\hyperref[def:local-flow]{極大局所フロー}
-def:local-flow	appendixB.tex	934	\hyperref[def:local-flow]{極大積分曲線}
-def:local-flow	appendixB.tex	939	\hyperref[def:local-flow]{集合 $M_t$}
-def:local-flow	appendixB.tex	976	\hyperref[def:local-flow]{極大積分曲線}
-def:local-flow	appendixB.tex	983	\hyperref[def:local-flow]{局所フローの定義}
-def:local-flow	chap2.tex	1149	\hyperref[def:local-flow]{極大積分曲線}
-def:Maurer-Cartan	chap2.tex	2568	\hyperref[def:Maurer-Cartan]{Maurer-Cartan形式}
-def:Maurer-Cartan	chap2.tex	2615	\hyperref[def:Maurer-Cartan]{Maurer-Cartan形式}
-def:Maurer-Cartan	chap2.tex	2717	\hyperref[def:Maurer-Cartan]{Maurer-Cartan形式の定義}
-def:Maurer-Cartan	chap2.tex	2872	\hyperref[def:Maurer-Cartan]{Maurer-Cartan}
-def:Maurer-Cartan	chap3.tex	1539	\hyperref[def:Maurer-Cartan]{Maurer-Cartan形式}
-def:module-functor	appendixF.tex	2750	\hyperref[def:module-functor]{$\Cat{C}
-def:modulecat	appendixF.tex	2714	\hyperref[def:modulecat]{左/右加群積}
-def:modulecat	appendixF.tex	2717	\hyperref[def:modulecat]{左 $\Cat{C}
-def:modulecat	appendixF.tex	2749	\hyperref[def:modulecat]{左 $\Cat{C}
-def:modulecat	appendixF.tex	2775	\hyperref[def:modulecat]{左 $\Cat{C}
-def:modulecat	appendixF.tex	2804	\hyperref[def:modulecat]{左 $\Cat{C}
-def:modulecat	appendixF.tex	2805	\hyperref[def:modulecat]{右 $\Cat{C}
-def:modulecat	appendixF.tex	3200	\hyperref[def:modulecat]{左加群圏}
-def:modulecat	appendixF.tex	3223	\hyperref[def:modulecat]{左 $\Cat{C}
-def:modulecat	appendixF.tex	3227	\hyperref[def:modulecat]{\textsf{\textbf{(lMOD-1)}
-def:modulecat	appendixF.tex	3370	\hyperref[def:modulecat]{左 $\Cat{C}
-def:modulecat	appendixF.tex	3505	\hyperref[def:modulecat]{左 $\Cat{C}
-def:modulecat	chap3.tex	3582	\hyperref[def:modulecat]{$(\Cat{C}
-def:modulecat	chap3.tex	3705	\hyperref[def:modulecat]{左 $\Cat{C}
-def:modulecat	chap3.tex	3713	\hyperref[def:modulecat]{左 $\Cat{C}
-def:modulecat	chap3.tex	3721	\hyperref[def:modulecat]{左 $\Cat{C}
-def:modulecat	chap3.tex	3727	\hyperref[def:modulecat]{左 $\Cat{C}
-def:modulecat	chap3.tex	3730	\hyperref[def:modulecat]{左 $\BIMODC{\Cat{C}
-def:modulecat-exact	chap3.tex	3705	\hyperref[def:modulecat-exact]{完全}
-def:modulecat-exact	chap3.tex	3721	\hyperref[def:modulecat-exact]{完全}
-def:modulecat-exact	chap3.tex	3727	\hyperref[def:modulecat-exact]{完全}
-def:modulecat-exact	chap3.tex	3730	\hyperref[def:modulecat-exact]{完全}
-def:moduleobj	appendixF.tex	3171	\hyperref[def:moduleobj]{左 $x$-加群対象}
-def:moduleobj	appendixF.tex	3192	\hyperref[def:moduleobj]{左 $x$-加群対象}
-def:moduleobj	appendixF.tex	3195	\hyperref[def:moduleobj]{左 $x$-加群対象}
-def:moduleobj	appendixF.tex	3198	\hyperref[def:moduleobj]{右 $x$-加群対象}
-def:moduleobj	appendixF.tex	3201	\hyperref[def:moduleobj]{右 $x$-加群対象}
-def:moduleobj	appendixF.tex	3233	\hyperref[def:moduleobj]{右 $x$-加群対象}
-def:moduleobj	appendixF.tex	3234	\hyperref[def:moduleobj]{左 $x$-加群対象}
-def:moduleobj	appendixF.tex	3257	\hyperref[def:moduleobj]{左 $x_1$-加群対象}
-def:moduleobj	appendixF.tex	3258	\hyperref[def:moduleobj]{右 $x_2$-加群対象}
-def:moduleobj	appendixF.tex	3292	\hyperref[def:moduleobj]{右 $x$-加群対象}
-def:moduleobj	chap3.tex	3634	\hyperref[def:moduleobj]{右 $A$-加群対象}
-def:moduleobj	chap4.tex	458	\hyperref[def:moduleobj]{加群が成す圏}
-def:monidal-functor	appendixF.tex	1254	\hyperref[def:monidal-functor]{弱いモノイダル関手}
-def:monidal-functor	chap3.tex	7352	\hyperref[def:monidal-functor]{強いモノイダル関手}
-def:monidal-functor	chap3.tex	983	\hyperref[def:monidal-functor]{strong monoidal functor}
-def:monidal-functor	chap3.tex	991	\hyperref[def:monidal-functor]{strict monoidal functor}
-def:monidal-functor	chap3.tex	998	\hyperref[def:monidal-functor]{strict monoidal functor}
-def:monoidal-category	appendixC.tex	2459	\hyperref[def:monoidal-category]{associator}
-def:monoidal-category	appendixC.tex	2470	\hyperref[def:monoidal-category]{left/right unitor}
-def:monoidal-category	appendixC.tex	2519	\hyperref[def:monoidal-category]{モノイダル圏}
-def:monoidal-category	appendixF.tex	383	\hyperref[def:monoidal-category]{モノイダル圏}
-def:monoidal-category	appendixF.tex	4124	\hyperref[def:monoidal-category]{associator}
-def:monoidal-category	appendixF.tex	4135	\hyperref[def:monoidal-category]{left/right unitor}
-def:monoidal-category	appendixF.tex	540	\hyperref[def:monoidal-category]{モノイダル圏}
-def:monoidal-category	appendixF.tex	574	\hyperref[def:monoidal-category]{モノイダル圏}
-def:monoidal-category	appendixF.tex	767	\hyperref[def:monoidal-category]{モノイダル圏}
-def:monoidal-category	chap3.tex	248	\hyperref[def:monoidal-category]{モノイダル圏}
-def:monoidal-category	chap3.tex	282	\hyperref[def:monoidal-category]{モノイダル圏}
-def:monoidal-category	chap3.tex	290	\hyperref[def:monoidal-category]{モノイダル圏}
-def:monoidal-category	chap3.tex	338	\hyperref[def:monoidal-category]{associator}
-def:monoidal-category	chap3.tex	542	\hyperref[def:monoidal-category]{モノイダル圏}
-def:monoidal-category	chap3.tex	564	\hyperref[def:monoidal-category]{モノイダル圏}
-def:monoidal-category	chap3.tex	598	\hyperref[def:monoidal-category]{モノイダル圏}
-def:monoidal-category	chap3.tex	66	\hyperref[def:monoidal-category]{モノイダル圏}
-def:monoidal-category	chap3.tex	66	\hyperref[def:monoidal-category]{\textsf{\textbf{(triangle diagram)}
-def:monoidal-category	chap3.tex	728	\hyperref[def:monoidal-category]{モノイダル圏}
-def:monoidal-category	chap3.tex	831	\hyperref[def:monoidal-category]{モノイダル圏}
-def:monoidal-category	chap3.tex	833	\hyperref[def:monoidal-category]{モノイダル圏}
-def:monoidal-category	chap3.tex	966	\hyperref[def:monoidal-category]{モノイダル圏}
-def:monoidal-functor	appendixF.tex	4745	\hyperref[def:monoidal-functor]{モノイダル関手}
-def:monoidal-nat	appendixF.tex	1825	\hyperref[def:monoidal-nat]{モノイダル自然変換}
-def:monoidal-nat	appendixF.tex	1838	\hyperref[def:monoidal-nat]{\textsf{\textbf{(テンソル積の保存)}
-def:monoidal-nat	appendixF.tex	1966	\hyperref[def:monoidal-nat]{モノイダル自然同型}
-def:monoidal-nat	appendixF.tex	2003	\hyperref[def:monoidal-nat]{モノイダル自然同型}
-def:Morita-equiv	chap3.tex	3699	\hyperref[def:Morita-equiv]{森田同値}
-def:Morita-equiv	chap4.tex	471	\hyperref[def:Morita-equiv]{森田同値}
-def:MTC	appendixF.tex	77	\hyperref[def:MTC]{modular tensor}
-def:MTC	chap4.tex	902	\hyperref[def:MTC]{モジュラーテンソル圏}
-def:MTC	chap4.tex	909	\hyperref[def:MTC]{MTC}
-def:MTC	chap4.tex	977	\hyperref[def:MTC]{MTC}
-def:Muger-center	chap4.tex	888	\hyperref[def:Muger-center]{M\"{u}
-def:nat	appendixA.tex	72	\hyperref[def:nat]{自然変換}
-def:nat	appendixC.tex	1112	\hyperref[def:nat]{自然同型}
-def:nat	appendixC.tex	1133	\hyperref[def:nat]{自然変換}
-def:nat	appendixC.tex	1355	\hyperref[def:nat]{自然な同型}
-def:nat	appendixC.tex	1371	\hyperref[def:nat]{自然変換}
-def:nat	appendixC.tex	1463	\hyperref[def:nat]{自然同型}
-def:nat	appendixC.tex	1630	\hyperref[def:nat]{自然変換}
-def:nat	appendixC.tex	1678	\hyperref[def:nat]{自然同値}
-def:nat	appendixC.tex	1841	\hyperref[def:nat]{自然変換}
-def:nat	appendixC.tex	1932	\hyperref[def:nat]{自然変換}
-def:nat	appendixC.tex	1967	\hyperref[def:nat]{自然変換}
-def:nat	appendixC.tex	2006	\hyperref[def:nat]{自然変換}
-def:nat	appendixC.tex	2043	\hyperref[def:nat]{自然変換}
-def:nat	appendixC.tex	2244	\hyperref[def:nat]{自然変換}
-def:nat	appendixC.tex	2696	\hyperref[def:nat]{自然変換}
-def:nat	appendixC.tex	596	\hyperref[def:nat]{自然変換}
-def:nat	appendixC.tex	628	\hyperref[def:nat]{自然変換}
-def:nat	appendixC.tex	652	\hyperref[def:nat]{自然変換}
-def:nat	appendixC.tex	718	\hyperref[def:nat]{自然同型}
-def:nat	appendixC.tex	732	\hyperref[def:nat]{自然同値}
-def:nat	appendixC.tex	740	\hyperref[def:nat]{自然同型}
-def:nat	appendixC.tex	804	\hyperref[def:nat]{自然同型}
-def:nat	appendixC.tex	823	\hyperref[def:nat]{自然変換}
-def:nat	appendixC.tex	862	\hyperref[def:nat]{自然同型}
-def:nat	appendixC.tex	968	\hyperref[def:nat]{自然同型}
-def:nat	appendixF.tex	1310	\hyperref[def:nat]{自然変換}
-def:nat	appendixF.tex	1523	\hyperref[def:nat]{自然同型}
-def:nat	appendixF.tex	2665	\hyperref[def:nat]{自然同型}
-def:nat	appendixF.tex	2666	\hyperref[def:nat]{自然同型}
-def:nat	appendixF.tex	2697	\hyperref[def:nat]{自然同型}
-def:nat	appendixF.tex	2698	\hyperref[def:nat]{自然同型}
-def:nat	appendixF.tex	2721	\hyperref[def:nat]{自然同型}
-def:nat	appendixF.tex	2751	\hyperref[def:nat]{自然変換}
-def:nat	appendixF.tex	2787	\hyperref[def:nat]{自然同型}
-def:nat	appendixF.tex	2791	\hyperref[def:nat]{自然同型}
-def:nat	appendixF.tex	2792	\hyperref[def:nat]{自然同型}
-def:nat	appendixF.tex	2796	\hyperref[def:nat]{自然同型}
-def:nat	appendixF.tex	2797	\hyperref[def:nat]{自然同型}
-def:nat	appendixF.tex	3218	\hyperref[def:nat]{自然同型}
-def:nat	appendixF.tex	323	\hyperref[def:nat]{自然同値}
-def:nat	appendixF.tex	327	\hyperref[def:nat]{自然同値}
-def:nat	appendixF.tex	3513	\hyperref[def:nat]{自然同型}
-def:nat	appendixF.tex	3538	\hyperref[def:nat]{自然同型}
-def:nat	appendixF.tex	3639	\hyperref[def:nat]{自然同型}
-def:nat	appendixF.tex	3648	\hyperref[def:nat]{自然同型}
-def:nat	appendixF.tex	4316	\hyperref[def:nat]{自然同型}
-def:nat	appendixF.tex	4330	\hyperref[def:nat]{自然同型}
-def:nat	appendixF.tex	4385	\hyperref[def:nat]{自然同型}
-def:nat	appendixF.tex	439	\hyperref[def:nat]{自然変換}
-def:nat	appendixF.tex	4727	\hyperref[def:nat]{自然変換}
-def:nat	appendixF.tex	515	\hyperref[def:nat]{自然性}
-def:nat	appendixF.tex	986	\hyperref[def:nat]{自然な同型}
-def:nat	appendixF.tex	992	\hyperref[def:nat]{自然な同型}
-def:nat	chap3.tex	3873	\hyperref[def:nat]{自然同型}
-def:nat	chap4.tex	581	\hyperref[def:nat]{自然変換}
-def:nat	chap4.tex	789	\hyperref[def:nat]{自然同型}
-def:nerve	appendixC.tex	1885	\hyperref[def:nerve]{脈体}
-def:nerve	appendixC.tex	1899	\hyperref[def:nerve]{脈体}
-def:nerve	appendixC.tex	1908	\hyperref[def:nerve]{脈体関手}
-def:nerve	appendixC.tex	2096	\hyperref[def:nerve]{脈体}
-def:nerve	appendixC.tex	2286	\hyperref[def:nerve]{脈体}
-def:nerve	appendixC.tex	2601	\hyperref[def:nerve]{脈体}
-def:nerve	appendixC.tex	2623	\hyperref[def:nerve]{脈体}
-def:nerve	appendixG.tex	1342	\hyperref[def:nerve]{脈体の定義}
-def:nerve-hc	appendixC.tex	2706	\hyperref[def:nerve-hc]{homotopy coherent nerve}
-def:nerve-hc	appendixG.tex	768	\hyperref[def:nerve-hc]{homotopy coherent nerve functor}
-def:nondegen-BFC	chap4.tex	893	\hyperref[def:nondegen-BFC]{非退化}
-def:nondegen-BFC	chap4.tex	897	\hyperref[def:nondegen-BFC]{非退化}
-def:nondegen-BFC	chap4.tex	977	\hyperref[def:nondegen-BFC]{非退化}
-def:one-parameter-subgroup	chap2.tex	1149	\hyperref[def:one-parameter-subgroup]{1パラメータ部分群}
-def:overcat-infty	appendixG.tex	1188	\hyperref[def:overcat-infty]{スライス $(\infty,\, 1)$-圏}
-def:overcat-infty	appendixG.tex	1189	\hyperref[def:overcat-infty]{スライス $(\infty,\, 1)$-圏}
-def:overcat-infty	appendixG.tex	1245	\hyperref[def:overcat-infty]{スライス圏}
-def:p-form-sym	chap3.tex	3181	\hyperref[def:p-form-sym]{0-form symmetry}
-def:p-form-sym	chap3.tex	3236	\hyperref[def:p-form-sym]{$0$-form symmetry}
-def:p-form-sym	chap3.tex	3239	\hyperref[def:p-form-sym]{$0$-form symmetry}
-def:p-form-sym	chap3.tex	3489	\hyperref[def:p-form-sym]{0-form symmetry}
-def:p-form-sym	chap3.tex	7734	\hyperref[def:p-form-sym]{トポロジカル演算子}
-def:p-form-sym	chap3.tex	7734	\hyperref[def:p-form-sym]{charged object}
-def:p-form-sym	chap5.tex	14	\hyperref[def:p-form-sym]{0-form symmetry}
-def:Pachner	chap3.tex	3283	\hyperref[def:Pachner]{双星状移動}
-def:PathCat	appendixC.tex	2615	\hyperref[def:PathCat]{$\mathfrak{C}
-def:pivotal	appendixF.tex	1983	\hyperref[def:pivotal]{旋回構造}
-def:pivotal	appendixF.tex	1991	\hyperref[def:pivotal]{旋回構造}
-def:pivotal	appendixF.tex	2089	\hyperref[def:pivotal]{旋回構造}
-def:pivotal	appendixF.tex	2094	\hyperref[def:pivotal]{旋回構造}
-def:pivotal	appendixF.tex	2187	\hyperref[def:pivotal]{旋回構造}
-def:pivotal	appendixF.tex	2508	\hyperref[def:pivotal]{旋回構造}
-def:pivotal	appendixF.tex	2577	\hyperref[def:pivotal]{旋回構造}
-def:pivotal	appendixF.tex	3643	\hyperref[def:pivotal]{旋回構造}
-def:pivotal	appendixF.tex	3647	\hyperref[def:pivotal]{旋回構造}
-def:pivotal	appendixF.tex	3656	\hyperref[def:pivotal]{球状構造}
-def:pivotal	chap3.tex	3753	\hyperref[def:pivotal]{旋回構造}
-def:pivotal	chap3.tex	3894	\hyperref[def:pivotal]{旋回構造}
-def:pivotal	chap3.tex	3912	\hyperref[def:pivotal]{旋回構造}
-def:pivotal	chap3.tex	7359	\hyperref[def:pivotal]{旋回構造}
-def:pivotal	chap4.tex	693	\hyperref[def:pivotal]{旋回構造}
-def:pivotal	chap4.tex	716	\hyperref[def:pivotal]{旋回構造}
-def:PLmfd	chap3.tex	3284	\hyperref[def:PLmfd]{PL多様体}
-def:PLmfd	chap3.tex	5040	\hyperref[def:PLmfd]{PL多様体}
-def:polyhedra-special	chap3.tex	5201	\hyperref[def:polyhedra-special]{層状化された多面体}
-def:polyhedron	chap3.tex	5134	\hyperref[def:polyhedron]{層状化された多面体}
-def:polyhedron	chap3.tex	5138	\hyperref[def:polyhedron]{向き}
-def:polyhedron	chap3.tex	5139	\hyperref[def:polyhedron]{層状化された多面体}
-def:polyhedron	chap3.tex	5188	\hyperref[def:polyhedron]{埋め込み可能}
-def:polyhedron	chap3.tex	5188	\hyperref[def:polyhedron]{層状化された多面体}
-def:polyhedron	chap3.tex	5189	\hyperref[def:polyhedron]{層状化された多面体}
-def:polyhedron	chap3.tex	5206	\hyperref[def:polyhedron]{向き付けられ，層状化された多面体}
-def:polyhedron	chap3.tex	5215	\hyperref[def:polyhedron]{配位数}
-def:polyhedron	chap3.tex	5216	\hyperref[def:polyhedron]{向き付けられ，層状化された2-多面体}
-def:polyhedron	chap3.tex	5226	\hyperref[def:polyhedron]{分岐}
-def:polyhedron	chap3.tex	5298	\hyperref[def:polyhedron]{配位数}
-def:polyhedron	chap3.tex	5650	\hyperref[def:polyhedron]{領域}
-def:polyhedron	chap3.tex	5659	\hyperref[def:polyhedron]{分岐}
-def:polyhedron	chap3.tex	5854	\hyperref[def:polyhedron]{分岐}
-def:polyhedron	chap3.tex	6030	\hyperref[def:polyhedron]{分岐}
-def:polyhedron	chap3.tex	6042	\hyperref[def:polyhedron]{領域}
-def:polyhedron	chap3.tex	6266	\hyperref[def:polyhedron]{領域}
-def:polyhedron	chap3.tex	6274	\hyperref[def:polyhedron]{多面体分割}
-def:polyhedron	chap3.tex	6320	\hyperref[def:polyhedron]{領域}
-def:polyhedron	chap3.tex	6819	\hyperref[def:polyhedron]{隣接}
-def:polyhedron	chap3.tex	6819	\hyperref[def:polyhedron]{領域}
-def:polyhedron	chap3.tex	7113	\hyperref[def:polyhedron]{領域}
-def:polyhedron	chap3.tex	7144	\hyperref[def:polyhedron]{配位数}
-def:polyhedron	chap3.tex	7203	\hyperref[def:polyhedron]{多面体分割の定義}
-def:polyhedron	chap3.tex	7210	\hyperref[def:polyhedron]{分岐}
-def:polyhedron	chap3.tex	7210	\hyperref[def:polyhedron]{多面体分割の定義}
-def:polyhedron	chap3.tex	7211	\hyperref[def:polyhedron]{層状化された多面体}
-def:polyhedron	chap3.tex	7216	\hyperref[def:polyhedron]{層状化された多面体}
-def:polynomial	chap2.tex	3918	\hyperref[def:polynomial]{多項式}
-def:polynomial	chap2.tex	3936	\hyperref[def:polynomial]{$k$ 次多項式}
-def:polynomial	chap2.tex	4255	\hyperref[def:polynomial]{$\Lgl (n,\, \mathbb{K}
-def:polynomial	chap2.tex	4376	\hyperref[def:polynomial]{$k$ 次多項式}
-def:polytope-decomp	chap3.tex	3251	\hyperref[def:polytope-decomp]{多面体分割}
-def:polytope-decomp	chap3.tex	5300	\hyperref[def:polytope-decomp]{多面体分割}
-def:polytope-decomp	chap3.tex	5531	\hyperref[def:polytope-decomp]{多面体分割}
-def:polytope-decomp	chap3.tex	5534	\hyperref[def:polytope-decomp]{多面体分割}
-def:polytope-decomp	chap3.tex	5650	\hyperref[def:polytope-decomp]{多面体分割}
-def:polytope-decomp	chap3.tex	6261	\hyperref[def:polytope-decomp]{多面体分割}
-def:polytope-decomp	chap3.tex	6270	\hyperref[def:polytope-decomp]{多面体分割}
-def:polytope-decomp	chap3.tex	6795	\hyperref[def:polytope-decomp]{多面体分割}
-def:polytope-decomp	chap3.tex	6807	\hyperref[def:polytope-decomp]{多面体分割}
-def:polytope-decomp	chap3.tex	6933	\hyperref[def:polytope-decomp]{多面体分割の定義}
-def:polytope-decomp	chap3.tex	7103	\hyperref[def:polytope-decomp]{多面体分割}
-def:polytope-decomp	chap3.tex	7120	\hyperref[def:polytope-decomp]{多面体分割}
-def:polytope-decomp	chap3.tex	7125	\hyperref[def:polytope-decomp]{多面体分割}
-def:polytope-decomp	chap3.tex	7192	\hyperref[def:polytope-decomp]{多面体分割}
-def:polytope-decomp	chap3.tex	7193	\hyperref[def:polytope-decomp]{多面体分割}
-def:polytope-decomp	chap3.tex	7357	\hyperref[def:polytope-decomp]{多面体分割}
-def:premodular-cat	appendixF.tex	3780	\hyperref[def:premodular-cat]{前モジュラー圏}
-def:premodular-cat	appendixF.tex	74	\hyperref[def:premodular-cat]{pre-modular}
-def:premodular-cat	chap4.tex	897	\hyperref[def:premodular-cat]{前モジュラー圏}
-def:preserve-colim	appendixC.tex	1023	\hyperref[def:preserve-colim]{余極限を保ち}
-def:preserve-lim	appendixC.tex	1023	\hyperref[def:preserve-lim]{極限を保つ}
-def:presheaf	appendixA.tex	103	\hyperref[def:presheaf]{前層}
-def:presheaf	appendixA.tex	126	\hyperref[def:presheaf]{前層}
-def:presheaf	appendixA.tex	177	\hyperref[def:presheaf]{前層}
-def:presheaf	appendixA.tex	71	\hyperref[def:presheaf]{$\Cat{S}
-def:presheaf	appendixA.tex	81	\hyperref[def:presheaf]{前層}
-def:presheaf	appendixA.tex	97	\hyperref[def:presheaf]{前層}
-def:presheaf	appendixC.tex	593	\hyperref[def:presheaf]{付録A}
-def:presheaf	appendixG.tex	381	\hyperref[def:presheaf]{前層}
-def:presheaf-general	appendixC.tex	1102	\hyperref[def:presheaf-general]{前層}
-def:presheaf-general	appendixC.tex	1222	\hyperref[def:presheaf-general]{前層}
-def:presheaf-general	appendixC.tex	1240	\hyperref[def:presheaf-general]{前層}
-def:presheaf-general	appendixC.tex	595	\hyperref[def:presheaf-general]{前層}
-def:presheaf-general	appendixC.tex	602	\hyperref[def:presheaf-general]{前層}
-def:presheaf-general	appendixC.tex	641	\hyperref[def:presheaf-general]{前層}
-def:presheaf-general	appendixC.tex	740	\hyperref[def:presheaf-general]{前層}
-def:presheaf-general	appendixC.tex	761	\hyperref[def:presheaf-general]{前層}
-def:presheaf-general	appendixC.tex	852	\hyperref[def:presheaf-general]{前層}
-def:product-coproduct	appendixC.tex	1641	\hyperref[def:product-coproduct]{余積}
-def:product-coproduct	appendixC.tex	2520	\hyperref[def:product-coproduct]{直積}
-def:product-coproduct	appendixF.tex	150	\hyperref[def:product-coproduct]{余積}
-def:product-coproduct	chap2.tex	645	\hyperref[def:product-coproduct]{直和位相空間}
-def:product-coproduct	chap2.tex	645	\hyperref[def:product-coproduct]{積位相}
-def:product-coproduct	chap3.tex	3791	\hyperref[def:product-coproduct]{直和を特徴付ける射の族}
-def:product-coproduct	chap3.tex	3794	\hyperref[def:product-coproduct]{直和の普遍性}
-def:product-coproduct	chap3.tex	4431	\hyperref[def:product-coproduct]{直和の普遍性}
-def:product-coproduct	chap3.tex	7290	\hyperref[def:product-coproduct]{直和の普遍性}
-def:pseudo-unitary	appendixF.tex	2598	\hyperref[def:pseudo-unitary]{擬ユニタリフュージョン圏}
-def:pseudo-unitary	appendixF.tex	2608	\hyperref[def:pseudo-unitary]{擬ユニタリ}
-def:pullback-bundle	chap3.tex	2024	\hyperref[def:pullback-bundle]{引き戻し束}
-def:pullback-bundle	chap3.tex	2082	\hyperref[def:pullback-bundle]{引き戻し束}
-def:pullback-infty	appendixG.tex	1286	\hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏のpullback}
-def:pullback-pushout	appendixC.tex	1085	\hyperref[def:pullback-pushout]{引き戻し}
-def:pullback-pushout	appendixG.tex	121	\hyperref[def:pullback-pushout]{押し出し}
-def:pullback-pushout	appendixG.tex	635	\hyperref[def:pullback-pushout]{引き戻し}
-def:qdim	appendixF.tex	2616	\hyperref[def:qdim]{量子次元}
-def:qtrace	appendixF.tex	1979	\hyperref[def:qtrace]{左量子トレース}
-def:qtrace	appendixF.tex	3785	\hyperref[def:qtrace]{左量子トレース}
-def:qtrace	chap3.tex	4571	\hyperref[def:qtrace]{量子トレース}
-def:qtrace	chap3.tex	4840	\hyperref[def:qtrace]{量子トレース}
-def:quantum-phase	chap4.tex	172	\hyperref[def:quantum-phase]{bosonicなトポロジカル秩序}
-def:quantum-phase	chap4.tex	184	\hyperref[def:quantum-phase]{bosonicなトポロジカル秩序}
-def:quantum-phase	chap4.tex	191	\hyperref[def:quantum-phase]{トポロジカル秩序}
-def:quantum-phase	chap4.tex	207	\hyperref[def:quantum-phase]{量子相}
-def:quantum-phase	chap4.tex	211	\hyperref[def:quantum-phase]{gappedな量子相}
-def:quantum-phase	chap4.tex	215	\hyperref[def:quantum-phase]{トポロジカル秩序}
-def:quantum-phase	chap4.tex	220	\hyperref[def:quantum-phase]{量子相}
-def:quantum-phase	chap4.tex	224	\hyperref[def:quantum-phase]{gappedな量子相}
-def:quantum-phase	chap4.tex	262	\hyperref[def:quantum-phase]{トポロジカル秩序}
-def:quantum-phase	chap4.tex	313	\hyperref[def:quantum-phase]{gappedなトポロジカル秩序}
-def:quantum-phase	chap4.tex	480	\hyperref[def:quantum-phase]{トポロジカル秩序}
-def:quantum-phase	chap4.tex	520	\hyperref[def:quantum-phase]{トポロジカル秩序}
-def:quantum-phase	chap4.tex	556	\hyperref[def:quantum-phase]{トポロジカル秩序}
-def:quantum-phase	chap4.tex	563	\hyperref[def:quantum-phase]{トポロジカル秩序}
-def:quantum-phase	chap4.tex	594	\hyperref[def:quantum-phase]{トポロジカル秩序のミクロな定義}
-def:quantum-phase	chap5.tex	12	\hyperref[def:quantum-phase]{gappedな量子相}
-def:quantum-phase	chap5.tex	22	\hyperref[def:quantum-phase]{量子相}
-def:quantum-phase	chap5.tex	32	\hyperref[def:quantum-phase]{量子相}
-def:quantum-phase	chap5.tex	70	\hyperref[def:quantum-phase]{量子相}
-def:rank-smooth	appendixD.tex	351	\hyperref[def:rank-smooth]{定ランク}
-def:rank-smooth	appendixD.tex	397	\hyperref[def:rank-smooth]{定ランク}
-def:rank-smooth	appendixD.tex	450	\hyperref[def:rank-smooth]{定ランク}
-def:rank-smooth	appendixD.tex	571	\hyperref[def:rank-smooth]{定ランク}
-def:rank-smooth	appendixD.tex	584	\hyperref[def:rank-smooth]{ランク}
-def:rank-smooth	appendixD.tex	591	\hyperref[def:rank-smooth]{定ランク}
-def:representable	appendixC.tex	1102	\hyperref[def:representable]{米田埋め込み}
-def:representable	appendixC.tex	1227	\hyperref[def:representable]{表現可能前層}
-def:representable	appendixC.tex	1353	\hyperref[def:representable]{米田埋め込み}
-def:representable	appendixC.tex	1444	\hyperref[def:representable]{米田埋め込み}
-def:representable	appendixC.tex	1527	\hyperref[def:representable]{表現可能前層}
-def:representable	appendixC.tex	659	\hyperref[def:representable]{表現可能前層}
-def:representable	appendixC.tex	696	\hyperref[def:representable]{米田埋め込み}
-def:representable	appendixC.tex	705	\hyperref[def:representable]{米田埋め込みの定義}
-def:representable	appendixC.tex	718	\hyperref[def:representable]{表現可能前層}
-def:representable	appendixC.tex	800	\hyperref[def:representable]{表現可能前層}
-def:representable	appendixC.tex	858	\hyperref[def:representable]{表現可能前層}
-def:resultant	appendixE.tex	55	\hyperref[def:resultant]{Sylvester行列}
-def:RFIB	appendixG.tex	1274	\hyperref[def:RFIB]{$\RFIB_{\BSC}
-def:ribbon	appendixF.tex	3643	\hyperref[def:ribbon]{\textsf{\textbf{(Rib-1)}
-def:ribbon	appendixF.tex	3648	\hyperref[def:ribbon]{リボン構造}
-def:ribbon	appendixF.tex	3656	\hyperref[def:ribbon]{リボン}
-def:ribbon	appendixF.tex	3663	\hyperref[def:ribbon]{リボン構造}
-def:ribbon	appendixF.tex	3776	\hyperref[def:ribbon]{リボン構造}
-def:ribbon	appendixF.tex	3832	\hyperref[def:ribbon]{\textsf{\textbf{(Rib-1)}
-def:ribbon	appendixF.tex	59	\hyperref[def:ribbon]{ribbon}
-def:ringcat	appendixF.tex	1612	\hyperref[def:ringcat]{多重環圏}
-def:ringcat	appendixF.tex	1613	\hyperref[def:ringcat]{環圏}
-def:ringcat	appendixF.tex	1628	\hyperref[def:ringcat]{多重環圏の定義}
-def:ringcat	appendixF.tex	1640	\hyperref[def:ringcat]{環圏の定義}
-def:ringcat	appendixF.tex	1687	\hyperref[def:ringcat]{（多重）環圏}
-def:ringcat	appendixF.tex	1780	\hyperref[def:ringcat]{多重環圏}
-def:ringcat	appendixF.tex	2641	\hyperref[def:ringcat]{(多重) 環圏}
-def:S-matrix	appendixF.tex	3788	\hyperref[def:S-matrix]{$S$-行列の定義}
-def:S-matrix	appendixF.tex	3813	\hyperref[def:S-matrix]{$S$ 行列}
-def:second-countable	appendixB.tex	88	\hyperref[def:second-countable]{第2可算}
-def:semisimple-cat	appendixF.tex	1613	\hyperref[def:semisimple-cat]{単純対象}
-def:semisimple-cat	appendixF.tex	1692	\hyperref[def:semisimple-cat]{単純}
-def:semisimple-cat	appendixF.tex	2089	\hyperref[def:semisimple-cat]{半単純}
-def:semisimple-cat	appendixF.tex	2237	\hyperref[def:semisimple-cat]{半単純}
-def:semisimple-cat	appendixF.tex	2238	\hyperref[def:semisimple-cat]{単純対象}
-def:semisimple-cat	appendixF.tex	2245	\hyperref[def:semisimple-cat]{半単純}
-def:semisimple-cat	appendixF.tex	2295	\hyperref[def:semisimple-cat]{半単純}
-def:semisimple-cat	appendixF.tex	2296	\hyperref[def:semisimple-cat]{半単純}
-def:semisimple-cat	appendixF.tex	230	\hyperref[def:semisimple-cat]{単純対象}
-def:semisimple-cat	appendixF.tex	2366	\hyperref[def:semisimple-cat]{半単純}
-def:semisimple-cat	appendixF.tex	3358	\hyperref[def:semisimple-cat]{半単純}
-def:semisimple-cat	appendixF.tex	55	\hyperref[def:semisimple-cat]{semisimple}
-def:semisimple-cat	chap3.tex	3754	\hyperref[def:semisimple-cat]{単純対象}
-def:semisimple-cat	chap3.tex	3757	\hyperref[def:semisimple-cat]{半単純}
-def:semisimple-cat	chap3.tex	3781	\hyperref[def:semisimple-cat]{単純}
-def:semisimple-cat	chap3.tex	3783	\hyperref[def:semisimple-cat]{単純}
-def:semisimple-cat	chap3.tex	3787	\hyperref[def:semisimple-cat]{半単純}
-def:semisimple-cat	chap3.tex	3814	\hyperref[def:semisimple-cat]{半単純性}
-def:semisimple-cat	chap3.tex	3839	\hyperref[def:semisimple-cat]{アーベル圏における半単純性の定義}
-def:semisimple-cat	chap3.tex	3840	\hyperref[def:semisimple-cat]{アーベル圏における半単純性の定義}
-def:semisimple-cat	chap3.tex	3902	\hyperref[def:semisimple-cat]{半単純}
-def:semisimple-cat	chap3.tex	3999	\hyperref[def:semisimple-cat]{半単純}
-def:semisimple-cat	chap4.tex	516	\hyperref[def:semisimple-cat]{半単純}
-def:semisimple-cat	chap4.tex	557	\hyperref[def:semisimple-cat]{単純対象}
-def:semisimple-Muger	appendixF.tex	2395	\hyperref[def:semisimple-Muger]{M\"{u}
-def:semisimple-Muger	chap3.tex	3839	\hyperref[def:semisimple-Muger]{M\"{u}
-def:semisimple-Muger	chap3.tex	3912	\hyperref[def:semisimple-Muger]{M\"{u}
-def:separable-alg	appendixF.tex	3328	\hyperref[def:separable-alg]{分離可能性}
-def:separable-alg	appendixF.tex	3358	\hyperref[def:separable-alg]{分離可能}
-def:separable-alg	appendixF.tex	3495	\hyperref[def:separable-alg]{分離可能}
-def:sheaf	appendixA.tex	144	\hyperref[def:sheaf]{$\Cat{S}
-def:sheaf	appendixA.tex	161	\hyperref[def:sheaf]{層}
-def:sheaf	appendixA.tex	168	\hyperref[def:sheaf]{層}
-def:Simp-Join	appendixG.tex	1082	\hyperref[def:Simp-Join]{join}
-def:Simp-Join	appendixG.tex	1102	\hyperref[def:Simp-Join]{joinの定義}
-def:Simp-Join	appendixG.tex	1125	\hyperref[def:Simp-Join]{joinの定義}
-def:SimpCat	appendixC.tex	2555	\hyperref[def:SimpCat]{単体的豊穣圏}
-def:SimpCat	appendixC.tex	2577	\hyperref[def:SimpCat]{単体的豊穣圏}
-def:SimpCat	appendixC.tex	2668	\hyperref[def:SimpCat]{単体的豊穣圏}
-def:SimpCat	appendixC.tex	2706	\hyperref[def:SimpCat]{単体的豊穣圏}
-def:simpi	chap3.tex	3125	\hyperref[def:simpi]{単体的ホモトピー群}
-def:simplex-cat	appendixC.tex	1237	\hyperref[def:simplex-cat]{圏 $\Delta$}
-def:simplex-cat	appendixC.tex	1424	\hyperref[def:simplex-cat]{$n$-単体}
-def:simplex-cat	appendixC.tex	1425	\hyperref[def:simplex-cat]{圏 $\Delta$}
-def:simplex-cat	appendixC.tex	1824	\hyperref[def:simplex-cat]{圏 $\OP{\Delta}
-def:simplex-cat	appendixC.tex	1885	\hyperref[def:simplex-cat]{面写像}
-def:simplex-cat	appendixC.tex	1899	\hyperref[def:simplex-cat]{縮退写像}
-def:simplex-cat	appendixC.tex	1937	\hyperref[def:simplex-cat]{面写像}
-def:simplex-cat	appendixC.tex	1967	\hyperref[def:simplex-cat]{面写像}
-def:simplex-cat	appendixC.tex	2006	\hyperref[def:simplex-cat]{縮退写像}
-def:simplicial-top	appendixC.tex	1437	\hyperref[def:simplicial-top]{特異複体}
-def:simplicial-top	appendixC.tex	1459	\hyperref[def:simplicial-top]{特異複体}
-def:simplicial-top	appendixG.tex	692	\hyperref[def:simplicial-top]{幾何学的 $n$-単体}
-def:SimpSet	appendixC.tex	1183	\hyperref[def:SimpSet]{単体的集合の圏}
-def:SimpSet	appendixC.tex	1273	\hyperref[def:SimpSet]{単体的集合}
-def:SimpSet	appendixC.tex	1355	\hyperref[def:SimpSet]{単体的集合}
-def:SimpSet	appendixC.tex	1360	\hyperref[def:SimpSet]{$\sSet$}
-def:SimpSet	appendixC.tex	1361	\hyperref[def:SimpSet]{単体的集合}
-def:SimpSet	appendixC.tex	1371	\hyperref[def:SimpSet]{$n$-単体}
-def:SimpSet	appendixC.tex	1384	\hyperref[def:SimpSet]{単体的集合}
-def:SimpSet	appendixC.tex	1391	\hyperref[def:SimpSet]{単体的集合}
-def:SimpSet	appendixC.tex	1418	\hyperref[def:SimpSet]{余単体的集合}
-def:SimpSet	appendixC.tex	1432	\hyperref[def:SimpSet]{単体的集合}
-def:SimpSet	appendixC.tex	1482	\hyperref[def:SimpSet]{単体的部分集合}
-def:SimpSet	appendixC.tex	1497	\hyperref[def:SimpSet]{単体的部分集合}
-def:SimpSet	appendixC.tex	1507	\hyperref[def:SimpSet]{単体的部分集合}
-def:SimpSet	appendixC.tex	1516	\hyperref[def:SimpSet]{単体的集合}
-def:SimpSet	appendixC.tex	1519	\hyperref[def:SimpSet]{単体的集合}
-def:SimpSet	appendixC.tex	1582	\hyperref[def:SimpSet]{縮退写像}
-def:SimpSet	appendixC.tex	1621	\hyperref[def:SimpSet]{$\sSet$}
-def:SimpSet	appendixC.tex	1660	\hyperref[def:SimpSet]{単体的部分集合}
-def:SimpSet	appendixC.tex	1751	\hyperref[def:SimpSet]{$\sSet$}
-def:SimpSet	appendixC.tex	1810	\hyperref[def:SimpSet]{単体的集合}
-def:SimpSet	appendixC.tex	1813	\hyperref[def:SimpSet]{単体的集合}
-def:SimpSet	appendixC.tex	2034	\hyperref[def:SimpSet]{単体的集合}
-def:SimpSet	appendixC.tex	2061	\hyperref[def:SimpSet]{$\sSet$}
-def:SimpSet	appendixC.tex	2066	\hyperref[def:SimpSet]{$0$-単体}
-def:SimpSet	appendixC.tex	2067	\hyperref[def:SimpSet]{$1$-単体}
-def:SimpSet	appendixC.tex	2080	\hyperref[def:SimpSet]{単体的集合}
-def:SimpSet	appendixC.tex	2093	\hyperref[def:SimpSet]{単体的集合}
-def:SimpSet	appendixC.tex	2519	\hyperref[def:SimpSet]{単体的集合の圏}
-def:SimpSet	appendixC.tex	2530	\hyperref[def:SimpSet]{単体的集合の圏}
-def:SimpSet	appendixC.tex	2539	\hyperref[def:SimpSet]{単体的集合}
-def:SimpSet	appendixC.tex	2553	\hyperref[def:SimpSet]{単体的集合の圏 $\sSet$}
-def:SimpSet	appendixC.tex	2562	\hyperref[def:SimpSet]{単体的集合}
-def:SimpSet	appendixC.tex	2710	\hyperref[def:SimpSet]{単体的集合}
-def:SimpSet	appendixC.tex	2732	\hyperref[def:SimpSet]{単体的部分集合}
-def:SimpSet	appendixC.tex	2735	\hyperref[def:SimpSet]{$\sSet$ の射}
-def:SimpSet	appendixC.tex	2846	\hyperref[def:SimpSet]{単体圏}
-def:SimpSet	appendixC.tex	2855	\hyperref[def:SimpSet]{単体的集合}
-def:SimpSet	appendixC.tex	2862	\hyperref[def:SimpSet]{面写像・縮退写像}
-def:SimpSet	appendixC.tex	2878	\hyperref[def:SimpSet]{単体的集合}
-def:SimpSet	appendixG.tex	685	\hyperref[def:SimpSet]{単体的集合の圏 $\sSet$}
-def:SimpSet	appendixG.tex	729	\hyperref[def:SimpSet]{単体的集合}
-def:SimpSet	appendixG.tex	814	\hyperref[def:SimpSet]{単体的集合}
-def:SimpSet	appendixG.tex	865	\hyperref[def:SimpSet]{面写像}
-def:SimpSet	chap3.tex	2975	\hyperref[def:SimpSet]{単体的集合}
-def:SimpSet	chap3.tex	2975	\hyperref[def:SimpSet]{$d$-単体}
-def:SimpSet	chap3.tex	3017	\hyperref[def:SimpSet]{面写像}
-def:SimpSet	chap3.tex	3026	\hyperref[def:SimpSet]{縮退写像}
-def:SimpSet	chap3.tex	3057	\hyperref[def:SimpSet]{単体的恒等式}
-def:SimpSet	chap3.tex	3068	\hyperref[def:SimpSet]{圏 $\sSet$}
-def:SimpSet	chap3.tex	3072	\hyperref[def:SimpSet]{圏 $\sSet$ }
-def:SimpSet	chap5.tex	169	\hyperref[def:SimpSet]{0-単体}
-def:SimpSet-homotopic	appendixC.tex	2777	\hyperref[def:SimpSet-homotopic]{単体的ホモトピー}
-def:SimpSet-homotopic	appendixC.tex	2786	\hyperref[def:SimpSet-homotopic]{ホモトピック}
-def:skeleton-2mfd	chap3.tex	7150	\hyperref[def:skeleton-2mfd]{2次元閉多様体の多面体分割}
-def:skeleton-2mfd	chap3.tex	7178	\hyperref[def:skeleton-2mfd]{2次元閉多様体の多面体分割}
-def:skeleton-2mfd	chap3.tex	7264	\hyperref[def:skeleton-2mfd]{2次元閉多様体の多面体分割}
-def:skeleton-2mfd	chap3.tex	7284	\hyperref[def:skeleton-2mfd]{多面体分割}
-def:skeleton-2mfd	chap3.tex	7289	\hyperref[def:skeleton-2mfd]{多面体分割}
-def:skeltal2G	appendixF.tex	4722	\hyperref[def:skeltal2G]{骨格的}
-def:skeltal2G	appendixF.tex	4727	\hyperref[def:skeltal2G]{骨格的}
-def:skeltal2G	appendixF.tex	4781	\hyperref[def:skeltal2G]{骨格的}
-def:skeltal2G	appendixF.tex	4798	\hyperref[def:skeltal2G]{骨格的}
-def:skeltal2G	appendixF.tex	4826	\hyperref[def:skeltal2G]{骨格的}
-def:slice-category	appendixG.tex	1149	\hyperref[def:slice-category]{$(1,\, 1)$-圏における $X$ 上のスライス圏}
-def:slice-category	appendixG.tex	1169	\hyperref[def:slice-category]{$(1,\, 1)$-圏における $X$ 上のスライス圏}
-def:Sm-induction	appendixG.tex	551	\hyperref[def:Sm-induction]{極大アトラス}
-def:Snglr	appendixG.tex	566	\hyperref[def:Snglr]{\underline{\textbf{basic}
-def:Snglr	appendixG.tex	593	\hyperref[def:Snglr]{conically smoothな層状化空間}
-def:Snglr	appendixG.tex	598	\hyperref[def:Snglr]{basic}
-def:Snglr	appendixG.tex	616	\hyperref[def:Snglr]{$\Snglr$}
-def:Snglr	appendixG.tex	755	\hyperref[def:Snglr]{$\Obj{\Bsc}
-def:Snglr-C0	appendixG.tex	212	\hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-1)}
-def:Snglr-C0	appendixG.tex	213	\hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-3)}
-def:Snglr-C0	appendixG.tex	221	\hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-4)}
-def:Snglr-C0	appendixG.tex	222	\hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-5)}
-def:Snglr-C0	appendixG.tex	228	\hyperref[def:Snglr-C0]{$\bm{C^0}
-def:Snglr-C0	appendixG.tex	263	\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間}
-def:Snglr-C0	appendixG.tex	265	\hyperref[def:Snglr-C0]{$C^0$-級層状化空間}
-def:Snglr-C0	appendixG.tex	297	\hyperref[def:Snglr-C0]{$\bm{C^0}
-def:Snglr-C0	appendixG.tex	319	\hyperref[def:Snglr-C0]{$\bm{C^0}
-def:Snglr-C0	appendixG.tex	344	\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間}
-def:Snglr-C0	appendixG.tex	381	\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間}
-def:Snglr-C0	appendixG.tex	387	\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間}
-def:Snglr-C0	appendixG.tex	406	\hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-1)}
-def:Snglr-C0	appendixG.tex	480	\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間}
-def:Snglr-C0	appendixG.tex	505	\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間}
-def:Snglr-C0	appendixG.tex	517	\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間}
-def:Snglr-C0	appendixG.tex	551	\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間}
-def:special-Frobenius	chap3.tex	3241	\hyperref[def:special-Frobenius]{特殊}
-def:special-Frobenius	chap3.tex	3255	\hyperref[def:special-Frobenius]{特殊}
-def:special-Frobenius	chap3.tex	3400	\hyperref[def:special-Frobenius]{特殊}
-def:special-Frobenius	chap3.tex	3486	\hyperref[def:special-Frobenius]{特殊Frobenius代数}
-def:special-Frobenius	chap3.tex	3498	\hyperref[def:special-Frobenius]{特殊}
-def:special2G	appendixF.tex	4731	\hyperref[def:special2G]{特別な2群}
-def:special2G	appendixF.tex	4737	\hyperref[def:special2G]{特別な2群}
-def:special2G	appendixF.tex	4784	\hyperref[def:special2G]{特別な2群}
-def:special2G	appendixF.tex	4787	\hyperref[def:special2G]{特別な2群}
-def:special2G	appendixF.tex	4798	\hyperref[def:special2G]{特別な2群}
-def:spherical	appendixF.tex	2222	\hyperref[def:spherical]{球状圏}
-def:spherical	appendixF.tex	2485	\hyperref[def:spherical]{球状テンソル圏}
-def:spherical	appendixF.tex	2512	\hyperref[def:spherical]{球状構造}
-def:spherical	appendixF.tex	2572	\hyperref[def:spherical]{球状圏}
-def:spherical	appendixF.tex	2598	\hyperref[def:spherical]{球状構造}
-def:spherical	appendixF.tex	3647	\hyperref[def:spherical]{球状構造}
-def:spherical	appendixF.tex	3785	\hyperref[def:spherical]{球状構造}
-def:spherical	appendixF.tex	68	\hyperref[def:spherical]{spherical}
-def:spherical	chap3.tex	3746	\hyperref[def:spherical]{球状フュージョン圏}
-def:spherical	chap3.tex	3753	\hyperref[def:spherical]{球状フュージョン圏}
-def:spherical	chap3.tex	6395	\hyperref[def:spherical]{球状テンソル圏}
-def:spherical	chap3.tex	6549	\hyperref[def:spherical]{球状構造}
-def:spherical	chap3.tex	7359	\hyperref[def:spherical]{球状フュージョン圏}
-def:spherical	chap3.tex	7499	\hyperref[def:spherical]{球状フュージョン圏}
-def:spherical	chap3.tex	7640	\hyperref[def:spherical]{spherical}
-def:spherical	chap4.tex	720	\hyperref[def:spherical]{球状構造}
-def:spherical	chap4.tex	780	\hyperref[def:spherical]{球状圏}
-def:SPT-traditional	chap5.tex	150	\hyperref[def:SPT-traditional]{SPT相}
-def:SPT-traditional	chap5.tex	176	\hyperref[def:SPT-traditional]{SPT相}
-def:SPT-traditional	chap5.tex	200	\hyperref[def:SPT-traditional]{SPT相}
-def:SPT-traditional	chap5.tex	235	\hyperref[def:SPT-traditional]{SPT相}
-def:SRE	chap5.tex	139	\hyperref[def:SRE]{SRE状態}
-def:SRE	chap5.tex	191	\hyperref[def:SRE]{SRE状態}
-def:SRE	chap5.tex	198	\hyperref[def:SRE]{SRE状態}
-def:SRE	chap5.tex	74	\hyperref[def:SRE]{SRE状態の定義}
-def:stableTO	chap4.tex	690	\hyperref[def:stableTO]{安定}
-def:stableTO	chap4.tex	848	\hyperref[def:stableTO]{安定}
-def:stableTO	chap4.tex	892	\hyperref[def:stableTO]{安定な}
-def:stableTO	chap4.tex	901	\hyperref[def:stableTO]{安定}
-def:stacking	chap3.tex	3231	\hyperref[def:stacking]{スタック}
-def:stacking	chap4.tex	192	\hyperref[def:stacking]{積層}
-def:stacking	chap4.tex	563	\hyperref[def:stacking]{積層}
-def:starcat	appendixF.tex	306	\hyperref[def:starcat]{$C^*$-圏}
-def:starcat	appendixF.tex	63	\hyperref[def:starcat]{$C^*$}
-def:starcat	chap4.tex	640	\hyperref[def:starcat]{$C^*$-圏}
-def:str-cone	appendixG.tex	179	\hyperref[def:str-cone]{コーン}
-def:str-cone	appendixG.tex	233	\hyperref[def:str-cone]{コーンの定義}
-def:str-cone	appendixG.tex	344	\hyperref[def:str-cone]{コーン}
-def:str2cat	appendixF.tex	4307	\hyperref[def:str2cat]{厳密な2-圏}
-def:str2cat	appendixF.tex	4360	\hyperref[def:str2cat]{厳密な2-圏}
-def:str2cat	appendixF.tex	4850	\hyperref[def:str2cat]{厳密な2-圏}
-def:str3cat	appendixF.tex	4857	\hyperref[def:str3cat]{厳密な3-圏}
-def:strat-emb	appendixG.tex	110	\hyperref[def:strat-emb]{層状化開埋め込み}
-def:strat-emb	appendixG.tex	221	\hyperref[def:strat-emb]{層状化埋め込み}
-def:strat-emb	appendixG.tex	263	\hyperref[def:strat-emb]{層状化開埋め込み}
-def:strat-emb	appendixG.tex	265	\hyperref[def:strat-emb]{層状化開埋め込み}
-def:strat-emb	appendixG.tex	385	\hyperref[def:strat-emb]{層状化開埋め込み}
-def:strat-emb	appendixG.tex	454	\hyperref[def:strat-emb]{層状化開埋め込み}
-def:strat-emb	appendixG.tex	458	\hyperref[def:strat-emb]{層状化開埋め込み}
-def:strat-emb	appendixG.tex	524	\hyperref[def:strat-emb]{層状化開埋め込み}
-def:strat-emb	appendixG.tex	529	\hyperref[def:strat-emb]{層状化開埋め込み}
-def:strat-emb	appendixG.tex	546	\hyperref[def:strat-emb]{層状化開埋め込み}
-def:strat-emb	appendixG.tex	555	\hyperref[def:strat-emb]{層状化開埋め込み}
+cond:Op-ord-1	appendixG.tex	3799	\hyperref[cond:Op-ord-1]{\textsf{\textbf{(Op-ord-1)}
+cond:Op-ord-1	appendixG.tex	3863	\hyperref[cond:Op-ord-1]{\textsf{\textbf{(Op-ord-1)}
+cond:Op-ord-1	appendixG.tex	3863	\hyperref[cond:Op-ord-1]{\textsf{\textbf{(Op-ord-3)}
+cond:Op-ord-1	appendixG.tex	3873	\hyperref[cond:Op-ord-1]{\textsf{\textbf{(Op-ord-1)}
+cond:Op-ord-1	appendixG.tex	3873	\hyperref[cond:Op-ord-1]{\textsf{\textbf{(Op-ord-3)}
+cond:Op-ord-1	appendixG.tex	3878	\hyperref[cond:Op-ord-1]{\textsf{\textbf{(Op-ord-3)}
+cond:Op-ord-1	appendixG.tex	3879	\hyperref[cond:Op-ord-1]{\textsf{\textbf{(Op-ord-3)}
+cond:Op-ord-1	appendixG.tex	3895	\hyperref[cond:Op-ord-1]{\textsf{\textbf{(Op-ord-3)}
+cond:Op-ord-1	appendixG.tex	3896	\hyperref[cond:Op-ord-1]{\textsf{\textbf{(Op-ord-3)}
+cond:Op-ord-1	appendixG.tex	3912	\hyperref[cond:Op-ord-1]{\textsf{\textbf{(Op-ord-1)}
+cond:Op-ord-1	appendixG.tex	3920	\hyperref[cond:Op-ord-1]{\textsf{\textbf{(Op-ord-2)}
+def:alpha-n	appendixG.tex	4150	\hyperref[def:alpha-n]{activeな射 $\alpha_n \in \Hom{\FIN_*}
+def:Bsc-induction	appendixG.tex	2270	\hyperref[def:Bsc-induction]{basic}
+def:Bsc-induction	appendixG.tex	2302	\hyperref[def:Bsc-induction]{$(1,\, 1)$-圏 $\Bsc$ における射の定義}
+def:Bsc-induction	appendixG.tex	2310	\hyperref[def:Bsc-induction]{conically smoothnessの定義}
+def:Bsc-induction	appendixG.tex	2332	\hyperref[def:Bsc-induction]{basic}
+def:Bsc-induction	appendixG.tex	2630	\hyperref[def:Bsc-induction]{basic}
+def:Bsc-induction	appendixG.tex	2660	\hyperref[def:Bsc-induction]{basic}
+def:Bsc-induction	appendixG.tex	2726	\hyperref[def:Bsc-induction]{basic}
+def:Bsc-induction	appendixG.tex	2761	\hyperref[def:Bsc-induction]{basic}
+def:Bsc-induction	appendixG.tex	2776	\hyperref[def:Bsc-induction]{basic}
+def:Bsc-induction	appendixG.tex	2947	\hyperref[def:Bsc-induction]{basic}
+def:Bsc-induction	appendixG.tex	801	\hyperref[def:Bsc-induction]{圏 $\Bsc_{\le k+1,\, \le \infty}
+def:Bsc-induction	appendixG.tex	834	\hyperref[def:Bsc-induction]{\textbf{basic}
+def:c-operad	appendixG.tex	3730	\hyperref[def:c-operad]{色付きオペラッド}
+def:c-operad	appendixG.tex	3836	\hyperref[def:c-operad]{colored operad}
+def:c-operad	appendixG.tex	3862	\hyperref[def:c-operad]{色付きオペラッド}
+def:c-operad	appendixG.tex	3873	\hyperref[def:c-operad]{色付きオペラッド}
+def:c-smooth	appendixG.tex	1779	\hyperref[def:c-smooth]{conically smoothな層状化空間}
+def:c-smooth	appendixG.tex	1797	\hyperref[def:c-smooth]{conically smoothな層状化空間}
+def:c-smooth	appendixG.tex	1810	\hyperref[def:c-smooth]{conically smoothな層状化空間}
+def:c-smooth	appendixG.tex	1834	\hyperref[def:c-smooth]{conically smoothな層状化空間}
+def:c-smooth	appendixG.tex	1855	\hyperref[def:c-smooth]{conically smoothな層状化空間}
+def:c-smooth	appendixG.tex	1869	\hyperref[def:c-smooth]{conically smoothな層状化空間}
+def:c-smooth	appendixG.tex	2286	\hyperref[def:c-smooth]{$(1,\, 1)$-圏 $\Strat$}
+def:c-smooth	appendixG.tex	2531	\hyperref[def:c-smooth]{conically smoothな層状化空間}
+def:c-smooth	appendixG.tex	995	\hyperref[def:c-smooth]{conically smoothな層状化空間}
+def:c-smooth-along	appendixG.tex	2169	\hyperref[def:c-smooth-along]{微分}
+def:c-smooth-along	appendixG.tex	2240	\hyperref[def:c-smooth-along]{微分}
+def:c-smooth-along	appendixG.tex	564	\hyperref[def:c-smooth-along]{conically smooth (along $\mathbb{R}
+def:c-smooth-along	appendixG.tex	595	\hyperref[def:c-smooth-along]{conically smooth}
+def:c-smooth-along	appendixG.tex	764	\hyperref[def:c-smooth-along]{$\mathbb{R}
+def:c-smooth-along	appendixG.tex	884	\hyperref[def:c-smooth-along]{$\mathbb{R}
+def:c-smooth-map	appendixG.tex	1000	\hyperref[def:c-smooth-map]{conically smoothな層状化写像}
+def:c-smooth-map	appendixG.tex	1020	\hyperref[def:c-smooth-map]{conically smoothな層状化写像}
+def:c-smooth-map	appendixG.tex	2169	\hyperref[def:c-smooth-map]{conically smooth}
+def:c-smooth-map	appendixG.tex	903	\hyperref[def:c-smooth-map]{conically smooth map}
+def:c-smooth-map	appendixG.tex	923	\hyperref[def:c-smooth-map]{conically smooth map}
+def:c-smooth-map	appendixG.tex	932	\hyperref[def:c-smooth-map]{conically smoothな層状化写像}
+def:c-smooth-map	appendixG.tex	952	\hyperref[def:c-smooth-map]{conically smoothな層状化写像}
+def:c-smooth-map	appendixG.tex	958	\hyperref[def:c-smooth-map]{conically smoothな層状化写像}
+def:C0-basic	appendixG.tex	529	\hyperref[def:C0-basic]{$C^0$ basic}
+def:C0-basic	appendixG.tex	539	\hyperref[def:C0-basic]{$C^0$ basic}
+def:C0-basic	appendixG.tex	561	\hyperref[def:C0-basic]{$C^0$ basic}
+def:C0-basic	appendixG.tex	568	\hyperref[def:C0-basic]{$C^0$ basic}
+def:C0-basic	appendixG.tex	569	\hyperref[def:C0-basic]{$C^0$ basic}
+def:C0-basic	appendixG.tex	662	\hyperref[def:C0-basic]{$C^0$ basic}
+def:C0-basic	appendixG.tex	738	\hyperref[def:C0-basic]{$C^0$ basic}
+def:C0-basic	appendixG.tex	743	\hyperref[def:C0-basic]{$C^0$ basic}
+def:C0-basic	appendixG.tex	867	\hyperref[def:C0-basic]{$C^0$ basic}
+def:Cart-coCart	appendixG.tex	3227	\hyperref[def:Cart-coCart]{\textsf{\textbf{(coCart-2)}
+def:Cart-coCart	appendixG.tex	3626	\hyperref[def:Cart-coCart]{coCartesianファイブレーション}
+def:Cart-coCart	appendixG.tex	3638	\hyperref[def:Cart-coCart]{coCartesianファイブレーション}
+def:Cart-coCart	appendixG.tex	4097	\hyperref[def:Cart-coCart]{$p$-coCartesian lift}
+def:Cart-coCart	appendixG.tex	4150	\hyperref[def:Cart-coCart]{$p$-coCartesian lift}
+def:cat-of-operators	appendixG.tex	3862	\hyperref[def:cat-of-operators]{category of operators}
+def:core	appendixG.tex	3601	\hyperref[def:core]{芯}
+def:core	appendixG.tex	3669	\hyperref[def:core]{芯}
+def:covering-dim	appendixG.tex	225	\hyperref[def:covering-dim]{次元}
+def:covering-dim	appendixG.tex	246	\hyperref[def:covering-dim]{次元}
+def:covering-dim	appendixG.tex	455	\hyperref[def:covering-dim]{被覆次元}
+def:covering-dim	appendixG.tex	619	\hyperref[def:covering-dim]{被覆次元}
+def:covering-dim	appendixG.tex	651	\hyperref[def:covering-dim]{被覆次元}
+def:delooping-groupoid	appendixG.tex	2699	\hyperref[def:delooping-groupoid]{群のdelooping groupoid}
+def:diagram	appendixG.tex	1552	\hyperref[def:diagram]{$(1,\, 1)$-圏の場合}
+def:dim-depth	appendixG.tex	2332	\hyperref[def:dim-depth]{深さ}
+def:dim-depth	appendixG.tex	2375	\hyperref[def:dim-depth]{局所的深さ}
+def:dim-depth	appendixG.tex	2432	\hyperref[def:dim-depth]{局所的次元}
+def:dim-depth	appendixG.tex	2462	\hyperref[def:dim-depth]{局所的深さ}
+def:dim-depth	appendixG.tex	2556	\hyperref[def:dim-depth]{深さの定義}
+def:dim-depth	appendixG.tex	455	\hyperref[def:dim-depth]{深さ}
+def:dim-depth	appendixG.tex	685	\hyperref[def:dim-depth]{深さ}
+def:dim-depth	appendixG.tex	744	\hyperref[def:dim-depth]{depthの定義}
+def:dim-depth	appendixG.tex	868	\hyperref[def:dim-depth]{$\depth (Y)$}
+def:dim-depth	appendixG.tex	958	\hyperref[def:dim-depth]{$\depth (E)$}
+def:enriched	appendixG.tex	1043	\hyperref[def:enriched]{$\Kan$-豊穣圏}
+def:enriched	appendixG.tex	2699	\hyperref[def:enriched]{Hom対象}
+def:enriched	appendixG.tex	3000	\hyperref[def:enriched]{豊穣圏}
+def:enriched	appendixG.tex	4015	\hyperref[def:enriched]{Hom対象}
+def:eq-coeq	appendixG.tex	161	\hyperref[def:eq-coeq]{コイコライザ}
+def:equiv-infty	appendixG.tex	1669	\hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}
+def:equiv-infty	appendixG.tex	1690	\hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}
+def:equiv-infty	appendixG.tex	1698	\hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}
+def:equiv-infty	appendixG.tex	1716	\hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}
+def:equiv-infty	appendixG.tex	2897	\hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}
+def:equiv-infty	appendixG.tex	2970	\hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}
+def:equiv-infty	appendixG.tex	3387	\hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}
+def:equiv-infty	appendixG.tex	4117	\hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}
+def:equiv-infty	appendixG.tex	4133	\hyperref[def:equiv-infty]{$(\infty,\, 1)$-圏同値}
+def:faithful	appendixG.tex	428	\hyperref[def:faithful]{充満部分圏}
+def:FF-ES	appendixG.tex	3548	\hyperref[def:FF-ES]{忠実充満かつ本質的全射}
+def:FF-ES-infty	appendixG.tex	3549	\hyperref[def:FF-ES-infty]{忠実充満}
+def:FF-ES-infty	appendixG.tex	3551	\hyperref[def:FF-ES-infty]{本質的全射}
+def:Fin	appendixG.tex	3054	\hyperref[def:Fin]{圏 $\FIN_*$}
+def:Fin	appendixG.tex	3055	\hyperref[def:Fin]{圏 $\FIN_*$}
+def:fullsub-infty	appendixG.tex	1155	\hyperref[def:fullsub-infty]{部分Kan複体}
+def:fullsub-infty	appendixG.tex	1618	\hyperref[def:fullsub-infty]{充満部分 $(\infty,\, 1)$-圏}
+def:fullsub-infty	appendixG.tex	2275	\hyperref[def:fullsub-infty]{部分Kan複体}
+def:fullsub-infty	appendixG.tex	2892	\hyperref[def:fullsub-infty]{部分 $(\infty,\, 1)$-圏}
+def:fullsub-infty	appendixG.tex	3011	\hyperref[def:fullsub-infty]{充満部分 $(\infty,\, 1)$-圏}
+def:fullsub-infty	appendixG.tex	3591	\hyperref[def:fullsub-infty]{充満部分 $(\infty,\, 1)$-圏}
+def:fullsub-infty	appendixG.tex	3649	\hyperref[def:fullsub-infty]{充満部分 $(\infty,\, 1)$-圏}
+def:fullsub-infty	appendixG.tex	3659	\hyperref[def:fullsub-infty]{充満部分 $(\infty,\, 1)$-圏}
+def:horn	appendixG.tex	1098	\hyperref[def:horn]{角}
+def:horn	appendixG.tex	1100	\hyperref[def:horn]{角}
+def:htpy-equiv	appendixG.tex	3327	\hyperref[def:htpy-equiv]{ホモトピー同値}
+def:htpy-equiv	appendixG.tex	3536	\hyperref[def:htpy-equiv]{ホモトピー同値}
+def:htpy-equiv	appendixG.tex	3549	\hyperref[def:htpy-equiv]{ホモトピー同値}
+def:htpy-equiv	appendixG.tex	4149	\hyperref[def:htpy-equiv]{ホモトピー同値}
+def:htpy-equiv-Kan	appendixG.tex	2688	\hyperref[def:htpy-equiv-Kan]{Kan複体のホモトピー同値}
+def:htpy-equiv-Kan	appendixG.tex	2693	\hyperref[def:htpy-equiv-Kan]{ホモトピー同値}
+def:htpy-equiv-Kan	appendixG.tex	2893	\hyperref[def:htpy-equiv-Kan]{Kan複体のホモトピー同値}
+def:htpy-equiv-Kan	appendixG.tex	2957	\hyperref[def:htpy-equiv-Kan]{Kan複体のホモトピー同値}
+def:htpy-equiv-Kan	appendixG.tex	2971	\hyperref[def:htpy-equiv-Kan]{Kan複体のホモトピー同値}
+def:htpy-equiv-Kan	appendixG.tex	2981	\hyperref[def:htpy-equiv-Kan]{Kan複体のホモトピー同値}
+def:htpy-Kan	appendixG.tex	1544	\hyperref[def:htpy-Kan]{ホモトピー同値}
+def:htpy-Kan	appendixG.tex	1546	\hyperref[def:htpy-Kan]{ホモトピー同値}
+def:inert-active	appendixG.tex	3069	\hyperref[def:inert-active]{inertな射}
+def:inert-active	appendixG.tex	3086	\hyperref[def:inert-active]{activeな射}
+def:inert-active	appendixG.tex	3316	\hyperref[def:inert-active]{inertな}
+def:inert-active	appendixG.tex	3387	\hyperref[def:inert-active]{inertな射}
+def:inert-active	appendixG.tex	3563	\hyperref[def:inert-active]{innerな射}
+def:inert-active	appendixG.tex	3792	\hyperref[def:inert-active]{inertな}
+def:inert-active	appendixG.tex	3880	\hyperref[def:inert-active]{active}
+def:inert-active	appendixG.tex	3901	\hyperref[def:inert-active]{inertな射}
+def:inert-active	appendixG.tex	3912	\hyperref[def:inert-active]{inertな射}
+def:inert-active	appendixG.tex	3937	\hyperref[def:inert-active]{activeな射}
+def:inert-active	appendixG.tex	4096	\hyperref[def:inert-active]{inertな射}
+def:infinity-1	appendixG.tex	1076	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+def:infinity-1	appendixG.tex	1126	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
+def:infinity-1	appendixG.tex	1421	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
+def:infinity-1	appendixG.tex	1429	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
+def:infinity-1	appendixG.tex	1429	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+def:infinity-1	appendixG.tex	1474	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+def:infinity-1	appendixG.tex	1514	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
+def:infinity-1	appendixG.tex	1532	\hyperref[def:infinity-1]{quasi-category}
+def:infinity-1	appendixG.tex	1544	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
+def:infinity-1	appendixG.tex	1546	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
+def:infinity-1	appendixG.tex	1552	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+def:infinity-1	appendixG.tex	1586	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+def:infinity-1	appendixG.tex	1626	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
+def:infinity-1	appendixG.tex	1627	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+def:infinity-1	appendixG.tex	1665	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
+def:infinity-1	appendixG.tex	1666	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+def:infinity-1	appendixG.tex	1726	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
+def:infinity-1	appendixG.tex	1735	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+def:infinity-1	appendixG.tex	1744	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
+def:infinity-1	appendixG.tex	1760	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
+def:infinity-1	appendixG.tex	1764	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+def:infinity-1	appendixG.tex	1789	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+def:infinity-1	appendixG.tex	1835	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+def:infinity-1	appendixG.tex	2348	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+def:infinity-1	appendixG.tex	2674	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
+def:infinity-1	appendixG.tex	3010	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
+def:infinity-1	appendixG.tex	3025	\hyperref[def:infinity-1]{quasi-category}
+def:infinity-1	appendixG.tex	3308	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+def:infinity-1	appendixG.tex	3322	\hyperref[def:infinity-1]{Kan複体の関手}
+def:infinity-1	appendixG.tex	3338	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+def:infinity-1	appendixG.tex	3376	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+def:infinity-1	appendixG.tex	3387	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+def:infinity-1	appendixG.tex	3570	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+def:infinity-1	appendixG.tex	3605	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
+def:infinity-1	appendixG.tex	3617	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
+def:infinity-1	appendixG.tex	3621	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+def:infinity-1	appendixG.tex	3673	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
+def:infinity-1	appendixG.tex	3954	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
+def:infinity-1	appendixG.tex	4035	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+def:infinity-1	appendixG.tex	4052	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の図式}
+def:infinity-1	appendixG.tex	4061	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の図式}
+def:infinity-1	appendixG.tex	4103	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+def:infinity-1	appendixG.tex	4145	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+def:infinity-1	appendixG.tex	4153	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
+def:infinity-1	appendixG.tex	4176	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏}
+def:infinity-1	appendixG.tex	4183	\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏の関手}
+def:infinity-presheaf	appendixG.tex	1764	\hyperref[def:infinity-presheaf]{$(\infty,\, 1)$-前層の成す $(\infty,\, 1)$-圏}
+def:infty-fib	appendixG.tex	1098	\hyperref[def:infty-fib]{\textsf{\textbf{(lifting property)}
+def:infty-fib	appendixG.tex	1104	\hyperref[def:infty-fib]{内的ファイブレーション}
+def:infty-fib	appendixG.tex	1115	\hyperref[def:infty-fib]{Kan fibration}
+def:infty-fib	appendixG.tex	1116	\hyperref[def:infty-fib]{left fibration}
+def:infty-fib	appendixG.tex	1116	\hyperref[def:infty-fib]{right fibration}
+def:infty-fib	appendixG.tex	1118	\hyperref[def:infty-fib]{inner fibration}
+def:infty-fib	appendixG.tex	1142	\hyperref[def:infty-fib]{右ファイブレーション}
+def:infty-fib	appendixG.tex	1161	\hyperref[def:infty-fib]{右ファイブレーション}
+def:infty-fib	appendixG.tex	1525	\hyperref[def:infty-fib]{右ファイブレーション}
+def:infty-fib	appendixG.tex	1683	\hyperref[def:infty-fib]{右ファイブレーション}
+def:infty-fib	appendixG.tex	1713	\hyperref[def:infty-fib]{右ファイブレーション}
+def:infty-fib	appendixG.tex	1739	\hyperref[def:infty-fib]{左ファイブレーション}
+def:infty-fib	appendixG.tex	1810	\hyperref[def:infty-fib]{右ファイブレーション}
+def:infty-fib	appendixG.tex	1820	\hyperref[def:infty-fib]{右ファイブレーション}
+def:infty-fib	appendixG.tex	1831	\hyperref[def:infty-fib]{右ファイブレーション}
+def:infty-fib	appendixG.tex	2710	\hyperref[def:infty-fib]{右ファイブレーション}
+def:infty-fib	appendixG.tex	2904	\hyperref[def:infty-fib]{右ファイブレーション}
+def:infty-fib	appendixG.tex	2970	\hyperref[def:infty-fib]{右ファイブレーション}
+def:infty-fib	appendixG.tex	3011	\hyperref[def:infty-fib]{右ファイブレーション}
+def:infty-fib	appendixG.tex	3118	\hyperref[def:infty-fib]{内的ファイブレーション}
+def:infty-fib	appendixG.tex	3269	\hyperref[def:infty-fib]{内的ファイブレーション}
+def:infty-fib	appendixG.tex	3423	\hyperref[def:infty-fib]{内的ファイブレーション}
+def:infty-fib	appendixG.tex	4157	\hyperref[def:infty-fib]{右ファイブレーション}
+def:infty-homotopy-morphism	appendixG.tex	1509	\hyperref[def:infty-homotopy-morphism]{homotopy}
+def:infty-homotopy-morphism	appendixG.tex	2158	\hyperref[def:infty-homotopy-morphism]{ホモトピー}
+def:infty-operad	appendixG.tex	3069	\hyperref[def:infty-operad]{$\infty$-オペラッド}
+def:infty-operad	appendixG.tex	3380	\hyperref[def:infty-operad]{\textsf{\textbf{(Op-1)}
+def:infty-operad	appendixG.tex	3381	\hyperref[def:infty-operad]{\textsf{\textbf{(Op-3)}
+def:infty-operad	appendixG.tex	3387	\hyperref[def:infty-operad]{\textsf{\textbf{(Op-1)}
+def:infty-operad	appendixG.tex	3397	\hyperref[def:infty-operad]{\textsf{\textbf{(Op-1)}
+def:infty-operad	appendixG.tex	3534	\hyperref[def:infty-operad]{\textsf{\textbf{(Op-1)}
+def:infty-operad	appendixG.tex	3548	\hyperref[def:infty-operad]{\textsf{\textbf{(OP-3)}
+def:infty-operad	appendixG.tex	3549	\hyperref[def:infty-operad]{\textsf{\textbf{(OP-2)}
+def:infty-operad	appendixG.tex	3551	\hyperref[def:infty-operad]{\textsf{\textbf{(OP-3)}
+def:infty-operad	appendixG.tex	3560	\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド}
+def:infty-operad	appendixG.tex	3569	\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド}
+def:infty-operad	appendixG.tex	3586	\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド}
+def:infty-operad	appendixG.tex	3590	\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド}
+def:infty-operad	appendixG.tex	3600	\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド}
+def:infty-operad	appendixG.tex	3618	\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド}
+def:infty-operad	appendixG.tex	3630	\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド}
+def:infty-operad	appendixG.tex	3638	\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド}
+def:infty-operad	appendixG.tex	3643	\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド}
+def:infty-operad	appendixG.tex	3955	\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド}
+def:infty-operad	appendixG.tex	4039	\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド}
+def:infty-operad	appendixG.tex	4055	\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド}
+def:infty-operad	appendixG.tex	4092	\hyperref[def:infty-operad]{$(\infty,\, 1)$-オペラッド}
+def:infty-operad-map	appendixG.tex	3591	\hyperref[def:infty-operad-map]{$(\infty,\, 1)$-オペラッドの射}
+def:infty-operad-map	appendixG.tex	3632	\hyperref[def:infty-operad-map]{$(\infty,\, 1)$-オペラッドの射}
+def:infy-fib	appendixG.tex	1127	\hyperref[def:infy-fib]{内的ファイブレーション}
+def:initial-final-infty	appendixG.tex	1554	\hyperref[def:initial-final-infty]{終対象}
+def:initial-final-infty	appendixG.tex	1555	\hyperref[def:initial-final-infty]{始対象}
+def:iso	appendixG.tex	3804	\hyperref[def:iso]{同型射}
+def:isofibration	appendixG.tex	1117	\hyperref[def:isofibration]{isofibration}
+def:isofibration	appendixG.tex	1668	\hyperref[def:isofibration]{アイソファイブレーション}
+def:isofibration	appendixG.tex	1680	\hyperref[def:isofibration]{アイソファイブレーション}
+def:isofibration	appendixG.tex	1831	\hyperref[def:isofibration]{アイソファイブレーション}
+def:isofibration	appendixG.tex	2675	\hyperref[def:isofibration]{アイソファイブレーション}
+def:isofibration	appendixG.tex	2710	\hyperref[def:isofibration]{アイソファイブレーション}
+def:isom-infty	appendixG.tex	1106	\hyperref[def:isom-infty]{同型射}
+def:isom-infty	appendixG.tex	1618	\hyperref[def:isom-infty]{同型射}
+def:isom-infty	appendixG.tex	2344	\hyperref[def:isom-infty]{同型射}
+def:isom-infty	appendixG.tex	2352	\hyperref[def:isom-infty]{同型射}
+def:Kan	appendixG.tex	3000	\hyperref[def:Kan]{$\Kan$}
+def:Kan	appendixG.tex	3598	\hyperref[def:Kan]{$\Kan$}
+def:Kan	appendixG.tex	3666	\hyperref[def:Kan]{$\Kan$}
+def:Kan-Aut	appendixG.tex	2698	\hyperref[def:Kan-Aut]{$\Aut(U)$}
+def:Kan-group	appendixG.tex	2693	\hyperref[def:Kan-group]{群的なKan複体}
+def:KanCplx	appendixG.tex	1035	\hyperref[def:KanCplx]{Kan複体}
+def:KanCplx	appendixG.tex	983	\hyperref[def:KanCplx]{Kan複体}
+def:Kanext	appendixG.tex	838	\hyperref[def:Kanext]{右Kan拡張}
+def:lim-colim-infty	appendixG.tex	1559	\hyperref[def:lim-colim-infty]{$(\infty,\, 1)$-圏のlimit}
+def:lim-colim-infty	appendixG.tex	1586	\hyperref[def:lim-colim-infty]{limit}
+def:lim-colim-infty	appendixG.tex	1635	\hyperref[def:lim-colim-infty]{limit}
+def:lim-colim-infty	appendixG.tex	4051	\hyperref[def:lim-colim-infty]{極限}
+def:lim-colim-infty	appendixG.tex	4052	\hyperref[def:lim-colim-infty]{極限}
+def:lim-colim-infty	appendixG.tex	4062	\hyperref[def:lim-colim-infty]{極限}
+def:lim-colim-infty	appendixG.tex	4168	\hyperref[def:lim-colim-infty]{$(\infty,\, 1)$-圏の colimit}
+def:lim-colim-infty	appendixG.tex	4183	\hyperref[def:lim-colim-infty]{colimit}
+def:Map	appendixG.tex	1544	\hyperref[def:Map]{射の空間}
+def:Map	appendixG.tex	1546	\hyperref[def:Map]{射の空間}
+def:Map	appendixG.tex	1770	\hyperref[def:Map]{射の空間}
+def:Map	appendixG.tex	2688	\hyperref[def:Map]{射の空間}
+def:Map	appendixG.tex	2892	\hyperref[def:Map]{射の空間}
+def:Map-comp	appendixG.tex	3323	\hyperref[def:Map-comp]{後合成}
+def:Map-comp	appendixG.tex	3517	\hyperref[def:Map-comp]{後合成}
+def:Map-comp	appendixG.tex	3526	\hyperref[def:Map-comp]{前合成および後合成}
+def:nat	appendixG.tex	3431	\hyperref[def:nat]{自然変換}
+def:nat	appendixG.tex	3970	\hyperref[def:nat]{自然変換}
+def:nerve	appendixG.tex	3090	\hyperref[def:nerve]{脈体の定義}
+def:nerve	appendixG.tex	3414	\hyperref[def:nerve]{脈体}
+def:nerve-hc	appendixG.tex	1069	\hyperref[def:nerve-hc]{homotopy coherent nerve functor}
+def:nerve-hc	appendixG.tex	2676	\hyperref[def:nerve-hc]{homotopy coherent nerve}
+def:nerve-hc	appendixG.tex	2699	\hyperref[def:nerve-hc]{homotopy coherent nerve}
+def:nerve-hc	appendixG.tex	3950	\hyperref[def:nerve-hc]{homotopy coherent nerve}
+def:nerve-hc	appendixG.tex	4035	\hyperref[def:nerve-hc]{homotopy coherent nerve}
+def:O-monoidal-infty	appendixG.tex	3636	\hyperref[def:O-monoidal-infty]{$\Cat{O}
+def:O-monoidal-infty	appendixG.tex	3644	\hyperref[def:O-monoidal-infty]{$(\infty,\, 1)$-オペラッドのcoCartesianファイブレーション}
+def:overcat-infty	appendixG.tex	1514	\hyperref[def:overcat-infty]{スライス圏}
+def:overcat-infty	appendixG.tex	1554	\hyperref[def:overcat-infty]{スライス $(\infty,\, 1)$-圏}
+def:overcat-infty	appendixG.tex	1555	\hyperref[def:overcat-infty]{コスライス $(\infty,\, 1)$-圏}
+def:overcat-infty	appendixG.tex	1780	\hyperref[def:overcat-infty]{スライス圏}
+def:p-Cart	appendixG.tex	3191	\hyperref[def:p-Cart]{\textsf{\textbf{(coCartesian)}
+def:p-Cart	appendixG.tex	3284	\hyperref[def:p-Cart]{$p$-Cartesian}
+def:p-Cart	appendixG.tex	3300	\hyperref[def:p-Cart]{$p$-coCartesian}
+def:p-Cart	appendixG.tex	3317	\hyperref[def:p-Cart]{$p$-coCartesian}
+def:p-Cart	appendixG.tex	3322	\hyperref[def:p-Cart]{$p$-coCartesian}
+def:p-Cart	appendixG.tex	3332	\hyperref[def:p-Cart]{$p$-coCartesian}
+def:p-Cart	appendixG.tex	3397	\hyperref[def:p-Cart]{$p$-coCartesian lift}
+def:p-Cart	appendixG.tex	3493	\hyperref[def:p-Cart]{$p$-coCartesian}
+def:p-Cart	appendixG.tex	3564	\hyperref[def:p-Cart]{$p$-coCartesian}
+def:p-Cart	appendixG.tex	3647	\hyperref[def:p-Cart]{$p$-coCartesianな1-射}
+def:p-Cart	appendixG.tex	3647	\hyperref[def:p-Cart]{$q$-coCartesianな1-射}
+def:p-Cart	appendixG.tex	3658	\hyperref[def:p-Cart]{coCartesianな1-射}
+def:p-Cart	appendixG.tex	3810	\hyperref[def:p-Cart]{$p$-coCartesian}
+def:p-Cart	appendixG.tex	3879	\hyperref[def:p-Cart]{$p$-coCartesian}
+def:p-Cart	appendixG.tex	3896	\hyperref[def:p-Cart]{$p$-coCartesian}
+def:p-Cart	appendixG.tex	4125	\hyperref[def:p-Cart]{$p$-coCartesian}
+def:p-coCart-ord	appendixG.tex	3793	\hyperref[def:p-coCart-ord]{$p$-coCartesian}
+def:p-coCart-ord	appendixG.tex	3799	\hyperref[def:p-coCart-ord]{$p$-coCartesian}
+def:p-coCart-ord	appendixG.tex	3912	\hyperref[def:p-coCart-ord]{$p$-coCartesianな射}
+def:presheaf	appendixG.tex	679	\hyperref[def:presheaf]{前層}
+def:pullback-infty	appendixG.tex	1644	\hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏の引き戻し}
+def:pullback-infty	appendixG.tex	1681	\hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏の引き戻し}
+def:pullback-infty	appendixG.tex	1705	\hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏の引き戻し}
+def:pullback-infty	appendixG.tex	1822	\hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏の引き戻し}
+def:pullback-infty	appendixG.tex	2662	\hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏の引き戻し}
+def:pullback-pushout	appendixG.tex	126	\hyperref[def:pullback-pushout]{押し出し}
+def:pullback-pushout	appendixG.tex	1629	\hyperref[def:pullback-pushout]{引き戻し}
+def:pullback-pushout	appendixG.tex	1661	\hyperref[def:pullback-pushout]{$\SETS$ における引き戻し}
+def:pullback-pushout	appendixG.tex	2777	\hyperref[def:pullback-pushout]{引き戻し}
+def:pullback-pushout	appendixG.tex	3812	\hyperref[def:pullback-pushout]{引き戻し}
+def:pullback-pushout	appendixG.tex	936	\hyperref[def:pullback-pushout]{引き戻し}
+def:RFIB	appendixG.tex	1809	\hyperref[def:RFIB]{$\RFIB_{\BSC}
+def:sc-op-fibrant	appendixG.tex	4034	\hyperref[def:sc-op-fibrant]{ファイブラント}
+def:sc-operad	appendixG.tex	4004	\hyperref[def:sc-operad]{Simplicial colored operad}
+def:sc-operad	appendixG.tex	4012	\hyperref[def:sc-operad]{simplicial colored operad}
+def:sc-operad	appendixG.tex	4034	\hyperref[def:sc-operad]{simplicial colored operad}
+def:scat-of-operators	appendixG.tex	4035	\hyperref[def:scat-of-operators]{simplicial category of operators}
+def:sifted-colim	appendixG.tex	4192	\hyperref[def:sifted-colim]{sifted-colimit}
+def:sifted-infty	appendixG.tex	4169	\hyperref[def:sifted-infty]{sifted}
+def:Simp-Join	appendixG.tex	1421	\hyperref[def:Simp-Join]{join}
+def:Simp-Join	appendixG.tex	1441	\hyperref[def:Simp-Join]{joinの定義}
+def:Simp-Join	appendixG.tex	1464	\hyperref[def:Simp-Join]{joinの定義}
+def:Simp-Join	appendixG.tex	1537	\hyperref[def:Simp-Join]{join}
+def:Simp-Join	appendixG.tex	1538	\hyperref[def:Simp-Join]{join}
+def:SimpCat	appendixG.tex	4012	\hyperref[def:SimpCat]{単体的豊穣圏}
+def:simplicial-top	appendixG.tex	1869	\hyperref[def:simplicial-top]{特異単体}
+def:simplicial-top	appendixG.tex	1875	\hyperref[def:simplicial-top]{幾何学的 $n$-単体}
+def:simplicial-top	appendixG.tex	993	\hyperref[def:simplicial-top]{幾何学的 $n$-単体}
+def:SimpSet	appendixG.tex	1030	\hyperref[def:SimpSet]{単体的集合}
+def:SimpSet	appendixG.tex	1127	\hyperref[def:SimpSet]{包含写像}
+def:SimpSet	appendixG.tex	1127	\hyperref[def:SimpSet]{単体的部分集合}
+def:SimpSet	appendixG.tex	1154	\hyperref[def:SimpSet]{単体的集合}
+def:SimpSet	appendixG.tex	1193	\hyperref[def:SimpSet]{面写像}
+def:SimpSet	appendixG.tex	1903	\hyperref[def:SimpSet]{部分Kan複体}
+def:SimpSet	appendixG.tex	1914	\hyperref[def:SimpSet]{部分単体的集合}
+def:SimpSet	appendixG.tex	3431	\hyperref[def:SimpSet]{単体的恒等式}
+def:SimpSet	appendixG.tex	3965	\hyperref[def:SimpSet]{単体的集合}
+def:SimpSet	appendixG.tex	986	\hyperref[def:SimpSet]{単体的集合の圏 $\sSet$}
+def:singularity-type	appendixG.tex	2456	\hyperref[def:singularity-type]{特異性タイプ}
+def:singularity-type	appendixG.tex	2457	\hyperref[def:singularity-type]{特異性タイプ}
+def:singularity-type	appendixG.tex	2726	\hyperref[def:singularity-type]{特異性タイプ}
+def:singularity-type	appendixG.tex	2769	\hyperref[def:singularity-type]{特異性タイプ}
+def:slice-category	appendixG.tex	1488	\hyperref[def:slice-category]{$(1,\, 1)$-圏における $X$ 上のスライス圏}
+def:slice-category	appendixG.tex	1509	\hyperref[def:slice-category]{$(1,\, 1)$-圏における $X$ 上のスライス圏}
+def:Sm-induction	appendixG.tex	1866	\hyperref[def:Sm-induction]{conically smooth atlas}
+def:Sm-induction	appendixG.tex	2554	\hyperref[def:Sm-induction]{conically smooth atlas}
+def:Sm-induction	appendixG.tex	2630	\hyperref[def:Sm-induction]{conically smooth atlas}
+def:Sm-induction	appendixG.tex	2768	\hyperref[def:Sm-induction]{conically smooth アトラス}
+def:Sm-induction	appendixG.tex	852	\hyperref[def:Sm-induction]{極大アトラス}
+def:Snglr	appendixG.tex	1056	\hyperref[def:Snglr]{$\Obj{\Bsc}
+def:Snglr	appendixG.tex	1861	\hyperref[def:Snglr]{basic}
+def:Snglr	appendixG.tex	1899	\hyperref[def:Snglr]{conically smoothな層状化空間}
+def:Snglr	appendixG.tex	1911	\hyperref[def:Snglr]{basic}
+def:Snglr	appendixG.tex	1962	\hyperref[def:Snglr]{$(1,\, 1)$-圏 $\Snglr$ の定義}
+def:Snglr	appendixG.tex	2004	\hyperref[def:Snglr]{$(1,\, 1)$-圏 $\Snglr$ の定義}
+def:Snglr	appendixG.tex	867	\hyperref[def:Snglr]{\underline{\textbf{basic}
+def:Snglr	appendixG.tex	894	\hyperref[def:Snglr]{conically smoothな層状化空間}
+def:Snglr	appendixG.tex	899	\hyperref[def:Snglr]{basic}
+def:Snglr	appendixG.tex	917	\hyperref[def:Snglr]{$\Snglr$}
+def:Snglr-C0	appendixG.tex	2387	\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間}
+def:Snglr-C0	appendixG.tex	2405	\hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-1)}
+def:Snglr-C0	appendixG.tex	2405	\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間}
+def:Snglr-C0	appendixG.tex	2432	\hyperref[def:Snglr-C0]{$\SnglrC$ の定義から}
+def:Snglr-C0	appendixG.tex	2438	\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間}
+def:Snglr-C0	appendixG.tex	460	\hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-1)}
+def:Snglr-C0	appendixG.tex	461	\hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-3)}
+def:Snglr-C0	appendixG.tex	469	\hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-4)}
+def:Snglr-C0	appendixG.tex	470	\hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-5)}
+def:Snglr-C0	appendixG.tex	473	\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間}
+def:Snglr-C0	appendixG.tex	525	\hyperref[def:Snglr-C0]{$\bm{C^0}
+def:Snglr-C0	appendixG.tex	561	\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間}
+def:Snglr-C0	appendixG.tex	563	\hyperref[def:Snglr-C0]{$C^0$-級層状化空間}
+def:Snglr-C0	appendixG.tex	595	\hyperref[def:Snglr-C0]{$\bm{C^0}
+def:Snglr-C0	appendixG.tex	617	\hyperref[def:Snglr-C0]{$\bm{C^0}
+def:Snglr-C0	appendixG.tex	642	\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間}
+def:Snglr-C0	appendixG.tex	679	\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間}
+def:Snglr-C0	appendixG.tex	685	\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間}
+def:Snglr-C0	appendixG.tex	704	\hyperref[def:Snglr-C0]{\textsf{\textbf{(Snglr-1)}
+def:Snglr-C0	appendixG.tex	778	\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間}
+def:Snglr-C0	appendixG.tex	806	\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間}
+def:Snglr-C0	appendixG.tex	818	\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間}
+def:Snglr-C0	appendixG.tex	852	\hyperref[def:Snglr-C0]{$C^0$ 級層状化空間}
+def:str-cone	appendixG.tex	185	\hyperref[def:str-cone]{コーン}
+def:str-cone	appendixG.tex	1862	\hyperref[def:str-cone]{コーンポイント}
+def:str-cone	appendixG.tex	192	\hyperref[def:str-cone]{コーン}
+def:str-cone	appendixG.tex	2409	\hyperref[def:str-cone]{コーンの定義}
+def:str-cone	appendixG.tex	247	\hyperref[def:str-cone]{コーン}
+def:str-cone	appendixG.tex	530	\hyperref[def:str-cone]{コーンの定義}
+def:str-cone	appendixG.tex	642	\hyperref[def:str-cone]{コーン}
+def:strat-emb	appendixG.tex	113	\hyperref[def:strat-emb]{層状化開埋め込み}
+def:strat-emb	appendixG.tex	2432	\hyperref[def:strat-emb]{層状化開埋め込み}
+def:strat-emb	appendixG.tex	2762	\hyperref[def:strat-emb]{層状化開埋め込み}
+def:strat-emb	appendixG.tex	469	\hyperref[def:strat-emb]{層状化埋め込み}
+def:strat-emb	appendixG.tex	561	\hyperref[def:strat-emb]{層状化開埋め込み}
 def:strat-emb	appendixG.tex	563	\hyperref[def:strat-emb]{層状化開埋め込み}
-def:strat-emb	appendixG.tex	631	\hyperref[def:strat-emb]{層状化開埋め込み}
-def:Strat-infty	appendixG.tex	1245	\hyperref[def:Strat-infty]{$\BSC$}
-def:stratified-space	appendixG.tex	103	\hyperref[def:stratified-space]{層状化空間}
-def:stratified-space	appendixG.tex	104	\hyperref[def:stratified-space]{層状化写像}
-def:stratified-space	appendixG.tex	109	\hyperref[def:stratified-space]{層状化空間}
-def:stratified-space	appendixG.tex	118	\hyperref[def:stratified-space]{層状化空間}
-def:stratified-space	appendixG.tex	119	\hyperref[def:stratified-space]{層状化空間}
-def:stratified-space	appendixG.tex	179	\hyperref[def:stratified-space]{層状化空間}
-def:stratified-space	appendixG.tex	222	\hyperref[def:stratified-space]{層状化空間}
-def:stratified-space	appendixG.tex	355	\hyperref[def:stratified-space]{$\Cone{s}
-def:stratified-space	appendixG.tex	563	\hyperref[def:stratified-space]{層状化写像}
-def:stratified-space	appendixG.tex	566	\hyperref[def:stratified-space]{層状化写像}
-def:stratified-space	appendixG.tex	593	\hyperref[def:stratified-space]{層状化写像}
-def:stratified-space	appendixG.tex	651	\hyperref[def:stratified-space]{$q$-層}
+def:strat-emb	appendixG.tex	683	\hyperref[def:strat-emb]{層状化開埋め込み}
+def:strat-emb	appendixG.tex	752	\hyperref[def:strat-emb]{層状化開埋め込み}
+def:strat-emb	appendixG.tex	756	\hyperref[def:strat-emb]{層状化開埋め込み}
+def:strat-emb	appendixG.tex	825	\hyperref[def:strat-emb]{層状化開埋め込み}
+def:strat-emb	appendixG.tex	830	\hyperref[def:strat-emb]{層状化開埋め込み}
+def:strat-emb	appendixG.tex	847	\hyperref[def:strat-emb]{層状化開埋め込み}
+def:strat-emb	appendixG.tex	856	\hyperref[def:strat-emb]{層状化開埋め込み}
+def:strat-emb	appendixG.tex	864	\hyperref[def:strat-emb]{層状化開埋め込み}
+def:strat-emb	appendixG.tex	932	\hyperref[def:strat-emb]{層状化開埋め込み}
+def:Strat-infty	appendixG.tex	1780	\hyperref[def:Strat-infty]{$\BSC$}
+def:Strat-infty	appendixG.tex	2676	\hyperref[def:Strat-infty]{$\Kan$-豊穣圏 $\BSC$}
+def:stratified-GL	appendixG.tex	2236	\hyperref[def:stratified-GL]{$\LGL(U)$ の定義}
+def:stratified-space	appendixG.tex	104	\hyperref[def:stratified-space]{層状化空間}
+def:stratified-space	appendixG.tex	105	\hyperref[def:stratified-space]{層状化写像}
+def:stratified-space	appendixG.tex	112	\hyperref[def:stratified-space]{層状化空間}
+def:stratified-space	appendixG.tex	123	\hyperref[def:stratified-space]{層状化空間}
+def:stratified-space	appendixG.tex	124	\hyperref[def:stratified-space]{層状化空間}
+def:stratified-space	appendixG.tex	185	\hyperref[def:stratified-space]{層状化空間}
+def:stratified-space	appendixG.tex	1856	\hyperref[def:stratified-space]{層状化}
+def:stratified-space	appendixG.tex	1862	\hyperref[def:stratified-space]{層状化空間}
+def:stratified-space	appendixG.tex	192	\hyperref[def:stratified-space]{層状化空間}
+def:stratified-space	appendixG.tex	225	\hyperref[def:stratified-space]{層状化空間}
+def:stratified-space	appendixG.tex	2387	\hyperref[def:stratified-space]{$\mathbb{P}
+def:stratified-space	appendixG.tex	246	\hyperref[def:stratified-space]{層状化空間}
+def:stratified-space	appendixG.tex	2462	\hyperref[def:stratified-space]{層}
+def:stratified-space	appendixG.tex	2531	\hyperref[def:stratified-space]{$\OP{[\BSC]}
+def:stratified-space	appendixG.tex	470	\hyperref[def:stratified-space]{層状化空間}
+def:stratified-space	appendixG.tex	653	\hyperref[def:stratified-space]{$\Cone{s}
 def:stratified-space	appendixG.tex	83	\hyperref[def:stratified-space]{層状化}
+def:stratified-space	appendixG.tex	864	\hyperref[def:stratified-space]{層状化写像}
+def:stratified-space	appendixG.tex	867	\hyperref[def:stratified-space]{層状化写像}
+def:stratified-space	appendixG.tex	894	\hyperref[def:stratified-space]{層状化写像}
 def:stratified-space	appendixG.tex	90	\hyperref[def:stratified-space]{層状化写像}
-def:stratified-space	appendixG.tex	93	\hyperref[def:stratified-space]{$p$-strata}
-def:stratified-space	appendixG.tex	94	\hyperref[def:stratified-space]{層状化写像}
-def:submersion-smooth	appendixD.tex	367	\hyperref[def:submersion-smooth]{$C^\infty$ はめ込み}
-def:submersion-smooth	appendixD.tex	367	\hyperref[def:submersion-smooth]{$C^\infty$ 沈め込み}
-def:submersion-smooth	appendixD.tex	368	\hyperref[def:submersion-smooth]{$C^\infty$ はめ込み}
-def:submersion-smooth	appendixD.tex	368	\hyperref[def:submersion-smooth]{$C^\infty$ 沈め込み}
-def:submersion-smooth	appendixD.tex	413	\hyperref[def:submersion-smooth]{$C^\infty$ 沈め込み}
-def:submersion-smooth	appendixD.tex	418	\hyperref[def:submersion-smooth]{$C^\infty$ はめ込み}
-def:submersion-smooth	appendixD.tex	596	\hyperref[def:submersion-smooth]{$C^\infty$ 沈め込み}
-def:submersion-smooth	appendixD.tex	597	\hyperref[def:submersion-smooth]{$C^\infty$ はめ込み}
-def:submersion-smooth	appendixD.tex	636	\hyperref[def:submersion-smooth]{$C^\infty$ はめ込み}
-def:submersion-smooth	appendixD.tex	659	\hyperref[def:submersion-smooth]{$C^\infty$ はめ込み}
-def:submersion-smooth	appendixD.tex	660	\hyperref[def:submersion-smooth]{$C^\infty$ 埋め込み}
-def:submersion-smooth	chap1.tex	367	\hyperref[def:submersion-smooth]{位相的埋め込み}
-def:sym-Frobenius	chap3.tex	3241	\hyperref[def:sym-Frobenius]{対称Frobenius代数}
-def:sym-Frobenius	chap3.tex	3255	\hyperref[def:sym-Frobenius]{対称Frobenius代数}
-def:sym-Frobenius	chap3.tex	3479	\hyperref[def:sym-Frobenius]{対称Frobenius代数}
-def:sym-Frobenius	chap3.tex	3498	\hyperref[def:sym-Frobenius]{対称Frobenius代数}
-def:sym-Frobenius	chap3.tex	3623	\hyperref[def:sym-Frobenius]{対象Frobenius代数}
-def:sym-Frobenius	chap3.tex	3674	\hyperref[def:sym-Frobenius]{対象Frobenius代数}
-def:sym-Frobenius	chap3.tex	3695	\hyperref[def:sym-Frobenius]{対称Frobenius代数}
-def:sym-Frobenius	chap3.tex	3728	\hyperref[def:sym-Frobenius]{対称Frobenius代数対象}
-def:tangent-classifier	appendixG.tex	1262	\hyperref[def:tangent-classifier]{tangent classifier}
-def:tangent-classifier	appendixG.tex	1270	\hyperref[def:tangent-classifier]{tangent classifier}
-def:TD	chap4.tex	315	\hyperref[def:TD]{トポロジカル欠陥}
-def:TD	chap4.tex	318	\hyperref[def:TD]{トポロジカル欠陥}
-def:TD	chap4.tex	329	\hyperref[def:TD]{0次元の励起}
-def:TD	chap4.tex	350	\hyperref[def:TD]{同値}
-def:TD	chap4.tex	351	\hyperref[def:TD]{トポロジカル欠陥}
-def:TD	chap4.tex	362	\hyperref[def:TD]{0次元の励起}
-def:TD	chap4.tex	395	\hyperref[def:TD]{トポロジカル欠陥}
-def:TD	chap4.tex	410	\hyperref[def:TD]{トポロジカル欠陥}
-def:TD	chap4.tex	416	\hyperref[def:TD]{トポロジカル欠陥}
-def:TD	chap4.tex	424	\hyperref[def:TD]{トポロジカル欠陥}
-def:TD	chap4.tex	464	\hyperref[def:TD]{トポロジカル欠陥}
-def:TD	chap4.tex	465	\hyperref[def:TD]{トポロジカル欠陥}
-def:TD	chap4.tex	466	\hyperref[def:TD]{トポロジカル欠陥}
-def:TD	chap4.tex	467	\hyperref[def:TD]{トポロジカル欠陥}
-def:TD	chap4.tex	472	\hyperref[def:TD]{トポロジカル欠陥}
-def:TD	chap4.tex	475	\hyperref[def:TD]{トポロジカル欠陥}
-def:TD	chap4.tex	484	\hyperref[def:TD]{トポロジカル欠陥}
-def:TD	chap4.tex	494	\hyperref[def:TD]{トポロジカル欠陥}
-def:TD	chap4.tex	496	\hyperref[def:TD]{トポロジカル欠陥}
-def:TD	chap4.tex	502	\hyperref[def:TD]{トポロジカル欠陥}
-def:TD	chap4.tex	505	\hyperref[def:TD]{トポロジカル欠陥}
-def:TD	chap4.tex	512	\hyperref[def:TD]{トポロジカル欠陥}
-def:TD	chap4.tex	521	\hyperref[def:TD]{トポロジカル欠陥}
-def:TD	chap4.tex	536	\hyperref[def:TD]{トポロジカル欠陥}
-def:TD	chap4.tex	544	\hyperref[def:TD]{トポロジカル欠陥}
-def:TD	chap4.tex	563	\hyperref[def:TD]{トポロジカル欠陥}
-def:TD	chap4.tex	654	\hyperref[def:TD]{トポロジカル欠陥}
-def:TD	chap4.tex	786	\hyperref[def:TD]{トポロジカル欠陥}
-def:tensor-functor	appendixF.tex	1792	\hyperref[def:tensor-functor]{テンソル関手}
-def:tensor-functor	appendixF.tex	1816	\hyperref[def:tensor-functor]{テンソル関手}
-def:tensor-functor	appendixF.tex	1824	\hyperref[def:tensor-functor]{テンソル関手}
-def:tensor-functor	chap3.tex	3230	\hyperref[def:tensor-functor]{モノイダル自然同型}
-def:tensor-functor	chap3.tex	3699	\hyperref[def:tensor-functor]{左 $\Cat{C}
-def:tensor-overalg	chap3.tex	3531	\hyperref[def:tensor-overalg]{代数 $A$ 上のテンソル積}
-def:tensorfusion-cat	appendixF.tex	1678	\hyperref[def:tensorfusion-cat]{多重テンソル圏}
-def:tensorfusion-cat	appendixF.tex	1687	\hyperref[def:tensorfusion-cat]{（多重）テンソル圏}
-def:tensorfusion-cat	appendixF.tex	1692	\hyperref[def:tensorfusion-cat]{テンソル圏}
-def:tensorfusion-cat	appendixF.tex	1696	\hyperref[def:tensorfusion-cat]{テンソル圏の定義}
-def:tensorfusion-cat	appendixF.tex	1739	\hyperref[def:tensorfusion-cat]{フュージョン圏}
-def:tensorfusion-cat	appendixF.tex	1776	\hyperref[def:tensorfusion-cat]{フュージョン圏}
-def:tensorfusion-cat	appendixF.tex	2089	\hyperref[def:tensorfusion-cat]{テンソル圏}
-def:tensorfusion-cat	appendixF.tex	2186	\hyperref[def:tensorfusion-cat]{テンソル圏}
-def:tensorfusion-cat	appendixF.tex	2237	\hyperref[def:tensorfusion-cat]{多重フュージョン圏}
-def:tensorfusion-cat	appendixF.tex	2295	\hyperref[def:tensorfusion-cat]{多重テンソル圏}
-def:tensorfusion-cat	appendixF.tex	2296	\hyperref[def:tensorfusion-cat]{テンソル圏}
-def:tensorfusion-cat	appendixF.tex	2297	\hyperref[def:tensorfusion-cat]{多重フュージョン圏}
-def:tensorfusion-cat	appendixF.tex	2298	\hyperref[def:tensorfusion-cat]{フュージョン圏}
-def:tensorfusion-cat	appendixF.tex	2366	\hyperref[def:tensorfusion-cat]{多重フュージョン圏}
-def:tensorfusion-cat	appendixF.tex	2480	\hyperref[def:tensorfusion-cat]{フュージョン圏}
-def:tensorfusion-cat	appendixF.tex	2485	\hyperref[def:tensorfusion-cat]{テンソル圏}
-def:tensorfusion-cat	appendixF.tex	2508	\hyperref[def:tensorfusion-cat]{テンソル圏}
-def:tensorfusion-cat	appendixF.tex	2567	\hyperref[def:tensorfusion-cat]{テンソル圏}
-def:tensorfusion-cat	appendixF.tex	2577	\hyperref[def:tensorfusion-cat]{フュージョン圏}
-def:tensorfusion-cat	appendixF.tex	2616	\hyperref[def:tensorfusion-cat]{フュージョン圏}
-def:tensorfusion-cat	appendixF.tex	2641	\hyperref[def:tensorfusion-cat]{(多重) テンソル圏}
-def:tensorfusion-cat	appendixF.tex	2714	\hyperref[def:tensorfusion-cat]{多重テンソル圏}
-def:tensorfusion-cat	appendixF.tex	2773	\hyperref[def:tensorfusion-cat]{多重テンソル圏}
-def:tensorfusion-cat	appendixF.tex	2832	\hyperref[def:tensorfusion-cat]{多重テンソル圏}
-def:tensorfusion-cat	appendixF.tex	2872	\hyperref[def:tensorfusion-cat]{多重テンソル圏}
-def:tensorfusion-cat	appendixF.tex	3072	\hyperref[def:tensorfusion-cat]{多重テンソル圏}
-def:tensorfusion-cat	appendixF.tex	3106	\hyperref[def:tensorfusion-cat]{多重テンソル圏}
-def:tensorfusion-cat	appendixF.tex	3141	\hyperref[def:tensorfusion-cat]{多重テンソル圏}
-def:tensorfusion-cat	appendixF.tex	3169	\hyperref[def:tensorfusion-cat]{多重テンソル圏}
-def:tensorfusion-cat	appendixF.tex	3190	\hyperref[def:tensorfusion-cat]{多重テンソル圏}
-def:tensorfusion-cat	appendixF.tex	3221	\hyperref[def:tensorfusion-cat]{多重テンソル圏}
-def:tensorfusion-cat	appendixF.tex	3232	\hyperref[def:tensorfusion-cat]{多重テンソル圏}
-def:tensorfusion-cat	appendixF.tex	3247	\hyperref[def:tensorfusion-cat]{多重テンソル圏}
-def:tensorfusion-cat	appendixF.tex	3276	\hyperref[def:tensorfusion-cat]{多重テンソル圏}
-def:tensorfusion-cat	appendixF.tex	3284	\hyperref[def:tensorfusion-cat]{多重テンソル圏}
-def:tensorfusion-cat	appendixF.tex	3296	\hyperref[def:tensorfusion-cat]{多重テンソル圏}
-def:tensorfusion-cat	appendixF.tex	3324	\hyperref[def:tensorfusion-cat]{テンソル圏}
-def:tensorfusion-cat	appendixF.tex	3356	\hyperref[def:tensorfusion-cat]{フュージョン圏}
-def:tensorfusion-cat	appendixF.tex	3368	\hyperref[def:tensorfusion-cat]{多重テンソル圏}
-def:tensorfusion-cat	appendixF.tex	3376	\hyperref[def:tensorfusion-cat]{多重テンソル圏}
-def:tensorfusion-cat	appendixF.tex	3436	\hyperref[def:tensorfusion-cat]{多重テンソル圏}
-def:tensorfusion-cat	appendixF.tex	3492	\hyperref[def:tensorfusion-cat]{多重テンソル圏}
-def:tensorfusion-cat	appendixF.tex	3538	\hyperref[def:tensorfusion-cat]{テンソル圏}
-def:tensorfusion-cat	appendixF.tex	3639	\hyperref[def:tensorfusion-cat]{テンソル圏}
-def:tensorfusion-cat	appendixF.tex	3646	\hyperref[def:tensorfusion-cat]{フュージョン圏}
-def:tensorfusion-cat	appendixF.tex	3656	\hyperref[def:tensorfusion-cat]{フュージョン圏}
-def:tensorfusion-cat	appendixF.tex	3663	\hyperref[def:tensorfusion-cat]{テンソル圏}
-def:tensorfusion-cat	appendixF.tex	3776	\hyperref[def:tensorfusion-cat]{フュージョン圏}
-def:tensorfusion-cat	appendixF.tex	60	\hyperref[def:tensorfusion-cat]{multitensor}
-def:tensorfusion-cat	appendixF.tex	65	\hyperref[def:tensorfusion-cat]{tensor}
-def:tensorfusion-cat	appendixF.tex	66	\hyperref[def:tensorfusion-cat]{multifusion}
-def:tensorfusion-cat	appendixF.tex	69	\hyperref[def:tensorfusion-cat]{fusion}
-def:tensorfusion-cat	chap3.tex	3181	\hyperref[def:tensorfusion-cat]{ユニタリフュージョン圏}
-def:tensorfusion-cat	chap3.tex	3216	\hyperref[def:tensorfusion-cat]{フュージョン圏}
-def:tensorfusion-cat	chap3.tex	3236	\hyperref[def:tensorfusion-cat]{ユニタリフュージョン圏}
-def:tensorfusion-cat	chap3.tex	3498	\hyperref[def:tensorfusion-cat]{ユニタリフュージョン圏}
-def:tensorfusion-cat	chap3.tex	3525	\hyperref[def:tensorfusion-cat]{ユニタリフュージョン圏}
-def:tensorfusion-cat	chap3.tex	3530	\hyperref[def:tensorfusion-cat]{ユニタリフュージョン圏}
-def:tensorfusion-cat	chap3.tex	3577	\hyperref[def:tensorfusion-cat]{ユニタリフュージョン圏}
-def:tensorfusion-cat	chap3.tex	3704	\hyperref[def:tensorfusion-cat]{多重テンソル圏}
-def:tensorfusion-cat	chap3.tex	3745	\hyperref[def:tensorfusion-cat]{ユニタリフュージョン圏}
-def:tensorfusion-cat	chap3.tex	3785	\hyperref[def:tensorfusion-cat]{フュージョン圏}
-def:tensorfusion-cat	chap3.tex	3998	\hyperref[def:tensorfusion-cat]{フュージョン圏}
-def:tensorfusion-cat	chap4.tex	689	\hyperref[def:tensorfusion-cat]{多重フュージョン圏}
-def:tensorfusion-cat	chap4.tex	716	\hyperref[def:tensorfusion-cat]{テンソル圏}
-def:tensorfusion-cat	chap4.tex	775	\hyperref[def:tensorfusion-cat]{テンソル圏}
-def:tensorfusion-cat	chap4.tex	877	\hyperref[def:tensorfusion-cat]{フュージョン圏}
-def:tensorfusion-cat	chap4.tex	884	\hyperref[def:tensorfusion-cat]{フュージョン圏}
-def:tensorfusion-cat	chap4.tex	887	\hyperref[def:tensorfusion-cat]{フュージョン圏}
-def:tensorial-form	chap2.tex	2035	\hyperref[def:tensorial-form]{$\rho$ 型のtensorial $k$-form}
-def:tensorial-form	chap2.tex	2051	\hyperref[def:tensorial-form]{右作用移動の定義}
-def:tensorial-form	chap2.tex	2089	\hyperref[def:tensorial-form]{水平}
-def:tensorial-form	chap2.tex	2102	\hyperref[def:tensorial-form]{右同変性}
-def:tensorial-form	chap2.tex	2239	\hyperref[def:tensorial-form]{水平}
-def:tensorial-form	chap2.tex	2246	\hyperref[def:tensorial-form]{右同変性}
-def:tensorial-form	chap2.tex	2260	\hyperref[def:tensorial-form]{右同変}
-def:tensorial-form	chap2.tex	3184	\hyperref[def:tensorial-form]{tensorial form of type $\Adj$}
-def:tensorial-form	chap2.tex	3299	\hyperref[def:tensorial-form]{右同変性}
-def:tensorial-form	chap2.tex	3976	\hyperref[def:tensorial-form]{水平}
-def:tensorial-form	chap2.tex	3986	\hyperref[def:tensorial-form]{tensorial form of type $\rho$ の定義}
-def:topo-poset	appendixG.tex	167	\hyperref[def:topo-poset]{位相 $\mathscr{O}
+def:stratified-space	appendixG.tex	94	\hyperref[def:stratified-space]{$p$-strata}
+def:stratified-space	appendixG.tex	95	\hyperref[def:stratified-space]{層状化写像}
+def:stratified-space	appendixG.tex	952	\hyperref[def:stratified-space]{$q$-層}
+def:StTop	appendixG.tex	2314	\hyperref[def:StTop]{$(1,\, 1)$-圏 $\StTOP$ の定義}
+def:StTop	appendixG.tex	428	\hyperref[def:StTop]{$\StTOP$}
+def:sym-monoidal-infty	appendixG.tex	3657	\hyperref[def:sym-monoidal-infty]{対称モノイダル $(\infty,\, 1)$-圏}
+def:sym-monoidal-infty	appendixG.tex	3668	\hyperref[def:sym-monoidal-infty]{対称モノイダル $(\infty,\, 1)$-圏}
+def:sym-monoidal-infty	appendixG.tex	4144	\hyperref[def:sym-monoidal-infty]{対称モノイダル $(\infty,\, 1)$-圏}
+def:sym-monoidal-infty	appendixG.tex	4175	\hyperref[def:sym-monoidal-infty]{対称モノイダル $(\infty,\, 1)$-圏}
+def:sym-monoidal-infty	appendixG.tex	4191	\hyperref[def:sym-monoidal-infty]{対称モノイダル $(\infty,\, 1)$-圏}
+def:tangent-classifier	appendixG.tex	1797	\hyperref[def:tangent-classifier]{tangent classifier}
+def:tangent-classifier	appendixG.tex	1805	\hyperref[def:tangent-classifier]{tangent classifier}
+def:tangent-classifier	appendixG.tex	1855	\hyperref[def:tangent-classifier]{tangent classifier}
+def:topo-poset	appendixG.tex	172	\hyperref[def:topo-poset]{位相 $\mathscr{O}
+def:topo-poset	appendixG.tex	2617	\hyperref[def:topo-poset]{半順序集合 $\OP{[\BSC]}
+def:topo-poset	appendixG.tex	2624	\hyperref[def:topo-poset]{半順序集合 $\OP{[\BSC]}
 def:topo-poset	appendixG.tex	35	\hyperref[def:topo-poset]{位相 $\mathscr{O}
-def:TQFT	chap3.tex	1868	\hyperref[def:TQFT]{TQFT}
-def:TQFT	chap3.tex	1888	\hyperref[def:TQFT]{TQFT}
-def:TQFT	chap3.tex	1904	\hyperref[def:TQFT]{TQFT}
-def:TQFT	chap3.tex	6862	\hyperref[def:TQFT]{TQFT}
-def:TQFT	chap3.tex	7279	\hyperref[def:TQFT]{TQFT}
-def:TQFT	chap3.tex	7344	\hyperref[def:TQFT]{TQFT}
-def:trace	appendixF.tex	3785	\hyperref[def:trace]{トレース}
-def:trace	appendixF.tex	3832	\hyperref[def:trace]{トレース}
-def:trace	appendixF.tex	3864	\hyperref[def:trace]{トレース}
-def:trace	appendixF.tex	4033	\hyperref[def:trace]{トレース}
-def:trace	chap3.tex	7594	\hyperref[def:trace]{トレース}
-def:trivialTO	chap4.tex	193	\hyperref[def:trivialTO]{自明相}
-def:trivialTO	chap4.tex	505	\hyperref[def:trivialTO]{自明}
-def:trivialTO	chap4.tex	557	\hyperref[def:trivialTO]{自明なトポロジカル欠陥}
-def:trivialTO	chap4.tex	662	\hyperref[def:trivialTO]{自明相}
-def:TV-bdy	chap3.tex	7243	\hyperref[def:TV-bdy]{Turaev-Viro不変量の定義}
-def:TV-bdy	chap3.tex	7276	\hyperref[def:TV-bdy]{Turaev-Viro不変量}
-def:TV-bdy	chap3.tex	7279	\hyperref[def:TV-bdy]{Turaev-Viro不変量}
-def:TV-closed	chap3.tex	6796	\hyperref[def:TV-closed]{閉多様体の場合}
-def:TV-closed	chap3.tex	7358	\hyperref[def:TV-closed]{Turaev-Viro不変量}
-def:TV-TQFT	chap3.tex	7344	\hyperref[def:TV-TQFT]{Turaev-Viro TQFT}
-def:UFC	appendixF.tex	2608	\hyperref[def:UFC]{ユニタリフュージョン圏}
-def:UFC	appendixF.tex	2617	\hyperref[def:UFC]{ユニタリフュージョン圏}
-def:UFC	appendixF.tex	75	\hyperref[def:UFC]{unitary fusion}
-def:unitary	chap4.tex	640	\hyperref[def:unitary]{ユニタリ圏}
-def:unitary	chap4.tex	649	\hyperref[def:unitary]{ユニタリ構造}
-def:unitary-monoidal	chap4.tex	689	\hyperref[def:unitary-monoidal]{ユニタリ}
-def:unitary-monoidal	chap4.tex	693	\hyperref[def:unitary-monoidal]{ユニタリ構造}
-def:unitary-monoidal	chap4.tex	696	\hyperref[def:unitary-monoidal]{ユニタリモノイダル圏}
-def:unitary-monoidal	chap4.tex	716	\hyperref[def:unitary-monoidal]{ユニタリ}
-def:unitary-monoidal	chap4.tex	775	\hyperref[def:unitary-monoidal]{ユニタリ}
-def:universal-bundle	chap3.tex	2079	\hyperref[def:universal-bundle]{普遍束}
-def:universal-bundle	chap3.tex	2093	\hyperref[def:universal-bundle]{普遍束}
-def:universal-bundle	chap3.tex	2131	\hyperref[def:universal-bundle]{普遍束}
-def:universal-bundle	chap3.tex	2620	\hyperref[def:universal-bundle]{$BG$ の定義}
-def:universal-bundle	chap3.tex	2885	\hyperref[def:universal-bundle]{普遍束}
-def:vecf	appendixB.tex	1082	\hyperref[def:vecf]{\cinfty ベクトル場}
-def:vecf	appendixB.tex	1110	\hyperref[def:vecf]{コンパクト台を持つ}
-def:vecf	appendixB.tex	1138	\hyperref[def:vecf]{ベクトル場}
-def:vecf	appendixB.tex	310	\hyperref[def:vecf]{ベクトル場}
-def:vecf	appendixB.tex	324	\hyperref[def:vecf]{ベクトル場の定義}
-def:vecf	appendixB.tex	342	\hyperref[def:vecf]{$C^\infty$ ベクトル場}
-def:vecf	appendixB.tex	379	\hyperref[def:vecf]{ベクトル場}
-def:vecf	appendixB.tex	424	\hyperref[def:vecf]{$C^\infty$}
-def:vecf	appendixB.tex	443	\hyperref[def:vecf]{成分関数}
-def:vecf	appendixB.tex	597	\hyperref[def:vecf]{ベクトル場}
-def:vecf	appendixB.tex	638	\hyperref[def:vecf]{\cinfty ベクトル場}
-def:vecf	appendixB.tex	693	\hyperref[def:vecf]{\cinfty ベクトル場}
-def:vecf	chap2.tex	1023	\hyperref[def:vecf]{\cinfty ベクトル場}
-def:vecf	chap2.tex	2413	\hyperref[def:vecf]{ベクトル場}
-def:vect	appendixB.tex	1253	\hyperref[def:vect]{ベクトル束}
-def:vect	appendixB.tex	1280	\hyperref[def:vect]{ベクトル束}
-def:vect	chap2.tex	1622	\hyperref[def:vect]{ベクトル束}
-def:vect	chap2.tex	1637	\hyperref[def:vect]{ベクトル束}
-def:vect	chap2.tex	2156	\hyperref[def:vect]{ベクトル束}
-def:vect	chap2.tex	770	\hyperref[def:vect]{階数 $N$ のベクトル束}
-def:vect	chap2.tex	794	\hyperref[def:vect]{ベクトル束の定義}
-def:vect	chap2.tex	823	\hyperref[def:vect]{ベクトル束の定義}
-def:vect	chap2.tex	912	\hyperref[def:vect]{ベクトル束}
-def:vect	chap3.tex	1066	\hyperref[def:vect]{ベクトル束}
-def:W2G-C2G	appendixF.tex	4400	\hyperref[def:W2G-C2G]{2-群}
-def:W2G-C2G	appendixF.tex	4404	\hyperref[def:W2G-C2G]{コヒーレントな2-群}
-def:W2G-C2G	appendixF.tex	4404	\hyperref[def:W2G-C2G]{弱い2-群}
-def:W2G-C2G	appendixF.tex	4408	\hyperref[def:W2G-C2G]{弱い2-群}
-def:W2G-C2G	appendixF.tex	4478	\hyperref[def:W2G-C2G]{コヒーレントな2-群}
-def:W2G-C2G	appendixF.tex	4481	\hyperref[def:W2G-C2G]{2-群}
-def:W2G-C2G	appendixF.tex	4506	\hyperref[def:W2G-C2G]{コヒーレントな2群}
-def:W2G-C2G	appendixF.tex	4508	\hyperref[def:W2G-C2G]{2-群}
-def:W2G-C2G	appendixF.tex	4514	\hyperref[def:W2G-C2G]{厳密な2-群}
-def:W2G-C2G	appendixF.tex	4568	\hyperref[def:W2G-C2G]{厳密な2-群}
-def:W2G-C2G	appendixF.tex	4569	\hyperref[def:W2G-C2G]{厳密な2-群}
-def:W2G-C2G	appendixF.tex	4662	\hyperref[def:W2G-C2G]{厳密な2群}
-def:W2G-C2G	appendixF.tex	4664	\hyperref[def:W2G-C2G]{厳密な $2$-群の定義}
-def:W2G-C2G	appendixF.tex	4719	\hyperref[def:W2G-C2G]{コヒーレントな2群}
-def:W2G-C2G	appendixF.tex	4726	\hyperref[def:W2G-C2G]{コヒーレントな2群}
-def:W2G-C2G	appendixF.tex	4731	\hyperref[def:W2G-C2G]{コヒーレントな2群}
-def:W2G-C2G	appendixF.tex	4737	\hyperref[def:W2G-C2G]{コヒーレントな2群}
-def:W2G-C2G	appendixF.tex	4758	\hyperref[def:W2G-C2G]{コヒーレントな2群}
-def:W2G-C2G	appendixF.tex	4784	\hyperref[def:W2G-C2G]{コヒーレントな2群}
-def:W2G-C2G	chap3.tex	3149	\hyperref[def:W2G-C2G]{2-群}
-def:W2G-C2G	chap3.tex	3149	\hyperref[def:W2G-C2G]{厳密な2-Lie群}
-def:weak-inverse	appendixF.tex	4393	\hyperref[def:weak-inverse]{弱可逆}
-def:weak-inverse	appendixF.tex	4481	\hyperref[def:weak-inverse]{弱い逆対象}
-def:weak-inverse	appendixF.tex	4511	\hyperref[def:weak-inverse]{弱い逆対象}
-def:weak-inverse	appendixF.tex	4511	\hyperref[def:weak-inverse]{弱可逆}
-def:weighted-lim	appendixC.tex	883	\hyperref[def:weighted-lim]{$\Hom{\Cat{C}
-def:Z+ring	appendixF.tex	2295	\hyperref[def:Z+ring]{底的}
-def:Z+ring	appendixF.tex	2295	\hyperref[def:Z+ring]{$\mathbb{Z}
-def:Z+ring	appendixF.tex	2296	\hyperref[def:Z+ring]{単位的}
-def:Z+ring	appendixF.tex	2296	\hyperref[def:Z+ring]{底的}
-def:Z+ring	appendixF.tex	2296	\hyperref[def:Z+ring]{$\mathbb{Z}
-def:Z+ring	appendixF.tex	2297	\hyperref[def:Z+ring]{多重フュージョン環}
-def:Z+ring	appendixF.tex	2298	\hyperref[def:Z+ring]{フュージョン環}
-def:Z+ring	appendixF.tex	2309	\hyperref[def:Z+ring]{底的な $\mathbb{Z}
-def.bundlemap	chap2.tex	3980	\hyperref[def.bundlemap]{束同型}
-def.bundlemap	chap2.tex	570	\hyperref[def.bundlemap]{束の自己同型}
-def.bundlemap	chap3.tex	2022	\hyperref[def.bundlemap]{束写像}
-def.bundlemap	chap3.tex	2024	\hyperref[def.bundlemap]{束同型}
-def.bundlemap	chap3.tex	2052	\hyperref[def.bundlemap]{束同型}
-def.bundlemap	chap3.tex	2256	\hyperref[def.bundlemap]{束写像}
-def.fiber-1	appendixB.tex	1280	\hyperref[def.fiber-1]{局所自明化}
-def.fiber-1	chap2.tex	2581	\hyperref[def.fiber-1]{変換関数の定義}
-def.fiber-1	chap2.tex	463	\hyperref[def.fiber-1]{\cinfty ファイバー束}
-def.fiber-1	chap2.tex	480	\hyperref[def.fiber-1]{ファイバー束}
-def.fiber-1	chap2.tex	569	\hyperref[def.fiber-1]{ファイバー束}
-def.fiber-1	chap2.tex	693	\hyperref[def.fiber-1]{ファイバー束}
-def.fiber-1	chap2.tex	697	\hyperref[def.fiber-1]{ファイバー束}
-def.fiber-1	chap2.tex	710	\hyperref[def.fiber-1]{局所自明化}
-def.fiber-1	chap2.tex	711	\hyperref[def.fiber-1]{局所自明化}
-def.fiber-1	chap2.tex	766	\hyperref[def.fiber-1]{ファイバー束}
-def.fiber-1	chap2.tex	852	\hyperref[def.fiber-1]{ファイバー束}
-def.fiber-1	chap2.tex	910	\hyperref[def.fiber-1]{主束}
-def.fiber-1	chap2.tex	928	\hyperref[def.fiber-1]{局所自明化}
-def.fiber-1	chap3.tex	1418	\hyperref[def.fiber-1]{ファイバー束}
-def.fiber-1	chap3.tex	1985	\hyperref[def.fiber-1]{ファイバー束}
-def.PFD	chap2.tex	1652	\hyperref[def.PFD]{主束}
-def.PFD	chap2.tex	1656	\hyperref[def.PFD]{主束}
-def.PFD	chap2.tex	1717	\hyperref[def.PFD]{主束}
-def.PFD	chap2.tex	1766	\hyperref[def.PFD]{主束}
-def.PFD	chap2.tex	1904	\hyperref[def.PFD]{主束}
-def.PFD	chap2.tex	1943	\hyperref[def.PFD]{主束}
-def.PFD	chap2.tex	1985	\hyperref[def.PFD]{主束}
-def.PFD	chap2.tex	2190	\hyperref[def.PFD]{主束}
-def.PFD	chap2.tex	2387	\hyperref[def.PFD]{主束}
-def.PFD	chap2.tex	252	\hyperref[def.PFD]{主 $G$ 束}
-def.PFD	chap2.tex	2566	\hyperref[def.PFD]{主束}
-def.PFD	chap2.tex	2613	\hyperref[def.PFD]{主束}
-def.PFD	chap2.tex	2783	\hyperref[def.PFD]{主束}
-def.PFD	chap2.tex	3344	\hyperref[def.PFD]{主束}
-def.PFD	chap2.tex	3376	\hyperref[def.PFD]{主束}
-def.PFD	chap2.tex	3428	\hyperref[def.PFD]{主束}
-def.PFD	chap2.tex	704	\hyperref[def.PFD]{主束}
-def.PFD	chap2.tex	759	\hyperref[def.PFD]{主束}
-def.PFD	chap2.tex	766	\hyperref[def.PFD]{主束}
-def.PFD	chap2.tex	838	\hyperref[def.PFD]{主束}
-def.PFD	chap2.tex	916	\hyperref[def.PFD]{主束}
-def.PFD	chap3.tex	2052	\hyperref[def.PFD]{主束}
-def.reltopo	chap2.tex	645	\hyperref[def.reltopo]{相対位相}
-def.section	chap2.tex	1626	\hyperref[def.section]{\cinfty 切断}
-def.section	chap2.tex	1970	\hyperref[def.section]{局所切断}
-def.section	chap2.tex	2027	\hyperref[def.section]{局所切断}
-def.section	chap2.tex	2397	\hyperref[def.section]{局所切断}
-def.section	chap2.tex	2567	\hyperref[def.section]{局所切断}
-def.section	chap2.tex	2614	\hyperref[def.section]{局所切断}
-def.section	chap2.tex	2842	\hyperref[def.section]{局所切断}
-def.section	chap2.tex	3345	\hyperref[def.section]{局所切断}
-def.section	chap2.tex	3377	\hyperref[def.section]{局所切断}
-def.section	chap2.tex	3494	\hyperref[def.section]{局所切断}
-def.section	chap2.tex	789	\hyperref[def.section]{局所切断}
-def.section	chap2.tex	859	\hyperref[def.section]{局所切断}
-def.section	chap2.tex	928	\hyperref[def.section]{局所切断}
-def.section	chap3.tex	1066	\hyperref[def.section]{切断}
-diffmani	appendixB.tex	137	\hyperref[diffmani]{$C^\infty$ チャート}
-diffmani	appendixB.tex	33	\hyperref[diffmani]{$C^\infty$ チャート}
-eq:constant-functor	appendixC.tex	1123	\hyperref[eq:constant-functor]{定数関手}
-eq:def-Link	chap3.tex	1349	\hyperref[eq:def-Link]{絡み数}
-eq:E-valued	chap2.tex	1671	\hyperref[eq:E-valued]{値1-形式}
-eq:E-valued	chap2.tex	1909	\hyperref[eq:E-valued]{$V$-値 $k$ 形式}
-eq:fusionring	appendixF.tex	3826	\hyperref[eq:fusionring]{Grothendieck環}
-eq:fusionring	appendixF.tex	4090	\hyperref[eq:fusionring]{フュージョン環}
-eq.cocycle	chap2.tex	2741	\hyperref[eq.cocycle]{コサイクル条件}
-ex:Bord	chap3.tex	6862	\hyperref[ex:Bord]{コボルディズム}
-ex:Bord	chap3.tex	732	\hyperref[ex:Bord]{コボルディズム圏}
-ex:Bord	chap3.tex	991	\hyperref[ex:Bord]{コボルディズム圏}
-ex:Cech-deRham	appendixA.tex	240	\hyperref[ex:Cech-deRham]{\v{C}
-ex:constant-presheaf	appendixA.tex	222	\hyperref[ex:constant-presheaf]{定数前層}
-ex:constant-presheaf	appendixA.tex	245	\hyperref[ex:constant-presheaf]{定数前層}
-ex:toric-emf	chap4.tex	472	\hyperref[ex:toric-emf]{toric code模型}
-ex:toric-emf	chap4.tex	520	\hyperref[ex:toric-emf]{toric code}
-fig:type1-3Pachner	chap3.tex	3361	\hyperref[fig:type1-3Pachner]{1-3型の双星状移動}
-fig:type2-4Pachner	chap3.tex	3360	\hyperref[fig:type2-4Pachner]{2-4型の双星状移動}
-fig.bundle_homo	chap2.tex	692	\hyperref[fig.bundle_homo]{局所自明性}
-hypo:anomaly-inflow	chap3.tex	3222	\hyperref[hypo:anomaly-inflow]{アノマリー流入}
-hypo:anomaly-inflow	chap4.tex	204	\hyperref[hypo:anomaly-inflow]{アノマリー流入}
-lem:assoc-basic	chap2.tex	2061	\hyperref[lem:assoc-basic]{定義}
-lem:assoc-basic	chap2.tex	2063	\hyperref[lem:assoc-basic]{定義}
-lem:assoc-basic	chap2.tex	2118	\hyperref[lem:assoc-basic]{$f_u$ の定義}
-lem:assoc-basic	chap2.tex	2142	\hyperref[lem:assoc-basic]{定義}
-lem:assoc-basic	chap2.tex	3475	\hyperref[lem:assoc-basic]{$f^{-1}
-lem:cinfty-chart	appendixB.tex	1279	\hyperref[lem:cinfty-chart]{$C^\infty$ 構造}
-lem:ldual-functor	appendixF.tex	1612	\hyperref[lem:ldual-functor]{左双対関手}
-lem:nondegen-pairing	chap3.tex	4298	\hyperref[lem:nondegen-pairing]{非退化な双線形形式}
-lem:nondegen-pairing	chap3.tex	6528	\hyperref[lem:nondegen-pairing]{非退化な双線形形式 $\omega$}
-lem:nondegen-pairing	chap3.tex	7571	\hyperref[lem:nondegen-pairing]{ペアリング}
-lem:simple-hom	appendixF.tex	3688	\hyperref[lem:simple-hom]{Schurの補題}
-lem:simple-hom	chap3.tex	4599	\hyperref[lem:simple-hom]{\textsf{\textbf{(part-4)}
-lem:Yoneda	appendixC.tex	1120	\hyperref[lem:Yoneda]{米田の補題}
-lem:Yoneda	appendixC.tex	1138	\hyperref[lem:Yoneda]{米田の補題}
-lem:Yoneda	appendixC.tex	1377	\hyperref[lem:Yoneda]{米田の補題}
-lem:Yoneda	appendixC.tex	1580	\hyperref[lem:Yoneda]{米田の補題}
-lem:Yoneda	appendixC.tex	1743	\hyperref[lem:Yoneda]{米田の補題}
-lem:Yoneda	appendixC.tex	2122	\hyperref[lem:Yoneda]{米田の補題}
-lem:Yoneda	appendixC.tex	2215	\hyperref[lem:Yoneda]{米田の補題}
-lem:Yoneda	appendixC.tex	711	\hyperref[lem:Yoneda]{米田の補題}
-lem:Yoneda	appendixC.tex	838	\hyperref[lem:Yoneda]{米田の補題}
-prop:assoc-basic	chap2.tex	2146	\hyperref[prop:assoc-basic]{定義}
-prop:assoc-basic	chap2.tex	3469	\hyperref[prop:assoc-basic]{$\sharp$ の定義}
-prop:Borelconst	chap2.tex	1959	\hyperref[prop:Borelconst]{$\times_\rho$ の定義}
-prop:Borelconst	chap2.tex	2062	\hyperref[prop:Borelconst]{定義}
-prop:Borelconst	chap2.tex	2109	\hyperref[prop:Borelconst]{$\times_\rho$ の定義}
-prop:Borelconst	chap2.tex	4109	\hyperref[prop:Borelconst]{同伴するベクトル束}
-prop:connection-functor	chap3.tex	2511	\hyperref[prop:connection-functor]{関手としての接続}
-prop:diffeo-Frelated	appendixB.tex	1233	\hyperref[prop:diffeo-Frelated]{押し出し}
-prop:diffeo-Frelated	appendixB.tex	580	\hyperref[prop:diffeo-Frelated]{押し出しの定義}
-prop:diffeo-Frelated	chap2.tex	982	\hyperref[prop:diffeo-Frelated]{ベクトル場の押し出し}
-prop:domainwall-gauged	chap3.tex	3696	\hyperref[prop:domainwall-gauged]{ドメインウォール}
-prop:holonomy	chap3.tex	2439	\hyperref[prop:holonomy]{ホロノミー}
-prop:horizontal-lift-vecf	chap2.tex	3297	\hyperref[prop:horizontal-lift-vecf]{右不変性}
-prop:infinitesimal-generator	appendixB.tex	838	\hyperref[prop:infinitesimal-generator]{無限小生成子}
-prop:infinitesimal-generator-local	appendixB.tex	1222	\hyperref[prop:infinitesimal-generator-local]{無限小生成子の定義}
-prop:Lie-bracket-natural	chap2.tex	1548	\hyperref[prop:Lie-bracket-natural]{Lieブラケットの自然性}
-prop:lim-colim-basic	appendixF.tex	2366	\hyperref[prop:lim-colim-basic]{極限・余極限とHomの交換}
-prop:lim-colim-basic	chap3.tex	3805	\hyperref[prop:lim-colim-basic]{極限・余極限とHomの交換}
-prop:lim-colim-basic	chap3.tex	3907	\hyperref[prop:lim-colim-basic]{余極限とHomの交換}
-prop:lim-colim-basic	chap3.tex	3912	\hyperref[prop:lim-colim-basic]{余極限とHomの交換}
-prop:lim-colim-basic	chap3.tex	3999	\hyperref[prop:lim-colim-basic]{余極限とHomの交換}
-prop:LU	chap5.tex	206	\hyperref[prop:LU]{局所ユニタリ発展}
-prop:LU	chap5.tex	240	\hyperref[prop:LU]{局所ユニタリ発展}
-prop:LU	chap5.tex	63	\hyperref[prop:LU]{局所ユニタリ発展}
-prop:one-parameter-basic	chap2.tex	1194	\hyperref[prop:one-parameter-basic]{生成する1パラメータ部分群}
-prop:one-parameter-basic	chap2.tex	1205	\hyperref[prop:one-parameter-basic]{生成する1パラメータ部分群}
-prop:one-parameter-basic	chap2.tex	1240	\hyperref[prop:one-parameter-basic]{生成する1パラメータ部分群}
-prop:resultant	chap2.tex	4325	\hyperref[prop:resultant]{終結式}
-prop:tangentbundle	chap2.tex	491	\hyperref[prop:tangentbundle]{接束}
-prop:universal-basic	chap3.tex	2548	\hyperref[prop:universal-basic]{分類写像}
-prop:universal-basic	chap3.tex	2654	\hyperref[prop:universal-basic]{分類写像}
-prop:vecf-derivation	appendixB.tex	523	\hyperref[prop:vecf-derivation]{微分}
-prop.PFD_right	chap2.tex	1959	\hyperref[prop.PFD_right]{右作用 $\btl$ は自由}
-prop.PFD_right	chap2.tex	2581	\hyperref[prop.PFD_right]{ $P$ への右作用 $\btl$ の定義}
-prop.PFD_right	chap2.tex	2634	\hyperref[prop.PFD_right]{主束の全空間への右作用}
-prop.PFD_right	chap2.tex	2671	\hyperref[prop.PFD_right]{右作用 $\btl$ の定義}
-prop.PFD_right	chap2.tex	2850	\hyperref[prop.PFD_right]{全空間 $P$ への右作用の定義}
-redef:braided-monoidal	appendixF.tex	1111	\hyperref[redef:braided-monoidal]{\textsf{\textbf{(hexagon diagrams)}
-redef:braided-monoidal	appendixF.tex	1225	\hyperref[redef:braided-monoidal]{組紐}
-redef:braided-monoidal	appendixF.tex	1227	\hyperref[redef:braided-monoidal]{対称}
-redef:braided-monoidal	appendixF.tex	1227	\hyperref[redef:braided-monoidal]{組紐付きモノイダル圏}
-redef:braided-monoidal	appendixF.tex	1253	\hyperref[redef:braided-monoidal]{組紐付きモノイダル圏}
-redef:braided-monoidal	appendixF.tex	1267	\hyperref[redef:braided-monoidal]{組紐付きモノイダル圏}
-redef:braided-monoidal	appendixF.tex	1309	\hyperref[redef:braided-monoidal]{\textsf{\textbf{(hexagon diagrams)}
-redef:braided-monoidal	appendixF.tex	1370	\hyperref[redef:braided-monoidal]{組紐}
-redef:braided-monoidal	appendixF.tex	1521	\hyperref[redef:braided-monoidal]{組紐}
-redef:braided-monoidal	appendixF.tex	3525	\hyperref[redef:braided-monoidal]{組紐付きモノイダル圏}
-redef:braided-monoidal	appendixF.tex	3600	\hyperref[redef:braided-monoidal]{\textsf{\textbf{(hexagon diagrams)}
-redef:braided-monoidal	appendixF.tex	3646	\hyperref[redef:braided-monoidal]{組紐}
-redef:braided-monoidal	appendixF.tex	3656	\hyperref[redef:braided-monoidal]{組紐}
-redef:braided-monoidal	appendixF.tex	3663	\hyperref[redef:braided-monoidal]{組紐}
-redef:braided-monoidal	appendixF.tex	3776	\hyperref[redef:braided-monoidal]{組紐}
-redef:braided-monoidal	appendixF.tex	3837	\hyperref[redef:braided-monoidal]{\textsf{\textbf{(hexagon diagrams)}
-redef:braided-monoidal	appendixF.tex	52	\hyperref[redef:braided-monoidal]{braided monoidal}
-redef:braided-monoidal	appendixF.tex	58	\hyperref[redef:braided-monoidal]{symmetric}
-redef:braided-monoidal	chap4.tex	866	\hyperref[redef:braided-monoidal]{組紐構造}
-redef:braided-monoidal	chap4.tex	870	\hyperref[redef:braided-monoidal]{braiding}
-redef:braided-monoidal	chap4.tex	877	\hyperref[redef:braided-monoidal]{組紐}
-redef:braided-monoidal	chap4.tex	884	\hyperref[redef:braided-monoidal]{対称}
-redef:braided-monoidal	chap4.tex	884	\hyperref[redef:braided-monoidal]{組紐}
-redef:braided-monoidal	chap4.tex	887	\hyperref[redef:braided-monoidal]{組紐}
-redef:braided-monoidal	chap4.tex	952	\hyperref[redef:braided-monoidal]{braiding}
-redef:dual	appendixF.tex	1612	\hyperref[redef:dual]{左双対}
-redef:dual	appendixF.tex	1613	\hyperref[redef:dual]{左双対}
-redef:dual	appendixF.tex	1940	\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equations)}
-redef:dual	appendixF.tex	1958	\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equations)}
-redef:dual	appendixF.tex	2076	\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equations)}
-redef:dual	appendixF.tex	2559	\hyperref[redef:dual]{(co)evaluation}
-redef:dual	appendixF.tex	2559	\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equations)}
-redef:dual	appendixF.tex	3742	\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equations)}
-redef:dual	appendixF.tex	4394	\hyperref[redef:dual]{unit，counit}
-redef:dual	appendixF.tex	4414	\hyperref[redef:dual]{zig-zag equation}
-redef:dual	appendixF.tex	632	\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equations)}
-redef:dual	appendixF.tex	666	\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equations)}
-redef:dual	appendixF.tex	705	\hyperref[redef:dual]{右双対}
-redef:dual	appendixF.tex	705	\hyperref[redef:dual]{左双対}
-redef:dual	appendixF.tex	706	\hyperref[redef:dual]{右双対}
-redef:dual	appendixF.tex	706	\hyperref[redef:dual]{左双対}
-redef:dual	appendixF.tex	707	\hyperref[redef:dual]{左・右双対}
-redef:dual	appendixF.tex	713	\hyperref[redef:dual]{\textsf{\textbf{(zig-zag-equations)}
-redef:dual	appendixF.tex	714	\hyperref[redef:dual]{\textsf{\textbf{(zig-zag-equations)}
-redef:dual	appendixF.tex	715	\hyperref[redef:dual]{\textsf{\textbf{(zig-zag-equations)}
-redef:dual	appendixF.tex	716	\hyperref[redef:dual]{\textsf{\textbf{(zig-zag-equations)}
-redef:dual	appendixF.tex	759	\hyperref[redef:dual]{\textsf{\textbf{(zig-zag-equations)}
-redef:dual	appendixF.tex	767	\hyperref[redef:dual]{左・右双対}
-redef:dual	appendixF.tex	777	\hyperref[redef:dual]{左双対}
-redef:dual	appendixF.tex	821	\hyperref[redef:dual]{\textsf{\textbf{(zig-zag-equations)}
-redef:dual	appendixF.tex	909	\hyperref[redef:dual]{coevaluation, evaluation}
-redef:dual	appendixF.tex	916	\hyperref[redef:dual]{\textsf{\textbf{(zig-zag-equations)}
-redef:dual	chap3.tex	4324	\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equation)}
-redef:dual	chap3.tex	4597	\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equation)}
-redef:dual	chap3.tex	691	\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equations)}
-redef:dual	chap4.tex	767	\hyperref[redef:dual]{(co)evaluation}
-redef:dual	chap4.tex	767	\hyperref[redef:dual]{\textsf{\textbf{(zig-zag equations)}
-redef:enriched	appendixF.tex	4149	\hyperref[redef:enriched]{$V$-豊穣圏}
-redef:enriched	appendixF.tex	4188	\hyperref[redef:enriched]{$V$-豊穣圏}
-redef:enriched	appendixF.tex	4189	\hyperref[redef:enriched]{$V$-豊穣関手}
-redef:enriched	appendixF.tex	4195	\hyperref[redef:enriched]{$\CAT$-豊穣圏}
-redef:enriched	appendixF.tex	4199	\hyperref[redef:enriched]{豊穣圏の定義}
-redef:enriched	appendixF.tex	4257	\hyperref[redef:enriched]{\textsf{\textbf{(associativity), (unitality)}
-redef:enriched	appendixF.tex	4851	\hyperref[redef:enriched]{$\CAT\mhyphen\CAT$-豊穣圏}
-redef:monidal-functor	appendixF.tex	1784	\hyperref[redef:monidal-functor]{強いモノイダル関手}
-redef:monidal-functor	appendixF.tex	1798	\hyperref[redef:monidal-functor]{強いモノイダル関手}
-redef:monidal-functor	appendixF.tex	1803	\hyperref[redef:monidal-functor]{強いモノイダル関手}
-redef:monidal-functor	appendixF.tex	1807	\hyperref[redef:monidal-functor]{\textsf{\textbf{(associativity)}
-redef:monidal-functor	appendixF.tex	2002	\hyperref[redef:monidal-functor]{厳密なモノイダル関手}
-redef:monidal-functor	appendixF.tex	437	\hyperref[redef:monidal-functor]{弱いモノイダル関手}
-redef:monidal-functor	appendixF.tex	4400	\hyperref[redef:monidal-functor]{モノイダル関手}
-redef:monidal-functor	appendixF.tex	534	\hyperref[redef:monidal-functor]{モノイダル関手}
-redef:monidal-functor	appendixF.tex	979	\hyperref[redef:monidal-functor]{厳密なモノイダル関手}
-redef:monidal-functor	chap4.tex	649	\hyperref[redef:monidal-functor]{モノイダル関手}
-redef:monoidal-category	appendixC.tex	2446	\hyperref[redef:monoidal-category]{モノイダル圏}
-redef:monoidal-category	appendixC.tex	2530	\hyperref[redef:monoidal-category]{モノイダル圏}
-redef:monoidal-category	appendixF.tex	1064	\hyperref[redef:monoidal-category]{モノイダル圏}
-redef:monoidal-category	appendixF.tex	1225	\hyperref[redef:monoidal-category]{associator}
-redef:monoidal-category	appendixF.tex	1315	\hyperref[redef:monoidal-category]{associator}
-redef:monoidal-category	appendixF.tex	1515	\hyperref[redef:monoidal-category]{left/right unitor}
-redef:monoidal-category	appendixF.tex	1593	\hyperref[redef:monoidal-category]{モノイダル圏}
-redef:monoidal-category	appendixF.tex	1702	\hyperref[redef:monoidal-category]{厳密なモノイダル圏}
-redef:monoidal-category	appendixF.tex	1719	\hyperref[redef:monoidal-category]{厳密なモノイダル圏}
-redef:monoidal-category	appendixF.tex	1743	\hyperref[redef:monoidal-category]{associatorとunitors}
-redef:monoidal-category	appendixF.tex	1746	\hyperref[redef:monoidal-category]{モノイダル圏}
-redef:monoidal-category	appendixF.tex	1760	\hyperref[redef:monoidal-category]{\textsf{\textbf{(pentagon identity)}
-redef:monoidal-category	appendixF.tex	1768	\hyperref[redef:monoidal-category]{\textsf{\textbf{(triangle identity)}
-redef:monoidal-category	appendixF.tex	2378	\hyperref[redef:monoidal-category]{associator}
-redef:monoidal-category	appendixF.tex	2484	\hyperref[redef:monoidal-category]{モノイダル圏}
-redef:monoidal-category	appendixF.tex	2660	\hyperref[redef:monoidal-category]{モノイダル圏}
-redef:monoidal-category	appendixF.tex	2692	\hyperref[redef:monoidal-category]{モノイダル圏}
-redef:monoidal-category	appendixF.tex	2717	\hyperref[redef:monoidal-category]{モノイダル圏}
-redef:monoidal-category	appendixF.tex	2748	\hyperref[redef:monoidal-category]{モノイダル圏}
-redef:monoidal-category	appendixF.tex	2781	\hyperref[redef:monoidal-category]{モノイダル圏}
-redef:monoidal-category	appendixF.tex	3504	\hyperref[redef:monoidal-category]{モノイダル圏}
-redef:monoidal-category	appendixF.tex	378	\hyperref[redef:monoidal-category]{厳密なモノイダル圏}
-redef:monoidal-category	appendixF.tex	4111	\hyperref[redef:monoidal-category]{モノイダル圏}
-redef:monoidal-category	appendixF.tex	4186	\hyperref[redef:monoidal-category]{モノイダル圏}
-redef:monoidal-category	appendixF.tex	4194	\hyperref[redef:monoidal-category]{モノイダル圏}
-redef:monoidal-category	appendixF.tex	4257	\hyperref[redef:monoidal-category]{厳密なモノイダル圏}
-redef:monoidal-category	appendixF.tex	4354	\hyperref[redef:monoidal-category]{\textsf{\textbf{(pentagon identity)}
-redef:monoidal-category	appendixF.tex	4355	\hyperref[redef:monoidal-category]{\textsf{\textbf{(triangle identity)}
-redef:monoidal-category	appendixF.tex	4363	\hyperref[redef:monoidal-category]{モノイダル圏}
-redef:monoidal-category	appendixF.tex	437	\hyperref[redef:monoidal-category]{モノイダル圏}
-redef:monoidal-category	appendixF.tex	4382	\hyperref[redef:monoidal-category]{モノイダル圏}
-redef:monoidal-category	appendixF.tex	4393	\hyperref[redef:monoidal-category]{モノイダル圏}
-redef:monoidal-category	appendixF.tex	4394	\hyperref[redef:monoidal-category]{モノイダル圏}
-redef:monoidal-category	appendixF.tex	4395	\hyperref[redef:monoidal-category]{モノイダル圏}
-redef:monoidal-category	appendixF.tex	4656	\hyperref[redef:monoidal-category]{厳密なモノイダル圏}
-redef:monoidal-category	appendixF.tex	48	\hyperref[redef:monoidal-category]{monoidal}
-redef:monoidal-category	appendixF.tex	4842	\hyperref[redef:monoidal-category]{モノイダル圏}
-redef:monoidal-category	appendixF.tex	4847	\hyperref[redef:monoidal-category]{モノイダル圏}
-redef:monoidal-category	appendixF.tex	4850	\hyperref[redef:monoidal-category]{モノイダル圏}
-redef:monoidal-category	appendixF.tex	514	\hyperref[redef:monoidal-category]{\textsf{\textbf{(pentagon diagram)}
-redef:monoidal-category	appendixF.tex	514	\hyperref[redef:monoidal-category]{\textsf{\textbf{(triangle diagram)}
-redef:monoidal-category	appendixF.tex	519	\hyperref[redef:monoidal-category]{\textsf{\textbf{(triangle diagram)}
-redef:monoidal-category	chap3.tex	3844	\hyperref[redef:monoidal-category]{厳密なモノイダル圏}
-redef:monoidal-category	chap4.tex	567	\hyperref[redef:monoidal-category]{モノイダル圏}
-redef:rigid	appendixF.tex	1370	\hyperref[redef:rigid]{rigidモノイダル圏}
-redef:rigid	appendixF.tex	1521	\hyperref[redef:rigid]{rigidモノイダル圏}
-redef:rigid	appendixF.tex	1600	\hyperref[redef:rigid]{モノイダル圏}
-redef:rigid	appendixF.tex	1654	\hyperref[redef:rigid]{rigidなモノイダル圏}
-redef:rigid	appendixF.tex	1855	\hyperref[redef:rigid]{rigidなモノイダル圏}
-redef:rigid	appendixF.tex	1908	\hyperref[redef:rigid]{rigidなモノイダル圏}
-redef:rigid	appendixF.tex	1965	\hyperref[redef:rigid]{rigidなモノイダル圏}
-redef:rigid	appendixF.tex	1983	\hyperref[redef:rigid]{rigidなモノイダル圏}
-redef:rigid	appendixF.tex	1991	\hyperref[redef:rigid]{rigidなモノイダル圏}
-redef:rigid	appendixF.tex	2094	\hyperref[redef:rigid]{rigidなモノイダル圏}
-redef:rigid	appendixF.tex	2484	\hyperref[redef:rigid]{左/右双対}
-redef:rigid	appendixF.tex	2488	\hyperref[redef:rigid]{rigid}
-redef:rigid	appendixF.tex	2558	\hyperref[redef:rigid]{coevaluation/evaluation}
-redef:rigid	appendixF.tex	3525	\hyperref[redef:rigid]{rigid}
-redef:rigid	appendixF.tex	4506	\hyperref[redef:rigid]{rigidなモノイダル圏}
-redef:rigid	appendixF.tex	4758	\hyperref[redef:rigid]{rigidなモノイダル圏}
-redef:rigid	appendixF.tex	53	\hyperref[redef:rigid]{rigid monoidal}
-redef:rigid	appendixF.tex	770	\hyperref[redef:rigid]{rigidなモノイダル圏}
-redef:rigid	appendixF.tex	974	\hyperref[redef:rigid]{rigidなモノイダル圏}
-redef:rigid	appendixF.tex	984	\hyperref[redef:rigid]{rigidなモノイダル圏}
-redef:rigid	chap3.tex	3218	\hyperref[redef:rigid]{rigidなモノイダル圏}
-redef:rigid	chap4.tex	766	\hyperref[redef:rigid]{coevaluation/evaluation}
-redef:unitary	appendixF.tex	2484	\hyperref[redef:unitary]{ユニタリ構造の定義}
-redef:unitary	appendixF.tex	294	\hyperref[redef:unitary]{ダガー圏}
-redef:unitary	appendixF.tex	306	\hyperref[redef:unitary]{ユニタリ圏}
-redef:unitary	appendixF.tex	534	\hyperref[redef:unitary]{ユニタリ構造}
-redef:unitary	appendixF.tex	56	\hyperref[redef:unitary]{dagger}
-redef:unitary	appendixF.tex	62	\hyperref[redef:unitary]{unitary}
-reredef:unitary-monoidal	appendixF.tex	2480	\hyperref[reredef:unitary-monoidal]{ユニタリモノイダル圏}
-reredef:unitary-monoidal	appendixF.tex	2485	\hyperref[reredef:unitary-monoidal]{ユニタリ}
-reredef:unitary-monoidal	appendixF.tex	2488	\hyperref[reredef:unitary-monoidal]{ユニタリモノイダル圏}
-reredef:unitary-monoidal	appendixF.tex	2508	\hyperref[reredef:unitary-monoidal]{ユニタリ}
-reredef:unitary-monoidal	appendixF.tex	2567	\hyperref[reredef:unitary-monoidal]{ユニタリ}
-thm:Chern-Weil	chap3.tex	2546	\hyperref[thm:Chern-Weil]{Chern-Weilの定理}
-thm:connection-assoc	chap2.tex	3425	\hyperref[thm:connection-assoc]{同伴ベクトル束上の共変微分}
-thm:connection-assoc	chap2.tex	3623	\hyperref[thm:connection-assoc]{同伴ベクトル束上の接続}
-thm:connection-basic	chap2.tex	1501	\hyperref[thm:connection-basic]{主束の接続形式を調べる}
-thm:curvature	chap2.tex	3333	\hyperref[thm:curvature]{Bianchiの第2恒等式}
-thm:curvature	chap2.tex	4038	\hyperref[thm:curvature]{Bianchiの第2恒等式}
-thm:fundamental-flow	appendixB.tex	1082	\hyperref[thm:fundamental-flow]{生成する}
-thm:fundamental-flow	appendixB.tex	1087	\hyperref[thm:fundamental-flow]{$V$ が生成するフロー}
-thm:fundamental-flow	appendixB.tex	1130	\hyperref[thm:fundamental-flow]{$X$ が生成するフロー}
-thm:fundamental-flow	appendixB.tex	1155	\hyperref[thm:fundamental-flow]{生成するフロー}
-thm:fundamental-flow	appendixB.tex	1166	\hyperref[thm:fundamental-flow]{生成するフロー}
-thm:fundamental-flow	appendixB.tex	1189	\hyperref[thm:fundamental-flow]{生成するフロー}
-thm:fundamental-flow	appendixB.tex	1215	\hyperref[thm:fundamental-flow]{生成するフロー}
-thm:fundamental-flow	chap2.tex	1175	\hyperref[thm:fundamental-flow]{生成する}
-thm:fundamental-flow	chap2.tex	1226	\hyperref[thm:fundamental-flow]{生成するフロー}
-thm:fundamental-flow	chap2.tex	1240	\hyperref[thm:fundamental-flow]{極大積分曲線}
-thm:fundamental-flow	chap2.tex	1397	\hyperref[thm:fundamental-flow]{生成するフロー}
-thm:fundamental-flow	chap2.tex	1481	\hyperref[thm:fundamental-flow]{無限小生成子}
-thm:fundamental-flow	chap2.tex	2241	\hyperref[thm:fundamental-flow]{生成するフロー}
-thm:fundamental-flow	chap2.tex	2488	\hyperref[thm:fundamental-flow]{生成する積分曲線}
-thm:fundamental-flow	chap2.tex	3123	\hyperref[thm:fundamental-flow]{生成するフロー}
-thm:inverse-function-b	appendixD.tex	385	\hyperref[thm:inverse-function-b]{$C^\infty$ 多様体における逆関数定理}
-thm:inverse-function-b	appendixD.tex	390	\hyperref[thm:inverse-function-b]{$C^\infty$ 多様体における逆関数定理}
-thm:inverse-function-b	chap2.tex	1286	\hyperref[thm:inverse-function-b]{$C^\infty$ 多様体に関する逆関数定理}
-thm:inverse-function-Rn	appendixD.tex	215	\hyperref[thm:inverse-function-Rn]{逆関数定理}
-thm:inverse-function-Rn	appendixD.tex	284	\hyperref[thm:inverse-function-Rn]{$\mathbb{R}
-thm:inverse-function-Rn	appendixD.tex	454	\hyperref[thm:inverse-function-Rn]{Jacobi行列}
-thm:inverse-function-Rn	appendixD.tex	476	\hyperref[thm:inverse-function-Rn]{$\mathbb{R}
-thm:Liedv	chap2.tex	3128	\hyperref[thm:Liedv]{公式}
-thm:local-connection	chap2.tex	3503	\hyperref[thm:local-connection]{ゲージ場}
-thm:local-connection	chap3.tex	1321	\hyperref[thm:local-connection]{局所接続形式}
-thm:rank	appendixD.tex	605	\hyperref[thm:rank]{局所的ランク定理}
-thm:rank	appendixD.tex	617	\hyperref[thm:rank]{局所的ランク定理}
-thm.metrictopo	appendixB.tex	41	\hyperref[thm.metrictopo]{Euclid位相}
-TV:STEP1	chap3.tex	5874	\hyperref[TV:STEP1]{\textsf{\textbf{STEP1.}
-TV:STEP1	chap3.tex	6940	\hyperref[TV:STEP1]{閉多様体の場合の \textsf{\textbf{STEP1.}
-TV:STEP1	chap3.tex	6945	\hyperref[TV:STEP1]{閉多様体の場合の \textsf{\textbf{STEP1.}
-TV:STEP3	chap3.tex	6327	\hyperref[TV:STEP3]{\textsf{\textbf{STEP3.}
-TV:STEP3	chap3.tex	6467	\hyperref[TV:STEP3]{\textsf{\textbf{STEP3.}
-TV:STEP3	chap3.tex	7059	\hyperref[TV:STEP3]{閉多様体の場合の \textsf{\textbf{STEP3.}
-TV:STEP4	chap3.tex	6349	\hyperref[TV:STEP4]{\textsf{\textbf{STEP4.}
-TV:STEP4	chap3.tex	7068	\hyperref[TV:STEP4]{閉多様体の場合の \textsf{\textbf{STEP4.}
-TV:STEP4	chap3.tex	7077	\hyperref[TV:STEP4]{閉多様体の場合の \textsf{\textbf{STEP4.}
-TV:STEP5	chap3.tex	6364	\hyperref[TV:STEP5]{\textsf{\textbf{STEP5.}
-TV:STEP5	chap3.tex	6472	\hyperref[TV:STEP5]{\textsf{\textbf{STEP5.}
-TV:STEP5	chap3.tex	6622	\hyperref[TV:STEP5]{\textsf{\textbf{STEP5.}
-TV:STEP5	chap3.tex	6741	\hyperref[TV:STEP5]{\textsf{\textbf{STEP5.}
+def:triv-Kan-fib	appendixG.tex	1114	\hyperref[def:triv-Kan-fib]{trivial Kan fibration}
+deftpy-equiv	appendixG.tex	4161	\hyperref[deftpy-equiv]{ホモトピー同値}
+lem:Kan-enriched	appendixG.tex	1903	\hyperref[lem:Kan-enriched]{Kan複体 $\Hom{\SNGLR}
+lem:Kan-enriched	appendixG.tex	1913	\hyperref[lem:Kan-enriched]{Kan複体 $\Hom{\SNGLR}
+lem:Kan-enriched	appendixG.tex	1934	\hyperref[lem:Kan-enriched]{Kan複体 $\Hom{\SNGLR}
+lem:Kan-enriched	appendixG.tex	2275	\hyperref[lem:Kan-enriched]{Kan複体 $\Hom{\BSC}
+lem:Segal-cond	appendixG.tex	4149	\hyperref[lem:Segal-cond]{条件 \textsf{\textbf{(Segal)}
+lem:strat-basic	appendixG.tex	2943	\hyperref[lem:strat-basic]{$\alpha_X$ の構成}
+prop:SimpSet-basic	appendixG.tex	3339	\hyperref[prop:SimpSet-basic]{$(1,\, 1)$-圏 $\sSet$ における引き戻し}
+prop:SimpSet-basic	appendixG.tex	3352	\hyperref[prop:SimpSet-basic]{$(1,\, 1)$-圏 $\sSet$ における引き戻し}
+prop:tangentbundle	appendixG.tex	1857	\hyperref[prop:tangentbundle]{接束}
+redef:braided-monoidal	appendixG.tex	3613	\hyperref[redef:braided-monoidal]{対称モノイダル圏}
+thm:basic-easy	appendixG.tex	1856	\hyperref[thm:basic-easy]{$[\BSC]$}
+thm:basic-easy	appendixG.tex	1857	\hyperref[thm:basic-easy]{$[\BSC]$}
+thm:unstraightening	appendixG.tex	1749	\hyperref[thm:unstraightening]{straightning construction}
