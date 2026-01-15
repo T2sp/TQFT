@@ -2040,19 +2040,19 @@ $G$ をLie群とする．
 \end{proof}
 
 
-圏 $\bm{\mathrm{hoMfd}}$ を，
+圏 $\htpy{\MFLD}$ を，
 \begin{itemize}
     \item 多様体を対象とする
     \item 2つの多様体 $X,\, Y$ の間のホモトピー集合 $\comm{X}{Y}$ をHom集合とする
 \end{itemize}
 ものとして定義する．
 \begin{itemize}
-    \item $\forall X \in \Obj{\bm{\mathrm{hoMfd}}}$ に対して集合
+    \item $\forall X \in \Obj{\htpy{\MFLD}}$ に対して集合
     \begin{align}
         \mathrm{Prin}_G(X) &\coloneqq \bigl\{\, X\; \text{上の\hyperref[def.PFD]{主束}の\hyperref[def.bundlemap]{束同型}類} \,\bigr\}
     \end{align}
     を，
-    \item $\forall X,\, Y \in \Obj{\bm{\mathrm{hoMfd}}}$ の $\forall [f] \in \Hom{\bm{\mathrm{hoMfd}}} (X,\, Y)$ に対して写像
+    \item $\forall X,\, Y \in \Obj{\htpy{\MFLD}}$ の $\forall [f] \in \Hom{\htpy{\MFLD}} (X,\, Y)$ に対して写像
     \begin{align}
         \mathrm{Prin}_G \bigl( [f] \bigr) \colon \mathrm{Prin}_G (Y) \lto \mathrm{Prin}_G(X),\; [\xi] \lmto [f^* (\xi)]
     \end{align}
@@ -2060,12 +2060,12 @@ $G$ をLie群とする．
 \end{itemize}
 対応づける対応
 \begin{align}
-    \mathrm{Prin}_G \colon \bm{\mathrm{hoMfd}} \lto \SETS
+    \mathrm{Prin}_G \colon \htpy{\MFLD} \lto \SETS
 \end{align}
 は反変関手である~\cite[p.53, 10.1 Theorem]{Husemoller1994}．
 
 \begin{mydef}[label=def:universal-bundle]{普遍束}
-    主束 $G \hookrightarrow P \xrightarrow{\pi} B$ が $G$ の\textbf{普遍束} (universal bundle) であるとは，$\forall X \in \Obj{\bm{\mathrm{hoMfd}}}$ について定まる写像
+    主束 $G \hookrightarrow P \xrightarrow{\pi} B$ が $G$ の\textbf{普遍束} (universal bundle) であるとは，$\forall X \in \Obj{\htpy{\MFLD}}$ について定まる写像
     \begin{align}
         \phi_P (X) \colon \comm{X}{B} \lto \mathrm{Prin}_G(X),\; [f] \lmto [f^* P]
     \end{align}
@@ -2078,9 +2078,9 @@ $G$ の普遍束の全空間を $\bm{EG}$，分類空間を $\bm{BG}$ と書く�
 \begin{myprop}[label=prop:universal-basic]{普遍束の特徴付け}
     主束 $G \hookrightarrow EG \xrightarrow{\pi_G} BG$ が $G$ の\hyperref[def:universal-bundle]{普遍束}であることは，以下の2つが満たされることと同値である：
     \begin{description}
-        \item[\textbf{(univ-1)}]  $\forall \textcolor{red}{X} \in \Obj{\bm{\mathrm{hoMfd}}}$ および $X$ を底空間にもつ任意の主束 $G \hookrightarrow \textcolor{red}{P} \xrightarrow{\pi} \textcolor{red}{X}$ に対して，ある連続写像 $f \colon \textcolor{red}{X} \lto BG$ が存在して
+        \item[\textbf{(univ-1)}]  $\forall \textcolor{red}{X} \in \Obj{\htpy{\MFLD}}$ および $X$ を底空間にもつ任意の主束 $G \hookrightarrow \textcolor{red}{P} \xrightarrow{\pi} \textcolor{red}{X}$ に対して，ある連続写像 $f \colon \textcolor{red}{X} \lto BG$ が存在して
         $\textcolor{red}{P}$ と\hyperref[def:pullback-bundle]{引き戻し束} $f^*(EG)$ が束同型になる．
-        \item[\textbf{(univ-2)}]  $\forall \textcolor{red}{X} \in \Obj{\bm{\mathrm{hoMfd}}}$ および任意の連続写像 $f,\, g \colon \textcolor{red}{X} \lto BG$ に対して，
+        \item[\textbf{(univ-2)}]  $\forall \textcolor{red}{X} \in \Obj{\htpy{\MFLD}}$ および任意の連続写像 $f,\, g \colon \textcolor{red}{X} \lto BG$ に対して，
         $f^*(EG)$ と $g^*(EG)$ が束同型ならば $f,\, g$ はホモトピックである．
     \end{description}
 \end{myprop}
@@ -2193,77 +2193,87 @@ $G$ の普遍束の全空間を $\bm{EG}$，分類空間を $\bm{BG}$ と書く�
             $g_i(\expval{g,\, t} \btl h) = g_i(\expval{g,\, t})h$ なので，$t_{ij}$ はwell-definedである．
         }．
         
-        　最後に $\irm{EG}{M}$ が第2可算なHausdorff空間であることを示さないといけないが，技術的なのでここでは省略する．詳細は~\cite[p.55, 11.2 Theorem]{Husemoller1994}を参照．
+        　最後に $\irm{EG}{M}$ が第2可算なHausdorff空間であることを示さないといけないが，技術的なのでここでは省略する．
 
         \item[\textbf{普遍束であること}]　
-        
-        主束 $G \hookrightarrow \irm{EG}{M} \xrightarrow{p} \irm{BG}{M}$ が命題\ref{prop:universal-basic}の条件 \textsf{\textbf{(univ-1)}}, \textsf{\textbf{(univ-2)}} を充していることを示す．
-        \begin{description}
-            \item[\textbf{(univ-1)}]  勝手な多様体 $X$ を1つ固定する．
-            \begin{itemize}
-                \item $X$ を底空間に持つ任意の主束 $G \hookrightarrow P \xrightarrow{\pi} M$
-                \item $P$ の開被覆 $\mathcal{U} \coloneqq \Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$ と局所自明化 $\Familyset[\big]{\varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto U_\alpha \times G}{\alpha \in \Lambda}$
-                \item $\mathcal{U}$ に従属する1の分割 $\Familyset[\big]{v_\alpha \colon X \lto [0,\, 1]}{\alpha \in \Lambda}$
-            \end{itemize}
-            を与える．1の分割の定義から，$\forall x \in X$ に対して，$\mathcal{U}$ の添字集合 $\Lambda$ の部分集合
-            \begin{align}
-                S(x) \coloneqq \bigl\{\, i \in \Lambda \bigm| \supp v_i \cap \{x\} \neq \emptyset\,\bigr\} 
-            \end{align}
-            は有限集合である．また，$\Lambda$ の任意の\underline{有限}部分集合 $I \subset \Lambda$ に対して $X$ の部分集合
-            \begin{align}
-                W(I) \coloneqq \bigl\{\, x \in X \bigm| \forall i \in I,\; \forall \alpha \in \Lambda \setminus I,\; v_i (x) > v_\alpha (x) \,\bigr\} 
-            \end{align}
-            および連続関数
-            \begin{align}
-                u_I \colon X \lto [0,\, 1],\; x \lmto \max \left\{ 0,\, \min_{i \in I,\, \alpha \in \Lambda \setminus I}\bigl\{ v_i(x) - v_\alpha(x) \bigr\}  \right\}
-            \end{align}
-            を考える．$W(I) = u_I \bigl( (0,\,1] \bigr)$ なので $W(I)$ は $X$ の開集合である．
-            このとき，互いに異なる $\Lambda$ の任意の有限部分集合 $I,\, J \underset{\text{finite}}{\subset} \Lambda$ に対して，$\# I = \# J$ ならば $W(I) \cap W(J) = \emptyset$ になる\footnote{$i \in I \setminus J,\; j \in J \setminus I$ をとる．このとき $\forall x \in W(I)$ に対して $v_i(x) > v_j(x)$ が成り立ち，かつ $\forall y \in W(J)$ に対して $v_j(y) > v_i(y)$ が成り立つので，$W(I) \cap W(J) = \emptyset$ でないといけない．}．
-            よって，$\forall m \in \mathbb{Z}_{\ge 0}$ に対して
-            \begin{align}
-                W_m &\coloneqq \bigcup_{\substack{I \underset{\text{finite}}{\subset} \Lambda, \\ \# I = m}} W(I),\\
-                u_m &\colon X \lto [0,\, 1],\; x \lmto \frac{\displaystyle\sum_{\substack{I \underset{\text{finite}}{\subset} \Lambda, \\ \# I = m}} u_I(x)}{\displaystyle\sum_{n \ge 0} \sum_{\substack{I \underset{\text{finite}}{\subset} \Lambda, \\ \# I = n}} u_I(x)}
-            \end{align}
-            と定義すると，$u_m$ は連続関数なので $W_m = u_m^{-1} \bigl( (0,\, 1] \bigr)$ は $X$ の開集合であり，
-            \begin{itemize}
-                \item $X$ の開被覆 $\mathcal{W} \coloneqq \Familyset[\big]{W_m}{m \ge 0}$
-                \item $\mathcal{W}$ に従属する1の分割 $\Familyset[\big]{u_m \colon X \lto [0,\, 1]}{m \ge 0}$
-            \end{itemize}
-            が得られた．特に $W_m$ は $W(I)$ の非交和であり，$P|_{W(I)}$ は定義から自明束と同型なので\footnote{$W(I) \subset \bigcap_{i \in I} v_i^{-1}\bigl( (0,\, 1] \bigr) \subset \bigcap_{i \in I} U_i$ なので．} $P|_{W_m}$ は自明束と同型である．この束同型写像を $h_m \colon \pi^{-1}(W_m)\xrightarrow{\approx} W_m \times G$ とおく．
+        ~\cite[p.55, 11.2 Theorem]{Husemoller1994}
 
-            　今，連続写像
-            \begin{align}
-                \tilde{f} \colon P \lto \irm{EG}{M},\; u \lmto \Bigl( \bigl(u_0 \circ \pi(u)\bigr)\, \bigl( \mathrm{proj}_2 \circ h_0(u) \bigr),\, \dots,\, \bigl(u_m \circ \pi(u)\bigr)\, \bigl( \mathrm{proj}_2 \circ h_m(u) \bigr),\, \dots  \Bigr) 
-            \end{align}
-            を考える．$u \notin \pi^{-1}(W_m)$ のときは1の分割の定義から $u_m \circ \pi (u) = 0$ となるのでこの写像はwell-definedであり，$\forall g \in G$ に対して\footnote{$u \btl g$ は命題\ref{prop.PFD_right}で与えた $G$ の $P$ への右作用である．}
-            \begin{align}
-                \tilde{f}(u \btl g)
-                &= \Bigl( \bigl(u_0 \circ \pi(u \btl g)\bigr)\, \bigl( \mathrm{proj}_2 \circ h_0(u \btl g) \bigr),\, \dots,\, \bigl(u_m \circ \pi(u)\bigr)\, \bigl( \mathrm{proj}_2 \circ h_m(u \btl g) \bigr),\, \dots  \Bigr) \\
-                &= \Bigl( \bigl(u_0 \circ \pi(u)\bigr)\, \bigl( \mathrm{proj}_2 \circ h_0(u) \bigr)g,\, \dots,\, \bigl(u_m \circ \pi(u)\bigr)\, \bigl( \mathrm{proj}_2 \circ h_m(u) \bigr)g,\, \dots  \Bigr) \\
-                &= \tilde{f}(u) \btl g
-            \end{align}
-            が成り立つ．このとき連続写像
-            \begin{align}
-                f \colon X \lto \irm{BG}{M},\; \pi(u) \lmto p \bigl( \tilde{f}(u) \bigr) 
-            \end{align}
-            はwell-definedであり，図式
-            \begin{center}
-                \begin{tikzcd}[row sep=large, column sep=large]
-                    &P \ar[r, "\tilde{f}"]\ar[d, "\pi"'] &\irm{EG}{M} \ar[d, "p"] \\
-                    &X \ar[r, "f"'] &\irm{BG}{M}
-                \end{tikzcd}
-            \end{center}
-            を可換にする．i.e. 組 $(f,\, \tilde{f})$ は\hyperref[def.bundlemap]{束写像}である．よって命題\ref{prop:pullback-isom}より $P$ と $f^*(\irm{EG}{M})$ が束同型だと分かった．
-            
-            \item[\textbf{(univ-2)}]　
-            
+        % 主束 $G \hookrightarrow \irm{EG}{M} \xrightarrow{p} \irm{BG}{M}$ が命題\ref{prop:universal-basic}の条件 \textsf{\textbf{(univ-1)}}, \textsf{\textbf{(univ-2)}} を充していることを示す．
+        % \begin{description}
+        %     \item[\textbf{(univ-1)}]  勝手な多様体 $X$ を1つ固定する．
+        %     \begin{itemize}
+        %         \item $X$ を底空間に持つ任意の主束 $G \hookrightarrow P \xrightarrow{\pi} M$
+        %         \item $P$ の開被覆 $\mathcal{U} \coloneqq \Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$ と局所自明化 $\Familyset[\big]{\varphi_\alpha \colon \pi^{-1}(U_\alpha) \lto U_\alpha \times G}{\alpha \in \Lambda}$
+        %         \item $\mathcal{U}$ に従属する1の分割 $\Familyset[\big]{v_\alpha \colon X \lto [0,\, 1]}{\alpha \in \Lambda}$
+        %     \end{itemize}
+        %     を与える．1の分割の定義から，$\forall x \in X$ に対して，$\mathcal{U}$ の添字集合 $\Lambda$ の部分集合
+        %     \begin{align}
+        %         S(x) \coloneqq \bigl\{\, i \in \Lambda \bigm| \supp v_i \cap \{x\} \neq \emptyset\,\bigr\} 
+        %     \end{align}
+        %     は有限集合である．また，$\Lambda$ の任意の\underline{有限}部分集合 $I \subset \Lambda$ に対して $X$ の部分集合
+        %     \begin{align}
+        %         W(I) \coloneqq \bigl\{\, x \in X \bigm| \forall i \in I,\; \forall \alpha \in \Lambda \setminus I,\; v_i (x) > v_\alpha (x) \,\bigr\} 
+        %     \end{align}
+        %     および連続関数
+        %     \begin{align}
+        %         u_I \colon X \lto [0,\, 1],\; x \lmto \max \left\{ 0,\, \min_{i \in I,\, \alpha \in \Lambda \setminus I}\bigl\{ v_i(x) - v_\alpha(x) \bigr\}  \right\}
+        %     \end{align}
+        %     を考える．$W(I) = u_I \bigl( (0,\,1] \bigr)$ なので $W(I)$ は $X$ の開集合である．
+        %     このとき，互いに異なる $\Lambda$ の任意の有限部分集合 $I,\, J \underset{\text{finite}}{\subset} \Lambda$ に対して，$\# I = \# J$ ならば $W(I) \cap W(J) = \emptyset$ になる\footnote{$i \in I \setminus J,\; j \in J \setminus I$ をとる．このとき $\forall x \in W(I)$ に対して $v_i(x) > v_j(x)$ が成り立ち，かつ $\forall y \in W(J)$ に対して $v_j(y) > v_i(y)$ が成り立つので，$W(I) \cap W(J) = \emptyset$ でないといけない．}．
+        %     よって，$\forall m \in \mathbb{Z}_{\ge 0}$ に対して
+        %     \begin{align}
+        %         W_m &\coloneqq \bigcup_{\substack{I \underset{\text{finite}}{\subset} \Lambda, \\ \# I = m}} W(I),\\
+        %         u_m &\colon X \lto [0,\, 1],\; x \lmto \frac{\displaystyle\sum_{\substack{I \underset{\text{finite}}{\subset} \Lambda, \\ \# I = m}} u_I(x)}{\displaystyle\sum_{n \ge 0} \sum_{\substack{I \underset{\text{finite}}{\subset} \Lambda, \\ \# I = n}} u_I(x)}
+        %     \end{align}
+        %     と定義すると，$u_m$ は連続関数なので $W_m = u_m^{-1} \bigl( (0,\, 1] \bigr)$ は $X$ の開集合であり，
+        %     \begin{itemize}
+        %         \item $X$ の開被覆 $\mathcal{W} \coloneqq \Familyset[\big]{W_m}{m \ge 0}$
+        %         \item $\mathcal{W}$ に従属する1の分割 $\Familyset[\big]{u_m \colon X \lto [0,\, 1]}{m \ge 0}$
+        %     \end{itemize}
+        %     が得られた．特に $W_m$ は $W(I)$ の非交和であり，$P|_{W(I)}$ は定義から自明束と同型なので\footnote{$W(I) \subset \bigcap_{i \in I} v_i^{-1}\bigl( (0,\, 1] \bigr) \subset \bigcap_{i \in I} U_i$ なので．} $P|_{W_m}$ は自明束と同型である．この束同型写像を $h_m \colon \pi^{-1}(W_m)\xrightarrow{\approx} W_m \times G$ とおく．
+
+        %     　今，連続写像
+        %     \begin{align}
+        %         \tilde{f} \colon P \lto \irm{EG}{M},\; u \lmto \Bigl( \bigl(u_0 \circ \pi(u)\bigr)\, \bigl( \mathrm{proj}_2 \circ h_0(u) \bigr),\, \dots,\, \bigl(u_m \circ \pi(u)\bigr)\, \bigl( \mathrm{proj}_2 \circ h_m(u) \bigr),\, \dots  \Bigr) 
+        %     \end{align}
+        %     を考える．$u \notin \pi^{-1}(W_m)$ のときは1の分割の定義から $u_m \circ \pi (u) = 0$ となるのでこの写像はwell-definedであり，$\forall g \in G$ に対して\footnote{$u \btl g$ は命題\ref{prop.PFD_right}で与えた $G$ の $P$ への右作用である．}
+        %     \begin{align}
+        %         \tilde{f}(u \btl g)
+        %         &= \Bigl( \bigl(u_0 \circ \pi(u \btl g)\bigr)\, \bigl( \mathrm{proj}_2 \circ h_0(u \btl g) \bigr),\, \dots,\, \bigl(u_m \circ \pi(u)\bigr)\, \bigl( \mathrm{proj}_2 \circ h_m(u \btl g) \bigr),\, \dots  \Bigr) \\
+        %         &= \Bigl( \bigl(u_0 \circ \pi(u)\bigr)\, \bigl( \mathrm{proj}_2 \circ h_0(u) \bigr)g,\, \dots,\, \bigl(u_m \circ \pi(u)\bigr)\, \bigl( \mathrm{proj}_2 \circ h_m(u) \bigr)g,\, \dots  \Bigr) \\
+        %         &= \tilde{f}(u) \btl g
+        %     \end{align}
+        %     が成り立つ．このとき連続写像
+        %     \begin{align}
+        %         f \colon X \lto \irm{BG}{M},\; \pi(u) \lmto p \bigl( \tilde{f}(u) \bigr) 
+        %     \end{align}
+        %     はwell-definedであり，図式
+        %     \begin{center}
+        %         \begin{tikzcd}[row sep=large, column sep=large]
+        %             &P \ar[r, "\tilde{f}"]\ar[d, "\pi"'] &\irm{EG}{M} \ar[d, "p"] \\
+        %             &X \ar[r, "f"'] &\irm{BG}{M}
+        %         \end{tikzcd}
+        %     \end{center}
+        %     を可換にする．i.e. 組 $(f,\, \tilde{f})$ は\hyperref[def.bundlemap]{束写像}である．よって命題\ref{prop:pullback-isom}より $P$ と $f^*(\irm{EG}{M})$ が束同型だと分かった．
 
         \end{description}
         
-    \end{description}
+    % \end{description}
     
 \end{proof}
 
+もしくは，有限群の場合
+\footnote{
+    位相群の場合であっても，$G$ の\hyperref[def:simplicial-top]{特異単体}は\hyperref[def:KanCplx]{Kan複体}なので，この方法で対象が1点の $\Kan$ 豊穣圏が得られる．これの\hyperref[def:nerve-hc]{homotopy coherent nerve}をとったものの幾何学的実現により位相空間としての $BG$ が (up to ホモトピーで) 正しく構成される．
+}は $G$ を対象が1点でHom集合が $G$ であるような圏
+\begin{align}
+    \deloop{G} \coloneqq
+    % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12AjJhhmHCAC+VEDCgBzeEVAAzAE4QAtkjIgcEVdQYQIaIgEYAHGVmM4MUQzpcYDAAqZc+QohDysEgBaDq9ZqxuAOLCFEJAA
+\begin{tikzcd}
+\bullet \arrow["G"', loop, distance=2em, in=125, out=55]
+\end{tikzcd}
+\end{align}
+と見做したとき，それの\hyperref[def:nerve]{脈体}を取って得られる\hyperref[def:infinity-1]{$(\infty,\, 1)$-圏} $\Ner(\deloop{G})$ の\hyperref[def:geometric-realization]{幾何学的実現}は $K(G,\, 1)$ になる~\cite[\href{https://kerodon.net/tag/0038}{Tag 0038}]{kerodon}．
 
 \subsection{群コホモロジー}
 
@@ -2373,19 +2383,19 @@ $\mathbb{Z}$ 係数の $G$ の\textbf{群環}とは，可換群 $\mathbb{Z}^{\op
 \end{align}
 が成り立つ．
 
+% \begin{proof}
+    
+% \end{proof}
+いくつかの実用上有用な命題を紹介する：
+
 \begin{mytheo}[label=thm:group-cohomology-top]{群コホモロジー（位相空間論的）}
-    任意の群 $G$ および\hyperref[ax:G-mod]{$G$ 加群} $M$ に対して
+    任意の有限群 $G$ および\hyperref[ax:G-mod]{$G$ 加群} $M$ に対して
     \begin{align}
         H^\bullet (BG;\, M) \cong \coGrp{\bullet}{G;\, M}
     \end{align}
     が成り立つ．
 \end{mytheo}
 
-\begin{proof}
-    
-\end{proof}
-
-いくつかの実用上有用な命題を紹介する：
 \begin{myprop}[label=prop:group-cohomology]{色々な群コホモロジー}
     \begin{enumerate}
         \item 任意の有限群に対して
@@ -2403,11 +2413,11 @@ $\mathbb{Z}$ 係数の $G$ の\textbf{群環}とは，可換群 $\mathbb{Z}^{\op
     \end{enumerate}
 \end{myprop}
 
-\begin{proof}
-    \begin{enumerate}
-        \item 
-    \end{enumerate}
-\end{proof}
+% \begin{proof}
+%     \begin{enumerate}
+%         \item 
+%     \end{enumerate}
+% \end{proof}
 
 \underline{群 $G$ が有限群}のとき，命題\ref{prop:group-cohomology}-(1) と群コホモロジーの長完全列\eqref{eq:LES-coGrp}により
 短完全列 $0 \lto \mathbb{Z} \lto \mathbb{R} \lto \mathbb{R}/\mathbb{Z} \cong \LU (1) \lto 0$ から同型
@@ -2425,7 +2435,7 @@ $d=D+1$ 次元時空 $\mfdcal{M}{d}$ を考える．
     \item $\mfdcal{M}{d}$ の点を対象とする．
     \item $\Hom{\PATH{\mfdcal{M}{d}}}(x,\, y) \coloneqq \bigl\{\, \sigma \colon [0,\, 1] \lto \mfdcal{M}{d} \bigm| \sigma(0) = x,\, \sigma(1) = y \,\bigr\}$ 
 \end{itemize}
-によって定義する\footnote{これのHom集合を\textbf{thin homotopy}と呼ばれる同値関係で割ることで得られる\hyperref[def:groupoid]{groupoid}のことを\textbf{path groupoid}と呼ぶ（\url{https://ncatlab.org/nlab/show/path+groupoid}）．}．
+によって定義する\footnote{正確には，圏 $\PATH{\mfdcal{M}{d}}$ とはこれのHom集合を\textbf{thin homotopy}と呼ばれる同値関係で割ることで得られる\hyperref[def:groupoid]{groupoid}のことであり，\textbf{path groupoid}と呼ぶ（\url{https://ncatlab.org/nlab/show/path+groupoid}）．}．
 
 \begin{myprop}[label=prop:connection-functor]{関手としての接続}
     \begin{itemize}
@@ -2556,7 +2566,7 @@ Lie群 $G$ がコンパクトかつ単連結ならば，$\mfdcal{M}{3}$ 上の�
     S[A] \coloneqq \frac{1}{n} \int_{\mfdcal{N}{4}} \Omega(F)
 \end{align}
 と修正すれば良いように思えるが，このままだと分配関数に $e^{2\iunit \pi m/n}$ の不定性が残り理論がwell-definedでない．
-この不定性を排除するためには，$\Omega(F) \in \dR{4}{\mfdcal{M}{3}} \cong \dR{4}{BG} \cong H^4(BG;\, \mathbb{R})$ だが $\Omega(F)$ は特性類なので，自然な単射 $H^4(BG,\, \mathbb{Z}) \hookrightarrow H^4(BG;\, \mathbb{R})$ を使って $\Omega(F) \cong \rho ([\omega])$ と書けるような $[\omega] \in H^4(BG,\, \mathbb{Z})$ が存在することを使い
+この不定性を排除するためには，$\Omega(F)$ が特性類なので自然な単射 $H^4(BG,\, \mathbb{Z}) \hookrightarrow H^4(BG;\, \mathbb{R})$ を使って $\Omega(F) \cong \rho ([\omega])$ と書けるような $[\omega] \in H^4(BG,\, \mathbb{Z})$ が存在することを使い\footnote{$\Omega(F) \in \dR{4}{\mfdcal{M}{3}} \cong \dR{4}{BG} \cong H^4(BG;\, \mathbb{R})$ である．}
 \begin{align}
     S[A] \coloneqq \frac{1}{n} \left(\int_{\mfdcal{N}{4}} \Omega(F) - \expval{\gamma^* \omega,\, \mfdcal{N}{4}} \right)
 \end{align}
@@ -2758,7 +2768,7 @@ higher gauge fieldに関しても同様である．$p$-formのゲージ場であ
     \label{predef:pform-gauge-field}
     (\mathcal{U},\, P^{(p)},\, \{A^{(p)}_\alpha\}) \overset{1:1}{\longleftrightarrow} \DB{p+1}{\mathcal{U};\, \irm{\mathbb{Z}(p+1)}{D}}
 \end{align}
-の一対一対応がある．逆に，応急処置としてしばらくの間\eqref{predef:pform-gauge-field}を $p$-formゲージ場の定義として採用することにしよう．
+の一対一対応がある．逆に，\eqref{predef:pform-gauge-field}を $p$-formゲージ場の定義として採用することにしよう．
 
 \subsection{$BF$-理論}
 
@@ -2873,11 +2883,198 @@ $\mfd{\Sigma}{p}$ の周りでは
 \end{align}
 となり消えてしまう．
 
+\subsection{$BF$-理論における離散的高次対称性}
+
+離散群によって特徴付けられる対称性に対しては，保存カレントを定義することはできないが，\hyperref[def:p-form-sym]{トポロジカル演算子}と\hyperref[def:p-form-sym]{charged object}ならば定義できる．
+
+\hyperref[def:BF]{$BF$-理論}を考える．
+まず最初に，この理論が以下の変換の下で不変であることに注意する：
+\begin{align}
+    \hg{A}{p} &\lmto \hg{A}{p} + \frac{1}{n} \hg{\epsilon}{p}, \\
+    \hg{B}{d-p-1} &\lmto \hg{B}{d-p-1} + \frac{1}{n} \hg{\epsilon}{d-p-1}, \\
+    \hg{F}{p+1} &\lmto \hg{F}{p+1}, \\
+    \hg{\tilde{A}}{d-p-2} &\lmto \hg{\tilde{A}}{d-p-2} - \hg{\tilde{\epsilon}}{d-p-2}
+\end{align}
+ただし $\hg{\epsilon}{p},\, \hg{\epsilon}{d-p-1}$ は閉形式であり，任意の閉部分多様体 $\mfd{\Sigma}{p},\, \mfd{\Sigma}{d-p-1} \subset \mfdcal{M}{d}$ について
+\begin{align}
+    \int_{\mfd{\Sigma}{p}} \hg{\epsilon}{p},\; \int_{\mfd{\Sigma}{d-p-1}} \hg{\epsilon}{d-p-1} \in 2\pi \mathbb{Z}
+\end{align}
+を充たすとする．また，\underline{局所的に} $\hg{\epsilon}{d-p-1} \eqqcolon \dd{\tilde{\epsilon}^{(d-p-2)}}$ と定義した．
+実際，この変換によって
+\begin{align}
+    &\irm{Z}{BF} 
+    = \int [\dd{\hg{a}{p}}] \int [\dd{\hg{b}{d-p-1}}]\, e^{\frac{\iunit n}{2\pi} \int_{\mfdcal{M}{d}} \hg{b}{d-p-1} \wedge \hg{a}{p}} \\
+    \lmto 
+    & \int [\dd{\hg{a}{p}}] \int [\dd{\hg{b}{d-p-1}}]\, e^{\frac{\iunit n}{2\pi} \int_{\mfdcal{M}{d}} \hg{b}{d-p-1} \wedge \hg{a}{p}} e^{\frac{\iunit}{2\pi} \int_{\mfdcal{M}{d}} \hg{\epsilon}{d-p-1} \wedge \dd{\hg{a}{p}}} \\
+    &= \eval{\int [\dd{\hg{a}{p}}]}_{\dd{\hg{a}{p}} = 0} e^{\frac{\iunit}{2\pi} \int_{\mfdcal{M}{d}} \hg{\epsilon}{d-p-1} \wedge \hg{a}{p}} \\
+    &= \irm{Z}{BF} 
+\end{align}
+となる．トポロジカル演算子は
+\begin{align}
+    \mathcal{U}_{e^{2\pi \iunit k/n}}(\mfd{\Sigma}{p}) &\coloneqq e^{\iunit k \int_{\mfd{\Sigma}{p}} \hg{a}{p}} \\
+    U_{e^{2\pi \iunit k/n}}(\mfd{\Sigma}{d-p-1}) &\coloneqq e^{\iunit k \int_{\mfd{\Sigma}{d-p-1}} \hg{b}{d-p-1}}
+\end{align}
+の2つあり，それぞれに対応するcharged objectは
+\begin{align}
+    \mathcal{W}_n (\mfdcal{C}{d-p-1}) &\coloneqq e^{\iunit n \int_{\mfdcal{C}{d-p-1}} \hg{b}{d-p-1}} \\
+    W_n (\mfdcal{C}{p}) &\coloneqq e^{\iunit n \int_{\mfdcal{C}{p}} \hg{a}{p}}
+\end{align}
+となっている．
+
+
+% \begin{myexample}[label=ex:BF-3D]{$(2+1)$-次元における $\mathbb{Z}_n$ Dijkgraaf-Witten理論}
+%     $\mathbb{Z}_n$ \hyperref[def:Dijkgraaf-Witten]{Dijkgraaf-Witten理論}は，\hyperref[def:BF]{$BF$-理論}を記述するトリックと同様の手法により $\LU (1)$ ゲージ理論を用いて記述することができる．
+%     まず，$\coGrp{3}{\mathbb{Z}_n;\, \mathbb{R}/\mathbb{Z}} \cong \mathbb{Z}_n$ に注意する．このことから $\alpha \in \coGrp{3}{\mathbb{Z}_n;\, \mathbb{R}/\mathbb{Z}}$ を1つ指定することと $p \in \mathbb{Z}_n$ を1つ指定することは等価なので，
+%     Dijkgraaf-Witten理論の作用を
+%     \begin{align}
+%         S[\hg{a}{1},\, \hg{b}{1}] \coloneqq \frac{\iunit n}{2\pi} \hg{b}{1} \wedge \dd{\hg{a}{1}} + 
+%     \end{align}
+    
+% \end{myexample}
+
+
+\begin{myexample}[label=ex:BF-4D]{$(3+1)$-次元における $\mathbb{Z}_n$ ゲージ理論}
+    $(3+1)$-次元時空 $\mfdcal{M}{4}$ におけるトポロジカルな $\mathbb{Z}_n$ ゲージ理論
+    \begin{align}
+        \label{eq:BF-4D-1}
+        S [\hg{a}{1},\, \hg{b}{2}] 
+        &\coloneqq \frac{\iunit n}{2\pi} \int_{\mfdcal{M}{4}} \hg{b}{2} \wedge \dd{\hg{a}{1}} + \frac{\iunit  pn}{4\pi} \int_{\mfdcal{M}{4}} \hg{b}{2} \wedge \hg{b}{2} \\
+        &= \frac{\iunit n}{4\pi p} \int_{\mfdcal{M}{4}} (\dd{\hg{a}{1}} + p \hg{b}{2}) \wedge (\dd{\hg{a}{1}} + p \hg{b}{2}) - \frac{\iunit n}{4\pi p} \int_{\mfdcal{M}{4}} \dd{\hg{a}{1}} \wedge \dd{\hg{a}{1}} \label{eq:discrete-theta}
+    \end{align}
+    を考える~\cite[p.21]{KapustinSeiberg2014}．$\hg{a}{1},\, \hg{b}{2}$ はダイナミカルなので，作用は$\mod 2\pi$ でゲージ不変でなくてはいけない．よって $\hg{b}{2}$ のゲージ変換 $\hg{b}{2} \lmto \hg{b}{2} + \dd{\hg{\lambda}{1}}$ は $\hg{a}{1}$ にも同時に変換を引き起こさなくてはいけない\footnote{$\hg{a}{1},\, \hg{\lambda}{1}$ が共に $\LU (1)$ ゲージ場であることから，$p \in \mathbb{Z}$ でなくてはいけない．}：
+    \begin{align}
+        \hg{a}{1} \lmto \hg{a}{1} - p \hg{\lambda}{1}
+    \end{align}
+    注意すべきなのは，$\hg{a}{1},\, \hg{\lambda}{1}$ の両者が $\LU(1)$ ゲージ場なので，その値が $\mod 2\pi$ でしか決まらないことである．
+    よってこのゲージ変換における作用の非自明な変化は
+    \begin{align}
+        - \pi \iunit pn \int_{\mfdcal{M}{4}} \frac{\dd{\lambda}}{2\pi} \wedge \frac{\dd{\lambda}}{2\pi}
+    \end{align}
+    で記述される．この項が $\mod 2\pi$ で消えるためには
+    \begin{align}
+        \frac{pn}{2} \in \mathbb{Z}
+    \end{align}
+    が必要である\footnote{この条件は $\mfdcal{M}{4}$ がスピン多様体ならば $p \in \mathbb{Z}$ と等価である．}．
+    
+    \hyperref[def:BF]{$BF$-理論}の節で行った議論と同様にこの理論を補助場 $\hg{f}{2}$ および $\LU(1)$ ゲージ場 $\hg{\widehat{a}}{1}$ を含む等価な形で述べることができる：
+    \begin{align}
+        \label{eq:BF-4D-2}
+        S [\hg{f}{2},\, \hg{b}{2},\, \hg{\widehat{a}}{1}]
+        &\coloneqq \frac{\iunit n}{2\pi} \int_{\mfdcal{M}{4}} \hg{b}{2} \wedge \hg{f}{2} + \frac{\iunit  pn}{4\pi} \int_{\mfdcal{M}{4}} \hg{b}{2} \wedge \hg{b}{2} + \frac{\iunit}{2\pi} \int_{\mfdcal{M}{4}} \dd{\hg{\widehat{a}}{1}} \wedge \hg{f}{2} \\
+        &= \frac{\iunit}{2\pi} \int_{\mfdcal{M}{4}} \hg{f}{2} \wedge (\dd{\hg{\widehat{a}}{1}} + n \hg{b}{2}) + \frac{\iunit pn}{4\pi} \int_{\mfdcal{M}{4}} \hg{b}{2} \wedge \hg{b}{2}
+    \end{align}
+    ただし，$\hg{b}{2}$ のゲージ変換 $\hg{b}{2} \lmto \hg{b}{2} + \dd{\hg{\lambda}{1}}$ は $\hg{f}{2},\, \hg{\widehat{a}}{1}$ にも同時に変換を引き起こさなくてはいけない：
+    \begin{align}
+        \hg{f}{2} &\lmto \hg{f}{2} - p \dd{\hg{\lambda}{1}}, \\
+        \hg{\widehat{a}}{1} &\lmto \hg{\widehat{a}}{1} - n \hg{\lambda}{1}
+    \end{align}
+    $\hg{f}{2},\, \hg{b}{2}$ に関する汎函数積分を実行することで
+    \begin{align}
+        \label{eq:BF-4D-3}
+        S [\hg{\widehat{a}}{1}] = \frac{\iunit p}{4\pi n} \dd{\hg{\widehat{a}}{1}} \wedge \dd{\hg{\widehat{a}}{1}}
+    \end{align}
+    とも等価である．
+
+    この理論の持つトポロジカル演算子を求めよう．$p = 0$ のときは $BF$-理論のものと全く同じだが，$p \neq 0$ のときは運動方程式 $\dd{\hg{a}{1}} + p \hg{b}{2} = 0$ および $\dd{\hg{\widehat{a}}{1}} + n \hg{b}{2} = 0$ により
+    \begin{align}
+        W(\mfdcal{C}{2}) \coloneqq e^{\iunit \int_{\mfdcal{C}{2}} \hg{b}{2}}
+    \end{align}
+    とおくと
+    \begin{align}
+        \expval{\bigl( W(\mfdcal{C}{2})^p \bigr) } &= 1,\label{eq:Wilson-1}\\
+        \expval{\bigl( W(\mfdcal{C}{2})^N \bigr) } &= 1 \label{eq:Wilson-2}
+    \end{align}
+    がわかる．i.e. 
+    \begin{align}
+        \expval{\bigl( W(\mfdcal{C}{2})^{\gcd (n,\, p)} \bigr) } &= 1
+    \end{align}
+    である．もう1つのWilson lineは，ゲージ不変性の要請から
+    \begin{align}
+        \tilde{\mathcal{W}}(\mfdcal{C}{1};\, \mfd{\Sigma}{2}) \coloneqq e^{\iunit \int_{\mfdcal{C}{1}} \hg{a}{1}} e^{\iunit p \int_{\mfd{\Sigma}{2}} \hg{b}{2}}
+    \end{align}
+    とせざるを得ない．これは $\mfdcal{\Sigma}{2}$ に依存しているのでgenuine line operatorでないが，\eqref{eq:Wilson-2}を使うと
+    \begin{align}
+        \tilde{\mathcal{W}}(\mfdcal{C}{1};\, \mfd{\Sigma}{2})^{N} = e^{\iunit \int_{\mfdcal{C}{1}} (N \hg{a}{1} - p \hg{\widehat{a}}{1})}
+    \end{align}
+    がわかる．ここから，
+    \begin{align}
+        \mathcal{W}(\mfdcal{C}{1}) \coloneqq \tilde{\mathcal{W}}(\mfdcal{C}{1};\, \mfd{\Sigma}{2})^{N/\gcd (n,\, p)}
+    \end{align}
+    がもう一つのline operatorであることがわかり，$\mathbb{Z}_{\gcd (n,\, p)}$-チャージが導出された．
+\end{myexample}
+
+
+% \subsection{中心対称性のゲージ化}
+
+% $(3+1)$-次元の物質場を持たない $\LSU(n)$ ゲージ理論をトポロジカルな $\mathbb{Z}_n$ ゲージ理論\exref{ex:BF-4D}と結合させることにより，$\LSU(n)/\mathbb{Z}_n$ ゲージ理論が得られることを見よう．
+
+% 今，$(3+1)$-次元の $\LSU(n)$ 1-formゲージ場を $a$ と書く\footnote{ダイナミカルである．}．
+% ここで，天下り的だが $\LU(1)$ 1-formゲージ場 $\hg{\widehat{a}}{1}$ を用いて
+% \begin{align}
+%     \tilde{a} \coloneqq a + \frac{1}{n} \hg{\widehat{a}}{1} \unity_n
+% \end{align}
+% と書く．すると，$a$ は $\Lsu (n)$ に値をとることから
+% \begin{align}
+%     \Tr \tilde{a} = \cancel{\Tr a} + \hg{\widehat{a}}{1} \in \iunit \mathbb{R}
+% \end{align}
+% となり，$\tilde{a}$ が $\Lu (n)$ に値をとるように見える．よって $\tilde{a}$ を $\LU (n)$ ゲージ場と見做すことができる．
+
+% ここで，理論に新たな $\LU (1)$ 1-formゲージ不変性 $\tilde{a} \lmto \tilde{a} - \hg{\lambda}{1} \unity_n$ を要請する．ただし $\hg{\lambda}{1}$ は $\LU(1)$ ゲージ場である．
+% このゲージ変換は元々の $\LSU (n)$ ゲージ場 $a$ には\underline{作用しない}が，新たに付け足した $\LU (1)$ ゲージ場 $\hg{\widehat{a}}{1}$ に関しては
+% \begin{align}
+%     \label{eq:SUn-local-dof}
+%     \hg{\widehat{a}}{1} \lmto \hg{\widehat{a}}{1} - n \hg{\lambda}{1}
+% \end{align}
+% のゲージ変換を引き起こす．変換\eqref{eq:SUn-local-dof}に関する不変性を尊重するためには $\hg{\widehat{a}}{1}$ の運動項は許されないが，トポロジカル項
+% \begin{align}
+%     \frac{\iunit p}{4\pi n} \int_{\mfdcal{M}{4}} \hg{\widehat{a}}{1} \wedge \hg{\widehat{a}}{1}
+% \end{align}
+% を付け足すことは依然として許されている．この項はまさにトポロジカルな $\mathbb{Z}_n$ ゲージ理論\eqref{eq:BF-4D-3}である．
+
+% このようにして得られたゲージ理論の変換関数について考察する．$\mfdcal{M}{4}$ の良い被覆 $\Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$ を1つ固定する．
+% 新たな $\LU (1)$ ゲージ不変性の要請によって $\tilde{a}$ のゲージ変換は変換関数 $\Familyset[\big]{g_{\alpha\beta} \colon U_\alpha \cap U_\beta \lto \LU (n)}{\alpha,\, \beta \in \Lambda}$ によるものと，変換関数 $\Familyset[\big]{\hg{\lambda}{1}_{\alpha\beta} \colon U_\alpha \cap U_\beta \lto \Omega^1(U_\alpha \cap U_\beta,\, \Lu(1))}{\alpha,\, \beta \in \Lambda}$ によるものが混ざった
+% \begin{align}
+%     \tilde{a}_\beta = g_{\beta\alpha} (\tilde{a}_\alpha - \iunit \dd{g_{\beta\alpha}}) g_{\beta\alpha}^{-1} - \hg{\lambda}{1}_{\alpha\beta}
+% \end{align}
+% になる．注意すべきなのは，$\hg{\lambda}{1}_{\alpha\beta}$ に対するゲージ変換 $\hg{\lambda}{1}_{\alpha\beta} \lmto \hg{\lambda}{1}_{\alpha\beta} + \dd{\hg{h}{0}_{\alpha\beta}}$ が $g_{\beta\alpha}$ にも作用することである：
+% \begin{align}
+%     \label{eq:g-mixed}
+%     g_{\beta\alpha} \lmto e^{-\iunit h_{\alpha\beta}} g_{\beta\alpha}
+% \end{align}
+% ここで $\hg{\lambda}{1}_{\alpha\beta}$ のDeligne-Beilinsonコチェインとしてのゲージ変換（i.e. $U_\alpha \cap U_\beta \cap U_\gamma$ における整合性条件）は，$\Familyset[\big]{f_{\alpha\beta\gamma} \colon U_\alpha \cap U_\beta \cap U_\gamma \lto \Omega^0(U_\alpha \cap U_\beta \cap U_\gamma;\, \mathbb{R} / 2\pi \mathbb{Z})}{\alpha,\, \beta,\, \gamma \in \Lambda}$ によって
+% \begin{align}
+%     \hg{\lambda}{1}_{\alpha\beta} + \hg{\lambda}{1}_{\beta\gamma} + \hg{\lambda}{1}_{\gamma \alpha} = \dd{f_{\alpha\beta\gamma}}
+% \end{align}
+% となっているので，ゲージ変換 $\hg{\lambda}{1}_{\alpha\beta} \lmto \hg{\lambda}{1}_{\alpha\beta} + \dd{\hg{h}{0}_{\alpha\beta}}$ に際しては
+% \begin{align}
+%     f_{\alpha\beta\gamma} \lmto f_{\alpha\beta\gamma} + h_{\alpha\beta} + h_{\beta\gamma} + h_{\gamma\alpha} \mod 2\pi
+% \end{align}
+% と言う変換を受ける．故に $g_{\alpha\beta}$ に要請するコサイクル条件であって\eqref{eq:g-mixed}を尊重するものは
+% \begin{align}
+%     \label{eq:cocycle-generalized}
+%     g_{\alpha\beta} g_{\beta\gamma} g_{\gamma\alpha} = e^{-\iunit f_{\alpha\beta\gamma}} \unity_n \in \LU(1)
+% \end{align}
+% だと考えられる~\cite[p.28]{KapustinSeiberg2014}．一般化されたコサイクル条件\eqref{eq:cocycle-generalized}の $\det$ をとることにより
+% \begin{align}
+%     f_{\alpha\beta\gamma} + \frac{1}{n} \left( \log \det g_{\alpha\beta} + \log \det g_{\beta\gamma} + \log \det g_{\gamma\alpha}\right) \eqqcolon \frac{2\pi m_{\alpha\beta\gamma}}{n} \in \frac{2\pi}{n} \mathbb{Z}
+% \end{align}
+% がわかる．$f_{\alpha\beta\gamma}$ の充たすべきコサイクル条件は
+% \begin{align}
+%     f_{\alpha\beta\gamma} + f_{\beta\gamma\delta} + f_{\gamma\delta\alpha} + f_{\delta\alpha\beta} = 0 \mod 2\pi
+% \end{align}
+% であるから，
+% \begin{align}
+%     m_{\alpha\beta\gamma} + m_{\beta\gamma\delta} + m_{\gamma\delta\alpha} + m_{\delta\alpha\beta} = 0 \mod n
+% \end{align}
+% がわかる．i.e. $m \coloneqq \Familyset[\big]{m_{\alpha\beta\gamma}}{\alpha,\,\beta,\,\gamma \in \Lambda} \in \Cech{2}{\mfdcal{M}{d};\, \mathbb{Z}_n}$ である．
+
+
 \section{高次のゲージ理論-より厳密な定式化}
 
-時空を $\mfdcal{M}{d}$ と書く．これまでは高次のゲージ場の配位空間\footnote{物理では\textbf{モジュライ空間} (moduli space) とも言う．}について全く触れずに計算を進めてきた．しかるに，これらの計算は実質的に $\LU(1)$ ゲージ場についての経路積分になっており，ill-definedである．特に平坦接続の拘束条件がどの程度厳密に課されているのかには疑問が残る．
+時空を $\mfdcal{M}{d}$ と書く．これまでは高次のゲージ場の配位空間\footnote{物理では\textbf{モジュライ空間} (moduli space) とも言う．}について全く触れずに計算を進めてきた．しかるに，これらの計算は実質的に $\LU(1)$ ゲージ場についての経路積分になっており，ill-definedである．
+% 特に平坦接続の拘束条件がどの程度厳密に課されているのかには疑問が残る．
 また，$0$-formの\hyperref[def:Dijkgraaf-Witten]{Dijkgraaf-Witten理論}の場合に見たように，トポロジカルなゲージ場の理論を考える際にはゲージ場の配位空間を真面目に考えないと自明な理論しか得られない可能性がある．
-この小節では，高次のゲージ場の配位空間の構造をできるだけ正確に記述することを試みる．参考文献は~\cite{alfonsi2023higher}である．
+この節では，~\cite{alfonsi2023higher}を参考に高次のゲージ場の配位空間の構造をできるだけ正確に記述することを試みる．
 
 \subsection{$0$-formのまとめ}
 
@@ -3152,28 +3349,29 @@ $p$ 単体の\textbf{向き}は常に $l_0 < \cdots < l_p$ を充たすように
 
 時空の\hyperref[def:good-cover]{good cover} $\Familyset[\big]{U_\alpha}{\alpha \in I}$ を1つ固定する．命題\ref{prop:connection-functor}のように，2-接続をホロノミーのなす関手として定義するところから始める．
 
-\begin{mydef}[label=def:path2grpd]{path 2-groupoid}
-    $M$ を $d$ 次元 $C^\infty$ 多様体とする．\textbf{path 2-groupoid} $\PATHtwo{M}$ を以下のように定義する：
-    \begin{itemize}
-        \item $\Obj{\PATHtwo{M}} \coloneqq M$
-        \item $\forall x,\, y \in M$ に対して
-        \begin{align}
-            \Obj{\Hom{\PATHtwo{M}}(x,\, y)} \coloneqq \bigl\{\, \gamma \colon [0,\, 1] \to M \bigm| \gamma(0) = x,\, \gamma(1) = y \,\bigr\} /{\sim}
-        \end{align}
-        \item $\forall \gamma_0,\, \gamma_1 \in \Obj{\Hom{\PATHtwo{M}}(x,\, y)}$ に対して
-        \begin{align}
-            \Hom{\Hom{\PATHtwo{M}}} (\gamma_0,\, \gamma_1) \coloneqq \Bigl\{\, \Sigma \colon [0,\, 1] \lto M \Bigm| \substack{\Sigma(0,\, t) = \mathrm{const.},\, \Sigma(1,\, t) = \mathrm{const.}, \\ \Sigma (\mhyphen,\, 0) = \gamma_0,\, \Sigma (\mhyphen,\, 1) = \gamma_1 }\,\Bigr\} \Big{/} {\sim}
-        \end{align}
-    \end{itemize}
-    2-射は適切な縦の合成と横の合成を持つ~\cite[Definition20, p.20]{BaezSchreiber2004HGT1}．
-    ただし $\sim$ はthin homotopy~\cite[Definition19, p.20]{BaezSchreiber2004HGT1}である．
-\end{mydef}
+% \begin{mydef}[label=def:path2grpd]{path 2-groupoid}
+%     $M$ を $d$ 次元 $C^\infty$ 多様体とする．\textbf{path 2-groupoid} $\PATHtwo{M}$ を以下のように定義する：
+%     \begin{itemize}
+%         \item $\Obj{\PATHtwo{M}} \coloneqq M$
+%         \item $\forall x,\, y \in M$ に対して
+%         \begin{align}
+%             \Obj{\Hom{\PATHtwo{M}}(x,\, y)} \coloneqq \bigl\{\, \gamma \colon [0,\, 1] \to M \bigm| \gamma(0) = x,\, \gamma(1) = y \,\bigr\} /{\sim}
+%         \end{align}
+%         \item $\forall \gamma_0,\, \gamma_1 \in \Obj{\Hom{\PATHtwo{M}}(x,\, y)}$ に対して
+%         \begin{align}
+%             \Hom{\Hom{\PATHtwo{M}}} (\gamma_0,\, \gamma_1) \coloneqq \Bigl\{\, \Sigma \colon [0,\, 1] \lto M \Bigm| \substack{\Sigma(0,\, t) = \mathrm{const.},\, \Sigma(1,\, t) = \mathrm{const.}, \\ \Sigma (\mhyphen,\, 0) = \gamma_0,\, \Sigma (\mhyphen,\, 1) = \gamma_1 }\,\Bigr\} \Big{/} {\sim}
+%         \end{align}
+%     \end{itemize}
+%     2-射は適切な縦の合成と横の合成を持つ~\cite[Definition20, p.20]{BaezSchreiber2004HGT1}．
+%     ただし $\sim$ はthin homotopy~\cite[Definition19, p.20]{BaezSchreiber2004HGT1}である．
+% \end{mydef}
 
-定理\ref{prop.cocycle}と同様に，主 $2$-束を変換関数によって特徴付ける．
+% 定理\ref{prop.cocycle}と同様に，主 $2$-束を変換関数によって特徴付ける．
 
-\section{(1+1)-次元の有限 $0$-form対称性のゲージ化}
+\section{(1+1)-次元の非可逆対称性のゲージ化}
 
 ~\cite{BhardwajTachikawa2017gauging2d}に従って，$(1+1)$-次元系の，フュージョン則がある種の有限性を充たすような $0$-form symmetryをゲージ化する手続きを与える．
+このような一般化対称性は\textbf{非可逆対称性} (non-invertible symmetry)，または\textbf{圏論的対称性} (categorical symmetry) と呼ばれる．
 この構成は，具体例として非可換有限群 $G$ の $0$-form symmetry のゲージ化を含む．
 
 \subsection{ユニタリフュージョン圏としての $0$-form対称性}
@@ -3366,13 +3564,11 @@ $(1+1)$-次元系における有限の\hyperref[def:p-form-sym]{$0$-form symmetr
                 +(-90:1) coordinate[bullet,label=below left:$\Delta$] (x)
                 +(30:1) coordinate[bullet,label=below:$\mu$] (y)
                 +(150:1) coordinate[bullet,label=below:$\mu$] (z)
-                coordinate (a) at ($0.5*(x) + 0.5*(y)$)
-                coordinate (b) at ($0.5*(y) + 0.5*(z)$)
-                coordinate (c) at ($(z) + (150:.5)$)
             ;
-            \tkzDefCircle[circum](a,b,c)
-            \tkzGetPoint{O}
-            \draw[dashed] (O) circle[radius=1.3];
+            \coordinate (a) at ($0.5*(x) + 0.5*(y)$);
+            \coordinate (b) at ($0.5*(y) + 0.5*(z)$);
+            \coordinate (c) at ($(z) + (150:.5)$);
+            % \draw[dashed] (O) circle[radius=1.3];
             \draw[->-=.5] (x) -- (y);
             \draw[-<-=.5] (y) -- (z);
             \draw[-<-=.5] (z) -- (x);
@@ -3481,8 +3677,7 @@ $G$ を可換とは限らない有限群とし，\exref{def:CG}で定義した�
 \begin{align}
     \mu \circ \Delta (e_g) 
     &= \mu \left(\sum_{h \in G} e_h \otimes e_{h^{-1} g}\right) \\
-    &= \sum_{h \in G} e_{g} \\
-    &= \abs{G} \Id_A (e_g)
+    &= \Id_A (e_g)
 \end{align}
 が成り立つので組 $(A,\, \mu,\, \upsilon,\, \Delta,\, \epsilon)$ は\hyperref[def:special-Frobenius]{特殊Frobenius代数}であることが分かった．
 以上の考察から，組 $(A,\, \mu,\, \upsilon,\, \Delta,\, \epsilon)$ は定義\ref{def:gauging}の意味で対称性 $\VEC{G}$ のゲージ化である．
@@ -3672,7 +3867,7 @@ $\BIMODC{\Cat{C}}{\textcolor{red}{A}}{\textcolor{red}{A}}$ のassociatorとunito
 \end{myexample}
 
 \begin{myexample}[label=ex:gaiging-RepG]{$\REP{G}$ のゲージ化}
-    $G$ を有限群とする．$\REP{G}$ の\hyperref[def:sym-Frobenius]{対象Frobenius代数}としては，\textbf{正則表現} (regular representation)
+    $G$ を有限群とする．$\REP{G}$ の\hyperref[def:sym-Frobenius]{対象Frobenius代数}として $G$ の\textbf{正則表現} (regular representation)
     \begin{align}
         A \colon G \lto \LGL \left( \bigoplus_{g \in G} \mathbb{K} \widehat{g} \right),\; g \lmto (\widehat{h} \lmto \widehat{gh})
     \end{align}
@@ -3684,9 +3879,9 @@ $\BIMODC{\Cat{C}}{\textcolor{red}{A}}{\textcolor{red}{A}}$ のassociatorとunito
     \begin{align}
         \upsilon \colon 1 \lto \bigoplus_{g \in G} \mathbb{K} \widehat{g},\; 1 \lmto \sum_{g \in G} \widehat{g}
     \end{align}
-    である．
+    である．$A$ による $\REP{G}$ のゲージ化は $\VEC{G}$ になり，\exref{ex:gauging-VecG}の逆操作を与える~\cite{BhardwajTachikawa2017gauging2d}．
 
-    $\forall (r \colon G \lto \LGL(R)) \in \Obj{\REP{G}}$ を1つ固定する．右 $A$-加群対象を指定するには右作用 $\rho \colon r \otimes A \lto r$ を指定せねばならない．
+    % $\forall (r \colon G \lto \LGL(R)) \in \Obj{\REP{G}}$ を1つ固定する．右 $A$-加群対象を指定するには右作用 $\rho \colon r \otimes A \lto r$ を指定せねばならない．
     
 \end{myexample}
 
@@ -7355,7 +7550,7 @@ $Z_{\text{preTV}}\bigl(M;\, G_0,\, G_1;\, \{x^0_e\},\, \{x^1_e\}\bigr)$ は
     関手性は補題\ref{lem:statesum-preTQFT}から，\hyperref[def:monidal-functor]{強いモノイダル関手}であることは補題\ref{lem:statesum-premon}より従う．
 \end{proof}
 
-\subsection{三角形分割の場合}
+\subsection{三角形分割の場合の計算}
 
 Turaev-Viroが最初に発見したTQFTは，多様体 $M$ の\hyperref[def:polytope-decomp]{多面体分割} $(P,\, P^{(1)})$ として三角形分割をとる場合のものであった~\cite{TuraevViro1992TQFT}．
 三角形分割に対して\hyperref[def:TV-closed]{Turaev-Viro不変量}を計算してみよう．
@@ -7732,196 +7927,8 @@ Turaev-Viroが最初に発見したTQFTは，多様体 $M$ の\hyperref[def:poly
     と計算できるので，示された．
 \end{proof}
 
-\section{離散的高次対称性}
+% \section{離散的高次対称性}
 
-離散群によって特徴付けられる対称性に対しては，保存カレントを定義することはできないが，\hyperref[def:p-form-sym]{トポロジカル演算子}と\hyperref[def:p-form-sym]{charged object}ならば定義できる．
-
-\subsection{$BF$-理論における離散的高次対称性}
-
-\hyperref[def:BF]{$BF$-理論}を考える．
-まず最初に，この理論が以下の変換の下で不変であることに注意する：
-\begin{align}
-    \hg{A}{p} &\lmto \hg{A}{p} + \frac{1}{n} \hg{\epsilon}{p}, \\
-    \hg{B}{d-p-1} &\lmto \hg{B}{d-p-1} + \frac{1}{n} \hg{\epsilon}{d-p-1}, \\
-    \hg{F}{p+1} &\lmto \hg{F}{p+1}, \\
-    \hg{\tilde{A}}{d-p-2} &\lmto \hg{\tilde{A}}{d-p-2} - \hg{\tilde{\epsilon}}{d-p-2}
-\end{align}
-ただし $\hg{\epsilon}{p},\, \hg{\epsilon}{d-p-1}$ は閉形式であり，任意の閉部分多様体 $\mfd{\Sigma}{p},\, \mfd{\Sigma}{d-p-1} \subset \mfdcal{M}{d}$ について
-\begin{align}
-    \int_{\mfd{\Sigma}{p}} \hg{\epsilon}{p},\; \int_{\mfd{\Sigma}{d-p-1}} \hg{\epsilon}{d-p-1} \in 2\pi \mathbb{Z}
-\end{align}
-を充たすとする．また，\underline{局所的に} $\hg{\epsilon}{d-p-1} \eqqcolon \dd{\tilde{\epsilon}^{(d-p-2)}}$ と定義した．
-実際，この変換によって
-\begin{align}
-    &\irm{Z}{BF} 
-    = \int [\dd{\hg{a}{p}}] \int [\dd{\hg{b}{d-p-1}}]\, e^{\frac{\iunit n}{2\pi} \int_{\mfdcal{M}{d}} \hg{b}{d-p-1} \wedge \hg{a}{p}} \\
-    \lmto 
-    & \int [\dd{\hg{a}{p}}] \int [\dd{\hg{b}{d-p-1}}]\, e^{\frac{\iunit n}{2\pi} \int_{\mfdcal{M}{d}} \hg{b}{d-p-1} \wedge \hg{a}{p}} e^{\frac{\iunit}{2\pi} \int_{\mfdcal{M}{d}} \hg{\epsilon}{d-p-1} \wedge \dd{\hg{a}{p}}} \\
-    &= \eval{\int [\dd{\hg{a}{p}}]}_{\dd{\hg{a}{p}} = 0} e^{\frac{\iunit}{2\pi} \int_{\mfdcal{M}{d}} \hg{\epsilon}{d-p-1} \wedge \hg{a}{p}} \\
-    &= \irm{Z}{BF} 
-\end{align}
-となる．トポロジカル演算子は
-\begin{align}
-    \mathcal{U}_{e^{2\pi \iunit k/n}}(\mfd{\Sigma}{p}) &\coloneqq e^{\iunit k \int_{\mfd{\Sigma}{p}} \hg{a}{p}} \\
-    U_{e^{2\pi \iunit k/n}}(\mfd{\Sigma}{d-p-1}) &\coloneqq e^{\iunit k \int_{\mfd{\Sigma}{d-p-1}} \hg{b}{d-p-1}}
-\end{align}
-の2つあり，それぞれに対応するcharged objectは
-\begin{align}
-    \mathcal{W}_n (\mfdcal{C}{d-p-1}) &\coloneqq e^{\iunit n \int_{\mfdcal{C}{d-p-1}} \hg{b}{d-p-1}} \\
-    W_n (\mfdcal{C}{p}) &\coloneqq e^{\iunit n \int_{\mfdcal{C}{p}} \hg{a}{p}}
-\end{align}
-となっている．
-
-
-% \begin{myexample}[label=ex:BF-3D]{$(2+1)$-次元における $\mathbb{Z}_n$ Dijkgraaf-Witten理論}
-%     $\mathbb{Z}_n$ \hyperref[def:Dijkgraaf-Witten]{Dijkgraaf-Witten理論}は，\hyperref[def:BF]{$BF$-理論}を記述するトリックと同様の手法により $\LU (1)$ ゲージ理論を用いて記述することができる．
-%     まず，$\coGrp{3}{\mathbb{Z}_n;\, \mathbb{R}/\mathbb{Z}} \cong \mathbb{Z}_n$ に注意する．このことから $\alpha \in \coGrp{3}{\mathbb{Z}_n;\, \mathbb{R}/\mathbb{Z}}$ を1つ指定することと $p \in \mathbb{Z}_n$ を1つ指定することは等価なので，
-%     Dijkgraaf-Witten理論の作用を
-%     \begin{align}
-%         S[\hg{a}{1},\, \hg{b}{1}] \coloneqq \frac{\iunit n}{2\pi} \hg{b}{1} \wedge \dd{\hg{a}{1}} + 
-%     \end{align}
-    
-% \end{myexample}
-
-
-\begin{myexample}[label=ex:BF-4D]{$(3+1)$-次元における $\mathbb{Z}_n$ ゲージ理論}
-    $(3+1)$-次元時空 $\mfdcal{M}{4}$ におけるトポロジカルな $\mathbb{Z}_n$ ゲージ理論
-    \begin{align}
-        \label{eq:BF-4D-1}
-        S [\hg{a}{1},\, \hg{b}{2}] 
-        &\coloneqq \frac{\iunit n}{2\pi} \int_{\mfdcal{M}{4}} \hg{b}{2} \wedge \dd{\hg{a}{1}} + \frac{\iunit  pn}{4\pi} \int_{\mfdcal{M}{4}} \hg{b}{2} \wedge \hg{b}{2} \\
-        &= \frac{\iunit n}{4\pi p} \int_{\mfdcal{M}{4}} (\dd{\hg{a}{1}} + p \hg{b}{2}) \wedge (\dd{\hg{a}{1}} + p \hg{b}{2}) - \frac{\iunit n}{4\pi p} \int_{\mfdcal{M}{4}} \dd{\hg{a}{1}} \wedge \dd{\hg{a}{1}} \label{eq:discrete-theta}
-    \end{align}
-    を考える~\cite[p.21]{KapustinSeiberg2014}．$\hg{a}{1},\, \hg{b}{2}$ はダイナミカルなので，作用は$\mod 2\pi$ でゲージ不変でなくてはいけない．よって $\hg{b}{2}$ のゲージ変換 $\hg{b}{2} \lmto \hg{b}{2} + \dd{\hg{\lambda}{1}}$ は $\hg{a}{1}$ にも同時に変換を引き起こさなくてはいけない\footnote{$\hg{a}{1},\, \hg{\lambda}{1}$ が共に $\LU (1)$ ゲージ場であることから，$p \in \mathbb{Z}$ でなくてはいけない．}：
-    \begin{align}
-        \hg{a}{1} \lmto \hg{a}{1} - p \hg{\lambda}{1}
-    \end{align}
-    注意すべきなのは，$\hg{a}{1},\, \hg{\lambda}{1}$ の両者が $\LU(1)$ ゲージ場なので，その値が $\mod 2\pi$ でしか決まらないことである．
-    よってこのゲージ変換における作用の非自明な変化は
-    \begin{align}
-        - \pi \iunit pn \int_{\mfdcal{M}{4}} \frac{\dd{\lambda}}{2\pi} \wedge \frac{\dd{\lambda}}{2\pi}
-    \end{align}
-    で記述される．この項が $\mod 2\pi$ で消えるためには
-    \begin{align}
-        \frac{pn}{2} \in \mathbb{Z}
-    \end{align}
-    が必要である\footnote{この条件は $\mfdcal{M}{4}$ がスピン多様体ならば $p \in \mathbb{Z}$ と等価である．}．
-    
-    \hyperref[def:BF]{$BF$-理論}の節で行った議論と同様にこの理論を補助場 $\hg{f}{2}$ および $\LU(1)$ ゲージ場 $\hg{\widehat{a}}{1}$ を含む等価な形で述べることができる：
-    \begin{align}
-        \label{eq:BF-4D-2}
-        S [\hg{f}{2},\, \hg{b}{2},\, \hg{\widehat{a}}{1}]
-        &\coloneqq \frac{\iunit n}{2\pi} \int_{\mfdcal{M}{4}} \hg{b}{2} \wedge \hg{f}{2} + \frac{\iunit  pn}{4\pi} \int_{\mfdcal{M}{4}} \hg{b}{2} \wedge \hg{b}{2} + \frac{\iunit}{2\pi} \int_{\mfdcal{M}{4}} \dd{\hg{\widehat{a}}{1}} \wedge \hg{f}{2} \\
-        &= \frac{\iunit}{2\pi} \int_{\mfdcal{M}{4}} \hg{f}{2} \wedge (\dd{\hg{\widehat{a}}{1}} + n \hg{b}{2}) + \frac{\iunit pn}{4\pi} \int_{\mfdcal{M}{4}} \hg{b}{2} \wedge \hg{b}{2}
-    \end{align}
-    ただし，$\hg{b}{2}$ のゲージ変換 $\hg{b}{2} \lmto \hg{b}{2} + \dd{\hg{\lambda}{1}}$ は $\hg{f}{2},\, \hg{\widehat{a}}{1}$ にも同時に変換を引き起こさなくてはいけない：
-    \begin{align}
-        \hg{f}{2} &\lmto \hg{f}{2} - p \dd{\hg{\lambda}{1}}, \\
-        \hg{\widehat{a}}{1} &\lmto \hg{\widehat{a}}{1} - n \hg{\lambda}{1}
-    \end{align}
-    $\hg{f}{2},\, \hg{b}{2}$ に関する汎函数積分を実行することで
-    \begin{align}
-        \label{eq:BF-4D-3}
-        S [\hg{\widehat{a}}{1}] = \frac{\iunit p}{4\pi n} \dd{\hg{\widehat{a}}{1}} \wedge \dd{\hg{\widehat{a}}{1}}
-    \end{align}
-    とも等価である．
-
-    この理論の持つトポロジカル演算子を求めよう．$p = 0$ のときは $BF$-理論のものと全く同じだが，$p \neq 0$ のときは運動方程式 $\dd{\hg{a}{1}} + p \hg{b}{2} = 0$ および $\dd{\hg{\widehat{a}}{1}} + n \hg{b}{2} = 0$ により
-    \begin{align}
-        W(\mfdcal{C}{2}) \coloneqq e^{\iunit \int_{\mfdcal{C}{2}} \hg{b}{2}}
-    \end{align}
-    とおくと
-    \begin{align}
-        \expval{\bigl( W(\mfdcal{C}{2})^p \bigr) } &= 1,\label{eq:Wilson-1}\\
-        \expval{\bigl( W(\mfdcal{C}{2})^N \bigr) } &= 1 \label{eq:Wilson-2}
-    \end{align}
-    がわかる．i.e. 
-    \begin{align}
-        \expval{\bigl( W(\mfdcal{C}{2})^{\gcd (n,\, p)} \bigr) } &= 1
-    \end{align}
-    である．もう1つのWilson lineは，ゲージ不変性の要請から
-    \begin{align}
-        \tilde{\mathcal{W}}(\mfdcal{C}{1};\, \mfd{\Sigma}{2}) \coloneqq e^{\iunit \int_{\mfdcal{C}{1}} \hg{a}{1}} e^{\iunit p \int_{\mfd{\Sigma}{2}} \hg{b}{2}}
-    \end{align}
-    とせざるを得ない．これは $\mfdcal{\Sigma}{2}$ に依存しているのでgenuine line operatorでないが，\eqref{eq:Wilson-2}を使うと
-    \begin{align}
-        \tilde{\mathcal{W}}(\mfdcal{C}{1};\, \mfd{\Sigma}{2})^{N} = e^{\iunit \int_{\mfdcal{C}{1}} (N \hg{a}{1} - p \hg{\widehat{a}}{1})}
-    \end{align}
-    がわかる．ここから，
-    \begin{align}
-        \mathcal{W}(\mfdcal{C}{1}) \coloneqq \tilde{\mathcal{W}}(\mfdcal{C}{1};\, \mfd{\Sigma}{2})^{N/\gcd (n,\, p)}
-    \end{align}
-    がもう一つのline operatorであることがわかり，$\mathbb{Z}_{\gcd (n,\, p)}$-チャージが導出された．
-\end{myexample}
-
-
-\subsection{中心対称性のゲージ化}
-
-$(3+1)$-次元の物質場を持たない $\LSU(n)$ ゲージ理論をトポロジカルな $\mathbb{Z}_n$ ゲージ理論\exref{ex:BF-4D}と結合させることにより，$\LSU(n)/\mathbb{Z}_n$ ゲージ理論が得られることを見よう．
-
-今，$(3+1)$-次元の $\LSU(n)$ 1-formゲージ場を $a$ と書く\footnote{ダイナミカルである．}．
-ここで，天下り的だが $\LU(1)$ 1-formゲージ場 $\hg{\widehat{a}}{1}$ を用いて
-\begin{align}
-    \tilde{a} \coloneqq a + \frac{1}{n} \hg{\widehat{a}}{1} \unity_n
-\end{align}
-と書く．すると，$a$ は $\Lsu (n)$ に値をとることから
-\begin{align}
-    \Tr \tilde{a} = \cancel{\Tr a} + \hg{\widehat{a}}{1} \in \iunit \mathbb{R}
-\end{align}
-となり，$\tilde{a}$ が $\Lu (n)$ に値をとるように見える．よって $\tilde{a}$ を $\LU (n)$ ゲージ場と見做すことができる．
-
-ここで，理論に新たな $\LU (1)$ 1-formゲージ不変性 $\tilde{a} \lmto \tilde{a} - \hg{\lambda}{1} \unity_n$ を要請する．ただし $\hg{\lambda}{1}$ は $\LU(1)$ ゲージ場である．
-このゲージ変換は元々の $\LSU (n)$ ゲージ場 $a$ には\underline{作用しない}が，新たに付け足した $\LU (1)$ ゲージ場 $\hg{\widehat{a}}{1}$ に関しては
-\begin{align}
-    \label{eq:SUn-local-dof}
-    \hg{\widehat{a}}{1} \lmto \hg{\widehat{a}}{1} - n \hg{\lambda}{1}
-\end{align}
-のゲージ変換を引き起こす．変換\eqref{eq:SUn-local-dof}に関する不変性を尊重するためには $\hg{\widehat{a}}{1}$ の運動項は許されないが，トポロジカル項
-\begin{align}
-    \frac{\iunit p}{4\pi n} \int_{\mfdcal{M}{4}} \hg{\widehat{a}}{1} \wedge \hg{\widehat{a}}{1}
-\end{align}
-を付け足すことは依然として許されている．この項はまさにトポロジカルな $\mathbb{Z}_n$ ゲージ理論\eqref{eq:BF-4D-3}である．
-
-このようにして得られたゲージ理論の変換関数について考察する．$\mfdcal{M}{4}$ の良い被覆 $\Familyset[\big]{U_\alpha}{\alpha \in \Lambda}$ を1つ固定する．
-新たな $\LU (1)$ ゲージ不変性の要請によって $\tilde{a}$ のゲージ変換は変換関数 $\Familyset[\big]{g_{\alpha\beta} \colon U_\alpha \cap U_\beta \lto \LU (n)}{\alpha,\, \beta \in \Lambda}$ によるものと，変換関数 $\Familyset[\big]{\hg{\lambda}{1}_{\alpha\beta} \colon U_\alpha \cap U_\beta \lto \Omega^1(U_\alpha \cap U_\beta,\, \Lu(1))}{\alpha,\, \beta \in \Lambda}$ によるものが混ざった
-\begin{align}
-    \tilde{a}_\beta = g_{\beta\alpha} (\tilde{a}_\alpha - \iunit \dd{g_{\beta\alpha}}) g_{\beta\alpha}^{-1} - \hg{\lambda}{1}_{\alpha\beta}
-\end{align}
-になる．注意すべきなのは，$\hg{\lambda}{1}_{\alpha\beta}$ に対するゲージ変換 $\hg{\lambda}{1}_{\alpha\beta} \lmto \hg{\lambda}{1}_{\alpha\beta} + \dd{\hg{h}{0}_{\alpha\beta}}$ が $g_{\beta\alpha}$ にも作用することである：
-\begin{align}
-    \label{eq:g-mixed}
-    g_{\beta\alpha} \lmto e^{-\iunit h_{\alpha\beta}} g_{\beta\alpha}
-\end{align}
-ここで $\hg{\lambda}{1}_{\alpha\beta}$ のDeligne-Beilinsonコチェインとしてのゲージ変換（i.e. $U_\alpha \cap U_\beta \cap U_\gamma$ における整合性条件）は，$\Familyset[\big]{f_{\alpha\beta\gamma} \colon U_\alpha \cap U_\beta \cap U_\gamma \lto \Omega^0(U_\alpha \cap U_\beta \cap U_\gamma;\, \mathbb{R} / 2\pi \mathbb{Z})}{\alpha,\, \beta,\, \gamma \in \Lambda}$ によって
-\begin{align}
-    \hg{\lambda}{1}_{\alpha\beta} + \hg{\lambda}{1}_{\beta\gamma} + \hg{\lambda}{1}_{\gamma \alpha} = \dd{f_{\alpha\beta\gamma}}
-\end{align}
-となっているので，ゲージ変換 $\hg{\lambda}{1}_{\alpha\beta} \lmto \hg{\lambda}{1}_{\alpha\beta} + \dd{\hg{h}{0}_{\alpha\beta}}$ に際しては
-\begin{align}
-    f_{\alpha\beta\gamma} \lmto f_{\alpha\beta\gamma} + h_{\alpha\beta} + h_{\beta\gamma} + h_{\gamma\alpha} \mod 2\pi
-\end{align}
-と言う変換を受ける．故に $g_{\alpha\beta}$ に要請するコサイクル条件であって\eqref{eq:g-mixed}を尊重するものは
-\begin{align}
-    \label{eq:cocycle-generalized}
-    g_{\alpha\beta} g_{\beta\gamma} g_{\gamma\alpha} = e^{-\iunit f_{\alpha\beta\gamma}} \unity_n \in \LU(1)
-\end{align}
-だと考えられる~\cite[p.28]{KapustinSeiberg2014}．一般化されたコサイクル条件\eqref{eq:cocycle-generalized}の $\det$ をとることにより
-\begin{align}
-    f_{\alpha\beta\gamma} + \frac{1}{n} \left( \log \det g_{\alpha\beta} + \log \det g_{\beta\gamma} + \log \det g_{\gamma\alpha}\right) \eqqcolon \frac{2\pi m_{\alpha\beta\gamma}}{n} \in \frac{2\pi}{n} \mathbb{Z}
-\end{align}
-がわかる．$f_{\alpha\beta\gamma}$ の充たすべきコサイクル条件は
-\begin{align}
-    f_{\alpha\beta\gamma} + f_{\beta\gamma\delta} + f_{\gamma\delta\alpha} + f_{\delta\alpha\beta} = 0 \mod 2\pi
-\end{align}
-であるから，
-\begin{align}
-    m_{\alpha\beta\gamma} + m_{\beta\gamma\delta} + m_{\gamma\delta\alpha} + m_{\delta\alpha\beta} = 0 \mod n
-\end{align}
-がわかる．i.e. $m \coloneqq \Familyset[\big]{m_{\alpha\beta\gamma}}{\alpha,\,\beta,\,\gamma \in \Lambda} \in \Cech{2}{\mfdcal{M}{d};\, \mathbb{Z}_n}$ である．
-
-
-\subsection{有限部分群のゲージ化}
-
-中心対称性に関して議論する際，理論の持つ対称性 $G$ の有限な正規部分群 $A$ についてのみゲージ化すると言う操作が必要になった．ここでは有限部分群のゲージ化に関する一般論を述べる~\cite{Tachikawa2017gauging}．
+% 離散群によって特徴付けられる対称性に対しては，保存カレントを定義することはできないが，\hyperref[def:p-form-sym]{トポロジカル演算子}と\hyperref[def:p-form-sym]{charged object}ならば定義できる．
 
 \end{document}

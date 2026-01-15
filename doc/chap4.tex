@@ -7,6 +7,7 @@
 \chapter{圏論とトポロジカル秩序}
 
 この節で登場する多様体は特に断らない限り常に $C^\infty$ 多様体である．また，体 $\mathbb{K}$ と言ったら $\mathbb{K} = \mathbb{R},\, \mathbb{C},\, \mathbb{H}$ のいずれかを指すことにする．
+% また，$D$ は常に空間次元を表す．
 
 \section{トポロジカル秩序のミクロな定義}
 
@@ -129,7 +130,7 @@
 \end{mydefph}
 
 \begin{marker}
-    gapless quantum liquidの厳密な定義は，2025年現在でもこれといったものがない．
+    gapless quantum liquidの厳密な定義は，筆者の知る限りではこれといったものがない．
 \end{marker}
 
 \begin{myexample}[label=ex:Haah]{Haahコード}
@@ -151,10 +152,11 @@
 トポロジカル秩序を与える同値類の定義は，~\cite[p.3]{ChenGuWen2010}に倣うと以下のようになる：
 
 \begin{mydefph}[label=def:quantum-phase,breakable]{bosonicかつgappedなトポロジカル秩序}
-    空間多様体 $\Sigma^{(D)}$ 上の2つの\hyperref[def:gappedQL]{gappedな量子液体} $\bigl( \{\Lambda_i\}_i,\, \{\hat{H}^{(0)}_{\Lambda_i}\}_i \bigr),\; \bigl( \{\Lambda_i\}_i,\, \{\hat{H}^{(1)}_{\Lambda_i}\}_i \bigr)$ を与える．
-    \hyperref[def:bosonic-lattice-model]{熱力学極限}をとった\hyperref[def:gappedQL]{gappedな量子液体}全体がなす集合を $\mathrm{gQL}(\Sigma^{(D)})$ とおく．$\mathrm{gQL}(\Sigma^{(D)})$ には適切な位相を入れて位相空間にする．
+    熱力学極限化にある2つの\hyperref[def:gappedQL]{gappedな量子液体} $\bigl( \{\Lambda_i\}_i,\, \{\hat{H}^{(0)}_{\Lambda_i}\}_i \bigr),\; \bigl( \{\Lambda_i\}_i,\, \{\hat{H}^{(1)}_{\Lambda_i}\}_i \bigr)$ を与える．
+    \hyperref[def:bosonic-lattice-model]{熱力学極限}をとった\hyperref[def:gappedQL]{gappedな量子液体}全体がなす集合を $\mathrm{gQL}_{(D)}$ とおく．$\mathrm{gQL}_{(D)}$ には適切な位相を入れて位相空間にする
+    \footnote{この位相空間を可逆相の場合に厳密に定義した仕事として，~\cite{Kubota2025}が挙げられる．}．
 
-    　このとき，$\hat{H}^{(0)}_{\Lambda_\infty}$ と $\hat{H}^{(1)}_{\Lambda_\infty}$ が同じ\textbf{gappedなトポロジカル秩序} (gapped topological order) にあるとは，連続曲線 $\hat{H} \colon [0,\, 1] \lto \mathrm{gQL}(\mfd{\Sigma}{D})$ が存在して
+    　このとき，$\hat{H}^{(0)}_{\Lambda_\infty}$ と $\hat{H}^{(1)}_{\Lambda_\infty}$ が同じ\textbf{gappedなトポロジカル秩序} (gapped topological order) にあるとは，連続曲線 $\hat{H} \colon [0,\, 1] \lto \mathrm{gQL}_{D}$ が存在して
     $\hat{H}(0) = \hat{H}^{(0)}_{\Lambda_\infty} \AND \hat{H}(1) = \hat{H}^{(0)}_{\Lambda_\infty}$ を充たすことを言う．
 
     \tcblower
@@ -194,25 +196,27 @@
     \end{itemize}
 \end{mypropph}
 
-\begin{proof}
+% \begin{proof}
     
-\end{proof}
+% \end{proof}
 
-\subsection{重力アノマリー}
+\subsection{Remote-detectability}
 
-トポロジカル相の文脈で\textbf{重力アノマリー} (gravitational anomaly) と呼ばれるものを導入しておこう~\cite{KongWen2014braidedfusioncategoriesgravitational}．
-これは文字通り量子重力を考えていると言うわけではなく，\hyperref[hypo:anomaly-inflow]{アノマリー流入}に類似の概念である．
+% トポロジカル相の文脈で\textbf{重力アノマリー} (gravitational anomaly) と呼ばれるものを導入しておこう~\cite{KongWen2014braidedfusioncategoriesgravitational}．
+% これは文字通り量子重力を考えていると言うわけではなく，\hyperref[hypo:anomaly-inflow]{アノマリー流入}に類似の概念である．
 
-\begin{mydefph}[label=def:anomalousQP]{gappedな量子相のアノマリー}
-    空間 $D$ 次元の\hyperref[def:quantum-phase]{量子相}が\textbf{アノマリーを持たない} (anomaly-free) とは，それが\hyperref[def:bosonic-lattice-model]{局所的な格子模型}として実現できることを言う．
+\begin{mydefph}[label=def:anomalousQP]{Remote detectability}
+    空間 $D$ 次元の\hyperref[def:quantum-phase]{量子相}が\textbf{遠隔検出可能} (remote detectable) である\footnote{文献によっては\textbf{アノマリーを持たない} (anomaly free) と呼ばれることもある．}
+    とは，それが\hyperref[def:bosonic-lattice-model]{局所的な格子模型}として実現できることを言う．
 \end{mydefph}
 
-\begin{myconjph}[label=conj:gravitational-anomaly]{重力アノマリーの仮説}
+\begin{myconjph}[label=conj:gravitational-anomaly]{}
     空間次元 $D$ の任意の\hyperref[def:quantum-phase]{gappedな量子相} $\mathsf{A}_D$ に対して，
-    ある空間次元 $D+1$ の\hyperref[def:anomalousQP]{アノマリー}を持たないgappedな量子相 $\Bulk{\mathsf{A}_D}$ が一意的に存在して，$\Bulk{\mathsf{A}_D}$ の境界として $\mathsf{A}_D$ が実現される．
+    ある空間次元 $D+1$ の\hyperref[def:anomalousQP]{遠隔検出可能}なgappedな量子相 $\Bulk{\mathsf{A}_D}$ が一意的に存在して，$\Bulk{\mathsf{A}_D}$ の境界として $\mathsf{A}_D$ が実現される．
+    ~\cite[Lemma 2, p.19]{KongWen2014braidedfusioncategoriesgravitational}．
 \end{myconjph}
 
-予想\ref{conj:gravitational-anomaly}は，$\mathsf{A}_D$ が\hyperref[def:quantum-phase]{トポロジカル秩序}の場合には物理的な証明があるらしい~\cite[Lemma 2, p.19]{KongWen2014braidedfusioncategoriesgravitational}．
+% 予想\ref{conj:gravitational-anomaly}は，$\mathsf{A}_D$ が\hyperref[def:quantum-phase]{トポロジカル秩序}の場合には物理的な証明がある~\cite[Lemma 2, p.19]{KongWen2014braidedfusioncategoriesgravitational}．
 
 
 \section{トポロジカル秩序のマクロな特徴付け}
@@ -224,7 +228,7 @@
 ところが，\hyperref[def:quantum-phase]{gappedな量子相}に関してはそうはいかない．
 
 \begin{mytheo}[label=thm:gapped-decay]{gappedな格子模型における相関関数の振る舞い}
-    $D$ 次元格子 $\Lambda \subset \mfd{\Sigma}{D}$ 及びその上の\hyperref[def:gapped]{gappedな量子系} $\hat{H}_\Lambda$ を考える．
+    $D$ 次元格子 $\Lambda$ 及びその上の\hyperref[def:gapped]{gappedな量子系} $\hat{H}_\Lambda$ を考える．
     このとき，有限集合 $X,\, Y \subset \Lambda$ に台を持つ任意の演算子 $\hat{A}_X,\, \hat{B}_Y$ について，ある定数 $C,\, D,\, \xi_0$ が存在して以下が成り立つ：
     \begin{align}
         \mel{\psi_0^a}{\hat{A}_X \hat{B}_Y}{\psi_0^a} - \mel{\psi_0^a}{\hat{A}_X \hat{P}_0 \hat{B}_Y}{\psi_0^a} 
@@ -472,9 +476,9 @@ gappedな量子系を特徴付けるデータは，\textbf{トポロジカル欠
     つまり，\hyperref[ex:toric-emf]{toric code模型}の\hyperref[def:TD]{トポロジカル欠陥}は系のスケールに依存しない．
 \end{myexample}
 
-$\mathsf{C}_D$ 内部の全ての\hyperref[def:TD]{トポロジカル欠陥}（i.e. トポロジカル秩序）の集まりを\textbf{topological skelton}と呼び，$\sk (\mathsf{C}_D)$ と書くことにする~\cite{KongZhang2022TO}．
+~\cite{KongZhang2022TO}に倣い，$\mathsf{C}_D$ 内部の全ての\hyperref[def:TD]{トポロジカル欠陥}（i.e. トポロジカル秩序）の集まりを\textbf{topological skelton}と呼び，$\sk (\mathsf{C}_D)$ と書くことにする．
 次に考えるべきなのは，topologial skeltonのどの構造が，親となるトポロジカル秩序 $\mathsf{C}_D$ を完全に特徴付けるのか，と言う問題である．
-2025年現在では次のように予想されている~\cite[Conjecture 2, p.11]{KongWen2014braidedfusioncategoriesgravitational}：
+2026年現在では次のように予想されている~\cite[Conjecture 2, p.11]{KongWen2014braidedfusioncategoriesgravitational}：
 
 \begin{myconjph}[label=conj:TO-BFC]{トポロジカル秩序の特徴付け}
     \hyperref[def:quantum-phase]{トポロジカル秩序} $\mathsf{C}_D$ を完全に特徴付けるのは，$\sk (\mathsf{C}_D)$ の組紐付き（高次）フュージョン圏としての構造，及びchiral central chargeである．
@@ -569,15 +573,15 @@ $\forall x,\, y \in \Obj{\sk_0(\mathsf{C}_D)}$ の代表元は全系のHilbert�
 \end{mypropph}
 
 ところが，実はトポロジカル欠陥のフュージョンの厳密な定義には様々な困難がつきまとう．
-$x,\, y$ がそれぞれ互いに異なる点 $\xi,\, \eta \in \mfd{\Sigma}{D}$ に局在しているとしよう．このとき，代表元の素朴なテンソル積は，トポロジカル欠陥のレベルでのテンソル積 $x \otimes_{(\xi,\, \eta)} y$ を定める．
-i.e. $x,\, y \in \Obj{\sk_0(\mathsf{C}_D)}$ のテンソル積の定義には，集合 $\bigl\{\, (\xi,\, \eta) \in \mfd{\Sigma}{D} \bigm| \xi \neq \eta \,\bigr\}$ だけの不定性が存在し得る．
-定義\ref{def:TD}直下の注の方法で $\sk_0(\mathsf{C}_D)$ を，点 $\xi \in \mfd{\Sigma}{D}$ におけるトポロジカルな境界条件が成す圏 $\sk_0(\mathsf{C}_D)_\xi$ と見做すと，$\otimes_{(\xi,\, \eta)}$ は関手
+$x,\, y$ がそれぞれ互いに異なる点 $\xi,\, \eta \in \mathbb{R}^D$ に局在しているとしよう．このとき，代表元の素朴なテンソル積は，トポロジカル欠陥のレベルでのテンソル積 $x \otimes_{(\xi,\, \eta)} y$ を定める．
+i.e. $x,\, y \in \Obj{\sk_0(\mathsf{C}_D)}$ のテンソル積の定義には，集合 $\bigl\{\, (\xi,\, \eta) \in \mathbb{R}^D \bigm| \xi \neq \eta \,\bigr\}$ だけの不定性が存在し得る．
+定義\ref{def:TD}直下の注の方法で $\sk_0(\mathsf{C}_D)$ を，点 $\xi \in \mathbb{R}^D$ におけるトポロジカルな境界条件が成す圏 $\sk_0(\mathsf{C}_D)_\xi$ と見做すと，$\otimes_{(\xi,\, \eta)}$ は関手
 \begin{align}
     \otimes_{(\xi,\, \eta)} \colon \sk_0(\mathsf{C}_D)_\xi \times \sk_0(\mathsf{C}_D)_\eta \lto \sk_0(\mathsf{C}_D)
 \end{align}
 を定める．
 
-ところで，$(\xi,\, \eta) \in \Conf (\mfd{\Sigma}{D})$ を連続曲線 $\gamma \colon [0,\, 1] \lto \Conf (\mfd{\Sigma}{D})$ に沿って $(\xi',\, \eta')$ まで断熱的に\footnote{i.e. 途中経過のトラップハミルトニアンの\hyperref[def:gapped]{ギャップ}を閉じずに}移動することで，
+ところで，$(\xi,\, \eta) \in \Conf_2 (\mathbb{R}^D)$ を\footnote{位相空間 $X$ の\textbf{配置の空間} (configuration space) を $\Conf(X) \coloneqq \bigl\{\, (\xi,\, \eta) \in X^{\times 2} \bigm| \xi \neq \eta \,\bigr\}$ と定義した．}連続曲線 $\gamma \colon [0,\, 1] \lto \Conf (\mathbb{R}^D)$ に沿って $(\xi',\, \eta')$ まで断熱的に\footnote{i.e. 途中経過のトラップハミルトニアンの\hyperref[def:gapped]{ギャップ}を閉じずに}移動することで，
 いつでも同型写像 $T^\gamma_{x,\, y} \colon x \otimes_{(\xi,\, \eta)} y \lto x \otimes_{(\xi',\, \eta')} y$ を作ることができる．この同型写像を $\forall x,\, y \in \Obj{\sk_0(\mathsf{C}_D)}$ に関して集めたものは\hyperref[def:nat]{自然変換}
 \begin{align}
     T^\gamma \colon \otimes_{(\xi,\, \eta)} \Longrightarrow \otimes_{(\xi',\, \eta')}
@@ -589,10 +593,11 @@ i.e. $x,\, y \in \Obj{\sk_0(\mathsf{C}_D)}$ のテンソル積の定義には，
 \end{myhypo}
 
 然るに，2つの互いにホモトピックな道 $\gamma_1,\, \gamma_2$ をとったとしても，ギャップが有限だと $T^{\gamma_1},\, T^{\gamma_2}$ が一致してくれる保証はない．
-このようなときには，テンソル積 $\otimes_{(\xi,\, \eta)}$ は高次のホモトピーに依存し，$\sk_0(\mathsf{C}_D)$ の上に\textbf{$A_\infty$-圏}の構造を与える．
+このようなときには，テンソル積 $\otimes_{(\xi,\, \eta)}$ は高次のホモトピーに依存すると考えられ，その記述には\hyperref[def:infty-operad]{$\infty$-オペラッド}が適していると考えらえる．
+% $\sk_0(\mathsf{C}_D)$ の上に\textbf{$A_\infty$-圏}の構造を与える．
 
-このように，$\sk_0(\mathsf{C}_D)$ のテンソル積の構造は大きな不定性を持つ．\hyperref[def:quantum-phase]{トポロジカル秩序のミクロな定義}から出発し，断熱変形を利用して構成することもできるが，そうするとモノイダル圏の同型類しか定まらない~\cite{KawagoeLevin2020anyon}．
-この意味で，$\sk_0(\mathsf{C}_D)$ のモノイダル構造は「ゲージ不変でない」などと言うことがある．
+% このように，$\sk_0(\mathsf{C}_D)$ のテンソル積の構造は大きな不定性を持つ．\hyperref[def:quantum-phase]{トポロジカル秩序のミクロな定義}から出発し，断熱変形を利用して構成することもできるが，そうするとモノイダル圏の同型類しか定まらない~\cite{KawagoeLevin2020anyon}．
+% この意味で，$\sk_0(\mathsf{C}_D)$ のモノイダル構造は「ゲージ不変でない」などと言うことがある．
 
 \subsection{ユニタリティ}
 
@@ -651,7 +656,7 @@ $\sk_0(\mathsf{C}_D)$ における射とは，任意の局所演算子と可換�
 
 \subsection{rigidity}
 
-非自明な\hyperref[def:TD]{トポロジカル欠陥}の単体を，局所演算子によって生成・消滅させることはできない．
+非自明な1つの\hyperref[def:TD]{トポロジカル欠陥}を，局所演算子によって生成・消滅させることはできない．
 トポロジカル欠陥の生成・消滅はその世界線を曲げることによって成される（図\ref{fig:creanh}）．
 この過程を， $0+0$-次元のトポロジカル欠陥を用いてそれぞれ
 \begin{align}
@@ -660,6 +665,7 @@ $\sk_0(\mathsf{C}_D)$ における射とは，任意の局所演算子と可換�
 \end{align}
 と表現する．
 ミクロには，このようなプロセスは\hyperref[def:trivialTO]{自明相} $1_0 \in \Obj{\sk_0(\mathsf{C}_D)}$ にストリング状の演算子を作用させることによって成される．
+トーリックコードの $e$-エニオン（resp. $m$-エニオン）の場合は，\exref{ex:toric-emf}で見たように $\hat{Z}$ （resp. $\hat{X}$）を辺に作用させることで生成・消滅が記述できる．
 \begin{figure}[H]
     \centering
     \begin{subfigure}{0.4\columnwidth}
@@ -859,15 +865,58 @@ $x$ が $y$ の周りを断熱的に1周する過程は同型射 $x \otimes y \x
 
 \subsection{リボン構造}
 
+トポロジカル欠陥の世界線は太さを持たない紐のように見えるが，実際には\hyperref[def:framing]{フレーミング}を持っていると見做すべきである．
+この考え方はChern-Simons理論におけるWilson lineの期待値の計算において発散を除去する目的でWittenが導入し~\cite{Witten1989quantum}，後にReshetikhinとTuraevによるリボングラフTQFTの構成に繋がった~\cite{RT1991invariant}．
+このReshetikhin-TuraevによるリボングラフTQFTの構成を後の章でレビューする．
 
+トポロジカル欠陥 $x \in \Obj{\sk_0(\mathsf{C}_2)}$ の\textbf{リボン構造}は\footnote{\textbf{トポロジカルスピン} (topological spin) と呼ばれることもある．}，図\ref{fig:topological-spin}に示す世界線に対応する同型射であり，具体的には
+\begin{align}
+    \theta_x 
+    &\coloneqq (x \xrightarrow{\lev_x{}^\dagger \otimes \Id_x} x^* \otimes x \otimes x \xrightarrow{\Id_{x^*} \otimes b_{x,\, x}} x^{*} \otimes x \otimes x \xrightarrow{\lev_x \otimes \Id_x}) \\
+    &= (x \xrightarrow{\Id_x \otimes \lcoev_x} x \otimes x \otimes x^* \xrightarrow{b_{x,\, x} \otimes \Id_{x^*}} x \otimes x \otimes x^* \xrightarrow{\Id_x \otimes \lcoev_x{}^\dagger} x)
+\end{align}
+と構成される．一般のリボン構造の定義は付録Fの定義\ref{def:ribbon}も併せて参照されたい．
+図\ref{fig:topological-spin}において，フレーミングは上から見た時に反時計回りに $2\pi$ 回転している．
+後に\exref{ex:SO2alg}において，この見方が $\LSO(2)$ 構造付き\hyperref[def:DiskB-alg]{disk algebra}の構造射として $\theta$ を定めることを見る．
+
+\begin{figure}[H]
+    \centering
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+        % framing
+        \path[
+            postaction=decorate,
+            decoration={markings,
+                mark=between positions 0.05 and 0.95 step 0.05 with {
+                    \draw[-Stealth,red] (0,0) -- (0,-.3);
+                }
+            }
+        ] 
+            (0,0) -- (0,1) .. controls +(90:1) and +(0:.5) .. (-1,3) .. controls +(180:1) and +(180:1) .. (-1,1) .. controls +(0:.5) and +(-90:1) .. (0,3) -- (0,4);
+        ;
+        % knot
+        \begin{knot}[
+            consider self intersections,
+        ]
+            \strand[blue,very thick] (0,0) -- (0,1) .. controls +(90:1) and +(0:.5) .. (-1,3) .. controls +(180:1) and +(180:1) .. (-1,1) .. controls +(0:.5) and +(-90:1) .. (0,3) -- (0,4);
+        \end{knot}
+        % \draw[blue,very thick] (0,0) .. controls +(100:4) and +(-100:4) .. (0,4);
+        \draw[dotted,blue,very thick] (0,0) -- ++(0,-.5);
+        \draw[dotted,blue,very thick] (0,4) -- ++(0,.5);
+    \end{tikzpicture}
+    \caption{
+        トポロジカル欠陥のリボン構造．赤い矢印は世界線のフレーミングを表す．
+    }
+    \label{fig:topological-spin}
+\end{figure}%
 
 \subsection{UMTC}
 
-トポロジカル秩序のアノマリーの有無と $\mathsf{C}_D$ の\hyperref[redef:braided-monoidal]{組紐構造}の間には重要な関係があると考えられている~\cite{KongWen2014braidedfusioncategoriesgravitational}：
+% トポロジカル秩序がと $\mathsf{C}_D$ の\hyperref[redef:braided-monoidal]{組紐構造}の間には重要な関係があると考えられている~\cite{KongWen2014braidedfusioncategoriesgravitational}：
 
 \begin{myconjph}[label=conj:remote-detectable]{remote-detectable}
-    トポロジカル秩序が\hyperref[def:anomalousQP]{アノマリーを持たない}ことと，
+    トポロジカル秩序が\hyperref[def:anomalousQP]{遠隔検出可能である}ことと，
     余次元 $2$ 以上のトポロジカル欠陥が\hyperref[redef:braided-monoidal]{braiding}によって検出できることは等価である．
+    ~\cite{KongWen2014braidedfusioncategoriesgravitational}
 \end{myconjph}
 
 簡単のため $D=2$ として考える．$D=2$ 次元における余次元2のトポロジカル欠陥とは，$D-2+1 = 1$ 次元の線状欠陥のことである．
@@ -894,180 +943,24 @@ $\mathfrak{Z}_2 (\Cat{C})$ は $\Cat{C}$ から\hyperref[redef:braided-monoidal]
 \end{mypropph}
 
 \begin{mydef}[label=def:MTC]{MTC}
-    \textbf{モジュラーテンソル圏} (modular tensor category; MTC) とは，\hyperref[def:nondegen-BFC]{非退化}な\hyperref[def:premodular-cat]{前モジュラー圏}のこと．
+    \textbf{モジュラーテンソル圏} (modular tensor category; \textbf{MTC}) とは，\hyperref[def:nondegen-BFC]{非退化}な\hyperref[def:premodular-cat]{前モジュラー圏}のこと．
 \end{mydef}
 
 \begin{mypropph}[label=prop:sk0-braided]{$\sk_0(\mathsf{C}_2)$ はMTC}
-    空間多様体 $\mathbb{R}^2$ 上に置かれた\hyperref[def:stableTO]{安定}かつ\hyperref[def:anomalousQP]{アノマリーを持たない} 2+1次元のトポロジカル秩序 $\mathsf{C}_2$ が持つ点状のトポロジカル欠陥全体
+    空間多様体 $\mathbb{R}^2$ 上に置かれた\hyperref[def:stableTO]{安定}かつ\hyperref[def:anomalousQP]{遠隔検出可能}な2+1次元のトポロジカル秩序 $\mathsf{C}_2$ が持つ点状のトポロジカル欠陥全体
     $\sk_0(\mathsf{C}_2)$ はユニタリ\hyperref[def:MTC]{モジュラーテンソル圏}を成す．
 \end{mypropph}
 
-なお，$2+1$ 次元のトポロジカル欠陥 $\mathsf{C}_2$ が\hyperref[def:anomalousQP]{アノマリー}を持たないことと，$\mathsf{C}_2$ の低エネルギー有効理論であるTQFTがアノマリーを持たないことは等価\underline{ではない}．
-両者の間には\textbf{フレーミングアノマリー} (framing anomaly) の分だけ差異がある~\cite{turaev2010quantum}．
-
-\begin{myprop}[label=prop:MTC]{MTCの性質}
-    $(\Cat{C},\, \otimes,\, 1,\, a,\, l,\, r,\, \lev,\, \lcoev,\, \rev,\, \rcoev,\, b,\, \theta)$ が\hyperref[def:MTC]{MTC}ならば以下が成り立つ：
-    \begin{enumerate}
-        \item $S_{xy} = S_{yx} = S_{x^*y^*} = \bar{S}_{xy^*},\quad S_{1x} = S_{x1} = \dim (x)$
-        \item $S_{xy} S_{xz} = \dim(x) \sum_{w \in \Simp(\Cat{C})} N^w_{yz} S_{xw}$
-        \item 行列 $C$ を $C_{xy} = \delta_{x^*,y}$ で定義すると，$S^2 = \dim(\Cat{C}) C$
-        \item \textbf{Verlinde formula}
-        \begin{align}
-            \sum_{x \in \Simp(\Cat{C})} \frac{S_{xy} S_{xz} S_{xw^*}}{S_{x1}} = \dim(\Cat{C}) N^w_{yz}
-        \end{align}
-        \item \textbf{Gauss sum}を
-        \begin{align}
-            \tau^{\pm} (\Cat{C}) \coloneqq \sum_{x \in \Simp(\Cat{C})} \theta_x^{\pm 1} \dim (x)^2
-        \end{align}
-        で定義すると，$\tau^+(\Cat{C}) \tau^-(\Cat{C}) = \dim (\Cat{C})$ が成り立つ．
-        \item \textbf{加法的中心電荷} (additive central charge) を
-        \begin{align}
-            e^{2\pi \iunit c(\Cat{C})/8} \coloneqq \frac{\tau^+(\Cat{C})}{\sqrt{\dim (\Cat{C})}}
-        \end{align}
-        で定義すると，$c(\Cat{C}) \in \mathbb{Q} / 8 \mathbb{Z}$ が成り立つ．
-        \item \textbf{$\bm{T}$-行列} ($T$-matrix) を
-        \begin{align}
-            T_{xy} \coloneqq \theta_x^{-1} \delta_{x,\, y}
-        \end{align}
-        で定義すると，
-        \begin{align}
-            S^4 &= \dim(\Cat{C})^2 \unity, & (ST)^3 &= \tau^-(\Cat{C}) S^2
-        \end{align}
-        が成り立つ．
-        従って $\LSL(2,\, \mathbb{Z})$ の生成元と関係式
-        \begin{align}
-            \langle\, \mathfrak{s},\, \mathfrak{t} \mid (\mathfrak{s}\mathfrak{t})^3 = \mathfrak{s}^2,\; \mathfrak{s}^4 = 1 \,\rangle
-        \end{align}
-        を思い出すと，群準同型
-        \begin{align}
-            \mathfrak{s} \lmto \frac{S}{\sqrt{\dim (\Cat{C})}},\; \mathfrak{t} \lmto T
-        \end{align}
-        は $\LSL(2,\, \mathbb{Z})$ のユニタリな射影表現を与える．特に，この射影表現が表現になるための障害は $c(\Cat{C}) \notin 8 \mathbb{Z}$ となることである．
-    \end{enumerate}
-    
-\end{myprop}
-
-\begin{proof}
-    \begin{enumerate}
-        \item まず，\hyperref[redef:braided-monoidal]{braiding}の存在により $x \otimes y \cong y \otimes x$ であるから，\hyperref[col:Yoneda]{米田の補題}により $\Hom{\Cat{C}}(x \otimes y,\, z) \cong \Hom{\Cat{C}}(y \otimes x,\, z)$ が言える．よって
-        \begin{align}
-            N^z_{xy} = \dim_{\mathbb{C}}\Hom{\Cat{C}}(x \otimes y,\, z) = \dim_{\mathbb{C}}\Hom{\Cat{C}}(y \otimes x,\, z) = N^z_{yx}
-        \end{align}
-        である．
-        従って命題\ref{prop:S-matrix}-(1) より
-        \begin{align}
-            S_{xy} 
-            &= \theta_x^{-1} \theta_y^{-1} \sum_{z \in \Simp(\Cat{C})} N^z_{xy} \theta_z \dim (z) \\
-            &= \theta_y^{-1}\theta_x^{-1}  \sum_{z \in \Simp(\Cat{C})} N^z_{yx} \theta_z \dim (z) \\
-            &= S_{yx}
-        \end{align}
-        さらに，
-        \begin{align}
-            N^z_{1x} = \dim_{\mathbb{C}} \Hom{\Cat{C}} (x,\, z) = \delta_{xz}
-        \end{align}
-        であるから
-        \begin{align}
-            S_{1x} 
-            &= \theta_x^{-1} \sum_{z \in \Simp(\Cat{C})} N^z_{1x} \theta_z \dim (z) \\
-            &= \dim (x)
-        \end{align}
-        が成り立つ．
-        \item 命題\ref{prop:S-matrix}-(2)
-        \item 命題\ref{prop:S-matrix}-(3) より，$\forall x \in \Simp(\Cat{C})$ に対して定まる写像 $h_x \colon \Gr(\Cat{C}) \lto \mathbb{C},\; y \lmto S_{xy} / \dim(x)$ は環準同型である．
-        特に\hyperref[def:MTC]{MTC}は\hyperref[def:nondegen-BFC]{非退化}なので $S$-行列も非退化であり，$h_y = h_z$ であるためには $y=z$ であることが必要十分である．
-
-        　$y \neq z$ のとき，(1) および補題\ref{lem:basedring}-(2) より
-        \begin{align}
-            \bigl[\, S^2 \,\bigr]_{yz^*}
-            &= \sum_{x \in \Simp(\Cat{C})} S_{yx} S_{xz^{*}} \\
-            &= \sum_{x \in \Simp(\Cat{C})} S_{yx} S_{zx^*} \\
-            &= \dim (y) \dim (z)\sum_{x \in \Simp(\Cat{C})} h_y(x) h_z (x^*) \\
-            &= 0
-        \end{align}
-        が成り立つ．一方で，$y = z$ のときは (1), (2) を使って
-        \begin{align}
-            \bigl[\, S^2 \,\bigr]_{yy^*}
-            &= \sum_{x \in \Simp(\Cat{C})} S_{xy} S_{xy^{*}} \\
-            &= \sum_{x \in \Simp(\Cat{C})} \dim(x) \sum_{w \in \Simp(\Cat{C})} N^w_{yy^*} S_{xw} \\
-            &= \sum_{w \in \Simp(\Cat{C})} N^w_{yy^*} \sum_{x \in \Simp(\Cat{C})} \dim(x) S_{xw}
-        \end{align}
-        と計算できる．ここで，写像 $\dim \colon \Gr(\Cat{C}) \lto \mathbb{C},\; x \lmto \dim (x)$ は環準同型であるから，補題\ref{lem:basedring}-(2) より
-        \begin{align}
-            \sum_{x \in \Simp(\Cat{C})} \dim(x) S_{xw}
-            &= \sum_{x \in \Simp(\Cat{C})} \dim(x^*) S_{wx} \\
-            &= \dim(w)\sum_{x \in \Simp(\Cat{C})} \dim(x^*) h_w(x) \\
-            &= \delta_{w,\, 1} \dim(\Cat{C}) \label{eq:dim-S}
-        \end{align}
-        が成り立つ．よって
-        \begin{align}
-            \bigl[\, S^2 \,\bigr]_{yy^*} = N^1_{yy^*} \dim \Cat{C} = \dim (\Cat{C})
-        \end{align}
-        が分かった．
-        \item (2), (3) より
-        \begin{align}
-            \sum_{x \in \Simp(\Cat{C})} \frac{S_{xy} S_{xz} S_{xw^*}}{S_{x1}} 
-            &= \sum_{x \in \Simp(\Cat{C})} \frac{S_{xw^*}}{\cancel{S_{x1}}} \cancel{\dim (x)} \sum_{u \in \Simp(\Cat{C})} N^u_{yz} S_{xu} \\
-            &= \sum_{u \in \Simp(\Cat{C})} N^u_{yz} \sum_{x \in \Simp(\Cat{C})} S_{ux} S_{xw^*} \\
-            &= \sum_{u \in \Simp(\Cat{C})} N^u_{yz} \bigl[\, S^2 \,\bigr]_{uw^*} \\
-            &= \dim (\Cat{C}) N^w_{yz}
-        \end{align}
-        \item 
-        \begin{align}
-            \tau^+(\Cat{C}) \tau^-(\Cat{C})
-            % &= \sum_{x \in \Simp(\Cat{C})} \theta^{-1}_x \dim (x)^2 \tau^+(\Cat{C}) \\
-            &= \sum_{x \in \Simp(\Cat{C})} \theta^{-1}_x \dim (x) \sum_{y \in \Simp(\Cat{C})} \dim(x)\dim(y) \theta_y \dim(y) \\
-            &= \sum_{x \in \Simp(\Cat{C})} \theta^{-1}_x \dim (x) \sum_{y \in \Simp(\Cat{C})} \dim(y^* \otimes x) \theta_y \dim(y) \\
-            &= \sum_{x \in \Simp(\Cat{C})} \theta^{-1}_x \dim (x) \sum_{y \in \Simp(\Cat{C})} \sum_{z \in \Simp(\Cat{C})} N^z_{y^* x} \dim(z) \theta_y \dim(y) \\
-            &= \sum_{x \in \Simp(\Cat{C})} \dim (x) \sum_{z \in \Simp(\Cat{C})} \dim(z) \theta_z \left(\theta^{-1}_x \theta^{-1}_z \sum_{y \in \Simp(\Cat{C})} N^y_{xz} \theta_y \dim(y)\right) \\
-            &= \sum_{z \in \Simp(\Cat{C})} \dim(z) \theta_z \sum_{x \in \Simp(\Cat{C})} \dim(x) S_{xz} &&\because\; \text{命題\ref{prop:S-matrix}-(1)} \\
-            &= \sum_{z \in \Simp(\Cat{C})} \dim(z) \theta_z \delta_{z,\, 1} \dim (\Cat{C}) && \because\; \text{\eqref{eq:dim-S}}\\ 
-            &= \dim (\Cat{C})
-        \end{align}
-        \item 
-        \item $S^4 = \dim(\Cat{C})^2 \unity$ は (3) より従う．
-        (2) より，
-        \begin{align}
-            \bigl[\, STS \,\bigr]_{xy}
-            &= \sum_{z \in \Simp(\Cat{C})} S_{xz} \theta^{-1}_z S_{zy} \\
-            &= \sum_{z \in \Simp(\Cat{C})} \theta^{-1}_z S_{zx} S_{zy} \\
-            &=  \sum_{w \i \Simp(\Cat{C})} N^w_{xy} \sum_{z \in \Simp(\Cat{C})} \theta^{-1}_z \dim (z) S_{zw}
-            % &= \sum_{w \in \Simp(\Cat{C})} N^w_{xy} \sum_{z \in \Simp(\Cat{C})} \dim (z) \theta_w^{-1} \sum_{v \in \Simp(\Cat{C})} N^v_{zw} \theta_v\dim (v) &&\because\; \text{命題\ref{prop:S-matrix}-(1)}\\
-            % &= \sum_{w \in \Simp(\Cat{C})} N^w_{xy} \theta_w^{-1} \sum_{v \in \Simp(\Cat{C})} \theta_v\dim (v) \sum_{z \in \Simp(\Cat{C})} N^z_{vw^*} \dim(z) \\
-            % &= \sum_{w \in \Simp(\Cat{C})} N^w_{xy} \theta_w^{-1} \sum_{v \in \Simp(\Cat{C})} \theta_v\dim (v) \dim (v \otimes w^*) \\
-            % &= \sum_{w \in \Simp(\Cat{C})} N^w_{xy} \theta_w^{-1}\dim(w) \sum_{v \in \Simp(\Cat{C})} \theta_v\dim (v)^2 \\
-            % &= 
-            % \sum_{v \in \Simp(\Cat{C})} \theta_v \dim (v)\sum_{w \in \Simp(\Cat{C})} N^w_{xy} \theta_w^{-1} \sum_{c \in \Simp(\Cat{C})} N^c_{vw} \dim (c) \\
-            % &= \sum_{v \in \Simp(\Cat{C})} \theta_v \dim (v)^2 \sum_{w \in \Simp(\Cat{C})} N^w_{xy} \theta_v^{-1}\theta_w^{-1} \sum_{c \in \Simp(\Cat{C})} N^c_{vw} \dim (c)
-        \end{align}
-        ところで，
-        \begin{align}
-            &\tau^+(\Cat{C}) \sum_{z \in \Simp(\Cat{C})} \theta^{-1}_z \dim (z) S_{z^*w} \\
-            &= \sum_{x \in \Simp(\Cat{C})} \theta_x \dim (x) \sum_{z \in \Simp(\Cat{C})} S_{z^* w}\theta^{-1}_z \dim (x^* \otimes z) \\
-            &= \sum_{z \in \Simp(\Cat{C})} S_{z^* w}\theta^{-1}_z \sum_{x \in \Simp(\Cat{C})} \theta_x \dim (x) \sum_{y \in \Simp(\Cat{C})} N^y_{x^*z} \dim (y) \\
-            &= \sum_{z \in \Simp(\Cat{C})} S_{z^* w} \sum_{y \in \Simp(\Cat{C})} \theta_y\dim (y) \left( \theta^{-1}_z \theta^{-1}_y\sum_{x \in \Simp(\Cat{C})} N^x_{zy} \theta_x \dim (x)\right) \\
-            &= \sum_{z \in \Simp(\Cat{C})} S_{z^* w} \sum_{y \in \Simp(\Cat{C})} \theta_y\dim (y) S_{zy} \\
-            &= \sum_{y \in \Simp(\Cat{C})} \theta_y\dim (y) \sum_{z \in \Simp(\Cat{C})} S_{yz} S_{z w^*} \\
-            &= \dim(\Cat{C}) \theta_w\dim (w) &&\because\; \text{(3)} \\
-            &= \tau^+(\Cat{C}) \tau^- (\Cat{C}) \theta_w\dim (w) &&\because\; \text{(5)}
-        \end{align}
-        であるから
-        \begin{align}
-            \label{eq:tau-}
-            \sum_{z \in \Simp(\Cat{C})} \theta^{-1}_z \dim (z) S_{zw} = \theta_w\dim (w) \tau^- (\Cat{C})
-        \end{align}
-        が分かる．故に
-        \begin{align}
-            \bigl[\, STS \,\bigr]_{xy}
-            &= \tau^- (\Cat{C}) \sum_{w \i \Simp(\Cat{C})} N^w_{xy} \theta_w\dim (w) \\
-            &= \tau^- (\Cat{C}) \theta_x \theta_y S_{xy} &&\because\; \text{命題\ref{prop:S-matrix}-(1)} \\
-            &= \tau^- (\Cat{C}) \bigl[ \, T^{-1}ST^{-1} \bigr]_{xy}
-        \end{align}
-        と計算できた．ここから $(ST)^3 = ST (STST) = ST \bigl(\tau^- (\Cat{C}) T^{-1} S \bigr) = \tau^-(\Cat{C}) S^2$ として所望の式を得る．
-    \end{enumerate}
-\end{proof}
+% なお，$2+1$ 次元のトポロジカル欠陥 $\mathsf{C}_2$ が\hyperref[def:anomalousQP]{アノマリー}を持たないことと，$\mathsf{C}_2$ の低エネルギー有効理論であるTQFTがアノマリーを持たないことは等価\underline{ではない}．
+% 両者の間には\textbf{フレーミングアノマリー} (framing anomaly) の分だけ差異がある~\cite{turaev2010quantum}．
 
 
-\section{Levin-Wen模型}
+MTCのよく使う性質を命題\ref{preprop:MTC}にまとめた．
+
+
+
+
+% \section{Levin-Wen模型}
 
 
 \end{document}
