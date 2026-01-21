@@ -3017,6 +3017,834 @@ i.e. $(\infty,\, 1)$-圏の関手 $\mathrm{ev}_{\bm{0}}$ は $\Sing^{\text{sm}} 
     が成り立つことを言う．
 \end{mydef}
 
+\section{隅付き層状化空間}
+
+$I$ を有限集合とし，$2^I$ を $I$ の部分集合全体が成す集合とする．$2^I$ は，
+\begin{align}
+    S \le T \DEF S \supset T
+\end{align}
+により半順序集合になる．$\forall S \in 2^I$ に対して，集合の包含 $2^S \subset 2^I$ がある．
+さらに，全単射
+\begin{align}
+    (2^I)_{\ge S} &\lto 2^{I \setminus S}, \\
+    T &\lmto T \setminus S
+\end{align}
+がある．以降ではこの全単射によって $(2^{I})_{\ge S}$ と $2^{I \setminus S}$ を同一視する．
+
+また，有限集合 $I$ を添字集合に持つ $X$ の直積を $X^I$ のように書く\footnote{$x \in X^I$ とは，写像 $x \colon I \lto X$ のことである．$x$ による $i \in I$ の行き先を $x_i \coloneqq x(i) \in X$ と書くことが多い．}
+
+\begin{myexample}[label=ex:corner]{}
+    $I$ を有限集合とし，勝手な $T \in 2^{I}$ を1つ固定する．
+    このとき，位相空間 $\mathbb{R}^{I \setminus T} \times \mathbb{R}_{\ge 0}^{T}$ は，連続写像
+    \begin{align}
+        \label{eq:strat-cube}
+        c_T \colon \mathbb{R}^{I \setminus T} \times \mathbb{R}_{\ge 0}^{T} &\lto 2^{T}, \\
+        (x,\, y) &\lmto y^{-1} \bigl( \{0\} \bigr) 
+    \end{align}
+    によってconically smoothな層状化空間になる．
+    
+    　例えば $I = \{1,\, 2\},\; T = \{1,\, 2\}$ のとき，この層状化空間は
+    \begin{align}
+        \mathbb{R}^{\emptyset} \times \mathbb{R}_{\ge 0}^{\{1,\, 2\}} 
+        &= \quad
+        \begin{tikzpicture}[
+            baseline={([yshift=-.5ex]current bounding box.center)},
+            Axis/.style={
+                gray,very thin,->
+            },
+            bulk/.style={
+                gray!20,opacity=.6
+            },
+            bdy/.style={
+                very thick
+            }
+        ]
+            \pgfmathsetmacro{\dx}{2}
+            \pgfmathsetmacro{\dy}{2}
+            \pgfmathsetmacro{\Mergin}{.6}
+            \path coordinate (O)
+            ;
+            %%% coordinate axis
+            \draw[Axis] ($(O)+(180:.2)$) -- +(0:\dx + \Mergin) node[right] {$x_1$};
+            \draw[Axis] ($(O)+(-90:.2)$) -- +(90:\dy + \Mergin) node[above] {$x_2$};
+            %%% bulk
+            \fill[bulk] (O) rectangle +(\dx,\dy);
+            %%% bdy
+            \draw[bdy] (O) -- +(0:\dx);
+            \draw[bdy] (O) -- +(90:\dy);
+            \draw[bdy,dotted] ($(O) + (0:\dx)$) -- +(0:.35);
+            \draw[bdy,dotted] ($(O) + (90:\dy)$) -- +(90:.35);
+            %%% corner
+            \node[bullet] at (O) {};
+            %%% labels
+            \node[gray] at ($(O) + (0:\dx + .7*\Mergin) + (90:.5*\dy)$) {$\cdots$};
+            \node[gray] at ($(O) + (0:.5*\dx) + (90:\dy + .7*\Mergin )$) {$\vdots$};
+        \end{tikzpicture}
+    \end{align}
+    のように図示できる．ただし，\eqref{eq:strat-cube}によるstrataを全て書き出すと
+    \begin{align}
+        c_T^{-1} (\emptyset) 
+        &= \quad
+        \begin{tikzpicture}[
+            baseline={([yshift=-.5ex]current bounding box.center)},
+            Axis/.style={
+                gray,very thin,->
+            },
+            bulk/.style={
+                gray!20,opacity=.6
+            },
+            bdy/.style={
+                gray,dashed
+            }
+        ]
+            \pgfmathsetmacro{\dx}{2}
+            \pgfmathsetmacro{\dy}{2}
+            \pgfmathsetmacro{\Mergin}{.6}
+            \path coordinate (O)
+            ;
+            %%% coordinate axis
+            % \draw[Axis] ($(O)+(180:.2)$) -- +(0:\dx + \Mergin) node[right] {$x_1$};
+            % \draw[Axis] ($(O)+(-90:.2)$) -- +(90:\dy + \Mergin) node[above] {$x_2$};
+            %%% bulk
+            \fill[bulk] (O) rectangle +(\dx,\dy);
+            %%% bdy
+            \draw[bdy] (O) -- +(0:\dx);
+            \draw[bdy] (O) -- +(90:\dy);
+            %%% corner
+            % \node[bullet] at (O) {};
+            %%% labels
+            % \node[gray] at ($(O) + (0:\dx + .7*\Mergin) + (90:.5*\dy)$) {$\cdots$};
+            % \node[gray] at ($(O) + (0:.5*\dx) + (90:\dy + .7*\Mergin )$) {$\vdots$};
+        \end{tikzpicture}
+        \approx \mathbb{R}^2,\\
+        c_T^{-1} \bigl( \{1\} \bigr)
+        &= \quad
+        \begin{tikzpicture}[
+            baseline={([yshift=-.5ex]current bounding box.center)},
+            Axis/.style={
+                gray,very thin,->
+            },
+            bulk/.style={
+                gray!20,opacity=.6
+            },
+            bdy/.style={
+                very thick
+            }
+        ]
+            \pgfmathsetmacro{\dx}{2}
+            \pgfmathsetmacro{\dy}{2}
+            \pgfmathsetmacro{\Mergin}{.6}
+            \path coordinate (O)
+            ;
+            %%% coordinate axis
+            % \draw[Axis] ($(O)+(180:.2)$) -- +(0:\dx + \Mergin) node[right] {$x_1$};
+            % \draw[Axis] ($(O)+(-90:.2)$) -- +(90:\dy + \Mergin) node[above] {$x_2$};
+            %%% bulk
+            % \fill[bulk] (O) rectangle +(\dx,\dy);
+            %%% bdy
+            % \draw[bdy] (O) -- +(0:\dx);
+            \draw[bdy] (O) -- +(90:\dy);
+            % \draw[bdy,dotted] ($(O) + (0:\dx)$) -- +(0:.35);
+            \draw[bdy,dotted] ($(O) + (90:\dy)$) -- +(90:.35);
+            %%% corner
+            \fill[white] (O) circle (2pt);
+            \draw[densely dotted] (O) circle (2pt);
+            %%% labels
+            % \node[gray] at ($(O) + (0:\dx + .7*\Mergin) + (90:.5*\dy)$) {$\cdots$};
+            % \node[gray] at ($(O) + (0:.5*\dx) + (90:\dy + .7*\Mergin )$) {$\vdots$};
+        \end{tikzpicture}
+        \quad \approx \mathbb{R},
+        \\
+        c_T^{-1} \bigl( \{2\} \bigr)
+        &= \quad
+        \begin{tikzpicture}[
+            baseline={([yshift=-.5ex]current bounding box.center)},
+            Axis/.style={
+                gray,very thin,->
+            },
+            bulk/.style={
+                gray!20,opacity=.6
+            },
+            bdy/.style={
+                very thick
+            }
+        ]
+            \pgfmathsetmacro{\dx}{2}
+            \pgfmathsetmacro{\dy}{2}
+            \pgfmathsetmacro{\Mergin}{.6}
+            \path coordinate (O)
+            ;
+            %%% coordinate axis
+            % \draw[Axis] ($(O)+(180:.2)$) -- +(0:\dx + \Mergin) node[right] {$x_1$};
+            % \draw[Axis] ($(O)+(-90:.2)$) -- +(90:\dy + \Mergin) node[above] {$x_2$};
+            %%% bulk
+            % \fill[bulk] (O) rectangle +(\dx,\dy);
+            %%% bdy
+            \draw[bdy] (O) -- +(0:\dx);
+            % \draw[bdy] (O) -- +(90:\dy);
+            \draw[bdy,dotted] ($(O) + (0:\dx)$) -- +(0:.35);
+            % \draw[bdy,dotted] ($(O) + (90:\dy)$) -- +(90:.35);
+            %%% corner
+            \fill[white] (O) circle (2pt);
+            \draw[densely dotted] (O) circle (2pt);
+            %%% labels
+            % \node[gray] at ($(O) + (0:\dx + .7*\Mergin) + (90:.5*\dy)$) {$\cdots$};
+            % \node[gray] at ($(O) + (0:.5*\dx) + (90:\dy + .7*\Mergin )$) {$\vdots$};
+        \end{tikzpicture}
+        \quad \approx \mathbb{R},\\
+        c_T^{-1} \bigl( \{1,\, 2\} \bigr)
+        &= \quad
+        \begin{tikzpicture}[
+            baseline={([yshift=-.5ex]current bounding box.center)},
+            Axis/.style={
+                gray,very thin,->
+            },
+            bulk/.style={
+                gray!20,opacity=.6
+            },
+            bdy/.style={
+                very thick
+            }
+        ]
+            \pgfmathsetmacro{\dx}{2}
+            \pgfmathsetmacro{\dy}{2}
+            \pgfmathsetmacro{\Mergin}{.6}
+            \path coordinate (O)
+            ;
+            %%% coordinate axis
+            % \draw[Axis] ($(O)+(180:.2)$) -- +(0:\dx + \Mergin) node[right] {$x_1$};
+            % \draw[Axis] ($(O)+(-90:.2)$) -- +(90:\dy + \Mergin) node[above] {$x_2$};
+            %%% bulk
+            % \fill[bulk] (O) rectangle +(\dx,\dy);
+            %%% bdy
+            % \draw[bdy] (O) -- +(0:\dx);
+            % \draw[bdy] (O) -- +(90:\dy);
+            % \draw[bdy,dotted] ($(O) + (0:\dx)$) -- +(0:.35);
+            % \draw[bdy,dotted] ($(O) + (90:\dy)$) -- +(90:.35);
+            %%% corner
+            \node[bullet] at (O) {};
+            %%% labels
+            % \node[gray] at ($(O) + (0:\dx + .7*\Mergin) + (90:.5*\dy)$) {$\cdots$};
+            % \node[gray] at ($(O) + (0:.5*\dx) + (90:\dy + .7*\Mergin )$) {$\vdots$};
+        \end{tikzpicture}
+    \end{align}
+    のようになっている．
+
+    他にも，$I = \{1,\, 2\},\; T = \{1\}$ のときは
+    \begin{align}
+        \mathbb{R}^{\{2\}} \times \mathbb{R}_{\ge 0}^{\{1\}}
+        &=\quad
+        \begin{tikzpicture}[
+            baseline={([yshift=-.5ex]current bounding box.center)},
+            Axis/.style={
+                gray,very thin,->
+            },
+            bulk/.style={
+                gray!20,opacity=.6
+            },
+            bdy/.style={
+                very thick
+            }
+        ]
+            \pgfmathsetmacro{\dx}{2}
+            \pgfmathsetmacro{\dy}{3}
+            \pgfmathsetmacro{\Mergin}{.6}
+            \path coordinate (O)
+            ;
+            %%% coordinate axis
+            \draw[Axis] ($(O)+(180:.2)$) -- +(0:\dx + \Mergin) node[right] {$x_1$};
+            \draw[Axis] ($(O)+(-90:.5*\dy + .5)$) -- +(90:\dy + 1) node[above] {$x_2$};
+            %%% bulk
+            \fill[bulk] ($(O)+(-90:.5*\dy)$) rectangle +(\dx,\dy);
+            %%% bdy
+            \draw[bdy] ($(O)+(-90:.5*\dy)$) -- +(90:\dy);
+            % \draw[bdy] (O) -- +(90:\dy);
+            \draw[bdy,dotted] ($(O) + (-90:.5*\dy)$) -- +(-90:.35);
+            \draw[bdy,dotted] ($(O) + (90:.5*\dy)$) -- +(90:.35);
+            %%% corner
+            % \node[bullet] at (O) {};
+            %%% labels
+            % \node[gray] at ($(O) + (0:\dx + .7*\Mergin) + (90:.5*\dy)$) {$\cdots$};
+            % \node[gray] at ($(O) + (0:.5*\dx) + (90:.5*\dy + .7*\Mergin )$) {$\vdots$};
+            % \node[gray] at ($(O) + (0:.5*\dx) + (-90:.5*\dy + .7*\Mergin )$) {$\vdots$};
+        \end{tikzpicture}
+        \\
+        c_T^{-1} (\emptyset) 
+        &=\quad
+        \begin{tikzpicture}[
+            baseline={([yshift=-.5ex]current bounding box.center)},
+            Axis/.style={
+                gray,very thin,->
+            },
+            bulk/.style={
+                gray!20,opacity=.6
+            },
+            bdy/.style={
+                gray,dashed
+            }
+        ]
+            \pgfmathsetmacro{\dx}{2}
+            \pgfmathsetmacro{\dy}{3}
+            \pgfmathsetmacro{\Mergin}{.6}
+            \path coordinate (O)
+            ;
+            %%% coordinate axis
+            % \draw[Axis] ($(O)+(180:.2)$) -- +(0:\dx + \Mergin) node[right] {$x_1$};
+            % \draw[Axis] ($(O)+(-90:.5*\dy + .5)$) -- +(90:\dy + 1) node[above] {$x_2$};
+            %%% bulk
+            \fill[bulk] ($(O)+(-90:.5*\dy)$) rectangle +(\dx,\dy);
+            %%% bdy
+            \draw[bdy] ($(O)+(-90:.5*\dy)$) -- +(90:\dy);
+            % \draw[bdy] (O) -- +(90:\dy);
+            % \draw[bdy,dotted] ($(O) + (-90:.5*\dy)$) -- +(-90:.35);
+            % \draw[bdy,dotted] ($(O) + (90:.5*\dy)$) -- +(90:.35);
+            %%% corner
+            % \node[bullet] at (O) {};
+            %%% labels
+            % \node[gray] at ($(O) + (0:\dx + .7*\Mergin) + (90:.5*\dy)$) {$\cdots$};
+            % \node[gray] at ($(O) + (0:.5*\dx) + (90:.5*\dy + .7*\Mergin )$) {$\vdots$};
+            % \node[gray] at ($(O) + (0:.5*\dx) + (-90:.5*\dy + .7*\Mergin )$) {$\vdots$};
+        \end{tikzpicture}
+        \\
+        c_T^{-1} \bigl( \{1\} \bigr) 
+        &=\quad        
+        \begin{tikzpicture}[
+            baseline={([yshift=-.5ex]current bounding box.center)},
+            Axis/.style={
+                gray,very thin,->
+            },
+            bulk/.style={
+                gray!20,opacity=.6
+            },
+            bdy/.style={
+                very thick
+            }
+        ]
+            \pgfmathsetmacro{\dx}{2}
+            \pgfmathsetmacro{\dy}{3}
+            \pgfmathsetmacro{\Mergin}{.6}
+            \path coordinate (O)
+            ;
+            %%% coordinate axis
+            % \draw[Axis] ($(O)+(180:.2)$) -- +(0:\dx + \Mergin) node[right] {$x_1$};
+            % \draw[Axis] ($(O)+(-90:.5*\dy + .5)$) -- +(90:\dy + 1) node[above] {$x_2$};
+            %%% bulk
+            % \fill[bulk] ($(O)+(-90:.5*\dy)$) rectangle +(\dx,\dy);
+            %%% bdy
+            \draw[bdy] ($(O)+(-90:.5*\dy)$) -- +(90:\dy);
+            % \draw[bdy] (O) -- +(90:\dy);
+            \draw[bdy,dotted] ($(O) + (-90:.5*\dy)$) -- +(-90:.35);
+            \draw[bdy,dotted] ($(O) + (90:.5*\dy)$) -- +(90:.35);
+            %%% corner
+            % \node[bullet] at (O) {};
+            %%% labels
+            % \node[gray] at ($(O) + (0:\dx + .7*\Mergin) + (90:.5*\dy)$) {$\cdots$};
+            % \node[gray] at ($(O) + (0:.5*\dx) + (90:.5*\dy + .7*\Mergin )$) {$\vdots$};
+            % \node[gray] at ($(O) + (0:.5*\dx) + (-90:.5*\dy + .7*\Mergin )$) {$\vdots$};
+        \end{tikzpicture}
+    \end{align}
+    である．
+\end{myexample}
+
+\begin{mydef}[label=def:TcoCart]{Topologically coCartesian}
+    $I$ を有限集合，$(X \xrightarrow{s} P)$ を\hyperref[def:Snglr]{conically smoothな層状化空間}とする．
+    
+    連続写像 $X \xrightarrow{c} 2^I$ が\textbf{位相的にcoCartesian} (topologically coCartesian) であるとは，以下の条件を充たすことを言う：
+    \begin{description}
+        \item[\textbf{(TcoCart-1)}]　
+        
+        ある順序を保つ写像 $P \xrightarrow{\textcolor{red}{\bar{c}}} 2^I$ が存在して $(1,\, 1)$-圏 $\TOP$ における以下の図式を可換にする：
+        \begin{center}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAA0QBfU9TXfIRRkAjFVqMWbAArdeIDNjwEiI8uPrNWiEACYAegElu4mFADm8IqABmAJwgBbJGRA4ISXdU1SdAYzlbB2dEV3ckNQktNgRqBjoAIxgGaX5lIRA7LHMACxwQOKwwbRA4CAYsKECQeycI6nDELxAK4rYoOjgcswKWxOTUpUE2LNz870kSgB0phLo7YD8uEy4gA
+            \begin{tikzcd}
+            X \arrow[r, "c"] \arrow[d, "s"'] & 2^I \\
+            P \arrow[ru, red,"\bar{c}"', dashed] &    
+            \end{tikzcd}
+        \end{center}
+        
+        \item[\textbf{(TcoCart-2)}]　
+        
+        $\forall T \in 2^I$ に対して，$c$ によるstrata $X_T \coloneqq c^{-1} \bigl(\{T\}\bigr)$ の埋め込み $X_T \hookrightarrow X$ が，\hyperref[def:c-smooth]{conically smooth}な\hyperref[def:strat-emb]{層状化開埋め込み}
+        \begin{align}
+            \mathbb{R}_{\ge 0}^{T} \times X_T \hookrightarrow X
+        \end{align}
+        に拡張する．
+    \end{description}
+\end{mydef}
+
+\hyperref[def:topcoCart]{位相的にcoCartesianな射}は，層状化空間の隅を指定する．
+特に，条件 \textsf{\textbf{(TcoCart-2)}} は，直観的には隅の開近傍を埋める働きをする．
+
+\begin{myexample}[label=ex:TcoCart]{}
+    \exref{ex:corner}で定義した連続写像 $\mathbb{R}^{I \setminus T} \times \mathbb{R}_{\ge 0}^{T} \xrightarrow{c_T} 2^T$ は，有限集合 $T$ について\hyperref[def:TcoCart]{位相的にcoCartesian}である．
+    
+    条件 \textsf{\textbf{(TcoCart-2)}} を確認しよう．
+    $0 \le m \le n$ とし，$I = \{1,\, \dots,\, n\},\; T = \{1,\, \dots,\, m\} \subset I$ とおいても一般性を失わない．
+    勝手な $S = \{i_1 < \dots < i_k\} \in 2^T$ を1つ固定する．
+    このとき
+    \begin{align}
+        c_T^{-1} \bigl( \{S\} \bigr) 
+        &= 
+        \bigl\{\, (x,\, y) \in \mathbb{R}^{I \setminus T} \times \mathbb{R}_{\ge 0}^{T} \bigm| y|_S = \{0\} \,\bigr\} \\
+        &= 
+        \bigl\{\, (x_{m+1},\, \dots,\, x_{n};\, y_1,\, \dots,\, y_m) \in \mathbb{R}^{I \setminus T} \times \mathbb{R}_{\ge 0}^{T} \bigm| y_{i_1} = \cdots = y_{i_k} = 0 \,\bigr\} \\
+        &\approx
+        \mathbb{R}^{I \setminus T} \times \mathbb{R}_{\ge 0}^{T \setminus S}
+    \end{align}
+    であるから，埋め込み
+    \begin{align}
+        c_T^{-1} \bigl( \{S\} \bigr) &\hookrightarrow \mathbb{R}^{I \setminus T} \times \mathbb{R}_{\ge 0}^{T} \\
+        (x,\, y) &\hookrightarrow (x,\, y)
+    \end{align}
+    は層状化開埋め込み
+    \begin{align}
+        c_T^{-1} \bigl( \{S\} \bigr) \times \mathbb{R}_{\ge 0}^S \approx \mathbb{R}^{I \setminus T} \times \mathbb{R}_{\ge 0}^{T \setminus S} \times \mathbb{R}_{\ge 0}^S
+        &\hookrightarrow \mathbb{R}^{I \setminus T} \times \mathbb{R}_{\ge 0}^{T}, \\
+        (x,\, y,\, z) &\lmto \Bigl(x,\, \bigl(i \mapsto \hat{y} (i)\bigr) \Bigr) \\
+        \WHERE
+        \hat{y} (i)
+        \coloneqq 
+        \begin{cases}
+            z(i), &i \in S, \\
+            y(i), &i \in T \setminus S
+        \end{cases}
+    \end{align}
+    に拡張する\footnote{$0$ の座標を $z \in \mathbb{R}_{\ge 0}^{S}$ で置き換えたと言うことである．}．
+
+    　例えば $I = \{1,\, 2\},\; T = \{1,\, 2\}$ のとき，$S \in 2^{T}$ として $\emptyset,\, \{1\},\, \{2\},\, \{1,\, 2\}$ が取れる．
+    $S = \emptyset$ について，条件 \textsf{\textbf{(TcoCart-2)}} は，strataの包含
+    \begin{align}
+        \begin{tikzpicture}[
+            baseline={([yshift=-.5ex]current bounding box.center)},
+            Axis/.style={
+                gray,very thin,->
+            },
+            bulk/.style={
+                gray!20,opacity=.6
+            },
+            xbulk/.style={
+                red!20,opacity=.6
+            },
+            bdy/.style={
+                red,dashed
+            }
+        ]
+            \pgfmathsetmacro{\dx}{2}
+            \pgfmathsetmacro{\dy}{2}
+            \pgfmathsetmacro{\Mergin}{.6}
+            \path coordinate (O)
+            ;
+            %%% coordinate axis
+            \draw[Axis] ($(O)+(180:.2)$) -- +(0:\dx + \Mergin) node[right] {$x_1$};
+            \draw[Axis] ($(O)+(-90:.2)$) -- +(90:\dy + \Mergin) node[above] {$x_2$};
+            %%% bulk
+            \fill[xbulk] ($(O)+(.2pt,.2pt)$) rectangle +(\dx,\dy);
+            %%% bdy
+            \draw[bdy] ($(O)+(90:.2pt)$) -- +(0:\dx);
+            \draw[bdy] ($(O)+(0:.2pt)$) -- +(90:\dy);
+            %%% corner
+            % \node[bullet] at (O) {};
+            %%% labels
+            % \node[gray] at ($(O) + (0:\dx + .7*\Mergin) + (90:.5*\dy)$) {$\cdots$};
+            % \node[gray] at ($(O) + (0:.5*\dx) + (90:\dy + .7*\Mergin )$) {$\vdots$};
+        \end{tikzpicture}
+        % = \mathbb{R}_{> 0}^2
+        \hookrightarrow
+        \begin{tikzpicture}[
+            baseline={([yshift=-.5ex]current bounding box.center)},
+            Axis/.style={
+                gray,very thin,->
+            },
+            bulk/.style={
+                gray!20,opacity=.6
+            },
+            xbulk/.style={
+                red!20,opacity=.6
+            },
+            bdy/.style={
+                very thick
+            },
+            xbdy/.style={
+                red,dashed
+            }
+        ]
+            \pgfmathsetmacro{\dx}{2}
+            \pgfmathsetmacro{\dy}{2}
+            \pgfmathsetmacro{\Mergin}{.6}
+            \path coordinate (O)
+            ;
+            %%% coordinate axis
+            \draw[Axis] ($(O)+(180:.2)$) -- +(0:\dx + \Mergin) node[right] {$x_1$};
+            \draw[Axis] ($(O)+(-90:.2)$) -- +(90:\dy + \Mergin) node[above] {$x_2$};
+            %%% bulk
+            \fill[bulk] ($(O)+(.6pt,.6pt)$) rectangle +(\dx,\dy);
+            \fill[xbulk] ($(O)+(.6pt,.6pt)$) rectangle +(\dx,\dy);
+            %%% bdy
+            \draw[xbdy] ($(O)+(90:.6pt)$) -- +(0:\dx);
+            \draw[xbdy] ($(O)+(0:.6pt)$) -- +(90:\dy);
+            \draw[bdy] (O) -- +(0:\dx);
+            \draw[bdy] (O) -- +(90:\dy);
+            \draw[bdy,dotted] ($(O) + (0:\dx)$) -- +(0:.35);
+            \draw[bdy,dotted] ($(O) + (90:\dy)$) -- +(90:.35);
+            %%% corner
+            \node[bullet] at (O) {};
+            %%% labels
+            % \node[gray] at ($(O) + (0:\dx + .7*\Mergin) + (90:.5*\dy)$) {$\cdots$};
+            % \node[gray] at ($(O) + (0:.5*\dx) + (90:\dy + .7*\Mergin )$) {$\vdots$};
+        \end{tikzpicture}
+    \end{align}
+    がconically smoothな層状化開埋め込みであることを主張する．
+    $S = \{1\}$ については，条件 \textsf{\textbf{(TcoCart-2)}} は，strataの包含
+    \begin{align}
+        \begin{tikzpicture}[
+            baseline={([yshift=-.5ex]current bounding box.center)},
+            Axis/.style={
+                gray,very thin,->
+            },
+            bulk/.style={
+                gray!20,opacity=.6
+            },
+            xbdy/.style={
+                red,very thick
+            }
+        ]
+            \pgfmathsetmacro{\dx}{2}
+            \pgfmathsetmacro{\dy}{2}
+            \pgfmathsetmacro{\Mergin}{.6}
+            \path coordinate (O)
+            ;
+            %%% coordinate axis
+            \draw[Axis] ($(O)+(180:.2)$) -- +(0:\dx + \Mergin) node[right] {$x_1$};
+            \draw[Axis] ($(O)+(-90:.2)$) -- +(90:\dy + \Mergin) node[above] {$x_2$};
+            %%% bulk
+            % \fill[bulk] (O) rectangle +(\dx,\dy);
+            %%% bdy
+            % \draw[bdy] (O) -- +(0:\dx);
+            \draw[xbdy] (O) -- +(90:\dy);
+            % \draw[bdy,dotted] ($(O) + (0:\dx)$) -- +(0:.35);
+            \draw[xbdy,dotted] ($(O) + (90:\dy)$) -- +(90:.35);
+            %%% corner
+            \fill[white] (O) circle (2pt);
+            \draw[densely dotted] (O) circle (2pt);
+            %%% labels
+            % \node[gray] at ($(O) + (0:\dx + .7*\Mergin) + (90:.5*\dy)$) {$\cdots$};
+            % \node[gray] at ($(O) + (0:.5*\dx) + (90:\dy + .7*\Mergin )$) {$\vdots$};
+        \end{tikzpicture}
+        % = \mathbb{R}_{> 0} \times \{0\} 
+        \hookrightarrow
+        \begin{tikzpicture}[
+            baseline={([yshift=-.5ex]current bounding box.center)},
+            Axis/.style={
+                gray,very thin,->
+            },
+            bulk/.style={
+                gray!20,opacity=.6
+            },
+            bdy/.style={
+                very thick
+            },
+            xbdy/.style={
+                red,very thick
+            }
+        ]
+            \pgfmathsetmacro{\dx}{2}
+            \pgfmathsetmacro{\dy}{2}
+            \pgfmathsetmacro{\Mergin}{.6}
+            \path coordinate (O)
+            ;
+            %%% coordinate axis
+            \draw[Axis] ($(O)+(180:.2)$) -- +(0:\dx + \Mergin) node[right] {$x_1$};
+            \draw[Axis] ($(O)+(-90:.2)$) -- +(90:\dy + \Mergin) node[above] {$x_2$};
+            %%% bulk
+            \fill[bulk] ($(O)$) rectangle +(\dx,\dy);
+            %%% bdy
+            \draw[xbdy] (O) -- +(90:\dy);
+            \draw[white,very thick] ($(O)+(60:2.7pt)$) arc (60:120:2.7pt);
+            \draw[bdy] (O) -- +(0:\dx);
+            \draw[bdy,dotted] ($(O) + (0:\dx)$) -- +(0:.35);
+            \draw[xbdy,dotted] ($(O) + (90:\dy)$) -- +(90:.35);
+            %%% corner
+            \node[bullet] at (O) {};
+            %%% labels
+            % \node[gray] at ($(O) + (0:\dx + .7*\Mergin) + (90:.5*\dy)$) {$\cdots$};
+            % \node[gray] at ($(O) + (0:.5*\dx) + (90:\dy + .7*\Mergin )$) {$\vdots$};
+        \end{tikzpicture}
+    \end{align}
+    がconically smoothな層状化開埋め込み
+    \begin{align}
+        \begin{tikzpicture}[
+            baseline={([yshift=-.5ex]current bounding box.center)},
+            Axis/.style={
+                gray,very thin,->
+            },
+            bulk/.style={
+                gray!20,opacity=.6
+            },
+            xbulk/.style={
+                red!20,opacity=.6
+            },
+            xbdy/.style={
+                red,very thick
+            }
+        ]
+            \pgfmathsetmacro{\dx}{2}
+            \pgfmathsetmacro{\dy}{2}
+            \pgfmathsetmacro{\Mergin}{.6}
+            \path coordinate (O)
+            ;
+            %%% coordinate axis
+            \draw[Axis] ($(O)+(180:.2)$) -- +(0:\dx + \Mergin) node[right] {$x_1$};
+            \draw[Axis] ($(O)+(-90:.2)$) -- +(90:\dy + \Mergin) node[above] {$x_2$};
+            %%% bulk
+            \fill[xbulk] ($(O)+(90:.2pt)$) rectangle +(\dx,\dy);
+            %%%%% openness
+            \draw[red,dashed] ($(O)+(90:.2pt)$) -- +(0:\dx);
+            %%% bdy
+            % \draw[bdy] (O) -- +(0:\dx);
+            \draw[xbdy] (O) -- +(90:\dy);
+            % \draw[bdy,dotted] ($(O) + (0:\dx)$) -- +(0:.35);
+            \draw[xbdy,dotted] ($(O) + (90:\dy)$) -- +(90:.35);
+            %%% corner
+            \fill[white] (O) circle (2pt);
+            \draw[densely dotted] (O) circle (2pt);
+            %%% labels
+            % \node[gray] at ($(O) + (0:\dx + .7*\Mergin) + (90:.5*\dy)$) {$\cdots$};
+            % \node[gray] at ($(O) + (0:.5*\dx) + (90:\dy + .7*\Mergin )$) {$\vdots$};
+        \end{tikzpicture}
+        \hookrightarrow
+        \begin{tikzpicture}[
+            baseline={([yshift=-.5ex]current bounding box.center)},
+            Axis/.style={
+                gray,very thin,->
+            },
+            bulk/.style={
+                gray!20,opacity=.6
+            },
+            xbulk/.style={
+                red!20,opacity=.6
+            },
+            bdy/.style={
+                very thick
+            },
+            xbdy/.style={
+                red,very thick
+            }
+        ]
+            \pgfmathsetmacro{\dx}{2}
+            \pgfmathsetmacro{\dy}{2}
+            \pgfmathsetmacro{\Mergin}{.6}
+            \path coordinate (O)
+            ;
+            %%% coordinate axis
+            \draw[Axis] ($(O)+(180:.2)$) -- +(0:\dx + \Mergin) node[right] {$x_1$};
+            \draw[Axis] ($(O)+(-90:.2)$) -- +(90:\dy + \Mergin) node[above] {$x_2$};
+            %%% bulk
+            \fill[bulk] ($(O)$) rectangle +(\dx,\dy);
+            \fill[xbulk] ($(O)+(0,.6pt)$) rectangle +(.5*\dx,\dy);
+            %%%%% openness
+            \draw[red,dashed] ($(O)+(90:.6pt)$) -- ++(0:.5*\dx) -- ++(90:\dy);
+            %%% bdy
+            \draw[xbdy] (O) -- +(90:\dy);
+            \draw[white,very thick] ($(O)+(10:2.7pt)$) arc (10:120:2.7pt);
+            \draw[bdy] (O) -- +(0:\dx);
+            \draw[bdy,dotted] ($(O) + (0:\dx)$) -- +(0:.35);
+            \draw[xbdy,dotted] ($(O) + (90:\dy)$) -- +(90:.35);
+            %%% corner
+            \node[bullet] at (O) {};
+            % \node[gray] at ($(O) + (0:\dx + .7*\Mergin) + (90:.5*\dy)$) {$\cdots$};
+            % \node[gray] at ($(O) + (0:.5*\dx) + (90:\dy + .7*\Mergin )$) {$\vdots$};
+        \end{tikzpicture}
+    \end{align}
+    に拡張することを主張する．ただし今回の場合，strataの埋め込みの拡張は $x_1$ 方向に無限に伸びても良いが，埋め込みであることをわかりやすくするために敢えて中途半端なところで区切った．
+    $S = \{2\}$ の場合も同様の絵が描ける．
+    $S = \{1,\, 2\}$ の場合，条件 \textsf{\textbf{(TcoCart-2)}} は，strataの包含
+    \begin{align}
+        \begin{tikzpicture}[
+            baseline={([yshift=-.5ex]current bounding box.center)},
+            Axis/.style={
+                gray,very thin,->
+            },
+            bulk/.style={
+                gray!20,opacity=.6
+            },
+            xbulk/.style={
+                red!20,opacity=.6
+            },
+            bdy/.style={
+                very thick
+            },
+            xbdy/.style={
+                red,dashed
+            }
+        ]
+            \pgfmathsetmacro{\dx}{2}
+            \pgfmathsetmacro{\dy}{2}
+            \pgfmathsetmacro{\Mergin}{.6}
+            \path coordinate (O)
+            ;
+            %%% coordinate axis
+            \draw[Axis] ($(O)+(180:.2)$) -- +(0:\dx + \Mergin) node[right] {$x_1$};
+            \draw[Axis] ($(O)+(-90:.2)$) -- +(90:\dy + \Mergin) node[above] {$x_2$};
+            %%% bulk
+            % \fill[bulk] ($(O)+(.6pt,.6pt)$) rectangle +(\dx,\dy);
+            % \fill[xbulk] ($(O)+(.6pt,.6pt)$) rectangle +(\dx,\dy);
+            %%% bdy
+            % \draw[xbdy] ($(O)+(90:.6pt)$) -- +(0:\dx);
+            % \draw[xbdy] ($(O)+(0:.6pt)$) -- +(90:\dy);
+            % \draw[bdy] (O) -- +(0:\dx);
+            % \draw[bdy] (O) -- +(90:\dy);
+            % \draw[bdy,dotted] ($(O) + (0:\dx)$) -- +(0:.35);
+            % \draw[bdy,dotted] ($(O) + (90:\dy)$) -- +(90:.35);
+            %%% corner
+            \node[bullet,red] at (O) {};
+            %%% labels
+            % \node[gray] at ($(O) + (0:\dx + .7*\Mergin) + (90:.5*\dy)$) {$\cdots$};
+            % \node[gray] at ($(O) + (0:.5*\dx) + (90:\dy + .7*\Mergin )$) {$\vdots$};
+        \end{tikzpicture}
+        \hookrightarrow
+        \begin{tikzpicture}[
+            baseline={([yshift=-.5ex]current bounding box.center)},
+            Axis/.style={
+                gray,very thin,->
+            },
+            bulk/.style={
+                gray!20,opacity=.6
+            },
+            xbulk/.style={
+                red!20,opacity=.6
+            },
+            bdy/.style={
+                very thick
+            },
+            xbdy/.style={
+                red,dashed
+            }
+        ]
+            \pgfmathsetmacro{\dx}{2}
+            \pgfmathsetmacro{\dy}{2}
+            \pgfmathsetmacro{\Mergin}{.6}
+            \path coordinate (O)
+            ;
+            %%% coordinate axis
+            \draw[Axis] ($(O)+(180:.2)$) -- +(0:\dx + \Mergin) node[right] {$x_1$};
+            \draw[Axis] ($(O)+(-90:.2)$) -- +(90:\dy + \Mergin) node[above] {$x_2$};
+            %%% bulk
+            \fill[bulk] ($(O)+(.6pt,.6pt)$) rectangle +(\dx,\dy);
+            % \fill[xbulk] ($(O)+(.6pt,.6pt)$) rectangle +(\dx,\dy);
+            %%% bdy
+            % \draw[xbdy] ($(O)+(90:.6pt)$) -- +(0:\dx);
+            % \draw[xbdy] ($(O)+(0:.6pt)$) -- +(90:\dy);
+            \draw[bdy] (O) -- +(0:\dx);
+            \draw[bdy] (O) -- +(90:\dy);
+            \draw[bdy,dotted] ($(O) + (0:\dx)$) -- +(0:.35);
+            \draw[bdy,dotted] ($(O) + (90:\dy)$) -- +(90:.35);
+            %%% corner
+            \node[bullet,red] at (O) {};
+            %%% labels
+            % \node[gray] at ($(O) + (0:\dx + .7*\Mergin) + (90:.5*\dy)$) {$\cdots$};
+            % \node[gray] at ($(O) + (0:.5*\dx) + (90:\dy + .7*\Mergin )$) {$\vdots$};
+        \end{tikzpicture}
+    \end{align}
+    がconically smoothな層状化開埋め込み
+    \begin{align}
+        \begin{tikzpicture}[
+            baseline={([yshift=-.5ex]current bounding box.center)},
+            Axis/.style={
+                gray,very thin,->
+            },
+            bulk/.style={
+                gray!20,opacity=.6
+            },
+            xbulk/.style={
+                red!20,opacity=.6
+            },
+            bdy/.style={
+                very thick
+            },
+            xbdy/.style={
+                red,very thick
+            }
+        ]
+            \pgfmathsetmacro{\dx}{2}
+            \pgfmathsetmacro{\dy}{2}
+            \pgfmathsetmacro{\Mergin}{.6}
+            \path coordinate (O)
+            ;
+            %%% coordinate axis
+            \draw[Axis] ($(O)+(180:.2)$) -- +(0:\dx + \Mergin) node[right] {$x_1$};
+            \draw[Axis] ($(O)+(-90:.2)$) -- +(90:\dy + \Mergin) node[above] {$x_2$};
+            %%% bulk
+            \fill[bulk] ($(O)$) rectangle +(\dx,\dy);
+            \fill[xbulk] ($(O)+(.6pt,.6pt)$) rectangle +(\dx,\dy);
+            %%% bdy
+            \draw[xbdy] (O) -- +(0:\dx);
+            \draw[xbdy] (O) -- +(90:\dy);
+            \draw[xbdy,dotted] ($(O) + (0:\dx)$) -- +(0:.35);
+            \draw[xbdy,dotted] ($(O) + (90:\dy)$) -- +(90:.35);
+            %%% corner
+            \node[bullet,red] at (O) {};
+            %%% labels
+            % \node[gray] at ($(O) + (0:\dx + .7*\Mergin) + (90:.5*\dy)$) {$\cdots$};
+            % \node[gray] at ($(O) + (0:.5*\dx) + (90:\dy + .7*\Mergin )$) {$\vdots$};
+        \end{tikzpicture}
+        \hookrightarrow
+        \begin{tikzpicture}[
+            baseline={([yshift=-.5ex]current bounding box.center)},
+            Axis/.style={
+                gray,very thin,->
+            },
+            bulk/.style={
+                gray!20,opacity=.6
+            },
+            xbulk/.style={
+                red!20,opacity=.6
+            },
+            bdy/.style={
+                very thick
+            },
+            xbdy/.style={
+                red,very thick
+            }
+        ]
+            \pgfmathsetmacro{\dx}{2}
+            \pgfmathsetmacro{\dy}{2}
+            \pgfmathsetmacro{\Mergin}{.6}
+            \path coordinate (O)
+            ;
+            %%% coordinate axis
+            \draw[Axis] ($(O)+(180:.2)$) -- +(0:\dx + \Mergin) node[right] {$x_1$};
+            \draw[Axis] ($(O)+(-90:.2)$) -- +(90:\dy + \Mergin) node[above] {$x_2$};
+            %%% bulk
+            \fill[bulk] ($(O)$) rectangle +(\dx,\dy);
+            \fill[xbulk] ($(O)$) -- +(0:.5*\dx) arc(0:90:.5*\dx) -- (O) --cycle;
+            %%% bdy
+            \draw[bdy] (O) -- +(0:\dx);
+            \draw[bdy] (O) -- +(90:\dy);
+            \draw[bdy,dotted] ($(O) + (0:\dx)$) -- +(0:.35);
+            \draw[bdy,dotted] ($(O) + (90:\dy)$) -- +(90:.35);
+            \draw[red,dashed] ($(O)$) -- +(0:.5*\dx) arc(0:90:.5*\dx) -- (O) --cycle;
+            \draw[xbdy] ($(O)$) -- +(0:.5*\dx);
+            \draw[xbdy] ($(O)$) -- +(90:.5*\dy);
+            %%% corner
+            \node[bullet,red] at (O) {};
+            %%% labels
+            % \node[gray] at ($(O) + (0:\dx + .7*\Mergin) + (90:.5*\dy)$) {$\cdots$};
+            % \node[gray] at ($(O) + (0:.5*\dx) + (90:\dy + .7*\Mergin )$) {$\vdots$};
+        \end{tikzpicture}
+    \end{align}
+    に拡張することを主張する．
+    
+    　一般の層状化空間 $X$ の場合もこのように，\textsf{\textbf{(TcoCart-2)}} は角に関連するstrataの開近傍が存在することを保証してくれる．
+\end{myexample}
+
+$I$ を有限集合とする．
+$\Kan$-豊穣圏 $\BSC^{\expval{I}}$ を次のように構成する：
+
+\begin{itemize}
+    \item \hyperref[def:Bsc-induction]{baisc} $(U \xrightarrow{s_U} P_U) \in \Obj{\Bsc}$ および $I$ について
+\end{itemize}
+
+
 
 \section{{$(\infty,\, 1)$}-オペラッドと対称モノイダル {$(\infty,\, 1)$-圏}}
 
