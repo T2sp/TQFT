@@ -3024,12 +3024,6 @@ $I$ を有限集合とし，$2^I$ を $I$ の部分集合全体が成す集合�
     S \le T \DEF S \supset T
 \end{align}
 により半順序集合になる．$\forall S \in 2^I$ に対して，集合の包含 $2^S \subset 2^I$ がある．
-さらに，全単射
-\begin{align}
-    (2^I)_{\ge S} &\lto 2^{I \setminus S}, \\
-    T &\lmto T \setminus S
-\end{align}
-がある．以降ではこの全単射によって $(2^{I})_{\ge S}$ と $2^{I \setminus S}$ を同一視する．
 
 また，有限集合 $I$ を添字集合に持つ $X$ の直積を $X^I$ のように書く\footnote{$x \in X^I$ とは，写像 $x \colon I \lto X$ のことである．$x$ による $i \in I$ の行き先を $x_i \coloneqq x(i) \in X$ と書くことが多い．}
 
@@ -3038,7 +3032,7 @@ $I$ を有限集合とし，$2^I$ を $I$ の部分集合全体が成す集合�
     このとき，位相空間 $\mathbb{R}^{I \setminus T} \times \mathbb{R}_{\ge 0}^{T}$ は，連続写像
     \begin{align}
         \label{eq:strat-cube}
-        c_T \colon \mathbb{R}^{I \setminus T} \times \mathbb{R}_{\ge 0}^{T} &\lto 2^{T}, \\
+        c^I_T \colon \mathbb{R}^{I \setminus T} \times \mathbb{R}_{\ge 0}^{T} &\lto 2^{T}, \\
         (x,\, y) &\lmto y^{-1} \bigl( \{0\} \bigr) 
     \end{align}
     によってconically smoothな層状化空間になる．
@@ -3083,7 +3077,7 @@ $I$ を有限集合とし，$2^I$ を $I$ の部分集合全体が成す集合�
     \end{align}
     のように図示できる．ただし，\eqref{eq:strat-cube}によるstrataを全て書き出すと
     \begin{align}
-        c_T^{-1} (\emptyset) 
+        c^I_T{}^{-1} (\emptyset) 
         &= \quad
         \begin{tikzpicture}[
             baseline={([yshift=-.5ex]current bounding box.center)},
@@ -3117,7 +3111,7 @@ $I$ を有限集合とし，$2^I$ を $I$ の部分集合全体が成す集合�
             % \node[gray] at ($(O) + (0:.5*\dx) + (90:\dy + .7*\Mergin )$) {$\vdots$};
         \end{tikzpicture}
         \approx \mathbb{R}^2,\\
-        c_T^{-1} \bigl( \{1\} \bigr)
+        c^I_T{}^{-1} \bigl( \{1\} \bigr)
         &= \quad
         \begin{tikzpicture}[
             baseline={([yshift=-.5ex]current bounding box.center)},
@@ -3155,7 +3149,7 @@ $I$ を有限集合とし，$2^I$ を $I$ の部分集合全体が成す集合�
         \end{tikzpicture}
         \quad \approx \mathbb{R},
         \\
-        c_T^{-1} \bigl( \{2\} \bigr)
+        c^I_T{}^{-1} \bigl( \{2\} \bigr)
         &= \quad
         \begin{tikzpicture}[
             baseline={([yshift=-.5ex]current bounding box.center)},
@@ -3192,7 +3186,7 @@ $I$ を有限集合とし，$2^I$ を $I$ の部分集合全体が成す集合�
             % \node[gray] at ($(O) + (0:.5*\dx) + (90:\dy + .7*\Mergin )$) {$\vdots$};
         \end{tikzpicture}
         \quad \approx \mathbb{R},\\
-        c_T^{-1} \bigl( \{1,\, 2\} \bigr)
+        c^I_T{}^{-1} \bigl( \{1,\, 2\} \bigr)
         &= \quad
         \begin{tikzpicture}[
             baseline={([yshift=-.5ex]current bounding box.center)},
@@ -3269,7 +3263,7 @@ $I$ を有限集合とし，$2^I$ を $I$ の部分集合全体が成す集合�
             % \node[gray] at ($(O) + (0:.5*\dx) + (-90:.5*\dy + .7*\Mergin )$) {$\vdots$};
         \end{tikzpicture}
         \\
-        c_T^{-1} (\emptyset) 
+        c^I_T{}^{-1} (\emptyset) 
         &=\quad
         \begin{tikzpicture}[
             baseline={([yshift=-.5ex]current bounding box.center)},
@@ -3306,7 +3300,7 @@ $I$ を有限集合とし，$2^I$ を $I$ の部分集合全体が成す集合�
             % \node[gray] at ($(O) + (0:.5*\dx) + (-90:.5*\dy + .7*\Mergin )$) {$\vdots$};
         \end{tikzpicture}
         \\
-        c_T^{-1} \bigl( \{1\} \bigr) 
+        c^I_T{}^{-1} \bigl( \{1\} \bigr) 
         &=\quad        
         \begin{tikzpicture}[
             baseline={([yshift=-.5ex]current bounding box.center)},
@@ -3353,12 +3347,12 @@ $I$ を有限集合とし，$2^I$ を $I$ の部分集合全体が成す集合�
     \begin{description}
         \item[\textbf{(TcoCart-1)}]　
         
-        ある順序を保つ写像 $P \xrightarrow{\textcolor{red}{\bar{c}}} 2^I$ が存在して $(1,\, 1)$-圏 $\TOP$ における以下の図式を可換にする：
+        ある順序を保つ写像 $P \xrightarrow{\textcolor{red}{\bar{c}}} 2^I$ が一意的に\footnote{(2026/1/21) ~\cite[Remark 2.1.18]{AFT2014stratified}が正しくないため，この条件が必要である．}存在して $(1,\, 1)$-圏 $\TOP$ における以下の図式を可換にする：
         \begin{center}
             % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAA0QBfU9TXfIRRkAjFVqMWbAArdeIDNjwEiI8uPrNWiEACYAegElu4mFADm8IqABmAJwgBbJGRA4ISXdU1SdAYzlbB2dEV3ckNQktNgRqBjoAIxgGaX5lIRA7LHMACxwQOKwwbRA4CAYsKECQeycI6nDELxAK4rYoOjgcswKWxOTUpUE2LNz870kSgB0phLo7YD8uEy4gA
             \begin{tikzcd}
             X \arrow[r, "c"] \arrow[d, "s"'] & 2^I \\
-            P \arrow[ru, red,"\bar{c}"', dashed] &    
+            P \arrow[ru, red,"\exists ! \bar{c}"', dashed] &    
             \end{tikzcd}
         \end{center}
         
@@ -3383,7 +3377,7 @@ $I$ を有限集合とし，$2^I$ を $I$ の部分集合全体が成す集合�
     勝手な $S = \{i_1 < \dots < i_k\} \in 2^T$ を1つ固定する．
     このとき
     \begin{align}
-        c_T^{-1} \bigl( \{S\} \bigr) 
+        c^I_T{}^{-1} \bigl( \{S\} \bigr) 
         &= 
         \bigl\{\, (x,\, y) \in \mathbb{R}^{I \setminus T} \times \mathbb{R}_{\ge 0}^{T} \bigm| y|_S = \{0\} \,\bigr\} \\
         &= 
@@ -3393,12 +3387,12 @@ $I$ を有限集合とし，$2^I$ を $I$ の部分集合全体が成す集合�
     \end{align}
     であるから，埋め込み
     \begin{align}
-        c_T^{-1} \bigl( \{S\} \bigr) &\hookrightarrow \mathbb{R}^{I \setminus T} \times \mathbb{R}_{\ge 0}^{T} \\
+        c^I_T{}^{-1} \bigl( \{S\} \bigr) &\hookrightarrow \mathbb{R}^{I \setminus T} \times \mathbb{R}_{\ge 0}^{T} \\
         (x,\, y) &\hookrightarrow (x,\, y)
     \end{align}
     は層状化開埋め込み
     \begin{align}
-        c_T^{-1} \bigl( \{S\} \bigr) \times \mathbb{R}_{\ge 0}^S \approx \mathbb{R}^{I \setminus T} \times \mathbb{R}_{\ge 0}^{T \setminus S} \times \mathbb{R}_{\ge 0}^S
+        c^I_T{}^{-1} \bigl( \{S\} \bigr) \times \mathbb{R}_{\ge 0}^S \approx \mathbb{R}^{I \setminus T} \times \mathbb{R}_{\ge 0}^{T \setminus S} \times \mathbb{R}_{\ge 0}^S
         &\hookrightarrow \mathbb{R}^{I \setminus T} \times \mathbb{R}_{\ge 0}^{T}, \\
         (x,\, y,\, z) &\lmto \Bigl(x,\, \bigl(i \mapsto \hat{y} (i)\bigr) \Bigr) \\
         \WHERE
@@ -3841,8 +3835,191 @@ $I$ を有限集合とする．
 $\Kan$-豊穣圏 $\BSC^{\expval{I}}$ を次のように構成する：
 
 \begin{itemize}
-    \item \hyperref[def:Bsc-induction]{baisc} $(U \xrightarrow{s_U} P_U) \in \Obj{\Bsc}$ および $I$ について
+    \item \hyperref[def:Bsc-induction]{baisc} $(U \xrightarrow{s_U} P_U) \in \Obj{\Bsc}$ および $I$ について\hyperref[def:TcoCart]{位相的にcoCartesian}な連続写像 $c_U \colon U \lto 2^I$ の2つ組 $\bigl((U \xrightarrow{s_U} P_U),\, c_U \bigr)$ を対象とする．
+    \item 対象 $\bigl((U \xrightarrow{s_U} P_U),\, c_U\bigr),\, \bigl( (V \xrightarrow{s_V} P_V),\, c_V\bigr)$ の間のHom-Kan複体 $\Hom{\BSC^{\expval{I}}} \bigl( (U,\, c_U),\, (V,\, c_V) \bigr)\in \Obj{\Kan}$ を，$(1,\, 1)$-圏 $\Kan$ における引き戻しとして次のように定義する：
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQAdDgCQgFtgXAEIBlAMIBfAAQAKAKqkupKQDUAlCAml0mXPkIoyxanSat2XLGABmOAJ4BZemgD6gjgDkYAJxlcACpgwOGrSMv4uCkpSEeqa2iAY2HgEROSkxjQMLGyInBxWto7OblxevgFBIVIA9FIATAB6AJLSXABGWADmjDLhkVJcAB7e3QAWOPTe3hAA7u7tU8AAxhKR0k3Naoocyv0qgxwj45PTcwtLqy4qGy1qHd3eGlo6yfppFCbZ5nlcvALCcSNdwwIZobLAVoSNocTo9GSyKK7KTLSLbaIyFQ7ZSo9SHOFPQ5oZiMRiLZYAa00JhgUC68CIoGsMz4SAAzDQcBAkOQXiBmfweZzuYhiHyBazEByQFykPVxSy5cKkGLKBIgA
+        \begin{tikzcd}
+        {\Hom{\BSC^{\expval{I}}} \bigl( (U,\, c_U),\, (V,\, c_V) \bigr) \pullback} \arrow[r] \arrow[d]                                & {\Hom{\BSC} (U,\, V)} \arrow[d]         \\
+        {\inftyMap{\Ner(\Poset)_{/ 2^I}} \bigl((P_U \xrightarrow{\bar{c}_U} 2^I),\, (P_V \xrightarrow{\bar{c}_V} 2^I)\bigr)} \arrow[r] & {\inftyMap{\Ner(\Poset)} (P_U,\, P_V)}
+        \end{tikzcd}
+    \end{center}
+    ただし，条件\hyperref[def:TcoCart]{\textsf{\textbf{(TcoCart-1)}}}を用いて，順序を保つ写像 $P_U \xrightarrow{\bar{c}_U} 2^I,\; P_V \xrightarrow{\bar{c}_V} 2^I$ を
+    \begin{align}
+        (U \xrightarrow{c_U} 2^I) &= (U \xrightarrow{s_U} P_U \xrightarrow{\bar{c}_U} 2^I), \\
+        (V \xrightarrow{c_V} 2^I) &= (V \xrightarrow{s_V} P_V \xrightarrow{\bar{c}_V} 2^I)
+    \end{align}
+    が成り立つように取った．
 \end{itemize}
+Kan複体 $\Hom{\BSC^{\expval{I}}} \bigl( (U,\, c_U),\, (V,\, c_V) \bigr)$ の $n$-射の集合を具体的に書くと\footnote{\hyperref[def:standard-cosimplicial-mfd]{拡張された $n$-単体} $\Delta_e^n$ は $C^\infty$ 多様体であり，非自明なstrataを持たない．故に，\hyperref[def:stratified-space]{層状化写像} $(f,\, \tilde{f}) \in \Hom{\Snglr} (\Delta_e^n \times U,\, \Delta_e^n \times V)$ について $\tilde{f} \colon P_U \lto P_V$ と見做せる．}，
+\begin{align}
+    \Hom{\BSC^{\expval{I}}} \bigl( (U,\, c_U),\, (V,\, c_V) \bigr)_n
+    &= \bigl\{\, (f,\, \tilde{f}) \in \Hom{\Snglr} (\Delta_e^n \times U,\, \Delta_e^n \times V) \bigm| \bar{c}_U = \bar{c}_V \circ \tilde{f} \,\bigr\} 
+\end{align}
+のようになる．
+引き戻しの図式において，上の行におけるKan複体の射 $\Hom{\BSC^{\expval{I}}} \bigl( (U,\, c_U),\, (V,\, c_V) \bigr) \lto \Hom{\BSC} (U,\, V)$ は inclusion of components である．
+故に忘却関手 $\hcNer(\BSC^{\expval{I}}) \lto \BSC$ は\hyperref[def:infty-fib]{右ファイブレーション}であり，\hyperref[def:B-mfld]{$\Cat{\BSC}^{\expval{I}}$-多様体}を考えることができる．
+$\Cat{\BSC}^{\expval{I}}$-多様体が成す $(\infty,\, 1)$-圏を
+\begin{align}
+    \SNGLR^{\expval{I}} \coloneqq \MFLDB{\BSC^{\expval{I}}}
+\end{align}
+とおき，$\expval{\bm{I}}$\textbf{-角を持つconically smoothな層状化空間} (conically smooth stratified spaces with $\expval{I}$-corners) が成す $(\infty,\, 1)$-圏と呼ぶ．
+% 以下では，混乱の恐れがない限り半順序集合 $P_U$ および連続写像 $s_U$ を省略する．
+
+$\expval{I}$-角を持つconically smoothな層状化空間 $(U,\, c_U)$ が与えられたとき，その\textbf{内部} (interior) を $\Int (U,\, c_U) \coloneqq c_U^{-1} (\emptyset)$ で定義する．
+$\Int (U,\, c_U)$ は通常の\hyperref[def:Snglr]{conically smoothな層状化空間}であり，かつ\hyperref[def:topo-poset]{半順序集合の位相の定義}から $\{\emptyset\} \subset 2^I$ は開集合であるから，この対応は $(\infty,\, 1)$-圏の関手
+\begin{align}
+    \Int \colon \SNGLR^{\expval{I}} \lto \SNGLR
+\end{align}
+を定める．
+
+\begin{mydef}[label=def:B-mfld-corner]{{$\expval{I}$-角付き $\Cat{B}$-多様体}}
+    $\Cat{B} \xrightarrow{f} \BSC$ を\hyperref[def:B-mfld]{$(\Cat{B},\, f)$-構造}とする．
+    $\expval{\bm{I}}$\textbf{-角付き} $\bm{\Cat{B}}$\textbf{-多様体} ($\Cat{B}$-manifold with $\expval{I}$-corners) が成す $(\infty,\, 1)$-圏 $\MFLDIB{I}{\Cat{B}}$ を，\hyperref[def:pullback-infty]{$(\infty,\, 1)$-圏の引き戻し}によって以下の通りに定義する：
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12cYAPHAYwgMIAJ2AiYUAL7BOAWQBiAGQAiASQBCwNTM4BhOjmAappzmiYMGAIzr8A1iCml0mXPkIoyARiq1GLGycAMoAcgDiSgBKAHqy7Lxo9Azapk4uIBjYeARE3qS+1MmBiBzsYZFR6a7ZHnnkfsWspfLKKlr6hsamAATmljZ2js417rkoAEwFjQHNZVEKmgD68RrBelLVmW45nshTlEWzbAAUnAvLq+tSAJQrAPQAZptSfpIA5vBEoI8iEAC2SHyIBwECQU38zDmnDUYBwIGoDDo1hgDAACjs6qURFh3gALeEjEC-AHg6igpAAFiOUKCXDoTARICRKPRmPGIBx+MJGRJgMQAFZyWDENTISUytw+MBHqJPjgXry-vyAMzC8FEvlINUgkUCzXKpBkXXag2kxDGimIbyvKRAA
+        \begin{tikzcd}
+        \textcolor{red}{\MFLDIB{I}{\Cat{B}}}\pullback \arrow[r] \arrow[d] & \MFLDB{\Cat{B}} \pullback \arrow[d] \arrow[r] & (\RFIB_{\BSC})_{/f} \arrow[d, "\text{forget}"] \\
+        \SNGLR^{\expval{I}} \arrow[r, "\Int"']                            & \SNGLR \arrow[r, "\tau"']                     & \RFIB_{\BSC}                                  
+        \end{tikzcd}
+    \end{center}
+\end{mydef}
+
+\begin{myexample}[label=def:basic-corner]{Basic with corners}
+    $I$ を有限集合とし，$T \in 2^I$ を1つ固定する．$X$ をconically smoothな層状化空間とする．
+    \exref{ex:TcoCart}の考察より，連続写像
+    \begin{align}
+        c^I_{T;\, X} \colon \mathbb{R}_{\ge 0}^T \times X \xrightarrow{\mathrm{proj}_{\mathbb{R}_{\ge 0}^T}} \mathbb{R}_{\ge 0}^T \xrightarrow{c^T_T} 2^T \hookrightarrow 2^I
+    \end{align}
+    は\hyperref[def:TcoCart]{位相的にcoCartesian}である．故に2つ組 $\bigl( \mathbb{R}_{\ge 0}^T \times X,\, c^I_{T;\, X} \bigr)$ は\hyperref[def:B-mfld-corner]{$\expval{I}$-角を持つ層状化空間}である．
+\end{myexample}
+
+\begin{myprop}[label=prop:basic-corner]{}
+    $I$ を有限集合とし，勝手な\hyperref[def:B-mfld-corner]{$\expval{I}$-角を持つ層状化空間} $(X,\, c) \in (\SNGLR^{\expval{I}})_0$ を与える．
+    このとき，族
+    \begin{align}
+        \Bigl\{\, \varphi (\mathbb{R}_{\ge 0}^T \times U) \subset X \Bigm| T \in 2^I,\, U \in \BSC_0,\, \varphi \in \inftyMap{\SNGLR^{\expval{I}}} \bigl((\mathbb{R}_{\ge 0}^T \times U,\, c^I_T(U)),\, (X,\, c) \bigr)  \,\Bigr\} 
+    \end{align}
+    は $X$ の位相の開基を与える．
+\end{myprop}
+
+\begin{proof}
+    ~\cite[Proposition 7.2.11]{AFT2014stratified}
+\end{proof}
+
+命題\ref{prop:basic-corner}より，\hyperref[def:B-mfld-corner]{$\expval{I}$-角を持つ層状化空間}の conically smooth チャートは，ある $T \in 2^I$ を用いて
+\begin{align}
+    \label{eq:basic-corner}
+    \mathbb{R}_{\ge 0}^T \times \mathbb{R}^n \times \Cone{Z}
+\end{align}
+の形で書ける層状化空間を定義域とする開埋め込みによって構成されていることが分かった．この意味で，\eqref{eq:basic-corner}のことを\textbf{角付きbasic}と呼ぶことにする．
+
+さて，任意の有限集合 $I$ および $T \in 2^I$ に対して全単射
+\begin{align}
+    (2^I)_{\le T} &\lto 2^{I \setminus T}, \\
+    S &\lmto S \setminus T
+\end{align}
+がある．以降ではこの全単射によって $(2^{I})_{\le T}$ と $2^{I \setminus T}$ を同一視する．
+
+\begin{mydef}[label=def:T-face]{{$T$-面写像}}
+    $I$ を有限集合とする．
+    % 勝手な\hyperref[def:B-mfld-corner]{$\expval{I}$-角を持つ $\Cat{B}$-多様体} $(X,\, c) \in (\MFLDIB{I}{\Cat{B}})_0$ を与える．
+    \begin{itemize}
+        \item $\bm{T}$\textbf{-面写像} ($T$-face) と呼ばれる $(\infty,\, 1)$-圏の関手を次のように定義する：
+            \begin{align}
+                \partial_T 
+                \colon \MFLDIB{I}{\Cat{B}} &\lto \MFLDB{\Cat{B}}, \\
+                (X,\, c) &\lmto c^{-1} \bigl( \{T\} \bigr)
+            \end{align}
+            ただし，$\Int \coloneqq \partial_{\emptyset}$ のみ\textbf{内部} (interior) と呼ぶ．
+        \item \textbf{閉じた} $\bm{T}$\textbf{-面写像} (closed $T$-face) と呼ばれる $(\infty,\, 1)$-圏の関手を次のように定義する：
+            \begin{align}
+                \bar{\partial}_T 
+                \colon 
+                &&\MFLDIB{I}{\Cat{B}} &&\xrightarrow{\partial_T} &&\MFLDB{\Cat{B}} &&\hookrightarrow &&\MFLDIB{I \setminus T}{\Cat{B}}, \\
+                &&(X,\, c) &&\lmto &&c^{-1} \bigl( \{T\} \bigr) &&\lmto && \Bigl(c^{-1} \bigl( \{T\} \bigr),\, (x \mapsto T) \Bigr)
+            \end{align}
+            ただし，最右辺では $c^{-1} \bigl( \{T\} \bigr) \subset \bigcup_{S \le T} c^{-1} \bigl( \{S\} \bigr)$ と見做している
+            \footnote{
+                $c$ を制限して得られる\hyperref[def:TcoCart]{位相的にcoCartesianな射} $c_{|} \colon \bigcup_{S \le T} c^{-1} \bigl( \{S\} \bigr) \lto (2^{I})_{\le T}$ の値域は $2^{I \setminus T}$ と同一視できる．
+            }．
+    \end{itemize}
+\end{mydef}
+
+\begin{mydef}[label=def:int-depth]{内部深度}
+    \hyperref[def:B-mfld-corner]{$\expval{I}$-角を持つ conically smooth な層状化空間} $(X,\, c) \in (\MFLDIB{I}{\Cat{B}})_0$ を与える．
+    \begin{itemize}
+        \item $(X,\, c)$ の\textbf{内部深度} (interior depth) を以下で定義する：
+        \begin{align}
+            \bm{\depth}^{\expval{\mhyphen}}\bm{(X,\, c)} \coloneqq \depth \bigl( \Int (x,\, c) \bigr) 
+        \end{align}
+        \item \textbf{深度 $\expval{k}$-strata} (depth $\expval{k}$-strata) $(\bm{X}_{\expval{\bm{k}}},\, c|_{X_{\expval{k}}}) \subset (X,\, c)$ とは，
+        内部深度が $k$ であってかつ $\Int (\bm{X}_{\expval{\bm{k}}},\, c|_{X_{\expval{k}}}) \subset \Int (X,\, c)$ を充たす，
+        $(X,\, c)$ の $\expval{I}$-角を持つ最大の部分層状化空間のこと．
+        \item $k \ge -1$ に対して，内部深度 $k$ 以下の $\expval{I}$-角を持つ conically smooth な層状化空間が成す $\SNGLR^{\expval{I}}$ の\hyperref[def:fullsub-infty]{充満部分 $(\infty,\, 1)$-圏}を
+        \begin{align}
+            \SNGLR^{\expval{I}}_{\le \expval{k}} \subset \SNGLR^{\expval{I}}
+        \end{align}
+        と書く．
+    \end{itemize}
+\end{mydef}
+
+$T$ を勝手な有限集合とするとき，\exref{ex:depth-Cone}と同様の考察により
+\begin{align}
+    \intdepth \bigl(\mathbb{R}_{\ge 0}^T \times \mathbb{R}^n \times (\mathbb{R}_{\ge 0} \times Z)\bigr)
+    < \intdepth (\mathbb{R}_{\ge 0}^T \times \mathbb{R}^n \times \Cone{Z})
+\end{align}
+が分かる．故に，内部深度に関する帰納法が有効である．
+
+\subsection{{$\Unzip$ と $\Link$}}
+
+Conically smoothな層状化空間における特異点解消を，圏論的に自然な形で実装できる．
+
+\begin{mydef}[label=def:Unzip-k,breakable]{{$\Unzip_k$}}
+    \hyperref[def:int-depth]{内部深度}が高々 $k$ であるような\hyperref[def:B-mfld-corner]{$\expval{I}$-角を持つconically smoothな層状化空間} $(X,\, c_X) \in (\SNGLR^{\expval{I}})_0$ を与える．
+    $(1,\, 1)$-圏 $\Res^k_{(X,\, c_X)}$ を以下のように定義する~\cite[Definition 7.3.2]{AFT2014stratified}：
+    \begin{description}
+        \item[\textbf{対象}]　
+        
+        $\expval{\{*\} \amalg I}$-角を持つconically smoothな層状化空間 $(Y,\, Y \xrightarrow{c_Y} 2^{\{*\} \amalg I}) \in (\SNGLR^{\expval{\{*\}\amalg I}})_0$ および\hyperref[def:c-smooth]{conically smoothな層状化写像} $p_Y \colon Y \lto X$ の組 $\bigl((Y,\, c_Y),\, p_Y\bigr)$ であって，以下の条件を充たすもの：
+        \begin{enumerate}
+            \item 連続写像 $Y \xrightarrow{p_Y} X \xrightarrow{c_X} 2^I$ は $Y \xrightarrow{c_Y} 2^{\{*\} \amalg I} \cong 2^{\{*\}} \times 2^I \xrightarrow{\mathrm{proj}_{2^I}} 2^I$ と等しい．
+            \item $Y$ の2つの部分空間
+            \begin{align}
+                \bar{\partial}_{\{*\}} (Y,\, c_Y),\quad p^{-1} (X_{\expval{k}})
+            \end{align}
+            が一致する．
+        \end{enumerate}
+        
+        \item[\textbf{射}]　
+        
+        2つの対象 $\bigl((Y,\, c_Y),\, p_Y\bigr),\, \bigl((Z,\, c_Z),\, p_Z\bigr)$ の間の射は，
+        \begin{align}
+            &\Hom{\Res^k_{(X,\, c_X)}} \Bigl( \bigl((Y,\, c_Y),\, p_Y\bigr),\, \bigl((Z,\, c_Z),\, p_Z\bigr) \Bigr) \\
+            &\coloneqq \bigl\{\, f \in \Hom{\Strat} (Y,\, Z) \bigm| c_Z \circ f = c_Y,\; p_Z \circ f = p_Y \,\bigr\}
+        \end{align}
+        と定義する．
+    \end{description}
+    
+    \tcblower
+
+    \begin{itemize}
+        \item $(X,\, c_X)$ の\textbf{$\bm{k}$-unzip} $\bigl( \Unzip_k(X,\, c_X),\, c_{\Unzip_k(X,\, c_X)},\, \pi_k \bigr)$ とは，$(1,\, 1)$-圏 $\Res^k_{(X,\, c_X)}$ における\hyperref[def:lim]{終対象}のこと．
+        \begin{align}
+            \Unzip_k(X,\, c_X) \xrightarrow{\pi_k} X
+        \end{align}
+        と書く．
+        \item $(X, c_X)$ の\textbf{リンク} (link) とは，
+        \begin{align}
+            \bm{\Link_k (X,\, c_X)} \coloneqq \bar{\partial}_{\{*\}} \Unzip_k (X,\, c_X)
+        \end{align}
+        のこと．$\Unzip_k(X,\, c_X) \xrightarrow{\pi_k} X$ の制限を
+        \begin{align}
+            \Link_k(X,\, c_X) \xrightarrow{\pi_k} X_{\expval{k}}
+        \end{align}
+        と略記する．
+    \end{itemize}
+\end{mydef}
 
 
 
