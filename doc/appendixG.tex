@@ -3993,11 +3993,10 @@ Conically smoothな層状化空間における特異点解消を，圏論的に�
     \hyperref[def:int-depth]{内部深度}が高々 $k$ であるような\hyperref[def:B-mfld-corner]{$\expval{I}$-角を持つconically smoothな層状化空間} $(X,\, c_X) \in (\SNGLR^{\expval{I}})_0$ を与える．
     $(1,\, 1)$-圏 $\Res^k_{(X,\, c_X)}$ を以下のように定義する~\cite[Definition 7.3.2]{AFT2014stratified}：
     \begin{description}
-        \item[\textbf{(対象)}]　
-        
+        \item[\textbf{対象}]
         $\expval{\{*\} \amalg I}$-角を持つconically smoothな層状化空間 $(Y,\, Y \xrightarrow{c_Y} 2^{\{*\} \amalg I}) \in (\SNGLR^{\expval{\{*\}\amalg I}})_0$ および\hyperref[def:c-smooth]{conically smoothな層状化写像} $p_Y \colon Y \lto X$ の組 $\bigl((Y,\, c_Y),\, p_Y\bigr)$ であって，以下の条件を充たすもの：
-        \begin{enumerate}
-            \item $(1,\, 1)$-圏 $\TOP$ における可換図式
+        \begin{description}
+            \item[\textbf{(Unzip-1)}]  $(1,\, 1)$-圏 $\TOP$ における可換図式
             \begin{center}
                 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAmAXVJADcBDAGwFcYkRyA9YAHR+ABUfAL7CABHzwBbeGK4BJEMNLpMufIRQAGCtTpNW7Lr35Ce4vvSlMA5mPnClKkBmx4CRMlr0MWbRCAAGk6qbhpEOt40voYBAJohLmrumiSkxD4G-hycisJ6MFA28ESgAGYAThBSSADMNDgQSOTRWexoAPoJyuVVNYj1II1IZPp+7ADGXSA0jPQARjCMAArJ4QEVWDYAFjiJldUjDU2IOmOxIHwTBDYzIHOLK2seG1u7+33Nx0gALK3jASmwR6IAO-TOw0Qf3O2T41hw2wqUmAaCqACthB1gApHLMFktVmEXiBNjs9vlhEA
                 \begin{tikzcd}
@@ -4007,15 +4006,14 @@ Conically smoothな層状化空間における特異点解消を，圏論的に�
                 \end{tikzcd}
             \end{center}
             が成り立つ．
-            \item $Y$ の2つの部分空間
+            \item[\textbf{(Unzip-2)}] $Y$ の2つの部分空間
             \begin{align}
                 \bar{\partial}_{\{*\}} (Y,\, c_Y),\quad p^{-1} (X_{\expval{k}})
             \end{align}
             が一致する．
-        \end{enumerate}
+        \end{description}
         
-        \item[\textbf{(射)}]　
-        
+        \item[\textbf{射}]
         2つの対象 $\bigl((Y,\, c_Y),\, p_Y\bigr),\, \bigl((Z,\, c_Z),\, p_Z\bigr)$ の間の射は，
         \begin{align}
             &\Hom{\Res^k_{(X,\, c_X)}} \Bigl( \bigl((Y,\, c_Y),\, p_Y\bigr),\, \bigl((Z,\, c_Z),\, p_Z\bigr) \Bigr) \\
