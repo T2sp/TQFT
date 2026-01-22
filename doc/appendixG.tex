@@ -4008,7 +4008,7 @@ Conically smoothな層状化空間における特異点解消を，圏論的に�
             が成り立つ．
             \item[\textbf{(Unzip-2)}] $Y$ の2つの部分空間
             \begin{align}
-                \bar{\partial}_{\{*\}} (Y,\, c_Y),\quad p^{-1} (X_{\expval{k}})
+                \bar{\partial}_{\{*\}} (Y,\, c_Y),\quad p_Y^{-1} (X_{\expval{k}})
             \end{align}
             が一致する．
         \end{description}
@@ -4042,6 +4042,180 @@ Conically smoothな層状化空間における特異点解消を，圏論的に�
     \end{itemize}
 \end{mydef}
 
+
+
+\begin{mylem}[label=lem:Unzip-Cone]{ConeのUnzip}
+    コンパクトかつ conically smooth な $k-1$ 次元層状化空間 $(Z \xrightarrow{s} P) \in (\SNGLR)_0 = (\SNGLR^{\expval{\emptyset}})_0$ を与える．
+    このとき，商写像
+    \begin{align}
+        \mathbb{R}_{\ge 0} \times Z \xrightarrow{q} \Cone{Z \xrightarrow{s} P}
+    \end{align}
+    は $\Cone(Z \xrightarrow{s} P)$ の\hyperref[def:Unzip-k]{$k$-unzip}である．
+\end{mylem}
+
+\begin{proof}
+    $\mathbb{R}_{\ge 0}$ を，\hyperref[def:TcoCart]{位相的にcoCartesianな射}
+    \begin{align}
+        c_{\mathbb{R}_{\ge 0}} \colon \mathbb{R}_{\ge 0} &\lto 2^{\{*\}}, \\
+        t &\lmto \begin{cases}
+            \emptyset, &t > 0 \\
+            \{*\}, &t = 0
+        \end{cases}
+    \end{align}
+    について\hyperref[def:Snglr-corner]{$\expval{\{*\} \amalg \emptyset}$-角を持つ conically smooth な層状化空間}と見做すと同時に，$(\mathbb{R}_{\ge 0} \xrightarrow{c_{\mathbb{R}_{\ge 0}}} 2^{\{*\}}) \in (\SNGLR)_0$ とも見做す
+    \footnote{つまり，\hyperref[def:TcoCart]{位相的にcoCartesianな射} $c_{\mathbb{R}_{\ge 0}}$ の条件 \textsf{\textbf{(TcoCart-1)}} において $\bar{c}_{\mathbb{R}_{\ge 0}} = \Id_{2^{\{*\}}}$ である．}．
+    このとき，位相空間 $\mathbb{R}_{\ge 0} \times Z$ の層状化空間としての構造および商写像 $q$ の層状化写像としての構造は，順序を保つ写像
+    \begin{align}
+        \tilde{q} \colon 2^{\{*\}} \times P &\lto \Cone{P} = P \cup \{-\infty\}, \\
+        (T,\, p) &\lmto \begin{cases}
+            p, &T = \emptyset, \\
+            -\infty, &T = \{*\}
+        \end{cases}
+    \end{align}
+    によって，$(1,\, 1)$-圏 $\TOP$ における可換図式
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACwBGA4ACUAvgH1gnAOYwABMTHzOeLvHkAtEGNLpMufIRRkAjFVqMWbAEwA9ae2AAqTmOWqs6uPIAKOvRAMbDwCIlNSc2p6ZlZEDnYAYQIYYF8xAP0Qo3DyCxjreM5ksFTNDLELGCg5BBRQADMAJwguJDIQHAgkAGZoqziQAEdMkGbWpAjO7sQbfti2TwZYYCGM6gY6ARgGXwNQ4xAmrBk+HFHxtsQOrsn5wpAAYylOHn4hUUlHOUV3FXY1BoEBstjs9tkwvFjqdzrpGi0rn1pkg5pYFkUkilgHAKhQxEA
+        \begin{tikzcd}
+        \mathbb{R}_{\ge 0} \times Z \arrow[r, "q"] \arrow[d, "c_{\mathbb{R}_{\ge 0}} \times s"'] & \Cone{Z} \arrow[d, "\Cone{s}"] \\
+        2^{\{*\}} \times P \arrow[r, "\tilde{q}"']                                               & \Cone{P}                      
+        \end{tikzcd}
+    \end{center}
+    として定まる．まず，このように構成した3つ組\footnote{\exref{def:basic-corner}に倣い，$c^{\{*\}}_{\{*\};\, Z} \coloneqq \mathrm{proj}_{2^{\{*\}}} \circ (c_{\mathbb{R}_{\ge 0}} \times s) \colon \mathbb{R}_{\ge 0} \times Z \lto 2^{\{*\}}$ とおいた．} $(\mathbb{R}_{\ge 0} \times Z,\, c^{\{*\}}_{\{*\};\, Z},\, q)$ が \hyperref[def:Unzip-k]{$(1,\, 1)$-圏 $\Res^k_{\Cone{Z}}$} の対象であることを示す．
+    
+    \begin{description}
+        \item[\textbf{(Unzip-1)}] 
+        $\forall (t,\, z) \in \mathbb{R}_{\ge 0} \times Z$ に対して
+        \begin{align}
+            c_{\Cone{Z}} \circ q (t,\, z)
+            &= \emptyset \\
+            &= \mathrm{proj}_{2^{\emptyset}} \circ c^{\{*\}}_{\{*\};\, Z} (t,\, z)
+        \end{align}
+        が成り立つ．
+        \item[\textbf{(Unzip-2)}] 
+        $\Cone{Z}_{\expval{k}} = \{ \mathrm{pt} \}$ に注意すると，
+        \begin{align}
+            q^{-1} \bigl( \Cone{Z}_{\expval{k}} \bigr) = \{0\} \times Z
+        \end{align}
+        が分かる．一方で，
+        \begin{align}
+            \bar{\partial}_{\{*\}} (\mathbb{R}_{\ge 0} \times Z,\, c^{\{*\}}_{\{*\};\, Z})
+            &= (c^{\{*\}}_{\{*\};\, Z})^{-1} \bigl( \{*\} \bigr) \\
+            &= (c_{\mathbb{R}_{\ge 0}})^{-1} \bigl( \{*\} \bigr) \times Z \\
+            &= \{0\} \times Z
+        \end{align}
+        が成り立つ．
+    \end{description}
+
+    次に $\forall (Y,\, c_Y,\, p_Y) \in \Obj{\Res^k_{\Cone{Z}}}$ を1つ固定し，$\Hom{\Res^k_{\Cone{Z}}} \bigl( (Y,\, c_Y,\, p_Y),\, (\mathbb{R}_{\ge 0} \times Z,\, c^{\{*\}}_{\{*\};\, Z},\, q) \bigr) \neq \emptyset$ を仮定する．
+    このとき勝手な $f,\, g \in \Hom{\Res^k_{\Cone{Z}}} \bigl( (Y,\, c_Y,\, p_Y),\, (\mathbb{R}_{\ge 0} \times Z,\, c^{\{*\}}_{\{*\};\, Z},\, q) \bigr)$ をとると，
+    \hyperref[def:c-smooth]{$(1,\, 1)$-圏 $\Strat$} の可換図式
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAE0QBfU9TXfIRQAmclVqMWbADrSAtnRwALAEYrgAJS4B9YLIDmMAATEuR2XjnwjALW68QGbHgJEAjKTfj6zVohCyAMIEMMA2XNziMFCGCCigAGYAThBySGQgOBBIHhK+bAmksqRG+vaJKWmIuVlIonlS-gCO5SDJqenUtYj1Po2O2pzUDHQqMAwACvwuQiBJWPpKOJFcQA
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQBNEAX1PU1z5CKAEwVqdJq3YAdGQFt6OABYAjVcABK3APrA5AcxgACYt2Ny88+MYBaPPiAzY8BIuVIiJDFm0Qg5AGECGGBbbgd+FyF3UmJvKT8QEQA9fRlgACo5bgjuCRgoIwQUUAAzACcIeSQyEBwIJA9JX3Yy0jlSYwNIkErqppoGpDEW6X8AR17+msQ64cRRn3GnHS4aRnpVGEYABQFXYRAKrANlHGmq2fnGxABmGmWkgGM1y4HEZoWHkE3tvYOMX8JzOF0eiXYzzSciyOV06VhMm4AG5OnY8pRuEA
+        \begin{tikzcd}
+                                                                    & 2^{\{*\}} &                                                                                     \\
+        Y \arrow[rr, "{f,\, g}"] \arrow[rd, "p_Y"'] \arrow[ru, "c_Y"] &           & \mathbb{R}_{\ge 0} \times Z \arrow[ld, "q"] \arrow[lu, "{c^{\{*\}}_{\{*\};\, Z}}"'] \\
+                                                                    & \Cone{Z}  &                                                                                    
+        \end{tikzcd}
+    \end{center}
+    が成り立つ．ここで，$q$ の制限 $q|_{\mathbb{R}_{> 0} \times Z} \colon \mathbb{R}_{> 0} \times Z \lto \Cone{Z}$ は位相的開埋め込みであることに注意する．よって
+    $\forall y \in Y \setminus p_Y^{-1} \bigl( \{\mathrm{pt}\} \bigr) = Y \setminus \bar{\partial}_{\{*\}}(Y,\, c_Y) = \Int (Y,\, c_Y)$ に対して
+    \begin{align}
+        f(y)
+        &= (q|_{\mathbb{R}_{> 0} \times Z})^{-1} \bigl( p_Y (y) \bigr) \\
+        &= (q|_{\mathbb{R}_{> 0} \times Z})^{-1} \circ q \circ g (y) \\
+        &= g(y)
+    \end{align}
+    が分かる\footnote{$\Res^k_{\Cone{Z}}$ の射の定義から，$c_Y = c^{\{*\}}_{\{*\};\, Z} \circ g$ が成り立つ．よって $y \in Int (Y,\, c_Y) = c_Y^{-1} (\emptyset)$ に対して $g(y) \in (c^{\{*\}}_{\{*\};\, Z})^{-1} (\emptyset) = \mathbb{R}_{> 0} \times Z$ が言える．}．
+    ところで，部分空間 $Y\setminus p_Y^{-1} \bigl( \{\mathrm{pt}\} \bigr) \subset Y$ は $Y$ 上稠密である．
+    従って，$f,\, g$ が連続写像かつ $\mathbb{R}_{\ge 0} \times Z$ がHausforff空間であることから $f = g$ が言える．
+    i.e. $\Hom{\Res^k_{\Cone{Z}}} \bigl( (Y,\, c_Y,\, p_Y),\, (\mathbb{R}_{\ge 0} \times Z,\, c^{\{*\}}_{\{*\};\, Z},\, q) \bigr)$ は一点集合であるか空集合であるかどちらかである．
+
+    最後に，$\Hom{\Res^k_{\Cone{Z}}} \bigl( (Y,\, c_Y,\, p_Y),\, (\mathbb{R}_{\ge 0} \times Z,\, c^{\{*\}}_{\{*\};\, Z},\, q) \bigr) \neq \emptyset$ を示す．
+    $\intdepth (Y,\, c_Y) < k$ ならば，\hyperref[def:c-smooth-map]{conically smoothな層状化写像}の定義から $p_Y|_{\Int(Y,\, c_Y)} \in \Hom{\Strat} \bigl( \Int(Y,\, c_Y),\, \Cone{Z} \bigr)$ は $\Strat$ において
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAE0QBfU9TXfIRQBGclVqMWbADrSAwgRjAAWl268QGbHgJEyw8fWatEIWQFs6OABYAjW8ABKXAPrAAfMS4ACWXnPw3src4jBQAObwRKAAZgBOEOZIZCA4EEgATNRGUqayMAAeWHA4cN5oLsQg1Ax0tjAMAAr8OkIgcVjh1jjVIAxYYCYgUHRw1mHqsQlJiClpSKISxmwVnDxTiZnU84iLOHRYDGzWEBAA1iFcQA
+        \begin{tikzcd}
+        {\Int(Y,\, c_Y)} \arrow[d, red,"\exists p_0"', dashed] \arrow[r, "{p_Y|_{\Int(Y,\, c_Y)}}"] & \Cone{Z} \\
+        {\mathbb{R}_{>0} \times Z = \Int (\mathbb{R}_{\ge 0} \times Z,\, c^{\{*\}}_{\{*\};\, Z})} \arrow[ru, hook]            &         
+        \end{tikzcd}
+    \end{center}
+    のように分解する．故に，conically smooth な層状化写像
+    \begin{align}
+        f \colon Y &\lto \mathbb{R}_{\ge 0} \times Z, \\
+        y &\lto \begin{cases}
+            p_0 (y), &y \in \Int (Y,\, c_Y) \\
+            \mathrm{pt}, &y \in \partial_{\{*\}} (Y,\, c_Y)
+        \end{cases}
+    \end{align}
+    は $c^{\{*\}}_{\{*\};\, Z} \circ f = c_Y,\; q \circ f = p_Y$ を充たし，$f \in \Hom{\Res^k_{\Cone{Z}}} \bigl( (Y,\, c_Y,\, p_Y),\, (\mathbb{R}_{\ge 0} \times Z,\, c^{\{*\}}_{\{*\};\, Z},\, q) \bigr)$ が分かった．
+
+    $\intdepth (Y,\, c_Y) = k$ を仮定する．
+    まず，深さ $k$ のbasic $U^n_W \coloneqq \mathbb{R}^n \times \Cone{W} \in \BSC_0$ を用いて $Y = \mathbb{R}_{\ge 0} \times U^n_W$ と書ける場合を考える．
+    \eqref{eq:auto-basic}に倣って自己同相
+    \begin{align}
+        \gamma \colon \mathbb{R}_{> 0} \times (\mathbb{R}_{\ge 0} \times U^n_W) &\lto \mathbb{R}_{> 0}\times (\mathbb{R}_{\ge 0}  \times U^n_W), \\
+        \bigl(t, (s,\, u)\bigr) &\lmto \bigl(t,\, (ts,\, u) \bigr) 
+    \end{align}
+    を考える
+    % \footnote{$\mathbb{R}_{\ge 0} = \Cone{\{\mathrm{pt}\}}$ である}
+    ．さらに，$p_Y \in \Hom{\Strat} \bigl(\mathbb{R}_{\ge 0} \times U^n_W,\, \Cone{Z} \bigr)$ に対して
+    \begin{align}
+        p_{\Delta} \colon \mathbb{R}_{> 0} \times (\mathbb{R}_{\ge 0} \times U^n_W) &\lto \mathbb{R}_{> 0} \times \Cone{Z}, \\
+        \bigl(t,\, (s,\, u) \bigr) &\lmto \bigl( t,\, p_Y (s,\, u)  \bigr) 
+    \end{align}
+    とおく．すると，\hyperref[def:c-smooth-map]{conically smoothな層状化写像}の定義から以下の図式を可換にする conically smooth な層状化写像 $\tilde{D}p$ が存在する
+    \footnote{(2026/1/23) \textcolor{red}{定義\ref{def:c-smooth-along}がそのままだと $U^n_W$ がコンパクトである必要があるが，実際には必要ないはずである．}}
+    ：
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQAdDgW3pwAsARoOAAlAL4B9YAD4ABMXFyuebvDkAKLrwHCxU4FwDmMBUpVY1cOQFUAemEkB1AJQhxpdJlz5CKchTUdEys7Np8QiIS0vKKyhyq6lwAwgQwwABa4u6eIBjYeAREZMRBDCxsiJw8EXrRhhwmZvGJ1lo1ulEGxqZxFla2Ds5uHl4FvkQBpTTloVXhnfrSPc39SRypYOlZ7kEwUCYIKKAAZgBOENxIZCA4EEgBwRVhjfTcvHbAALTk5hwAxlgzv85GhlhwACIwRg4eh-QHA+JGN68HKnC5XRA3O5IABMNFhWEY7H4EAgAGs0SBzpcHgT7ogAMwE+hEklkyk0RhYLbsKD0OD8fZUmmY-G3BnMp5zap4RiwYAQ8RggCau3EQA
+        \begin{tikzcd}
+        \mathbb{R}_{\ge 0} \times (\mathbb{R}_{\ge 0} \times U^n_W) \arrow[r,red,dashed, "\tilde{D}p"]                                            & \mathbb{R}_{\ge 0} \times \Cone{Z}                       \\
+        \mathbb{R}_{> 0} \times (\mathbb{R}_{\ge 0} \times U^n_W) \arrow[r, "\gamma^{-1} \circ p_{\Delta} \circ \gamma"] \arrow[u, hook] & \mathbb{R}_{> 0} \times \Cone{Z} \arrow[u, dashed, hook]
+        \end{tikzcd}
+    \end{center}
+    ここで埋め込み
+    \begin{align}
+        \iota \colon \mathbb{R}_{\ge 0} \times U^n_W &\lto \mathbb{R}_{\ge 0} \times (\mathbb{R}_{> 0} \times U^n_W), \\
+        \bigl( t,\, (p,\, [u,\, w]) \bigr) &\lmto \bigl( t,\, (1,\, p,\, [u,\, w]) \bigr)
+    \end{align}
+    を考える．$\Int (\mathbb{R}_{\ge 0} \times U^n_W) = \mathbb{R}_{> 0} \times U^n_W$ であるから，
+    $\forall \bigl( t,\, (p,\, [u,\, w])\bigr) \in \Int (\mathbb{R}_{\ge 0} \times U^n_W)$ に対して
+    \begin{align}
+        &\tilde{D}p \circ \iota|_{\Int (\mathbb{R}_{\ge 0} \times U^n_W)} \bigl( t,\, (p,\, [u,\, w]) \bigr)  \\
+        &= \gamma^{-1} \circ p_{\Delta}\circ \gamma \bigl( t,\, (1,\, p,\, [u,\, w]) \bigr) \\
+        &= \gamma^{-1} \circ p_{\Delta}\bigl( t,\, (t,\, p,\, [u,\, w]) \bigr) \\
+        &= \gamma^{-1} \bigl( t,\, p_Y(t,\, p,\, [u,\, w]) \bigr) \\
+        &= \gamma^{-1} \Bigl( t,\, \bigl(p^{\mathbb{R}_{>0}}_{\Int}(t,\, p,\, [u,\, w]),\, p^{Z}_{\Int}(t,\, p,\, [u,\, w])\bigr) \Bigr) \\
+        &= \left( t,\, \left(\frac{p^{\mathbb{R}_{>0}}_{\Int}(t,\, p,\, [u,\, w])}{t},\, p^{Z}_{\Int}(t,\, p,\, [u,\, w])\right) \right) \\
+        &\in \mathbb{R}_{\ge 0} \times (\mathbb{R}_{>0} \times Z)
+    \end{align}
+    が成り立つ．
+    ただし，$\Int (\mathbb{R}_{\ge 0} \times U^n_W) = \mathbb{R}_{> 0} \times U^n_W = (\mathbb{R}_{\ge 0} \times U^n_W) \setminus (\{0\} \times U^n_W)$ であること，および条件\hyperref[def:Unzip-k]{\textsf{\textbf{(Unzip-2)}}}から $p_Y^{-1} \bigl( \{\mathrm{pt}\} \bigr) = \{0\} \times U^n_W$ が成り立つことに注意して，
+    % \hyperref[def:c-smooth-map]{conically smoothな層状化写像}
+    \begin{align}
+        p_{\Int} \colon 
+        \mathbb{R}_{> 0} \times U^n_W &\xrightarrow{p_Y|_{\Int (\mathbb{R}_{\ge 0} \times U^n_W)}} \mathbb{R}_{> 0} \times Z = \Cone{Z} \setminus \{\mathrm{pt}\}, \\
+        (t,\, u) &\lmto \bigl( p_{\Int}^{\mathbb{R}_{>0}} (t,\, u),\, p_{\Int}^{Z}(t,\, u) \bigr) 
+    \end{align}
+    とおいた．$p_{\Int}$ 自体が conically smooth な層状化写像なので，$t \to +0$ の極限をとっても最右辺は $\mathbb{R}_{\ge 0} \times (\mathbb{R}_{>0} \times Z)$ に値をとることが分かる．
+    従って，$\Strat$ における以下の図式を可換にする射 $p_0$ が存在する：
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACwBGA4ACUAvgH1gnAOYwABMTHzOeLvHkBVAHpgJAdRBjS6TLnyEUARnJVajFm049+Q0ZOns5i5aqzq4eQAKZ15BYXEpAD4fFXY1DR09fQBKIxMQDGw8AiIAZltqemZWRA5uMLdIz28lOITAkIrXCI8our8A+QAtNONTbIt80is7Yscy0Jb3KVkFDvj-DU4AYQIYYG6xdIHzXOsRsYdS8pdwmZr530WuprOqjznYzsTdAz6MrL3LZAAWQvsJSczXO1SeCwaPR2mTMOR+ACZSPCjkDJuw1mANlsjHYYFA5AgUKAAGYAJwgXCQNhAOAgSERIAYWExbCgdDgfDxICKxzYxOhZIpSH+NLpiAKgIm5TwDFgwAAImI0ALyZTENTacLqDg6FgGGw+BAIABrFVCxAMzXi7W6-VlQ0ms1qsiiqk81HlfA67k020Go2m-ogQVqy1igCs7qlUz4pK4wDQ5IAVtsgyGkC6rQA2agCGBgKBIAC0vwAnFGTmgJABNH0MOh5hgABVhQzKpKwMj4OCdSEjrsQOZAeYLwvLkpOAEccWIgA
+        \begin{tikzcd}
+        \mathbb{R}_{\ge 0} \times U^n_W \arrow[r, "\iota", hook] \arrow[rrdd, "p_Y"', bend right=49] & \mathbb{R}_{\ge 0} \times (\mathbb{R}_{> 0} \times U^n_W) \arrow[rr, "p_0", dashed] \arrow[d, hook] &          & \mathbb{R}_{\ge 0} \times (\mathbb{R}_{>0} \times Z) \arrow[d, hook] \arrow[r, "\mathrm{proj}"] & \mathbb{R}_{\ge 0} \times Z \arrow[lldd, "q", bend left=49] \\
+                                                                                                    & \mathbb{R}_{\ge 0} \times (\mathbb{R}_{\ge 0} \times U^n_W) \arrow[rr, "\tilde{D}p"]              &          & \mathbb{R}_{\ge 0} \times \Cone{Z}                                                              &                                                             \\
+                                                                                                    &                                                                                                   & \Cone{Z} &                                                                                                 &                                                            
+        \end{tikzcd}
+    \end{center}
+    $p_0$ が $c^{\{*\}}_{\{*\};\, Z} \circ (\mathrm{proj} \circ p_0 \circ \iota) = c_Y$ を充たすことは，構成より明らかである．
+    % $\forall \bigl( t,\, (1,\, p,\, [u,\, w]) \bigr) \in \mathbb{R}_{> 0} \times (\mathbb{R}_{> 0} \times U^n_W)$ に対して
+    % \begin{align}
+    %     p_{\Int} \bigl( t,\, (1,\, p,\, [u,\, w]) \bigr)
+    %     &= \bigl( t,\, (1,\, p,\, [u,\, w]) \bigr)
+    % \end{align}
+    一般の $Y$ の場合でも，\hyperref[def:Sm-induction]{conically smooth チャート}毎に同様の議論をすれば良い．
+\end{proof} 
 
 
 \section{{$(\infty,\, 1)$}-オペラッドと対称モノイダル {$(\infty,\, 1)$-圏}}
