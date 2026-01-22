@@ -3858,15 +3858,19 @@ Kan複体 $\Hom{\BSC^{\expval{I}}} \bigl( (U,\, c_U),\, (V,\, c_V) \bigr)$ の $
 \end{align}
 のようになる．
 引き戻しの図式において，上の行におけるKan複体の射 $\Hom{\BSC^{\expval{I}}} \bigl( (U,\, c_U),\, (V,\, c_V) \bigr) \lto \Hom{\BSC} (U,\, V)$ は inclusion of components である．
-故に忘却関手 $\hcNer(\BSC^{\expval{I}}) \lto \BSC$ は\hyperref[def:infty-fib]{右ファイブレーション}であり，\hyperref[def:B-mfld]{$\Cat{\BSC}^{\expval{I}}$-多様体}を考えることができる．
-$\Cat{\BSC}^{\expval{I}}$-多様体が成す $(\infty,\, 1)$-圏を
-\begin{align}
-    \SNGLR^{\expval{I}} \coloneqq \MFLDB{\BSC^{\expval{I}}}
-\end{align}
-とおき，$\expval{\bm{I}}$\textbf{-角を持つconically smoothな層状化空間} (conically smooth stratified spaces with $\expval{I}$-corners) が成す $(\infty,\, 1)$-圏と呼ぶ．
+故に忘却関手 $\hcNer(\BSC^{\expval{I}}) \lto \hcNer(\BSC)$ は\hyperref[def:infty-fib]{右ファイブレーション}であり，\hyperref[def:B-mfld]{$\Cat{\BSC}^{\expval{I}}$-多様体}を考えることができる．
+
+\begin{mydef}[label=def:Snglr-corner]{{$\SNGLR^{\expval{I}}$}}
+    $\hcNer(\Cat{\BSC}^{\expval{I}})$-多様体が成す $(\infty,\, 1)$-圏を
+    \begin{align}
+        \SNGLR^{\expval{I}} \coloneqq \MFLDB{\hcNer{\BSC^{\expval{I}}}}
+    \end{align}
+    とおき，$\expval{\bm{I}}$\textbf{-角を持つconically smoothな層状化空間} (conically smooth stratified spaces with $\expval{I}$-corners) が成す $(\infty,\, 1)$-圏と呼ぶ．
+\end{mydef}
+
 % 以下では，混乱の恐れがない限り半順序集合 $P_U$ および連続写像 $s_U$ を省略する．
 
-$\expval{I}$-角を持つconically smoothな層状化空間 $(U,\, c_U)$ が与えられたとき，その\textbf{内部} (interior) を $\Int (U,\, c_U) \coloneqq c_U^{-1} (\emptyset)$ で定義する．
+$\expval{I}$-角を持つconically smoothな層状化空間 $(U,\, c_U) \in (\SNGLR^{\expval{I}})_0$ が与えられたとき，その\textbf{内部} (interior) を $\Int (U,\, c_U) \coloneqq c_U^{-1} (\emptyset)$ で定義する．
 $\Int (U,\, c_U)$ は通常の\hyperref[def:Snglr]{conically smoothな層状化空間}であり，かつ\hyperref[def:topo-poset]{半順序集合の位相の定義}から $\{\emptyset\} \subset 2^I$ は開集合であるから，この対応は $(\infty,\, 1)$-圏の関手
 \begin{align}
     \Int \colon \SNGLR^{\expval{I}} \lto \SNGLR
@@ -3889,16 +3893,16 @@ $\Int (U,\, c_U)$ は通常の\hyperref[def:Snglr]{conically smoothな層状化�
     $I$ を有限集合とし，$T \in 2^I$ を1つ固定する．$X$ をconically smoothな層状化空間とする．
     \exref{ex:TcoCart}の考察より，連続写像
     \begin{align}
-        c^I_{T;\, X} \colon \mathbb{R}_{\ge 0}^T \times X \xrightarrow{\mathrm{proj}_{\mathbb{R}_{\ge 0}^T}} \mathbb{R}_{\ge 0}^T \xrightarrow{c^T_T} 2^T \hookrightarrow 2^I
+        c^I_{T;\, X} \colon (\mathbb{R}_{\ge 0})^T \times X \xrightarrow{\mathrm{proj}_{(\mathbb{R}_{\ge 0})^T}} (\mathbb{R}_{\ge 0})^T \xrightarrow{c^T_T} 2^T \hookrightarrow 2^I
     \end{align}
-    は\hyperref[def:TcoCart]{位相的にcoCartesian}である．故に2つ組 $\bigl( \mathbb{R}_{\ge 0}^T \times X,\, c^I_{T;\, X} \bigr)$ は\hyperref[def:B-mfld-corner]{$\expval{I}$-角を持つ層状化空間}である．
+    は\hyperref[def:TcoCart]{位相的にcoCartesian}である．故に2つ組 $\bigl( (\mathbb{R}_{\ge 0})^T \times X,\, c^I_{T;\, X} \bigr)$ は\hyperref[def:Snglr-corner]{$\expval{I}$-角を持つ conically smooth な層状化空間}である．
 \end{myexample}
 
 \begin{myprop}[label=prop:basic-corner]{}
-    $I$ を有限集合とし，勝手な\hyperref[def:B-mfld-corner]{$\expval{I}$-角を持つ層状化空間} $(X,\, c) \in (\SNGLR^{\expval{I}})_0$ を与える．
+    $I$ を有限集合とし，勝手な\hyperref[def:Snglr-corner]{$\expval{I}$-角を持つ conically smooth な層状化空間} $(X,\, c) \in (\SNGLR^{\expval{I}})_0$ を与える．
     このとき，族
     \begin{align}
-        \Bigl\{\, \varphi (\mathbb{R}_{\ge 0}^T \times U) \subset X \Bigm| T \in 2^I,\, U \in \BSC_0,\, \varphi \in \inftyMap{\SNGLR^{\expval{I}}} \bigl((\mathbb{R}_{\ge 0}^T \times U,\, c^I_T(U)),\, (X,\, c) \bigr)  \,\Bigr\} 
+        \biggl\{\, \varphi \bigl((\mathbb{R}_{\ge 0})^T \times U\bigr) \subset X \biggm| T \in 2^I,\, U \in \BSC_0,\, \varphi \in \inftyMap{\SNGLR^{\expval{I}}} \Bigl(\bigl((\mathbb{R}_{\ge 0})^T \times U,\, c^I_{T;\, U}\bigr),\, \bigl(X,\, c\bigr)\Bigr)  \,\biggr\} 
     \end{align}
     は $X$ の位相の開基を与える．
 \end{myprop}
@@ -3907,12 +3911,22 @@ $\Int (U,\, c_U)$ は通常の\hyperref[def:Snglr]{conically smoothな層状化�
     ~\cite[Proposition 7.2.11]{AFT2014stratified}
 \end{proof}
 
-命題\ref{prop:basic-corner}より，\hyperref[def:B-mfld-corner]{$\expval{I}$-角を持つ層状化空間}の conically smooth チャートは，ある $T \in 2^I$ を用いて
+命題\ref{prop:basic-corner}より，\hyperref[def:Snglr-corner]{$\expval{I}$-角を持つ層状化空間}の conically smooth チャートは，ある $T \in 2^I$ を用いて
 \begin{align}
     \label{eq:basic-corner}
-    \mathbb{R}_{\ge 0}^T \times \mathbb{R}^n \times \Cone{Z}
+    (\mathbb{R}_{\ge 0})^T \times \mathbb{R}^n \times \Cone{Z}
 \end{align}
 の形で書ける層状化空間を定義域とする開埋め込みによって構成されていることが分かった．この意味で，\eqref{eq:basic-corner}のことを\textbf{角付きbasic}と呼ぶことにする．
+
+\begin{marker}
+    $I$ を $n \ge 1$ 点集合とし，$0 \le k \le n$ に対して $k$ 点部分集合 $T \in 2^I$ をとる．幾何学的 $k$-単体 $\irm{\Delta}{top}^k$ を\exref{ex:str-CW}の方法で conically smooth な層状化空間と見做す．
+    このとき，角付き basic $\mathbb{R}^{I \setminus T} \times (\mathbb{R}_{\ge 0})^T$ は basic $\mathbb{R}^{n-k} \times \Cone{\irm{\Delta}{top}^{k-1}}$ と同相である．
+    ところが，前者の場合は対称群 $\mathfrak{S}_k$ の $(\mathbb{R}_{\ge 0})^T$ への作用が $\SNGLR^{\expval{I}}$ の射に持ち上がらない一方で，
+    後者の場合は \hyperref[def:Snglr-corner]{$\expval{I}$-角の構造}は持たない代わりに $\mathfrak{S}_k$ の $\Cone{\Delta^{k-1}}$ への作用が $\SNGLR$ の射に持ち上がる．
+
+    　この違いに由来して，後者の basic を\textbf{置換可能な角} (permutable corner) と呼び，角付き basic と区別する~\cite[Remark 7.2.10.]{AFT2014stratified}．
+\end{marker}
+
 
 さて，任意の有限集合 $I$ および $T \in 2^I$ に対して全単射
 \begin{align}
@@ -3953,7 +3967,7 @@ $\Int (U,\, c_U)$ は通常の\hyperref[def:Snglr]{conically smoothな層状化�
         \begin{align}
             \bm{\depth}^{\expval{\mhyphen}}\bm{(X,\, c)} \coloneqq \depth \bigl( \Int (x,\, c) \bigr) 
         \end{align}
-        \item \textbf{深度 $\expval{k}$-strata} (depth $\expval{k}$-strata) $(\bm{X}_{\expval{\bm{k}}},\, c|_{X_{\expval{k}}}) \subset (X,\, c)$ とは，
+        \item \textbf{深度 $\expval{\bm{k}}$ のstrata} (depth $\expval{k}$-strata) $(\bm{X}_{\expval{\bm{k}}},\, c|_{X_{\expval{k}}}) \subset (X,\, c)$ とは，
         内部深度が $k$ であってかつ $\Int (\bm{X}_{\expval{\bm{k}}},\, c|_{X_{\expval{k}}}) \subset \Int (X,\, c)$ を充たす，
         $(X,\, c)$ の $\expval{I}$-角を持つ最大の部分層状化空間のこと．
         \item $k \ge -1$ に対して，内部深度 $k$ 以下の $\expval{I}$-角を持つ conically smooth な層状化空間が成す $\SNGLR^{\expval{I}}$ の\hyperref[def:fullsub-infty]{充満部分 $(\infty,\, 1)$-圏}を
@@ -3966,8 +3980,8 @@ $\Int (U,\, c_U)$ は通常の\hyperref[def:Snglr]{conically smoothな層状化�
 
 $T$ を勝手な有限集合とするとき，\exref{ex:depth-Cone}と同様の考察により
 \begin{align}
-    \intdepth \bigl(\mathbb{R}_{\ge 0}^T \times \mathbb{R}^n \times (\mathbb{R}_{\ge 0} \times Z)\bigr)
-    < \intdepth (\mathbb{R}_{\ge 0}^T \times \mathbb{R}^n \times \Cone{Z})
+    \intdepth \bigl((\mathbb{R}_{\ge 0})^T \times \mathbb{R}^n \times (\mathbb{R}_{\ge 0} \times Z)\bigr)
+    < \intdepth ((\mathbb{R}_{\ge 0})^T \times \mathbb{R}^n \times \Cone{Z})
 \end{align}
 が分かる．故に，内部深度に関する帰納法が有効である．
 
@@ -3979,11 +3993,20 @@ Conically smoothな層状化空間における特異点解消を，圏論的に�
     \hyperref[def:int-depth]{内部深度}が高々 $k$ であるような\hyperref[def:B-mfld-corner]{$\expval{I}$-角を持つconically smoothな層状化空間} $(X,\, c_X) \in (\SNGLR^{\expval{I}})_0$ を与える．
     $(1,\, 1)$-圏 $\Res^k_{(X,\, c_X)}$ を以下のように定義する~\cite[Definition 7.3.2]{AFT2014stratified}：
     \begin{description}
-        \item[\textbf{対象}]　
+        \item[\textbf{(対象)}]　
         
         $\expval{\{*\} \amalg I}$-角を持つconically smoothな層状化空間 $(Y,\, Y \xrightarrow{c_Y} 2^{\{*\} \amalg I}) \in (\SNGLR^{\expval{\{*\}\amalg I}})_0$ および\hyperref[def:c-smooth]{conically smoothな層状化写像} $p_Y \colon Y \lto X$ の組 $\bigl((Y,\, c_Y),\, p_Y\bigr)$ であって，以下の条件を充たすもの：
         \begin{enumerate}
-            \item 連続写像 $Y \xrightarrow{p_Y} X \xrightarrow{c_X} 2^I$ は $Y \xrightarrow{c_Y} 2^{\{*\} \amalg I} \cong 2^{\{*\}} \times 2^I \xrightarrow{\mathrm{proj}_{2^I}} 2^I$ と等しい．
+            \item $(1,\, 1)$-圏 $\TOP$ における可換図式
+            \begin{center}
+                % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAmAXVJADcBDAGwFcYkRyA9YAHR+ABUfAL7CABHzwBbeGK4BJEMNLpMufIRQAGCtTpNW7Lr35Ce4vvSlMA5mPnClKkBmx4CRMlr0MWbRCAAGk6qbhpEOt40voYBAJohLmrumiSkxD4G-hycisJ6MFA28ESgAGYAThBSSADMNDgQSOTRWexoAPoJyuVVNYj1II1IZPp+7ADGXSA0jPQARjCMAArJ4QEVWDYAFjiJldUjDU2IOmOxIHwTBDYzIHOLK2seG1u7+33Nx0gALK3jASmwR6IAO-TOw0Qf3O2T41hw2wqUmAaCqACthB1gApHLMFktVmEXiBNjs9vlhEA
+                \begin{tikzcd}
+                Y \arrow[r, "p_Y"] \arrow[dd, "c_Y"']  & X \arrow[d, "c_X"]                                     \\
+                                                    & 2^I                                                    \\
+                2^{\{*\} \amalg I} \arrow[r, "\cong"'] & 2^{\{*\}} \times 2^I \arrow[u, "\mathrm{proj}_{2^I}"']
+                \end{tikzcd}
+            \end{center}
+            が成り立つ．
             \item $Y$ の2つの部分空間
             \begin{align}
                 \bar{\partial}_{\{*\}} (Y,\, c_Y),\quad p^{-1} (X_{\expval{k}})
@@ -3991,7 +4014,7 @@ Conically smoothな層状化空間における特異点解消を，圏論的に�
             が一致する．
         \end{enumerate}
         
-        \item[\textbf{射}]　
+        \item[\textbf{(射)}]　
         
         2つの対象 $\bigl((Y,\, c_Y),\, p_Y\bigr),\, \bigl((Z,\, c_Z),\, p_Z\bigr)$ の間の射は，
         \begin{align}
@@ -4011,7 +4034,7 @@ Conically smoothな層状化空間における特異点解消を，圏論的に�
         と書く．
         \item $(X, c_X)$ の\textbf{リンク} (link) とは，
         \begin{align}
-            \bm{\Link_k (X,\, c_X)} \coloneqq \bar{\partial}_{\{*\}} \Unzip_k (X,\, c_X)
+            \bm{\Link_k (X,\, c_X)} \coloneqq \bar{\partial}_{\{*\}} \Unzip_k (X,\, c_X) \in (\SNGLR^{\expval{I}})_0
         \end{align}
         のこと．$\Unzip_k(X,\, c_X) \xrightarrow{\pi_k} X$ の制限を
         \begin{align}
