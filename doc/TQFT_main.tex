@@ -487,259 +487,261 @@ title=系~\thetcbcounter: #2,#1}
 \newcommand\yo{\!\text{\usefont{U}{min}{m}{n}\symbol{'207}}\!}
 
 %% TikZ commands
-\newcommand{\coupon}[3]{
-    % \pgfmathsetmacro{\CPWIDTH}{#2}
-    % \pgfmathsetmacro{\CPHEIGHT}{#3}
-    \draw[fill=white] ($(#1) + 0.5*(-#2,-#3)$) rectangle ($(#1) + 0.5*(#2,#3)$);
-}
+% \newcommand{\coupon}[3]{
+%     % \pgfmathsetmacro{\CPWIDTH}{#2}
+%     % \pgfmathsetmacro{\CPHEIGHT}{#3}
+%     \draw[fill=white] ($(#1) + 0.5*(-#2,-#3)$) rectangle ($(#1) + 0.5*(#2,#3)$);
+% }
 
-\newcommand{\dPlexus}[3]{
-    \draw[fill=white] #1 rectangle ($#1 + (#2,#3)$);
-    \draw[fill=black] #1 rectangle ($#1 + (#2,0.1*#3)$);
-}
+% \newcommand{\dPlexus}[3]{
+%     \draw[fill=white] #1 rectangle ($#1 + (#2,#3)$);
+%     \draw[fill=black] #1 rectangle ($#1 + (#2,0.1*#3)$);
+% }
 
-\newcommand{\uPlexus}[3]{
-    \draw[fill=white] #1 rectangle ($#1 + (#2,#3)$);
-    \draw[fill=black] ($#1 + (0,0.9*#3)$) rectangle ($#1 + (#2,#3)$);
-}
+% \newcommand{\uPlexus}[3]{
+%     \draw[fill=white] #1 rectangle ($#1 + (#2,#3)$);
+%     \draw[fill=black] ($#1 + (0,0.9*#3)$) rectangle ($#1 + (#2,#3)$);
+% }
 
-\newcommand{\Genus}[2]{
-    \draw ($#1 + (#2,-0.1*#2)$) arc(0:180:{#2} and {0.5*#2});
-    \draw ($#1 + (-1.1*#2,0.1*#2)$) arc(-180:0:{1.1*#2} and {0.55*#2});
-}
-\newcommand{\GenusClip}[2]{
-    \clip ($#1 + (0,-0.1*#2)$) ellipse({#2} and {0.5*#2});
-    \clip ($#1 + (0,0.1*#2)$)  ellipse({1.1*#2} and {0.55*#2});
-}
-\newcommand{\TwoPunctureR}[2]{
-    \draw ($#1 + (0,#2)$) to[out=0,in=0,looseness=2.5] ($#1 - (0,#2)$);
-}
-\newcommand{\TwoPunctureL}[2]{
-    \draw ($#1 + (0,#2)$) to[out=180,in=180,looseness=2.5] ($#1 - (0,#2)$);
-}
-\newcommand{\ThreePunctureR}[3]{
-    \draw ($#1 + (0,#3)$) .. controls +({0.5*#3},0) and +(-{0.5*#3},0) .. ($0.5*#1 + 0.5*#2 + 0.8*(0,#3)$);
-    \draw ($#1 - (0,#3)$) .. controls +({0.5*#3},0) and +(-{0.5*#3},0) .. ($0.5*#1 + 0.5*#2 - 0.8*(0,#3)$);
-}
-\newcommand{\ThreePunctureL}[3]{
-    \draw ($0.5*#1 + 0.5*#2 + 0.8*(0,#3)$) .. controls +({0.5*#3},0) and +(-{0.5*#3},0) .. ($#2 + (0,#3)$);
-    \draw ($0.5*#1 + 0.5*#2 - 0.8*(0,#3)$) .. controls +({0.5*#3},0) and +(-{0.5*#3},0) .. ($#2 - (0,#3)$);
-}
-\newcommand{\FourPuncture}[3]{
-    \draw ($#1 + (0,#3)$) .. controls +({0.5*#3},0) and +(-{0.5*#3},0) .. ($0.5*#1 + 0.5*#2 + 0.8*(0,#3)$) .. controls +({0.5*#3},0) and +(-{0.5*#3},0) .. ($#2 + (0,#3)$);
-    \draw ($#1 - (0,#3)$) .. controls +({0.5*#3},0) and +(-{0.5*#3},0) .. ($0.5*#1 + 0.5*#2 - 0.8*(0,#3)$) .. controls +({0.5*#3},0) and +(-{0.5*#3},0) .. ($#2 - (0,#3)$);
-}
-\newcommand{\Intermediate}[5]{
-    \draw[dotted] ($0.5*#1 + 0.5*#2 + 0.8*(0,#5)$) -- ($0.5*#3 + 0.5*#4 + 0.8*(0,#5)$);
-    \draw[dotted] ($0.5*#1 + 0.5*#2 - 0.8*(0,#5)$) -- ($0.5*#3 + 0.5*#4 - 0.8*(0,#5)$);
-}
+% \newcommand{\Genus}[2]{
+%     \draw ($#1 + (#2,-0.1*#2)$) arc(0:180:{#2} and {0.5*#2});
+%     \draw ($#1 + (-1.1*#2,0.1*#2)$) arc(-180:0:{1.1*#2} and {0.55*#2});
+% }
+% \newcommand{\GenusClip}[2]{
+%     \clip ($#1 + (0,-0.1*#2)$) ellipse({#2} and {0.5*#2});
+%     \clip ($#1 + (0,0.1*#2)$)  ellipse({1.1*#2} and {0.55*#2});
+% }
+% \newcommand{\TwoPunctureR}[2]{
+%     \draw ($#1 + (0,#2)$) to[out=0,in=0,looseness=2.5] ($#1 - (0,#2)$);
+% }
+% \newcommand{\TwoPunctureL}[2]{
+%     \draw ($#1 + (0,#2)$) to[out=180,in=180,looseness=2.5] ($#1 - (0,#2)$);
+% }
+% \newcommand{\ThreePunctureR}[3]{
+%     \draw ($#1 + (0,#3)$) .. controls +({0.5*#3},0) and +(-{0.5*#3},0) .. ($0.5*#1 + 0.5*#2 + 0.8*(0,#3)$);
+%     \draw ($#1 - (0,#3)$) .. controls +({0.5*#3},0) and +(-{0.5*#3},0) .. ($0.5*#1 + 0.5*#2 - 0.8*(0,#3)$);
+% }
+% \newcommand{\ThreePunctureL}[3]{
+%     \draw ($0.5*#1 + 0.5*#2 + 0.8*(0,#3)$) .. controls +({0.5*#3},0) and +(-{0.5*#3},0) .. ($#2 + (0,#3)$);
+%     \draw ($0.5*#1 + 0.5*#2 - 0.8*(0,#3)$) .. controls +({0.5*#3},0) and +(-{0.5*#3},0) .. ($#2 - (0,#3)$);
+% }
+% \newcommand{\FourPuncture}[3]{
+%     \draw ($#1 + (0,#3)$) .. controls +({0.5*#3},0) and +(-{0.5*#3},0) .. ($0.5*#1 + 0.5*#2 + 0.8*(0,#3)$) .. controls +({0.5*#3},0) and +(-{0.5*#3},0) .. ($#2 + (0,#3)$);
+%     \draw ($#1 - (0,#3)$) .. controls +({0.5*#3},0) and +(-{0.5*#3},0) .. ($0.5*#1 + 0.5*#2 - 0.8*(0,#3)$) .. controls +({0.5*#3},0) and +(-{0.5*#3},0) .. ($#2 - (0,#3)$);
+% }
+% \newcommand{\Intermediate}[5]{
+%     \draw[dotted] ($0.5*#1 + 0.5*#2 + 0.8*(0,#5)$) -- ($0.5*#3 + 0.5*#4 + 0.8*(0,#5)$);
+%     \draw[dotted] ($0.5*#1 + 0.5*#2 - 0.8*(0,#5)$) -- ($0.5*#3 + 0.5*#4 - 0.8*(0,#5)$);
+% }
 
-\newcommand{\Cusp}[3]{
-    ($#1 - .5*(0,{#2})$) 
-    .. controls +(90:{.2*#2}) and +(0:{.2*#2}) .. ++({-.5*#2},{.8*#2})
-    .. controls +(180:{.7*#3}) and +(180:{.7*#3}) .. ++(0,{-.6*#2})
-    .. controls +(0:{.2*#2}) and +(-90:{.2*#2}) ..
-    ($#1 + .5*(0,{#2})$)
-}
+% \newcommand{\Cusp}[3]{
+%     ($#1 - .5*(0,{#2})$) 
+%     .. controls +(90:{.2*#2}) and +(0:{.2*#2}) .. ++({-.5*#2},{.8*#2})
+%     .. controls +(180:{.7*#3}) and +(180:{.7*#3}) .. ++(0,{-.6*#2})
+%     .. controls +(0:{.2*#2}) and +(-90:{.2*#2}) ..
+%     ($#1 + .5*(0,{#2})$)
+% }
 
-\newcommand{\Ellipse}[3]{
-	\draw[thick] #1 arc(-180:0:{#2} and {#3});
-	\draw[thick] ($ #1 + 2*(#2,0)$) arc(0:180:{#2} and {#3});
-}
+% \newcommand{\Ellipse}[3]{
+% 	\draw[thick] #1 arc(-180:0:{#2} and {#3});
+% 	\draw[thick] ($ #1 + 2*(#2,0)$) arc(0:180:{#2} and {#3});
+% }
 
-\newcommand{\halfDottedEllipse}[3]{
-	\draw[thick] #1 arc(-180:0:{#2} and {#3});
-	\draw[thick, dotted] ($ #1 + 2*(#2,0)$) arc(0:180:{#2} and {#3});
-}
+% \newcommand{\halfDottedEllipse}[3]{
+% 	\draw[thick] #1 arc(-180:0:{#2} and {#3});
+% 	\draw[thick, dotted] ($ #1 + 2*(#2,0)$) arc(0:180:{#2} and {#3});
+% }
 
-\newcommand{\Elps}[5]{
-    % #1: west coordinate
-    % #2: x-radius
-    % #3: y-radius
-    % #4: option of front edge
-    % #5: option of back edge
-	\draw[#4] #1 arc(-180:0:{#2} and {#3});
-	\draw[#5] ($#1 + 2*(#2,0)$) arc(0:180:{#2} and {#3});
-}
+% \newcommand{\Elps}[5]{
+%     % #1: west coordinate
+%     % #2: x-radius
+%     % #3: y-radius
+%     % #4: option of front edge
+%     % #5: option of back edge
+% 	\draw[#4] #1 arc(-180:0:{#2} and {#3});
+% 	\draw[#5] ($#1 + 2*(#2,0)$) arc(0:180:{#2} and {#3});
+% }
 
-\newcommand{\halfDottedElps}[5]{
-    % #1: west coordinate
-    % #2: x-radius
-    % #3: y-radius
-    % #4: option of front edge
-    % #5: option of back edge
-	\draw[#4] #1 arc(-180:0:{#2} and {#3});
-	\draw[#5, dotted] ($ #1 + 2*(#2,0)$) arc(0:180:{#2} and {#3});
-}
+% \newcommand{\halfDottedElps}[5]{
+%     % #1: west coordinate
+%     % #2: x-radius
+%     % #3: y-radius
+%     % #4: option of front edge
+%     % #5: option of back edge
+% 	\draw[#4] #1 arc(-180:0:{#2} and {#3});
+% 	\draw[#5, dotted] ($ #1 + 2*(#2,0)$) arc(0:180:{#2} and {#3});
+% }
 
-\newcommand{\HalfFrontArc}[3]{
-    % #1: west coordinate
-    % #2: x-radius
-    % #3: y-radius
-    #1 arc(-180:0:#2 and #3)
-}
-\newcommand{\HalfBackArc}[3]{
-    % #1: west coordinate
-    % #2: x-radius
-    % #3: y-radius
-    #1 arc(180:0:#2 and #3)
-}
+% \newcommand{\HalfFrontArc}[3]{
+%     % #1: west coordinate
+%     % #2: x-radius
+%     % #3: y-radius
+%     #1 arc(-180:0:#2 and #3)
+% }
+% \newcommand{\HalfBackArc}[3]{
+%     % #1: west coordinate
+%     % #2: x-radius
+%     % #3: y-radius
+%     #1 arc(180:0:#2 and #3)
+% }
 
-\newcommand{\OverBracing}[3]{
-    \draw [
-        decorate,
-        decoration={
-        brace,amplitude={6pt}
-        }
-    ] #1 -- #2;
-    \path [
-        decorate,
-        decoration={
-            markings,
-            mark=at position .5 
-                with { \node at (0,12pt) {#3}; }
-        }
-    ] #1 -- #2;
-}
+% \newcommand{\OverBracing}[3]{
+%     \draw [
+%         decorate,
+%         decoration={
+%         brace,amplitude={6pt}
+%         }
+%     ] #1 -- #2;
+%     \path [
+%         decorate,
+%         decoration={
+%             markings,
+%             mark=at position .5 
+%                 with { \node at (0,12pt) {#3}; }
+%         }
+%     ] #1 -- #2;
+% }
 
-\newcommand{\overBracing}[3]{
-    \draw [
-        decorate,
-        decoration={
-        brace,amplitude={6pt}
-        }
-    ] #1 -- #2;
-    \path [
-        decorate,
-        decoration={
-            markings,
-            mark=at position .5 
-                with { #3 }
-        }
-    ] #1 -- #2;
-}
+% \newcommand{\overBracing}[3]{
+%     \draw [
+%         decorate,
+%         decoration={
+%         brace,amplitude={6pt}
+%         }
+%     ] #1 -- #2;
+%     \path [
+%         decorate,
+%         decoration={
+%             markings,
+%             mark=at position .5 
+%                 with { #3 }
+%         }
+%     ] #1 -- #2;
+% }
 
-\newcommand{\UnderBracing}[3]{
-    \draw [
-        decorate,
-        decoration={
-        brace,amplitude={6pt},mirror
-        }
-    ] #1 -- #2;
-    \path [
-        decorate,
-        decoration={
-            markings,
-            mark=at position .5 
-                with { \node at (0,-12pt) {#3}; }
-        }
-    ] #1 -- #2;
-}
+% \newcommand{\UnderBracing}[3]{
+%     \draw [
+%         decorate,
+%         decoration={
+%         brace,amplitude={6pt},mirror
+%         }
+%     ] #1 -- #2;
+%     \path [
+%         decorate,
+%         decoration={
+%             markings,
+%             mark=at position .5 
+%                 with { \node at (0,-12pt) {#3}; }
+%         }
+%     ] #1 -- #2;
+% }
 
-\newcommand{\underBracing}[3]{
-    \draw [
-        decorate,
-        decoration={
-        brace,amplitude={6pt},mirror
-        }
-    ] #1 -- #2;
-    \path [
-        decorate,
-        decoration={
-            markings,
-            mark=at position .5 
-                with { #3 }
-        }
-    ] #1 -- #2;
-}
+% \newcommand{\underBracing}[3]{
+%     \draw [
+%         decorate,
+%         decoration={
+%         brace,amplitude={6pt},mirror
+%         }
+%     ] #1 -- #2;
+%     \path [
+%         decorate,
+%         decoration={
+%             markings,
+%             mark=at position .5 
+%                 with { #3 }
+%         }
+%     ] #1 -- #2;
+% }
 
-%%% must be used with spath/save
-\newcommand{\Over}[5]{ 
-    % 1st: spath name 
-    % 2nd: start pt 
-    % 3rd: end pt 
-    % 4th: color of overcrossing
-    % 5th: width of overcrossing
-    \tikzset{
-        spath/.cd,
-        clone={SUBCURVE}{#1},
-        split at keep middle={SUBCURVE}{#2}{#3},
-    }
-    % \draw[#4,spath/use=#1];
-    \draw[overcrossing={#4}{#5},spath/use=SUBCURVE];
-}
+% %%% must be used with spath/save
+% \newcommand{\Over}[5]{ 
+%     % 1st: spath name 
+%     % 2nd: start pt 
+%     % 3rd: end pt 
+%     % 4th: color of overcrossing
+%     % 5th: width of overcrossing
+%     \tikzset{
+%         spath/.cd,
+%         clone={SUBCURVE}{#1},
+%         split at keep middle={SUBCURVE}{#2}{#3},
+%     }
+%     % \draw[#4,spath/use=#1];
+%     \draw[overcrossing={#4}{#5},spath/use=SUBCURVE];
+% }
 
-\newcommand{\OverCrossing}[6]{ 
-    % #1: spath name 
-    % #2: start pt 
-    % #3: end pt 
-    % #4: color of overcrossing
-    % #5: width of overcrossing
-    % #6: background color of overcrossing
-    \tikzset{
-        spath/.cd,
-        clone={SUBCURVE}{#1},
-        split at keep middle={SUBCURVE}{#2}{#3},
-    }
-    % \draw[#4,spath/use=#1];
-    \draw[white,very thick,double={#4},double distance={#5},spath/use=SUBCURVE];
-    \draw[#6,very thick,double={#4},double distance={#5},spath/use=SUBCURVE];
-}
+% \newcommand{\OverCrossing}[6]{ 
+%     % #1: spath name 
+%     % #2: start pt 
+%     % #3: end pt 
+%     % #4: color of overcrossing
+%     % #5: width of overcrossing
+%     % #6: background color of overcrossing
+%     \tikzset{
+%         spath/.cd,
+%         clone={SUBCURVE}{#1},
+%         split at keep middle={SUBCURVE}{#2}{#3},
+%     }
+%     % \draw[#4,spath/use=#1];
+%     \draw[white,very thick,double={#4},double distance={#5},spath/use=SUBCURVE];
+%     \draw[#6,very thick,double={#4},double distance={#5},spath/use=SUBCURVE];
+% }
 
-\newcommand{\Rsquare}[3]{
-    % #1: coordinate of lower left vertex
-    \pgfmathsetmacro{\PlaneDepth}{#2}
-    \pgfmathsetmacro{\PlaneWidth}{#3}
-    \fill[gray!20,opacity=.6] #1 -- ++(\PlaneWidth,0) -- ++(\PlaneDepth,\PlaneDepth) -- ++(-\PlaneWidth,0) -- cycle;
-}
+% \newcommand{\Rsquare}[3]{
+%     % #1: coordinate of lower left vertex
+%     \pgfmathsetmacro{\PlaneDepth}{#2}
+%     \pgfmathsetmacro{\PlaneWidth}{#3}
+%     \fill[gray!20,opacity=.6] #1 -- ++(\PlaneWidth,0) -- ++(\PlaneDepth,\PlaneDepth) -- ++(-\PlaneWidth,0) -- cycle;
+% }
 
-\newcommand{\Trapezium}[5]{
-    % #1: coordinate of lower left vertex
-    % #5: filling option
-    \pgfmathsetmacro{\PlaneDx}{#2}
-    \pgfmathsetmacro{\PlaneDy}{#3}
-    \pgfmathsetmacro{\PlaneWidth}{#4}
-    \fill[#5] #1 -- ++(\PlaneWidth,0) -- ++(\PlaneDx,\PlaneDy) -- ++(-\PlaneWidth,0) -- #1 -- cycle;
-}
+% \newcommand{\Trapezium}[5]{
+%     % #1: coordinate of lower left vertex
+%     % #5: filling option
+%     \pgfmathsetmacro{\PlaneDx}{#2}
+%     \pgfmathsetmacro{\PlaneDy}{#3}
+%     \pgfmathsetmacro{\PlaneWidth}{#4}
+%     \fill[#5] #1 -- ++(\PlaneWidth,0) -- ++(\PlaneDx,\PlaneDy) -- ++(-\PlaneWidth,0) -- #1 -- cycle;
+% }
 
-\newcommand{\TrapeziumAngle}[5]{
-    % #1: coordinate of lower left vertex
-    % #5: filling option
-    \pgfmathsetmacro{\RightAngle}{#2}
-    \pgfmathsetmacro{\PlaneDepth}{#3}
-    \pgfmathsetmacro{\PlaneWidth}{#4}
-    \fill[#5] #1 -- ++(\PlaneWidth,0) -- ++(\RightAngle:\PlaneDepth) -- ++(-\PlaneWidth,0) -- #1 -- cycle;
-}
+% \newcommand{\TrapeziumAngle}[5]{
+%     % #1: coordinate of lower left vertex
+%     % #5: filling option
+%     \pgfmathsetmacro{\RightAngle}{#2}
+%     \pgfmathsetmacro{\PlaneDepth}{#3}
+%     \pgfmathsetmacro{\PlaneWidth}{#4}
+%     \fill[#5] #1 -- ++(\PlaneWidth,0) -- ++(\RightAngle:\PlaneDepth) -- ++(-\PlaneWidth,0) -- #1 -- cycle;
+% }
 
-\newcommand{\Dots}[3]{
-    % #1: start coordinate
-    % #2: end coordinate
-    % #3: option
-    \draw[dotted,#3] #1 -- #2;
-}
+% \newcommand{\Dots}[3]{
+%     % #1: start coordinate
+%     % #2: end coordinate
+%     % #3: option
+%     \draw[dotted,#3] #1 -- #2;
+% }
 
-\newcommand{\DotsDir}[3]{
-    % #1: start coordinate
-    % #2: direction vector
-    % #3: option
-    \draw[dotted,#3] #1 -- ++#2;
-}
+% \newcommand{\DotsDir}[3]{
+%     % #1: start coordinate
+%     % #2: direction vector
+%     % #3: option
+%     \draw[dotted,#3] #1 -- ++#2;
+% }
 
-\newcommand{\Ori}[2]{
-    % #1: center coordinate
-    \pgfmathsetmacro{\ArrowRadius}{#2}
-    \draw[->] ($#1 + (0:\ArrowRadius)$) arc (0:270:\ArrowRadius);
-}
+% \newcommand{\Ori}[2]{
+%     % #1: center coordinate
+%     \pgfmathsetmacro{\ArrowRadius}{#2}
+%     \draw[->] ($#1 + (0:\ArrowRadius)$) arc (0:270:\ArrowRadius);
+% }
 
-\newcommand{\invOri}[2]{
-    % #1: center coordinate
-    \pgfmathsetmacro{\ArrowRadius}{#2}
-    \draw[->] ($#1 + (0:\ArrowRadius)$) arc (0:-270:\ArrowRadius);
-}
+% \newcommand{\invOri}[2]{
+%     % #1: center coordinate
+%     \pgfmathsetmacro{\ArrowRadius}{#2}
+%     \draw[->] ($#1 + (0:\ArrowRadius)$) arc (0:-270:\ArrowRadius);
+% }
 
-\newcommand{\pullback}{
-    \arrow[dr, phantom," " {pullback}, very near start, color=black]
-}
+% \newcommand{\pullback}{
+%     \arrow[dr, phantom," " {pullback}, very near start, color=black]
+% }
+
+\usepackage{mytikz}
 
 \newcommand{\mathimg}[2][1.6ex]{%
   \vcenter{\hbox{\includegraphics[height=#1]{#2}}}%
@@ -793,9 +795,9 @@ title=系~\thetcbcounter: #2,#1}
     #1_{\text{top}}
 }
 
-\newcommand{\Interval}[3]{
-    \path (#1,0) node[#3] {$($} -- +(#2,0) node[#3] {$)$};
-}
+% \newcommand{\Interval}[3]{
+%     \path (#1,0) node[#3] {$($} -- +(#2,0) node[#3] {$)$};
+% }
 
 %% file division
 \usepackage{subfiles}

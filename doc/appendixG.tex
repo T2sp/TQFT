@@ -4048,9 +4048,9 @@ Conically smoothな層状化空間における特異点解消を，圏論的に�
     コンパクトかつ conically smooth な $k-1$ 次元層状化空間 $(Z \xrightarrow{s} P) \in (\SNGLR)_0 = (\SNGLR^{\expval{\emptyset}})_0$ を与える．
     このとき，商写像
     \begin{align}
-        \mathbb{R}_{\ge 0} \times Z \xrightarrow{q} \Cone{Z \xrightarrow{s} P}
+        \mathbb{R}_{\ge 0} \times Z \xrightarrow{q} \Cone{Z}
     \end{align}
-    は $\Cone(Z \xrightarrow{s} P)$ の\hyperref[def:Unzip-k]{$k$-unzip}である．
+    は $\Cone{Z \xrightarrow{s} P}$ の\hyperref[def:Unzip-k]{$k$-unzip}である．
 \end{mylem}
 
 \begin{proof}
@@ -4216,6 +4216,81 @@ Conically smoothな層状化空間における特異点解消を，圏論的に�
     % \end{align}
     一般の $Y$ の場合でも，\hyperref[def:Sm-induction]{conically smooth チャート}毎に同様の議論をすれば良い．
 \end{proof} 
+
+\begin{mydef}[label=def:consective]{Consective map}
+    半順序集合 $P,\, Q$ の間の順序を保つ単射 $j \colon P \hookrightarrow Q$ が\textbf{連綿} (consective) であるとは，以下の条件を充たすことを言う：
+    \begin{description}
+        \item[\textbf{(Consective-1)}] 
+        $\forall p_1,\, p_2 \in P$ に対して，$p_1 \le p_2$ が成り立つには $j(p_1) \le j(p_2)$  が成り立つことが必要十分である．
+        \item[\textbf{(Consective-2)}] 
+        $\forall q_1,\, q_2 \in j(P)$ に対して，$Q$ の部分集合
+        \begin{align}
+            \bigl\{\, q \in Q \bigm| q_1 \le q \le q_2 \,\bigr\} 
+        \end{align}
+        は $j(P)$ の部分集合である．
+    \end{description}
+\end{mydef}
+
+\begin{mydef}[label=def:inclusion-refinement]{層状化写像のクラス}
+    \hyperref[def:c-smooth-map]{Conically smoothな層状化写像} $(f,\, \tilde{f}) \in \Hom{\Strat} \bigl( (X \xrightarrow{s_X} P_X),\, (Y \xrightarrow{s_Y} P_Y) \bigr)$ を与える．
+    \begin{itemize}
+        \item $(f,\, \tilde{f})$ が\textbf{strata の包含} (inclusion of strata) であるとは，
+        $P_X \xrightarrow{\tilde{f}} P_Y$ が包含写像であり，かつ $(1,\, 1)$-圏 $\TOP$ における可換図式
+        \begin{center}
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAA0QBfU9TXfIRQBGclVqMWbAJrdeIDNjwEiZYePrNWiEAAUA+px58lgoqPXVNUnQdldxMKAHN4RUADMAThAC2SMhAcCCRRCS02DzlPH39EACZqYKQAZitJbRAAHSy8BlhgDy4QagY6ACMYBl1+ZSEQLyxnAAscaJBvPwCkkIT0iJ04QxKQMsrq2rMdRpa24w7Y0J7U-psQIfsKLiA
+            \begin{tikzcd}
+            X \arrow[r, "f"] \arrow[d, "s_X"'] & Y \arrow[d, "s_Y"] \\
+            P_X \arrow[r, "\tilde{f}"', hook]        & P_Y               
+            \end{tikzcd}
+        \end{center}
+        が\hyperref[def:pullback-pushout]{引き戻し}であることを言う
+        \footnote{つまり，位相空間としては $X \approx s_Y^{-1} (P_X) = \bigcup_{p \in P_X} Y_p$ である．}．
+        \item $(f,\, \tilde{f})$ が\textbf{連綿とした strata の包含} (consective inclusion of strata) であるとは，$(f,\, \tilde{f})$ が strata の包含であって，かつ $\tilde{f}$ が\hyperref[def:consective]{連綿}であることを言う．
+        \item $(f,\, \tilde{f})$ が\textbf{純化} (refinement) であるとは，連続写像 $f \colon X \lto Y$ が同相写像であり，かつ $\forall p \in P_X$ に対して制限 $f|_{X_p} \colon X_p \lto Y_{\tilde{f}(p)}$ が，像 $f(X_p) \subset Y_{\tilde{f}(p)}$ への微分同相写像になっていることを言う．
+        \item $(f,\, \tilde{f})$ が\textbf{固有埋め込み} (proper embedding) であるとは，
+        連綿とした strata の包含 $(i,\, \tilde{i}) \in \Hom{\Strat} \bigl( (X \xrightarrow{s_X} P_X),\, (\widehat{Y} \xrightarrow{s_{\widehat{Y}}} P_{\widehat{Y}}) \bigr)$ および純化 $(r,\, \tilde{r}) \in \Hom{\Strat} \bigl( (\widehat{Y} \xrightarrow{s_{\widehat{Y}}} P_{\widehat{Y}}),\, (Y \xrightarrow{s_Y} P_Y) \bigr)$ が存在して，
+        分解
+        \begin{align}
+            (f,\, \tilde{f}) = 
+            % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAA0QBfU9TXfIRQAmclVqMWbAJrdeIDNjwEiZAIzj6zVohAAFAPqcefJYKKiN1LVN2HZJhf2VDkasdck6QAHR8B3LFgACzocYGkuOVMBFRR3KwltNkNgP0CQsIiuKK5xGCgAc3giUAAzACcIAFskMhAcCCRRJNsQOCMQagY6ACMYBj1nc10KrELgnGiQSpqkdwamxABmT2TdDod5WdrEABZqRqQAVjW2jrSAoJhQ8Mjc7ard+qP9s+8saZ3mw6XT1u8fjwDFgwCwUW6fQGQzMcRAYwmU0OdCwDDYwQgEAA1l8nidfkhVgC2EDUaCKhCQD1+oNhnCEZNcXM3ot5u82BVuBQuEA
+            \begin{tikzcd}[baseline={([yshift=-.5ex]current bounding box.center)},ampersand replacement=\&]
+                X \pullback \arrow[d, "s_X"'] \arrow[r, "i"] \& \widehat{Y} \arrow[d, "s_{\widehat{Y}}"] \arrow[r, "r"] \& Y \arrow[d, "s_Y"] \\
+                P_X \arrow[r, "\tilde{i}"', hook]  \& P_{\widehat{Y}} \arrow[r, "\tilde{r}"']                 \& P_Y               
+            \end{tikzcd}
+        \end{align}
+        が成り立つことを言う．
+        % \item 
+    \end{itemize}
+\end{mydef}
+
+\hyperref[def:Snglr-corner]{$\expval{I}$-角を持つconically smoothな層状化空間} $(Y,\, c_Y),\, (X,\, c_X) \in (\Snglr^{\expval{I}})_0$ を与え，
+それらの間の\hyperref[def:inclusion-refinement]{固有埋め込み} $(f,\, \tilde{f}) \in \inftyMap{\SNGLR^{\expval{I}}} \bigl( (Y,\, c_Y),\, (X,\, c_X) \bigr)_0$ を与える．
+
+$\intdepth(Y)$ に関する数学的帰納法を用いて，$(f,\, \tilde{f})$ が\textbf{構成可能} (constructible) であること，および
+\begin{center}
+    % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQBNEAX1PU1z5CKMsWp0mrdgB1pAGSxgA1gH0OACgAaASgAEstM0aMARvQDGSnnxAZseAkXKkxNBizaIQsgKpgAXlhoalra1vz2Qk4U4u5SXpo84jBQAObwRKAAZgBOEAC2SGQgOBBIAMxukp4gWSA0jPQmMIwACgIOwiA5WKkAFjjhtXmFiABMNKUVvNkjSM4lZeMzwwXzk0vFcTUGWGr1II3NbR1RXj39g9yU3EA
+    \begin{tikzcd}
+    \Link_Y(X) \pullback \arrow[r] \arrow[d, "\pi_Y"'] & \Unzip_Y(X) \arrow[d] \\
+    Y \arrow[r, "f"']                                  & X                    
+    \end{tikzcd}
+\end{center}
+を定義する．ただし，この可換図式は以下の条件を充たす~\cite[Proposition 7.3.10.]{AFT2014stratified}：
+\begin{description}
+    \item[\textbf{(Link-1)}] 図式は $(1,\, 1)$-圏 $\Strat$ における引き戻しであり，押し出しでもある．
+    \item[\textbf{(Link-2)}] 図式中の全ての射は\hyperref[def:cbl]{弱構成可能束}であり，かつ\hyperref[def:inclusion-refinement]{固有埋め込み}でもある．
+    \item[\textbf{(Link-3)}] $\Link_Y(X)$ は $\Unzip_Y(X)$ の\hyperref[def:T-face]{閉じた面}であり，$\Link_Y(X) \lto \Unzip_Y(X)$ はその包含である．
+    \item[\textbf{(Link-4)}] $(1,\, 1)$-圏 $\Strat$ における引き戻し
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBpiBdUkANwEMAbAVxiRAA0QBfU9TXfIRQAGclVqMWbdgAIAOnLgwcAWyxgmcGQDMAFAE0AlN14gM2PASJlh4+s1aIQCgKpgAXljQB9fbvbGPHwWgkSittT2Uk6uHl7ewPpc-oYAPgmyCkqq6po6BoZc8nJoTAwMAEZ0AMYA1tziMFAA5vBEoNoAThAqSADM1DgQSGQSDmwK9J1oWL4g1Ax0FTAMAAr8lkIgnVjNABY4Jh3dvYgATIPDiMJBIF09I5dIoiA4dFgMbHsQEPW396cBq8rmcuBQuEA
+        \begin{tikzcd}
+        \Unzip_{Y}(X)|_{X \setminus f(Y)} \pullback \arrow[d, "\varpi_Y"'] \arrow[r] & \Unzip_Y(X) \arrow[d] \\
+        X \setminus f(Y) \arrow[r, hook]                                             & X                    
+        \end{tikzcd}
+    \end{center}
+    において，$\varpi_Y$ は同型射である．
+\end{description}
+
+まず $\intdepth (Y) = 0$ とする．
 
 
 \section{{$(\infty,\, 1)$}-オペラッドと対称モノイダル {$(\infty,\, 1)$-圏}}
