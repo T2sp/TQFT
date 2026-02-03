@@ -30,9 +30,9 @@ $n$-condensation is defined by induction.
 
     $\bm{n}$\textbf{-condensation} of $x$ onto $y$ in $\Cat{C}$ consists of three data:
     \begin{itemize}
-        \item A 1-morphism $f \in \inftyMap{\Cat{C}} (x,\, y)_0$
-        \item A 1-morphism $g \in \inftyMap{\Cat{C}} (y,\, x)_0$
-        \item An $(n-1)$-condensation of $f \circ g$ onto $\Id_y$ in $\inftyMap{\Cat{C}} (y,\, y)$\footnote{Roughly speaking, a mapping space $\inftyMap{\Cat{C}} (y,\, y)$ itself is an $(n-1,\, n-1)$-category. Strickly speaking, we need enriched $\infty$-category theory.} 
+        \item A 1-morphism $r \in \inftyMap{\Cat{C}} (x,\, y)_0$
+        \item A 1-morphism $i \in \inftyMap{\Cat{C}} (y,\, x)_0$
+        \item An $(n-1)$-condensation of $r \circ i$ onto $\Id_y$ in $\inftyMap{\Cat{C}} (y,\, y)$\footnote{Roughly speaking, a mapping space $\inftyMap{\Cat{C}} (y,\, y)$ itself is an $(n-1,\, n-1)$-category. Strickly speaking, we need enriched $\infty$-category theory.} 
         % $\bigl( \varphi \in \inftyMap{\inftyMap{\Cat{C}} (y,\, y)} (f \circ g,\, \Id_{y}),\, \psi \in \inftyMap{\inftyMap{\Cat{C}} (y,\, y)} (\Id_y,\, f \circ g);\, \alpha \bigr)$
     \end{itemize}
 \end{mydef}
@@ -41,28 +41,29 @@ $n$-condensation is defined by induction.
     Let $\Cat{C}$ be a $(1,\, 1)$-category (i.e. an ordinary category).
     \textbf{1-condensation} of $x$ onto $y$ in $\Cat{C}$ consists of these data:
     \begin{itemize}
-        \item A 1-morphism $f \in \Hom{\Cat{C}} (x,\, y)$
-        \item A 1-morphism $g \in \Hom{\Cat{C}} (y,\, x)$
-        \item A 0-condensation of $f \circ g$ onto $\Id_y$ in $\Hom{\Cat{C}} (y,\, y)$. 
-        i.e. $f \circ g = \Id_y$
+        \item A 1-morphism $r \in \Hom{\Cat{C}} (x,\, y)$
+        \item A 1-morphism $i \in \Hom{\Cat{C}} (y,\, x)$
+        \item A 0-condensation of $r \circ i$ onto $\Id_y$ in $\Hom{\Cat{C}} (y,\, y)$. 
+        i.e. $r \circ i = \Id_y$.
     \end{itemize}
+    In the context of $(1,\, 1)$-categories, such $y$ is called a \textbf{retract of $\bm{x}$}.
 \end{myexample}
 
 \begin{myexample}[label=def:2-cond]{2-condensation}
     Let $\Cat{C}$ be a $(2,\, 2)$-category (i.e. a bicategory).
     \textbf{2-condensation} of $x$ onto $y$ in $\Cat{C}$ consists of these data:
     \begin{itemize}
-        \item A 1-morphism $f \in \inftyMap{\Cat{C}} (x,\, y)_0$
-        \item A 1-morphism $g \in \inftyMap{\Cat{C}} (y,\, x)_0$
-        \item A 1-condensation of $f \circ g$ onto $\Id_y$ in $(1,\, 1)$-category $\inftyMap{\Cat{C}} (y,\, y)$.
+        \item A 1-morphism $r \in \inftyMap{\Cat{C}} (x,\, y)_0$
+        \item A 1-morphism $i \in \inftyMap{\Cat{C}} (y,\, x)_0$
+        \item A 1-condensation of $r \circ i$ onto $\Id_y$ in $(1,\, 1)$-category $\inftyMap{\Cat{C}} (y,\, y)$.
     \end{itemize}
     By \exref{def:1-cond}, 
     \begin{itemize}
-        \item A 1-morphism $f \in \inftyMap{\Cat{C}} (x,\, y)_0$
-        \item A 1-morphism $g \in \inftyMap{\Cat{C}} (y,\, x)_0$
-        \item A 2-morphism (in $\Cat{C}$) $(f \circ g \xrightarrow{\varphi} \Id_y) \in \inftyMap{\Cat{C}} (y,\, y)_1$
-        \item A 2-morphism (in $\Cat{C}$) $(\Id_y \xrightarrow{\psi} f \circ g) \in \inftyMap{\Cat{C}} (y,\, y)_1$
-        \item An equality $\varphi \circ \psi = \Id_{\Id_y}$
+        \item A 1-morphism $r \in \inftyMap{\Cat{C}} (x,\, y)_0$
+        \item A 1-morphism $i \in \inftyMap{\Cat{C}} (y,\, x)_0$
+        \item A 2-morphism (in $\Cat{C}$) $(r \circ i \xrightarrow{\rho} \Id_y) \in \inftyMap{\Cat{C}} (y,\, y)_1$
+        \item A 2-morphism (in $\Cat{C}$) $(\Id_y \xrightarrow{\iota} r \circ i) \in \inftyMap{\Cat{C}} (y,\, y)_1$
+        \item An equality $\rho \circ \iota = \Id_{\Id_y}$
     \end{itemize}
 \end{myexample}
 
@@ -71,10 +72,10 @@ $n$-condensation is defined by induction.
     By \exref{def:2-cond},
     \textbf{3-condensation} of $x$ onto $y$ in $\Cat{C}$ consists of these data:
     \begin{itemize}
-        \item A 1-morphism $f \in \inftyMap{\Cat{C}} (x,\, y)_0$
-        \item A 1-morphism $g \in \inftyMap{\Cat{C}} (y,\, x)_0$
-        \item A 2-morphism $(f \circ g \xrightarrow{\varphi} \Id_y) \in \inftyMap{\Cat{C}} (y,\, y)_1$
-        \item A 2-morphism $(\Id_y \xrightarrow{\psi} f \circ g) \in \inftyMap{\Cat{C}} (y,\, y)_1$
+        \item A 1-morphism $r \in \inftyMap{\Cat{C}} (x,\, y)_0$
+        \item A 1-morphism $i \in \inftyMap{\Cat{C}} (y,\, x)_0$
+        \item A 2-morphism $(r \circ i \xrightarrow{\rho} \Id_y) \in \inftyMap{\Cat{C}} (y,\, y)_1$
+        \item A 2-morphism $(\Id_y \xrightarrow{\iota} r \circ i) \in \inftyMap{\Cat{C}} (y,\, y)_1$
         \item A 3-morphism
         \begin{align}
             \left(
@@ -82,7 +83,7 @@ $n$-condensation is defined by induction.
                 baseline={([yshift=-.5ex]current bounding box.center)},
                 ampersand replacement=\&
             ]
-                {\Id_y} \arrow[r, "\varphi \circ \psi", bend left, shift left, ""{name=U, below}] \arrow[r, "{\Id_{\Id_y}}"', bend right, shift right,""{name=D, above}] \& {\Id_y}
+                {\Id_y} \arrow[r, "\rho \circ \iota", bend left, shift left, ""{name=U, below}] \arrow[r, "{\Id_{\Id_y}}"', bend right, shift right,""{name=D, above}] \& {\Id_y}
                 \arrow[Rightarrow, "\alpha", from=U, to=D]
             \end{tikzcd}
             \right)
@@ -95,7 +96,7 @@ $n$-condensation is defined by induction.
                 baseline={([yshift=-.5ex]current bounding box.center)},
                 ampersand replacement=\&
             ]
-                {\Id_y} \arrow[r, "{\Id_{\Id_y}}", bend left, shift left, ""{name=U, below}] \arrow[r, "\varphi \circ \psi"', bend right, shift right,""{name=D, above}] \& {\Id_y}
+                {\Id_y} \arrow[r, "{\Id_{\Id_y}}", bend left, shift left, ""{name=U, below}] \arrow[r, "\rho \circ \iota"', bend right, shift right,""{name=D, above}] \& {\Id_y}
                 \arrow[Rightarrow, "\beta", from=U, to=D]
             \end{tikzcd}
             \right)
@@ -108,7 +109,7 @@ $n$-condensation is defined by induction.
                 baseline={([yshift=-.5ex]current bounding box.center)},
                 ampersand replacement=\&
             ]
-                \Id_y \arrow[rr, "\Id_{\Id_y}", bend left=49, shift left=2, ""{name=U,below}] \arrow[rr, "\varphi \circ \psi" description,""{name=MU,above},""{name=MD,below}] \arrow[rr, "\Id_{\Id_y}"', bend right=49, shift right=2,""{name=D,above}] \&  \& \Id_y
+                \Id_y \arrow[rr, "\Id_{\Id_y}", bend left=49, shift left=2, ""{name=U,below}] \arrow[rr, "\rho \circ \iota" description,""{name=MU,above},""{name=MD,below}] \arrow[rr, "\Id_{\Id_y}"', bend right=49, shift right=2,""{name=D,above}] \&  \& \Id_y
                 \arrow[Rightarrow,"\beta",from=U,to=MU]
                 \arrow[Rightarrow,"\alpha",from=MD,to=D]
             \end{tikzcd}
@@ -122,6 +123,368 @@ $n$-condensation is defined by induction.
             \end{tikzcd}
         \end{align}
         % $\alpha \circ \beta = \Id_{\Id_{\Id_y}}$
+    \end{itemize}
+\end{myexample}
+
+\begin{myexample}[label=def:4-cond]{4-condensation}
+    Let $\Cat{C}$ be a $(4,\, 4)$-category.
+    By \exref{def:2-cond},
+    \textbf{3-condensation} of $x$ onto $y$ in $\Cat{C}$ consists of these data:
+    \begin{itemize}
+        \item A 1-morphism $r \in \inftyMap{\Cat{C}} (x,\, y)_0$
+        \item A 1-morphism $i \in \inftyMap{\Cat{C}} (y,\, x)_0$
+        \item A 2-morphism $(r \circ i \xrightarrow{\rho} \Id_y) \in \inftyMap{\Cat{C}} (y,\, y)_1$
+        \item A 2-morphism $(\Id_y \xrightarrow{\iota} r \circ i) \in \inftyMap{\Cat{C}} (y,\, y)_1$
+        \item A 3-morphism
+        \begin{align}
+            \left(
+            \begin{tikzcd}[
+                baseline={([yshift=-.5ex]current bounding box.center)},
+                ampersand replacement=\&
+            ]
+                {\Id_y} \arrow[r, "\rho \circ \iota", bend left, shift left, ""{name=U, below}] \arrow[r, "{\Id_{\Id_y}}"', bend right, shift right,""{name=D, above}] \& {\Id_y}
+                \arrow[Rightarrow, "\alpha", from=U, to=D]
+            \end{tikzcd}
+            \right)
+            \in \inftyMap{\Cat{C}} (y,\, y)_2
+        \end{align}
+        \item A 3-morphism
+        \begin{align}
+            \left(
+                \begin{tikzcd}[
+                    baseline={([yshift=-.5ex]current bounding box.center)},
+                    ampersand replacement=\&
+                ]
+                    {\Id_y} \arrow[r, "{\Id_{\Id_y}}", bend left, shift left, ""{name=U, below}] \arrow[r, "\rho \circ \iota"', bend right, shift right,""{name=D, above}] \& {\Id_y}
+                    \arrow[Rightarrow, "\beta", from=U, to=D]
+                \end{tikzcd}
+            \right)
+            \in \inftyMap{\Cat{C}} (y,\, y)_2
+        \end{align}
+        \item A 4-morphism
+        \begin{align}
+            \left( 
+                \begin{tikzpicture}[
+                    nat/.style={
+                        -{>[length=1pt 1 0,inset=5pt]}, double, double distance=2pt,line cap=butt
+                    },
+                    mor2/.style={
+                        gray
+                    },
+                    mor3/.style={
+                        blue
+                    },
+                    mor4/.style={
+                        red
+                    },baseline={([yshift=-.5ex]current bounding box.center)}
+                ]
+                    \pgfmathsetmacro{\dx}{4}
+                    \pgfmathsetmacro{\dy}{1}
+                    \pgfmathsetmacro{\Margin}{.3}
+                    \path 
+                        coordinate (P)
+                    +(0:\dx) coordinate (Q)
+                    ;
+                    \coordinate (O) at ($(P)!.5!(Q)$);
+                    % 1-mor
+                    \node (id_1) at (P) {$\Id_y$};
+                    \node (id_2) at (Q) {$\Id_y$};
+                    % 2-mor
+                    \draw[->,mor2] 
+                        (id_1) to[out=60,in=60] 
+                        coordinate[pos=.6] (Ini) 
+                        node[pos=.5,above] {$\Id_{\Id_y}$}
+                        (id_2)
+                    ;
+                    \draw[->,mor2,spath/save=Front]
+                        (id_1) to[out=-120,in=-120] 
+                        coordinate[pos=.4] (End) 
+                        node[pos=.5,above] {$\Id_{\Id_y}$}
+                        (id_2)
+                    ;
+                    \draw[->,mor2,spath/save=U] 
+                        (id_1) to[out=90,in=90,looseness=1.7] 
+                        coordinate[pos=.5] (Mid) 
+                        node[pos=.4,above left] {$\rho \circ \iota$}
+                        (id_2)
+                    ;
+                    % 3-mor
+                    \path[spath/save=DArr_1] 
+                        ($(Ini) + (90:\Margin)$) to[out=90,in=30,looseness=1] 
+                        node[pos=.5,above right,mor3] {$\beta$} 
+                        ($(Mid) + (30:\Margin)$)
+                    ;
+                    \path[spath/save=DArr_2] 
+                        ($(Mid) + (-150:\Margin)$) to[out=-150,in=90,looseness=1] 
+                        node[pos=.5,above left,mor3] {$\alpha$} 
+                        ($(End) + (90:\Margin)$)
+                    ;
+                    \draw[white,line width=5pt,spath/use=DArr_2]; %%% crossing
+                    \path[spath/save=DArr_3] 
+                        ($(Ini) + (-90:\Margin)$) to[out=-90,in=-90,looseness=1.5] 
+                        node[pos=.5,below right,mor3] {$\Id$} 
+                        coordinate[pos=.5] (FEnd) 
+                        ($(End) + (-90:\Margin)$)
+                    ;
+                    \DoubleArrow{DArr_1}{mor3}
+                    \DoubleArrow{DArr_2}{mor3}
+                    \DoubleArrow{DArr_3}{mor3}
+                    % 4-mor
+                    \path[spath/save=F] 
+                        ($(Mid) + (-90:\Margin)$) -- 
+                        node[pos=.5,right,mor4] {$R$}
+                        ($(FEnd) + (90:\Margin)$)
+                    ;
+                    \TriArrow{F}{mor4}
+                    % crossings
+                    \Over{U}{.5}{.9}{gray}{.4pt}
+                    \Over{Front}{.5}{.9}{gray}{.4pt}
+                \end{tikzpicture}
+            \right)
+            \in \inftyMap{\Cat{C}} (y,\, y)_3
+        \end{align}
+        \item A 4-morphism
+        \begin{align}
+            \left( 
+                \begin{tikzpicture}[
+                    nat/.style={
+                        -{>[length=1pt 1 0,inset=5pt]}, double, double distance=2pt,line cap=butt
+                    },
+                    mor2/.style={
+                        gray
+                    },
+                    mor3/.style={
+                        blue
+                    },
+                    mor4/.style={
+                        red
+                    },baseline={([yshift=-.5ex]current bounding box.center)}
+                ]
+                    \pgfmathsetmacro{\dx}{4}
+                    \pgfmathsetmacro{\dy}{1}
+                    \pgfmathsetmacro{\Margin}{.3}
+                    \path 
+                        coordinate (P)
+                    +(0:\dx) coordinate (Q)
+                    ;
+                    \coordinate (O) at ($(P)!.5!(Q)$);
+                    % 1-mor
+                    \node (id_1) at (P) {$\Id_y$};
+                    \node (id_2) at (Q) {$\Id_y$};
+                    % 2-mor
+                    \draw[->,mor2] 
+                        (id_1) to[out=60,in=60] 
+                        coordinate[pos=.6] (Ini) 
+                        node[pos=.5,above] {$\Id_{\Id_y}$}
+                        (id_2)
+                    ;
+                    \draw[->,mor2,spath/save=Front]
+                        (id_1) to[out=-120,in=-120] 
+                        coordinate[pos=.4] (End) 
+                        node[pos=.5,above] {$\Id_{\Id_y}$}
+                        (id_2)
+                    ;
+                    \draw[->,mor2,spath/save=U] 
+                        (id_1) to[out=-90,in=-90,looseness=1.7] 
+                        coordinate[pos=.5] (Mid)
+                        node[pos=.6,below right] {$\rho \circ \iota$}
+                        (id_2)
+                    ;
+                    % 3-mor
+                    \path[spath/save=DArr_1] 
+                        ($(Ini) + (-90:\Margin)$) to[out=-90,in=30,looseness=1] 
+                        node[pos=.5,below right,mor3] {$\beta$} 
+                        ($(Mid) + (30:\Margin)$)
+                    ;
+                    \path[spath/save=DArr_2] 
+                        ($(Mid) + (-150:\Margin)$) to[out=-150,in=-90,looseness=1] 
+                        node[pos=.5,below left,mor3] {$\alpha$} 
+                        ($(End) + (-90:\Margin)$)
+                    ;
+                    \draw[white,line width=5pt,spath/use=DArr_2]; %%% crossing
+                    \path[spath/save=DArr_3] 
+                        ($(Ini) + (90:\Margin)$) to[out=90,in=90,looseness=1.5] 
+                        node[pos=.5,above left,mor3] {$\Id$} 
+                        coordinate[pos=.5] (FEnd) 
+                        ($(End) + (90:\Margin)$)
+                    ;
+                    \draw[white,line width=5pt,spath/use=DArr_3]; %%% crossing
+                    \DoubleArrow{DArr_1}{mor3}
+                    \DoubleArrow{DArr_2}{mor3}
+                    \DoubleArrow{DArr_3}{mor3}
+                    % 4-mor
+                    \path[spath/save=F] 
+                        ($(FEnd) + (-90:\Margin)$) --
+                        node[pos=.5,right,mor4] {$I$}
+                        ($(Mid) + (90:\Margin)$)
+                    ;
+                    \TriArrow{F}{mor4}
+                    % crossings
+                    \Over{U}{.5}{.9}{gray}{.4pt}
+                    \Over{Front}{.1}{.9}{gray}{.4pt}
+                \end{tikzpicture}
+            \right)
+            \in \inftyMap{\Cat{C}} (y,\, y)_3
+        \end{align}
+        % $\alpha \circ \beta = \Id_{\Id_{\Id_y}}$
+        \item An equality
+        \begin{align}
+                \begin{tikzpicture}[
+                    nat/.style={
+                        -{>[length=1pt 1 0,inset=5pt]}, double, double distance=2pt,line cap=butt
+                    },
+                    mor2/.style={
+                        gray
+                    },
+                    mor3/.style={
+                        blue
+                    },
+                    mor4/.style={
+                        red
+                    },baseline={([yshift=-.5ex]current bounding box.center)}
+                ]
+                    \pgfmathsetmacro{\dx}{4}
+                    \pgfmathsetmacro{\dy}{1}
+                    \pgfmathsetmacro{\Margin}{.3}
+                    \path 
+                        coordinate (P)
+                    +(0:\dx) coordinate (Q)
+                    ;
+                    \coordinate (O) at ($(P)!.5!(Q)$);
+                    % 1-mor
+                    \node (id_1) at (P) {$\Id_y$};
+                    \node (id_2) at (Q) {$\Id_y$};
+                    % 2-mor
+                    \draw[->,mor2] 
+                        (id_1) to[out=60,in=60] 
+                        coordinate[pos=.6] (Ini) 
+                        node[pos=.5,above] {$\Id_{\Id_y}$}
+                        (id_2)
+                    ;
+                    \draw[->,mor2,spath/save=Front]
+                        (id_1) to[out=-120,in=-120] 
+                        coordinate[pos=.4] (End) 
+                        node[pos=.3,below] {$\Id_{\Id_y}$}
+                        (id_2)
+                    ;
+                    \draw[->,mor2,spath/save=Middle] 
+                        (id_1) --
+                        coordinate[pos=.5] (Mid)
+                        node[pos=.5,below right] {$\rho \circ \iota$}
+                        (id_2)
+                    ;
+                    % 3-mor
+                    \path[spath/save=DArr_1] 
+                        ($(Ini) + (-150:\Margin)$) --
+                        node[pos=.5,right,mor3] {$\beta$} 
+                        ($(Mid) + (30:\Margin)$)
+                    ;
+                    \path[spath/save=DArr_2] 
+                        ($(Mid) + (-150:\Margin)$) --
+                        node[pos=.5,right,mor3] {$\alpha$} 
+                        ($(End) + (30:\Margin)$)
+                    ;
+                    \path[spath/save=DArr_3] 
+                        ($(Ini) + (90:\Margin)$) to[out=90,in=90,looseness=1.5] 
+                        node[pos=.5,above left,mor3] {$\Id$} 
+                        coordinate[pos=.5] (FIni) 
+                        ($(End) + (90:\Margin)$)
+                    ;
+                    \draw[white,line width=5pt,spath/use=DArr_3]; %%% crossing
+                    \path[spath/save=DArr_4]
+                        ($(Ini) + (-90:\Margin)$) to[out=-90,in=-90,looseness=1.5] 
+                        node[pos=.5,below right,mor3] {$\Id$} 
+                        coordinate[pos=.5] (FEnd) 
+                        ($(End) + (-90:\Margin)$)
+                    ;
+                    \DoubleArrow{DArr_1}{mor3}
+                    \DoubleArrow{DArr_2}{mor3}
+                    \DoubleArrow{DArr_3}{mor3}
+                    \DoubleArrow{DArr_4}{mor3}
+                    % 4-mor
+                    \path[spath/save=F_1] 
+                        ($(FIni) + (-90:\Margin)$) --
+                        node[pos=.5,right,mor4] {$I$}
+                        ($(Mid) + (90:\Margin)$)
+                    ;
+                    \path[spath/save=F_2] 
+                        ($(Mid) + (-90:\Margin)$) --
+                        node[pos=.5,right,mor4] {$R$}
+                        ($(FEnd) + (90:\Margin)$)
+                    ;
+                    \TriArrow{F_1}{mor4}
+                    \TriArrow{F_2}{mor4}
+                    % crossings
+                    \Over{Middle}{.5}{.9}{gray}{.4pt}
+                    \Over{Front}{.1}{.9}{gray}{.4pt}
+                \end{tikzpicture}
+                =
+                \begin{tikzpicture}[
+                    nat/.style={
+                        -{>[length=1pt 1 0,inset=5pt]}, double, double distance=2pt,line cap=butt
+                    },
+                    mor2/.style={
+                        gray
+                    },
+                    mor3/.style={
+                        blue
+                    },
+                    mor4/.style={
+                        red
+                    },baseline={([yshift=-.5ex]current bounding box.center)}
+                ]
+                    \pgfmathsetmacro{\dx}{4}
+                    \pgfmathsetmacro{\dy}{1}
+                    \pgfmathsetmacro{\Margin}{.3}
+                    \path 
+                        coordinate (P)
+                    +(0:\dx) coordinate (Q)
+                    ;
+                    \coordinate (O) at ($(P)!.5!(Q)$);
+                    % 1-mor
+                    \node (id_1) at (P) {$\Id_y$};
+                    \node (id_2) at (Q) {$\Id_y$};
+                    % 2-mor
+                    \draw[->,mor2] 
+                        (id_1) to[out=60,in=60] 
+                        coordinate[pos=.6] (Ini) 
+                        node[pos=.5,above] {$\Id_{\Id_y}$}
+                        (id_2)
+                    ;
+                    \draw[->,mor2,spath/save=Front]
+                        (id_1) to[out=-120,in=-120] 
+                        coordinate[pos=.4] (End) 
+                        node[pos=.3,below] {$\Id_{\Id_y}$}
+                        (id_2)
+                    ;
+                    % 3-mor
+                    \path[spath/save=DArr_3] 
+                        ($(Ini) + (90:\Margin)$) to[out=90,in=90,looseness=1.5] 
+                        node[pos=.5,above left,mor3] {$\Id$} 
+                        coordinate[pos=.5] (FIni) 
+                        ($(End) + (90:\Margin)$)
+                    ;
+                    \draw[white,line width=5pt,spath/use=DArr_3]; %%% crossing
+                    \path[spath/save=DArr_4]
+                        ($(Ini) + (-90:\Margin)$) to[out=-90,in=-90,looseness=1.5] 
+                        node[pos=.5,below right,mor3] {$\Id$} 
+                        coordinate[pos=.5] (FEnd) 
+                        ($(End) + (-90:\Margin)$)
+                    ;
+                    \DoubleArrow{DArr_3}{mor3}
+                    \DoubleArrow{DArr_4}{mor3}
+                    % 4-mor
+                    \path[spath/save=F_1] 
+                        ($(FIni) + (-90:\Margin)$) --
+                        node[pos=.5,right,mor4] {$\Id$}
+                        ($(FEnd) + (90:\Margin)$)
+                    ;
+                    \TriArrow{F_1}{mor4}
+                    % crossings
+                    \Over{Front}{.1}{.9}{gray}{.4pt}
+                \end{tikzpicture}
+        \end{align}
+        
     \end{itemize}
 \end{myexample}
 
