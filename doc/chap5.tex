@@ -491,14 +491,44 @@ $n$-condensation is defined by induction.
 \subsection{Walking condensation}
 
 Let $\Cat{C}$ be an $(n,\, n)$-category.
-Roughly speaking, a \textbf{walking} $\bm{n}$\textbf{-condensation} is a (strict?) $n$-category $\clubsuit_n$ which ``generates" \hyperref[def:n-cond]{$n$-condensation} in $\Cat{C}$.
+Roughly speaking, a \textbf{walking} $\bm{n}$\textbf{-condensation} is a \Caution{(strict?)} $n$-category $\spadesuit_n$ which ``generates" \hyperref[def:n-cond]{$n$-condensation} in $\Cat{C}$.
 i.e. the functor category $\FUN(\spadesuit_n,\, \Cat{C})$ is equivalent to the category of $n$-condensations in $\Cat{C}$.
 
 \subsection{Condensation monad}
 
-% Let $\clubsuit_n \subset \spadesuit_n$ be a full-subcategory which consists of walking $n$-condensations on only one points.
+Fix an $(n,\, n)$-category $\Cat{C}$. 
+Now we will outline the definition of \textbf{condensation monad in $\Cat{C}$}. 
+
+Let $\clubsuit_n \subset \spadesuit_n$ be a \Caution{subcategory}\footnote{(18 February, 2026) Full-subness of $\clubsuit_n$ is still conjecture~\cite{gaiotto2025condensationshighercategories}.} which consists of walking $n$-condensations with a single object.
+A \textbf{condensation monad} in $\Cat{C}$ is a functor $A \colon \clubsuit_n \lto \Cat{C}$.
+An $(n,\, n)$-category $\Cat{C}$ is said to \textbf{have all condensates} 
+if each condensation monad $\clubsuit_n \xrightarrow{A} \Cat{C}$ extends to an \hyperref[def:n-cond]{$n$-condensation} $\spadesuit_n \xrightarrow{\bar{A}} \Cat{C}$:
+
+\begin{center}
+    % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BjZgIzia4A+oQC+pdJlz5CKAIzkqtRizacAwnRzB1okOMnY8BImTlL6zVog7s4aOrAHCxSmFADm8IqABmAJwgAWyQyEBwIJAVlKzYAQX0JEADg0OoIpAAmdLosBjYACwgIAGtEv0CQxGzwyMRohiwwaxAoOjgC9xBqBjpeGAYABSljWRB-LA8CnG6Y1RtOXjp-YDi9UQpRIA
+    \begin{tikzcd}
+    \clubsuit_n \arrow[r, "A"] \arrow[d, hook]  & \Cat{C} \\
+    \spadesuit_n \arrow[ru, "\bar{A}"', dashed] &        
+    \end{tikzcd}
+\end{center}
+
+However, \Caution{there are some technical issues in this definition},
+so we should work on more concrete definition.
 
 \begin{mydef}[label=def:cond-monad]{condensation monad}
+    Let $\Cat{C}$ be an $(n,\, n)$-category. 
+    A \textbf{condensation monad} in $\Cat{C}$ is a sequence of ``commuting condensation squares":
+    \begin{align}
+        \spadesuit^{\times 0} &\xrightarrow{e} \Cat{C}, \\
+        \spadesuit^{\times 1} &\lto \Cat{C}_{/e}, \\
+        \spadesuit^{\times 2} &\lto \Cat{C}_{/e}, \\
+        &\vdots
+    \end{align}
+    More explicitly, condensation monad consists of the following diagrams:
+    \begin{align}
+        e &\in \Cat{C}_0, \\
+        e \circ e &\cond e,
+    \end{align}
     
 \end{mydef}
 
@@ -507,21 +537,45 @@ i.e. the functor category $\FUN(\spadesuit_n,\, \Cat{C})$ is equivalent to the c
 
 \section{Tannaka-Krein reconstruction}
 
-% Let $\Presentable^{\mathrm{L}}$ be the symmetric monoidal $(\infty,\, 2)$-category of presentable $(\infty,\, 1)$-categories, colimit-preserving functors, and natural transformations~\cite[Definition 5.5.3.1.]{lurie2008higher}.
-% Note that $\VEC{\mathbb{C}}$ is an $\mathbb{E}_2$-algebra in $\Presentable^{\mathrm{L}}$.
-% We define $\PrC \coloneqq \RMod_{\VEC{\mathbb{C}}} (\Presentable^{\mathrm{L}})$~\cite[Definition 4.2.1.13.]{Lurie2017HA}.
-% More concretely, $\PrC$ is the symmetric monoidal $(\infty,\, 2)$-category of presentable $\VEC{\mathbb{C}}$-enriched categories, colimit-preserving $\VEC{\mathbb{C}}$-enriched functors, and natural transformations.
-
-\subsection{A bicategory of 2-vactor spaces}
-
 Fix \Caution{an algebraically closed} field $\mathbb{K}$.
-From now on, we denote the $(1,\, 1)$-category of \underline{finite dimensional} $\mathbb{K}$-vector spaces as $\finVEC{\mathbb{K}}$\footnote{This is the fully-dualizable subcategory of $\VEC{\mathbb{K}}$, which is a $(1,\, 1)$-category of $\mathbb{K}$-vector spaces.}.
-After ~\cite{Green2023TannakaKrein}, let $\nVec{2}_{\mathbb{K}}$ be a $(2,\, 2)$-category (bicategory) as follows:
+From now on, we denote the $(1,\, 1)$-category of \underline{finite dimensional} $\mathbb{K}$-vector spaces as $\finVEC{\mathbb{K}}$\footnote{This is the fully-dualizable part of $\VEC{\mathbb{K}}$, which is a $(1,\, 1)$-category of $\mathbb{K}$-vector spaces.}.
+
+\subsection{A bicategory of 2-vactor spaces {$\nVec{2}_{\mathbb{K}}$}}
+
+Let $\Presentable^{\mathrm{L}}$ be the symmetric monoidal $(\infty,\, 2)$-category of presentable $(\infty,\, 1)$-categories, colimit-preserving functors, and natural transformations~\cite[Definition 5.5.3.1.]{lurie2008higher}.
+Note that $\finVEC{\mathbb{C}}$ is an $\mathbb{E}_2$-algebra in $\Presentable^{\mathrm{L}}$.
+We define $\PrC \coloneqq \RMod_{\finVEC{\mathbb{K}}} (\Presentable^{\mathrm{L}})$~\cite[Definition 4.2.1.13.]{Lurie2017HA}.
+More concretely, $\PrC$ is the symmetric monoidal $(\infty,\, 2)$-category of presentable $\VEC{\mathbb{C}}$-enriched categories, colimit-preserving $\finVEC{\mathbb{C}}$-enriched functors, and natural transformations.
+
+After ~\cite{Green2023TannakaKrein}, we define $\nVec{2}_{\mathbb{K}}$ as a $(2,\, 2)$-category (bicategory) as follows:
 \begin{itemize}
     \item Objects are \Caution{finite semisimple} $\finVEC{\mathbb{K}}$-enriched categories
-    \item 1-morphisms are $\finVEC{\mathbb{K}}$-enriched functors
-    \item 2-morphisms are natural transformations
+    \item 1-morphisms are $\finVEC{\mathbb{K}}$-enriched functors.
+    \item 2-morphisms are natural transformations.
 \end{itemize}
+Note that $\nVec{2}_{\mathbb{K}}$ is fully-dualizable. 
+In fact, $\nVec{2}_{\mathbb{K}} \subset \PrC$ is the full-subcategory of $\PrC$ which consists of fully dualizable objects of $\PrC$.
+For more details, see~\cite[APPENDIX A.]{BDSV2015modular}.
+
+\subsection{Morita bicategory of algebras}
+
+Note that $\VEC{\mathbb{K}}$ \Caution{($\finVEC{\mathbb{K}}$?)} is a symmetric monoidal ($(\infty,\, 1)$-)category.
+Then, we obtain a notion of $\mathbb{E}_1$-algebra objects in $\VEC{\mathbb{K}}$, according to~\cite{Lurie2017HA}.
+More concretely, an $\mathbb{E}_1$-algebra object in $\VEC{\mathbb{K}}$ is none other than an ordinary associative algebra (i.e. $\mathbb{K}$-vector spaces with associative multiplication)\footnote{\Caution{With respect to the open embedding $\emptyset \hookrightarrow \mathbb{R}$, $\mathbb{E}_1$-algebra in $\VEC{\mathbb{K}}$ has units. However, there appears no physical motivation to introduce unit. Therefore it's better to work on nonunital associative algebras.}}.
+
+\textbf{Morita category of $\mathbb{E}_1$-algebras} in $\VEC{\mathbb{K}}$ is a bicategory $\MOR{\mathbb{E}_1}{\VEC{\mathbb{K}}}$ consists of the following data:
+\begin{itemize}
+    \item Objects are $\mathbb{E}_1$-algebras in $\VEC{\mathbb{K}}$.
+    \item 1-morphisms between two $\mathbb{E}_1$-algebras $A,\, B \in \Obj{\MOR{\mathbb{E}_1}{\VEC{\mathbb{K}}}}$ are $(A,\, B)$-bimodules in $\VEC{\mathbb{K}}$.
+    \item 2-morphisms between two $(A,\, B)$-bimodules $M,\, N \in \Obj{\BIMODC{\VEC{\mathbb{K}}}{A}{B}}$ are $(A,\, B)$-bimodule homomorphisms.
+\end{itemize}
+Composition of 1-morphisms (or horizontal composition) in $\MOR{\mathbb{E}_1}{\VEC{\mathbb{K}}}$ is the relative tensor product functor:
+\begin{align}
+    \otimes_B \colon \BIMODC{\VEC{\mathbb{K}}}{B}{C} \boxtimes \BIMODC{\VEC{\mathbb{K}}}{A}{B} \lto \BIMODC{\VEC{\mathbb{K}}}{A}{C}
+\end{align}
+
+\subsection{Tanna-Krein reconstruction}
+
 
 
 % \section{SPT相}
