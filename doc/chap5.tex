@@ -505,12 +505,23 @@ i.e. the functor category $\FUN(\spadesuit_n,\, \Cat{C})$ is equivalent to the c
 
 \section{Physical interpretation}
 
-\section{Reutter-Theo}
+\section{Tannaka-Krein reconstruction}
 
-Let $\Presentable^{\mathrm{L}}$ be the symmetric monoidal $(\infty,\, 2)$-category of presentable $(\infty,\, 1)$-categories, colimit-preserving functors, and natural transformations~\cite[Definition 5.5.3.1.]{lurie2008higher}.
-Note that $\VEC{\mathbb{C}}$ is an $\mathbb{E}_2$-algebra in $\Presentable^{\mathrm{L}}$.
-We define $\PrC \coloneqq \RMod_{\VEC{\mathbb{C}}} (\Presentable^{\mathrm{L}})$~\cite[Definition 4.2.1.13.]{Lurie2017HA}.
-More concretely, $\PrC$ is the symmetric monoidal $(\infty,\, 2)$-category of presentable $\VEC{\mathbb{C}}$-enriched categories, colimit-preserving $\VEC{\mathbb{C}}$-enriched functors, and natural transformations.
+% Let $\Presentable^{\mathrm{L}}$ be the symmetric monoidal $(\infty,\, 2)$-category of presentable $(\infty,\, 1)$-categories, colimit-preserving functors, and natural transformations~\cite[Definition 5.5.3.1.]{lurie2008higher}.
+% Note that $\VEC{\mathbb{C}}$ is an $\mathbb{E}_2$-algebra in $\Presentable^{\mathrm{L}}$.
+% We define $\PrC \coloneqq \RMod_{\VEC{\mathbb{C}}} (\Presentable^{\mathrm{L}})$~\cite[Definition 4.2.1.13.]{Lurie2017HA}.
+% More concretely, $\PrC$ is the symmetric monoidal $(\infty,\, 2)$-category of presentable $\VEC{\mathbb{C}}$-enriched categories, colimit-preserving $\VEC{\mathbb{C}}$-enriched functors, and natural transformations.
+
+\subsection{A bicategory of 2-vactor spaces}
+
+Fix \Caution{an algebraically closed} field $\mathbb{K}$.
+From now on, we denote the $(1,\, 1)$-category of \underline{finite dimensional} $\mathbb{K}$-vector spaces as $\finVEC{\mathbb{K}}$\footnote{This is the fully-dualizable subcategory of $\VEC{\mathbb{K}}$, which is a $(1,\, 1)$-category of $\mathbb{K}$-vector spaces.}.
+After ~\cite{Green2023TannakaKrein}, let $\nVec{2}_{\mathbb{K}}$ be a $(2,\, 2)$-category (bicategory) as follows:
+\begin{itemize}
+    \item Objects are \Caution{finite semisimple} $\finVEC{\mathbb{K}}$-enriched categories
+    \item 1-morphisms are $\finVEC{\mathbb{K}}$-enriched functors
+    \item 2-morphisms are natural transformations
+\end{itemize}
 
 
 % \section{SPT相}

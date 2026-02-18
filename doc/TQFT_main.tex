@@ -523,15 +523,6 @@ title=系~\thetcbcounter: #2,#1}
   \box0 \right\rvert
   \endgroup
 }
-% \newcommand{\Ellipse}[3]{
-% 	\draw[thick] #1 arc(-180:0:{#2} and {#3});
-% 	\draw[thick] ($ #1 + 2*(#2,0)$) arc(0:180:{#2} and {#3});
-% }
-
-% \newcommand{\halfDottedEllipse}[3]{
-% 	\draw[thick] #1 arc(-180:0:{#2} and {#3});
-% 	\draw[thick, dotted] ($ #1 + 2*(#2,0)$) arc(0:180:{#2} and {#3});
-% }
 
 \newcommand{\dyn}[1]{
     #1_{\text{dyn}}
@@ -541,9 +532,9 @@ title=系~\thetcbcounter: #2,#1}
     #1_{\text{top}}
 }
 
-% \newcommand{\Interval}[3]{
-%     \path (#1,0) node[#3] {$($} -- +(#2,0) node[#3] {$)$};
-% }
+\newcommand{\Caution}[1]{
+    \textcolor{red}{#1}
+}
 
 %% file division
 \usepackage{subfiles}
