@@ -37,13 +37,15 @@ $n$-condensation is defined by induction.
     \end{itemize}
 \end{mydef}
 
+After~\cite{gaiotto2025condensationshighercategories}, we denote an $n$-condensation of $x$ onto $y$ in $\Cat{C}$ as $x \lcond y$.
+
 \begin{myexample}[label=def:1-cond]{1-condensation}
     Let $\Cat{C}$ be a $(1,\, 1)$-category (i.e. an ordinary category).
     \textbf{1-condensation} of $x$ onto $y$ in $\Cat{C}$ consists of these data:
     \begin{itemize}
         \item A 1-morphism $r \in \Hom{\Cat{C}} (x,\, y)$
         \item A 1-morphism $i \in \Hom{\Cat{C}} (y,\, x)$
-        \item A 0-condensation of $r \circ i$ onto $\Id_y$ in $\Hom{\Cat{C}} (y,\, y)$. 
+        \item A 0-condensation of $r \circ i$ onto $\Id_y$ in a $(0,\, 0)$-category $\Hom{\Cat{C}} (y,\, y)$. 
         i.e. $r \circ i = \Id_y$.
     \end{itemize}
     In the context of $(1,\, 1)$-categories, such $y$ is called a \textbf{retract of $\bm{x}$}.
@@ -55,7 +57,7 @@ $n$-condensation is defined by induction.
     \begin{itemize}
         \item A 1-morphism $r \in \inftyMap{\Cat{C}} (x,\, y)_0$
         \item A 1-morphism $i \in \inftyMap{\Cat{C}} (y,\, x)_0$
-        \item A 1-condensation of $r \circ i$ onto $\Id_y$ in $(1,\, 1)$-category $\inftyMap{\Cat{C}} (y,\, y)$.
+        \item A 1-condensation of $r \circ i$ onto $\Id_y$ in a $(1,\, 1)$-category $\inftyMap{\Cat{C}} (y,\, y)$.
     \end{itemize}
     By \exref{def:1-cond}, 
     \begin{itemize}
@@ -494,13 +496,15 @@ Let $\Cat{C}$ be an $(n,\, n)$-category.
 Roughly speaking, a \textbf{walking} $\bm{n}$\textbf{-condensation} is a \Caution{(strict?)} $n$-category $\spadesuit_n$ which ``generates" \hyperref[def:n-cond]{$n$-condensation} in $\Cat{C}$.
 i.e. the functor category $\FUN(\spadesuit_n,\, \Cat{C})$ is equivalent to the category of $n$-condensations in $\Cat{C}$.
 
-\subsection{Condensation monad}
+\subsection{Condensation algebra / monad}
 
 Fix an $(n,\, n)$-category $\Cat{C}$. 
 Now we will outline the definition of \textbf{condensation monad in $\Cat{C}$}. 
 
-Let $\clubsuit_n \subset \spadesuit_n$ be a \Caution{subcategory}\footnote{(18 February, 2026) Full-subness of $\clubsuit_n$ is still conjecture~\cite{gaiotto2025condensationshighercategories}.} which consists of walking $n$-condensations with a single object.
-A \textbf{condensation monad} in $\Cat{C}$ is a functor $A \colon \clubsuit_n \lto \Cat{C}$.
+Let's pick out an object $x \in \Cat{C} _0$.
+Recall that the endmorphism $(n-1,\, n-1)$-category $\End_{\Cat{C}} (x) \coloneqq \inftyMap{\Cat{C}} (x,\, x)$ has a natural monoidal structure induced by a composition of $1$-morphisms in $\Cat{C}$.
+Let $\clubsuit_{n} \subset \spadesuit_{n}$ be a \Caution{subcategory}\footnote{(18 February, 2026) Full-subness of $\clubsuit_n$ is still a conjecture~\cite{gaiotto2025condensationshighercategories}.} which consists of walking $n$-condensations with a single object.
+A \textbf{condensation monad} in $\Cat{C}$ is a functor $(x \in \Cat{C}_0;\, e \in \End_{\Cat{C}}(x)_0,\, e^{\circ 2} \cond e,\, \dots) \colon \clubsuit_{n} \lto \Cat{C}$.
 An $(n,\, n)$-category $\Cat{C}$ is said to \textbf{have all condensates} 
 if each condensation monad $\clubsuit_n \xrightarrow{A} \Cat{C}$ extends to an \hyperref[def:n-cond]{$n$-condensation} $\spadesuit_n \xrightarrow{\bar{A}} \Cat{C}$:
 
@@ -515,21 +519,138 @@ if each condensation monad $\clubsuit_n \xrightarrow{A} \Cat{C}$ extends to an \
 However, \Caution{there are some technical issues in this definition},
 so we should work on more concrete definition.
 
-\begin{mydef}[label=def:cond-monad]{condensation monad}
-    Let $\Cat{C}$ be an $(n,\, n)$-category. 
-    A \textbf{condensation monad} in $\Cat{C}$ is a sequence of ``commuting condensation squares":
+\begin{mydef}[label=def:cond-monad]{condensation algebra / monad}
+    Let $n \ge 0$ and
+    let $\Cat{V}^{\otimes}$ be a \underline{monoidal} $(n,\, n)$-category
+    \footnote{\textbf{Monoidal $\bm{(0,\, 0)}$-category} is a set $\Cat{V}_0$ with a map $\otimes \colon \Cat{V}_0 \times \Cat{V}_0 \lto \Cat{V}_0$ and a distinguished element $1 \in \Cat{V}_0$, which makes up of a monoid in $\SETS = \CAT_{(0,\, 0)}$.}. 
+    A \textbf{condensation algebra} in $\Cat{V}^{\otimes}$ is a sequence of ``commuting condensation cubes":
+    % \begin{align}
+    %     \spadesuit^{\times 0} &\overset{A}{\lto} \Cat{C}, \\
+    %     \spadesuit^{\times 1} &\lto \Cat{C}_{/A}, \\
+    %     \spadesuit^{\times 2} &\lto \Cat{C}_{/A}, \\
+    %     &\vdots
+    % \end{align}
+    % More explicitly, condensation algebra in $\Cat{C}$ consists of the following diagrams:
     \begin{align}
-        \spadesuit^{\times 0} &\xrightarrow{e} \Cat{C}, \\
-        \spadesuit^{\times 1} &\lto \Cat{C}_{/e}, \\
-        \spadesuit^{\times 2} &\lto \Cat{C}_{/e}, \\
-        &\vdots
+        &A \in (\Cat{V}^{\otimes})_0,
+        &&A \otimes A \lcond A,
+        &&\begin{tikzcd}[
+            baseline={([yshift=-.5ex]current bounding box.center)},
+            ampersand replacement=\&
+        ]
+            A^{\otimes 3} \arrow[r,cond] \arrow[d,cond] \& A^{\otimes 2} \arrow[d,cond] \\
+            A^{\otimes 2} \arrow[r,cond]                   \& A                  
+        \end{tikzcd},
+        &&% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAEEA9YAHR4jwBbeAAIALAF8QE0uky58hFAEZSyqrUYs2XXvyGiAzFJlzseAkQBM5DfWatEHbnwFZhcEcemyQGc4pEZFZ2Wo7Oem4eXia+-gqWKIZqoQ46LvruolaxZglKyKqGqdpOuq4Gnjk+eRYFNiHU9qURFVlVuX7ydUTJxU1hOtIaMFAA5vBEoABmAE4QgkhkIDgQSDm+cwtL1KtIyqYgW4uIy3uIxpvzJzYra4iSV9uIqndIjzPXSMlviACsh2O6129wAbICvhcQUhwU8Tn9oYgAOwQ56gxEouHvDGok6vc4AigSIA
+        \begin{tikzcd}[
+            baseline={([yshift=-.5ex]current bounding box.center)},
+            ampersand replacement=\&
+        ]
+            A^{\otimes 4} \arrow[cond,rr] \arrow[cond,rd] \arrow[cond,dd] \&                                     \& A^{\otimes 3} \arrow[cond,rd] \arrow[cond,dd] \&                          \\
+                                                        \& A^{\otimes 3} \arrow[cond,rr,crossing over] \&                                     \& A^{\otimes 2} \arrow[cond,dd] \\
+            A^{\otimes 3} \arrow[cond,rd] \arrow[cond,rr]            \&                                     \& A^{\otimes 2} \arrow[cond,rd]            \&                          \\
+                                                        \& A^{\otimes 2} \arrow[cond,rr] \arrow[cond,from=uu,crossing over]           \&                                     \& A                       
+        \end{tikzcd},
+        &&\cdots
     \end{align}
-    More explicitly, condensation monad consists of the following diagrams:
-    \begin{align}
-        e &\in \Cat{C}_0, \\
-        e \circ e &\lcond e,
-    \end{align}
+    in which the faces of the $k$-dimensional cube are either whiskerings of lower-dimensional cubes or are identities~\cite[Definition 2.2.1.]{gaiotto2025condensationshighercategories}.
+
+    \tcblower
+
+    Let $\Cat{C}$ be an $(n,\, n)$-category\footnote{Not necessarily monoidal.}. 
+    A \textbf{condensation monad} in $\Cat{C}$ is a pair of an object $x \in \Cat{C}_0$ 
+    and a condensation algebra in the monoidal $(n-1,\, n-1)$-category $\End_{\Cat{C}} (x)$.
+\end{mydef}
+
+We would like to construct a \textbf{higher Morita category of \hyperref[def:cond-monad]{condensation algebras}} in $\Cat{V}^{\otimes}$.
+
+\begin{mydef}[label=def:cond-bimod,breakable]{condensation bimodule}
+    Let $n \ge 0$ and
+    let $\Cat{V}^{\otimes}$ be a \underline{monoidal} $(n,\, n)$-category. 
+    Pick two \hyperref[def:cond-monad]{condensation algebra}s 
+    $(A,\, A^{\otimes 2} \cond A,\, \dots),\; (B,\, B^{\otimes 2} \cond B,\, \dots)$
+    in $\Cat{V}^\otimes$.
     
+    A \textbf{condensation $\bm{(A,\, B)}$-bimodule} in $\Cat{V}^{\otimes}$ is a sequence of ``commuting condensation cubes"~\cite[Definition 2.3.3.]{gaiotto2025condensationshighercategories}:
+    \begin{align}
+        &M \in (\Cat{V}^\otimes)_0,
+        &&
+        A \otimes M \lcond M,
+        &&
+        M \otimes B \lcond M, \\
+        &% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAEEA9YAHR4jwBbeAAIATAF8RfAVmFwRAWRATS6TLnyEUARnJVajFm3bT+Q0ctXrseAkT06D9Zq0QgrakBltaiZJ2oXY3dTGQsFKwMYKABzeCJQADMAJwhBJDIQHAgkAGZrEFT0zOocpB1C4ozEPWzcxEkvavyyhskKCSA
+        \begin{tikzcd}[
+            baseline={([yshift=-.5ex]current bounding box.center)},
+            ampersand replacement=\&
+        ]
+        A^{\otimes 2} \otimes M \arrow[cond,d] \arrow[cond,r] \& A \otimes M \arrow[cond,d] \\
+        A \otimes M \arrow[cond,r]                       \& M                    
+        \end{tikzcd},
+        &&% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAEEA9YAHR4jwBbeAAIATAF8RfAVmFwRAWRATS6TLnyEUARnJVajFm3bT+Q0ctXrseAkT06D9Zq0QgrakBltaiZJ2oXY3dTGQsFKwMYKABzeCJQADMAJwhBJDIQHAgkAGZrEFT0zOocpB1C4ozEPWzcxEkvavyyhskKCSA
+        \begin{tikzcd}[
+            baseline={([yshift=-.5ex]current bounding box.center)},
+            ampersand replacement=\&
+        ]
+        A \otimes M \otimes B \arrow[cond,d] \arrow[cond,r] \& M \otimes B \arrow[cond,d] \\
+        A \otimes M \arrow[cond,r]                       \& M                    
+        \end{tikzcd},
+        &&% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAEEA9YAHR4jwBbeAAIATAF8RfAVmFwRAWRATS6TLnyEUARnJVajFm3bT+Q0ctXrseAkT06D9Zq0QgrakBltaiZJ2oXY3dTGQsFKwMYKABzeCJQADMAJwhBJDIQHAgkAGZrEFT0zOocpB1C4ozEPWzcxEkvavyyhskKCSA
+        \begin{tikzcd}[
+            baseline={([yshift=-.5ex]current bounding box.center)},
+            ampersand replacement=\&
+        ]
+        M \otimes B^{\otimes 2} \arrow[cond,d] \arrow[cond,r] \& M \otimes B \arrow[cond,d] \\
+        M \otimes B \arrow[cond,r]                       \& M                    
+        \end{tikzcd},
+        &&\cdots
+    \end{align}
+    in which $\forall i,\, j \in \mathbb{Z}_{\ge 0}$, there is a $i + j$-dimensional cube which has $A^{\otimes i} \otimes M \otimes B^{\otimes j} \in (\Cat{V}^{\otimes})_0$ on its ``top" vertex and $M \in (\Cat{V}^{\otimes})_0$ on its ``bottom'' vertex.
+
+    \tcblower
+
+    Let $\Cat{C}$ be an $(n,\, n)$-category\footnote{Not necessarily monoidal.}
+    and pick two \hyperref[def:cond-monad]{condensation monad}s:
+    \begin{itemize}
+        \item A condensation monad $(x \in \Cat{C}_0;\, e_1,\, e_1^{\circ 2} \cond e_1,\, \dots)$ in $\End_{\Cat{C}} (x)$
+        \item A condensation monad $(y \in \Cat{C}_0;\, e_2,\, e_2^{\circ 2} \cond e_2,\, \dots)$ in $\End_{\Cat{C}} (y)$
+    \end{itemize}
+    
+    % $(x \in \Cat{C}_0;\, e_1,\, e_1^{\circ 2} \cond e_1,\, \dots),\, (y \in \Cat{C}_0;\, e_2,\, e_2^{\circ 2} \cond e_2,\, \dots)$
+    % in $\Cat{V}^{\otimes}$.
+    A \textbf{condensation $(e_1,\, e_2)$-bimodule} is a sequence of ``commuting condensation cubes" in the $(n-1,\, n-1)$-category $\inftyMap{\Cat{C}} (y,\, x)$~\cite[Definition 2.3.3.]{gaiotto2025condensationshighercategories}:
+    \begin{align}
+        &m \in \inftyMap{\Cat{C}} (y,\, x)_0,
+        &&
+        e_1 \circ m \lcond m,
+        &&
+        m \circ e_2 \lcond m, \\
+        &% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAEEA9YAHR4jwBbeAAIATAF8RfAVmFwRAWRATS6TLnyEUARnJVajFm3bT+Q0ctXrseAkT06D9Zq0QgrakBltaiZJ2oXY3dTGQsFKwMYKABzeCJQADMAJwhBJDIQHAgkAGZrEFT0zOocpB1C4ozEPWzcxEkvavyyhskKCSA
+        \begin{tikzcd}[
+            baseline={([yshift=-.5ex]current bounding box.center)},
+            ampersand replacement=\&
+        ]
+        {e_1^{\circ 2} \circ m} \arrow[cond,d] \arrow[cond,r] \& {e_1 \circ m} \arrow[cond,d] \\
+        {e_1 \circ m} \arrow[cond,r]                       \& m                    
+        \end{tikzcd},
+        &&% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAEEA9YAHR4jwBbeAAIATAF8RfAVmFwRAWRATS6TLnyEUARnJVajFm3bT+Q0ctXrseAkT06D9Zq0QgrakBltaiZJ2oXY3dTGQsFKwMYKABzeCJQADMAJwhBJDIQHAgkAGZrEFT0zOocpB1C4ozEPWzcxEkvavyyhskKCSA
+        \begin{tikzcd}[
+            baseline={([yshift=-.5ex]current bounding box.center)},
+            ampersand replacement=\&
+        ]
+        {e_1 \circ m \circ e_2} \arrow[cond,d] \arrow[cond,r] \& m \circ {e_2} \arrow[cond,d] \\
+        {e_1 \circ m} \arrow[cond,r]                       \& m                    
+        \end{tikzcd},
+        &&% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAEEA9YAHR4jwBbeAAIATAF8RfAVmFwRAWRATS6TLnyEUARnJVajFm3bT+Q0ctXrseAkT06D9Zq0QgrakBltaiZJ2oXY3dTGQsFKwMYKABzeCJQADMAJwhBJDIQHAgkAGZrEFT0zOocpB1C4ozEPWzcxEkvavyyhskKCSA
+        \begin{tikzcd}[
+            baseline={([yshift=-.5ex]current bounding box.center)},
+            ampersand replacement=\&
+        ]
+        {m \circ e_2^{\circ 2}} \arrow[cond,d] \arrow[cond,r] \& {m \circ e_2} \arrow[cond,d] \\
+        {m \circ e_2} \arrow[cond,r]                       \& m                    
+        \end{tikzcd},
+        &&\cdots
+    \end{align}
+    in which $\forall i,\, j \in \mathbb{Z}_{\ge 0}$, there is a $i + j$-dimensional cube which has $e_1^{\circ i} \circ m \circ e_2^{\circ j} \in \inftyMap{\Cat{C}} (y,\, x)_0$ on its ``top" vertex and $m \in \inftyMap{\Cat{C}} (y,\, x)_0$ on its ``bottom'' vertex.
 \end{mydef}
 
 
@@ -576,6 +697,7 @@ Composition of 1-morphisms (or horizontal composition) in $\MOR{\mathbb{E}_1}{\V
 
 \subsection{Tannaka-Krein reconstruction}
 
+\section{Dualizability in higher Morita categories}
 
 
 % \section{SPT相}
