@@ -4126,7 +4126,7 @@ Conically smoothな層状化空間における特異点解消を，圏論的に�
         &= (q|_{\mathbb{R}_{> 0} \times Z})^{-1} \circ q \circ g (y) \\
         &= g(y)
     \end{align}
-    が分かる\footnote{$\Res^k_{\Cone{Z}}$ の射の定義から，$c_Y = c^{\{*\}}_{\{*\};\, Z} \circ g$ が成り立つ．よって $y \in Int (Y,\, c_Y) = c_Y^{-1} (\emptyset)$ に対して $g(y) \in (c^{\{*\}}_{\{*\};\, Z})^{-1} (\emptyset) = \mathbb{R}_{> 0} \times Z$ が言える．}．
+    が分かる\footnote{$\Res^k_{\Cone{Z}}$ の射の定義から，$c_Y = c^{\{*\}}_{\{*\};\, Z} \circ g$ が成り立つ．よって $y \in \Int (Y,\, c_Y) = c_Y^{-1} (\emptyset)$ に対して $g(y) \in (c^{\{*\}}_{\{*\};\, Z})^{-1} (\emptyset) = \mathbb{R}_{> 0} \times Z$ が言える．}．
     ところで，部分空間 $Y\setminus p_Y^{-1} \bigl( \{\mathrm{pt}\} \bigr) \subset Y$ は $Y$ 上稠密である．
     従って，$f,\, g$ が連続写像かつ $\mathbb{R}_{\ge 0} \times Z$ がHausforff空間であることから $f = g$ が言える．
     i.e. $\Hom{\Res^k_{\Cone{Z}}} \bigl( (Y,\, c_Y,\, p_Y),\, (\mathbb{R}_{\ge 0} \times Z,\, c^{\{*\}}_{\{*\};\, Z},\, q) \bigr)$ は一点集合であるか空集合であるかどちらかである．
@@ -4140,15 +4140,15 @@ Conically smoothな層状化空間における特異点解消を，圏論的に�
         {\mathbb{R}_{>0} \times Z = \Int (\mathbb{R}_{\ge 0} \times Z,\, c^{\{*\}}_{\{*\};\, Z})} \arrow[ru, hook]            &         
         \end{tikzcd}
     \end{center}
-    のように分解する．故に，conically smooth な層状化写像
+    のように分解する．\Caution{故に，conically smooth な層状化写像}
     \begin{align}
         f \colon Y &\lto \mathbb{R}_{\ge 0} \times Z, \\
         y &\lto \begin{cases}
             p_0 (y), &y \in \Int (Y,\, c_Y) \\
-            \mathrm{pt}, &y \in \partial_{\{*\}} (Y,\, c_Y)
+            \Caution{\mathrm{pt}}, &y \in \partial_{\{*\}} (Y,\, c_Y)
         \end{cases}
     \end{align}
-    は $c^{\{*\}}_{\{*\};\, Z} \circ f = c_Y,\; q \circ f = p_Y$ を充たし，$f \in \Hom{\Res^k_{\Cone{Z}}} \bigl( (Y,\, c_Y,\, p_Y),\, (\mathbb{R}_{\ge 0} \times Z,\, c^{\{*\}}_{\{*\};\, Z},\, q) \bigr)$ が分かった．
+    \Caution{は $c^{\{*\}}_{\{*\};\, Z} \circ f = c_Y,\; q \circ f = p_Y$ を充たし，$f \in \Hom{\Res^k_{\Cone{Z}}} \bigl( (Y,\, c_Y,\, p_Y),\, (\mathbb{R}_{\ge 0} \times Z,\, c^{\{*\}}_{\{*\};\, Z},\, q) \bigr)$ が分かった．}
 
     $\intdepth (Y,\, c_Y) = k$ を仮定する．
     まず，深さ $k$ のbasic $U^n_W \coloneqq \mathbb{R}^n \times \Cone{W} \in \BSC_0$ を用いて $Y = \mathbb{R}_{\ge 0} \times U^n_W$ と書ける場合を考える．
@@ -4198,17 +4198,17 @@ Conically smoothな層状化空間における特異点解消を，圏論的に�
         \mathbb{R}_{> 0} \times U^n_W &\xrightarrow{p_Y|_{\Int (\mathbb{R}_{\ge 0} \times U^n_W)}} \mathbb{R}_{> 0} \times Z = \Cone{Z} \setminus \{\mathrm{pt}\}, \\
         (t,\, u) &\lmto \bigl( p_{\Int}^{\mathbb{R}_{>0}} (t,\, u),\, p_{\Int}^{Z}(t,\, u) \bigr) 
     \end{align}
-    とおいた．$p_{\Int}$ 自体が conically smooth な層状化写像なので，$t \to +0$ の極限をとっても最右辺は $\mathbb{R}_{\ge 0} \times (\mathbb{R}_{>0} \times Z)$ に値をとることが分かる．
+    とおいた．$p_{\Int}$ 自体が conically smooth な層状化写像なので，\Caution{$t \to +0$ の極限をとっても最右辺は $\mathbb{R}_{\ge 0} \times (\mathbb{R}_{>0} \times Z)$ に値をとることが分かる．}
     従って，$\Strat$ における以下の図式を可換にする射 $p_0$ が存在する：
     \begin{center}
         % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACwBGA4ACUAvgH1gnAOYwABMTHzOeLvHkBVAHpgJAdRBjS6TLnyEUARnJVajFm049+Q0ZOns5i5aqzq4eQAKZ15BYXEpAD4fFXY1DR09fQBKIxMQDGw8AiIAZltqemZWRA5uMLdIz28lOITAkIrXCI8our8A+QAtNONTbIt80is7Yscy0Jb3KVkFDvj-DU4AYQIYYG6xdIHzXOsRsYdS8pdwmZr530WuprOqjznYzsTdAz6MrL3LZAAWQvsJSczXO1SeCwaPR2mTMOR+ACZSPCjkDJuw1mANlsjHYYFA5AgUKAAGYAJwgXCQNhAOAgSERIAYWExbCgdDgfDxICKxzYxOhZIpSH+NLpiAKgIm5TwDFgwAAImI0ALyZTENTacLqDg6FgGGw+BAIABrFVCxAMzXi7W6-VlQ0ms1qsiiqk81HlfA67k020Go2m-ogQVqy1igCs7qlUz4pK4wDQ5IAVtsgyGkC6rQA2agCGBgKBIAC0vwAnFGTmgJABNH0MOh5hgABVhQzKpKwMj4OCdSEjrsQOZAeYLwvLkpOAEccWIgA
         \begin{tikzcd}
-        \mathbb{R}_{\ge 0} \times U^n_W \arrow[r, "\iota", hook] \arrow[rrdd, "p_Y"', bend right=49] & \mathbb{R}_{\ge 0} \times (\mathbb{R}_{> 0} \times U^n_W) \arrow[rr, "p_0", dashed] \arrow[d, hook] &          & \mathbb{R}_{\ge 0} \times (\mathbb{R}_{>0} \times Z) \arrow[d, hook] \arrow[r, "\mathrm{proj}"] & \mathbb{R}_{\ge 0} \times Z \arrow[lldd, "q", bend left=49] \\
+        \mathbb{R}_{\ge 0} \times U^n_W \arrow[r, "\iota", hook] \arrow[rrdd, "p_Y"', bend right=49] & \mathbb{R}_{\ge 0} \times (\mathbb{R}_{> 0} \times U^n_W) \arrow[rr, "p_0", dashed] \arrow[d, hook] &          & \mathbb{R}_{\ge 0} \times (\mathbb{R}_{>0} \times Z) \arrow[d, hook] \arrow[r, "\mu"] & \mathbb{R}_{\ge 0} \times Z \arrow[lldd, "q", bend left=49] \\
                                                                                                     & \mathbb{R}_{\ge 0} \times (\mathbb{R}_{\ge 0} \times U^n_W) \arrow[rr, "\tilde{D}p"]              &          & \mathbb{R}_{\ge 0} \times \Cone{Z}                                                              &                                                             \\
                                                                                                     &                                                                                                   & \Cone{Z} &                                                                                                 &                                                            
         \end{tikzcd}
     \end{center}
-    $p_0$ が $c^{\{*\}}_{\{*\};\, Z} \circ (\mathrm{proj} \circ p_0 \circ \iota) = c_Y$ を充たすことは，構成より明らかである．
+    \Caution{ただし，$\mu \bigl( t,\, (a,\, z) \bigr) \coloneqq (ta,\, z)$ である．}$p_0$ が $c^{\{*\}}_{\{*\};\, Z} \circ (\mathrm{proj} \circ p_0 \circ \iota) = c_Y$ を充たすことは，構成より明らかである．
     % $\forall \bigl( t,\, (1,\, p,\, [u,\, w]) \bigr) \in \mathbb{R}_{> 0} \times (\mathbb{R}_{> 0} \times U^n_W)$ に対して
     % \begin{align}
     %     p_{\Int} \bigl( t,\, (1,\, p,\, [u,\, w]) \bigr)
